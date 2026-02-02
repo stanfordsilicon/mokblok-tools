@@ -1,0 +1,387 @@
+BASIC INFORMATION / INFORMATIONS DE BASE					XPath	ext_id
+"Let's begin with some basic questions about your language! Please read the question in the column ""QUESTION"" and provide your answer in the column labeled ""Your Answer""
+Commençons par quelques questions de base au sujet de votre langue ! Veuillez lire les questions figurant dans la colonne « QUESTION » et y répondre dans la colonne intitulée « Votre réponse »"						
+QUESTION	French	YOUR ANSWER	Visual Example	NOTES BY TRANSLATOR (IF NECESSARY)		
+First, what is the name of your language in your language. For example, the name of the language "German" in German is "Deutsch". Meanwhile, the name for "Thai" in Thai is "ไทย". What is the name if your language in your own language? 	Tout d’abord, quel est le nom votre langue dans votre propre langue ? Par exemple, le nom de la langue « German » en allemand est « Deutsch ». De même, le nom de « Thai » en thaï est « ไทย ». Quel nom désigne donc votre langue dans votre propre langue ?	सबसे पहिले बताईं कि राउर भाषा के आपन भाषा में नाम का ह? उदाहरण खातिर, जर्मन में "जर्मन" भाषा के नाँव "ड्यूश" ह। ओही तरे थाई में "थाई" के नाम "ไทย" ह। अइसहीं, राउर भाषा के आपन भाषा में नाम का ह?				bi-1_XXX
+Now, what is the name of your language in English? For example, the name for "Deutsch" in English is "German". The name for "" in English is "Chinese". What is the name of your language in English?	Quel est le nom de votre langue en anglais ? Par exemple, en anglais le nom « Deutsch » est rendu par « German » et le nom « 中文 » par « Chinese ». Quel est donc le nom de votre langue en anglais ?	अब बताईं कि अंग्रेजी में राउर भाषा के नाम का ह? उदाहरण खातिर, अंग्रेजी में  "ड्यूश" के नाँव "जर्मन" ह।  "" के नाम "चीनी" ह। ओही तरे, अंग्रेजी में राउर भाषा के नाम का ह?				bi-2_XXX
+Let's say you are giving a review for an online class, a product, or a restaurant. In English you might give "4.7" (a score in between 4 and 5, that is). In your language, do you use the decimal point (.) to separate the numbers "4" and "7"? If not, what do you use? A comma (,)? An apostophe (')? Something else? Please provide your translation of "4.7" in the column marked "YOUR ANSWER".	Supposons que vous laissiez un avis pour un cours en ligne, un produit ou un restaurant. En anglais, vous pourriez donner la note « 4.7 » (pour indiquer un score compris entre 4 et 5). Dans votre langue, utilisez-vous le point (.) comme séparateur entre les chiffres « 4 » et « 7 » ? Sinon, qu’utilisez-vous ? Une virgule (,) ? Une apostrophe (') ? Autre chose ? Veuillez indiquer votre traduction de « 4.7 » dans la colonne marquée « YOUR ANSWER ».	मान लीं कि रउवा ऑनलाइन क्लास, कवनो प्रोडक्ट, भा रेस्टोरेंट खातिर रिव्यू देतानी। अंग्रेजी में रउवा "4.7" लिख सकेनीं (मतलब 4 आ 5 के बीच के स्कोर)। राउर भाषा में,  "4" आ "7" के अलग करे खातिर का रउवा दशमलव बिंदु (.) के इस्तेमाल करेनीं? अगर ना, त का रउवा अल्पविराम (,) भा अपोस्ट्रॉफ (‘) या कुच्छु अउरी इस्तेमाल करेनीं? कृपया "राउर जवाब" वाला कॉलम में "4.7" के आपन अनुवाद दिहीं।				bi-3_XXX
+DATE WORDS / TERMINOLOGIE DES DATES						
+"In French there are 3 ways to write the word for ""year"": ""année"" (the full form), ""an"" (short form) & ""a"" (narrow form). In English, there are also 3 forms: ""Year"", ""Yr."" (with a period) & ""Yr"" (no period). Does your language have the same abbreviations? Fewer? More? Please translate these into your language. If your language doesn't have a translation for all the translations, write ""DOES NOT EXIST"". If you have MORE abbreviations, please add NOTES in the NOTES column. 
+En français, il existe trois façons d’écrire le mot « année » : « année » (forme complète), « an » (forme courte) et « a » (forme abrégée). En anglais, on en trouve également trois formes : « Year », « Yr. » (avec point) et « Yr » (sans point). Votre langue possède-t-elle les mêmes abréviations ? En possède-t-elle moins ? Ou plus ? Veuillez traduire ces formes dans votre langue. Si votre langue ne propose pas de traduction pour l’une de ces formes, écrivez « N’EXISTE PAS ». Si vous avez PLUS d’abréviations, veuillez ajouter des NOTES dans la colonne reservée à cet effet."						
+ENGLISH	FRENCH	TRANSLATION IN YOUR LANGUAGE	VISUAL EXAMPLE	NOTES BY TRANSLATOR (IF NECESSARY)	XPATH (Ignore/For Reference Only)	
+era	ère	युग		Alternate translation: जुग	//ldml/dates/fields/field[@type="era"]/displayName	dw-1_XXX
+year	année	बरिस			//ldml/dates/fields/field[@type="year"]/displayName	dw-2_XXX
+yr	a	बरि		"Alternate translation: सलाना
+Does not exist - created to see if it works in context"	//ldml/dates/fields/field[@type="year-narrow"]/displayName	dw-3_XXX
+y	an	ब		Does not exist - created to see if it works in context	//ldml/dates/fields/field[@type="year-short"]/displayName	dw-4_XXX
+quarter	trimestre	तिमाही			//ldml/dates/fields/field[@type="quarter"]/displayName	dw-5_XXX
+qtr.	trim.	तिम		Does not exist - created to see if it works in context	//ldml/dates/fields/field[@type="quarter-short"]/displayName	dw-6_XXX
+qtr	trim.	तिम		Does not exist - created to see if it works in context	//ldml/dates/fields/field[@type="quarter-narrow"]/displayName	dw-7_XXX
+month	mois	महीना			//ldml/dates/fields/field[@type="month"]/displayName	dw-8_XXX
+mo.	m.	मही		"Alternate translation: मासिक
+Does not exist - created to see if it works in context"	//ldml/dates/fields/field[@type="month-short"]/displayName	dw-9_XXX
+m	m.	म		"Alternate translation: दैनिक
+Does not exist - created to see if it works in context"	//ldml/dates/fields/field[@type="month-narrow"]/displayName	dw-10_XXX
+week	semaine	हफ्ता			//ldml/dates/fields/field[@type="week"]/displayName	dw-11_XXX
+wk.	sem.	हफ्ता		Alternate translation: साप्ताहिक	//ldml/dates/fields/field[@type="week-short"]/displayName	dw-12_XXX
+wk	sem.	हफ्ता		Alternate translation: साप्ताहिक	//ldml/dates/fields/field[@type="week-narrow"]/displayName	dw-13_XXX
+day	jour	दिन			//ldml/dates/fields/field[@type="day"]/displayName	dw-14_XXX
+d	j	दि		"Alternate translation: दैनिक
+Does not exist - created to see if it works in context"	//ldml/dates/fields/field[@type="day-short"]/displayName	dw-15_XXX
+hour	heure	घंटा			//ldml/dates/fields/field[@type="hour"]/displayName	dw-16_XXX
+hr	h	घं		Does not exist - created to see if it works in context	//ldml/dates/fields/field[@type="hour-narrow"]/displayName	dw-17_XXX
+minute	minute	मिनट			//ldml/dates/fields/field[@type="minute"]/displayName	dw-18_XXX
+min	min	मि		Does not exist - created to see if it works in context	//ldml/dates/fields/field[@type="minute-narrow"]/displayName	dw-19_XXX
+second	seconde	सेकंड			//ldml/dates/fields/field[@type="second"]/displayName	dw-20_XXX
+sec.	s	सेक		Does not exist - created to see if it works in context	//ldml/dates/fields/field[@type="second-short"]/displayName	dw-21_XXX
+sec	s	सेक		Does not exist - created to see if it works in context	//ldml/dates/fields/field[@type="second-narrow"]/displayName	dw-22_XXX
+day of the week	jour de la semaine	हफ्ता के दिन			//ldml/dates/fields/field[@type="weekday"]/displayName	dw-23_XXX
+"In English there are 2 ways to write the words ""AM"" and ""PM"": ""AM"" and ""PM"" (the full form), or ""a"" (short form) & ""p"" (narrow form). If your language doesn't have a translation for all the translations, write ""DOES NOT EXIST"". If you have MORE abbreviations, please add NOTES in the NOTES column. 
+En anglais, il existe deux manières d’écrire les expressions « AM » et « PM » : « AM » et « PM » (forme complète), ou « a » (forme courte) et « p » (forme abrégée). Si votre langue ne propose pas de traduction pour certaines de ces formes, saisissez « N’EXISTE PAS ». Si vous avez PLUS d’abréviations, veuillez ajouter des NOTES dans la colonne reservée à cet effet."						
+AM	AM	सुबह			//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="stand-alone"]/dayPeriodWidth[@type="narrow"]/dayPeriod[@type="am"]	dw2-1_XXX
+a	AM	सु		NA - created to see if it works in context	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="narrow"]/dayPeriod[@type="am"]	dw2-2_XXX
+PM	PM	साँझ			//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="abbreviated"]/dayPeriod[@type="pm"]	dw2-3_XXX
+p	PM	सा		NA - created to see if it works in context	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="narrow"]/dayPeriod[@type="pm"]	dw2-4_XXX
+morning	matin	सुबह			//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="stand-alone"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="morning1"]	dw2-5_XXX
+in the morning	du matin	सबेरे के बेरा			//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="morning1"]	dw2-6_XXX
+7 in the morning	7 du matin	सबेरे 7 बजे				dw2-7_XXX
+afternoon	après-midi	दुपहरिया			//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="stand-alone"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="afternoon1"]	dw2-8_XXX
+in the afternoon	de l’après-midi	दुपहर में			//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="afternoon1"]	dw2-9_XXX
+1 in the afternoon	1 de l’après-midi	दुपहर में 1 बजे				dw2-10_XXX
+evening	soir	साँझ			//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="stand-alone"]/dayPeriodWidth[@type="narrow"]/dayPeriod[@type="evening1"]	dw2-11_XXX
+in the evening	du soir	साँज के बेरा			//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="evening1"]	dw2-12_XXX
+9 in the evening	9 du soir	रात के 9 बजे				dw2-13_XXX
+night	nuit	रात			//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="stand-alone"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="night1"]	dw2-14_XXX
+at night	à la nuit	रात के बेरा			//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="narrow"]/dayPeriod[@type="night1"]	dw2-15_XXX
+midnight	minuit	आधा रात			//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="midnight"]	dw2-16_XXX
+DAYS OF THE WEEK / JOURS DE LA SEMAINE						
+"In English there are 4 ways to write the days of the week: full form, medium abbreviation, short abbreviation, and shortest abbreviation. Does your language have the same 4 forms? If yes, please enter them in Column B. If your language has LESS than 4 forms, you can leave cells blank or write ""DOES NOT HAVE."" If your language as MORE than 4 forms, please add them to the bottom, and provide an explanation in the NOTES column, and if so, how do you write them in your language? (See VISUAL EXAMPLES to understand the Abbreviations better.) 
+En anglais, il existe quatre façons d’écrire les jours de la semaine : forme complète, abréviation moyenne, abréviation courte et abréviation la plus courte. Toutes ces quatre formes existent-elles dans votre langue ? Si oui, veuillez les indiquer dans la colonne B. Si votre langue a MOINS de quatre formes, vous pouvez laisser des cellules vides ou saisir « N’EXISTE PAS ». Si votre langue en a PLUS, veuillez les ajouter en bas et fournir une explication dans la colonne des notes, puis le cas échéant, indiquer comment on les écrit dans votre langue. (Consultez les EXEMPLES VISUELS pour mieux comprendre les types d'abréviations.)                                               "						
+ENGLISH (FULL-LENGTH FORM)	FRENCH (FULL-LENGTH FORM)	TRANSLATION IN YOUR LANGUAGE	VISUAL EXAMPLE	NOTES BY TRANSLATOR (IF NECESSARY)	XPATH (Ignore/For Reference Only)	
+Sunday	Dimanche	रविवार		Alternate translation: एतवार		wk-1_XXX
+Monday	Lundi	सोमवार		Alternate translation: सोमार		wk-2_XXX
+Tuesday	Mardi	मंगर				wk-3_XXX
+Wednesday	Mercredi	बुध				wk-4_XXX
+Thursday	Jeudi	बियफे				wk-5_XXX
+Friday	Vendredi	सुख				wk-6_XXX
+Saturday	Samedi	सनिचर				wk-7_XXX
+ENGLISH (MEDIUM-LENGTH FORM)	FRENCH (MEDIUM-LENGTH FORM)	TRANSLATION IN YOUR LANGUAGE	VISUAL EXAMPLE	NOTES BY TRANSLATOR (IF NECESSARY)		
+Sun	Dim	रवि				wk-8_XXX
+Mon	Lun	सोम				wk-9_XXX
+Tue	Mar	मंगर				wk-10_XXX
+Wed	Mer	बुध				wk-11_XXX
+Thur	Jeu	बियफे				wk-12_XXX
+Fri	Ven	सुक				wk-13_XXX
+Sat	Sam	सनि				wk-14_XXX
+ENGLISH (SHORT-LENGTH FORM)	FRENCH (SHORT-LENGTH FORM)	TRANSLATION IN YOUR LANGUAGE	VISUAL EXAMPLE	NOTES BY TRANSLATOR (IF NECESSARY)		
+Su	Di	रवि				wk-15_XXX
+Mo	Lu	सोम				wk-16_XXX
+Tu	Ma	मंगर				wk-17_XXX
+We	Me	बुध				wk-18_XXX
+Th	Je	बियफे				wk-19_XXX
+Fr	Ve	सुक				wk-20_XXX
+Sa	Sa	सनि				wk-21_XXX
+ENGLISH (SHORTEST-LENGTH FORM)	FRENCH (SHORTEST-LENGTH FORM)	TRANSLATION IN YOUR LANGUAGE	VISUAL EXAMPLE	NOTES BY TRANSLATOR (IF NECESSARY)		
+S	D	रवि		Shortest possible is रवि		wk-22_XXX
+M	L	सोम		"Does not exist - स doesn't work even in context. 
+Shortest possible: सोम"		wk-23_XXX
+T	M	मंगर		"Does not exist - मं doesn't work even in context. 
+Shortest possible: मंगर"		wk-24_XXX
+W	M	बुध		"Does not exist - बु doesn't work even in context. 
+Shortest possible: बुध"		wk-25_XXX
+T	J	बियफे		"Does not exist - बि doesn't work even in context. 
+Shortest possible: बियफे"		wk-26_XXX
+F	V	सुक		"Does not exist - सु doesn't work even in context. 
+Shortest possible: सुक"		wk-27_XXX
+S	S	सनि		"Does not exist - स doesn't work even in context. 
+Shortest possible: सनि"		wk-28_XXX
+MONTH WORDS / TERMINOLOGIE DES MOIS						
+"In English there are 3 ways to write the months of the year: full form, medium abbreviation, and shortest abbreviation. Does your language have the same 3 forms? If yes, please enter them in Column B. If your language has LESS than 3 forms, you can leave cells blank or write ""DOES NOT HAVE."" If your language as MORE than 3 forms, please add them to the bottom, and provide an explanation in the NOTES column, and if so, how do you write them in your language? (See VISUAL EXAMPLES to understand the Abbreviations better.)
+En anglais, il existe trois façons d’écrire les mois de l’année : forme complète, abréviation moyenne et abréviation la plus courte. Votre langue utilise-t-elle aussi ces trois formes ? Si oui, veuillez les indiquer dans la colonne B. Si votre langue a MOINS de trois formes, vous pouvez laisser des cellules vides ou saisir « N’EXISTE PAS ». Si votre langue en a PLUS, veuillez les ajouter en bas et fournir une explication dans la colonne des notes. (Consultez les EXEMPLES VISUELS pour mieux comprendre les abréviations.)"						
+ENGLISH (FULL-LENGTH FORM)	FRENCH (FULL-LENGTH FORM)	TRANSLATION IN YOUR LANGUAGE	VISUAL EXAMPLE	NOTES BY TRANSLATOR (IF NECESSARY)		
+January	Janvier	जनवरी				mw-1_XXX
+February	Février	फरवरी				mw-2_XXX
+March	Mars	मार्च				mw-3_XXX
+April	Avril	अप्रिल				mw-4_XXX
+May	Mai	मई				mw-5_XXX
+June	Juin	जून				mw-6_XXX
+July	Juillet	जुलाई				mw-7_XXX
+August	Août	अगस्त				mw-8_XXX
+September	Septembre	सितंबर				mw-9_XXX
+October	Octobre	अक्टूबर				mw-10_XXX
+November	Novembre	नवंबर				mw-11_XXX
+December	Décembre	दिसंबर				mw-12_XXX
+ENGLISH (MEDIUM-LENGTH FORM)	FRENCH (MEDIUM-LENGTH FORM)	TRANSLATION IN YOUR LANGUAGE	VISUAL EXAMPLE	NOTES BY TRANSLATOR (IF NECESSARY)		
+Jan	Janv.	जन		Short forms are not used for month names, but this looks fine in context.		mw-13_XXX
+Feb	Févr.	फरव		Short forms are not used for month names, but this looks fine in context.		mw-14_XXX
+Mar	Mars	मार		Short forms are not used for month names, but this looks fine in context.		mw-15_XXX
+Apr	Avr.	अप्र		Short forms are not used for month names, but this looks fine in context.		mw-16_XXX
+May	Mai	मई		Short forms are not used for month names, but this looks fine in context.		mw-17_XXX
+Jun	Juin	जून		Short forms are not used for month names, but this looks fine in context.		mw-18_XXX
+Jul	Juil.	जुल		Short forms are not used for month names, but this looks fine in context.		mw-19_XXX
+Aug	Auôt	अग		Short forms are not used for month names, but this looks fine in context.		mw-20_XXX
+Sep	Sept.	सित		Short forms are not used for month names, but this looks fine in context.		mw-21_XXX
+Oct	Oct.	अक्		Short forms are not used for month names, but this looks fine in context.		mw-22_XXX
+Nov	Nov.	नव		Short forms are not used for month names, but this looks fine in context.		mw-23_XXX
+Dec	Déc.	दिस		Short forms are not used for month names, but this looks fine in context.		mw-24_XXX
+ENGLISH (SHORTEST-LENGTH FORM)	FRENCH (SHORTEST-LENGTH FORM)	TRANSLATION IN YOUR LANGUAGE	VISUAL EXAMPLE	NOTES BY TRANSLATOR (IF NECESSARY)		
+J	J	जन		"ज does not work in context
+Shortest possibility is जन"		mw-25_XXX
+F	F	फरव		"फ does not work in context
+Shortest possibility is फरव"		mw-26_XXX
+M	M	मार		"म does not work in context
+Shortest possibility is मार"		mw-27_XXX
+A	A	अप्र		"अ does not work in context
+Shortest possibility is अप्र"		mw-28_XXX
+M	M	मई		"म does not work in context
+Shortest possibility is मई"		mw-29_XXX
+J	J	जून		"ज does not work in context
+Shortest possibility is जून"		mw-30_XXX
+J	J	जुल		"ज does not work in context
+Shortest possibility is जुल"		mw-31_XXX
+A	A	अग		"अ does not work in context
+Shortest possibility is अग"		mw-32_XXX
+S	S	सित		"स does not work in context
+Shortest possibility is सित"		mw-33_XXX
+O	O	अक्		"अ does not work in context
+Shortest possibility is अक्"		mw-34_XXX
+N	N	नव		"न does not work in context
+Shortest possibility is नव"		mw-35_XXX
+D	D	दिस		"द does not work in context
+Shortest possibility is दिस"		mw-36_XXX
+HOURS / HEURES						
+ENGLISH	FRENCH	TRANSLATION IN YOUR LANGUAGE	VISUAL EXAMPLE	NOTES BY TRANSLATOR (IF NECESSARY)	XPATH (Ignore/For Reference Only)	
+3:00 PM	15 h 00	दुपहर 3 बजे			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="h"]	hr-1_XXX
+10:48	10:48	सबेरे के' दस अड़तालीस			//ldml/units/durationUnit[@type="hm"]/durationUnitPattern	hr-2_XXX
+16:12	16:12	साँझ के चार बजके बारह मिनट			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Hm"]	hr-3_XXX
+9:41 AM	9 h 41	सबेरे के नौ बजके एकतालिस मिनट			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="hm"]	hr-4_XXX
+16:14:24	16:14:24	साँझ के चार बजके चौदह मिनट आ चौबिस सेकंड			//ldml/units/durationUnit[@type="hms"]/durationUnitPattern	hr-5_XXX
+8:04:41	8:04:41	सबेरे के आठ बजके चार मिनट आ एकतालिस सेकंड			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Hms"]	hr-6_XXX
+11:30 PM GMT	23 h 30 GMT	रात के ग्यारह बज के तीस मिनट GMT		Alternate translation: रात के 11:30 GMT	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="hmv"]	hr-7_XXX
+RELATIVE TIME / TEMPS RELATIF						
+ENGLISH	FRENCH	TRANSLATION IN YOUR LANGUAGE	VISUAL EXAMPLE	NOTES BY TRANSLATOR (IF NECESSARY)	XPATH (Ignore/For Reference Only)	
+last month	Mois dernier	पछिला महीना			//ldml/dates/fields/field[@type="month"]/relative[@type="-1"]	rt-1_XXX
+last week	La semaine dernière	पछिला हफ्ता			//ldml/dates/fields/field[@type="week"]/relative[@type="-1"]	rt-2_XXX
+yesterday	Hier	काल्हे/काल्ह			//ldml/dates/fields/field[@type="day"]/relative[@type="-1"]	rt-3_XXX
+last year	L'année dernière	पछिला बरिस			//ldml/dates/fields/field[@type="year"]/relative[@type="-1"]	rt-4_XXX
+this month	Ce mois-ci	एह महीना			//ldml/dates/fields/field[@type="month"]/relative[@type="0"]	rt-5_XXX
+this week	Cette semaine	एह हफ्ता			//ldml/dates/fields/field[@type="week"]/relative[@type="0"]	rt-6_XXX
+today	Aujourd'hui	आज			//ldml/dates/fields/field[@type="day"]/relative[@type="0"]	rt-7_XXX
+this year	Cette année	एह बरिस			//ldml/dates/fields/field[@type="year"]/relative[@type="0"]	rt-8_XXX
+tomorrow	Demain	काल्ह			//ldml/dates/fields/field[@type="day"]/relative[@type="1"]	rt-9_XXX
+next month	Le mois prochain	अगिला महीना			//ldml/dates/fields/field[@type="month"]/relative[@type="1"]	rt-10_XXX
+next week	La semaine prochaine	अगिला हफ्ता			//ldml/dates/fields/field[@type="week"]/relative[@type="1"]	rt-11_XXX
+next year	L'année prochaine	अगिला बरिस			//ldml/dates/fields/field[@type="year"]/relative[@type="1"]	rt-12_XXX
+TIME INTERVALS / INTERVALLES DE TEMPS						
+ENGLISH	FRENCH	TRANSLATION IN YOUR LANGUAGE	VISUAL EXAMPLE	NOTES BY TRANSLATOR (IF NECESSARY)	XPATH (Ignore/For Reference Only)	
+3 PM - 4 PM	15 h 00–16 h 00	दुपहरिया के तीन बजे से चार बजे ले			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="h"]/greatestDifference[@id="a"]	ti-1_XXX
+3 - 4 PM	15–16 h	दुपहरिया के तीन बजे से चार बजे ले			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="h"]/greatestDifference[@id="h"]	ti-2_XXX
+3:00 PM – 4:00 PM	15 h 00–16 h 00	दुपहरिया के तीन बजे से चार बजे ले			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hm"]/greatestDifference[@id="a"]	ti-3_XXX
+3:00–4:00 PM	15 h 00–16 h 00	दुपहरिया के तीन बजे से चार बजे ले			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hm"]/greatestDifference[@id="h"]	ti-4_XXX
+3:00–3:15 PM	15 h 00–15 h 15	दुपहरिया के तीन बजे से सवा तीन बजे ले			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hm"]/greatestDifference[@id="m"]	ti-5_XXX
+10:00 AM – 2:00 PM PT	10 h 00–14 h 00 PT	सबेरे दस बजे से दुपहरिया के दू बजे ले PT			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hmv"]/greatestDifference[@id="a"]	ti-6_XXX
+1:00–2:00 PM PT	13 h 00–14 h 00 PT	दुपहरिया के एक बजे से दू बजे ले PT			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hmv"]/greatestDifference[@id="h"]	ti-7_XXX
+1:00–1:15 PM PT	13 h 00–13 h 15 PT	दुपहरिया के एक बजे से सवा एक बजे ले PT			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hmv"]/greatestDifference[@id="m"]	ti-8_XXX
+10 AM – 2 PM PT	10 h 00–14 h 00 PT	सबेरे दस बजे से दुपहरिया के दू बजे ले PT			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hv"]/greatestDifference[@id="a"]	ti-9_XXX
+1–2 PM PT	13–14 h PT	दुपहरिया के एक बजे से दू बजे ले PT			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hv"]/greatestDifference[@id="h"]	ti-10_XXX
+14:00–15:00 PT	14 h 00–15 h PT	दुपहरिया के दू बजे से तीन बजे ले PT			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Hmv"]/greatestDifference[@id="H"]	ti-11_XXX
+14:00–14:15 PT	14 h 00–14 h 15 PT	दुपहरिया के दू बजे से सवा दू बजे ले PT			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Hmv"]/greatestDifference[@id="m"]	ti-12_XXX
+14–15 PT	14–15 h PT	दुपहरिया के दू बजे से तीन बजे ले PT			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Hv"]/greatestDifference[@id="H"]	ti-13_XXX
+14–15	14–15	दुपहरिया के दू बजे से तीन बजे ले			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="H"]/greatestDifference[@id="H"]	ti-14_XXX
+14:00–14:15	14 h 00–14 h 15	दुपहरिया के दू बजे से सवा दू बजे ले			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Hm"]/greatestDifference[@id="m"]	ti-15_XXX
+14:00–15:00	14 h 00–15 h 00	दुपहरिया के दू बजे से तीन बजे ले			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Hm"]/greatestDifference[@id="H"]	ti-16_XXX
+10 AM – 2 PM	10 h 00–14 h 00	सबेरे दस बजे से दुपहरिया के दू बजे ले			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="h"]/greatestDifference[@id="a"]	ti-17_XXX
+1–2 PM	13–14 h	दुपहरिया के एक बजे से दू बजे ले			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="h"]/greatestDifference[@id="h"]	ti-18_XXX
+10:00 AM – 2:00 PM	10 h 00–14 h 00	सबेरे दस बजे से दुपहरिया के दू बजे ले			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hm"]/greatestDifference[@id="a"]	ti-19_XXX
+3:00–4:00 PM	15 h 00–16 h 00	दुपहरिया के तीन बजे से चार बजे ले			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hm"]/greatestDifference[@id="h"]	ti-20_XXX
+3:00–3:15 PM	15 h 00–15 h 15	दुपहरिया के तीन बजे से सवा तीन बजे ले			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hm"]/greatestDifference[@id="m"]	ti-21_XXX
+10:00 AM – 2:00 PM PT	10 h 00–14 h 00 PT	सबेरे दस बजे से दुपहरिया के दू बजे ले PT			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hmv"]/greatestDifference[@id="a"]	ti-22_XXX
+1:00–2:00 PM PT	13 h 00–14 h 00 PT	दुपहरिया के एक बजे से दू बजे ले PT			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hmv"]/greatestDifference[@id="h"]	ti-23_XXX
+1:00–1:15 PM PT	13 h 00–13 h 15 PT	दुपहरिया के एक बजे से सवा एक बजे ले PT			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hmv"]/greatestDifference[@id="m"]	ti-24_XXX
+10 AM – 2 PM PT	10 h 00–14 h 00 PT	सबेरे दस बजे से दुपहरिया के दू बजे ले PT			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hv"]/greatestDifference[@id="a"]	ti-25_XXX
+1–2 PM PT	13–14 h PT	दुपहरिया के एक बजे से दू बजे ले			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hv"]/greatestDifference[@id="h"]	ti-26_XXX
+14–15	14–15	दुपहरिया के दू बजे से तीन बजे ले			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="H"]/greatestDifference[@id="H"]	ti-27_XXX
+14:00–15:00	14 h 00–15 h 00	दुपहरिया के दू बजे से तीन बजे ले			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Hm"]/greatestDifference[@id="H"]	ti-28_XXX
+14:00–14:15	14 h 00–14 h 15	"दुपहरिया के दू बजे से सवा दू बजे ले
+"			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Hm"]/greatestDifference[@id="m"]	ti-29_XXX
+14:00–15:00 PT	14 h 00–15 h 00 PT	दुपहरिया के दू बजे से तीन बजे ले PT			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Hmv"]/greatestDifference[@id="H"]	ti-30_XXX
+14:00–14:15 PT	14 h 00–14 h 15 PT	दुपहरिया के दू बजे से सवा दू बजे ले PT			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Hmv"]/greatestDifference[@id="m"]	ti-31_XXX
+14–15 PT	14–15 h PT	दुपहरिया के दू बजे से तीन बजे ले PT			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Hv"]/greatestDifference[@id="H"]	ti-32_XXX
+DATE COMBINATIONS AND INTERVALS / COMBINAISONS ET INTERVALLES DE DATES						
+ENGLISH	FRENCH	TRANSLATION IN YOUR LANGUAGE	VISUAL EXAMPLE	NOTES BY TRANSLATOR (IF NECESSARY)	XPATH (Ignore/For Reference Only)	
+2024 – Week 17	2024 – Semaine 17	2024 के 17वाँ हफ्ता			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yw"][@count="other"]	dc-1_XXX
+2024 – Week 1	2024 – Semaine 1	2024 के पहिला हफ्ता			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yw"][@count="one"]	dc-2_XXX
+April 2024	Avril 2024	अप्रिल 2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yMMMM"]	dc-3_XXX
+Apr 2024	Avr. 2024	अप्रिल 2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yMMM"]	dc-4_XXX
+4/2024	4/2024	अप्रिल 2024				dc-5_XXX
+04/2024	04/2024	अप्रिल 2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yM"]	dc-6_XXX
+Tue, Apr 23, 2024	Mar 23 avr. 2024	मंगर, 23 अप्रिल 2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yMMMEd"]	dc-7_XXX
+Apr 23, 2024	23 Avr. 2024	23 अप्रिल, 2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yMMMd"]	dc-8_XXX
+4/23/2024	23/04/2024	23 अप्रिल, 2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yMd"]	dc-9_XXX
+2024	2024	2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yMEd"]	dc-10_XXX
+2024 – 2027	2024–2027	2024 से 2027			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="y"]	dc-11_XXX
+April 2024 – May 2024	Avril 2024–Mai 2024	अप्रिल 2024 से मई 2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMMM"]/greatestDifference[@id="y"]	dc-12_XXX
+Tue, Apr 23, 2024 – Tue, Apr 23, 2027	Mar 23 avr. 2024–Mar 23 avr. 2027	मंगर, 23 अप्रिल 2024 से मंगर, 23 अप्रिल 2027 ले			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMMM"]/greatestDifference[@id="M"]	dc-13_XXX
+Tue, Apr 23, 2024 – Tue, May 23, 2024	Mar 23 avr. 2024–Mar 23 mai 2024	मंगर, 23 अप्रिल 2024 से मंगर, 23 मई 2024 ले			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMMEd"]/greatestDifference[@id="y"]	dc-14_XXX
+Tue, Apr 23 – Wed, Apr 24, 2024	Mar 23 avr.–Mer 24 avr. 2024	मंगर, 23 अप्रिल से बुध, 24 अप्रिल 2024 ले			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMMEd"]/greatestDifference[@id="M"]	dc-15_XXX
+Apr 23, 2024 – Apr 23, 2027	23 Avr. 2024–23 Avr. 2027	23 अप्रिल 2024 से 23 अप्रिल 2027 ले			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMMEd"]/greatestDifference[@id="d"]	dc-16_XXX
+Apr 23 – May 23, 2024	23 Avr.–23 Mai 2024	23 अप्रिल से 23 मई 2024 ले			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMMd"]/greatestDifference[@id="y"]	dc-17_XXX
+Apr 23 – Apr 24, 2024	23 Avril–24 Avril 2024	23 अप्रिल से 24 अप्रिल, 2024 ले			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMMd"]/greatestDifference[@id="M"]	dc-18_XXX
+Apr 2024 – Apr 2027	Avril 2024–Avril 2027	अप्रिल 2024 से अप्रिल 2027			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMMd"]/greatestDifference[@id="d"]	dc-19_XXX
+Apr 2024 – May 2024	Avril 2024–Mai 2024	अप्रिल 2024 से मई 2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMM"]/greatestDifference[@id="y"]	dc-20_XXX
+Tue, 4/23/2024 – Tue, 4/23/2027	Mar 23/04/2024–Mar 23/04/2027	मंगर, 23 अप्रैल 2024 से मंगर, 23 अप्रैल 2027 ले			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMM"]/greatestDifference[@id="M"]	dc-21_XXX
+Tue, 4/23 – Tue, 5/23	Mar 23/04–Mar 23/05	मंगर, 23 अप्रिल से मंगर, 23 मई ले			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMEd"]/greatestDifference[@id="y"]	dc-22_XXX
+Tue, 4/23 – Wed, 4/24	Mar 23/04–Mer 24/04	मंगर, 23 अप्रिल से बुध, 24 अप्रिल ले			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMEd"]/greatestDifference[@id="M"]	dc-23_XXX
+4/23/2024 – 4/23/2027	23/04/2024–23/04/2027	23 अप्रिल 2024 से 23 अप्रिल 2027 ले			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMEd"]/greatestDifference[@id="d"]	dc-24_XXX
+4/23 – 5/23	23/04–23/05	23 अप्रिल से 23 मई ले			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMd"]/greatestDifference[@id="y"]	dc-25_XXX
+4/23 – 4/24	23/04–24/04	23 अप्रिल से 24 अप्रिल ले			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMd"]/greatestDifference[@id="M"]	dc-26_XXX
+4/2024 – 4/2027	4/2024–4/2027	अप्रिल 2024 से अप्रिल 2027 ले			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMd"]/greatestDifference[@id="d"]	dc-27_XXX
+4/2024 – 5/2024	4/2024–5/2024	अप्रिल 2024 से मई 2024 ले			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yM"]/greatestDifference[@id="y"]	dc-28_XXX
+2024 – 2027	2024–2027	2024 से 2027 ले			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yM"]/greatestDifference[@id="M"]	dc-29_XXX
+2023 – 2024	2023–2024	2023 से 2024 ले			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="y"]/greatestDifference[@id="y"]	dc-30_XXX
+Tue 3:30 PM	Mar 15 h 30	मंगर, साँझ साढ़े तीन बजे			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Ehm"]	dc-31_XXX
+Tue 3:30:45 PM	Mar 15 h 30 min 45 s	मंगर, साँझ तीन बजके तीस मिनट आ पैंतालीस सेकंड			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Ehms"]	dc-32_XXX
+Tue 15:30	Mar 15 h 30	मंगर, साँझ साढ़े तीन बजे			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="EHm"]	dc-33_XXX
+Tue 15:30:45	Mar 15 h 30 min 45 s	मंगर, साँझ तीन बजके तीस मिनट आ पैंतालीस सेकंड			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="EHms"]	dc-34_XXX
+Tuesday at 3:30:45 PM	Mardi à 15 h 30 min 45 s	मंगर के साँझ तीन बजके तीस मिनट आ पैंतालीस सेकंड प			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/dateTimeFormatLength[@type="full"]/dateTimeFormat[@type="atTime"]/pattern[@type="standard"]	dc-35_XXX
+Tuesday at 3:30:45 PM	Mardi à 15 h 30 min 45 s	मंगर के साँझ तीन बजके तीस मिनट आ पैंतालीस सेकंड प			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/dateTimeFormatLength[@type="long"]/dateTimeFormat[@type="atTime"]/pattern[@type="standard"]	dc-36_XXX
+Tuesday, April 23, 2024 at 3:30:45 PM	Mardi 23 avril 2024 à 15 h 30 min 45 s	मंगर, 23 अप्रिल 2024 के साँझ तीन बजके तीस मिनट आ पैंतालीस सेकंड प			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/dateTimeFormatLength[@type="full"]/dateTimeFormat[@type="standard"]/pattern[@type="standard"]	dc-37_XXX
+April 23, 2024 at 3:30:45 PM	23 avril 2024 à 15 h 30 min 45 s	23 अप्रिल 2024 के साँझ तीन बजके तीस मिनट आ पैंतालीस सेकंड प			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/dateTimeFormatLength[@type="long"]/dateTimeFormat[@type="standard"]/pattern[@type="standard"]	dc-38_XXX
+Apr 23, 2024 at 3:30 PM	23 avril 2024 à 15 h 30	23 अप्रिल 2024 के साँझ साढ़े तीन बजे			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/dateTimeFormatLength[@type="medium"]/dateTimeFormat[@type="standard"]/pattern[@type="standard"]	dc-39_XXX
+Apr 23 at 3:30 PM	Avr. 2024 à 15 h 30	23 अप्रिल के साँझ साढ़े तीन बजे			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/dateTimeFormatLength[@type="medium"]/dateTimeFormat[@type="atTime"]/pattern[@type="standard"]	dc-40_XXX
+Thu, 4/23	Mer 23 avril	मंगर, 23 अप्रिल			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="MEd"]	dc-41_XXX
+Tue, 4/23 – Wed, 4/24	Mar 23/04–Mer 24/04	मंगर, 23 अप्रिल से बुध, 24 अप्रिल ले			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="MEd"]/greatestDifference[@id="d"]	dc-42_XXX
+Tue, 4/23 – Thu, 5/23	Mar 23/04–Jeu 23/05	मंगर, 23 अप्रिल से बियफे, 23 मई ले			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="MEd"]/greatestDifference[@id="M"]	dc-43_XXX
+Tue, Apr 23, 2024 – Wed, Apr 24, 2024	Mar 23 avr. 2024–Mer 24 avr. 2024	मंगर, 23 अप्रिल 2024 से बुध, 24 अप्रिल 2024 ले			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMEd"]/greatestDifference[@id="d"]	dc-44_XXX
+Tue, Apr 23, 2024 – Thu, May 23, 2024	Mar 23 avr. 202–Jeu 23 mai 2024	मंगर, 23 अप्रिल 2024 से बियफे, 23 मई 2024 ले			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMEd"]/greatestDifference[@id="M"]	dc-45_XXX
+Tue, Apr 23, 2024 – Fri, Apr 23, 2027	Mar 23 avr. 2024–Ven 23 avr. 2027	मंगर, 23 अप्रिल 2024 से सुक 23 अप्रिल 2027			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMEd"]/greatestDifference[@id="y"]	dc-46_XXX
+Tue, Apr 23, 2024 – Tue, Apr 23, 2345	Mar 23 avr. 2024–Mar 23 avr. 2345	मंगर, 23 अप्रिल 2024 से मंगर, 23 अप्रिल 2345 ले			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMEd"]/greatestDifference[@id="G"]	dc-47_XXX
+Tue, Apr 23, 2024 – Wed, Apr 24, 2024	Mar 23 avr. 2024–Mer 24 avr. 2024	मंगर, 23 अप्रिल 20204 से बुध, 24 अप्रिल 2024 ले			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMMEd"]/greatestDifference[@id="d"]	dc-48_XXX
+Tue, Apr 23, 2024 – Tue, May 23, 2024	Mar 23 avr. 2024–Mar 23 mai 2024	मंगर, 23 अप्रिल 2024 से मंगर, 23 मई 2024 ले			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMMEd"]/greatestDifference[@id="M"]	dc-49_XXX
+Tue, Apr 23, 2024 – Tue, Apr 23, 2027	Mar 23 avr. 2024–Mar 23 avr. 2027	मंगर, 23 अप्रिल 2024 से मंगर 23 अप्रिल 2027 ले			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMMEd"]/greatestDifference[@id="y"]	dc-50_XXX
+Tue, Apr 23, 2024	Mar 23 avr. 2024	मंगर, 23 अप्रिल 2024			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="GyMMMEd"]	dc-51_XXX
+Tue, Apr 23, 2024 – Tue, Apr 23, 2345	Mar 23 avr. 2024–Mar 23 avr. 2345	मंगर, 23 अप्रिल 2024 से मंगर 23 अप्रिल 2345 ले			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMMEd"]/greatestDifference[@id="G"]	dc-52_XXX
+Tuesday, April 23, 2024	Mardi 23 avril 2024	मंगर, 23 अप्रिल 2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateFormats/dateFormatLength[@type="full"]/dateFormat[@type="standard"]/pattern[@type="standard"]	dc-53_XXX
+Tuesday, April 23, 2024	Mardi 23 avril 2024	मंगर, 23 अप्रिल 2024			//ldml/dates/calendars/calendar[@type="generic"]/dateFormats/dateFormatLength[@type="full"]/dateFormat[@type="standard"]/pattern[@type="standard"]	dc-54_XXX
+3:30:45 PM	15 h 30 min 45 s	साँझ के तीन बजे के तीस मिनट पैंतालीस सेकंड			//ldml/dates/calendars/calendar[@type="gregorian"]/timeFormats/timeFormatLength[@type="medium"]/timeFormat[@type="standard"]/pattern[@type="standard"]	dc-55_XXX
+3:30:45 PM PDT	15 h 30 min 45 s PDT	साँझ के तीन बजे तीस मिनट पैंतालीस सेकंड PDT			//ldml/dates/calendars/calendar[@type="gregorian"]/timeFormats/timeFormatLength[@type="long"]/timeFormat[@type="standard"]/pattern[@type="standard"]	dc-56_XXX
+3:30:45 PM Pacific Daylight Time	15 h 30 min 45 s, Heure avancée du pacifique	पैसिफिक डे लाईट टाइम के अनुसार साँझ के तीन बजे तीस मिनट पैंतालीस सेकंड			//ldml/dates/calendars/calendar[@type="gregorian"]/timeFormats/timeFormatLength[@type="full"]/timeFormat[@type="standard"]/pattern[@type="standard"]	dc-57_XXX
+April	Avril	अप्रिल			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="M"]	dc-58_XXX
+April	Avril	अप्रिल			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="M"]	dc-59_XXX
+April – May	Avril–mai	अप्रिल से मई			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="M"]/greatestDifference[@id="M"]	dc-60_XXX
+April – May	Avril–mai	अप्रिल से मई			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="M"]/greatestDifference[@id="M"]	dc-61_XXX
+4/23	4/23	23 अप्रिल			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Md"]	dc-62_XXX
+4/23 – 4/24	23/04–24/04	23 अप्रिल से 24 अप्रिल ले			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Md"]/greatestDifference[@id="d"]	dc-63_XXX
+4/23 – 5/23	23/04–23/05	23 अप्रिल से 23 मई ले			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Md"]/greatestDifference[@id="M"]	dc-64_XXX
+4/23/2024 – 4/24/2024	23/04/2024–24/04/2024	23 अप्रिल 2024 से 24 अप्रिल 2024 ले			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMd"]/greatestDifference[@id="d"]	dc-65_XXX
+4/23/2024 – 5/23/2024	23/04/2024–23/05/2024	23 अप्रिल 2024 से 23 मई 2024 ले			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMd"]/greatestDifference[@id="M"]	dc-66_XXX
+4/23/2024 – 4/23/2027	23/04/2024–23/04/2027	23 अप्रिल 2024 से 23 अप्रिल 2027 ले			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMd"]/greatestDifference[@id="y"]	dc-67_XXX
+4/23/2024	23/04/2024	23 अप्रिल 2024			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="GyMd"]	dc-68_XXX
+4/23/2024 – 4/23/2345	23/04/2024–23/04/2345	23 अप्रिल 2024 से 23 अप्रिल 2345 ले			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMd"]/greatestDifference[@id="G"]	dc-69_XXX
+4/2024 – 5/2024	4/2024–5/2024	अप्रिल 2024 से मई 2024 ले			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyM"]/greatestDifference[@id="M"]	dc-70_XXX
+4/2024 – 4/2027	4/2024–4/2027	अप्रिल 2024 से अप्रिल 2027 ले			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyM"]/greatestDifference[@id="y"]	dc-71_XXX
+4/2024 – 4/2345	4/2024–4/2345	अप्रिल 2024 से अप्रिल 2345 ले			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyM"]/greatestDifference[@id="G"]	dc-72_XXX
+Apr 2024 – May 2024	Avril 2024–Mai 2024	अप्रिल 2024 से मई 2024 ले			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMM"]/greatestDifference[@id="M"]	dc-73_XXX
+Apr 23 – Apr 24, 2024	23 avril–24 avril 2024	23 अप्रिल से 24 अप्रिल 2024			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMMd"]/greatestDifference[@id="d"]	dc-74_XXX
+Apr 23 – May 23, 2024	23 avril–23 mai 2024	23 अप्रिल से 23 मई 2024 ले			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMMd"]/greatestDifference[@id="M"]	dc-75_XXX
+Apr 23, 2024	23 avril 2024	23 अप्रिल, 2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateFormats/dateFormatLength[@type="medium"]/dateFormat[@type="standard"]/pattern[@type="standard"]	dc-76_XXX
+Apr 23, 2024 – Apr 23, 2027	23 avril 2024–23 avril 2027	23 अप्रिल 2024 से 23 अप्रिल 2027 ले			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMMd"]/greatestDifference[@id="y"]	dc-77_XXX
+Apr 23, 2024	23 avril 2024	23 अप्रिल 2024			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="GyMMMd"]	dc-78_XXX
+Apr 23, 2024	23 avril 2024	23 अप्रिल 2024			//ldml/dates/calendars/calendar[@type="generic"]/dateFormats/dateFormatLength[@type="medium"]/dateFormat[@type="standard"]/pattern[@type="standard"]	dc-79_XXX
+Apr 23, 2024 – Apr 23, 2345	23 avril 2024–23 avril 2345	23 अप्रिल 2024 से 23 अप्रिल 2345 ले			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMMd"]/greatestDifference[@id="G"]	dc-80_XXX
+Apr 2024 – Apr 2027	Avril 2024–Avril 2027	अप्रिल 2024 से अप्रिल 2027 ले			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMM"]/greatestDifference[@id="y"]	dc-81_XXX
+Apr 2024	Avril 2024	24 अप्रिल			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="GyMMM"]	dc-82_XXX
+Apr 2024 – Apr 2345	Avril 2024–Avril 2345	अप्रिल 2024 से अप्रिल 2345 ले			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMM"]/greatestDifference[@id="G"]	dc-83_XXX
+April 23, 2024	23 avril 2024	23 अप्रिल 2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateFormats/dateFormatLength[@type="long"]/dateFormat[@type="standard"]/pattern[@type="standard"]	dc-84_XXX
+April 23, 2024	23 avril 2024	23 अप्रिल 2024			//ldml/dates/calendars/calendar[@type="generic"]/dateFormats/dateFormatLength[@type="long"]/dateFormat[@type="standard"]/pattern[@type="standard"]	dc-85_XXX
+2024 – 2027	2024–2027	2024 से 2027 ले			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Gy"]/greatestDifference[@id="y"]	dc-86_XXX
+2024	2024	2024			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Gy"]	dc-87_XXX
+2024 – 2345	2024–2345	2024 से 2345 ले			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Gy"]/greatestDifference[@id="G"]	dc-88_XXX
+Apr – May	Avr.–mai	अप्रिल से मई			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="MMM"]/greatestDifference[@id="M"]	dc-89_XXX
+Apr 23	23 Avr.	23 अप्रिल			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="MMMd"]	dc-90_XXX
+Apr 23 – Apr 24	23 Avril–24 Avril	23 अप्रिल से 24 अप्रिल			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="MMMd"]/greatestDifference[@id="d"]	dc-91_XXX
+Apr 23 – May 23	23 Avril–23 Mai	23 अप्रिल से 23 मई			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="MMMd"]/greatestDifference[@id="M"]	dc-92_XXX
+Thu, Apr 23	Mer 23 avril	बुध, 23 अप्रिल			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="MMMEd"]	dc-93_XXX
+Tue, Apr 23 – Wed, Apr 24	Mar 23 avr.–Mer 24 avr.	मंगर, 23 अप्रिल से बुध, 24 अप्रिल			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="MMMEd"]/greatestDifference[@id="d"]	dc-94_XXX
+Tue, Apr 23 – Tue, May 23	Mar. 23 avr.–Mar. 23 mai	मंगर, 23 अप्रिल से मंगर, 23 मई			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="MMMEd"]/greatestDifference[@id="M"]	dc-95_XXX
+April 23	23 avril	23 अप्रिल			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="MMMMd"]	dc-96_XXX
+April – Week 4	Avril – Semaine 4	अप्रिल के चउथा हफ्ता			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="MMMMW"][@count="other"]	dc-97_XXX
+4/23/24	23/04/24	23 अप्रिल 2024			//ldml/dates/calendars/calendar[@type="generic"]/dateFormats/dateFormatLength[@type="short"]/dateFormat[@type="standard"]/pattern[@type="standard"]	dc-98_XXX
+4/23/24	23/04/24	23 अप्रिल 2024				dc-99_XXX
+COORDINATES AND DIRECTIONS / COORDONNÉES ET DIRECTIONS						
+"In websites like Wikipedia, it's common to see the long form of coordinates, such as ""Cape Town is located at 33.9258° south and 18.4232° east.""
+Sur des sites web comme celui de Wikipédia, on trouve souvent des coordonnées au format étendu. Par exemple : « Le Cap est situé à 33,9258 °Sud et à 18,4232 °Est. »"						
+ENGLISH	FRENCH	TRANSLATION IN YOUR LANGUAGE	VISUAL EXAMPLE	NOTES BY TRANSLATOR (IF NECESSARY)	XPATH (Ignore/For Reference Only)	
+48.8584° north	48,8584 °Nord	उत्तर दिसा में 48.8584° प		Alternate translation: 48.8584° उत्तर		co-1_XXX
+22.5609° south	22,5609 °Sud	दक्षिण दिसा में 22.5609 डिग्री प				co-2_XXX
+2.2945° east	2,2945 °Est	पूरब दिसा में 2.2945 डिग्री प				co-3_XXX
+0.2057° west	0,2057 °Ouest	पच्छिम दिसा में 0.2057 डिग्री प				co-4_XXX
+cardinal direction	Direction cardinale	मुख्य दिसा सभ				co-5_XXX
+"In devices like Garmin, coordinates are shown with no space between the number and the cardinal direction.  
+Sur certains appareils comme ceux fabriqués par Garmin, les coordonnées s’affichent sans espace entre le chiffre et la direction cardinale."						
+ENGLISH	FRENCH	TRANSLATION IN YOUR LANGUAGE	VISUAL EXAMPLE	NOTES BY TRANSLATOR (IF NECESSARY)	XPATH (Ignore/For Reference Only)	
+48.8584°N	48,8584 °N	उत्तर दिसा में 48.8584 डिग्री प				co2-1_XXX
+22.5609°S	22,5609 °S	दक्षिण दिसा में 22.5609 डिग्री प				co2-2_XXX
+2.2945°E	2,2945 °E	पूरब दिसा में 2.2945 डिग्री प				co2-3_XXX
+0.2057°W	0,2057 °O	पच्छिम दिसा में 0.2057 डिग्री प				co2-4_XXX
+						
+"The GPS in your car is giving you directions. Coming up soon, you need to turn right. The GPS alerts you ""Take the 1st right"" (i.e., turn right at the next intersection). Or maybe the GPS alerts you ""Take the 2nd right"" or ""Take the 3rd right"" etc. (i.e., turn right at the second, third, or fourth intersection).
+Le GPS de votre voiture indique la direction à prendre. Vous devez bientôt tourner à droite. Le GPS vous avertit : « Prenez la première à droite » (c’est-à-dire tournez à droite à la prochaine intersection). Il peut aussi signaler : « Prenez la deuxième à droite » ou « Prenez la troisième à droite », etc. (c’est-à-dire tournez à la deuxième, troisième ou quatrième intersection à droite)."						
+ENGLISH	FRENCH	TRANSLATION IN YOUR LANGUAGE	VISUAL EXAMPLE	NOTES BY TRANSLATOR (IF NECESSARY)	XPATH (Ignore/For Reference Only)	
+Take the 1st right	Prenez la 1re à droite	पहिला दहिना ओरी मुड़ीं			//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal="one"]	co3-1_XXX
+Take the 2nd right	Prenez la 2e à droite	दूसरका दहिना ओरी मुड़ीं				co3-2_XXX
+Take the 3rd right	Prenez la 3e à droite	तिसरका दहिना ओरी मुड़ीं				co3-3_XXX
+QUARTERS / TRIMESTRES						
+"Many sports divide a game into 4 parts, called ""quarters."" Businesses and nonprofits often divide a year into 4 parts, also called ""quarters."" Both use terms like “1st Quarter” and abbreviations “Q1.” You’ll see these in finance apps, reports, and game scores.
+
+Please give us your translation for terms like “1st Quarter,” “2nd Quarter,” and so on—both full forms and abbreviated ones (like “Q1” and ""Q2""). We’ve included examples from English and French.
+
+If your language doesn’t use the abbreviated version, just leave that blank or type “NA.”
+
+Dans de nombreux sports, un match est divisé en quatre parties appelées « quarts ». Les entreprises et les ONG divisent aussi l’année en quatre parties appelées « trimestres ». Dans les deux cas, on utilise des termes comme « 1er trimestre » et des abréviations comme « T1 ». On les retrouve dans les applications informatiques financières, les rapports et les scores de jeux.
+
+Veuillez fournir votre traduction des termes comme « 1er trimestre », « 2e trimestre », etc. — à la fois les formes complètes et les formes abrégées (comme « T1 » et « T2 »). Si votre langue n’utilise pas la version abrégée, laissez simplement la case vide ou saisissez « NA »."						
+ENGLISH	FRENCH	TRANSLATION IN YOUR LANGUAGE	VISUAL EXAMPLE	NOTES BY TRANSLATOR (IF NECESSARY)	XPATH (Ignore/For Reference Only)	
+1st quarter	1er trimestre	पहिला तिमाही			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="stand-alone"]/quarterWidth[@type="wide"]/quarter[@type="1"]	qt-1_XXX
+2nd quarter	2e trimestre	दुसरका तिमाही			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="stand-alone"]/quarterWidth[@type="wide"]/quarter[@type="2"]	qt-2_XXX
+3rd quarter	3e trimestre	तिसरका तिमाही			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="stand-alone"]/quarterWidth[@type="wide"]/quarter[@type="3"]	qt-3_XXX
+4th quarter	4e trimestre	चउथा तिमाही			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="stand-alone"]/quarterWidth[@type="wide"]/quarter[@type="4"]	qt-4_XXX
+Q1	T1	पहिला तिमाही			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="stand-alone"]/quarterWidth[@type="abbreviated"]/quarter[@type="1"]	qt-5_XXX
+Q2	T2	दुसरका तिमाही			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="stand-alone"]/quarterWidth[@type="abbreviated"]/quarter[@type="2"]	qt-6_XXX
+Q3	T3	तिसरका तिमाही			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="stand-alone"]/quarterWidth[@type="abbreviated"]/quarter[@type="3"]	qt-7_XXX
+Q4	T4	चउथा तिमाही			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="stand-alone"]/quarterWidth[@type="abbreviated"]/quarter[@type="4"]	qt-8_XXX
+"In some cases, there is more context provided as to which quarter or quarter(s) is being referenced. 
+
+Please give us your translation for terms like “1st Quarter of 2025,” “2nd Quarter of 2025,” and so on—both full forms and abbreviated ones (like “Q1” and ""Q2""). 
+
+Dans certains cas, un contexte supplémentaire est donné pour préciser à quels trimestres on fait référence.
+
+Veuillez donner votre traduction pour des expressions comme « 1er trimestre en 2025 », « 2e trimestre en 2025 », etc. — sous forme complète et abrégée (telles que « T1 » et « T2 »)."						
+ENGLISH	FRENCH	TRANSLATION IN YOUR LANGUAGE	VISUAL EXAMPLE	NOTES BY TRANSLATOR (IF NECESSARY)	XPATH (Ignore/For Reference Only)	
+1st quarter of 2025	1er trimestre en 2025	साल 2025 के पहिला तिमाही				qt2-1_XXX
+2nd quarter of 2025	2e trimestre en 2025	साल 2025 के दुसरका तिमाही			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="wide"]/quarter[@type="2"]	qt2-2_XXX
+3rd quarter of 2025	3e trimestre en 2025	साल 2025 के तिसरका तिमाही			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="wide"]/quarter[@type="3"]	qt2-3_XXX
+4th quarter of 2025	4e trimestre en 2025	साल 2025 के चउथा तिमाही			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="wide"]/quarter[@type="4"]	qt2-4_XXX
+Q1 of 2025	T1 de 2025	साल 2025 के पहिला तिमाही			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="abbreviated"]/quarter[@type="1"]	qt2-5_XXX
+Q2 of 2025	T2 de 2025	साल 2025 के दुसरका तिमाही			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="abbreviated"]/quarter[@type="2"]	qt2-6_XXX
+Q3 of 2025	T3 de 2025	साल 2025 के तिसरका तिमाही			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="abbreviated"]/quarter[@type="3"]	qt2-7_XXX
+Q4 of 2025	T4 de 2025	साल 2025 के चउथा तिमाही			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="abbreviated"]/quarter[@type="4"]	qt2-8_XXX
+ERAS / ÈRES						
+"You're making a Wikipedia article about a famous historical person. Their birthdate might appera like “450 BCE” or “2025 AD.”
+
+We need your local translation for those terms—both the full versions (like “Before Christ”) and the abbreviated ones (like “BC” or “BCE”).
+
+There’s a table with examples in English and French for comparison. If your language doesn’t use some of these terms or abbreviations, just leave them blank or write “NA.”
+
+Vous rédigez un article Wikipédia sur une personnage historique célèbre. Sa date de naissance pourrait être présentée ainsi : « 450 av. n. è. » ou « 2025 ap. J.-C. ».
+
+Nous avons besoin de votre traduction locale de ces termes — à la fois sous forme complète (comme « Avant Jésus-Christ ») et sous forme abrégée (comme « av. J.-C. » ou « av. n. è. »). Vous trouverez un tableau contenant des exemples en anglais et en français à comparer. Si votre langue n’utilise pas certains de ces termes ou abréviations, laissez-les vides ou saisissez « NA »."						
+ENGLISH	FRENCH	TRANSLATION IN YOUR LANGUAGE	VISUAL EXAMPLE	NOTES BY TRANSLATOR (IF NECESSARY)	XPATH (Ignore/For Reference Only)	
+Before Common Era	avant l’ère commune	ईसा पूर्व				er-1_XXX
+BCE	AEC	ईसा पूर्व				er-2_XXX
+Before Christ	avant Jésus-Christ	ईसा पूर्व				er-3_XXX
+BC	av. J.-C.	ई.पू.				er-4_XXX
+Common Era	de l’ère commune	आम जुग		Alternate longer form: ईसा मसीह के जन्म के बाद		er-5_XXX
+CE	EC	ई.स.				er-6_XXX
+Anno Domini	après Jésus-Christ	ईसवी सन				er-7_XXX
+AD	ap. J.-C.	ई.				er-8_XXX

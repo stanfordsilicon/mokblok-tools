@@ -1,0 +1,392 @@
+BASIC INFORMATION / INFORMATIONS DE BASE					XPath	ext_id
+"Let's begin with some basic questions about your language! Please read the question in the column ""QUESTION"" and provide your answer in the column labeled ""Your Answer""
+Commençons par quelques questions de base au sujet de votre langue ! Veuillez lire les questions figurant dans la colonne « QUESTION » et y répondre dans la colonne intitulée « Votre réponse »"						
+QUESTION	French	YOUR ANSWER	Visual Example			
+First, what is the name of your language in your language. For example, the name of the language "German" in German is "Deutsch". Meanwhile, the name for "Thai" in Thai is "ไทย". What is the name if your language in your own language? 	Tout d’abord, quel est le nom votre langue dans votre propre langue ? Par exemple, le nom de la langue « German » en allemand est « Deutsch ». De même, le nom de « Thai » en thaï est « ไทย ». Quel nom désigne donc votre langue dans votre propre langue ?	सबसे पहिले बताईं कि राउर भाषा के आपन भाषा में नाम का ह? उदाहरण खातिर, जर्मन में "जर्मन" भाषा के नाँव "ड्यूश" ह। ओही तरे थाई में "थाई" के नाम "ไทย" ह। अइसहीं, राउर भाषा के आपन भाषा में नाम का ह?				bi-1_XXX
+Now, what is the name of your language in English? For example, the name for "Deutsch" in English is "German". The name for "" in English is "Chinese". What is the name of your language in English?	Quel est le nom de votre langue en anglais ? Par exemple, en anglais le nom « Deutsch » est rendu par « German » et le nom « 中文 » par « Chinese ». Quel est donc le nom de votre langue en anglais ?	अब बताईं कि अंग्रेजी में राउर भाषा के नाम का ह? उदाहरण खातिर, अंग्रेजी में  "ड्यूश" के नाँव "जर्मन" ह।  "" के नाम "चीनी" ह। ओही तरे, अंग्रेजी में राउर भाषा के नाम का ह?				bi-2_XXX
+Let's say you are giving a review for an online class, a product, or a restaurant. In English you might give "4.7" (a score in between 4 and 5, that is). In your language, do you use the decimal point (.) to separate the numbers "4" and "7"? If not, what do you use? A comma (,)? An apostophe (')? Something else? Please provide your translation of "4.7" in the column marked "YOUR ANSWER".	Supposons que vous laissiez un avis pour un cours en ligne, un produit ou un restaurant. En anglais, vous pourriez donner la note « 4.7 » (pour indiquer un score compris entre 4 et 5). Dans votre langue, utilisez-vous le point (.) comme séparateur entre les chiffres « 4 » et « 7 » ? Sinon, qu’utilisez-vous ? Une virgule (,) ? Une apostrophe (') ? Autre chose ? Veuillez indiquer votre traduction de « 4.7 » dans la colonne marquée « YOUR ANSWER ».	मान लीं कि रउवा ऑनलाइन क्लास, कवनो प्रोडक्ट, भा रेस्टोरेंट खातिर रिव्यू देतानी। अंग्रेजी में रउवा "4.7" लिख सकेनीं (मतलब 4 आ 5 के बीच के स्कोर)। राउर भाषा में,  "4" आ "7" के अलग करे खातिर का रउवा दशमलव बिंदु (.) के इस्तेमाल करेनीं? अगर ना, त का रउवा अल्पविराम (,) भा अपोस्ट्रॉफ (‘) या कुच्छु अउरी इस्तेमाल करेनीं? कृपया "राउर जवाब" वाला कॉलम में "4.7" के आपन अनुवाद दिहीं।				bi-3_XXX
+DATE WORDS / TERMINOLOGIE DES DATES						
+"In French there are 3 ways to write the word for ""year"": ""année"" (the full form), ""an"" (short form) & ""a"" (narrow form). In English, there are also 3 forms: ""Year"", ""Yr."" (with a period) & ""Yr"" (no period). Does your language have the same abbreviations? Fewer? More? Please translate these into your language. If your language doesn't have a translation for all the translations, write ""DOES NOT EXIST"". If you have MORE abbreviations, please add NOTES in the NOTES column. 
+En français, il existe trois façons d’écrire le mot « année » : « année » (forme complète), « an » (forme courte) et « a » (forme abrégée). En anglais, on en trouve également trois formes : « Year », « Yr. » (avec point) et « Yr » (sans point). Votre langue possède-t-elle les mêmes abréviations ? En possède-t-elle moins ? Ou plus ? Veuillez traduire ces formes dans votre langue. Si votre langue ne propose pas de traduction pour l’une de ces formes, écrivez « N’EXISTE PAS ». Si vous avez PLUS d’abréviations, veuillez ajouter des NOTES dans la colonne reservée à cet effet."						
+ENGLISH	FRENCH	TRANSLATION IN YOUR LANGUAGE	VISUAL EXAMPLE		XPATH (Ignore/For Reference Only)	
+era	ère	era			//ldml/dates/fields/field[@type="era"]/displayName	dw-1_XXX
+year	année	year			//ldml/dates/fields/field[@type="year"]/displayName	dw-2_XXX
+yr	a	yr			//ldml/dates/fields/field[@type="year-narrow"]/displayName	dw-3_XXX
+y	an	y			//ldml/dates/fields/field[@type="year-short"]/displayName	dw-4_XXX
+quarter	trimestre	quarter			//ldml/dates/fields/field[@type="quarter"]/displayName	dw-5_XXX
+qtr.	trim.	qtr.			//ldml/dates/fields/field[@type="quarter-short"]/displayName	dw-6_XXX
+qtr	trim.	qtr			//ldml/dates/fields/field[@type="quarter-narrow"]/displayName	dw-7_XXX
+month	mois	month			//ldml/dates/fields/field[@type="month"]/displayName	dw-8_XXX
+mo.	m.	mo.			//ldml/dates/fields/field[@type="month-short"]/displayName	dw-9_XXX
+m	m.	m			//ldml/dates/fields/field[@type="month-narrow"]/displayName	dw-10_XXX
+week	semaine	week			//ldml/dates/fields/field[@type="week"]/displayName	dw-11_XXX
+wk.	sem.	wk.			//ldml/dates/fields/field[@type="week-short"]/displayName	dw-12_XXX
+wk	sem.	wk			//ldml/dates/fields/field[@type="week-narrow"]/displayName	dw-13_XXX
+day	jour	day			//ldml/dates/fields/field[@type="day"]/displayName	dw-14_XXX
+d	j	d			//ldml/dates/fields/field[@type="day-short"]/displayName	dw-15_XXX
+hour	heure	hour			//ldml/dates/fields/field[@type="hour"]/displayName	dw-16_XXX
+hr	h	hr			//ldml/dates/fields/field[@type="hour-narrow"]/displayName	dw-17_XXX
+minute	minute	minute			//ldml/dates/fields/field[@type="minute"]/displayName	dw-18_XXX
+min	min	min			//ldml/dates/fields/field[@type="minute-narrow"]/displayName	dw-19_XXX
+second	seconde	second			//ldml/dates/fields/field[@type="second"]/displayName	dw-20_XXX
+sec.	s	sec.			//ldml/dates/fields/field[@type="second-short"]/displayName	dw-21_XXX
+sec	s	sec			//ldml/dates/fields/field[@type="second-narrow"]/displayName	dw-22_XXX
+day of the week	jour de la semaine	day of the week			//ldml/dates/fields/field[@type="weekday"]/displayName	dw-23_XXX
+"In English there are 2 ways to write the words ""AM"" and ""PM"": ""AM"" and ""PM"" (the full form), or ""a"" (short form) & ""p"" (narrow form). If your language doesn't have a translation for all the translations, write ""DOES NOT EXIST"". If you have MORE abbreviations, please add NOTES in the NOTES column. 
+En anglais, il existe deux manières d’écrire les expressions « AM » et « PM » : « AM » et « PM » (forme complète), ou « a » (forme courte) et « p » (forme abrégée). Si votre langue ne propose pas de traduction pour certaines de ces formes, saisissez « N’EXISTE PAS ». Si vous avez PLUS d’abréviations, veuillez ajouter des NOTES dans la colonne reservée à cet effet."		"In English there are 2 ways to write the words ""AM"" and ""PM"": ""AM"" and ""PM"" (the full form), or ""a"" (short form) & ""p"" (narrow form). If your language doesn't have a translation for all the translations, write ""DOES NOT EXIST"". If you have MORE abbreviations, please add NOTES in the NOTES column. 
+En anglais, il existe deux manières d’écrire les expressions « AM » et « PM » : « AM » et « PM » (forme complète), ou « a » (forme courte) et « p » (forme abrégée). Si votre langue ne propose pas de traduction pour certaines de ces formes, saisissez « N’EXISTE PAS ». Si vous avez PLUS d’abréviations, veuillez ajouter des NOTES dans la colonne reservée à cet effet."				
+AM	AM	AM			//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="stand-alone"]/dayPeriodWidth[@type="narrow"]/dayPeriod[@type="am"]	dw2-1_XXX
+a	AM	a			//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="narrow"]/dayPeriod[@type="am"]	dw2-2_XXX
+PM	PM	PM			//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="abbreviated"]/dayPeriod[@type="pm"]	dw2-3_XXX
+p	PM	p			//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="narrow"]/dayPeriod[@type="pm"]	dw2-4_XXX
+morning	matin	morning			//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="stand-alone"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="morning1"]	dw2-5_XXX
+in the morning	du matin	in the morning			//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="morning1"]	dw2-6_XXX
+7 in the morning	7 du matin	7 in the morning				dw2-7_XXX
+afternoon	après-midi	afternoon			//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="stand-alone"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="afternoon1"]	dw2-8_XXX
+in the afternoon	de l’après-midi	in the afternoon			//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="afternoon1"]	dw2-9_XXX
+1 in the afternoon	1 de l’après-midi	1 in the afternoon				dw2-10_XXX
+evening	soir	evening			//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="stand-alone"]/dayPeriodWidth[@type="narrow"]/dayPeriod[@type="evening1"]	dw2-11_XXX
+in the evening	du soir	in the evening			//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="evening1"]	dw2-12_XXX
+9 in the evening	9 du soir	9 in the evening				dw2-13_XXX
+night	nuit	night			//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="stand-alone"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="night1"]	dw2-14_XXX
+at night	à la nuit	at night			//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="narrow"]/dayPeriod[@type="night1"]	dw2-15_XXX
+midnight	minuit	midnight			//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="midnight"]	dw2-16_XXX
+DAYS OF THE WEEK / JOURS DE LA SEMAINE		DAYS OF THE WEEK / JOURS DE LA SEMAINE				
+"In English there are 4 ways to write the days of the week: full form, medium abbreviation, short abbreviation, and shortest abbreviation. Does your language have the same 4 forms? If yes, please enter them in Column B. If your language has LESS than 4 forms, you can leave cells blank or write ""DOES NOT HAVE."" If your language as MORE than 4 forms, please add them to the bottom, and provide an explanation in the NOTES column, and if so, how do you write them in your language? (See VISUAL EXAMPLES to understand the Abbreviations better.) 
+En anglais, il existe quatre façons d’écrire les jours de la semaine : forme complète, abréviation moyenne, abréviation courte et abréviation la plus courte. Toutes ces quatre formes existent-elles dans votre langue ? Si oui, veuillez les indiquer dans la colonne B. Si votre langue a MOINS de quatre formes, vous pouvez laisser des cellules vides ou saisir « N’EXISTE PAS ». Si votre langue en a PLUS, veuillez les ajouter en bas et fournir une explication dans la colonne des notes, puis le cas échéant, indiquer comment on les écrit dans votre langue. (Consultez les EXEMPLES VISUELS pour mieux comprendre les types d'abréviations.)                                               "		"In English there are 4 ways to write the days of the week: full form, medium abbreviation, short abbreviation, and shortest abbreviation. Does your language have the same 4 forms? If yes, please enter them in Column B. If your language has LESS than 4 forms, you can leave cells blank or write ""DOES NOT HAVE."" If your language as MORE than 4 forms, please add them to the bottom, and provide an explanation in the NOTES column, and if so, how do you write them in your language? (See VISUAL EXAMPLES to understand the Abbreviations better.) 
+En anglais, il existe quatre façons d’écrire les jours de la semaine : forme complète, abréviation moyenne, abréviation courte et abréviation la plus courte. Toutes ces quatre formes existent-elles dans votre langue ? Si oui, veuillez les indiquer dans la colonne B. Si votre langue a MOINS de quatre formes, vous pouvez laisser des cellules vides ou saisir « N’EXISTE PAS ». Si votre langue en a PLUS, veuillez les ajouter en bas et fournir une explication dans la colonne des notes, puis le cas échéant, indiquer comment on les écrit dans votre langue. (Consultez les EXEMPLES VISUELS pour mieux comprendre les types d'abréviations.)                                               "				
+ENGLISH (FULL-LENGTH FORM)	FRENCH (FULL-LENGTH FORM)	ENGLISH (FULL-LENGTH FORM)	VISUAL EXAMPLE		XPATH (Ignore/For Reference Only)	
+Sunday	Dimanche	Sunday				wk-1_XXX
+Monday	Lundi	Monday				wk-2_XXX
+Tuesday	Mardi	Tuesday				wk-3_XXX
+Wednesday	Mercredi	Wednesday				wk-4_XXX
+Thursday	Jeudi	Thursday				wk-5_XXX
+Friday	Vendredi	Friday				wk-6_XXX
+Saturday	Samedi	Saturday				wk-7_XXX
+ENGLISH (MEDIUM-LENGTH FORM)	FRENCH (MEDIUM-LENGTH FORM)	ENGLISH (MEDIUM-LENGTH FORM)	VISUAL EXAMPLE			
+Sun	Dim	Sun				wk-8_XXX
+Mon	Lun	Mon				wk-9_XXX
+Tue	Mar	Tue				wk-10_XXX
+Wed	Mer	Wed				wk-11_XXX
+Thur	Jeu	Thur				wk-12_XXX
+Fri	Ven	Fri				wk-13_XXX
+Sat	Sam	Sat				wk-14_XXX
+ENGLISH (SHORT-LENGTH FORM)	FRENCH (SHORT-LENGTH FORM)	ENGLISH (SHORT-LENGTH FORM)	VISUAL EXAMPLE			
+Su	Di	Su				wk-15_XXX
+Mo	Lu	Mo				wk-16_XXX
+Tu	Ma	Tu				wk-17_XXX
+We	Me	We				wk-18_XXX
+Th	Je	Th				wk-19_XXX
+Fr	Ve	Fr				wk-20_XXX
+Sa	Sa	Sa				wk-21_XXX
+ENGLISH (SHORTEST-LENGTH FORM)	FRENCH (SHORTEST-LENGTH FORM)	ENGLISH (SHORTEST-LENGTH FORM)	VISUAL EXAMPLE			
+S	D	S				wk-22_XXX
+M	L	M				wk-23_XXX
+T	M	T				wk-24_XXX
+W	M	W				wk-25_XXX
+T	J	T				wk-26_XXX
+F	V	F				wk-27_XXX
+S	S	S				wk-28_XXX
+MONTH WORDS / TERMINOLOGIE DES MOIS		MONTH WORDS / TERMINOLOGIE DES MOIS				
+"In English there are 3 ways to write the months of the year: full form, medium abbreviation, and shortest abbreviation. Does your language have the same 3 forms? If yes, please enter them in Column B. If your language has LESS than 3 forms, you can leave cells blank or write ""DOES NOT HAVE."" If your language as MORE than 3 forms, please add them to the bottom, and provide an explanation in the NOTES column, and if so, how do you write them in your language? (See VISUAL EXAMPLES to understand the Abbreviations better.)
+En anglais, il existe trois façons d’écrire les mois de l’année : forme complète, abréviation moyenne et abréviation la plus courte. Votre langue utilise-t-elle aussi ces trois formes ? Si oui, veuillez les indiquer dans la colonne B. Si votre langue a MOINS de trois formes, vous pouvez laisser des cellules vides ou saisir « N’EXISTE PAS ». Si votre langue en a PLUS, veuillez les ajouter en bas et fournir une explication dans la colonne des notes. (Consultez les EXEMPLES VISUELS pour mieux comprendre les abréviations.)"		"In English there are 3 ways to write the months of the year: full form, medium abbreviation, and shortest abbreviation. Does your language have the same 3 forms? If yes, please enter them in Column B. If your language has LESS than 3 forms, you can leave cells blank or write ""DOES NOT HAVE."" If your language as MORE than 3 forms, please add them to the bottom, and provide an explanation in the NOTES column, and if so, how do you write them in your language? (See VISUAL EXAMPLES to understand the Abbreviations better.)
+En anglais, il existe trois façons d’écrire les mois de l’année : forme complète, abréviation moyenne et abréviation la plus courte. Votre langue utilise-t-elle aussi ces trois formes ? Si oui, veuillez les indiquer dans la colonne B. Si votre langue a MOINS de trois formes, vous pouvez laisser des cellules vides ou saisir « N’EXISTE PAS ». Si votre langue en a PLUS, veuillez les ajouter en bas et fournir une explication dans la colonne des notes. (Consultez les EXEMPLES VISUELS pour mieux comprendre les abréviations.)"				
+ENGLISH (FULL-LENGTH FORM)	FRENCH (FULL-LENGTH FORM)	ENGLISH (FULL-LENGTH FORM)	VISUAL EXAMPLE			
+January	Janvier	January				mw-1_XXX
+February	Février	February				mw-2_XXX
+March	Mars	March				mw-3_XXX
+April	Avril	April				mw-4_XXX
+May	Mai	May				mw-5_XXX
+June	Juin	June				mw-6_XXX
+July	Juillet	July				mw-7_XXX
+August	Août	August				mw-8_XXX
+September	Septembre	September				mw-9_XXX
+October	Octobre	October				mw-10_XXX
+November	Novembre	November				mw-11_XXX
+December	Décembre	December				mw-12_XXX
+ENGLISH (MEDIUM-LENGTH FORM)	FRENCH (MEDIUM-LENGTH FORM)	ENGLISH (MEDIUM-LENGTH FORM)	VISUAL EXAMPLE			
+Jan	Janv.	Jan				mw-13_XXX
+Feb	Févr.	Feb				mw-14_XXX
+Mar	Mars	Mar				mw-15_XXX
+Apr	Avr.	Apr				mw-16_XXX
+May	Mai	May				mw-17_XXX
+Jun	Juin	Jun				mw-18_XXX
+Jul	Juil.	Jul				mw-19_XXX
+Aug	Auôt	Aug				mw-20_XXX
+Sep	Sept.	Sep				mw-21_XXX
+Oct	Oct.	Oct				mw-22_XXX
+Nov	Nov.	Nov				mw-23_XXX
+Dec	Déc.	Dec				mw-24_XXX
+ENGLISH (SHORTEST-LENGTH FORM)	FRENCH (SHORTEST-LENGTH FORM)	ENGLISH (SHORTEST-LENGTH FORM)	VISUAL EXAMPLE			
+J	J	J				mw-25_XXX
+F	F	F				mw-26_XXX
+M	M	M				mw-27_XXX
+A	A	A				mw-28_XXX
+M	M	M				mw-29_XXX
+J	J	J				mw-30_XXX
+J	J	J				mw-31_XXX
+A	A	A				mw-32_XXX
+S	S	S				mw-33_XXX
+O	O	O				mw-34_XXX
+N	N	N				mw-35_XXX
+D	D	D				mw-36_XXX
+HOURS / HEURES		HOURS / HEURES				
+ENGLISH	FRENCH	ENGLISH	VISUAL EXAMPLE		XPATH (Ignore/For Reference Only)	
+3:00 PM	15 h 00	3:00 PM			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="h"]	hr-1_XXX
+10:48	10:48	10:48			//ldml/units/durationUnit[@type="hm"]/durationUnitPattern	hr-2_XXX
+16:12	16:12	16:12			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Hm"]	hr-3_XXX
+9:41 AM	9 h 41	9:41 AM			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="hm"]	hr-4_XXX
+16:14:24	16:14:24	16:14:24			//ldml/units/durationUnit[@type="hms"]/durationUnitPattern	hr-5_XXX
+8:04:41	8:04:41	8:04:41			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Hms"]	hr-6_XXX
+11:30 PM GMT	23 h 30 GMT	11:30 PM GMT			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="hmv"]	hr-7_XXX
+RELATIVE TIME / TEMPS RELATIF		RELATIVE TIME / TEMPS RELATIF				
+ENGLISH	FRENCH	ENGLISH	VISUAL EXAMPLE		XPATH (Ignore/For Reference Only)	
+last month	Mois dernier	last month			//ldml/dates/fields/field[@type="month"]/relative[@type="-1"]	rt-1_XXX
+last week	La semaine dernière	last week			//ldml/dates/fields/field[@type="week"]/relative[@type="-1"]	rt-2_XXX
+yesterday	Hier	yesterday			//ldml/dates/fields/field[@type="day"]/relative[@type="-1"]	rt-3_XXX
+last year	L'année dernière	last year			//ldml/dates/fields/field[@type="year"]/relative[@type="-1"]	rt-4_XXX
+this month	Ce mois-ci	this month			//ldml/dates/fields/field[@type="month"]/relative[@type="0"]	rt-5_XXX
+this week	Cette semaine	this week			//ldml/dates/fields/field[@type="week"]/relative[@type="0"]	rt-6_XXX
+today	Aujourd'hui	today			//ldml/dates/fields/field[@type="day"]/relative[@type="0"]	rt-7_XXX
+this year	Cette année	this year			//ldml/dates/fields/field[@type="year"]/relative[@type="0"]	rt-8_XXX
+tomorrow	Demain	tomorrow			//ldml/dates/fields/field[@type="day"]/relative[@type="1"]	rt-9_XXX
+next month	Le mois prochain	next month			//ldml/dates/fields/field[@type="month"]/relative[@type="1"]	rt-10_XXX
+next week	La semaine prochaine	next week			//ldml/dates/fields/field[@type="week"]/relative[@type="1"]	rt-11_XXX
+next year	L'année prochaine	next year			//ldml/dates/fields/field[@type="year"]/relative[@type="1"]	rt-12_XXX
+TIME INTERVALS / INTERVALLES DE TEMPS		TIME INTERVALS / INTERVALLES DE TEMPS				
+ENGLISH	FRENCH	ENGLISH	VISUAL EXAMPLE		XPATH (Ignore/For Reference Only)	
+3 PM - 4 PM	15 h 00–16 h 00	3 PM - 4 PM			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="h"]/greatestDifference[@id="a"]	ti-1_XXX
+3 - 4 PM	15–16 h	3 - 4 PM			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="h"]/greatestDifference[@id="h"]	ti-2_XXX
+3:00 PM – 4:00 PM	15 h 00–16 h 00	3:00 PM – 4:00 PM			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hm"]/greatestDifference[@id="a"]	ti-3_XXX
+3:00–4:00 PM	15 h 00–16 h 00	3:00–4:00 PM			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hm"]/greatestDifference[@id="h"]	ti-4_XXX
+3:00–3:15 PM	15 h 00–15 h 15	3:00–3:15 PM			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hm"]/greatestDifference[@id="m"]	ti-5_XXX
+10:00 AM – 2:00 PM PT	10 h 00–14 h 00 PT	10:00 AM – 2:00 PM PT			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hmv"]/greatestDifference[@id="a"]	ti-6_XXX
+1:00–2:00 PM PT	13 h 00–14 h 00 PT	1:00–2:00 PM PT			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hmv"]/greatestDifference[@id="h"]	ti-7_XXX
+1:00–1:15 PM PT	13 h 00–13 h 15 PT	1:00–1:15 PM PT			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hmv"]/greatestDifference[@id="m"]	ti-8_XXX
+10 AM – 2 PM PT	10 h 00–14 h 00 PT	10 AM – 2 PM PT			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hv"]/greatestDifference[@id="a"]	ti-9_XXX
+1–2 PM PT	13–14 h PT	1–2 PM PT			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hv"]/greatestDifference[@id="h"]	ti-10_XXX
+14:00–15:00 PT	14 h 00–15 h PT	14:00–15:00 PT			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Hmv"]/greatestDifference[@id="H"]	ti-11_XXX
+14:00–14:15 PT	14 h 00–14 h 15 PT	14:00–14:15 PT			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Hmv"]/greatestDifference[@id="m"]	ti-12_XXX
+14–15 PT	14–15 h PT	14–15 PT			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Hv"]/greatestDifference[@id="H"]	ti-13_XXX
+14–15	14–15	14–15			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="H"]/greatestDifference[@id="H"]	ti-14_XXX
+14:00–14:15	14 h 00–14 h 15	14:00–14:15			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Hm"]/greatestDifference[@id="m"]	ti-15_XXX
+14:00–15:00	14 h 00–15 h 00	14:00–15:00			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Hm"]/greatestDifference[@id="H"]	ti-16_XXX
+10 AM – 2 PM	10 h 00–14 h 00	10 AM – 2 PM			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="h"]/greatestDifference[@id="a"]	ti-17_XXX
+1–2 PM	13–14 h	1–2 PM			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="h"]/greatestDifference[@id="h"]	ti-18_XXX
+10:00 AM – 2:00 PM	10 h 00–14 h 00	10:00 AM – 2:00 PM			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hm"]/greatestDifference[@id="a"]	ti-19_XXX
+3:00–4:00 PM	15 h 00–16 h 00	3:00–4:00 PM			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hm"]/greatestDifference[@id="h"]	ti-20_XXX
+3:00–3:15 PM	15 h 00–15 h 15	3:00–3:15 PM			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hm"]/greatestDifference[@id="m"]	ti-21_XXX
+10:00 AM – 2:00 PM PT	10 h 00–14 h 00 PT	10:00 AM – 2:00 PM PT			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hmv"]/greatestDifference[@id="a"]	ti-22_XXX
+1:00–2:00 PM PT	13 h 00–14 h 00 PT	1:00–2:00 PM PT			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hmv"]/greatestDifference[@id="h"]	ti-23_XXX
+1:00–1:15 PM PT	13 h 00–13 h 15 PT	1:00–1:15 PM PT			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hmv"]/greatestDifference[@id="m"]	ti-24_XXX
+10 AM – 2 PM PT	10 h 00–14 h 00 PT	10 AM – 2 PM PT			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hv"]/greatestDifference[@id="a"]	ti-25_XXX
+1–2 PM PT	13–14 h PT	1–2 PM PT			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hv"]/greatestDifference[@id="h"]	ti-26_XXX
+14–15	14–15	14–15			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="H"]/greatestDifference[@id="H"]	ti-27_XXX
+14:00–15:00	14 h 00–15 h 00	14:00–15:00			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Hm"]/greatestDifference[@id="H"]	ti-28_XXX
+14:00–14:15	14 h 00–14 h 15	14:00–14:15			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Hm"]/greatestDifference[@id="m"]	ti-29_XXX
+14:00–15:00 PT	14 h 00–15 h 00 PT	14:00–15:00 PT			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Hmv"]/greatestDifference[@id="H"]	ti-30_XXX
+14:00–14:15 PT	14 h 00–14 h 15 PT	14:00–14:15 PT			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Hmv"]/greatestDifference[@id="m"]	ti-31_XXX
+14–15 PT	14–15 h PT	14–15 PT			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Hv"]/greatestDifference[@id="H"]	ti-32_XXX
+DATE COMBINATIONS AND INTERVALS / COMBINAISONS ET INTERVALLES DE DATES		DATE COMBINATIONS AND INTERVALS / COMBINAISONS ET INTERVALLES DE DATES				
+ENGLISH	FRENCH	ENGLISH	VISUAL EXAMPLE		XPATH (Ignore/For Reference Only)	
+2024 – Week 17	2024 – Semaine 17	2024 – Week 17			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yw"][@count="other"]	dc-1_XXX
+2024 – Week 1	2024 – Semaine 1	2024 – Week 1			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yw"][@count="one"]	dc-2_XXX
+April 2024	Avril 2024	April 2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yMMMM"]	dc-3_XXX
+Apr 2024	Avr. 2024	Apr 2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yMMM"]	dc-4_XXX
+4/2024	4/2024	4/2024				dc-5_XXX
+04/2024	04/2024	04/2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yM"]	dc-6_XXX
+Tue, Apr 23, 2024	Mar 23 avr. 2024	Tue, Apr 23, 2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yMMMEd"]	dc-7_XXX
+Apr 23, 2024	23 Avr. 2024	Apr 23, 2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yMMMd"]	dc-8_XXX
+4/23/2024	23/04/2024	4/23/2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yMd"]	dc-9_XXX
+2024	2024	2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yMEd"]	dc-10_XXX
+2024 – 2027	2024–2027	2024 – 2027			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="y"]	dc-11_XXX
+April 2024 – May 2024	Avril 2024–Mai 2024	April 2024 – May 2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMMM"]/greatestDifference[@id="y"]	dc-12_XXX
+Tue, Apr 23, 2024 – Tue, Apr 23, 2027	Mar 23 avr. 2024–Mar 23 avr. 2027	Tue, Apr 23, 2024 – Tue, Apr 23, 2027			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMMM"]/greatestDifference[@id="M"]	dc-13_XXX
+Tue, Apr 23, 2024 – Tue, May 23, 2024	Mar 23 avr. 2024–Mar 23 mai 2024	Tue, Apr 23, 2024 – Tue, May 23, 2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMMEd"]/greatestDifference[@id="y"]	dc-14_XXX
+Tue, Apr 23 – Wed, Apr 24, 2024	Mar 23 avr.–Mer 24 avr. 2024	Tue, Apr 23 – Wed, Apr 24, 2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMMEd"]/greatestDifference[@id="M"]	dc-15_XXX
+Apr 23, 2024 – Apr 23, 2027	23 Avr. 2024–23 Avr. 2027	Apr 23, 2024 – Apr 23, 2027			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMMEd"]/greatestDifference[@id="d"]	dc-16_XXX
+Apr 23 – May 23, 2024	23 Avr.–23 Mai 2024	Apr 23 – May 23, 2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMMd"]/greatestDifference[@id="y"]	dc-17_XXX
+Apr 23 – Apr 24, 2024	23 Avril–24 Avril 2024	Apr 23 – Apr 24, 2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMMd"]/greatestDifference[@id="M"]	dc-18_XXX
+Apr 2024 – Apr 2027	Avril 2024–Avril 2027	Apr 2024 – Apr 2027			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMMd"]/greatestDifference[@id="d"]	dc-19_XXX
+Apr 2024 – May 2024	Avril 2024–Mai 2024	Apr 2024 – May 2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMM"]/greatestDifference[@id="y"]	dc-20_XXX
+Tue, 4/23/2024 – Tue, 4/23/2027	Mar 23/04/2024–Mar 23/04/2027	Tue, 4/23/2024 – Tue, 4/23/2027			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMM"]/greatestDifference[@id="M"]	dc-21_XXX
+Tue, 4/23 – Tue, 5/23	Mar 23/04–Mar 23/05	Tue, 4/23 – Tue, 5/23			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMEd"]/greatestDifference[@id="y"]	dc-22_XXX
+Tue, 4/23 – Wed, 4/24	Mar 23/04–Mer 24/04	Tue, 4/23 – Wed, 4/24			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMEd"]/greatestDifference[@id="M"]	dc-23_XXX
+4/23/2024 – 4/23/2027	23/04/2024–23/04/2027	4/23/2024 – 4/23/2027			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMEd"]/greatestDifference[@id="d"]	dc-24_XXX
+4/23 – 5/23	23/04–23/05	4/23 – 5/23			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMd"]/greatestDifference[@id="y"]	dc-25_XXX
+4/23 – 4/24	23/04–24/04	4/23 – 4/24			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMd"]/greatestDifference[@id="M"]	dc-26_XXX
+4/2024 – 4/2027	4/2024–4/2027	4/2024 – 4/2027			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMd"]/greatestDifference[@id="d"]	dc-27_XXX
+4/2024 – 5/2024	4/2024–5/2024	4/2024 – 5/2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yM"]/greatestDifference[@id="y"]	dc-28_XXX
+2024 – 2027	2024–2027	2024 – 2027			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yM"]/greatestDifference[@id="M"]	dc-29_XXX
+2023 – 2024	2023–2024	2023 – 2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="y"]/greatestDifference[@id="y"]	dc-30_XXX
+Tue 3:30 PM	Mar 15 h 30	Tue 3:30 PM			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Ehm"]	dc-31_XXX
+Tue 3:30:45 PM	Mar 15 h 30 min 45 s	Tue 3:30:45 PM			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Ehms"]	dc-32_XXX
+Tue 15:30	Mar 15 h 30	Tue 15:30			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="EHm"]	dc-33_XXX
+Tue 15:30:45	Mar 15 h 30 min 45 s	Tue 15:30:45			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="EHms"]	dc-34_XXX
+Tuesday at 3:30:45 PM	Mardi à 15 h 30 min 45 s	Tuesday at 3:30:45 PM			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/dateTimeFormatLength[@type="full"]/dateTimeFormat[@type="atTime"]/pattern[@type="standard"]	dc-35_XXX
+Tuesday at 3:30:45 PM	Mardi à 15 h 30 min 45 s	Tuesday at 3:30:45 PM			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/dateTimeFormatLength[@type="long"]/dateTimeFormat[@type="atTime"]/pattern[@type="standard"]	dc-36_XXX
+Tuesday, April 23, 2024 at 3:30:45 PM	Mardi 23 avril 2024 à 15 h 30 min 45 s	Tuesday, April 23, 2024 at 3:30:45 PM			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/dateTimeFormatLength[@type="full"]/dateTimeFormat[@type="standard"]/pattern[@type="standard"]	dc-37_XXX
+April 23, 2024 at 3:30:45 PM	23 avril 2024 à 15 h 30 min 45 s	April 23, 2024 at 3:30:45 PM			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/dateTimeFormatLength[@type="long"]/dateTimeFormat[@type="standard"]/pattern[@type="standard"]	dc-38_XXX
+Apr 23, 2024 at 3:30 PM	23 avril 2024 à 15 h 30	Apr 23, 2024 at 3:30 PM			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/dateTimeFormatLength[@type="medium"]/dateTimeFormat[@type="standard"]/pattern[@type="standard"]	dc-39_XXX
+Apr 23 at 3:30 PM	Avr. 2024 à 15 h 30	Apr 23 at 3:30 PM			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/dateTimeFormatLength[@type="medium"]/dateTimeFormat[@type="atTime"]/pattern[@type="standard"]	dc-40_XXX
+Thu, 4/23	Mer 23 avril	Thu, 4/23			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="MEd"]	dc-41_XXX
+Tue, 4/23 – Wed, 4/24	Mar 23/04–Mer 24/04	Tue, 4/23 – Wed, 4/24			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="MEd"]/greatestDifference[@id="d"]	dc-42_XXX
+Tue, 4/23 – Thu, 5/23	Mar 23/04–Jeu 23/05	Tue, 4/23 – Thu, 5/23			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="MEd"]/greatestDifference[@id="M"]	dc-43_XXX
+Tue, Apr 23, 2024 – Wed, Apr 24, 2024	Mar 23 avr. 2024–Mer 24 avr. 2024	Tue, Apr 23, 2024 – Wed, Apr 24, 2024			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMEd"]/greatestDifference[@id="d"]	dc-44_XXX
+Tue, Apr 23, 2024 – Thu, May 23, 2024	Mar 23 avr. 202–Jeu 23 mai 2024	Tue, Apr 23, 2024 – Thu, May 23, 2024			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMEd"]/greatestDifference[@id="M"]	dc-45_XXX
+Tue, Apr 23, 2024 – Fri, Apr 23, 2027	Mar 23 avr. 2024–Ven 23 avr. 2027	Tue, Apr 23, 2024 – Fri, Apr 23, 2027			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMEd"]/greatestDifference[@id="y"]	dc-46_XXX
+Tue, Apr 23, 2024 – Tue, Apr 23, 2345	Mar 23 avr. 2024–Mar 23 avr. 2345	Tue, Apr 23, 2024 – Tue, Apr 23, 2345			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMEd"]/greatestDifference[@id="G"]	dc-47_XXX
+Tue, Apr 23, 2024 – Wed, Apr 24, 2024	Mar 23 avr. 2024–Mer 24 avr. 2024	Tue, Apr 23, 2024 – Wed, Apr 24, 2024			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMMEd"]/greatestDifference[@id="d"]	dc-48_XXX
+Tue, Apr 23, 2024 – Tue, May 23, 2024	Mar 23 avr. 2024–Mar 23 mai 2024	Tue, Apr 23, 2024 – Tue, May 23, 2024			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMMEd"]/greatestDifference[@id="M"]	dc-49_XXX
+Tue, Apr 23, 2024 – Tue, Apr 23, 2027	Mar 23 avr. 2024–Mar 23 avr. 2027	Tue, Apr 23, 2024 – Tue, Apr 23, 2027			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMMEd"]/greatestDifference[@id="y"]	dc-50_XXX
+Tue, Apr 23, 2024	Mar 23 avr. 2024	Tue, Apr 23, 2024			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="GyMMMEd"]	dc-51_XXX
+Tue, Apr 23, 2024 – Tue, Apr 23, 2345	Mar 23 avr. 2024–Mar 23 avr. 2345	Tue, Apr 23, 2024 – Tue, Apr 23, 2345			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMMEd"]/greatestDifference[@id="G"]	dc-52_XXX
+Tuesday, April 23, 2024	Mardi 23 avril 2024	Tuesday, April 23, 2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateFormats/dateFormatLength[@type="full"]/dateFormat[@type="standard"]/pattern[@type="standard"]	dc-53_XXX
+Tuesday, April 23, 2024	Mardi 23 avril 2024	Tuesday, April 23, 2024			//ldml/dates/calendars/calendar[@type="generic"]/dateFormats/dateFormatLength[@type="full"]/dateFormat[@type="standard"]/pattern[@type="standard"]	dc-54_XXX
+3:30:45 PM	15 h 30 min 45 s	3:30:45 PM			//ldml/dates/calendars/calendar[@type="gregorian"]/timeFormats/timeFormatLength[@type="medium"]/timeFormat[@type="standard"]/pattern[@type="standard"]	dc-55_XXX
+3:30:45 PM PDT	15 h 30 min 45 s PDT	3:30:45 PM PDT			//ldml/dates/calendars/calendar[@type="gregorian"]/timeFormats/timeFormatLength[@type="long"]/timeFormat[@type="standard"]/pattern[@type="standard"]	dc-56_XXX
+3:30:45 PM Pacific Daylight Time	15 h 30 min 45 s, Heure avancée du pacifique	3:30:45 PM Pacific Daylight Time			//ldml/dates/calendars/calendar[@type="gregorian"]/timeFormats/timeFormatLength[@type="full"]/timeFormat[@type="standard"]/pattern[@type="standard"]	dc-57_XXX
+April	Avril	April			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="M"]	dc-58_XXX
+April	Avril	April			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="M"]	dc-59_XXX
+April – May	Avril–mai	April – May			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="M"]/greatestDifference[@id="M"]	dc-60_XXX
+April – May	Avril–mai	April – May			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="M"]/greatestDifference[@id="M"]	dc-61_XXX
+4/23	4/23	4/23			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Md"]	dc-62_XXX
+4/23 – 4/24	23/04–24/04	4/23 – 4/24			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Md"]/greatestDifference[@id="d"]	dc-63_XXX
+4/23 – 5/23	23/04–23/05	4/23 – 5/23			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Md"]/greatestDifference[@id="M"]	dc-64_XXX
+4/23/2024 – 4/24/2024	23/04/2024–24/04/2024	4/23/2024 – 4/24/2024			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMd"]/greatestDifference[@id="d"]	dc-65_XXX
+4/23/2024 – 5/23/2024	23/04/2024–23/05/2024	4/23/2024 – 5/23/2024			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMd"]/greatestDifference[@id="M"]	dc-66_XXX
+4/23/2024 – 4/23/2027	23/04/2024–23/04/2027	4/23/2024 – 4/23/2027			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMd"]/greatestDifference[@id="y"]	dc-67_XXX
+4/23/2024	23/04/2024	4/23/2024			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="GyMd"]	dc-68_XXX
+4/23/2024 – 4/23/2345	23/04/2024–23/04/2345	4/23/2024 – 4/23/2345			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMd"]/greatestDifference[@id="G"]	dc-69_XXX
+4/2024 – 5/2024	4/2024–5/2024	4/2024 – 5/2024			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyM"]/greatestDifference[@id="M"]	dc-70_XXX
+4/2024 – 4/2027	4/2024–4/2027	4/2024 – 4/2027			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyM"]/greatestDifference[@id="y"]	dc-71_XXX
+4/2024 – 4/2345	4/2024–4/2345	4/2024 – 4/2345			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyM"]/greatestDifference[@id="G"]	dc-72_XXX
+Apr 2024 – May 2024	Avril 2024–Mai 2024	Apr 2024 – May 2024			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMM"]/greatestDifference[@id="M"]	dc-73_XXX
+Apr 23 – Apr 24, 2024	23 avril–24 avril 2024	Apr 23 – Apr 24, 2024			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMMd"]/greatestDifference[@id="d"]	dc-74_XXX
+Apr 23 – May 23, 2024	23 avril–23 mai 2024	Apr 23 – May 23, 2024			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMMd"]/greatestDifference[@id="M"]	dc-75_XXX
+Apr 23, 2024	23 avril 2024	Apr 23, 2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateFormats/dateFormatLength[@type="medium"]/dateFormat[@type="standard"]/pattern[@type="standard"]	dc-76_XXX
+Apr 23, 2024 – Apr 23, 2027	23 avril 2024–23 avril 2027	Apr 23, 2024 – Apr 23, 2027			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMMd"]/greatestDifference[@id="y"]	dc-77_XXX
+Apr 23, 2024	23 avril 2024	Apr 23, 2024			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="GyMMMd"]	dc-78_XXX
+Apr 23, 2024	23 avril 2024	Apr 23, 2024			//ldml/dates/calendars/calendar[@type="generic"]/dateFormats/dateFormatLength[@type="medium"]/dateFormat[@type="standard"]/pattern[@type="standard"]	dc-79_XXX
+Apr 23, 2024 – Apr 23, 2345	23 avril 2024–23 avril 2345	Apr 23, 2024 – Apr 23, 2345			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMMd"]/greatestDifference[@id="G"]	dc-80_XXX
+Apr 2024 – Apr 2027	Avril 2024–Avril 2027	Apr 2024 – Apr 2027			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMM"]/greatestDifference[@id="y"]	dc-81_XXX
+Apr 2024	Avril 2024	Apr 2024			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="GyMMM"]	dc-82_XXX
+Apr 2024 – Apr 2345	Avril 2024–Avril 2345	Apr 2024 – Apr 2345			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMM"]/greatestDifference[@id="G"]	dc-83_XXX
+April 23, 2024	23 avril 2024	April 23, 2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateFormats/dateFormatLength[@type="long"]/dateFormat[@type="standard"]/pattern[@type="standard"]	dc-84_XXX
+April 23, 2024	23 avril 2024	April 23, 2024			//ldml/dates/calendars/calendar[@type="generic"]/dateFormats/dateFormatLength[@type="long"]/dateFormat[@type="standard"]/pattern[@type="standard"]	dc-85_XXX
+2024 – 2027	2024–2027	2024 – 2027			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Gy"]/greatestDifference[@id="y"]	dc-86_XXX
+2024	2024	2024			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Gy"]	dc-87_XXX
+2024 – 2345	2024–2345	2024 – 2345			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Gy"]/greatestDifference[@id="G"]	dc-88_XXX
+Apr – May	Avr.–mai	Apr – May			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="MMM"]/greatestDifference[@id="M"]	dc-89_XXX
+Apr 23	23 Avr.	Apr 23			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="MMMd"]	dc-90_XXX
+Apr 23 – Apr 24	23 Avril–24 Avril	Apr 23 – Apr 24			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="MMMd"]/greatestDifference[@id="d"]	dc-91_XXX
+Apr 23 – May 23	23 Avril–23 Mai	Apr 23 – May 23			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="MMMd"]/greatestDifference[@id="M"]	dc-92_XXX
+Thu, Apr 23	Mer 23 avril	Thu, Apr 23			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="MMMEd"]	dc-93_XXX
+Tue, Apr 23 – Wed, Apr 24	Mar 23 avr.–Mer 24 avr.	Tue, Apr 23 – Wed, Apr 24			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="MMMEd"]/greatestDifference[@id="d"]	dc-94_XXX
+Tue, Apr 23 – Tue, May 23	Mar. 23 avr.–Mar. 23 mai	Tue, Apr 23 – Tue, May 23			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="MMMEd"]/greatestDifference[@id="M"]	dc-95_XXX
+April 23	23 avril	April 23			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="MMMMd"]	dc-96_XXX
+April – Week 4	Avril – Semaine 4	April – Week 4			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="MMMMW"][@count="other"]	dc-97_XXX
+4/23/24	23/04/24	4/23/24			//ldml/dates/calendars/calendar[@type="generic"]/dateFormats/dateFormatLength[@type="short"]/dateFormat[@type="standard"]/pattern[@type="standard"]	dc-98_XXX
+4/23/24	23/04/24	4/23/24				dc-99_XXX
+COORDINATES AND DIRECTIONS / COORDONNÉES ET DIRECTIONS		COORDINATES AND DIRECTIONS / COORDONNÉES ET DIRECTIONS				
+"In websites like Wikipedia, it's common to see the long form of coordinates, such as ""Cape Town is located at 33.9258° south and 18.4232° east.""
+Sur des sites web comme celui de Wikipédia, on trouve souvent des coordonnées au format étendu. Par exemple : « Le Cap est situé à 33,9258 °Sud et à 18,4232 °Est. »"		"In websites like Wikipedia, it's common to see the long form of coordinates, such as ""Cape Town is located at 33.9258° south and 18.4232° east.""
+Sur des sites web comme celui de Wikipédia, on trouve souvent des coordonnées au format étendu. Par exemple : « Le Cap est situé à 33,9258 °Sud et à 18,4232 °Est. »"				
+ENGLISH	FRENCH	ENGLISH	VISUAL EXAMPLE		XPATH (Ignore/For Reference Only)	
+48.8584° north	48,8584 °Nord	48.8584° north				co-1_XXX
+22.5609° south	22,5609 °Sud	22.5609° south				co-2_XXX
+2.2945° east	2,2945 °Est	2.2945° east				co-3_XXX
+0.2057° west	0,2057 °Ouest	0.2057° west				co-4_XXX
+cardinal direction	Direction cardinale	cardinal direction				co-5_XXX
+"In devices like Garmin, coordinates are shown with no space between the number and the cardinal direction.  
+Sur certains appareils comme ceux fabriqués par Garmin, les coordonnées s’affichent sans espace entre le chiffre et la direction cardinale."		"In devices like Garmin, coordinates are shown with no space between the number and the cardinal direction.  
+Sur certains appareils comme ceux fabriqués par Garmin, les coordonnées s’affichent sans espace entre le chiffre et la direction cardinale."				
+ENGLISH	FRENCH	ENGLISH	VISUAL EXAMPLE		XPATH (Ignore/For Reference Only)	
+48.8584°N	48,8584 °N	48.8584°N				co2-1_XXX
+22.5609°S	22,5609 °S	22.5609°S				co2-2_XXX
+2.2945°E	2,2945 °E	2.2945°E				co2-3_XXX
+0.2057°W	0,2057 °O	0.2057°W				co2-4_XXX
+						
+"The GPS in your car is giving you directions. Coming up soon, you need to turn right. The GPS alerts you ""Take the 1st right"" (i.e., turn right at the next intersection). Or maybe the GPS alerts you ""Take the 2nd right"" or ""Take the 3rd right"" etc. (i.e., turn right at the second, third, or fourth intersection).
+Le GPS de votre voiture indique la direction à prendre. Vous devez bientôt tourner à droite. Le GPS vous avertit : « Prenez la première à droite » (c’est-à-dire tournez à droite à la prochaine intersection). Il peut aussi signaler : « Prenez la deuxième à droite » ou « Prenez la troisième à droite », etc. (c’est-à-dire tournez à la deuxième, troisième ou quatrième intersection à droite)."		"The GPS in your car is giving you directions. Coming up soon, you need to turn right. The GPS alerts you ""Take the 1st right"" (i.e., turn right at the next intersection). Or maybe the GPS alerts you ""Take the 2nd right"" or ""Take the 3rd right"" etc. (i.e., turn right at the second, third, or fourth intersection).
+Le GPS de votre voiture indique la direction à prendre. Vous devez bientôt tourner à droite. Le GPS vous avertit : « Prenez la première à droite » (c’est-à-dire tournez à droite à la prochaine intersection). Il peut aussi signaler : « Prenez la deuxième à droite » ou « Prenez la troisième à droite », etc. (c’est-à-dire tournez à la deuxième, troisième ou quatrième intersection à droite)."				
+ENGLISH	FRENCH	ENGLISH	VISUAL EXAMPLE		XPATH (Ignore/For Reference Only)	
+Take the 1st right	Prenez la 1re à droite	Take the 1st right			//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal="one"]	co3-1_XXX
+Take the 2nd right	Prenez la 2e à droite	Take the 2nd right				co3-2_XXX
+Take the 3rd right	Prenez la 3e à droite	Take the 3rd right				co3-3_XXX
+QUARTERS / TRIMESTRES		QUARTERS / TRIMESTRES				
+"Many sports divide a game into 4 parts, called ""quarters."" Businesses and nonprofits often divide a year into 4 parts, also called ""quarters."" Both use terms like “1st Quarter” and abbreviations “Q1.” You’ll see these in finance apps, reports, and game scores.
+
+Please give us your translation for terms like “1st Quarter,” “2nd Quarter,” and so on—both full forms and abbreviated ones (like “Q1” and ""Q2""). We’ve included examples from English and French.
+
+If your language doesn’t use the abbreviated version, just leave that blank or type “NA.”
+
+Dans de nombreux sports, un match est divisé en quatre parties appelées « quarts ». Les entreprises et les ONG divisent aussi l’année en quatre parties appelées « trimestres ». Dans les deux cas, on utilise des termes comme « 1er trimestre » et des abréviations comme « T1 ». On les retrouve dans les applications informatiques financières, les rapports et les scores de jeux.
+
+Veuillez fournir votre traduction des termes comme « 1er trimestre », « 2e trimestre », etc. — à la fois les formes complètes et les formes abrégées (comme « T1 » et « T2 »). Si votre langue n’utilise pas la version abrégée, laissez simplement la case vide ou saisissez « NA »."		"Many sports divide a game into 4 parts, called ""quarters."" Businesses and nonprofits often divide a year into 4 parts, also called ""quarters."" Both use terms like “1st Quarter” and abbreviations “Q1.” You’ll see these in finance apps, reports, and game scores.
+
+Please give us your translation for terms like “1st Quarter,” “2nd Quarter,” and so on—both full forms and abbreviated ones (like “Q1” and ""Q2""). We’ve included examples from English and French.
+
+If your language doesn’t use the abbreviated version, just leave that blank or type “NA.”
+
+Dans de nombreux sports, un match est divisé en quatre parties appelées « quarts ». Les entreprises et les ONG divisent aussi l’année en quatre parties appelées « trimestres ». Dans les deux cas, on utilise des termes comme « 1er trimestre » et des abréviations comme « T1 ». On les retrouve dans les applications informatiques financières, les rapports et les scores de jeux.
+
+Veuillez fournir votre traduction des termes comme « 1er trimestre », « 2e trimestre », etc. — à la fois les formes complètes et les formes abrégées (comme « T1 » et « T2 »). Si votre langue n’utilise pas la version abrégée, laissez simplement la case vide ou saisissez « NA »."				
+ENGLISH	FRENCH	ENGLISH	VISUAL EXAMPLE		XPATH (Ignore/For Reference Only)	
+1st quarter	1er trimestre	1st quarter			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="stand-alone"]/quarterWidth[@type="wide"]/quarter[@type="1"]	qt-1_XXX
+2nd quarter	2e trimestre	2nd quarter			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="stand-alone"]/quarterWidth[@type="wide"]/quarter[@type="2"]	qt-2_XXX
+3rd quarter	3e trimestre	3rd quarter			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="stand-alone"]/quarterWidth[@type="wide"]/quarter[@type="3"]	qt-3_XXX
+4th quarter	4e trimestre	4th quarter			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="stand-alone"]/quarterWidth[@type="wide"]/quarter[@type="4"]	qt-4_XXX
+Q1	T1	Q1			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="stand-alone"]/quarterWidth[@type="abbreviated"]/quarter[@type="1"]	qt-5_XXX
+Q2	T2	Q2			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="stand-alone"]/quarterWidth[@type="abbreviated"]/quarter[@type="2"]	qt-6_XXX
+Q3	T3	Q3			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="stand-alone"]/quarterWidth[@type="abbreviated"]/quarter[@type="3"]	qt-7_XXX
+Q4	T4	Q4			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="stand-alone"]/quarterWidth[@type="abbreviated"]/quarter[@type="4"]	qt-8_XXX
+"In some cases, there is more context provided as to which quarter or quarter(s) is being referenced. 
+
+Please give us your translation for terms like “1st Quarter of 2025,” “2nd Quarter of 2025,” and so on—both full forms and abbreviated ones (like “Q1” and ""Q2""). 
+
+Dans certains cas, un contexte supplémentaire est donné pour préciser à quels trimestres on fait référence.
+
+Veuillez donner votre traduction pour des expressions comme « 1er trimestre en 2025 », « 2e trimestre en 2025 », etc. — sous forme complète et abrégée (telles que « T1 » et « T2 »)."		"In some cases, there is more context provided as to which quarter or quarter(s) is being referenced. 
+
+Please give us your translation for terms like “1st Quarter of 2025,” “2nd Quarter of 2025,” and so on—both full forms and abbreviated ones (like “Q1” and ""Q2""). 
+
+Dans certains cas, un contexte supplémentaire est donné pour préciser à quels trimestres on fait référence.
+
+Veuillez donner votre traduction pour des expressions comme « 1er trimestre en 2025 », « 2e trimestre en 2025 », etc. — sous forme complète et abrégée (telles que « T1 » et « T2 »)."				
+ENGLISH	FRENCH	ENGLISH	VISUAL EXAMPLE		XPATH (Ignore/For Reference Only)	
+1st quarter of 2025	1er trimestre en 2025	1st quarter of 2025				qt2-1_XXX
+2nd quarter of 2025	2e trimestre en 2025	2nd quarter of 2025			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="wide"]/quarter[@type="2"]	qt2-2_XXX
+3rd quarter of 2025	3e trimestre en 2025	3rd quarter of 2025			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="wide"]/quarter[@type="3"]	qt2-3_XXX
+4th quarter of 2025	4e trimestre en 2025	4th quarter of 2025			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="wide"]/quarter[@type="4"]	qt2-4_XXX
+Q1 of 2025	T1 de 2025	Q1 of 2025			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="abbreviated"]/quarter[@type="1"]	qt2-5_XXX
+Q2 of 2025	T2 de 2025	Q2 of 2025			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="abbreviated"]/quarter[@type="2"]	qt2-6_XXX
+Q3 of 2025	T3 de 2025	Q3 of 2025			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="abbreviated"]/quarter[@type="3"]	qt2-7_XXX
+Q4 of 2025	T4 de 2025	Q4 of 2025			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="abbreviated"]/quarter[@type="4"]	qt2-8_XXX
+ERAS / ÈRES		ERAS / ÈRES				
+"You're making a Wikipedia article about a famous historical person. Their birthdate might appera like “450 BCE” or “2025 AD.”
+
+We need your local translation for those terms—both the full versions (like “Before Christ”) and the abbreviated ones (like “BC” or “BCE”).
+
+There’s a table with examples in English and French for comparison. If your language doesn’t use some of these terms or abbreviations, just leave them blank or write “NA.”
+
+Vous rédigez un article Wikipédia sur une personnage historique célèbre. Sa date de naissance pourrait être présentée ainsi : « 450 av. n. è. » ou « 2025 ap. J.-C. ».
+
+Nous avons besoin de votre traduction locale de ces termes — à la fois sous forme complète (comme « Avant Jésus-Christ ») et sous forme abrégée (comme « av. J.-C. » ou « av. n. è. »). Vous trouverez un tableau contenant des exemples en anglais et en français à comparer. Si votre langue n’utilise pas certains de ces termes ou abréviations, laissez-les vides ou saisissez « NA »."		"You're making a Wikipedia article about a famous historical person. Their birthdate might appera like “450 BCE” or “2025 AD.”
+
+We need your local translation for those terms—both the full versions (like “Before Christ”) and the abbreviated ones (like “BC” or “BCE”).
+
+There’s a table with examples in English and French for comparison. If your language doesn’t use some of these terms or abbreviations, just leave them blank or write “NA.”
+
+Vous rédigez un article Wikipédia sur une personnage historique célèbre. Sa date de naissance pourrait être présentée ainsi : « 450 av. n. è. » ou « 2025 ap. J.-C. ».
+
+Nous avons besoin de votre traduction locale de ces termes — à la fois sous forme complète (comme « Avant Jésus-Christ ») et sous forme abrégée (comme « av. J.-C. » ou « av. n. è. »). Vous trouverez un tableau contenant des exemples en anglais et en français à comparer. Si votre langue n’utilise pas certains de ces termes ou abréviations, laissez-les vides ou saisissez « NA »."				
+ENGLISH	FRENCH	ENGLISH	VISUAL EXAMPLE		XPATH (Ignore/For Reference Only)	
+Before Common Era	avant l’ère commune	Before Common Era				er-1_XXX
+BCE	AEC	BCE				er-2_XXX
+Before Christ	avant Jésus-Christ	Before Christ				er-3_XXX
+BC	av. J.-C.	BC				er-4_XXX
+Common Era	de l’ère commune	Common Era				er-5_XXX
+CE	EC	CE				er-6_XXX
+Anno Domini	après Jésus-Christ	Anno Domini				er-7_XXX
+AD	ap. J.-C.	AD				er-8_XXX
