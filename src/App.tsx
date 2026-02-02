@@ -1,4 +1,4 @@
-import InputLoadWidget from './data/InputLoadWidget';
+import PageBody from './page/PageBody';
 
 function App() {
   return (
@@ -7,7 +7,7 @@ function App() {
         <h1>MokBlok Tools</h1>
       </header>
       <div>
-        <InputLoadWidget />
+        <PageBody />
       </div>
       <footer>
         <p>

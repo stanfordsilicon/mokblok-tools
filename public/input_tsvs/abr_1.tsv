@@ -2,7 +2,7 @@ BASIC INFORMATION / INFORMATIONS DE BASE
 "Let's begin with some basic questions about your language! Please read the question in the column ""QUESTION"" and provide your answer in the column labeled ""Your Answer""
 Commençons par quelques questions de base au sujet de votre langue ! Veuillez lire les questions figurant dans la colonne « QUESTION » et y répondre dans la colonne intitulée « Votre réponse »"						
 QUESTION	French	YOUR ANSWER	Visual Example	NOTES BY TRANSLATOR (IF NECESSARY)		
-First, what is the name of your language in your language. For example, the name of the language "German" in German is "Deutsch". Meanwhile, the name for "Thai" in Thai is "ไทย". What is the name if your language in your own language? 	Tout d’abord, quel est le nom votre langue dans votre propre langue ? Par exemple, le nom de la langue « German » en allemand est « Deutsch ». De même, le nom de « Thai » en thaï est « ไทย ». Quel nom désigne donc votre langue dans votre propre langue ?	The name of “Abron” in Abron language is “Bono”				
+First, what is the name of your language in your language. For example, the name of the language "German" in German is "Deutsch". Meanwhile, the name for "Thai" in Thai is "ไทย". What is the name if your language in your own language?	Tout d’abord, quel est le nom votre langue dans votre propre langue ? Par exemple, le nom de la langue « German » en allemand est « Deutsch ». De même, le nom de « Thai » en thaï est « ไทย ». Quel nom désigne donc votre langue dans votre propre langue ?	The name of “Abron” in Abron language is “Bono”				
 Now, what is the name of your language in English? For example, the name for "Deutsch" in English is "German". The name for "" in English is "Chinese". What is the name of your language in English?	Quel est le nom de votre langue en anglais ? Par exemple, en anglais le nom « Deutsch » est rendu par « German » et le nom « 中文 » par « Chinese ». Quel est donc le nom de votre langue en anglais ?	The name of “Bono” in English is “Abron”				
 Let's say you are giving a review for an online class, a product, or a restaurant. In English you might give "4.7" (a score in between 4 and 5, that is). In your language, do you use the decimal point (.) to separate the numbers "4" and "7"? If not, what do you use? A comma (,)? An apostophe (')? Something else? Please provide your translation of "4.7" in the column marked "YOUR ANSWER".	Supposons que vous laissiez un avis pour un cours en ligne, un produit ou un restaurant. En anglais, vous pourriez donner la note « 4.7 » (pour indiquer un score compris entre 4 et 5). Dans votre langue, utilisez-vous le point (.) comme séparateur entre les chiffres « 4 » et « 7 » ? Sinon, qu’utilisez-vous ? Une virgule (,) ? Une apostrophe (') ? Autre chose ? Veuillez indiquer votre traduction de « 4.7 » dans la colonne marquée « YOUR ANSWER ».	"Yes, we use decimals point to seperate numbers. 
 The translation for 4.7 is 4.7, or in words is ""ɛnan akyiripɔ nson"","		Numbers are generally not written out in text.		
@@ -10,321 +10,309 @@ DATE WORDS / TERMINOLOGIE DES DATES
 "In French there are 3 ways to write the word for ""year"": ""année"" (the full form), ""an"" (short form) & ""a"" (narrow form). In English, there are also 3 forms: ""Year"", ""Yr."" (with a period) & ""Yr"" (no period). Does your language have the same abbreviations? Fewer? More? Please translate these into your language. If your language doesn't have a translation for all the translations, write ""DOES NOT EXIST"". If you have MORE abbreviations, please add NOTES in the NOTES column. 
 En français, il existe trois façons d’écrire le mot « année » : « année » (forme complète), « an » (forme courte) et « a » (forme abrégée). En anglais, on en trouve également trois formes : « Year », « Yr. » (avec point) et « Yr » (sans point). Votre langue possède-t-elle les mêmes abréviations ? En possède-t-elle moins ? Ou plus ? Veuillez traduire ces formes dans votre langue. Si votre langue ne propose pas de traduction pour l’une de ces formes, écrivez « N’EXISTE PAS ». Si vous avez PLUS d’abréviations, veuillez ajouter des NOTES dans la colonne reservée à cet effet."						
 ENGLISH	FRENCH	TRANSLATION IN YOUR LANGUAGE	VISUAL EXAMPLE	NOTES BY TRANSLATOR (IF NECESSARY)	XPATH (Ignore/For Reference Only)	
-era	ère	mmerɛ			//ldml/dates/fields/field[@type="era"]/displayName	
-year	année	afe			//ldml/dates/fields/field[@type="year"]/displayName	
-yr	a	DOES NOT EXIST		"Year is always written in full unless you want to use just the first letter which is acceptable, as shown below. The following is a possibility, however not all Abron speakers would understand unless the context is clear:
-af"	//ldml/dates/fields/field[@type="year-narrow"]/displayName	
-y	an	a			//ldml/dates/fields/field[@type="year-short"]/displayName	
-quarter	trimestre	kɔta		Kɔta is borrowed from English but written in how we pronounce in our language.	//ldml/dates/fields/field[@type="quarter"]/displayName	
-qtr.	trim.	k.		"There is typically no abbreviation for quarter. It's either written in full or represented just by k, but if the context is clear it may also be understood as:
-kɔt."	//ldml/dates/fields/field[@type="quarter-short"]/displayName	
-qtr	trim.	k.		"There is typically no abbreviation for quarter. It's either written in full or represented just by k, but if the context is clear it may also be understood as:
-kɔt."	//ldml/dates/fields/field[@type="quarter-narrow"]/displayName	
-month	mois	bosome			//ldml/dates/fields/field[@type="month"]/displayName	
-mo.	m.	DOES NOT EXIST		"Month is always written in full. The following is a possibility, however not all Abron speakers would understand unless the context is clear:
-bo"	//ldml/dates/fields/field[@type="month-short"]/displayName	
-m	m.	DOES NOT EXIST		"Month is always written in full. The following is a possibility, however not all Abron speakers would understand unless the context is clear:
-b"	//ldml/dates/fields/field[@type="month-narrow"]/displayName	
-week	semaine	nnawɔtwe			//ldml/dates/fields/field[@type="week"]/displayName	
-wk.	sem.	DOES NOT EXIST		"Week is always written in full. The following is a possibility, however not all Abron speakers would understand unless the context is clear:
-nn."	//ldml/dates/fields/field[@type="week-short"]/displayName	
-wk	sem.	DOES NOT EXIST		"Week is always written in full. The following is a possibility, however not all Abron speakers would understand unless the context is clear:
-nn"	//ldml/dates/fields/field[@type="week-narrow"]/displayName	
-day	jour	da			//ldml/dates/fields/field[@type="day"]/displayName	
-d	j	DOES NOT EXIST		"Day is always written in full. The following is a possibility, however not all Abron speakers would understand unless the context is clear:
-d"	//ldml/dates/fields/field[@type="day-short"]/displayName	
-hour	heure	dɔnhwere			//ldml/dates/fields/field[@type="hour"]/displayName	
-hr	h	DOES NOT EXIST		"Hour is always written in full. The following is a possibility, however not all Abron speakers would understand unless the context is clear:
-dɔ"	//ldml/dates/fields/field[@type="hour-narrow"]/displayName	
-minute	minute	sima			//ldml/dates/fields/field[@type="minute"]/displayName	
-min	min	DOES NOT EXIST		"Minute is always written in full. The following is a possibility, however not all Abron speakers would understand unless the context is clear:
-sim"	//ldml/dates/fields/field[@type="minute-narrow"]/displayName	
-second	seconde	anitɛtɛ			//ldml/dates/fields/field[@type="second"]/displayName	
-sec.	s	DOES NOT EXIST		"Second is always written in full. The following is a possibility, however not all Abron speakers would understand unless the context is clear:
-ani."	//ldml/dates/fields/field[@type="second-short"]/displayName	
-sec	s	DOES NOT EXIST		"Second is always written in full. The following is a possibility, however not all Abron speakers would understand unless the context is clear:
-ani"	//ldml/dates/fields/field[@type="second-narrow"]/displayName	
-day of the week	jour de la semaine	nnawɔtwe mu da			//ldml/dates/fields/field[@type="weekday"]/displayName	
+era	ère	mmerɛ			//ldml/dates/fields/field[@type="era"]/displayName	dw-1_XXX
+year	année	afe			//ldml/dates/fields/field[@type="year"]/displayName	dw-2_XXX
+yr	a	DOES NOT EXIST		Year is always written in full unless you want to use just the first letter which is acceptable, as shown below. The following is a possibility, however not all Abron speakers would understand unless the context is clear: af	//ldml/dates/fields/field[@type="year-narrow"]/displayName	dw-3_XXX
+y	an	a			//ldml/dates/fields/field[@type="year-short"]/displayName	dw-4_XXX
+quarter	trimestre	kɔta		Kɔta is borrowed from English but written in how we pronounce in our language.	//ldml/dates/fields/field[@type="quarter"]/displayName	dw-5_XXX
+qtr.	trim.	k.		There is typically no abbreviation for quarter. It's either written in full or represented just by k, but if the context is clear it may also be understood as: kɔt.	//ldml/dates/fields/field[@type="quarter-short"]/displayName	dw-6_XXX
+qtr	trim.	k.		There is typically no abbreviation for quarter. It's either written in full or represented just by k, but if the context is clear it may also be understood as: kɔt.	//ldml/dates/fields/field[@type="quarter-narrow"]/displayName	dw-7_XXX
+month	mois	bosome			//ldml/dates/fields/field[@type="month"]/displayName	dw-8_XXX
+mo.	m.	DOES NOT EXIST		Month is always written in full. The following is a possibility, however not all Abron speakers would understand unless the context is clear: bo	//ldml/dates/fields/field[@type="month-short"]/displayName	dw-9_XXX
+m	m.	DOES NOT EXIST		Month is always written in full. The following is a possibility, however not all Abron speakers would understand unless the context is clear: b	//ldml/dates/fields/field[@type="month-narrow"]/displayName	dw-10_XXX
+week	semaine	nnawɔtwe			//ldml/dates/fields/field[@type="week"]/displayName	dw-11_XXX
+wk.	sem.	DOES NOT EXIST		Week is always written in full. The following is a possibility, however not all Abron speakers would understand unless the context is clear: nn.	//ldml/dates/fields/field[@type="week-short"]/displayName	dw-12_XXX
+wk	sem.	DOES NOT EXIST		Week is always written in full. The following is a possibility, however not all Abron speakers would understand unless the context is clear: nn	//ldml/dates/fields/field[@type="week-narrow"]/displayName	dw-13_XXX
+day	jour	da			//ldml/dates/fields/field[@type="day"]/displayName	dw-14_XXX
+d	j	DOES NOT EXIST		Day is always written in full. The following is a possibility, however not all Abron speakers would understand unless the context is clear: d	//ldml/dates/fields/field[@type="day-short"]/displayName	dw-15_XXX
+hour	heure	dɔnhwere			//ldml/dates/fields/field[@type="hour"]/displayName	dw-16_XXX
+hr	h	DOES NOT EXIST		Hour is always written in full. The following is a possibility, however not all Abron speakers would understand unless the context is clear: dɔ	//ldml/dates/fields/field[@type="hour-narrow"]/displayName	dw-17_XXX
+minute	minute	sima			//ldml/dates/fields/field[@type="minute"]/displayName	dw-18_XXX
+min	min	DOES NOT EXIST		Minute is always written in full. The following is a possibility, however not all Abron speakers would understand unless the context is clear: sim	//ldml/dates/fields/field[@type="minute-narrow"]/displayName	dw-19_XXX
+second	seconde	anitɛtɛ			//ldml/dates/fields/field[@type="second"]/displayName	dw-20_XXX
+sec.	s	DOES NOT EXIST		Second is always written in full. The following is a possibility, however not all Abron speakers would understand unless the context is clear: ani.	//ldml/dates/fields/field[@type="second-short"]/displayName	dw-21_XXX
+sec	s	DOES NOT EXIST		Second is always written in full. The following is a possibility, however not all Abron speakers would understand unless the context is clear: ani	//ldml/dates/fields/field[@type="second-narrow"]/displayName	dw-22_XXX
+day of the week	jour de la semaine	nnawɔtwe mu da			//ldml/dates/fields/field[@type="weekday"]/displayName	dw-23_XXX
 "In English there are 2 ways to write the words ""AM"" and ""PM"": ""AM"" and ""PM"" (the full form), or ""a"" (short form) & ""p"" (narrow form). If your language doesn't have a translation for all the translations, write ""DOES NOT EXIST"". If you have MORE abbreviations, please add NOTES in the NOTES column. 
 En anglais, il existe deux manières d’écrire les expressions « AM » et « PM » : « AM » et « PM » (forme complète), ou « a » (forme courte) et « p » (forme abrégée). Si votre langue ne propose pas de traduction pour certaines de ces formes, saisissez « N’EXISTE PAS ». Si vous avez PLUS d’abréviations, veuillez ajouter des NOTES dans la colonne reservée à cet effet."						
-AM	N'EXISTE PAS	AM		There are no standard forms for AM and PM. For this reason, natives Abron speakers adopt the AM and PM when referring to time. It is widely accepted. Alternatively one would use "anɔpa" which means morning. 	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="stand-alone"]/dayPeriodWidth[@type="narrow"]/dayPeriod[@type="am"]	
-a	N'EXISTE PAS	DOES NOT EXIST		There is no short form of AM, it is always written in full.	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="narrow"]/dayPeriod[@type="am"]	
-PM	N'EXISTE PAS	PM		There are no standard forms for AM and PM. For this reason, natives Abron speakers adopt the AM and PM when referring to time. It is widely accepted. Alternatively one would use "awia" which means afternoon. 	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="abbreviated"]/dayPeriod[@type="pm"]	
-p	N'EXISTE PAS	DOES NOT EXIST		There is no short form of PM, it is always written in full.	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="narrow"]/dayPeriod[@type="pm"]	
-morning	matin	anɔpa			//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="stand-alone"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="morning1"]	
-in the morning	le matin	anɔpa			//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="morning1"]	
-7 in the morning	7 Heures du matin	anɔpa 7				
-afternoon	après-midi	awia			//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="stand-alone"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="afternoon1"]	
-in the afternoon	de l’après-midi	awia			//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="afternoon1"]	
-1 in the afternoon	1 Heure de l’après-midi	awia 1				
-evening	soir	anwummerɛ			//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="stand-alone"]/dayPeriodWidth[@type="narrow"]/dayPeriod[@type="evening1"]	
-in the evening	du soir	anwummerɛ			//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="evening1"]	
-9 in the evening	9 Heures du soir	anwummerɛ 9				
-night	nuit	anadwo			//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="stand-alone"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="night1"]	
-at night	la nuit	anadwo			//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="narrow"]/dayPeriod[@type="night1"]	
-midnight	minuit	anadwo kɔnkɔn			//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="midnight"]	
+AM	N'EXISTE PAS	AM		There are no standard forms for AM and PM. For this reason, natives Abron speakers adopt the AM and PM when referring to time. It is widely accepted. Alternatively one would use "anɔpa" which means morning.	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="stand-alone"]/dayPeriodWidth[@type="narrow"]/dayPeriod[@type="am"]	dw2-1_XXX
+a	N'EXISTE PAS	DOES NOT EXIST		There is no short form of AM, it is always written in full.	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="narrow"]/dayPeriod[@type="am"]	dw2-2_XXX
+PM	N'EXISTE PAS	PM		There are no standard forms for AM and PM. For this reason, natives Abron speakers adopt the AM and PM when referring to time. It is widely accepted. Alternatively one would use "awia" which means afternoon.	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="abbreviated"]/dayPeriod[@type="pm"]	dw2-3_XXX
+p	N'EXISTE PAS	DOES NOT EXIST		There is no short form of PM, it is always written in full.	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="narrow"]/dayPeriod[@type="pm"]	dw2-4_XXX
+morning	matin	anɔpa			//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="stand-alone"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="morning1"]	dw2-5_XXX
+in the morning	le matin	anɔpa			//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="morning1"]	dw2-6_XXX
+7 in the morning	7 Heures du matin	anɔpa 7				dw2-7_XXX
+afternoon	après-midi	awia			//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="stand-alone"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="afternoon1"]	dw2-8_XXX
+in the afternoon	de l’après-midi	awia			//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="afternoon1"]	dw2-9_XXX
+1 in the afternoon	1 Heure de l’après-midi	awia 1				dw2-10_XXX
+evening	soir	anwummerɛ			//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="stand-alone"]/dayPeriodWidth[@type="narrow"]/dayPeriod[@type="evening1"]	dw2-11_XXX
+in the evening	du soir	anwummerɛ			//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="evening1"]	dw2-12_XXX
+9 in the evening	9 Heures du soir	anwummerɛ 9				dw2-13_XXX
+night	nuit	anadwo			//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="stand-alone"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="night1"]	dw2-14_XXX
+at night	la nuit	anadwo			//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="narrow"]/dayPeriod[@type="night1"]	dw2-15_XXX
+midnight	minuit	anadwo kɔnkɔn			//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="midnight"]	dw2-16_XXX
 DAYS OF THE WEEK / JOURS DE LA SEMAINE						
 "In English there are 4 ways to write the days of the week: full form, medium abbreviation, short abbreviation, and shortest abbreviation. Does your language have the same 4 forms? If yes, please enter them in Column B. If your language has LESS than 4 forms, you can leave cells blank or write ""DOES NOT HAVE."" If your language as MORE than 4 forms, please add them to the bottom, and provide an explanation in the NOTES column, and if so, how do you write them in your language? (See VISUAL EXAMPLES to understand the Abbreviations better.) 
 En anglais, il existe quatre façons d’écrire les jours de la semaine : forme complète, abréviation moyenne, abréviation courte et abréviation la plus courte. Toutes ces quatre formes existent-elles dans votre langue ? Si oui, veuillez les indiquer dans la colonne B. Si votre langue a MOINS de quatre formes, vous pouvez laisser des cellules vides ou saisir « N’EXISTE PAS ». Si votre langue en a PLUS, veuillez les ajouter en bas et fournir une explication dans la colonne des notes, puis le cas échéant, indiquer comment on les écrit dans votre langue. (Consultez les EXEMPLES VISUELS pour mieux comprendre les types d'abréviations.)                                               "						
 ENGLISH (FULL-LENGTH FORM)	FRENCH (FULL-LENGTH FORM)	TRANSLATION IN YOUR LANGUAGE	VISUAL EXAMPLE	NOTES BY TRANSLATOR (IF NECESSARY)	XPATH (Ignore/For Reference Only)	
-Sunday	Dimanche	Kwasiada				
-Monday	Lundi	Dwoɔda				
-Tuesday	Mardi	Benada				
-Wednesday	Mercredi	Wukuoda				
-Thursday	Jeudi	Yawoɔda				
-Friday	Vendredi	Fiada				
-Saturday	Samedi	Memeneda				
+Sunday	Dimanche	Kwasiada				wk-1_XXX
+Monday	Lundi	Dwoɔda				wk-2_XXX
+Tuesday	Mardi	Benada				wk-3_XXX
+Wednesday	Mercredi	Wukuoda				wk-4_XXX
+Thursday	Jeudi	Yawoɔda				wk-5_XXX
+Friday	Vendredi	Fiada				wk-6_XXX
+Saturday	Samedi	Memeneda				wk-7_XXX
 ENGLISH (MEDIUM-LENGTH FORM)	FRENCH (MEDIUM-LENGTH FORM)	TRANSLATION IN YOUR LANGUAGE	VISUAL EXAMPLE	NOTES BY TRANSLATOR (IF NECESSARY)	XPATH (Ignore/For Reference Only)	
-Sun	Dim	Kwasia				
-Mon	Lun	Dwoɔ				
-Tue	Mar	Bena				
-Wed	Mer	Wukuo				
-Thur	Jeu	Yawoɔ				
-Fri	Ven	Fia				
-Sat	Sam	Memene				
+Sun	Dim	Kwasia				wk-8_XXX
+Mon	Lun	Dwoɔ				wk-9_XXX
+Tue	Mar	Bena				wk-10_XXX
+Wed	Mer	Wukuo				wk-11_XXX
+Thur	Jeu	Yawoɔ				wk-12_XXX
+Fri	Ven	Fia				wk-13_XXX
+Sat	Sam	Memene				wk-14_XXX
 ENGLISH (SHORT-LENGTH FORM)	FRENCH (SHORT-LENGTH FORM)	TRANSLATION IN YOUR LANGUAGE	VISUAL EXAMPLE	NOTES BY TRANSLATOR (IF NECESSARY)	XPATH (Ignore/For Reference Only)	
-Su	Di	Kw				
-Mo	Lu	Dw				
-Tu	Ma	Be				
-We	Me	Wu				
-Th	Je	Ya				
-Fr	Ve	Fi				
-Sa	Sa	Me				
+Su	Di	Kw				wk-15_XXX
+Mo	Lu	Dw				wk-16_XXX
+Tu	Ma	Be				wk-17_XXX
+We	Me	Wu				wk-18_XXX
+Th	Je	Ya				wk-19_XXX
+Fr	Ve	Fi				wk-20_XXX
+Sa	Sa	Me				wk-21_XXX
 ENGLISH (SHORTEST-LENGTH FORM)	FRENCH (SHORTEST-LENGTH FORM)	TRANSLATION IN YOUR LANGUAGE	VISUAL EXAMPLE	NOTES BY TRANSLATOR (IF NECESSARY)	XPATH (Ignore/For Reference Only)	
-S	D	K				
-M	L	D				
-T	M	B				
-W	M	W				
-T	J	Y				
-F	V	F				
-S	S	M				
+S	D	K				wk-22_XXX
+M	L	D				wk-23_XXX
+T	M	B				wk-24_XXX
+W	M	W				wk-25_XXX
+T	J	Y				wk-26_XXX
+F	V	F				wk-27_XXX
+S	S	M				wk-28_XXX
 MONTH WORDS / TERMINOLOGIE DES MOIS						
 "In English there are 3 ways to write the months of the year: full form, medium abbreviation, and shortest abbreviation. Does your language have the same 3 forms? If yes, please enter them in Column B. If your language has LESS than 3 forms, you can leave cells blank or write ""DOES NOT HAVE."" If your language as MORE than 3 forms, please add them to the bottom, and provide an explanation in the NOTES column, and if so, how do you write them in your language? (See VISUAL EXAMPLES to understand the Abbreviations better.)
 En anglais, il existe trois façons d’écrire les mois de l’année : forme complète, abréviation moyenne et abréviation la plus courte. Votre langue utilise-t-elle aussi ces trois formes ? Si oui, veuillez les indiquer dans la colonne B. Si votre langue a MOINS de trois formes, vous pouvez laisser des cellules vides ou saisir « N’EXISTE PAS ». Si votre langue en a PLUS, veuillez les ajouter en bas et fournir une explication dans la colonne des notes. (Consultez les EXEMPLES VISUELS pour mieux comprendre les abréviations.)"						
 ENGLISH (FULL-LENGTH FORM)	FRENCH (FULL-LENGTH FORM)	TRANSLATION IN YOUR LANGUAGE	VISUAL EXAMPLE	NOTES BY TRANSLATOR (IF NECESSARY)	XPATH (Ignore/For Reference Only)	
-January	Janvier	Ɔpɛpɔn				
-February	Février	Ogyefuo				
-March	Mars	Ɔbɛnem				
-April	Avril	Oforinsuo				
-May	Mai	Kɔtɔnima				
-June	Juin	Ayɛwohomumɔ				
-July	Juillet	Kitawonsa				
-August	Août	Ɔsanaa				
-September	Septembre	Ɛbɔ				
-October	Octobre	Ahinime				
-November	Novembre	Obubuo				
-December	Décembre	Ɔpɛnima				
+January	Janvier	Ɔpɛpɔn				mw-1_XXX
+February	Février	Ogyefuo				mw-2_XXX
+March	Mars	Ɔbɛnem				mw-3_XXX
+April	Avril	Oforinsuo				mw-4_XXX
+May	Mai	Kɔtɔnima				mw-5_XXX
+June	Juin	Ayɛwohomumɔ				mw-6_XXX
+July	Juillet	Kitawonsa				mw-7_XXX
+August	Août	Ɔsanaa				mw-8_XXX
+September	Septembre	Ɛbɔ				mw-9_XXX
+October	Octobre	Ahinime				mw-10_XXX
+November	Novembre	Obubuo				mw-11_XXX
+December	Décembre	Ɔpɛnima				mw-12_XXX
 ENGLISH (MEDIUM-LENGTH FORM)	FRENCH (MEDIUM-LENGTH FORM)	TRANSLATION IN YOUR LANGUAGE	VISUAL EXAMPLE	NOTES BY TRANSLATOR (IF NECESSARY)	XPATH (Ignore/For Reference Only)	
-Jan	Janv.	Ɔpɛ				
-Feb	Févr.	Ogy				
-Mar	Mars	Ɔbɛ				
-Apr	Avr.	Ofo				
-May	Mai	Kɔt				
-Jun	Juin	Ayɛ				
-Jul	Juil.	Kit				
-Aug	Auôt	Ɔsa				
-Sep	Sept.	Ɛbɔ				
-Oct	Oct.	Ahi				
-Nov	Nov.	Obu				
-Dec	Déc.	Ɔpɛ				
+Jan	Janv.	Ɔpɛ				mw-13_XXX
+Feb	Févr.	Ogy				mw-14_XXX
+Mar	Mars	Ɔbɛ				mw-15_XXX
+Apr	Avr.	Ofo				mw-16_XXX
+May	Mai	Kɔt				mw-17_XXX
+Jun	Juin	Ayɛ				mw-18_XXX
+Jul	Juil.	Kit				mw-19_XXX
+Aug	Auôt	Ɔsa				mw-20_XXX
+Sep	Sept.	Ɛbɔ				mw-21_XXX
+Oct	Oct.	Ahi				mw-22_XXX
+Nov	Nov.	Obu				mw-23_XXX
+Dec	Déc.	Ɔpɛ				mw-24_XXX
 ENGLISH (SHORTEST-LENGTH FORM)	FRENCH (SHORTEST-LENGTH FORM)	TRANSLATION IN YOUR LANGUAGE	VISUAL EXAMPLE	NOTES BY TRANSLATOR (IF NECESSARY)	XPATH (Ignore/For Reference Only)	
-J	J	p		Lowercase used since it's not the first letter of the word, but the letter used for the abbreviation		
-F	F	g		Lowercase used since it's not the first letter of the word, but the letter used for the abbreviation		
-M	M	b		Lowercase used since it's not the first letter of the word, but the letter used for the abbreviation		
-A	A	f		Lowercase used since it's not the first letter of the word, but the letter used for the abbreviation		
-M	M	K				
-J	J	A				
-J	J	K				
-A	A	s		Lowercase used since it's not the first letter of the word, but the letter used for the abbreviation		
-S	S	Ɛ				
-O	O	h		Lowercase used since it's not the first letter of the word, but the letter used for the abbreviation		
-N	N	o		Lowercase used since it's not the first letter of the word, but the letter used for the abbreviation		
-D	D	Ɔ				
+J	J	p		Lowercase used since it's not the first letter of the word, but the letter used for the abbreviation		mw-25_XXX
+F	F	g		Lowercase used since it's not the first letter of the word, but the letter used for the abbreviation		mw-26_XXX
+M	M	b		Lowercase used since it's not the first letter of the word, but the letter used for the abbreviation		mw-27_XXX
+A	A	f		Lowercase used since it's not the first letter of the word, but the letter used for the abbreviation		mw-28_XXX
+M	M	K				mw-29_XXX
+J	J	A				mw-30_XXX
+J	J	K				mw-31_XXX
+A	A	s		Lowercase used since it's not the first letter of the word, but the letter used for the abbreviation		mw-32_XXX
+S	S	Ɛ				mw-33_XXX
+O	O	h		Lowercase used since it's not the first letter of the word, but the letter used for the abbreviation		mw-34_XXX
+N	N	o		Lowercase used since it's not the first letter of the word, but the letter used for the abbreviation		mw-35_XXX
+D	D	Ɔ				mw-36_XXX
 HOURS / HEURES						
 ENGLISH	FRENCH	TRANSLATION IN YOUR LANGUAGE	VISUAL EXAMPLE	NOTES BY TRANSLATOR (IF NECESSARY)	XPATH (Ignore/For Reference Only)	
-3:00 PM	15 h 00	3:00 PM		Time can be written in figures in Abron.		
-10:48	10:48	10:48				
-16:12	16:12	16:12				
-9:41 AM	9 h 41	9:41 AM				
-16:14:24	16:14:24	16:14:24				
-8:04:41	8:04:41	8:04:41				
-11:30 PM GMT	23 h 30 GMT	11:30 PM GMT		There is no word for GMT in Abron so we borrow from English and write it as it is.		
+3:00 PM	15 h 00	3:00 PM		Time can be written in figures in Abron.		hr-1_XXX
+10:48	10:48	10:48				hr-2_XXX
+16:12	16:12	16:12				hr-3_XXX
+9:41 AM	9 h 41	9:41 AM				hr-4_XXX
+16:14:24	16:14:24	16:14:24				hr-5_XXX
+8:04:41	8:04:41	8:04:41				hr-6_XXX
+11:30 PM GMT	23 h 30 GMT	11:30 PM GMT		There is no word for GMT in Abron so we borrow from English and write it as it is.		hr-7_XXX
 RELATIVE TIME / TEMPS RELATIF						
 ENGLISH	FRENCH	TRANSLATION IN YOUR LANGUAGE	VISUAL EXAMPLE	NOTES BY TRANSLATOR (IF NECESSARY)	XPATH (Ignore/For Reference Only)	
-last month	Mois dernier	bosome a atwaa mu			//ldml/dates/fields/field[@type="month"]/relative[@type="-1"]	
-last week	La semaine dernière	naawɔtwe a atwaa mu			//ldml/dates/fields/field[@type="week"]/relative[@type="-1"]	
-yesterday	Hier	nnora			//ldml/dates/fields/field[@type="day"]/relative[@type="-1"]	
-last year	L'année dernière	afe a atwaa mu			//ldml/dates/fields/field[@type="year"]/relative[@type="-1"]	
-this month	Ce mois-ci	bosome yei			//ldml/dates/fields/field[@type="month"]/relative[@type="0"]	
-this week	Cette semaine	nnawɔtwe yei			//ldml/dates/fields/field[@type="week"]/relative[@type="0"]	
-today	Aujourd'hui	ɛnɛ			//ldml/dates/fields/field[@type="day"]/relative[@type="0"]	
-this year	Cette année	afe yei			//ldml/dates/fields/field[@type="year"]/relative[@type="0"]	
-tomorrow	Demain	ɔkyena			//ldml/dates/fields/field[@type="day"]/relative[@type="1"]	
-next month	Le mois prochain	bosome a ɛreba			//ldml/dates/fields/field[@type="month"]/relative[@type="1"]	
-next week	La semaine prochaine	nnawɔtwe a ɛreba			//ldml/dates/fields/field[@type="week"]/relative[@type="1"]	
-next year	L'année prochaine	afe a ɛreba			//ldml/dates/fields/field[@type="year"]/relative[@type="1"]	
+last month	Mois dernier	bosome a atwaa mu			//ldml/dates/fields/field[@type="month"]/relative[@type="-1"]	rt-1_XXX
+last week	La semaine dernière	naawɔtwe a atwaa mu			//ldml/dates/fields/field[@type="week"]/relative[@type="-1"]	rt-2_XXX
+yesterday	Hier	nnora			//ldml/dates/fields/field[@type="day"]/relative[@type="-1"]	rt-3_XXX
+last year	L'année dernière	afe a atwaa mu			//ldml/dates/fields/field[@type="year"]/relative[@type="-1"]	rt-4_XXX
+this month	Ce mois-ci	bosome yei			//ldml/dates/fields/field[@type="month"]/relative[@type="0"]	rt-5_XXX
+this week	Cette semaine	nnawɔtwe yei			//ldml/dates/fields/field[@type="week"]/relative[@type="0"]	rt-6_XXX
+today	Aujourd'hui	ɛnɛ			//ldml/dates/fields/field[@type="day"]/relative[@type="0"]	rt-7_XXX
+this year	Cette année	afe yei			//ldml/dates/fields/field[@type="year"]/relative[@type="0"]	rt-8_XXX
+tomorrow	Demain	ɔkyena			//ldml/dates/fields/field[@type="day"]/relative[@type="1"]	rt-9_XXX
+next month	Le mois prochain	bosome a ɛreba			//ldml/dates/fields/field[@type="month"]/relative[@type="1"]	rt-10_XXX
+next week	La semaine prochaine	nnawɔtwe a ɛreba			//ldml/dates/fields/field[@type="week"]/relative[@type="1"]	rt-11_XXX
+next year	L'année prochaine	afe a ɛreba			//ldml/dates/fields/field[@type="year"]/relative[@type="1"]	rt-12_XXX
 TIME INTERVALS / INTERVALLES DE TEMPS						
 ENGLISH	FRENCH	TRANSLATION IN YOUR LANGUAGE	VISUAL EXAMPLE	NOTES BY TRANSLATOR (IF NECESSARY)	XPATH (Ignore/For Reference Only)	
-3 PM - 4 PM	15 h 00–16 h 00	3 PM - 4 PM		Time is not written out in text. In can be written using digits. Also, In conversation, we make use of PM and AM; hence, the translation remain the same 	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="h"]/greatestDifference[@id="a"]	
-3 - 4 PM	15–16 h	3 - 4 PM			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="h"]/greatestDifference[@id="h"]	
-3:00 PM – 4:00 PM	15 h 00–16 h 00	3:00 PM – 4:00 PM			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hm"]/greatestDifference[@id="a"]	
-3:00–4:00 PM	15 h 00–16 h 00	3:00–4:00 PM			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hm"]/greatestDifference[@id="h"]	
-3:00–3:15 PM	15 h 00–15 h 15	3:00–3:15 PM			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hm"]/greatestDifference[@id="m"]	
-10:00 AM – 2:00 PM PT	10 h 00–14 h 00 PT	1:00–2:00 PM PT			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hmv"]/greatestDifference[@id="a"]	
-1:00–2:00 PM PT	13 h 00–14 h 00 PT	1:00–2:00 PM PT			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hmv"]/greatestDifference[@id="h"]	
-1:00–1:15 PM PT	13 h 00–13 h 15 PT	1:00–1:15 PM PT			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hmv"]/greatestDifference[@id="m"]	
-10 AM – 2 PM PT	10 h 00–14 h 00 PT	10 AM – 2 PM PT			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hv"]/greatestDifference[@id="a"]	
-1–2 PM PT	13–14 h PT	1–2 PM PT			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hv"]/greatestDifference[@id="h"]	
-14:00–15:00 PT	14 h 00–15 h PT	14:00–15:00 PT			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Hmv"]/greatestDifference[@id="H"]	
-14:00–14:15 PT	14 h 00–14 h 15 PT	14:00–14:15 PT			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Hmv"]/greatestDifference[@id="m"]	
-14–15 PT	14–15 h PT	14–15			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Hv"]/greatestDifference[@id="H"]	
-14–15	14–15	14–15			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="H"]/greatestDifference[@id="H"]	
-14:00–14:15	14 h 00–14 h 15	14:00–14:15			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Hm"]/greatestDifference[@id="m"]	
-14:00–15:00	14 h 00–15 h 00	14:00–15:00			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Hm"]/greatestDifference[@id="H"]	
-10 AM – 2 PM	10 h 00–14 h 00	10 AM – 2 PM			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="h"]/greatestDifference[@id="a"]	
-1–2 PM	13–14 h	1–2 PM			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="h"]/greatestDifference[@id="h"]	
-10:00 AM – 2:00 PM	10 h 00–14 h 00	3:00–4:00 PM				
-3:00–4:00 PM	15 h 00–16 h 00	3:00–4:00 PM				
-3:00–3:15 PM	15 h 00–15 h 15	3:00–3:15 PM				
-10:00 AM – 2:00 PM PT	10 h 00–14 h 00 PT	10:00 AM – 2:00 PM PT				
-1:00–2:00 PM PT	13 h 00–14 h 00 PT	1:00–2:00 PM PT				
-1:00–1:15 PM PT	13 h 00–13 h 15 PT	1:00–1:15 PM PT				
-10 AM – 2 PM PT	10 h 00–14 h 00 PT	10 AM – 2 PM PT				
-1–2 PM PT	13–14 h PT	10 AM – 2 PM PT				
-14–15	14–15	14–15				
-14:00–15:00	14 h 00–15 h 00	14:00–15:00				
-14:00–14:15	14 h 00–14 h 15	14:00–14:15				
-14:00–15:00 PT	14 h 00–15 h 00 PT	14:00–15:00 PT				
-14:00–14:15 PT	14 h 00–14 h 15 PT	14:00–14:15 PT				
-14–15 PT	14–15 h PT	14–15 PT				
+3 PM - 4 PM	15 h 00–16 h 00	3 PM - 4 PM		Time is not written out in text. In can be written using digits. Also, In conversation, we make use of PM and AM; hence, the translation remain the same	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="h"]/greatestDifference[@id="a"]	ti-1_XXX
+3 - 4 PM	15–16 h	3 - 4 PM			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="h"]/greatestDifference[@id="h"]	ti-2_XXX
+3:00 PM – 4:00 PM	15 h 00–16 h 00	3:00 PM – 4:00 PM			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hm"]/greatestDifference[@id="a"]	ti-3_XXX
+3:00–4:00 PM	15 h 00–16 h 00	3:00–4:00 PM			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hm"]/greatestDifference[@id="h"]	ti-4_XXX
+3:00–3:15 PM	15 h 00–15 h 15	3:00–3:15 PM			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hm"]/greatestDifference[@id="m"]	ti-5_XXX
+10:00 AM – 2:00 PM PT	10 h 00–14 h 00 PT	1:00–2:00 PM PT			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hmv"]/greatestDifference[@id="a"]	ti-6_XXX
+1:00–2:00 PM PT	13 h 00–14 h 00 PT	1:00–2:00 PM PT			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hmv"]/greatestDifference[@id="h"]	ti-7_XXX
+1:00–1:15 PM PT	13 h 00–13 h 15 PT	1:00–1:15 PM PT			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hmv"]/greatestDifference[@id="m"]	ti-8_XXX
+10 AM – 2 PM PT	10 h 00–14 h 00 PT	10 AM – 2 PM PT			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hv"]/greatestDifference[@id="a"]	ti-9_XXX
+1–2 PM PT	13–14 h PT	1–2 PM PT			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hv"]/greatestDifference[@id="h"]	ti-10_XXX
+14:00–15:00 PT	14 h 00–15 h PT	14:00–15:00 PT			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Hmv"]/greatestDifference[@id="H"]	ti-11_XXX
+14:00–14:15 PT	14 h 00–14 h 15 PT	14:00–14:15 PT			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Hmv"]/greatestDifference[@id="m"]	ti-12_XXX
+14–15 PT	14–15 h PT	14–15			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Hv"]/greatestDifference[@id="H"]	ti-13_XXX
+14–15	14–15	14–15			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="H"]/greatestDifference[@id="H"]	ti-14_XXX
+14:00–14:15	14 h 00–14 h 15	14:00–14:15			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Hm"]/greatestDifference[@id="m"]	ti-15_XXX
+14:00–15:00	14 h 00–15 h 00	14:00–15:00			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Hm"]/greatestDifference[@id="H"]	ti-16_XXX
+10 AM – 2 PM	10 h 00–14 h 00	10 AM – 2 PM			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="h"]/greatestDifference[@id="a"]	ti-17_XXX
+1–2 PM	13–14 h	1–2 PM			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="h"]/greatestDifference[@id="h"]	ti-18_XXX
+10:00 AM – 2:00 PM	10 h 00–14 h 00	3:00–4:00 PM				ti-19_XXX
+3:00–4:00 PM	15 h 00–16 h 00	3:00–4:00 PM				ti-20_XXX
+3:00–3:15 PM	15 h 00–15 h 15	3:00–3:15 PM				ti-21_XXX
+10:00 AM – 2:00 PM PT	10 h 00–14 h 00 PT	10:00 AM – 2:00 PM PT				ti-22_XXX
+1:00–2:00 PM PT	13 h 00–14 h 00 PT	1:00–2:00 PM PT				ti-23_XXX
+1:00–1:15 PM PT	13 h 00–13 h 15 PT	1:00–1:15 PM PT				ti-24_XXX
+10 AM – 2 PM PT	10 h 00–14 h 00 PT	10 AM – 2 PM PT				ti-25_XXX
+1–2 PM PT	13–14 h PT	10 AM – 2 PM PT				ti-26_XXX
+14–15	14–15	14–15				ti-27_XXX
+14:00–15:00	14 h 00–15 h 00	14:00–15:00				ti-28_XXX
+14:00–14:15	14 h 00–14 h 15	14:00–14:15				ti-29_XXX
+14:00–15:00 PT	14 h 00–15 h 00 PT	14:00–15:00 PT				ti-30_XXX
+14:00–14:15 PT	14 h 00–14 h 15 PT	14:00–14:15 PT				ti-31_XXX
+14–15 PT	14–15 h PT	14–15 PT				ti-32_XXX
 DATE COMBINATIONS AND INTERVALS / COMBINAISONS ET INTERVALLES DE DATES						
 ENGLISH	FRENCH	TRANSLATION IN YOUR LANGUAGE	VISUAL EXAMPLE	NOTES BY TRANSLATOR (IF NECESSARY)	XPATH (Ignore/For Reference Only)	
-2024 – Week 17	2024 – Semaine 17	2024 – Nnawɔtwe 17		When translating in formats like these, the year is always written in figures 	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yw"][@count="other"]	
-2024 – Week 1	2024 – Semaine 1	2024 – Nnawɔtwe 1			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yw"][@count="one"]	
-April 2024	Avril 2024	Oforinsuo 2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yMMMM"]	
-Apr 2024	Avr. 2024	Ofo 2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yMMM"]	
-4/2024	4/2024	4/2024				
-04/2024	04/2024	4/2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yM"]	
-Tue, Apr 23, 2024	Mar 23 avr. 2024	Bena, Ofo 23, 2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yMMMEd"]	
-Apr 23, 2024	23 Avr. 2024	Ofo 23, 2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yMMMd"]	
-4/23/2024	23/04/2024	4/2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yMd"]	
-2024	2024	7/1905			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yMEd"]	
-2024 – 2027	2024–2027	2024 – 2027			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="y"]	
-April 2024 – May 2024	Avril 2024–Mai 2024	Oforinsuo 2024 – Kɔtɔnima 2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMMM"]/greatestDifference[@id="y"]	
-Tue, Apr 23, 2024 – Tue, Apr 23, 2027	Mar 23 avr. 2024–Mar 23 avr. 2027	Bena, Ofo 23, 2024 – Bena, Ofo 23, 2027			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMMM"]/greatestDifference[@id="M"]	
-Tue, Apr 23, 2024 – Tue, May 23, 2024	Mar 23 avr. 2024–Mar 23 mai 2024	Bena, Ofo 23, 2024 – Bena, Kɔt 23, 2024		Since May is the same in the full/abbreviated version, I am assuming this should be the abbreviated version based on the abbreviation of Apr. So I have used Kɔt instead of Kɔtɔnima for May	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMMEd"]/greatestDifference[@id="y"]	
-Tue, Apr 23 – Wed, Apr 24, 2024	Mar 23 avr.–Mer 24 avr. 2024	Bena, Ofo 23 – Wukuo, Ofo 24, 2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMMEd"]/greatestDifference[@id="M"]	
-Apr 23, 2024 – Apr 23, 2027	23 Avr. 2024–23 Avr. 2027	Ofo 23, 2024 – Ofo 23, 2027			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMMEd"]/greatestDifference[@id="d"]	
-Apr 23 – May 23, 2024	23 Avr.–23 Mai 2024	Ofo 23 – Kɔt 23, 2024		Since May is the same in the full/abbreviated version, I am assuming this should be the abbreviated version based on the abbreviation of Apr. So I have used Kɔt instead of Kɔtɔnima for May	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMMd"]/greatestDifference[@id="y"]	
-Apr 23 – Apr 24, 2024	23 Avril–24 Avril 2024	Ofo 23 – Ofo 24, 2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMMd"]/greatestDifference[@id="M"]	
-Apr 2024 – Apr 2027	Avril 2024–Avril 2027	Ofo 2024 – Ofo 2027			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMMd"]/greatestDifference[@id="d"]	
-Apr 2024 – May 2024	Avril 2024–Mai 2024	Ofo 2024 – Kɔt 2024		Since May is the same in the full/abbreviated version, I am assuming this should be the abbreviated version based on the abbreviation of Apr. So I have used Kɔt instead of Kɔtɔnima for May	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMM"]/greatestDifference[@id="y"]	
-Tue, 4/23/2024 – Tue, 4/23/2027	Mar 23/04/2024–Mar 23/04/2027	Bena, 4/23/2024 – Bena, 4/23/2027			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMM"]/greatestDifference[@id="M"]	
-Tue, 4/23 – Tue, 5/23	Mar 23/04–Mar 23/05	Bena, 4/23 – Bena, 5/23			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMEd"]/greatestDifference[@id="y"]	
-Tue, 4/23 – Wed, 4/24	Mar 23/04–Mer 24/04	Bena, 4/23 – Wukuo, 4/24			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMEd"]/greatestDifference[@id="M"]	
-4/23/2024 – 4/23/2027	23/04/2024–23/04/2027	4/23/2024 – 4/23/2027			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMEd"]/greatestDifference[@id="d"]	
-4/23 – 5/23	23/04–23/05	4/23 – 5/23			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMd"]/greatestDifference[@id="y"]	
-4/23 – 4/24	23/04–24/04	4/23 – 4/24			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMd"]/greatestDifference[@id="M"]	
-4/2024 – 4/2027	4/2024–4/2027	4/2024 – 4/2027			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMd"]/greatestDifference[@id="d"]	
-4/2024 – 5/2024	4/2024–5/2024	4/2024 – 5/2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yM"]/greatestDifference[@id="y"]	
-2024 – 2027	2024–2027	2024 – 2027			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yM"]/greatestDifference[@id="M"]	
-2023 – 2024	2023–2024	2023 – 2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="y"]/greatestDifference[@id="y"]	
-Tue 3:30 PM	Mar 15 h 30	Bena 3:30 PM			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Ehm"]	
-Tue 3:30:45 PM	Mar 15 h 30 min 45 s	Bena 3:30:45 PM			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Ehms"]	
-Tue 15:30	Mar 15 h 30	Bena 15:30			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="EHm"]	
-Tue 15:30:45	Mar 15 h 30 min 45 s	Bena 15:30:45			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="EHms"]	
-Tuesday at 3:30:45 PM	Mardi à 15 h 30 min 45 s	Benada at 3:30:45 PM			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/dateTimeFormatLength[@type="full"]/dateTimeFormat[@type="atTime"]/pattern[@type="standard"]	
-Tuesday at 3:30:45 PM	Mardi à 15 h 30 min 45 s	Benada at 3:30:45 PM			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/dateTimeFormatLength[@type="long"]/dateTimeFormat[@type="atTime"]/pattern[@type="standard"]	
-Tuesday, April 23, 2024 at 3:30:45 PM	Mardi 23 avril 2024 à 15 h 30 min 45 s	Benada, Oforinsuo 23, 2024 at 3:30:45 PM			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/dateTimeFormatLength[@type="full"]/dateTimeFormat[@type="standard"]/pattern[@type="standard"]	
-April 23, 2024 at 3:30:45 PM	23 avril 2024 à 15 h 30 min 45 s	Oforinsuo 23, 2024 at 3:30:45 PM			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/dateTimeFormatLength[@type="long"]/dateTimeFormat[@type="standard"]/pattern[@type="standard"]	
-Apr 23, 2024 at 3:30 PM	23 avril 2024 à 15 h 30	Ofo 23, 2024 at 3:30 PM			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/dateTimeFormatLength[@type="medium"]/dateTimeFormat[@type="standard"]/pattern[@type="standard"]	
-Apr 23 at 3:30 PM	Avr. 2024 à 15 h 30	Ofo 23 at 3:30 PM			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/dateTimeFormatLength[@type="medium"]/dateTimeFormat[@type="atTime"]/pattern[@type="standard"]	
-Thu, 4/23	Mer 23 avril	Wukuo, 4/23			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="MEd"]	
-Tue, 4/23 – Wed, 4/24	Mar 23/04–Mer 24/04	Bena, 4/23 – Wukuo, 4/24			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="MEd"]/greatestDifference[@id="d"]	
-Tue, 4/23 – Thu, 5/23	Mar 23/04–Jeu 23/05	Bena, 4/23 – Yaw, 5/23			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="MEd"]/greatestDifference[@id="M"]	
-Tue, Apr 23, 2024 – Wed, Apr 24, 2024	Mar 23 avr. 2024–Mer 24 avr. 2024	Bena, Ofo 23, 2024 – Wukuo, Ofo 24, 2024			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMEd"]/greatestDifference[@id="d"]	
-Tue, Apr 23, 2024 – Thu, May 23, 2024	Mar 23 avr. 202–Jeu 23 mai 2024	Bena, Ofo 23, 2024 – Yawoɔ, Kɔt 23, 2024		Since May is the same in the full/abbreviated version, I am assuming this should be the abbreviated version based on the abbreviation of Apr. So I have used Kɔt instead of Kɔtɔnima for May	//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMEd"]/greatestDifference[@id="M"]	
-Tue, Apr 23, 2024 – Fri, Apr 23, 2027	Mar 23 avr. 2024–Ven 23 avr. 2027	Bena, Ofo 23, 2024 – Fia, Ofo 23, 2027			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMEd"]/greatestDifference[@id="y"]	
-Tue, Apr 23, 2024 – Tue, Apr 23, 2345	Mar 23 avr. 2024–Mar 23 avr. 2345	Bena, Ofo 23, 2024 – Bena, Ofo 23, 2345			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMEd"]/greatestDifference[@id="G"]	
-Tue, Apr 23, 2024 – Wed, Apr 24, 2024	Mar 23 avr. 2024–Mer 24 avr. 2024	Bena, Ofo 23, 2024 – Wukuo, Ofo 24, 2024			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMMEd"]/greatestDifference[@id="d"]	
-Tue, Apr 23, 2024 – Tue, May 23, 2024	Mar 23 avr. 2024–Mar 23 mai 2024	Bena, Ofo 23, 2024 – Bena, Kɔt 23, 2024		Since May is the same in the full/abbreviated version, I am assuming this should be the abbreviated version based on the abbreviation of Apr. So I have used Kɔt instead of Kɔtɔnima for May	//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMMEd"]/greatestDifference[@id="M"]	
-Tue, Apr 23, 2024 – Tue, Apr 23, 2027	Mar 23 avr. 2024–Mar 23 avr. 2027	Bena, Ofo 23, 2024 – Bena, Ofo 23, 2027			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMMEd"]/greatestDifference[@id="y"]	
-Tue, Apr 23, 2024	Mar 23 avr. 2024	Bena, Ofo 23, 2024			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="GyMMMEd"]	
-Tue, Apr 23, 2024 – Tue, Apr 23, 2345	Mar 23 avr. 2024–Mar 23 avr. 2345	Bena, Ofo 23, 2024 – Bena, Ofo 23, 2345			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMMEd"]/greatestDifference[@id="G"]	
-Tuesday, April 23, 2024	Mardi 23 avril 2024	Benada, Oforinsuo 23, 2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateFormats/dateFormatLength[@type="full"]/dateFormat[@type="standard"]/pattern[@type="standard"]	
-Tuesday, April 23, 2024	Mardi 23 avril 2024	Benada, Oforinsuo 23, 2024			//ldml/dates/calendars/calendar[@type="generic"]/dateFormats/dateFormatLength[@type="full"]/dateFormat[@type="standard"]/pattern[@type="standard"]	
-3:30:45 PM	15 h 30 min 45 s	12/1899			//ldml/dates/calendars/calendar[@type="gregorian"]/timeFormats/timeFormatLength[@type="medium"]/timeFormat[@type="standard"]/pattern[@type="standard"]	
-3:30:45 PM PDT	15 h 30 min 45 s PDT	3:30:45 PM PAT		PDT could be abbreviated to PAT based on its translation to abron	//ldml/dates/calendars/calendar[@type="gregorian"]/timeFormats/timeFormatLength[@type="long"]/timeFormat[@type="standard"]/pattern[@type="standard"]	
-3:30:45 PM Pacific Daylight Time	15 h 30 min 45 s, Heure avancée du pacifique	3:30:45 PM Pacific Awiadaso Mmerɛ			//ldml/dates/calendars/calendar[@type="gregorian"]/timeFormats/timeFormatLength[@type="full"]/timeFormat[@type="standard"]/pattern[@type="standard"]	
-April	Avril	Oforinsuo			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="M"]	
-April	Avril	Oforinsuo			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="M"]	
-April – May	Avril–mai	Oforinsuo – Kɔtɔnima			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="M"]/greatestDifference[@id="M"]	
-April – May	Avril–mai	Oforinsuo – Kɔtɔnima			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="M"]/greatestDifference[@id="M"]	
-4/23	4/23	4/2025			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Md"]	
-4/23 – 4/24	23/04–24/04	4/23 – 4/24			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Md"]/greatestDifference[@id="d"]	
-4/23 – 5/23	23/04–23/05	4/23 – 5/23			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Md"]/greatestDifference[@id="M"]	
-4/23/2024 – 4/24/2024	23/04/2024–24/04/2024	4/23/2024 – 4/24/2024			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMd"]/greatestDifference[@id="d"]	
-4/23/2024 – 5/23/2024	23/04/2024–23/05/2024	4/23/2024 – 5/23/2024			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMd"]/greatestDifference[@id="M"]	
-4/23/2024 – 4/23/2027	23/04/2024–23/04/2027	4/23/2024 – 4/23/2027			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMd"]/greatestDifference[@id="y"]	
-4/23/2024	23/04/2024	4/2024			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="GyMd"]	
-4/23/2024 – 4/23/2345	23/04/2024–23/04/2345	4/23/2024 – 4/23/2345			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMd"]/greatestDifference[@id="G"]	
-4/2024 – 5/2024	4/2024–5/2024	4/2024 – 5/2024			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyM"]/greatestDifference[@id="M"]	
-4/2024 – 4/2027	4/2024–4/2027	4/2024 – 4/2027			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyM"]/greatestDifference[@id="y"]	
-4/2024 – 4/2345	4/2024–4/2345	4/2024 – 4/2345			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyM"]/greatestDifference[@id="G"]	
-Apr 2024 – May 2024	Avril 2024–Mai 2024	Ofo 2024 – Kɔt 2024		Since May is the same in the full/abbreviated version, I am assuming this should be the abbreviated version based on the abbreviation of Apr. So I have used Kɔt instead of Kɔtɔnima for May	//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMM"]/greatestDifference[@id="M"]	
-Apr 23 – Apr 24, 2024	23 avril–24 avril 2024	Ofo 23 – Ofo 24, 2024			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMMd"]/greatestDifference[@id="d"]	
-Apr 23 – May 23, 2024	23 avril–23 mai 2024	Ofo 23 – Kɔt 23, 2024		Since May is the same in the full/abbreviated version, I am assuming this should be the abbreviated version based on the abbreviation of Apr. So I have used Kɔt instead of Kɔtɔnima for May	//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMMd"]/greatestDifference[@id="M"]	
-Apr 23, 2024	23 avril 2024	Ofo 23, 2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateFormats/dateFormatLength[@type="medium"]/dateFormat[@type="standard"]/pattern[@type="standard"]	
-Apr 23, 2024 – Apr 23, 2027	23 avril 2024–23 avril 2027	Ofo 23, 2024 – Ofo 23, 2027			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMMd"]/greatestDifference[@id="y"]	
-Apr 23, 2024	23 avril 2024	Ofo 23, 2024			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="GyMMMd"]	
-Apr 23, 2024	23 avril 2024	Ofo 23, 2024			//ldml/dates/calendars/calendar[@type="generic"]/dateFormats/dateFormatLength[@type="medium"]/dateFormat[@type="standard"]/pattern[@type="standard"]	
-Apr 23, 2024 – Apr 23, 2345	23 avril 2024–23 avril 2345	Ofo 23, 2024 – Ofo 23, 2345			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMMd"]/greatestDifference[@id="G"]	
-Apr 2024 – Apr 2027	Avril 2024–Avril 2027	Ofo 2024 – Ofo 2027			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMM"]/greatestDifference[@id="y"]	
-Apr 2024	Avril 2024	Ofo 2024			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="GyMMM"]	
-Apr 2024 – Apr 2345	Avril 2024–Avril 2345	Ofo 2024 – Ofo 2345			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMM"]/greatestDifference[@id="G"]	
-April 23, 2024	23 avril 2024	Oforinsuo 23, 2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateFormats/dateFormatLength[@type="long"]/dateFormat[@type="standard"]/pattern[@type="standard"]	
-April 23, 2024	23 avril 2024	Oforinsuo 23, 2024			//ldml/dates/calendars/calendar[@type="generic"]/dateFormats/dateFormatLength[@type="long"]/dateFormat[@type="standard"]/pattern[@type="standard"]	
-2024 – 2027	2024–2027	2024 – 2027			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Gy"]/greatestDifference[@id="y"]	
-2024	2024	7/1905			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Gy"]	
-2024 – 2345	2024–2345	2024 – 2345			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Gy"]/greatestDifference[@id="G"]	
-Apr – May	Avr.–mai	Ofo – Kɔt		Since May is the same in the full/abbreviated version, I am assuming this should be the abbreviated version based on the abbreviation of Apr. So I have used Kɔt instead of Kɔtɔnima for May	//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="MMM"]/greatestDifference[@id="M"]	
-Apr 23	23 Avr.	Ofo 23			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="MMMd"]	
-Apr 23 – Apr 24	23 Avril–24 Avril	Ofo 23 – Ofo 24			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="MMMd"]/greatestDifference[@id="d"]	
-Apr 23 – May 23	23 Avril–23 Mai	Ofo 23 – Kɔt 23			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="MMMd"]/greatestDifference[@id="M"]	
-Thu, Apr 23	Mer 23 avril	Wukuo, Ofo 23			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="MMMEd"]	
-Tue, Apr 23 – Wed, Apr 24	Mar 23 avr.–Mer 24 avr.	Bena, Ofo 23 – Wukuo, Ofo 24			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="MMMEd"]/greatestDifference[@id="d"]	
-Tue, Apr 23 – Tue, May 23	Mar. 23 avr.–Mar. 23 mai	Bena, Ofo 23 – Bena, Kɔt 23		Since May is the same in the full/abbreviated version, I am assuming this should be the abbreviated version based on the abbreviation of Apr. So I have used Kɔt instead of Kɔtɔnima for May	//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="MMMEd"]/greatestDifference[@id="M"]	
-April 23	23 avril	Oforinsuo 23			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="MMMMd"]	
-April – Week 4	Avril – Semaine 4	Oforinsuo – Nnawɔtwe 4			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="MMMMW"][@count="other"]	
-4/23/24	23/04/24	4/2024			//ldml/dates/calendars/calendar[@type="generic"]/dateFormats/dateFormatLength[@type="short"]/dateFormat[@type="standard"]/pattern[@type="standard"]	
-4/23/24	23/04/24	4/2024				
+2024 – Week 17	2024 – Semaine 17	2024 – Nnawɔtwe 17		When translating in formats like these, the year is always written in figures	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yw"][@count="other"]	dc-1_XXX
+2024 – Week 1	2024 – Semaine 1	2024 – Nnawɔtwe 1			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yw"][@count="one"]	dc-2_XXX
+April 2024	Avril 2024	Oforinsuo 2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yMMMM"]	dc-3_XXX
+Apr 2024	Avr. 2024	Ofo 2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yMMM"]	dc-4_XXX
+4/2024	4/2024	4/2024				dc-5_XXX
+04/2024	04/2024	4/2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yM"]	dc-6_XXX
+Tue, Apr 23, 2024	Mar 23 avr. 2024	Bena, Ofo 23, 2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yMMMEd"]	dc-7_XXX
+Apr 23, 2024	23 Avr. 2024	Ofo 23, 2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yMMMd"]	dc-8_XXX
+4/23/2024	23/04/2024	4/2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yMd"]	dc-9_XXX
+2024	2024	7/1905			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yMEd"]	dc-10_XXX
+2024 – 2027	2024–2027	2024 – 2027			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="y"]	dc-11_XXX
+April 2024 – May 2024	Avril 2024–Mai 2024	Oforinsuo 2024 – Kɔtɔnima 2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMMM"]/greatestDifference[@id="y"]	dc-12_XXX
+Tue, Apr 23, 2024 – Tue, Apr 23, 2027	Mar 23 avr. 2024–Mar 23 avr. 2027	Bena, Ofo 23, 2024 – Bena, Ofo 23, 2027			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMMM"]/greatestDifference[@id="M"]	dc-13_XXX
+Tue, Apr 23, 2024 – Tue, May 23, 2024	Mar 23 avr. 2024–Mar 23 mai 2024	Bena, Ofo 23, 2024 – Bena, Kɔt 23, 2024		Since May is the same in the full/abbreviated version, I am assuming this should be the abbreviated version based on the abbreviation of Apr. So I have used Kɔt instead of Kɔtɔnima for May	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMMEd"]/greatestDifference[@id="y"]	dc-14_XXX
+Tue, Apr 23 – Wed, Apr 24, 2024	Mar 23 avr.–Mer 24 avr. 2024	Bena, Ofo 23 – Wukuo, Ofo 24, 2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMMEd"]/greatestDifference[@id="M"]	dc-15_XXX
+Apr 23, 2024 – Apr 23, 2027	23 Avr. 2024–23 Avr. 2027	Ofo 23, 2024 – Ofo 23, 2027			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMMEd"]/greatestDifference[@id="d"]	dc-16_XXX
+Apr 23 – May 23, 2024	23 Avr.–23 Mai 2024	Ofo 23 – Kɔt 23, 2024		Since May is the same in the full/abbreviated version, I am assuming this should be the abbreviated version based on the abbreviation of Apr. So I have used Kɔt instead of Kɔtɔnima for May	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMMd"]/greatestDifference[@id="y"]	dc-17_XXX
+Apr 23 – Apr 24, 2024	23 Avril–24 Avril 2024	Ofo 23 – Ofo 24, 2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMMd"]/greatestDifference[@id="M"]	dc-18_XXX
+Apr 2024 – Apr 2027	Avril 2024–Avril 2027	Ofo 2024 – Ofo 2027			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMMd"]/greatestDifference[@id="d"]	dc-19_XXX
+Apr 2024 – May 2024	Avril 2024–Mai 2024	Ofo 2024 – Kɔt 2024		Since May is the same in the full/abbreviated version, I am assuming this should be the abbreviated version based on the abbreviation of Apr. So I have used Kɔt instead of Kɔtɔnima for May	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMM"]/greatestDifference[@id="y"]	dc-20_XXX
+Tue, 4/23/2024 – Tue, 4/23/2027	Mar 23/04/2024–Mar 23/04/2027	Bena, 4/23/2024 – Bena, 4/23/2027			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMM"]/greatestDifference[@id="M"]	dc-21_XXX
+Tue, 4/23 – Tue, 5/23	Mar 23/04–Mar 23/05	Bena, 4/23 – Bena, 5/23			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMEd"]/greatestDifference[@id="y"]	dc-22_XXX
+Tue, 4/23 – Wed, 4/24	Mar 23/04–Mer 24/04	Bena, 4/23 – Wukuo, 4/24			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMEd"]/greatestDifference[@id="M"]	dc-23_XXX
+4/23/2024 – 4/23/2027	23/04/2024–23/04/2027	4/23/2024 – 4/23/2027			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMEd"]/greatestDifference[@id="d"]	dc-24_XXX
+4/23 – 5/23	23/04–23/05	4/23 – 5/23			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMd"]/greatestDifference[@id="y"]	dc-25_XXX
+4/23 – 4/24	23/04–24/04	4/23 – 4/24			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMd"]/greatestDifference[@id="M"]	dc-26_XXX
+4/2024 – 4/2027	4/2024–4/2027	4/2024 – 4/2027			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMd"]/greatestDifference[@id="d"]	dc-27_XXX
+4/2024 – 5/2024	4/2024–5/2024	4/2024 – 5/2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yM"]/greatestDifference[@id="y"]	dc-28_XXX
+2024 – 2027	2024–2027	2024 – 2027			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yM"]/greatestDifference[@id="M"]	dc-29_XXX
+2023 – 2024	2023–2024	2023 – 2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="y"]/greatestDifference[@id="y"]	dc-30_XXX
+Tue 3:30 PM	Mar 15 h 30	Bena 3:30 PM			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Ehm"]	dc-31_XXX
+Tue 3:30:45 PM	Mar 15 h 30 min 45 s	Bena 3:30:45 PM			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Ehms"]	dc-32_XXX
+Tue 15:30	Mar 15 h 30	Bena 15:30			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="EHm"]	dc-33_XXX
+Tue 15:30:45	Mar 15 h 30 min 45 s	Bena 15:30:45			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="EHms"]	dc-34_XXX
+Tuesday at 3:30:45 PM	Mardi à 15 h 30 min 45 s	Benada at 3:30:45 PM			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/dateTimeFormatLength[@type="full"]/dateTimeFormat[@type="atTime"]/pattern[@type="standard"]	dc-35_XXX
+Tuesday at 3:30:45 PM	Mardi à 15 h 30 min 45 s	Benada at 3:30:45 PM			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/dateTimeFormatLength[@type="long"]/dateTimeFormat[@type="atTime"]/pattern[@type="standard"]	dc-36_XXX
+Tuesday, April 23, 2024 at 3:30:45 PM	Mardi 23 avril 2024 à 15 h 30 min 45 s	Benada, Oforinsuo 23, 2024 at 3:30:45 PM			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/dateTimeFormatLength[@type="full"]/dateTimeFormat[@type="standard"]/pattern[@type="standard"]	dc-37_XXX
+April 23, 2024 at 3:30:45 PM	23 avril 2024 à 15 h 30 min 45 s	Oforinsuo 23, 2024 at 3:30:45 PM			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/dateTimeFormatLength[@type="long"]/dateTimeFormat[@type="standard"]/pattern[@type="standard"]	dc-38_XXX
+Apr 23, 2024 at 3:30 PM	23 avril 2024 à 15 h 30	Ofo 23, 2024 at 3:30 PM			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/dateTimeFormatLength[@type="medium"]/dateTimeFormat[@type="standard"]/pattern[@type="standard"]	dc-39_XXX
+Apr 23 at 3:30 PM	Avr. 2024 à 15 h 30	Ofo 23 at 3:30 PM			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/dateTimeFormatLength[@type="medium"]/dateTimeFormat[@type="atTime"]/pattern[@type="standard"]	dc-40_XXX
+Thu, 4/23	Mer 23 avril	Wukuo, 4/23			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="MEd"]	dc-41_XXX
+Tue, 4/23 – Wed, 4/24	Mar 23/04–Mer 24/04	Bena, 4/23 – Wukuo, 4/24			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="MEd"]/greatestDifference[@id="d"]	dc-42_XXX
+Tue, 4/23 – Thu, 5/23	Mar 23/04–Jeu 23/05	Bena, 4/23 – Yaw, 5/23			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="MEd"]/greatestDifference[@id="M"]	dc-43_XXX
+Tue, Apr 23, 2024 – Wed, Apr 24, 2024	Mar 23 avr. 2024–Mer 24 avr. 2024	Bena, Ofo 23, 2024 – Wukuo, Ofo 24, 2024			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMEd"]/greatestDifference[@id="d"]	dc-44_XXX
+Tue, Apr 23, 2024 – Thu, May 23, 2024	Mar 23 avr. 202–Jeu 23 mai 2024	Bena, Ofo 23, 2024 – Yawoɔ, Kɔt 23, 2024		Since May is the same in the full/abbreviated version, I am assuming this should be the abbreviated version based on the abbreviation of Apr. So I have used Kɔt instead of Kɔtɔnima for May	//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMEd"]/greatestDifference[@id="M"]	dc-45_XXX
+Tue, Apr 23, 2024 – Fri, Apr 23, 2027	Mar 23 avr. 2024–Ven 23 avr. 2027	Bena, Ofo 23, 2024 – Fia, Ofo 23, 2027			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMEd"]/greatestDifference[@id="y"]	dc-46_XXX
+Tue, Apr 23, 2024 – Tue, Apr 23, 2345	Mar 23 avr. 2024–Mar 23 avr. 2345	Bena, Ofo 23, 2024 – Bena, Ofo 23, 2345			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMEd"]/greatestDifference[@id="G"]	dc-47_XXX
+Tue, Apr 23, 2024 – Wed, Apr 24, 2024	Mar 23 avr. 2024–Mer 24 avr. 2024	Bena, Ofo 23, 2024 – Wukuo, Ofo 24, 2024			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMMEd"]/greatestDifference[@id="d"]	dc-48_XXX
+Tue, Apr 23, 2024 – Tue, May 23, 2024	Mar 23 avr. 2024–Mar 23 mai 2024	Bena, Ofo 23, 2024 – Bena, Kɔt 23, 2024		Since May is the same in the full/abbreviated version, I am assuming this should be the abbreviated version based on the abbreviation of Apr. So I have used Kɔt instead of Kɔtɔnima for May	//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMMEd"]/greatestDifference[@id="M"]	dc-49_XXX
+Tue, Apr 23, 2024 – Tue, Apr 23, 2027	Mar 23 avr. 2024–Mar 23 avr. 2027	Bena, Ofo 23, 2024 – Bena, Ofo 23, 2027			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMMEd"]/greatestDifference[@id="y"]	dc-50_XXX
+Tue, Apr 23, 2024	Mar 23 avr. 2024	Bena, Ofo 23, 2024			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="GyMMMEd"]	dc-51_XXX
+Tue, Apr 23, 2024 – Tue, Apr 23, 2345	Mar 23 avr. 2024–Mar 23 avr. 2345	Bena, Ofo 23, 2024 – Bena, Ofo 23, 2345			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMMEd"]/greatestDifference[@id="G"]	dc-52_XXX
+Tuesday, April 23, 2024	Mardi 23 avril 2024	Benada, Oforinsuo 23, 2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateFormats/dateFormatLength[@type="full"]/dateFormat[@type="standard"]/pattern[@type="standard"]	dc-53_XXX
+Tuesday, April 23, 2024	Mardi 23 avril 2024	Benada, Oforinsuo 23, 2024			//ldml/dates/calendars/calendar[@type="generic"]/dateFormats/dateFormatLength[@type="full"]/dateFormat[@type="standard"]/pattern[@type="standard"]	dc-54_XXX
+3:30:45 PM	15 h 30 min 45 s	12/1899			//ldml/dates/calendars/calendar[@type="gregorian"]/timeFormats/timeFormatLength[@type="medium"]/timeFormat[@type="standard"]/pattern[@type="standard"]	dc-55_XXX
+3:30:45 PM PDT	15 h 30 min 45 s PDT	3:30:45 PM PAT		PDT could be abbreviated to PAT based on its translation to abron	//ldml/dates/calendars/calendar[@type="gregorian"]/timeFormats/timeFormatLength[@type="long"]/timeFormat[@type="standard"]/pattern[@type="standard"]	dc-56_XXX
+3:30:45 PM Pacific Daylight Time	15 h 30 min 45 s, Heure avancée du pacifique	3:30:45 PM Pacific Awiadaso Mmerɛ			//ldml/dates/calendars/calendar[@type="gregorian"]/timeFormats/timeFormatLength[@type="full"]/timeFormat[@type="standard"]/pattern[@type="standard"]	dc-57_XXX
+April	Avril	Oforinsuo			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="M"]	dc-58_XXX
+April	Avril	Oforinsuo			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="M"]	dc-59_XXX
+April – May	Avril–mai	Oforinsuo – Kɔtɔnima			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="M"]/greatestDifference[@id="M"]	dc-60_XXX
+April – May	Avril–mai	Oforinsuo – Kɔtɔnima			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="M"]/greatestDifference[@id="M"]	dc-61_XXX
+4/23	4/23	4/2025			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Md"]	dc-62_XXX
+4/23 – 4/24	23/04–24/04	4/23 – 4/24			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Md"]/greatestDifference[@id="d"]	dc-63_XXX
+4/23 – 5/23	23/04–23/05	4/23 – 5/23			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Md"]/greatestDifference[@id="M"]	dc-64_XXX
+4/23/2024 – 4/24/2024	23/04/2024–24/04/2024	4/23/2024 – 4/24/2024			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMd"]/greatestDifference[@id="d"]	dc-65_XXX
+4/23/2024 – 5/23/2024	23/04/2024–23/05/2024	4/23/2024 – 5/23/2024			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMd"]/greatestDifference[@id="M"]	dc-66_XXX
+4/23/2024 – 4/23/2027	23/04/2024–23/04/2027	4/23/2024 – 4/23/2027			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMd"]/greatestDifference[@id="y"]	dc-67_XXX
+4/23/2024	23/04/2024	4/2024			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="GyMd"]	dc-68_XXX
+4/23/2024 – 4/23/2345	23/04/2024–23/04/2345	4/23/2024 – 4/23/2345			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMd"]/greatestDifference[@id="G"]	dc-69_XXX
+4/2024 – 5/2024	4/2024–5/2024	4/2024 – 5/2024			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyM"]/greatestDifference[@id="M"]	dc-70_XXX
+4/2024 – 4/2027	4/2024–4/2027	4/2024 – 4/2027			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyM"]/greatestDifference[@id="y"]	dc-71_XXX
+4/2024 – 4/2345	4/2024–4/2345	4/2024 – 4/2345			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyM"]/greatestDifference[@id="G"]	dc-72_XXX
+Apr 2024 – May 2024	Avril 2024–Mai 2024	Ofo 2024 – Kɔt 2024		Since May is the same in the full/abbreviated version, I am assuming this should be the abbreviated version based on the abbreviation of Apr. So I have used Kɔt instead of Kɔtɔnima for May	//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMM"]/greatestDifference[@id="M"]	dc-73_XXX
+Apr 23 – Apr 24, 2024	23 avril–24 avril 2024	Ofo 23 – Ofo 24, 2024			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMMd"]/greatestDifference[@id="d"]	dc-74_XXX
+Apr 23 – May 23, 2024	23 avril–23 mai 2024	Ofo 23 – Kɔt 23, 2024		Since May is the same in the full/abbreviated version, I am assuming this should be the abbreviated version based on the abbreviation of Apr. So I have used Kɔt instead of Kɔtɔnima for May	//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMMd"]/greatestDifference[@id="M"]	dc-75_XXX
+Apr 23, 2024	23 avril 2024	Ofo 23, 2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateFormats/dateFormatLength[@type="medium"]/dateFormat[@type="standard"]/pattern[@type="standard"]	dc-76_XXX
+Apr 23, 2024 – Apr 23, 2027	23 avril 2024–23 avril 2027	Ofo 23, 2024 – Ofo 23, 2027			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMMd"]/greatestDifference[@id="y"]	dc-77_XXX
+Apr 23, 2024	23 avril 2024	Ofo 23, 2024			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="GyMMMd"]	dc-78_XXX
+Apr 23, 2024	23 avril 2024	Ofo 23, 2024			//ldml/dates/calendars/calendar[@type="generic"]/dateFormats/dateFormatLength[@type="medium"]/dateFormat[@type="standard"]/pattern[@type="standard"]	dc-79_XXX
+Apr 23, 2024 – Apr 23, 2345	23 avril 2024–23 avril 2345	Ofo 23, 2024 – Ofo 23, 2345			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMMd"]/greatestDifference[@id="G"]	dc-80_XXX
+Apr 2024 – Apr 2027	Avril 2024–Avril 2027	Ofo 2024 – Ofo 2027			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMM"]/greatestDifference[@id="y"]	dc-81_XXX
+Apr 2024	Avril 2024	Ofo 2024			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="GyMMM"]	dc-82_XXX
+Apr 2024 – Apr 2345	Avril 2024–Avril 2345	Ofo 2024 – Ofo 2345			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMM"]/greatestDifference[@id="G"]	dc-83_XXX
+April 23, 2024	23 avril 2024	Oforinsuo 23, 2024			//ldml/dates/calendars/calendar[@type="gregorian"]/dateFormats/dateFormatLength[@type="long"]/dateFormat[@type="standard"]/pattern[@type="standard"]	dc-84_XXX
+April 23, 2024	23 avril 2024	Oforinsuo 23, 2024			//ldml/dates/calendars/calendar[@type="generic"]/dateFormats/dateFormatLength[@type="long"]/dateFormat[@type="standard"]/pattern[@type="standard"]	dc-85_XXX
+2024 – 2027	2024–2027	2024 – 2027			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Gy"]/greatestDifference[@id="y"]	dc-86_XXX
+2024	2024	7/1905			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Gy"]	dc-87_XXX
+2024 – 2345	2024–2345	2024 – 2345			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Gy"]/greatestDifference[@id="G"]	dc-88_XXX
+Apr – May	Avr.–mai	Ofo – Kɔt		Since May is the same in the full/abbreviated version, I am assuming this should be the abbreviated version based on the abbreviation of Apr. So I have used Kɔt instead of Kɔtɔnima for May	//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="MMM"]/greatestDifference[@id="M"]	dc-89_XXX
+Apr 23	23 Avr.	Ofo 23			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="MMMd"]	dc-90_XXX
+Apr 23 – Apr 24	23 Avril–24 Avril	Ofo 23 – Ofo 24			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="MMMd"]/greatestDifference[@id="d"]	dc-91_XXX
+Apr 23 – May 23	23 Avril–23 Mai	Ofo 23 – Kɔt 23			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="MMMd"]/greatestDifference[@id="M"]	dc-92_XXX
+Thu, Apr 23	Mer 23 avril	Wukuo, Ofo 23			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="MMMEd"]	dc-93_XXX
+Tue, Apr 23 – Wed, Apr 24	Mar 23 avr.–Mer 24 avr.	Bena, Ofo 23 – Wukuo, Ofo 24			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="MMMEd"]/greatestDifference[@id="d"]	dc-94_XXX
+Tue, Apr 23 – Tue, May 23	Mar. 23 avr.–Mar. 23 mai	Bena, Ofo 23 – Bena, Kɔt 23		Since May is the same in the full/abbreviated version, I am assuming this should be the abbreviated version based on the abbreviation of Apr. So I have used Kɔt instead of Kɔtɔnima for May	//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="MMMEd"]/greatestDifference[@id="M"]	dc-95_XXX
+April 23	23 avril	Oforinsuo 23			//ldml/dates/calendars/calendar[@type="generic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="MMMMd"]	dc-96_XXX
+April – Week 4	Avril – Semaine 4	Oforinsuo – Nnawɔtwe 4			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="MMMMW"][@count="other"]	dc-97_XXX
+4/23/24	23/04/24	4/2024			//ldml/dates/calendars/calendar[@type="generic"]/dateFormats/dateFormatLength[@type="short"]/dateFormat[@type="standard"]/pattern[@type="standard"]	dc-98_XXX
+4/23/24	23/04/24	4/2024				dc-99_XXX
 COORDINATES AND DIRECTIONS / COORDONNÉES ET DIRECTIONS						
 "In websites like Wikipedia, it's common to see the long form of coordinates, such as ""Cape Town is located at 33.9258° south and 18.4232° east.""
 Sur des sites web comme celui de Wikipédia, on trouve souvent des coordonnées au format étendu. Par exemple : « Le Cap est situé à 33,9258 °Sud et à 18,4232 °Est. »"						
 ENGLISH	FRENCH	TRANSLATION IN YOUR LANGUAGE	VISUAL EXAMPLE	NOTES BY TRANSLATOR (IF NECESSARY)	XPATH (Ignore/For Reference Only)	
-48.8584° north	48,8584 °Nord	48.8584° atifi				
-22.5609° south	22,5609 °Sud	22.5609° anaafo				
-2.2945° east	2,2945 °Est	2.2945° apueɛ				
-0.2057° west	0,2057 °Ouest	0.2057° atɔeɛ				
-cardinal direction	Direction cardinale	Beaeɛ akyerɛkyerɛkwan				
+48.8584° north	48,8584 °Nord	48.8584° atifi				co-1_XXX
+22.5609° south	22,5609 °Sud	22.5609° anaafo				co-2_XXX
+2.2945° east	2,2945 °Est	2.2945° apueɛ				co-3_XXX
+0.2057° west	0,2057 °Ouest	0.2057° atɔeɛ				co-4_XXX
+cardinal direction	Direction cardinale	Beaeɛ akyerɛkyerɛkwan				co-5_XXX
 "In devices like Garmin, coordinates are shown with no space between the number and the cardinal direction.  
 Sur certains appareils comme ceux fabriqués par Garmin, les coordonnées s’affichent sans espace entre le chiffre et la direction cardinale."						
 ENGLISH	FRENCH	TRANSLATION IN YOUR LANGUAGE	VISUAL EXAMPLE	NOTES BY TRANSLATOR (IF NECESSARY)	XPATH (Ignore/For Reference Only)	
 48.8584°N	48,8584 °N	48.8584° atifi		"There is no standardised short form of cardinal points, they are always written in full, however this could be the starting point for getting a standardised abbreviations in Abron and almost all other Akan languages that would be the same, so one COULD use the following:
-48.8584°AT"		
+48.8584°AT"		co2-1_XXX
 22.5609°S	22,5609 °S	22.5609° anaafo		"There is no standardised short form of cardinal points, they are always written in full, however this could be the starting point for getting a standardised abbreviations in Abron and almost all other Akan languages that would be the same, so one COULD use the following:
-22.5609°AN"		
+22.5609°AN"		co2-2_XXX
 2.2945°E	2,2945 °E	2.2945° apueɛ		"There is no standardised short form of cardinal points, they are always written in full, however this could be the starting point for getting a standardised abbreviations in Abron and almost all other Akan languages that would be the same, so one COULD use the following:
-2.2945°AP"		
+2.2945°AP"		co2-3_XXX
 0.2057°W	0,2057 °O	0.2057° atɔeɛ		"There is no standardised short form of cardinal points, they are always written in full, however this could be the starting point for getting a standardised abbreviations in Abron and almost all other Akan languages that would be the same, so one COULD use the following:
-0.2057°AY"		
+0.2057°AY"		co2-4_XXX
 						
 "The GPS in your car is giving you directions. Coming up soon, you need to turn right. The GPS alerts you ""Take the 1st right"" (i.e., turn right at the next intersection). Or maybe the GPS alerts you ""Take the 2nd right"" or ""Take the 3rd right"" etc. (i.e., turn right at the second, third, or fourth intersection).
 Le GPS de votre voiture indique la direction à prendre. Vous devez bientôt tourner à droite. Le GPS vous avertit : « Prenez la première à droite » (c’est-à-dire tournez à droite à la prochaine intersection). Il peut aussi signaler : « Prenez la deuxième à droite » ou « Prenez la troisième à droite », etc. (c’est-à-dire tournez à la deuxième, troisième ou quatrième intersection à droite)."						
 ENGLISH	FRENCH	TRANSLATION IN YOUR LANGUAGE	VISUAL EXAMPLE	NOTES BY TRANSLATOR (IF NECESSARY)	XPATH (Ignore/For Reference Only)	
-Take the 1st right	Prenez la 1re à droite	Fa nkwanta a ɛdi kan no nifa so			//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal="one"]	
-Take the 2nd right	Prenez la 2e à droite	Fa nkwanta a ɛtɔ so mmienu no nifa so				
-Take the 3rd right	Prenez la 3e à droite	Fa nkwanta a ɛtɔ so mmiɛnsa no nifa so				
+Take the 1st right	Prenez la 1re à droite	Fa nkwanta a ɛdi kan no nifa so			//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal="one"]	co3-1_XXX
+Take the 2nd right	Prenez la 2e à droite	Fa nkwanta a ɛtɔ so mmienu no nifa so				co3-2_XXX
+Take the 3rd right	Prenez la 3e à droite	Fa nkwanta a ɛtɔ so mmiɛnsa no nifa so				co3-3_XXX
 QUARTERS / TRIMESTRES						
 "Many sports divide a game into 4 parts, called ""quarters."" Businesses and nonprofits often divide a year into 4 parts, also called ""quarters."" Both use terms like “1st Quarter” and abbreviations “Q1.” You’ll see these in finance apps, reports, and game scores.
 
@@ -336,14 +324,14 @@ Dans de nombreux sports, un match est divisé en quatre parties appelées « q
 
 Veuillez fournir votre traduction des termes comme « 1er trimestre », « 2e trimestre », etc. — à la fois les formes complètes et les formes abrégées (comme « T1 » et « T2 »). Si votre langue n’utilise pas la version abrégée, laissez simplement la case vide ou saisissez « NA »."						
 ENGLISH	FRENCH	TRANSLATION IN YOUR LANGUAGE	VISUAL EXAMPLE	NOTES BY TRANSLATOR (IF NECESSARY)	XPATH (Ignore/For Reference Only)	
-1st quarter	1er trimestre	Kɔta a ɛdi kan		Kɔta is borrowed from English but written in how we pronounce in our language.	//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="stand-alone"]/quarterWidth[@type="wide"]/quarter[@type="1"]	
-2nd quarter	2e trimestre	Kɔta a ɛtɔ so mmienu			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="stand-alone"]/quarterWidth[@type="wide"]/quarter[@type="2"]	
-3rd quarter	3e trimestre	Kɔta a ɛtɔ so mmiɛnsa			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="stand-alone"]/quarterWidth[@type="wide"]/quarter[@type="3"]	
-4th quarter	4e trimestre	Kɔta a ɛtɔ so ɛna			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="stand-alone"]/quarterWidth[@type="wide"]/quarter[@type="4"]	
-Q1	T1	K1			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="stand-alone"]/quarterWidth[@type="abbreviated"]/quarter[@type="1"]	
-Q2	T2	K2			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="stand-alone"]/quarterWidth[@type="abbreviated"]/quarter[@type="2"]	
-Q3	T3	K3			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="stand-alone"]/quarterWidth[@type="abbreviated"]/quarter[@type="3"]	
-Q4	T4	K4			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="stand-alone"]/quarterWidth[@type="abbreviated"]/quarter[@type="4"]	
+1st quarter	1er trimestre	Kɔta a ɛdi kan		Kɔta is borrowed from English but written in how we pronounce in our language.	//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="stand-alone"]/quarterWidth[@type="wide"]/quarter[@type="1"]	qt-1_XXX
+2nd quarter	2e trimestre	Kɔta a ɛtɔ so mmienu			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="stand-alone"]/quarterWidth[@type="wide"]/quarter[@type="2"]	qt-2_XXX
+3rd quarter	3e trimestre	Kɔta a ɛtɔ so mmiɛnsa			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="stand-alone"]/quarterWidth[@type="wide"]/quarter[@type="3"]	qt-3_XXX
+4th quarter	4e trimestre	Kɔta a ɛtɔ so ɛna			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="stand-alone"]/quarterWidth[@type="wide"]/quarter[@type="4"]	qt-4_XXX
+Q1	T1	K1			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="stand-alone"]/quarterWidth[@type="abbreviated"]/quarter[@type="1"]	qt-5_XXX
+Q2	T2	K2			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="stand-alone"]/quarterWidth[@type="abbreviated"]/quarter[@type="2"]	qt-6_XXX
+Q3	T3	K3			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="stand-alone"]/quarterWidth[@type="abbreviated"]/quarter[@type="3"]	qt-7_XXX
+Q4	T4	K4			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="stand-alone"]/quarterWidth[@type="abbreviated"]/quarter[@type="4"]	qt-8_XXX
 "In some cases, there is more context provided as to which quarter or quarter(s) is being referenced. 
 
 Please give us your translation for terms like “1st Quarter of 2025,” “2nd Quarter of 2025,” and so on—both full forms and abbreviated ones (like “Q1” and ""Q2""). 
@@ -352,14 +340,14 @@ Dans certains cas, un contexte supplémentaire est donné pour préciser à quel
 
 Veuillez donner votre traduction pour des expressions comme « 1er trimestre en 2025 », « 2e trimestre en 2025 », etc. — sous forme complète et abrégée (telles que « T1 » et « T2 »)."						
 ENGLISH	FRENCH	TRANSLATION IN YOUR LANGUAGE	VISUAL EXAMPLE	NOTES BY TRANSLATOR (IF NECESSARY)	XPATH (Ignore/For Reference Only)	
-1st quarter of 2025	1er trimestre en 2025	Kɔta a ɛdi kan wɔ 2025 mu		Kɔta is borrowed from English but written in how we pronounce in our language, with the year remaining in digits.		
-2nd quarter of 2025	2e trimestre en 2025	Kɔta a ɛtɔ so mmienu wɔ 2025 mu			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="wide"]/quarter[@type="2"]	
-3rd quarter of 2025	3e trimestre en 2025	Kɔta a ɛtɔ so mmiɛnsa wɔ 2025 mu			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="wide"]/quarter[@type="3"]	
-4th quarter of 2025	4e trimestre en 2025	Kɔta a ɛtɔ so ɛnan wɔ 2025 mu			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="wide"]/quarter[@type="4"]	
-Q1 of 2025	T1 de 2025	K1 wɔ 2025 mu			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="abbreviated"]/quarter[@type="1"]	
-Q2 of 2025	T2 de 2025	K2 wɔ 2025 mu			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="abbreviated"]/quarter[@type="2"]	
-Q3 of 2025	T3 de 2025	K3 wɔ 2025 mu			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="abbreviated"]/quarter[@type="3"]	
-Q4 of 2025	T4 de 2025	K4 wɔ 2025 mu			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="abbreviated"]/quarter[@type="4"]	
+1st quarter of 2025	1er trimestre en 2025	Kɔta a ɛdi kan wɔ 2025 mu		Kɔta is borrowed from English but written in how we pronounce in our language, with the year remaining in digits.		qt2-1_XXX
+2nd quarter of 2025	2e trimestre en 2025	Kɔta a ɛtɔ so mmienu wɔ 2025 mu			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="wide"]/quarter[@type="2"]	qt2-2_XXX
+3rd quarter of 2025	3e trimestre en 2025	Kɔta a ɛtɔ so mmiɛnsa wɔ 2025 mu			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="wide"]/quarter[@type="3"]	qt2-3_XXX
+4th quarter of 2025	4e trimestre en 2025	Kɔta a ɛtɔ so ɛnan wɔ 2025 mu			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="wide"]/quarter[@type="4"]	qt2-4_XXX
+Q1 of 2025	T1 de 2025	K1 wɔ 2025 mu			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="abbreviated"]/quarter[@type="1"]	qt2-5_XXX
+Q2 of 2025	T2 de 2025	K2 wɔ 2025 mu			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="abbreviated"]/quarter[@type="2"]	qt2-6_XXX
+Q3 of 2025	T3 de 2025	K3 wɔ 2025 mu			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="abbreviated"]/quarter[@type="3"]	qt2-7_XXX
+Q4 of 2025	T4 de 2025	K4 wɔ 2025 mu			//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="abbreviated"]/quarter[@type="4"]	qt2-8_XXX
 ERAS / ÈRES						
 "You're making a Wikipedia article about a famous historical person. Their birthdate might appera like “450 BCE” or “2025 AD.”
 
@@ -371,11 +359,11 @@ Vous rédigez un article Wikipédia sur une personnage historique célèbre. Sa 
 
 Nous avons besoin de votre traduction locale de ces termes — à la fois sous forme complète (comme « Avant Jésus-Christ ») et sous forme abrégée (comme « av. J.-C. » ou « av. n. è. »). Vous trouverez un tableau contenant des exemples en anglais et en français à comparer. Si votre langue n’utilise pas certains de ces termes ou abréviations, laissez-les vides ou saisissez « NA »."						
 ENGLISH	FRENCH	TRANSLATION IN YOUR LANGUAGE	VISUAL EXAMPLE	NOTES BY TRANSLATOR (IF NECESSARY)	XPATH (Ignore/For Reference Only)	
-Before Common Era	avant l’ère commune	Ansa Kɔmɔn Ɛra				
-BCE	AEC	AKE				
-Before Christ	avant Jésus-Christ	Ansa Christo Mmaeɛ				
-BC	av. J.-C.	ACM				
-Common Era	de l’ère commune	Kɔmɔn Ɛra				
-CE	EC	KƐ				
-Anno Domini	après Jésus-Christ	Christo Mmaeɛ no				
-AD	ap. J.-C.	CM				
+Before Common Era	avant l’ère commune	Ansa Kɔmɔn Ɛra				er-1_XXX
+BCE	AEC	AKE				er-2_XXX
+Before Christ	avant Jésus-Christ	Ansa Christo Mmaeɛ				er-3_XXX
+BC	av. J.-C.	ACM				er-4_XXX
+Common Era	de l’ère commune	Kɔmɔn Ɛra				er-5_XXX
+CE	EC	KƐ				er-6_XXX
+Anno Domini	après Jésus-Christ	Christo Mmaeɛ no				er-7_XXX
+AD	ap. J.-C.	CM				er-8_XXX

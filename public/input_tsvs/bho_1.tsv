@@ -11,23 +11,19 @@ En français, il existe trois façons d’écrire le mot « année » : « 
 ENGLISH	FRENCH	TRANSLATION IN YOUR LANGUAGE	VISUAL EXAMPLE	NOTES BY TRANSLATOR (IF NECESSARY)	XPATH (Ignore/For Reference Only)	
 era	ère	युग		Alternate translation: जुग	//ldml/dates/fields/field[@type="era"]/displayName	dw-1_XXX
 year	année	बरिस			//ldml/dates/fields/field[@type="year"]/displayName	dw-2_XXX
-yr	a	बरि		"Alternate translation: सलाना
-Does not exist - created to see if it works in context"	//ldml/dates/fields/field[@type="year-narrow"]/displayName	dw-3_XXX
+yr	a	बरि		"Alternate translation: सलाना Does not exist - created to see if it works in context"	//ldml/dates/fields/field[@type="year-narrow"]/displayName	dw-3_XXX
 y	an	ब		Does not exist - created to see if it works in context	//ldml/dates/fields/field[@type="year-short"]/displayName	dw-4_XXX
 quarter	trimestre	तिमाही			//ldml/dates/fields/field[@type="quarter"]/displayName	dw-5_XXX
 qtr.	trim.	तिम		Does not exist - created to see if it works in context	//ldml/dates/fields/field[@type="quarter-short"]/displayName	dw-6_XXX
 qtr	trim.	तिम		Does not exist - created to see if it works in context	//ldml/dates/fields/field[@type="quarter-narrow"]/displayName	dw-7_XXX
 month	mois	महीना			//ldml/dates/fields/field[@type="month"]/displayName	dw-8_XXX
-mo.	m.	मही		"Alternate translation: मासिक
-Does not exist - created to see if it works in context"	//ldml/dates/fields/field[@type="month-short"]/displayName	dw-9_XXX
-m	m.	म		"Alternate translation: दैनिक
-Does not exist - created to see if it works in context"	//ldml/dates/fields/field[@type="month-narrow"]/displayName	dw-10_XXX
+mo.	m.	मही		"Alternate translation: मासिक Does not exist - created to see if it works in context"	//ldml/dates/fields/field[@type="month-short"]/displayName	dw-9_XXX
+m	m.	म		"Alternate translation: दैनिक Does not exist - created to see if it works in context"	//ldml/dates/fields/field[@type="month-narrow"]/displayName	dw-10_XXX
 week	semaine	हफ्ता			//ldml/dates/fields/field[@type="week"]/displayName	dw-11_XXX
 wk.	sem.	हफ्ता		Alternate translation: साप्ताहिक	//ldml/dates/fields/field[@type="week-short"]/displayName	dw-12_XXX
 wk	sem.	हफ्ता		Alternate translation: साप्ताहिक	//ldml/dates/fields/field[@type="week-narrow"]/displayName	dw-13_XXX
 day	jour	दिन			//ldml/dates/fields/field[@type="day"]/displayName	dw-14_XXX
-d	j	दि		"Alternate translation: दैनिक
-Does not exist - created to see if it works in context"	//ldml/dates/fields/field[@type="day-short"]/displayName	dw-15_XXX
+d	j	दि		"Alternate translation: दैनिक Does not exist - created to see if it works in context"	//ldml/dates/fields/field[@type="day-short"]/displayName	dw-15_XXX
 hour	heure	घंटा			//ldml/dates/fields/field[@type="hour"]/displayName	dw-16_XXX
 hr	h	घं		Does not exist - created to see if it works in context	//ldml/dates/fields/field[@type="hour-narrow"]/displayName	dw-17_XXX
 minute	minute	मिनट			//ldml/dates/fields/field[@type="minute"]/displayName	dw-18_XXX
@@ -83,18 +79,12 @@ Fr	Ve	सुक				wk-20_XXX
 Sa	Sa	सनि				wk-21_XXX
 ENGLISH (SHORTEST-LENGTH FORM)	FRENCH (SHORTEST-LENGTH FORM)	TRANSLATION IN YOUR LANGUAGE	VISUAL EXAMPLE	NOTES BY TRANSLATOR (IF NECESSARY)		
 S	D	रवि		Shortest possible is रवि		wk-22_XXX
-M	L	सोम		"Does not exist - स doesn't work even in context. 
-Shortest possible: सोम"		wk-23_XXX
-T	M	मंगर		"Does not exist - मं doesn't work even in context. 
-Shortest possible: मंगर"		wk-24_XXX
-W	M	बुध		"Does not exist - बु doesn't work even in context. 
-Shortest possible: बुध"		wk-25_XXX
-T	J	बियफे		"Does not exist - बि doesn't work even in context. 
-Shortest possible: बियफे"		wk-26_XXX
-F	V	सुक		"Does not exist - सु doesn't work even in context. 
-Shortest possible: सुक"		wk-27_XXX
-S	S	सनि		"Does not exist - स doesn't work even in context. 
-Shortest possible: सनि"		wk-28_XXX
+M	L	सोम		"Does not exist - स doesn't work even in context. Shortest possible: सोम"		wk-23_XXX
+T	M	मंगर		"Does not exist - मं doesn't work even in context. Shortest possible: मंगर"		wk-24_XXX
+W	M	बुध		"Does not exist - बु doesn't work even in context. Shortest possible: बुध"		wk-25_XXX
+T	J	बियफे		"Does not exist - बि doesn't work even in context. Shortest possible: बियफे"		wk-26_XXX
+F	V	सुक		"Does not exist - सु doesn't work even in context. Shortest possible: सुक"		wk-27_XXX
+S	S	सनि		"Does not exist - स doesn't work even in context. Shortest possible: सनि"		wk-28_XXX
 MONTH WORDS / TERMINOLOGIE DES MOIS						
 "In English there are 3 ways to write the months of the year: full form, medium abbreviation, and shortest abbreviation. Does your language have the same 3 forms? If yes, please enter them in Column B. If your language has LESS than 3 forms, you can leave cells blank or write ""DOES NOT HAVE."" If your language as MORE than 3 forms, please add them to the bottom, and provide an explanation in the NOTES column, and if so, how do you write them in your language? (See VISUAL EXAMPLES to understand the Abbreviations better.)
 En anglais, il existe trois façons d’écrire les mois de l’année : forme complète, abréviation moyenne et abréviation la plus courte. Votre langue utilise-t-elle aussi ces trois formes ? Si oui, veuillez les indiquer dans la colonne B. Si votre langue a MOINS de trois formes, vous pouvez laisser des cellules vides ou saisir « N’EXISTE PAS ». Si votre langue en a PLUS, veuillez les ajouter en bas et fournir une explication dans la colonne des notes. (Consultez les EXEMPLES VISUELS pour mieux comprendre les abréviations.)"						
@@ -125,30 +115,18 @@ Oct	Oct.	अक्		Short forms are not used for month names, but this looks fin
 Nov	Nov.	नव		Short forms are not used for month names, but this looks fine in context.		mw-23_XXX
 Dec	Déc.	दिस		Short forms are not used for month names, but this looks fine in context.		mw-24_XXX
 ENGLISH (SHORTEST-LENGTH FORM)	FRENCH (SHORTEST-LENGTH FORM)	TRANSLATION IN YOUR LANGUAGE	VISUAL EXAMPLE	NOTES BY TRANSLATOR (IF NECESSARY)		
-J	J	जन		"ज does not work in context
-Shortest possibility is जन"		mw-25_XXX
-F	F	फरव		"फ does not work in context
-Shortest possibility is फरव"		mw-26_XXX
-M	M	मार		"म does not work in context
-Shortest possibility is मार"		mw-27_XXX
-A	A	अप्र		"अ does not work in context
-Shortest possibility is अप्र"		mw-28_XXX
-M	M	मई		"म does not work in context
-Shortest possibility is मई"		mw-29_XXX
-J	J	जून		"ज does not work in context
-Shortest possibility is जून"		mw-30_XXX
-J	J	जुल		"ज does not work in context
-Shortest possibility is जुल"		mw-31_XXX
-A	A	अग		"अ does not work in context
-Shortest possibility is अग"		mw-32_XXX
-S	S	सित		"स does not work in context
-Shortest possibility is सित"		mw-33_XXX
-O	O	अक्		"अ does not work in context
-Shortest possibility is अक्"		mw-34_XXX
-N	N	नव		"न does not work in context
-Shortest possibility is नव"		mw-35_XXX
-D	D	दिस		"द does not work in context
-Shortest possibility is दिस"		mw-36_XXX
+J	J	जन		"ज does not work in context Shortest possibility is जन"		mw-25_XXX
+F	F	फरव		"फ does not work in context Shortest possibility is फरव"		mw-26_XXX
+M	M	मार		"म does not work in context Shortest possibility is मार"		mw-27_XXX
+A	A	अप्र		"अ does not work in context Shortest possibility is अप्र"		mw-28_XXX
+M	M	मई		"म does not work in context Shortest possibility is मई"		mw-29_XXX
+J	J	जून		"ज does not work in context Shortest possibility is जून"		mw-30_XXX
+J	J	जुल		"ज does not work in context Shortest possibility is जुल"		mw-31_XXX
+A	A	अग		"अ does not work in context Shortest possibility is अग"		mw-32_XXX
+S	S	सित		"स does not work in context Shortest possibility is सित"		mw-33_XXX
+O	O	अक्		"अ does not work in context Shortest possibility is अक्"		mw-34_XXX
+N	N	नव		"न does not work in context Shortest possibility is नव"		mw-35_XXX
+D	D	दिस		"द does not work in context Shortest possibility is दिस"		mw-36_XXX
 HOURS / HEURES						
 ENGLISH	FRENCH	TRANSLATION IN YOUR LANGUAGE	VISUAL EXAMPLE	NOTES BY TRANSLATOR (IF NECESSARY)	XPATH (Ignore/For Reference Only)	
 3:00 PM	15 h 00	दुपहर 3 बजे			//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="h"]	hr-1_XXX

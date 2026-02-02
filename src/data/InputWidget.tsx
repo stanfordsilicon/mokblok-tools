@@ -1,26 +1,33 @@
-import { useCallback, useState } from 'react';
-import { InputLanguage } from './InputDataTypes';
-import { loadInputText } from './LoadInputData';
+import { useCallback, useEffect, useState } from 'react';
+import { useDataContext } from './DataContext';
+import { InputLanguage } from './DataTypes';
+import { loadInputText, parseInputTSV } from './LoadInputData';
 
-const InputLoadWidget = () => {
-  // const { inputLines, setInputLines } = useState<string>('');
+const InputWidget = () => {
   const [inputText, setInputText] = useState<string>('');
+  const { setRows } = useDataContext();
 
   const onClickLanguage = useCallback(async (lang: InputLanguage) => {
     await loadInputText(`/input_tsvs/${lang}_1.tsv`).then((data) => setInputText(data || ''));
-
-    // Handle language button click
   }, []);
 
+  // Automatically updates the input lines dataset when inputText changes
+  useEffect(() => {
+    setRows(parseInputTSV(inputText));
+  }, [inputText, setRows]);
+
   return (
-    <div>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '.5em' }}>
+      <div>Select a language to load its TSV data:</div>
       <div style={{ display: 'flex', gap: '1em' }}>
         {Object.values(InputLanguage).map((lang) => (
           <button key={lang} onClick={() => onClickLanguage(lang)}>
-            {lang}
+            {/* Convert ID to a readable name */}
+            {Object.entries(InputLanguage).find(([, value]) => value === lang)?.[0]}
           </button>
         ))}
       </div>
+      Or paste your own TSV data below:
       <textarea
         style={{
           width: '100%',
@@ -38,4 +45,4 @@ const InputLoadWidget = () => {
   );
 };
 
-export default InputLoadWidget;
+export default InputWidget;
