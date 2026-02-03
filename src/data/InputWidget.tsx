@@ -14,7 +14,7 @@ const InputWidget = () => {
 
   const onClickLanguage = useCallback(async (lang: InputLanguage) => {
     setTargetLanguage(lang);
-    await loadInputText(`/input_tsvs/${lang}_1.tsv`).then((data) => setInputText(data || ''));
+    await loadInputText(`input_tsvs/${lang}_1.tsv`).then((data) => setInputText(data || ''));
   }, []);
 
   // Automatically updates the input lines dataset when inputText changes
@@ -43,7 +43,7 @@ const InputWidget = () => {
           width: '100%',
           height: '300px',
           marginTop: '1em',
-          fontSize: '6px',
+          fontSize: '8px',
           tabSize: 16,
           whiteSpace: 'nowrap',
         }}
@@ -72,7 +72,7 @@ const InputWidget = () => {
               (day.narrow ? 1 : 0)),
           0,
         )}{' '}
-        / 28 (7 days × 4 forms)
+        / 28 (7 days × 4 formmms)
       </div>
     </div>
   );

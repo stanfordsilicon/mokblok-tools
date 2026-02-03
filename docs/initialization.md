@@ -32,3 +32,7 @@ This is a guide to the steps to begin the project that shouldn't need to be done
    - Save the settings.
 3. Set up deployment scripts:   
    - Add deployment scripts to `package.json` to automate the deployment process to GitHub Pages.
+4. Update `vite.config.ts` to set the base path for the project when deployed on GitHub Pages.
+5. Test deployment:
+   1. Build the project using `npm run build`.
+   2. Deploy the built project to GitHub Pages using the deployment script `npm run deploy`.
