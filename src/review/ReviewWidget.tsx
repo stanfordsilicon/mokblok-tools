@@ -1,11 +1,14 @@
-import { useState } from 'react';
+import type { DayOfWeekData, MonthData } from 'src/data/ExtractData';
 import { useDataContext } from '../data/DataContext';
 import { SourceLanguage, type RowData } from '../data/DataTypes';
+import useStoredParams from '../page/useStoredParams';
 
 const ReviewWidget: React.FC = () => {
-  const { rowsByExtID } = useDataContext();
-  const [sourceLanguage, setSourceLanguage] = useState<SourceLanguage>(SourceLanguage.English);
-  const monthsData = getMonthsData(rowsByExtID);
+  const { monthsData, daysOfWeekData } = useDataContext();
+  const { value: sourceLanguage, setValue: setSourceLanguage } = useStoredParams<SourceLanguage>(
+    'sourceLanguage',
+    SourceLanguage.English,
+  );
 
   return (
     <div>
@@ -22,6 +25,26 @@ const ReviewWidget: React.FC = () => {
           </button>
         ))}
       </div>
+      <MonthsReviewTable sourceLanguage={sourceLanguage} monthsData={monthsData} />
+      <DaysOfWeekReviewTable sourceLanguage={sourceLanguage} daysOfWeekData={daysOfWeekData} />
+    </div>
+  );
+};
+
+function getSourceLanguageData(row: RowData | undefined, sourceLanguage: SourceLanguage): string {
+  if (!row) return '';
+  return sourceLanguage === SourceLanguage.English ? row.english : row.french;
+}
+
+function MonthsReviewTable({
+  sourceLanguage,
+  monthsData,
+}: {
+  sourceLanguage: SourceLanguage;
+  monthsData: MonthData[];
+}) {
+  return (
+    <div>
       <h3>Months</h3>
       <table>
         <thead>
@@ -43,76 +66,70 @@ const ReviewWidget: React.FC = () => {
           </tr>
         </thead>
         <tbody>
-          {Array.from({ length: 12 }).map((_, index) => (
+          {monthsData.map((month, index) => (
             <tr key={index}>
-              <td>{getSourceLanguageData(monthsData.long[index], sourceLanguage)}</td>
-              <td>{getSourceLanguageData(monthsData.short[index], sourceLanguage)}</td>
-              <td>{getSourceLanguageData(monthsData.narrow[index], sourceLanguage)}</td>
-              <td>{monthsData.long[index]?.translated}</td>
-              <td>{monthsData.short[index]?.translated}</td>
-              <td>{monthsData.narrow[index]?.translated}</td>
+              <td>{getSourceLanguageData(month.long, sourceLanguage)}</td>
+              <td>{getSourceLanguageData(month.short, sourceLanguage)}</td>
+              <td>{getSourceLanguageData(month.narrow, sourceLanguage)}</td>
+              <td>{month.long?.translated}</td>
+              <td>{month.short?.translated}</td>
+              <td>{month.narrow?.translated}</td>
             </tr>
           ))}
         </tbody>
       </table>
     </div>
   );
-};
-
-function getSourceLanguageData(row: RowData | undefined, sourceLanguage: SourceLanguage): string {
-  if (!row) return '';
-  return sourceLanguage === SourceLanguage.English ? row.english : row.french;
 }
 
-function getMonthsData(rowsByExtID: Record<string, RowData>): {
-  long: RowData[];
-  short: RowData[];
-  narrow: RowData[];
-} {
-  return {
-    long: [
-      rowsByExtID['mw-1_XXX'],
-      rowsByExtID['mw-2_XXX'],
-      rowsByExtID['mw-3_XXX'],
-      rowsByExtID['mw-4_XXX'],
-      rowsByExtID['mw-5_XXX'],
-      rowsByExtID['mw-6_XXX'],
-      rowsByExtID['mw-7_XXX'],
-      rowsByExtID['mw-8_XXX'],
-      rowsByExtID['mw-9_XXX'],
-      rowsByExtID['mw-10_XXX'],
-      rowsByExtID['mw-11_XXX'],
-      rowsByExtID['mw-12_XXX'],
-    ],
-    short: [
-      rowsByExtID['mw-13_XXX'],
-      rowsByExtID['mw-14_XXX'],
-      rowsByExtID['mw-15_XXX'],
-      rowsByExtID['mw-16_XXX'],
-      rowsByExtID['mw-17_XXX'],
-      rowsByExtID['mw-18_XXX'],
-      rowsByExtID['mw-19_XXX'],
-      rowsByExtID['mw-20_XXX'],
-      rowsByExtID['mw-21_XXX'],
-      rowsByExtID['mw-22_XXX'],
-      rowsByExtID['mw-23_XXX'],
-      rowsByExtID['mw-24_XXX'],
-    ],
-    narrow: [
-      rowsByExtID['mw-25_XXX'],
-      rowsByExtID['mw-26_XXX'],
-      rowsByExtID['mw-27_XXX'],
-      rowsByExtID['mw-28_XXX'],
-      rowsByExtID['mw-29_XXX'],
-      rowsByExtID['mw-30_XXX'],
-      rowsByExtID['mw-31_XXX'],
-      rowsByExtID['mw-32_XXX'],
-      rowsByExtID['mw-33_XXX'],
-      rowsByExtID['mw-34_XXX'],
-      rowsByExtID['mw-35_XXX'],
-      rowsByExtID['mw-36_XXX'],
-    ],
-  };
+function DaysOfWeekReviewTable({
+  sourceLanguage,
+  daysOfWeekData,
+}: {
+  sourceLanguage: SourceLanguage;
+  daysOfWeekData: DayOfWeekData[];
+}) {
+  return (
+    <div>
+      <h3>Days of the Week</h3>
+      <table>
+        <thead>
+          <tr>
+            <th colSpan={4} style={{ textAlign: 'center' }}>
+              {Object.entries(SourceLanguage).find(([, value]) => value === sourceLanguage)?.[0]}
+            </th>
+            <th colSpan={4} style={{ textAlign: 'center' }}>
+              Translated
+            </th>
+          </tr>
+          <tr>
+            <th>Wide</th>
+            <th title="Abbreviated">Abbr.</th>
+            <th>Short</th>
+            <th>Narrow</th>
+            <th>Wide</th>
+            <th title="Abbreviated">Abbr.</th>
+            <th>Short</th>
+            <th>Narrow</th>
+          </tr>
+        </thead>
+        <tbody>
+          {daysOfWeekData.map((day, index) => (
+            <tr key={index}>
+              <td>{getSourceLanguageData(day.wide, sourceLanguage)}</td>
+              <td>{getSourceLanguageData(day.abbreviated, sourceLanguage)}</td>
+              <td>{getSourceLanguageData(day.short, sourceLanguage)}</td>
+              <td>{getSourceLanguageData(day.narrow, sourceLanguage)}</td>
+              <td>{day.wide?.translated}</td>
+              <td>{day.abbreviated?.translated}</td>
+              <td>{day.short?.translated}</td>
+              <td>{day.narrow?.translated}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
 }
 
 export default ReviewWidget;

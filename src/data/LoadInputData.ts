@@ -8,7 +8,9 @@ export async function loadInputText(filePath: string): Promise<string | void> {
 
 export function parseInputTSV(tsv: string): RowData[] {
   return tsv.split('\n').map((line) => {
-    const [english, french, translated, example, notes, xpath, ext_id] = line.split('\t');
+    const [english, french, translated, example, notes, xpath, ext_id] = line
+      .split('\t')
+      .map((cell) => cell.trim());
     return { english, french, translated, example, notes, xpath, ext_id };
   });
 }
