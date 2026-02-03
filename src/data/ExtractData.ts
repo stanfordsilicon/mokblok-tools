@@ -72,7 +72,6 @@ export function getMonthsData(rowsByExtID: Record<string, RowData>): MonthData[]
 }
 
 export function getDaysOfWeekData(rowsByExtID: Record<string, RowData>): DayOfWeekData[] {
-  console.log({ rowsByExtID });
   return [
     {
       wide: rowsByExtID['wk-1_XXX'],

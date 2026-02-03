@@ -35,20 +35,20 @@ export const enum DateField {
 }
 
 export type MonthData = {
-  wide: RowData;
-  abbreviated: RowData;
-  narrow: RowData;
+  wide?: RowData;
+  abbreviated?: RowData;
+  narrow?: RowData;
 };
 
 export type DayOfWeekData = {
-  wide: RowData;
-  abbreviated: RowData;
-  short: RowData;
-  narrow: RowData;
+  wide?: RowData;
+  abbreviated?: RowData;
+  short?: RowData;
+  narrow?: RowData;
 };
 
 export type DateFieldData = {
-  wide: RowData;
+  wide?: RowData;
   short?: RowData;
   narrow?: RowData;
 };

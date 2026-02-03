@@ -34,7 +34,7 @@ const DateFieldsReviewTable: React.FC<{
               <td>{getSourceLanguageData(fieldData.wide, sourceLanguage)}</td>
               <td>{getSourceLanguageData(fieldData.short, sourceLanguage)}</td>
               <td>{getSourceLanguageData(fieldData.narrow, sourceLanguage)}</td>
-              <td>{fieldData.wide.translated}</td>
+              <td>{fieldData.wide?.translated}</td>
               <td>{fieldData.short?.translated}</td>
               <td>{fieldData.narrow?.translated}</td>
             </tr>
