@@ -28,13 +28,13 @@ const StepButton: React.FC<{
   return (
     <button
       onClick={() => setStep(targetStep)}
+      className={isCurrent ? 'selected' : ''}
       style={{
         borderRadius: '.5em .5em 0 0',
         borderTop: border,
         borderLeft: border,
         borderRight: border,
         padding: '.5em 1em',
-        backgroundColor: isCurrent ? '#f0f0f0' : 'transparent',
       }}
     >
       {label}

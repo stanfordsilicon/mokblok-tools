@@ -1,18 +1,14 @@
 import { createContext, useContext, useMemo, useState } from 'react';
 
-import type { RowData } from './DataTypes';
-import {
-  getDaysOfWeekData,
-  getMonthsData,
-  type DayOfWeekData,
-  type MonthData,
-} from './ExtractData';
+import type { DateField, DateFieldData, DayOfWeekData, MonthData, RowData } from './DataTypes';
+import { getDateFieldsData, getDaysOfWeekData, getMonthsData } from './ExtractData';
 
 export type DataContextType = {
   setRows: (lines: RowData[]) => void;
   rowsByExtID: Record<string, RowData>;
   monthsData: MonthData[];
   daysOfWeekData: DayOfWeekData[];
+  dateFieldsData: Partial<Record<DateField, DateFieldData>>;
 };
 
 export const DataContext = createContext<DataContextType | undefined>({
@@ -20,6 +16,7 @@ export const DataContext = createContext<DataContextType | undefined>({
   rowsByExtID: {},
   monthsData: [],
   daysOfWeekData: [],
+  dateFieldsData: {},
 });
 
 export const useDataContext = () => {
@@ -46,12 +43,14 @@ export const DataProvider: React.FC<{
   );
   const monthsData = useMemo(() => getMonthsData(rowsByExtID), [rowsByExtID]);
   const daysOfWeekData = useMemo(() => getDaysOfWeekData(rowsByExtID), [rowsByExtID]);
+  const dateFieldsData = useMemo(() => getDateFieldsData(rowsByExtID), [rowsByExtID]);
 
   const dataContext: DataContextType = {
     setRows: setRows,
     rowsByExtID,
     monthsData,
     daysOfWeekData,
+    dateFieldsData,
   };
 
   return <DataContext.Provider value={dataContext}>{children}</DataContext.Provider>;

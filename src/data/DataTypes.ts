@@ -20,3 +20,35 @@ export enum SourceLanguage {
   English = 'eng',
   French = 'fra',
 }
+
+export const enum DateField {
+  Era = 'era',
+  Year = 'year',
+  Quarter = 'quarter',
+  Month = 'month',
+  Week = 'week',
+  Day = 'day',
+  DayOfWeek = 'day-of-week',
+  Hour = 'hour',
+  Minute = 'minute',
+  Second = 'second',
+}
+
+export type MonthData = {
+  wide: RowData;
+  abbreviated: RowData;
+  narrow: RowData;
+};
+
+export type DayOfWeekData = {
+  wide: RowData;
+  abbreviated: RowData;
+  short: RowData;
+  narrow: RowData;
+};
+
+export type DateFieldData = {
+  wide: RowData;
+  short?: RowData;
+  narrow?: RowData;
+};

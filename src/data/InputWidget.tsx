@@ -2,10 +2,11 @@ import { useCallback, useEffect } from 'react';
 import useStoredParams from '../page/useStoredParams';
 import { useDataContext } from './DataContext';
 import { InputLanguage } from './DataTypes';
+import InputCheck from './InputCheck';
 import { loadInputText, parseInputTSV } from './LoadInputData';
 
 const InputWidget = () => {
-  const { setRows, monthsData, daysOfWeekData } = useDataContext();
+  const { setRows } = useDataContext();
   const { value: inputText, setValue: setInputText } = useStoredParams<string>('inputText', '');
   const { value: targetLanguage, setValue: setTargetLanguage } = useStoredParams<InputLanguage>(
     'targetLanguage',
@@ -29,8 +30,8 @@ const InputWidget = () => {
         {Object.values(InputLanguage).map((lang) => (
           <button
             key={lang}
+            className={lang === targetLanguage ? 'selected' : ''}
             onClick={() => onClickLanguage(lang)}
-            style={{ fontWeight: lang === targetLanguage ? 'bold' : 'normal' }}
           >
             {/* Convert ID to a readable name */}
             {Object.entries(InputLanguage).find(([, value]) => value === lang)?.[0]}
@@ -51,29 +52,7 @@ const InputWidget = () => {
         value={inputText}
         onChange={(e) => setInputText(e.target.value)}
       />
-      <div>
-        <strong>Total rows loaded:</strong> {inputText ? parseInputTSV(inputText).length : 0}
-        <br />
-        <strong>Months loaded:</strong>{' '}
-        {monthsData.reduce(
-          (count, month) =>
-            count + ((month.long ? 1 : 0) + (month.short ? 1 : 0) + (month.narrow ? 1 : 0)),
-          0,
-        )}{' '}
-        / 36 (12 months × 3 forms)
-        <br />
-        <strong>Days of the week loaded:</strong>{' '}
-        {daysOfWeekData.reduce(
-          (count, day) =>
-            count +
-            ((day.wide ? 1 : 0) +
-              (day.abbreviated ? 1 : 0) +
-              (day.short ? 1 : 0) +
-              (day.narrow ? 1 : 0)),
-          0,
-        )}{' '}
-        / 28 (7 days × 4 formmms)
-      </div>
+      <InputCheck numRows={inputText ? parseInputTSV(inputText).length : 0} />
     </div>
   );
 };

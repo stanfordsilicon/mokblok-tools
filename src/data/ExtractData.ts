@@ -1,82 +1,75 @@
-import type { RowData } from './DataTypes';
-
-export type MonthData = {
-  long: RowData;
-  short: RowData;
-  narrow: RowData;
-};
+import {
+  DateField,
+  type DateFieldData,
+  type DayOfWeekData,
+  type MonthData,
+  type RowData,
+} from './DataTypes';
 
 export function getMonthsData(rowsByExtID: Record<string, RowData>): MonthData[] {
   return [
     {
-      long: rowsByExtID['mw-1_XXX'],
-      short: rowsByExtID['mw-13_XXX'],
+      wide: rowsByExtID['mw-1_XXX'],
+      abbreviated: rowsByExtID['mw-13_XXX'],
       narrow: rowsByExtID['mw-25_XXX'],
     },
     {
-      long: rowsByExtID['mw-2_XXX'],
-      short: rowsByExtID['mw-14_XXX'],
+      wide: rowsByExtID['mw-2_XXX'],
+      abbreviated: rowsByExtID['mw-14_XXX'],
       narrow: rowsByExtID['mw-26_XXX'],
     },
     {
-      long: rowsByExtID['mw-3_XXX'],
-      short: rowsByExtID['mw-15_XXX'],
+      wide: rowsByExtID['mw-3_XXX'],
+      abbreviated: rowsByExtID['mw-15_XXX'],
       narrow: rowsByExtID['mw-27_XXX'],
     },
     {
-      long: rowsByExtID['mw-4_XXX'],
-      short: rowsByExtID['mw-16_XXX'],
+      wide: rowsByExtID['mw-4_XXX'],
+      abbreviated: rowsByExtID['mw-16_XXX'],
       narrow: rowsByExtID['mw-28_XXX'],
     },
     {
-      long: rowsByExtID['mw-5_XXX'],
-      short: rowsByExtID['mw-17_XXX'],
+      wide: rowsByExtID['mw-5_XXX'],
+      abbreviated: rowsByExtID['mw-17_XXX'],
       narrow: rowsByExtID['mw-29_XXX'],
     },
     {
-      long: rowsByExtID['mw-6_XXX'],
-      short: rowsByExtID['mw-18_XXX'],
+      wide: rowsByExtID['mw-6_XXX'],
+      abbreviated: rowsByExtID['mw-18_XXX'],
       narrow: rowsByExtID['mw-30_XXX'],
     },
     {
-      long: rowsByExtID['mw-7_XXX'],
-      short: rowsByExtID['mw-19_XXX'],
+      wide: rowsByExtID['mw-7_XXX'],
+      abbreviated: rowsByExtID['mw-19_XXX'],
       narrow: rowsByExtID['mw-31_XXX'],
     },
     {
-      long: rowsByExtID['mw-8_XXX'],
-      short: rowsByExtID['mw-20_XXX'],
+      wide: rowsByExtID['mw-8_XXX'],
+      abbreviated: rowsByExtID['mw-20_XXX'],
       narrow: rowsByExtID['mw-32_XXX'],
     },
     {
-      long: rowsByExtID['mw-9_XXX'],
-      short: rowsByExtID['mw-21_XXX'],
+      wide: rowsByExtID['mw-9_XXX'],
+      abbreviated: rowsByExtID['mw-21_XXX'],
       narrow: rowsByExtID['mw-33_XXX'],
     },
     {
-      long: rowsByExtID['mw-10_XXX'],
-      short: rowsByExtID['mw-22_XXX'],
+      wide: rowsByExtID['mw-10_XXX'],
+      abbreviated: rowsByExtID['mw-22_XXX'],
       narrow: rowsByExtID['mw-34_XXX'],
     },
     {
-      long: rowsByExtID['mw-11_XXX'],
-      short: rowsByExtID['mw-23_XXX'],
+      wide: rowsByExtID['mw-11_XXX'],
+      abbreviated: rowsByExtID['mw-23_XXX'],
       narrow: rowsByExtID['mw-35_XXX'],
     },
     {
-      long: rowsByExtID['mw-12_XXX'],
-      short: rowsByExtID['mw-24_XXX'],
+      wide: rowsByExtID['mw-12_XXX'],
+      abbreviated: rowsByExtID['mw-24_XXX'],
       narrow: rowsByExtID['mw-36_XXX'],
     },
   ];
 }
-
-export type DayOfWeekData = {
-  wide: RowData;
-  abbreviated: RowData;
-  short: RowData;
-  narrow: RowData;
-};
 
 export function getDaysOfWeekData(rowsByExtID: Record<string, RowData>): DayOfWeekData[] {
   console.log({ rowsByExtID });
@@ -124,4 +117,54 @@ export function getDaysOfWeekData(rowsByExtID: Record<string, RowData>): DayOfWe
       narrow: rowsByExtID['wk-28_XXX'],
     },
   ];
+}
+
+export function getDateFieldsData(
+  rowsByExtID: Record<string, RowData>,
+): Record<DateField, DateFieldData> {
+  return {
+    [DateField.Era]: {
+      wide: rowsByExtID['dw-1_XXX'],
+    },
+    [DateField.Year]: {
+      wide: rowsByExtID['dw-2_XXX'],
+      short: rowsByExtID['dw-3_XXX'], // Note: French is flipped by accident
+      narrow: rowsByExtID['dw-4_XXX'],
+    },
+    [DateField.Quarter]: {
+      wide: rowsByExtID['dw-5_XXX'],
+      short: rowsByExtID['dw-6_XXX'],
+      narrow: rowsByExtID['dw-7_XXX'],
+    },
+    [DateField.Month]: {
+      wide: rowsByExtID['dw-8_XXX'],
+      short: rowsByExtID['dw-9_XXX'],
+      narrow: rowsByExtID['dw-10_XXX'],
+    },
+    [DateField.Week]: {
+      wide: rowsByExtID['dw-11_XXX'],
+      short: rowsByExtID['dw-12_XXX'],
+      narrow: rowsByExtID['dw-13_XXX'],
+    },
+    [DateField.Day]: {
+      wide: rowsByExtID['dw-14_XXX'],
+      short: rowsByExtID['dw-15_XXX'],
+    },
+    [DateField.Hour]: {
+      wide: rowsByExtID['dw-16_XXX'],
+      narrow: rowsByExtID['dw-17_XXX'],
+    },
+    [DateField.Minute]: {
+      wide: rowsByExtID['dw-18_XXX'],
+      narrow: rowsByExtID['dw-19_XXX'],
+    },
+    [DateField.Second]: {
+      wide: rowsByExtID['dw-20_XXX'],
+      short: rowsByExtID['dw-21_XXX'],
+      narrow: rowsByExtID['dw-22_XXX'],
+    },
+    [DateField.DayOfWeek]: {
+      wide: rowsByExtID['dw-23_XXX'],
+    },
+  };
 }
