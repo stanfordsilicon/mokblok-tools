@@ -8,7 +8,7 @@ export type RowData = {
   ext_id: string;
 };
 
-export enum InputLanguage {
+export enum TargetLanguage {
   Abron = 'abr',
   Bhojpuri = 'bho',
   English = 'eng',

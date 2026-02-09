@@ -1,19 +1,19 @@
 import { useCallback, useEffect } from 'react';
 import useStoredParams from '../page/useStoredParams';
 import { useDataContext } from './DataContext';
-import { InputLanguage } from './DataTypes';
+import { TargetLanguage } from './DataTypes';
 import InputCheck from './InputCheck';
 import { loadInputText, parseInputTSV } from './LoadInputData';
 
 const InputWidget = () => {
   const { setRows } = useDataContext();
   const { value: inputText, setValue: setInputText } = useStoredParams<string>('inputText', '');
-  const { value: targetLanguage, setValue: setTargetLanguage } = useStoredParams<InputLanguage>(
+  const { value: targetLanguage, setValue: setTargetLanguage } = useStoredParams<TargetLanguage>(
     'targetLanguage',
-    InputLanguage.Bhojpuri,
+    TargetLanguage.Bhojpuri,
   );
 
-  const onClickLanguage = useCallback(async (lang: InputLanguage) => {
+  const onClickLanguage = useCallback(async (lang: TargetLanguage) => {
     setTargetLanguage(lang);
     await loadInputText(`input_tsvs/${lang}_1.tsv`).then((data) => setInputText(data || ''));
   }, []);
@@ -27,14 +27,14 @@ const InputWidget = () => {
     <div style={{ display: 'flex', flexDirection: 'column', gap: '.5em' }}>
       <div>Select a language to load its TSV data:</div>
       <div style={{ display: 'flex', gap: '1em' }}>
-        {Object.values(InputLanguage).map((lang) => (
+        {Object.values(TargetLanguage).map((lang) => (
           <button
             key={lang}
             className={lang === targetLanguage ? 'selected' : ''}
             onClick={() => onClickLanguage(lang)}
           >
             {/* Convert ID to a readable name */}
-            {Object.entries(InputLanguage).find(([, value]) => value === lang)?.[0]}
+            {Object.entries(TargetLanguage).find(([, value]) => value === lang)?.[0]}
           </button>
         ))}
       </div>
