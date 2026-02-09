@@ -1,5 +1,6 @@
 import type React from 'react';
 import InputWidget from '../data/InputWidget';
+import ExportWidget from '../export/ExportWidget';
 import ReviewWidget from '../review/ReviewWidget';
 import { StepName } from './StepTypes';
 
@@ -13,6 +14,8 @@ const StepView: React.FC<StepViewProps> = ({ step }) => {
       return <InputWidget />;
     case StepName.Review:
       return <ReviewWidget />;
+    case StepName.Export:
+      return <ExportWidget />;
     default:
       return <div>Unknown Widget</div>;
   }

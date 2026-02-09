@@ -13,6 +13,12 @@ const StepSelector: React.FC<{
         currentStep={step}
         setStep={setStep}
       />
+      <StepButton
+        label="Export"
+        targetStep={StepName.Export}
+        currentStep={step}
+        setStep={setStep}
+      />
     </div>
   );
 };
