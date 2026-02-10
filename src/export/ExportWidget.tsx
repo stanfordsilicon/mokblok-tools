@@ -1,20 +1,10 @@
 import { useCallback, useMemo } from 'react';
-import { useDataContext } from '../data/DataContext';
 import useStoredParams from '../page/useStoredParams';
+import useXMLFormattedData from './useXMLFormattedData';
 
 const ExportWidget: React.FC = () => {
   const { value: targetLanguage } = useStoredParams('targetLanguage', 'eng');
-  const { monthsData } = useDataContext();
-
-  const monthsWide = monthsData.map(
-    (month, index) => `<month type="${index + 1}">${month.wide?.translated ?? ''}</month>`,
-  );
-  const monthsAbbreviated = monthsData.map(
-    (month, index) => `<month type="${index + 1}">${month.abbreviated?.translated ?? ''}</month>`,
-  );
-  const monthsNarrow = monthsData.map(
-    (month, index) => `<month type="${index + 1}">${month.narrow?.translated ?? ''}</month>`,
-  );
+  const { monthsXML, daysOfWeekXML, dateFieldsXML } = useXMLFormattedData();
 
   const fullXML = useMemo(() => {
     return `<?xml version="1.0" encoding="UTF-8"?>
@@ -25,25 +15,17 @@ const ExportWidget: React.FC = () => {
   <version number="$Revision$"/>
   <language type="${targetLanguage}"/>
 </identity>
-<calendars>
-  <calendar type="gregorian">
-    <months>
-      <monthContext type="format">
-        <monthWidth type="wide">
-${monthsWide.map((line) => ' '.repeat(10) + line).join('\n')}
-        </monthWidth>
-        <monthWidth type="abbreviated">
-${monthsAbbreviated.map((line) => ' '.repeat(10) + line).join('\n')}
-        </monthWidth>
-        <monthWidth type="narrow">
-${monthsNarrow.map((line) => ' '.repeat(10) + line).join('\n')}
-        </monthWidth>
-      </monthContext>
-    </months>
-  </calendar>
-</calendars>
-</ldml>`;
-  }, [monthsWide, monthsAbbreviated, monthsNarrow, targetLanguage]);
+<dates>
+  <calendars>
+    <calendar type="gregorian">
+${monthsXML}
+${daysOfWeekXML}
+${dateFieldsXML}
+    </calendar>
+  </calendars>
+</dates>
+</ldml>`.replaceAll(/^\s*\n/gm, ''); // Remove empty lines
+  }, [monthsXML, daysOfWeekXML, dateFieldsXML, targetLanguage]);
 
   const handleDownload = useCallback(() => {
     const blob = new Blob([fullXML], { type: 'application/xml' });
