@@ -1,5 +1,7 @@
 import { useCallback, useMemo } from 'react';
-import useStoredParams from '../page/useStoredParams';
+
+import useStoredParams from '@settings/useStoredParams';
+
 import useXMLFormattedData from './useXMLFormattedData';
 
 const ExportWidget: React.FC = () => {

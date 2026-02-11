@@ -1,4 +1,5 @@
-import { useDataContext } from '../../data/DataContext';
+import { useDataContext } from '@data/DataContext';
+
 import DemoID from './DemoID';
 
 const MockMonthsShort: React.FC = () => {

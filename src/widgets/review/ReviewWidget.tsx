@@ -1,5 +1,7 @@
-import { SourceLanguage } from '../data/DataTypes';
-import useStoredParams from '../page/useStoredParams';
+import { SourceLanguage } from '@data/DataTypes';
+
+import useStoredParams from '@settings/useStoredParams';
+
 import DateFieldsReviewTable from './DateFieldsReviewTable';
 import DaysOfWeekReviewTable from './DaysOfWeekReviewTable';
 import MonthsReviewTable from './MonthsReviewTable';

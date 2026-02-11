@@ -1,5 +1,7 @@
-import { TargetLanguage } from '../../data/DataTypes';
-import useStoredParams from '../../page/useStoredParams';
+import { TargetLanguage } from '@data/DataTypes';
+
+import useStoredParams from '@settings/useStoredParams';
+
 import type DemoID from './DemoID';
 
 const DownloadDemoButton: React.FC<{

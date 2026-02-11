@@ -1,11 +1,11 @@
-import { useDataContext } from '../data/DataContext';
+import { useDataContext } from '@data/DataContext';
 import {
   DateField,
   type DateFieldData,
   type DayOfWeekData,
   type MonthData,
   type RowData,
-} from '../data/DataTypes';
+} from '@data/DataTypes';
 
 type XMLFormattedData = {
   monthsXML: string;

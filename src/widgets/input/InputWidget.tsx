@@ -1,9 +1,12 @@
 import { useCallback, useEffect } from 'react';
-import useStoredParams from '../page/useStoredParams';
-import { useDataContext } from './DataContext';
-import { TargetLanguage } from './DataTypes';
+
+import { useDataContext } from '@data/DataContext';
+import { TargetLanguage } from '@data/DataTypes';
+import { loadInputText, parseInputTSV } from '@data/LoadInputData';
+
+import useStoredParams from '@settings/useStoredParams';
+
 import InputCheck from './InputCheck';
-import { loadInputText, parseInputTSV } from './LoadInputData';
 
 const InputWidget = () => {
   const { setRows } = useDataContext();

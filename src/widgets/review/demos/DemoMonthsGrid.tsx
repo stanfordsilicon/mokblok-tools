@@ -1,5 +1,7 @@
 import { useEffect, useRef } from 'react';
-import { useDataContext } from '../../data/DataContext';
+
+import { useDataContext } from '@data/DataContext';
+
 import DemoID from './DemoID';
 
 const DemoMonthsGrid: React.FC = () => {

@@ -1,5 +1,6 @@
-import { useDataContext } from '../data/DataContext';
-import { SourceLanguage } from '../data/DataTypes';
+import { useDataContext } from '@data/DataContext';
+import { SourceLanguage } from '@data/DataTypes';
+
 import { getSourceLanguageData } from './getSourceLanguageData';
 
 function DaysOfWeekReviewTable({ sourceLanguage }: { sourceLanguage: SourceLanguage }) {

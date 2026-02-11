@@ -49,7 +49,32 @@ export default defineConfig([
   {
     files: ['**/*.{ts,tsx}'],
     plugins: {
-      import: importPlugin.configs.recommended, 
+      import: importPlugin, 
+    },
+    rules: {
+      'import/order': [
+        'warn',
+        {
+          groups: [
+            'builtin', // fs, path, url, etc.
+            'external', // react, lodash, etc.
+            'internal', // @data, @widgets, ...
+            'parent', // ../
+            'sibling', // ./
+            'index', // ./ (index)
+            'object', // import('pkg').prop
+            'type', // import type { X } ...
+          ],
+          pathGroups: [
+            { pattern: '@data/**', group: 'internal', position: 'after' },
+            { pattern: '@settings/**', group: 'internal', position: 'after' },
+            { pattern: '@widgets/**', group: 'internal', position: 'after' },
+          ],
+          pathGroupsExcludedImportTypes: ['builtin'],
+          'newlines-between': 'always',
+          alphabetize: { order: 'asc', caseInsensitive: true },
+        },
+      ],
     },
   },
   prettierConfig,

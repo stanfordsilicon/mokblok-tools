@@ -1,8 +1,11 @@
 import { useState } from 'react';
-import { DataProvider } from '../data/DataContext';
-import StepSelector from './StepSelector';
-import { StepName } from './StepTypes';
-import StepView from './StepView';
+
+import { DataProvider } from '@data/DataContext';
+
+import StepName from '@settings/StepName';
+import StepSelector from '@settings/StepSelector';
+
+import StepView from '@widgets/StepView';
 
 const PageBody: React.FC = () => {
   const [step, setStep] = useState<StepName>(StepName.Input);

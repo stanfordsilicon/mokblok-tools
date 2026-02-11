@@ -1,4 +1,4 @@
-import { StepName } from './StepTypes';
+import StepName from './StepName';
 
 const StepSelector: React.FC<{
   step: StepName;

@@ -1,7 +1,8 @@
 import { createContext, useContext, useMemo, useState } from 'react';
 
-import type { DateField, DateFieldData, DayOfWeekData, MonthData, RowData } from './DataTypes';
 import { getDateFieldsData, getDaysOfWeekData, getMonthsData } from './ExtractData';
+
+import type { DateField, DateFieldData, DayOfWeekData, MonthData, RowData } from './DataTypes';
 
 export type DataContextType = {
   setRows: (lines: RowData[]) => void;

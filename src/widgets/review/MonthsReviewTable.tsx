@@ -1,5 +1,6 @@
-import { useDataContext } from '../data/DataContext';
-import { SourceLanguage } from '../data/DataTypes';
+import { useDataContext } from '@data/DataContext';
+import { SourceLanguage } from '@data/DataTypes';
+
 import Demo from './demos/Demo';
 import DemoID from './demos/DemoID';
 import { getSourceLanguageData } from './getSourceLanguageData';

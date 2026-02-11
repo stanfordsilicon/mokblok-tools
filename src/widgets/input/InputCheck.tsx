@@ -1,5 +1,6 @@
+import { useDataContext } from '@data/DataContext';
+
 import type React from 'react';
-import { useDataContext } from './DataContext';
 
 const InputCheck: React.FC<{ numRows: number }> = ({ numRows }) => {
   const { monthsData, daysOfWeekData, dateFieldsData } = useDataContext();

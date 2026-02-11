@@ -1,4 +1,4 @@
-import PageBody from './page/PageBody';
+import PageBody from './PageBody';
 
 function App() {
   return (

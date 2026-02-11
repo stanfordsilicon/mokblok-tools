@@ -1,8 +1,10 @@
-import type React from 'react';
-import InputWidget from '../data/InputWidget';
-import ExportWidget from '../export/ExportWidget';
-import ReviewWidget from '../review/ReviewWidget';
-import { StepName } from './StepTypes';
+import React from 'react';
+
+import StepName from '@settings/StepName';
+
+import ExportWidget from './export/ExportWidget';
+import InputWidget from './input/InputWidget';
+import ReviewWidget from './review/ReviewWidget';
 
 export type StepViewProps = {
   step: StepName;

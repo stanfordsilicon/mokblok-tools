@@ -28,6 +28,17 @@
     "noUncheckedSideEffectImports": true,
     /* Modules / Path aliases */
     "baseUrl": ".",
+    "paths": {
+      "@data/*": [
+        "src/data/*"
+      ],
+      "@settings/*": [
+        "src/settings/*"
+      ],
+      "@widgets/*": [
+        "src/widgets/*"
+      ],
+    }
   },
   "include": [
     "src"

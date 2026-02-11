@@ -1,4 +1,4 @@
-import { SourceLanguage, type RowData } from '../data/DataTypes';
+import { SourceLanguage, type RowData } from '@data/DataTypes';
 
 export function getSourceLanguageData(
   row: RowData | undefined,
