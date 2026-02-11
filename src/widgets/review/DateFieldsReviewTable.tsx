@@ -3,6 +3,7 @@ import { DateField, FormatLength, SourceLanguage } from '@data/DataTypes';
 
 import { useSettings } from '@settings/Settings';
 
+import FormatWidth from './FormatWidth';
 import { getSourceLanguageData } from './getSourceLanguageData';
 
 const DateFieldsReviewTable: React.FC = () => {
@@ -57,7 +58,7 @@ function InputCell({ field, format }: InputCellProps) {
       <input
         value={dateFieldsData[field]?.[format]?.translated || ''}
         onChange={(e) => setDateFieldTranslation(field, format, e.target.value)}
-        style={{ width: '3em' }}
+        style={{ width: FormatWidth[format] }}
         disabled={!dateFieldsData[field]?.[format]} // Disable if this format doesn't exist for the field
       />
     </td>

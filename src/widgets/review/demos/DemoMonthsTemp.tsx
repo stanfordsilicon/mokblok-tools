@@ -2,6 +2,8 @@ import React from 'react';
 
 import { useDataContext } from '@data/DataContext';
 
+import { useSettings } from '@settings/Settings';
+
 import DemoID from './DemoID';
 import DemoSVG from './DemoSVG';
 
@@ -30,6 +32,7 @@ const simulatedClimateData: ClimateDataPoint[] = [
 
 const MockMonthsTemp: React.FC = () => {
   const { monthsData } = useDataContext();
+  const { today } = useSettings();
 
   return (
     <DemoSVG id={DemoID.MonthsTemp} width={240} height={150}>
@@ -56,16 +59,22 @@ const MockMonthsTemp: React.FC = () => {
         const x = index * 18 + 20;
         const y = 130;
         return (
-          <text
-            key={index}
-            x={x}
-            y={y}
-            textAnchor="middle"
-            dominantBaseline="middle"
-            style={{ fontSize: '.75em', color: 'black' }}
-          >
-            {month.narrow?.translated}
-          </text>
+          <g key={index} transform={`translate(${x},${y})`}>
+            <rect
+              x={-10}
+              y={-8}
+              width={20}
+              height={16}
+              fill={index === today.getMonth() ? 'lightblue' : 'transparent'}
+            />
+            <text
+              textAnchor="middle"
+              dominantBaseline="middle"
+              style={{ fontSize: '.75em', color: 'black' }}
+            >
+              {month.narrow?.translated}
+            </text>
+          </g>
         );
       })}
     </DemoSVG>

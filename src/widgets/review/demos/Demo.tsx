@@ -1,3 +1,7 @@
+import { ErrorBoundary } from 'react-error-boundary';
+
+import DemoDaysOfWeekInMonth from './DemoDaysOfWeekInMonth';
+import DemoDaysOfWeekInWeek from './DemoDaysOfWeekInWeek';
 import DemoID from './DemoID';
 import DemoMonthsGrid from './DemoMonthsGrid';
 import DemoMonthsTemp from './DemoMonthsTemp';
@@ -16,7 +20,10 @@ const Demo: React.FC<Props> = ({ demoID, title }) => {
         <DownloadDemoButton demoID={demoID} />
       </div>
       <div style={{ margin: '1em' }}>
-        <DemoImage demoID={demoID} />
+        {/* // Wrap in an error boundary to prevent the whole page from crashing if there's an issue with the demo */}
+        <ErrorBoundary fallback={<div style={{ color: 'red' }}>Error loading demo</div>}>
+          <DemoImage demoID={demoID} />
+        </ErrorBoundary>
       </div>
     </div>
   );
@@ -28,6 +35,10 @@ const DemoImage: React.FC<{ demoID: DemoID }> = ({ demoID }) => {
       return <DemoMonthsGrid />;
     case DemoID.MonthsTemp:
       return <DemoMonthsTemp />;
+    case DemoID.DaysOfWeekInMonth:
+      return <DemoDaysOfWeekInMonth />;
+    case DemoID.DaysOfWeekInWeek:
+      return <DemoDaysOfWeekInWeek />;
   }
 };
 
