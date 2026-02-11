@@ -8,14 +8,6 @@ export type RowData = {
   ext_id: string;
 };
 
-export enum TargetLanguage {
-  Abron = 'abr',
-  Bhojpuri = 'bho',
-  English = 'eng',
-  French = 'fra',
-  Malagasy = 'mlg',
-}
-
 export enum SourceLanguage {
   English = 'eng',
   French = 'fra',

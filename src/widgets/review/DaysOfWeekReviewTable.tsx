@@ -1,9 +1,12 @@
 import { useDataContext } from '@data/DataContext';
 import { SourceLanguage } from '@data/DataTypes';
 
+import { useSettings } from '@settings/Settings';
+
 import { getSourceLanguageData } from './getSourceLanguageData';
 
-function DaysOfWeekReviewTable({ sourceLanguage }: { sourceLanguage: SourceLanguage }) {
+function DaysOfWeekReviewTable() {
+  const { sourceLanguage } = useSettings();
   const { daysOfWeekData } = useDataContext();
   return (
     <div>

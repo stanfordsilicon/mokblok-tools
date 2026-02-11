@@ -1,5 +1,6 @@
 import React from 'react';
 
+import SettingsWidget from '@settings/SettingsWidget';
 import StepName from '@settings/StepName';
 
 import ExportWidget from './export/ExportWidget';
@@ -18,6 +19,8 @@ const StepView: React.FC<StepViewProps> = ({ step }) => {
       return <ReviewWidget />;
     case StepName.Export:
       return <ExportWidget />;
+    case StepName.Settings:
+      return <SettingsWidget />;
     default:
       return <div>Unknown Widget</div>;
   }

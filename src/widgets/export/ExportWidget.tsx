@@ -1,11 +1,11 @@
 import { useCallback, useMemo } from 'react';
 
-import useStoredParams from '@settings/useStoredParams';
+import { useSettings } from '@settings/Settings';
 
 import useXMLFormattedData from './useXMLFormattedData';
 
 const ExportWidget: React.FC = () => {
-  const { value: targetLanguage } = useStoredParams('targetLanguage', 'eng');
+  const { targetLanguage } = useSettings();
   const { monthsXML, daysOfWeekXML, dateFieldsXML } = useXMLFormattedData();
 
   const fullXML = useMemo(() => {

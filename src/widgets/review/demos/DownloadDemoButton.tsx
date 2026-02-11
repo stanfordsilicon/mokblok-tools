@@ -1,16 +1,11 @@
-import { TargetLanguage } from '@data/DataTypes';
-
-import useStoredParams from '@settings/useStoredParams';
+import { useSettings } from '@settings/Settings';
 
 import type DemoID from './DemoID';
 
 const DownloadDemoButton: React.FC<{
   demoID: DemoID;
 }> = ({ demoID }) => {
-  const { value: targetLanguage } = useStoredParams<TargetLanguage>(
-    'targetLanguage',
-    TargetLanguage.English,
-  );
+  const { targetLanguage } = useSettings();
   const onClick = () => {
     const svg = document.getElementById(demoID) as SVGSVGElement | null;
     if (!svg) {
@@ -36,7 +31,7 @@ const DownloadDemoButton: React.FC<{
 function downloadSvgAsPng(
   svg: SVGSVGElement,
   demoID: DemoID,
-  language: TargetLanguage,
+  language: string,
   options?: {
     scale?: number; // e.g. 2 or 3 for high DPI
   },

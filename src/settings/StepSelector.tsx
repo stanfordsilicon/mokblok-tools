@@ -19,6 +19,12 @@ const StepSelector: React.FC<{
         currentStep={step}
         setStep={setStep}
       />
+      <StepButton
+        label="Settings"
+        targetStep={StepName.Settings}
+        currentStep={step}
+        setStep={setStep}
+      />
     </div>
   );
 };

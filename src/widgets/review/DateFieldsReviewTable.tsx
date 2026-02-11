@@ -1,11 +1,12 @@
 import { useDataContext } from '@data/DataContext';
 import { SourceLanguage } from '@data/DataTypes';
 
+import { useSettings } from '@settings/Settings';
+
 import { getSourceLanguageData } from './getSourceLanguageData';
 
-const DateFieldsReviewTable: React.FC<{
-  sourceLanguage: SourceLanguage;
-}> = ({ sourceLanguage }) => {
+const DateFieldsReviewTable: React.FC = () => {
+  const { sourceLanguage } = useSettings();
   const { dateFieldsData } = useDataContext();
   return (
     <div>

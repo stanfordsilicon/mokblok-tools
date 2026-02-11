@@ -1,11 +1,14 @@
 import { useDataContext } from '@data/DataContext';
 import { SourceLanguage } from '@data/DataTypes';
 
+import { useSettings } from '@settings/Settings';
+
 import Demo from './demos/Demo';
 import DemoID from './demos/DemoID';
 import { getSourceLanguageData } from './getSourceLanguageData';
 
-function MonthsReviewTable({ sourceLanguage }: { sourceLanguage: SourceLanguage }) {
+function MonthsReviewTable() {
+  const { sourceLanguage } = useSettings();
   const { monthsData } = useDataContext();
   return (
     <div>
