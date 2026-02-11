@@ -11,22 +11,9 @@ import { getSourceLanguageData } from './getSourceLanguageData';
 function MonthsReviewTable() {
   const { sourceLanguage } = useSettings();
   const { monthsData } = useDataContext();
-  const { today, setToday } = useSettings();
 
   return (
     <div>
-      <div>
-        Set today (using browser date picker):{' '}
-        <input
-          type="date"
-          value={today.toISOString().split('T')[0]}
-          onChange={(e) => {
-            if (e.target.value === '') return;
-            const date = new Date(e.target.value);
-            setToday(date);
-          }}
-        />
-      </div>
       <h3>Months</h3>
       <div style={{ display: 'flex', gap: '1em', flexDirection: 'row' }}>
         <table>

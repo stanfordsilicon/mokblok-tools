@@ -13,7 +13,7 @@ export enum SourceLanguage {
   French = 'fra',
 }
 
-export const enum DateField {
+export enum DateField {
   Era = 'era',
   Year = 'year',
   Quarter = 'quarter',

@@ -3,6 +3,8 @@ import { DateField, FormatLength, SourceLanguage } from '@data/DataTypes';
 
 import { useSettings } from '@settings/Settings';
 
+import Demo from './demos/Demo';
+import DemoID from './demos/DemoID';
 import FormatWidth from './FormatWidth';
 import { getSourceLanguageData } from './getSourceLanguageData';
 
@@ -12,40 +14,43 @@ const DateFieldsReviewTable: React.FC = () => {
   return (
     <div>
       <h3>Date Fields</h3>
-      <table>
-        <thead>
-          <tr>
-            <th colSpan={3} style={{ textAlign: 'center' }}>
-              {Object.entries(SourceLanguage).find(([, value]) => value === sourceLanguage)?.[0]}
-            </th>
-            <th colSpan={3} style={{ textAlign: 'center' }}>
-              Translated
-            </th>
-          </tr>
-          <tr>
-            <th>Wide</th>
-            <th>Short</th>
-            <th>Narrow</th>
-            <th>Wide</th>
-            <th>Short</th>
-            <th>Narrow</th>
-          </tr>
-        </thead>
-        <tbody>
-          {Object.entries(dateFieldsData).map(([fieldKey, fieldData]) => (
-            <tr key={fieldKey}>
-              {/* Source Language */}
-              <td>{getSourceLanguageData(fieldData.wide, sourceLanguage)}</td>
-              <td>{getSourceLanguageData(fieldData.short, sourceLanguage)}</td>
-              <td>{getSourceLanguageData(fieldData.narrow, sourceLanguage)}</td>
-              {/* Target Language (editable) */}
-              <InputCell field={fieldKey as DateField} format={FormatLength.Wide} />
-              <InputCell field={fieldKey as DateField} format={FormatLength.Short} />
-              <InputCell field={fieldKey as DateField} format={FormatLength.Narrow} />
+      <div style={{ display: 'flex', gap: '1em', flexDirection: 'row' }}>
+        <table>
+          <thead>
+            <tr>
+              <th colSpan={3} style={{ textAlign: 'center' }}>
+                {Object.entries(SourceLanguage).find(([, value]) => value === sourceLanguage)?.[0]}
+              </th>
+              <th colSpan={3} style={{ textAlign: 'center' }}>
+                Translated
+              </th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+            <tr>
+              <th>Wide</th>
+              <th>Short</th>
+              <th>Narrow</th>
+              <th>Wide</th>
+              <th>Short</th>
+              <th>Narrow</th>
+            </tr>
+          </thead>
+          <tbody>
+            {Object.entries(dateFieldsData).map(([fieldKey, fieldData]) => (
+              <tr key={fieldKey}>
+                {/* Source Language */}
+                <td>{getSourceLanguageData(fieldData.wide, sourceLanguage)}</td>
+                <td>{getSourceLanguageData(fieldData.short, sourceLanguage)}</td>
+                <td>{getSourceLanguageData(fieldData.narrow, sourceLanguage)}</td>
+                {/* Target Language (editable) */}
+                <InputCell field={fieldKey as DateField} format={FormatLength.Wide} />
+                <InputCell field={fieldKey as DateField} format={FormatLength.Short} />
+                <InputCell field={fieldKey as DateField} format={FormatLength.Narrow} />
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <Demo demoID={DemoID.DateFieldBreakdown} title="Date Field Breakdown" />
+      </div>
     </div>
   );
 };
