@@ -26,21 +26,22 @@ export const enum DateField {
   Second = 'second',
 }
 
-export type MonthData = {
-  wide?: RowData;
-  abbreviated?: RowData;
-  narrow?: RowData;
-};
+export enum FormatLength {
+  Wide = 'wide',
+  Abbreviated = 'abbreviated',
+  Short = 'short',
+  Narrow = 'narrow',
+}
 
-export type DayOfWeekData = {
-  wide?: RowData;
-  abbreviated?: RowData;
-  short?: RowData;
-  narrow?: RowData;
-};
+export const MonthFormats = [FormatLength.Wide, FormatLength.Abbreviated, FormatLength.Narrow];
+export const DayOfWeekFormats = [
+  FormatLength.Wide,
+  FormatLength.Abbreviated,
+  FormatLength.Short,
+  FormatLength.Narrow,
+];
+export const DateFieldFormats = [FormatLength.Wide, FormatLength.Short, FormatLength.Narrow];
 
-export type DateFieldData = {
-  wide?: RowData;
-  short?: RowData;
-  narrow?: RowData;
-};
+export type MonthData = Partial<Record<FormatLength, RowData>>;
+export type DayOfWeekData = Partial<Record<FormatLength, RowData>>;
+export type DateFieldData = Partial<Record<FormatLength, RowData>>;

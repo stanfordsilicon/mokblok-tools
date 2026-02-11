@@ -1,5 +1,5 @@
 import { useDataContext } from '@data/DataContext';
-import { SourceLanguage } from '@data/DataTypes';
+import { FormatLength, SourceLanguage } from '@data/DataTypes';
 
 import { useSettings } from '@settings/Settings';
 
@@ -10,6 +10,7 @@ import { getSourceLanguageData } from './getSourceLanguageData';
 function MonthsReviewTable() {
   const { sourceLanguage } = useSettings();
   const { monthsData } = useDataContext();
+
   return (
     <div>
       <h3>Months</h3>
@@ -36,12 +37,14 @@ function MonthsReviewTable() {
           <tbody>
             {monthsData.map((month, index) => (
               <tr key={index}>
-                <td>{getSourceLanguageData(month.wide, sourceLanguage)}</td>
-                <td>{getSourceLanguageData(month.abbreviated, sourceLanguage)}</td>
-                <td>{getSourceLanguageData(month.narrow, sourceLanguage)}</td>
-                <td>{month.wide?.translated}</td>
-                <td>{month.abbreviated?.translated}</td>
-                <td>{month.narrow?.translated}</td>
+                {/* Source Language */}
+                <td>{getSourceLanguageData(month[FormatLength.Wide], sourceLanguage)}</td>
+                <td>{getSourceLanguageData(month[FormatLength.Abbreviated], sourceLanguage)}</td>
+                <td>{getSourceLanguageData(month[FormatLength.Narrow], sourceLanguage)}</td>
+                {/* Target Language (editable) */}
+                <InputCell index={index} format={FormatLength.Wide} />
+                <InputCell index={index} format={FormatLength.Abbreviated} />
+                <InputCell index={index} format={FormatLength.Narrow} />
               </tr>
             ))}
           </tbody>
@@ -51,6 +54,20 @@ function MonthsReviewTable() {
         <Demo demoID={DemoID.MonthsShort} title="Narrow Months in a Chart" />
       </div>
     </div>
+  );
+}
+
+type InputCellProps = { index: number; format: FormatLength };
+function InputCell({ index, format }: InputCellProps) {
+  const { monthsData, setMonthTranslation } = useDataContext();
+  return (
+    <td>
+      <input
+        value={monthsData[index]?.[format]?.translated || ''}
+        onChange={(e) => setMonthTranslation(index, format, e.target.value)}
+        style={{ width: '3em' }}
+      />
+    </td>
   );
 }
 

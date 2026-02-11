@@ -1,5 +1,5 @@
 import { useDataContext } from '@data/DataContext';
-import { SourceLanguage } from '@data/DataTypes';
+import { DateField, FormatLength, SourceLanguage } from '@data/DataTypes';
 
 import { useSettings } from '@settings/Settings';
 
@@ -33,12 +33,14 @@ const DateFieldsReviewTable: React.FC = () => {
         <tbody>
           {Object.entries(dateFieldsData).map(([fieldKey, fieldData]) => (
             <tr key={fieldKey}>
+              {/* Source Language */}
               <td>{getSourceLanguageData(fieldData.wide, sourceLanguage)}</td>
               <td>{getSourceLanguageData(fieldData.short, sourceLanguage)}</td>
               <td>{getSourceLanguageData(fieldData.narrow, sourceLanguage)}</td>
-              <td>{fieldData.wide?.translated}</td>
-              <td>{fieldData.short?.translated}</td>
-              <td>{fieldData.narrow?.translated}</td>
+              {/* Target Language (editable) */}
+              <InputCell field={fieldKey as DateField} format={FormatLength.Wide} />
+              <InputCell field={fieldKey as DateField} format={FormatLength.Short} />
+              <InputCell field={fieldKey as DateField} format={FormatLength.Narrow} />
             </tr>
           ))}
         </tbody>
@@ -46,5 +48,20 @@ const DateFieldsReviewTable: React.FC = () => {
     </div>
   );
 };
+
+type InputCellProps = { field: DateField; format: FormatLength };
+function InputCell({ field, format }: InputCellProps) {
+  const { dateFieldsData, setDateFieldTranslation } = useDataContext();
+  return (
+    <td>
+      <input
+        value={dateFieldsData[field]?.[format]?.translated || ''}
+        onChange={(e) => setDateFieldTranslation(field, format, e.target.value)}
+        style={{ width: '3em' }}
+        disabled={!dateFieldsData[field]?.[format]} // Disable if this format doesn't exist for the field
+      />
+    </td>
+  );
+}
 
 export default DateFieldsReviewTable;
