@@ -1,6 +1,6 @@
 import DemoID from './DemoID';
 import DemoMonthsGrid from './DemoMonthsGrid';
-import DemoMonthsShort from './DemoMonthsShort';
+import DemoMonthsTemp from './DemoMonthsTemp';
 import DownloadDemoButton from './DownloadDemoButton';
 
 type Props = {
@@ -15,7 +15,9 @@ const Demo: React.FC<Props> = ({ demoID, title }) => {
         {title}
         <DownloadDemoButton demoID={demoID} />
       </div>
-      <DemoImage demoID={demoID} />
+      <div style={{ margin: '1em' }}>
+        <DemoImage demoID={demoID} />
+      </div>
     </div>
   );
 };
@@ -24,8 +26,8 @@ const DemoImage: React.FC<{ demoID: DemoID }> = ({ demoID }) => {
   switch (demoID) {
     case DemoID.MonthsGrid:
       return <DemoMonthsGrid />;
-    case DemoID.MonthsShort:
-      return <DemoMonthsShort />;
+    case DemoID.MonthsTemp:
+      return <DemoMonthsTemp />;
   }
 };
 

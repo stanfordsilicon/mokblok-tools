@@ -1,6 +1,6 @@
 enum DemoID {
   MonthsGrid = 'monthsGrid',
-  MonthsShort = 'monthsShort',
+  MonthsTemp = 'monthsTemp',
 }
 
 export default DemoID;

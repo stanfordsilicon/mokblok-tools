@@ -50,8 +50,8 @@ function MonthsReviewTable() {
           </tbody>
         </table>
 
-        <Demo demoID={DemoID.MonthsGrid} title="Abbreviated Months in Grid" />
-        <Demo demoID={DemoID.MonthsShort} title="Narrow Months in a Chart" />
+        <Demo demoID={DemoID.MonthsGrid} title="Months in a Grid" />
+        <Demo demoID={DemoID.MonthsTemp} title="Monthly Temperature" />
       </div>
     </div>
   );
