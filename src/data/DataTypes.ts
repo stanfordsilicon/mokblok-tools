@@ -1,11 +1,18 @@
+export enum SubmissionField {
+  English = 'english',
+  French = 'french',
+  Translated = 'translated',
+  Notes = 'notes',
+  XPath = 'xpath',
+  ExtId = 'ext_id',
+}
+
 export type RowData = {
   english: string;
   french: string;
   translated: string;
-  example: string;
   notes: string;
-  xpath: string;
-  ext_id: string;
+  key: string;
 };
 
 export enum SourceLanguage {
