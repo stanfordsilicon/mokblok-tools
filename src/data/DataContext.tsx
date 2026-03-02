@@ -15,6 +15,7 @@ import type {
 
 export type DataContextType = {
   setRows: (lines: RowData[]) => void;
+  setExtraText: (text: string) => void;
   rowsByExtID: Record<string, RowData>;
   monthsData: MonthData[];
   daysOfWeekData: DayOfWeekData[];
@@ -27,6 +28,7 @@ export type DataContextType = {
 
 export const DataContext = createContext<DataContextType | undefined>({
   setRows: () => {},
+  setExtraText: () => {},
   rowsByExtID: {},
   monthsData: [],
   daysOfWeekData: [],
@@ -45,7 +47,11 @@ export const useDataContext = () => {
 export const DataProvider: React.FC<{
   children: React.ReactNode;
 }> = ({ children }) => {
+  // Input Data
   const [rows, setRows] = useState<RowData[]>([]);
+  const [extraText, setExtraText] = useState<string>('');
+
+  // Structured Data
   const [monthsData, setMonthsData] = useState<MonthData[]>([]);
   const [daysOfWeekData, setDaysOfWeekData] = useState<DayOfWeekData[]>([]);
   const [dateFieldsData, setDateFieldsData] = useState<Partial<Record<DateField, DateFieldData>>>(
@@ -70,8 +76,8 @@ export const DataProvider: React.FC<{
     setMonthsData(getMonthsData(rowsByExtID));
     setDateFieldsData(getDateFieldsData(rowsByExtID));
     setDaysOfWeekData(getDaysOfWeekData(rowsByExtID));
-    setAlphabetData(extractAlphabetData(rows));
-  }, [rowsByExtID, rows]);
+    setAlphabetData(extractAlphabetData(rows, extraText));
+  }, [rowsByExtID, rows, extraText]);
 
   // Translation Setters
   const setMonthTranslation = (
@@ -109,7 +115,8 @@ export const DataProvider: React.FC<{
   };
 
   const dataContext: DataContextType = {
-    setRows: setRows,
+    setRows,
+    setExtraText,
     rowsByExtID,
     monthsData,
     daysOfWeekData,

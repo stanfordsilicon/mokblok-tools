@@ -49,6 +49,7 @@ export type DateFieldData = Partial<Record<FormatLength, RowData>>;
 export type AlphabetData = {
   characterHistogram: Record<string, number>;
   charactersBase: string[];
+  charactersUppercase: string[];
   charactersAuxiliary: string[];
   charactersNumber: string[];
   charactersPunctuation: string[];

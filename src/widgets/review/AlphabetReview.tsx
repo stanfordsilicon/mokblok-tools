@@ -9,6 +9,7 @@ const AlphabetReview: React.FC = () => {
     charactersAuxiliary,
     charactersBase,
     charactersPunctuation,
+    charactersUppercase,
     charactersOther,
     writingSystem,
   } = useDataContext().alphabetData || {};
@@ -36,6 +37,10 @@ const AlphabetReview: React.FC = () => {
           <tr>
             <th>Base Alphabet</th>
             <td>{charactersBase?.join(' ')}</td>
+          </tr>
+          <tr>
+            <th>Uppercase (Index)</th>
+            <td>{charactersUppercase?.join(' ')}</td>
           </tr>
           <tr>
             <th>Auxiliary</th>

@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 
 import { useDataContext } from '@data/DataContext';
 import { loadInputText, parseInputTSV } from '@data/LoadInputData';
@@ -14,15 +14,21 @@ export enum LoadableLanguage {
   Malagasy = 'mlg',
 }
 
+import AlphabetReview from '@widgets/review/AlphabetReview';
+
 import InputCheck from './InputCheck';
 
 const InputWidget = () => {
-  const { setRows } = useDataContext();
+  const { setRows, setExtraText } = useDataContext();
   const { targetLanguage, setTargetLanguage } = useSettings();
   const { value: inputText, setValue: setInputText } = useStoredParams<string>('inputText', '');
+  const extraTextArea = useRef<HTMLTextAreaElement>(null);
 
   const onClickLanguage = useCallback(async (lang: LoadableLanguage) => {
     setTargetLanguage(lang);
+    // Clear extra text area
+    if (extraTextArea.current) extraTextArea.current.value = '';
+    // setExtraText(''); // Clear extra text when loading new language
     await loadInputText(`input_tsvs/${lang}_1.tsv`).then((data) => setInputText(data || ''));
   }, []);
 
@@ -33,6 +39,7 @@ const InputWidget = () => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '.5em' }}>
+      <div style={{ fontSize: '16px', fontWeight: 'bold' }}>Number formatting examples</div>
       <div>Select a language to load its TSV data:</div>
       <div style={{ display: 'flex', gap: '1em' }}>
         {Object.values(LoadableLanguage).map((lang) => (
@@ -75,6 +82,25 @@ const InputWidget = () => {
         }}
       />
       <InputCheck numRows={inputText ? parseInputTSV(inputText).length : 0} />
+
+      <div style={{ fontSize: '16px', fontWeight: 'bold', marginTop: '1em' }}>
+        Supplemental Text
+      </div>
+      <div>
+        Add text below to compute the language's alphabet more accurately (optional, but can help
+        capture missing characters):
+        <textarea
+          style={{
+            marginTop: '1em',
+            fontSize: '8px',
+            width: '100%',
+            height: '100px',
+          }}
+          ref={extraTextArea}
+          onChange={(e) => setExtraText(e.target.value)}
+        />
+      </div>
+      <AlphabetReview />
     </div>
   );
 };
