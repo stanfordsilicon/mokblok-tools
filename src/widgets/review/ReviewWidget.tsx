@@ -1,5 +1,6 @@
 import { useSettings } from '@settings/Settings';
 
+import AlphabetReview from './AlphabetReview';
 import DateFieldsReviewTable from './DateFieldsReviewTable';
 import DaysOfWeekReviewTable from './DaysOfWeekReviewTable';
 import MonthsReviewTable from './MonthsReviewTable';
@@ -30,6 +31,7 @@ const ReviewWidget: React.FC = () => {
       <MonthsReviewTable />
       <DaysOfWeekReviewTable />
       <DateFieldsReviewTable />
+      <AlphabetReview />
     </div>
   );
 };

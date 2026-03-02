@@ -1,8 +1,10 @@
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 
+import extractAlphabetData from './ExtractAlphabet';
 import { getDateFieldsData, getDaysOfWeekData, getMonthsData } from './ExtractData';
 
 import type {
+  AlphabetData,
   DateField,
   DateFieldData,
   DayOfWeekData,
@@ -17,6 +19,7 @@ export type DataContextType = {
   monthsData: MonthData[];
   daysOfWeekData: DayOfWeekData[];
   dateFieldsData: Partial<Record<DateField, DateFieldData>>;
+  alphabetData?: AlphabetData;
   setMonthTranslation: (monthIndex: number, format: FormatLength, newTranslation: string) => void;
   setDayOfWeekTranslation: (dayIndex: number, format: FormatLength, newTranslation: string) => void;
   setDateFieldTranslation: (field: DateField, format: FormatLength, newTranslation: string) => void;
@@ -48,6 +51,7 @@ export const DataProvider: React.FC<{
   const [dateFieldsData, setDateFieldsData] = useState<Partial<Record<DateField, DateFieldData>>>(
     {},
   );
+  const [alphabetData, setAlphabetData] = useState<AlphabetData | undefined>(undefined);
 
   const rowsByExtID = useMemo(
     () =>
@@ -66,7 +70,8 @@ export const DataProvider: React.FC<{
     setMonthsData(getMonthsData(rowsByExtID));
     setDateFieldsData(getDateFieldsData(rowsByExtID));
     setDaysOfWeekData(getDaysOfWeekData(rowsByExtID));
-  }, [rowsByExtID]);
+    setAlphabetData(extractAlphabetData(rows));
+  }, [rowsByExtID, rows]);
 
   // Translation Setters
   const setMonthTranslation = (
@@ -109,6 +114,7 @@ export const DataProvider: React.FC<{
     monthsData,
     daysOfWeekData,
     dateFieldsData,
+    alphabetData,
     setMonthTranslation,
     setDayOfWeekTranslation,
     setDateFieldTranslation,

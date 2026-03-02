@@ -45,3 +45,13 @@ export const DateFieldFormats = [FormatLength.Wide, FormatLength.Short, FormatLe
 export type MonthData = Partial<Record<FormatLength, RowData>>;
 export type DayOfWeekData = Partial<Record<FormatLength, RowData>>;
 export type DateFieldData = Partial<Record<FormatLength, RowData>>;
+
+export type AlphabetData = {
+  characterHistogram: Record<string, number>;
+  charactersBase: string[];
+  charactersAuxiliary: string[];
+  charactersNumber: string[];
+  charactersPunctuation: string[];
+  charactersOther: string[];
+  writingSystem: string;
+};
