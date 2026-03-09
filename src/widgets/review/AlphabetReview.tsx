@@ -53,6 +53,8 @@ const AlphabetReview: React.FC = () => {
           <tr>
             <th>Punctuation</th>
             <td>{charactersPunctuation?.join(' ')}</td>
+            {/* Standard punctuation characters: */}
+            {/* \- ‑ , ; \: ! ? . … '‘’ &quot;“” ( ) \[ \] § @ / \&amp; # % ′ ″ */}
           </tr>
           <tr>
             <th>Other</th>

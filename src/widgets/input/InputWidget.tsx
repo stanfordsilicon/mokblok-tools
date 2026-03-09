@@ -41,7 +41,7 @@ const InputWidget = () => {
     <div style={{ display: 'flex', flexDirection: 'column', gap: '.5em' }}>
       <div style={{ fontSize: '16px', fontWeight: 'bold' }}>Number formatting examples</div>
       <div>Select a language to load its TSV data:</div>
-      <div style={{ display: 'flex', gap: '1em' }}>
+      <div style={{ display: 'flex', gap: '1em', alignItems: 'center' }}>
         {Object.values(LoadableLanguage).map((lang) => (
           <button
             key={lang}
@@ -52,6 +52,17 @@ const InputWidget = () => {
             {Object.entries(LoadableLanguage).find(([, value]) => value === lang)?.[0]}
           </button>
         ))}
+        Manual Code:
+        <input
+          value={targetLanguage}
+          onChange={(e) => setTargetLanguage(e.target.value)}
+          style={{
+            borderRadius: '0.5em',
+            lineHeight: '2em',
+            width: '3em',
+            background: targetLanguage.length < 2 ? 'lightcoral' : 'white',
+          }}
+        />
       </div>
       <div>
         Or paste your own TSV data below:{' '}
@@ -78,7 +89,7 @@ const InputWidget = () => {
         value={inputText}
         onChange={(e) => {
           setInputText(e.target.value);
-          setTargetLanguage(''); // Clear target language when user pastes custom data
+          // setTargetLanguage(''); // Clear target language when user pastes custom data
         }}
       />
       <InputCheck numRows={inputText ? parseInputTSV(inputText).length : 0} />
