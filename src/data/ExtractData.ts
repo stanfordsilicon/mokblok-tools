@@ -7,6 +7,7 @@ import {
   type MonthData,
   type RelativeTimeData,
   type RowData,
+  type TimeIntervalData,
 } from './DataTypes';
 
 export function getMonthsData(rowsByKey: Record<string, RowData>): MonthData[] {
@@ -213,6 +214,53 @@ export function getHourMinuteData(rowsByKey: Record<string, RowData>): HourMinut
     [HourMinuteFormat.HMS24]: {
       morning: rowsByKey['hr-6_XXX'],
       evening: rowsByKey['hr-5_XXX'],
+    },
+  };
+}
+
+export function getTimeIntervalData(rowsByKey: Record<string, RowData>): TimeIntervalData {
+  return {
+    h12: {
+      h: {
+        h: rowsByKey['ti-2_XXX'],
+        a: rowsByKey['ti-1_XXX'],
+      },
+      hm: {
+        m: rowsByKey['ti-5_XXX'],
+        h: rowsByKey['ti-4_XXX'],
+        a: rowsByKey['ti-3_XXX'],
+      },
+      hmv: {
+        m: rowsByKey['ti-8_XXX'],
+        h: rowsByKey['ti-7_XXX'],
+        a: rowsByKey['ti-6_XXX'],
+      },
+      hv: {
+        h: rowsByKey['ti-10_XXX'],
+        a: rowsByKey['ti-9_XXX'],
+      },
+    },
+    h12alt: {
+      h: {
+        h: rowsByKey['ti-18_XXX'],
+        a: rowsByKey['ti-17_XXX'],
+      },
+    },
+    h24: {
+      h: {
+        h: rowsByKey['ti-14_XXX'],
+      },
+      hm: {
+        m: rowsByKey['ti-15_XXX'],
+        h: rowsByKey['ti-16_XXX'],
+      },
+      hmv: {
+        m: rowsByKey['ti-12_XXX'],
+        h: rowsByKey['ti-11_XXX'],
+      },
+      hv: {
+        h: rowsByKey['ti-13_XXX'],
+      },
     },
   };
 }

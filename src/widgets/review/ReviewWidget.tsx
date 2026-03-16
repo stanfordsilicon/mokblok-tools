@@ -5,6 +5,7 @@ import DaysOfWeekReviewTable from './tables/DaysOfWeekReviewTable';
 import HourMinuteReviewTable from './tables/HourMinuteReviewTable';
 import MonthsReviewTable from './tables/MonthsReviewTable';
 import RelativeTimeReviewTable from './tables/RelativeTimeReviewTable';
+import TimeIntervalReviewTable from './tables/TimeIntervalReviewTable';
 
 const ReviewWidget: React.FC = () => {
   const { today, setToday } = useSettings();
@@ -34,6 +35,7 @@ const ReviewWidget: React.FC = () => {
       <DateFieldsReviewTable />
       <RelativeTimeReviewTable />
       <HourMinuteReviewTable />
+      <TimeIntervalReviewTable />
     </div>
   );
 };

@@ -7,6 +7,7 @@ import {
   getHourMinuteData,
   getMonthsData,
   getRelativeTimeData,
+  getTimeIntervalData,
 } from './ExtractData';
 
 import type {
@@ -19,6 +20,9 @@ import type {
   MonthData,
   RelativeTimeData,
   RowData,
+  TimeIntervalData,
+  TimeIntervalDifference,
+  TimeIntervalFormat,
 } from './DataTypes';
 
 export type DataContextType = {
@@ -31,6 +35,7 @@ export type DataContextType = {
   alphabetData?: AlphabetData;
   relativeTimeData?: RelativeTimeData;
   hourMinuteData?: HourMinuteData;
+  timeIntervalData?: TimeIntervalData;
   setMonthTranslation: (monthIndex: number, format: FormatLength, newTranslation: string) => void;
   setDayOfWeekTranslation: (dayIndex: number, format: FormatLength, newTranslation: string) => void;
   setDateFieldTranslation: (field: DateField, format: FormatLength, newTranslation: string) => void;
@@ -42,6 +47,12 @@ export type DataContextType = {
   setHourMinuteTranslation: (
     format: 'hm12' | 'hm24' | 'hms24' | 'hm12tz',
     variant: 'morning' | 'evening',
+    newTranslation: string,
+  ) => void;
+  setTimeIntervalTranslation: (
+    set: keyof TimeIntervalData,
+    format: TimeIntervalFormat,
+    difference: TimeIntervalDifference,
     newTranslation: string,
   ) => void;
 };
@@ -58,6 +69,7 @@ export const DataContext = createContext<DataContextType | undefined>({
   setDateFieldTranslation: () => {},
   setRelativeTimeTranslation: () => {},
   setHourMinuteTranslation: () => {},
+  setTimeIntervalTranslation: () => {},
 });
 
 export const useDataContext = () => {
@@ -82,6 +94,7 @@ export const DataProvider: React.FC<{
   const [alphabetData, setAlphabetData] = useState<AlphabetData | undefined>(undefined);
   const [relativeTimeData, setRelativeTimeData] = useState<RelativeTimeData>({});
   const [hourMinuteData, setHourMinuteData] = useState<HourMinuteData | undefined>(undefined);
+  const [timeIntervalData, setTimeIntervalData] = useState<TimeIntervalData | undefined>(undefined);
 
   const rowsByKey = useMemo(
     () =>
@@ -102,6 +115,7 @@ export const DataProvider: React.FC<{
     setDaysOfWeekData(getDaysOfWeekData(rowsByKey));
     setRelativeTimeData(getRelativeTimeData(rowsByKey));
     setHourMinuteData(getHourMinuteData(rowsByKey));
+    setTimeIntervalData(getTimeIntervalData(rowsByKey));
     setAlphabetData(extractAlphabetData(rows, extraText));
   }, [rowsByKey, rows, extraText]);
 
@@ -157,7 +171,20 @@ export const DataProvider: React.FC<{
   ) => {
     setHourMinuteData((prev) => {
       if (!prev) return prev;
-      const data = prev?.[format]?.[variant];
+      const data = prev[format]?.[variant];
+      if (data) data.translated = newTranslation;
+      return { ...prev };
+    });
+  };
+  const setTimeIntervalTranslation = (
+    set: keyof TimeIntervalData,
+    format: TimeIntervalFormat,
+    difference: TimeIntervalDifference,
+    newTranslation: string,
+  ) => {
+    setTimeIntervalData((prev) => {
+      if (!prev) return prev;
+      const data = prev[set]?.[format]?.[difference];
       if (data) data.translated = newTranslation;
       return { ...prev };
     });
@@ -173,11 +200,13 @@ export const DataProvider: React.FC<{
     alphabetData,
     relativeTimeData,
     hourMinuteData,
+    timeIntervalData,
     setMonthTranslation,
     setDayOfWeekTranslation,
     setDateFieldTranslation,
     setRelativeTimeTranslation,
     setHourMinuteTranslation,
+    setTimeIntervalTranslation,
   };
   return <DataContext.Provider value={dataContext}>{children}</DataContext.Provider>;
 };

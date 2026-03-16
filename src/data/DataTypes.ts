@@ -75,3 +75,24 @@ export enum HourMinuteFormat {
   HM12TZ = 'hm12tz',
 }
 export type HourMinuteData = Record<HourMinuteFormat, { morning?: RowData; evening: RowData }>;
+
+export enum TimeIntervalFormat {
+  Hour = 'h',
+  HourMinute = 'hm',
+  HourMinuteTimezone = 'hmv',
+  HourTimezone = 'hv',
+}
+export enum TimeIntervalDifference {
+  Period = 'a',
+  Hour = 'h',
+  Minute = 'm',
+}
+//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hm"]/greatestDifference[@id="m"]
+type TimeInternalDataInPeriod = Partial<
+  Record<TimeIntervalFormat, Partial<Record<TimeIntervalDifference, RowData>>>
+>;
+export type TimeIntervalData = {
+  h12: TimeInternalDataInPeriod;
+  h12alt: TimeInternalDataInPeriod;
+  h24: TimeInternalDataInPeriod;
+};
