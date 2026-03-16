@@ -3,6 +3,7 @@ import { useSettings } from '@settings/Settings';
 import DateFieldsReviewTable from './DateFieldsReviewTable';
 import DaysOfWeekReviewTable from './DaysOfWeekReviewTable';
 import MonthsReviewTable from './MonthsReviewTable';
+import RelativeTimeReviewTable from './RelativeTimeReviewTable';
 
 const ReviewWidget: React.FC = () => {
   const { today, setToday } = useSettings();
@@ -30,6 +31,7 @@ const ReviewWidget: React.FC = () => {
       <MonthsReviewTable />
       <DaysOfWeekReviewTable />
       <DateFieldsReviewTable />
+      <RelativeTimeReviewTable />
     </div>
   );
 };

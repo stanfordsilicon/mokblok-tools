@@ -39,9 +39,9 @@ function MonthsReviewTable() {
             {monthsData.map((month, index) => (
               <tr key={index}>
                 {/* Source Language */}
-                <td>{getSourceLanguageData(month[FormatLength.Wide], sourceLanguage)}</td>
-                <td>{getSourceLanguageData(month[FormatLength.Abbreviated], sourceLanguage)}</td>
-                <td>{getSourceLanguageData(month[FormatLength.Narrow], sourceLanguage)}</td>
+                <td>{getSourceLanguageData(month[FormatLength.Wide])}</td>
+                <td>{getSourceLanguageData(month[FormatLength.Abbreviated])}</td>
+                <td>{getSourceLanguageData(month[FormatLength.Narrow])}</td>
                 {/* Target Language (editable) */}
                 <InputCell index={index} format={FormatLength.Wide} />
                 <InputCell index={index} format={FormatLength.Abbreviated} />

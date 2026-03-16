@@ -3,6 +3,7 @@ import {
   type DateFieldData,
   type DayOfWeekData,
   type MonthData,
+  type RelativeTimeData,
   type RowData,
 } from './DataTypes';
 
@@ -164,6 +165,31 @@ export function getDateFieldsData(
     },
     [DateField.DayOfWeek]: {
       wide: rowsByKey['dw-23_XXX'],
+    },
+  };
+}
+
+export function getRelativeTimeData(rowsByKey: Record<string, RowData>): RelativeTimeData {
+  return {
+    [DateField.Year]: {
+      '-1': rowsByKey['rt-4_XXX'],
+      '0': rowsByKey['rt-8_XXX'],
+      '1': rowsByKey['rt-12_XXX'],
+    },
+    [DateField.Month]: {
+      '-1': rowsByKey['rt-1_XXX'],
+      '0': rowsByKey['rt-5_XXX'],
+      '1': rowsByKey['rt-10_XXX'],
+    },
+    [DateField.Week]: {
+      '-1': rowsByKey['rt-2_XXX'],
+      '0': rowsByKey['rt-6_XXX'],
+      '1': rowsByKey['rt-11_XXX'],
+    },
+    [DateField.Day]: {
+      '-1': rowsByKey['rt-3_XXX'],
+      '0': rowsByKey['rt-7_XXX'],
+      '1': rowsByKey['rt-9_XXX'],
     },
   };
 }

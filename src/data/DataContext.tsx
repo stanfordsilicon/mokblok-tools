@@ -1,7 +1,12 @@
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 
 import extractAlphabetData from './ExtractAlphabet';
-import { getDateFieldsData, getDaysOfWeekData, getMonthsData } from './ExtractData';
+import {
+  getDateFieldsData,
+  getDaysOfWeekData,
+  getMonthsData,
+  getRelativeTimeData,
+} from './ExtractData';
 
 import type {
   AlphabetData,
@@ -10,6 +15,7 @@ import type {
   DayOfWeekData,
   FormatLength,
   MonthData,
+  RelativeTimeData,
   RowData,
 } from './DataTypes';
 
@@ -21,9 +27,15 @@ export type DataContextType = {
   daysOfWeekData: DayOfWeekData[];
   dateFieldsData: Partial<Record<DateField, DateFieldData>>;
   alphabetData?: AlphabetData;
+  relativeTimeData?: RelativeTimeData;
   setMonthTranslation: (monthIndex: number, format: FormatLength, newTranslation: string) => void;
   setDayOfWeekTranslation: (dayIndex: number, format: FormatLength, newTranslation: string) => void;
   setDateFieldTranslation: (field: DateField, format: FormatLength, newTranslation: string) => void;
+  setRelativeTimeTranslation: (
+    field: DateField,
+    offset: '-1' | '0' | '1',
+    newTranslation: string,
+  ) => void;
 };
 
 export const DataContext = createContext<DataContextType | undefined>({
@@ -36,6 +48,7 @@ export const DataContext = createContext<DataContextType | undefined>({
   setMonthTranslation: () => {},
   setDayOfWeekTranslation: () => {},
   setDateFieldTranslation: () => {},
+  setRelativeTimeTranslation: () => {},
 });
 
 export const useDataContext = () => {
@@ -58,6 +71,7 @@ export const DataProvider: React.FC<{
     {},
   );
   const [alphabetData, setAlphabetData] = useState<AlphabetData | undefined>(undefined);
+  const [relativeTimeData, setRelativeTimeData] = useState<RelativeTimeData>({});
 
   const rowsByKey = useMemo(
     () =>
@@ -76,6 +90,7 @@ export const DataProvider: React.FC<{
     setMonthsData(getMonthsData(rowsByKey));
     setDateFieldsData(getDateFieldsData(rowsByKey));
     setDaysOfWeekData(getDaysOfWeekData(rowsByKey));
+    setRelativeTimeData(getRelativeTimeData(rowsByKey));
     setAlphabetData(extractAlphabetData(rows, extraText));
   }, [rowsByKey, rows, extraText]);
 
@@ -113,6 +128,17 @@ export const DataProvider: React.FC<{
       return { ...prev };
     });
   };
+  const setRelativeTimeTranslation = (
+    field: DateField,
+    offset: '-1' | '0' | '1',
+    newTranslation: string,
+  ) => {
+    setRelativeTimeData((prev) => {
+      const fieldOffset = prev[field]?.[offset];
+      if (fieldOffset) fieldOffset.translated = newTranslation;
+      return { ...prev };
+    });
+  };
 
   const dataContext: DataContextType = {
     setRows,
@@ -122,9 +148,11 @@ export const DataProvider: React.FC<{
     daysOfWeekData,
     dateFieldsData,
     alphabetData,
+    relativeTimeData,
     setMonthTranslation,
     setDayOfWeekTranslation,
     setDateFieldTranslation,
+    setRelativeTimeTranslation,
   };
   return <DataContext.Provider value={dataContext}>{children}</DataContext.Provider>;
 };

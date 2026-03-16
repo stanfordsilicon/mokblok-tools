@@ -40,10 +40,10 @@ function DaysOfWeekReviewTable() {
             {daysOfWeekData.map((day, index) => (
               <tr key={index}>
                 {/* Source Language */}
-                <td>{getSourceLanguageData(day[FormatLength.Wide], sourceLanguage)}</td>
-                <td>{getSourceLanguageData(day[FormatLength.Abbreviated], sourceLanguage)}</td>
-                <td>{getSourceLanguageData(day[FormatLength.Short], sourceLanguage)}</td>
-                <td>{getSourceLanguageData(day[FormatLength.Narrow], sourceLanguage)}</td>
+                <td>{getSourceLanguageData(day[FormatLength.Wide])}</td>
+                <td>{getSourceLanguageData(day[FormatLength.Abbreviated])}</td>
+                <td>{getSourceLanguageData(day[FormatLength.Short])}</td>
+                <td>{getSourceLanguageData(day[FormatLength.Narrow])}</td>
                 {/* Target Language (editable) */}
                 <InputCell index={index} format={FormatLength.Wide} />
                 <InputCell index={index} format={FormatLength.Abbreviated} />

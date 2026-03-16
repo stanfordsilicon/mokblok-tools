@@ -63,3 +63,7 @@ export type AlphabetData = {
   charactersOther: string[];
   writingSystem: string;
 };
+
+export type RelativeTimeData = Partial<
+  Record<DateField, { '-1': RowData; '0': RowData; '1': RowData }>
+>;

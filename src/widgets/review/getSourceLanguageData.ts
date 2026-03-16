@@ -1,9 +1,9 @@
 import { SourceLanguage, type RowData } from '@data/DataTypes';
 
-export function getSourceLanguageData(
-  row: RowData | undefined,
-  sourceLanguage: SourceLanguage,
-): string {
+import { useSettings } from '@settings/Settings';
+
+export function getSourceLanguageData(row: RowData | undefined): string {
+  const { sourceLanguage } = useSettings();
   if (!row) return '';
   return sourceLanguage === SourceLanguage.English ? row.english : row.french;
 }

@@ -38,9 +38,9 @@ const DateFieldsReviewTable: React.FC = () => {
             {Object.entries(dateFieldsData).map(([fieldKey, fieldData]) => (
               <tr key={fieldKey}>
                 {/* Source Language */}
-                <td>{getSourceLanguageData(fieldData.wide, sourceLanguage)}</td>
-                <td>{getSourceLanguageData(fieldData.short, sourceLanguage)}</td>
-                <td>{getSourceLanguageData(fieldData.narrow, sourceLanguage)}</td>
+                <td>{getSourceLanguageData(fieldData.wide)}</td>
+                <td>{getSourceLanguageData(fieldData.short)}</td>
+                <td>{getSourceLanguageData(fieldData.narrow)}</td>
                 {/* Target Language (editable) */}
                 <InputCell field={fieldKey as DateField} format={FormatLength.Wide} />
                 <InputCell field={fieldKey as DateField} format={FormatLength.Short} />

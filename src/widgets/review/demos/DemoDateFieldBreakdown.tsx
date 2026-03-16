@@ -5,6 +5,8 @@ import { DateField } from '@data/DataTypes';
 
 import { useSettings } from '@settings/Settings';
 
+import { getSourceLanguageData } from '../getSourceLanguageData';
+
 import DemoID from './DemoID';
 import DemoSVG from './DemoSVG';
 
@@ -22,7 +24,7 @@ const ShownDateFields: DateField[] = [
 ];
 
 const DemoDateFieldBreakdown: React.FC = () => {
-  const { dateFieldsData, monthsData, daysOfWeekData } = useDataContext();
+  const { dateFieldsData, monthsData, daysOfWeekData, relativeTimeData } = useDataContext();
   const { today } = useSettings();
 
   const getTodayFieldValue = useCallback(
@@ -55,10 +57,12 @@ const DemoDateFieldBreakdown: React.FC = () => {
     [today, monthsData, daysOfWeekData],
   );
 
+  const todayData = relativeTimeData?.day?.['0'];
+
   return (
     <DemoSVG id={DemoID.DateFieldBreakdown} width={240} height={240}>
       <text x={120} y={30} textAnchor="middle" fontSize="1.2em">
-        Today
+        {todayData?.translated || getSourceLanguageData(todayData) || 'Today'}
       </text>
       {ShownDateFields.map((fieldKey, index) => {
         const fieldData = dateFieldsData[fieldKey];

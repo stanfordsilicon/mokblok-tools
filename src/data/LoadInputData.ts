@@ -15,6 +15,7 @@ export function parseInputTSV(tsv: string): RowData[] {
   const indices = getColumnIndices(lines);
   if (!indices) return [];
   const maxIndex = Math.max(...Object.values(indices))!;
+  console.log('Column indices found:', indices);
 
   return lines
     .map((line) => {
@@ -45,13 +46,13 @@ function getColumnIndices(lines: string[]): Record<SubmissionField, number> | nu
   lines.forEach((line) => {
     const cells = line.split('\t').map((cell) => cell.trim().toLowerCase());
     cells.forEach((cell, index) => {
-      if (cell.startsWith('english')) indices[SubmissionField.English] = index;
-      else if (cell.startsWith('ext_id')) indices[SubmissionField.ExtId] = index;
-      else if (cell.startsWith('xpath')) indices[SubmissionField.XPath] = index;
+      if (cell.startsWith('english')) indices[SubmissionField.English] ??= index;
+      else if (cell.startsWith('ext_id')) indices[SubmissionField.ExtId] ??= index;
+      else if (cell.startsWith('xpath')) indices[SubmissionField.XPath] ??= index;
       else if (cell.startsWith('translated') || cell.startsWith('translation'))
-        indices[SubmissionField.Translated] = index;
-      else if (cell.startsWith('french')) indices[SubmissionField.French] = index;
-      else if (cell.startsWith('notes')) indices[SubmissionField.Notes] = index;
+        indices[SubmissionField.Translated] ??= index;
+      else if (cell.startsWith('french')) indices[SubmissionField.French] ??= index;
+      else if (cell.startsWith('notes')) indices[SubmissionField.Notes] ??= index;
     });
   });
   const undefinedFields = Object.values(SubmissionField).filter(
