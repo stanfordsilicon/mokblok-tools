@@ -101,3 +101,12 @@ export type TimeIntervalData = {
 
 // Not yet organized
 export type DateCombinationData = RowData[];
+
+export enum SentenceContext {
+  InSentence = 'in sentence',
+  Standalone = 'standalone',
+}
+
+// 4 items, one for each quarter, with different lengths (e.g. "1st quarter", "Q1")
+// both as individual items (eg. "1st quarter") and in a combined form (e.g. "1st quarter of 2025")
+export type QuartersData = Record<SentenceContext, Partial<Record<FormatLength, RowData>>[]>;

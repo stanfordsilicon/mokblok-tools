@@ -5,6 +5,7 @@ import DateFieldsReviewTable from './tables/DateFieldsReviewTable';
 import DaysOfWeekReviewTable from './tables/DaysOfWeekReviewTable';
 import HourMinuteReviewTable from './tables/HourMinuteReviewTable';
 import MonthsReviewTable from './tables/MonthsReviewTable';
+import QuartersReviewTable from './tables/QuartersReviewTable';
 import RelativeTimeReviewTable from './tables/RelativeTimeReviewTable';
 import TimeIntervalReviewTable from './tables/TimeIntervalReviewTable';
 
@@ -38,6 +39,7 @@ const ReviewWidget: React.FC = () => {
       <HourMinuteReviewTable />
       <TimeIntervalReviewTable />
       <DateCombinationsReviewTable />
+      <QuartersReviewTable />
     </div>
   );
 };

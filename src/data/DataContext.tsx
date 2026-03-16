@@ -7,6 +7,7 @@ import {
   getDaysOfWeekData,
   getHourMinuteData,
   getMonthsData,
+  getQuarterData,
   getRelativeTimeData,
   getTimeIntervalData,
 } from './ExtractData';
@@ -20,8 +21,10 @@ import type {
   FormatLength,
   HourMinuteData,
   MonthData,
+  QuartersData,
   RelativeTimeData,
   RowData,
+  SentenceContext,
   TimeIntervalData,
   TimeIntervalDifference,
   TimeIntervalFormat,
@@ -39,6 +42,7 @@ export type DataContextType = {
   hourMinuteData?: HourMinuteData;
   timeIntervalData?: TimeIntervalData;
   dateCombinationsData?: DateCombinationData;
+  quartersData?: QuartersData;
   setMonthTranslation: (monthIndex: number, format: FormatLength, newTranslation: string) => void;
   setDayOfWeekTranslation: (dayIndex: number, format: FormatLength, newTranslation: string) => void;
   setDateFieldTranslation: (field: DateField, format: FormatLength, newTranslation: string) => void;
@@ -59,6 +63,12 @@ export type DataContextType = {
     newTranslation: string,
   ) => void;
   setDateCombinationTranslation: (combinationIndex: number, newTranslation: string) => void;
+  setQuarterTranslation: (
+    context: SentenceContext,
+    quarterIndex: number,
+    format: FormatLength,
+    newTranslation: string,
+  ) => void;
 };
 
 export const DataContext = createContext<DataContextType | undefined>({
@@ -75,6 +85,7 @@ export const DataContext = createContext<DataContextType | undefined>({
   setHourMinuteTranslation: () => {},
   setTimeIntervalTranslation: () => {},
   setDateCombinationTranslation: () => {},
+  setQuarterTranslation: () => {},
 });
 
 export const useDataContext = () => {
@@ -103,6 +114,7 @@ export const DataProvider: React.FC<{
   const [dateCombinationsData, setDateCombinationsData] = useState<DateCombinationData | undefined>(
     [],
   );
+  const [quartersData, setQuartersData] = useState<QuartersData | undefined>(undefined);
 
   const rowsByKey = useMemo(
     () =>
@@ -125,6 +137,7 @@ export const DataProvider: React.FC<{
     setHourMinuteData(getHourMinuteData(rowsByKey));
     setTimeIntervalData(getTimeIntervalData(rowsByKey));
     setDateCombinationsData(getDateCombinationData(rowsByKey));
+    setQuartersData(getQuarterData(rowsByKey));
     setAlphabetData(extractAlphabetData(rows, extraText));
   }, [rowsByKey, rows, extraText]);
 
@@ -206,6 +219,19 @@ export const DataProvider: React.FC<{
       return [...prev];
     });
   };
+  const setQuarterTranslation = (
+    context: SentenceContext,
+    quarterIndex: number,
+    format: FormatLength,
+    newTranslation: string,
+  ) => {
+    setQuartersData((prev) => {
+      if (!prev) return prev;
+      const data = prev[context][quarterIndex][format];
+      if (data) data.translated = newTranslation;
+      return { ...prev };
+    });
+  };
 
   const dataContext: DataContextType = {
     setRows,
@@ -219,6 +245,7 @@ export const DataProvider: React.FC<{
     hourMinuteData,
     timeIntervalData,
     dateCombinationsData,
+    quartersData,
     setMonthTranslation,
     setDayOfWeekTranslation,
     setDateFieldTranslation,
@@ -226,6 +253,7 @@ export const DataProvider: React.FC<{
     setHourMinuteTranslation,
     setTimeIntervalTranslation,
     setDateCombinationTranslation,
+    setQuarterTranslation,
   };
   return <DataContext.Provider value={dataContext}>{children}</DataContext.Provider>;
 };

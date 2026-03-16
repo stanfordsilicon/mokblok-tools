@@ -1,11 +1,13 @@
 import {
   DateField,
   HourMinuteFormat,
+  SentenceContext,
   type DateCombinationData,
   type DateFieldData,
   type DayOfWeekData,
   type HourMinuteData,
   type MonthData,
+  type QuartersData,
   type RelativeTimeData,
   type RowData,
   type TimeIntervalData,
@@ -268,4 +270,45 @@ export function getTimeIntervalData(rowsByKey: Record<string, RowData>): TimeInt
 
 export function getDateCombinationData(rowsByKey: Record<string, RowData>): DateCombinationData {
   return Object.values(rowsByKey).filter((row) => row.key.startsWith('dc-'));
+}
+
+export function getQuarterData(rowsByKey: Record<string, RowData>): QuartersData {
+  return {
+    [SentenceContext.InSentence]: [
+      {
+        wide: rowsByKey['qt2-1_XXX'],
+        abbreviated: rowsByKey['qt2-5_XXX'],
+      },
+      {
+        wide: rowsByKey['qt2-2_XXX'],
+        abbreviated: rowsByKey['qt2-6_XXX'],
+      },
+      {
+        wide: rowsByKey['qt2-3_XXX'],
+        abbreviated: rowsByKey['qt2-7_XXX'],
+      },
+      {
+        wide: rowsByKey['qt2-4_XXX'],
+        abbreviated: rowsByKey['qt2-8_XXX'],
+      },
+    ],
+    [SentenceContext.Standalone]: [
+      {
+        wide: rowsByKey['qt-1_XXX'],
+        abbreviated: rowsByKey['qt-5_XXX'],
+      },
+      {
+        wide: rowsByKey['qt-2_XXX'],
+        abbreviated: rowsByKey['qt-6_XXX'],
+      },
+      {
+        wide: rowsByKey['qt-3_XXX'],
+        abbreviated: rowsByKey['qt-7_XXX'],
+      },
+      {
+        wide: rowsByKey['qt-4_XXX'],
+        abbreviated: rowsByKey['qt-8_XXX'],
+      },
+    ],
+  };
 }
