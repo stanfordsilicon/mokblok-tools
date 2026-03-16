@@ -67,3 +67,11 @@ export type AlphabetData = {
 export type RelativeTimeData = Partial<
   Record<DateField, { '-1': RowData; '0': RowData; '1': RowData }>
 >;
+
+export enum HourMinuteFormat {
+  HM12 = 'hm12',
+  HM24 = 'hm24',
+  HMS24 = 'hms24',
+  HM12TZ = 'hm12tz',
+}
+export type HourMinuteData = Record<HourMinuteFormat, { morning?: RowData; evening: RowData }>;

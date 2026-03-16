@@ -1,7 +1,9 @@
 import {
   DateField,
+  HourMinuteFormat,
   type DateFieldData,
   type DayOfWeekData,
+  type HourMinuteData,
   type MonthData,
   type RelativeTimeData,
   type RowData,
@@ -190,6 +192,27 @@ export function getRelativeTimeData(rowsByKey: Record<string, RowData>): Relativ
       '-1': rowsByKey['rt-3_XXX'],
       '0': rowsByKey['rt-7_XXX'],
       '1': rowsByKey['rt-9_XXX'],
+    },
+  };
+}
+
+export function getHourMinuteData(rowsByKey: Record<string, RowData>): HourMinuteData {
+  return {
+    [HourMinuteFormat.HM12]: {
+      morning: rowsByKey['hr-4_XXX'],
+      evening: rowsByKey['hr-1_XXX'],
+    },
+    [HourMinuteFormat.HM12TZ]: {
+      morning: undefined, // not asked
+      evening: rowsByKey['hr-7_XXX'],
+    },
+    [HourMinuteFormat.HM24]: {
+      morning: rowsByKey['hr-2_XXX'],
+      evening: rowsByKey['hr-3_XXX'],
+    },
+    [HourMinuteFormat.HMS24]: {
+      morning: rowsByKey['hr-6_XXX'],
+      evening: rowsByKey['hr-5_XXX'],
     },
   };
 }

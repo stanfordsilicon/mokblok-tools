@@ -1,9 +1,10 @@
 import { useSettings } from '@settings/Settings';
 
-import DateFieldsReviewTable from './DateFieldsReviewTable';
-import DaysOfWeekReviewTable from './DaysOfWeekReviewTable';
-import MonthsReviewTable from './MonthsReviewTable';
-import RelativeTimeReviewTable from './RelativeTimeReviewTable';
+import DateFieldsReviewTable from './tables/DateFieldsReviewTable';
+import DaysOfWeekReviewTable from './tables/DaysOfWeekReviewTable';
+import HourMinuteReviewTable from './tables/HourMinuteReviewTable';
+import MonthsReviewTable from './tables/MonthsReviewTable';
+import RelativeTimeReviewTable from './tables/RelativeTimeReviewTable';
 
 const ReviewWidget: React.FC = () => {
   const { today, setToday } = useSettings();
@@ -32,6 +33,7 @@ const ReviewWidget: React.FC = () => {
       <DaysOfWeekReviewTable />
       <DateFieldsReviewTable />
       <RelativeTimeReviewTable />
+      <HourMinuteReviewTable />
     </div>
   );
 };

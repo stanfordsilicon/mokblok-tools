@@ -1,12 +1,11 @@
 import { useDataContext } from '@data/DataContext';
-import { DateField, SourceLanguage } from '@data/DataTypes';
+import { DateField } from '@data/DataTypes';
 
-import { useSettings } from '@settings/Settings';
+import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
-import { getSourceLanguageData } from './getSourceLanguageData';
+import { getSourceLanguageData } from '../getSourceLanguageData';
 
 function RelativeTimeReviewTable() {
-  const { sourceLanguage } = useSettings();
   const { relativeTimeData } = useDataContext();
 
   return (
@@ -17,7 +16,7 @@ function RelativeTimeReviewTable() {
           <tr>
             <th>Field</th>
             <th colSpan={3} style={{ textAlign: 'center' }}>
-              {Object.entries(SourceLanguage).find(([, value]) => value === sourceLanguage)?.[0]}
+              <SourceLanguageLabel />
             </th>
             <th colSpan={3} style={{ textAlign: 'center' }}>
               Translated

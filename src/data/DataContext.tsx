@@ -4,6 +4,7 @@ import extractAlphabetData from './ExtractAlphabet';
 import {
   getDateFieldsData,
   getDaysOfWeekData,
+  getHourMinuteData,
   getMonthsData,
   getRelativeTimeData,
 } from './ExtractData';
@@ -14,6 +15,7 @@ import type {
   DateFieldData,
   DayOfWeekData,
   FormatLength,
+  HourMinuteData,
   MonthData,
   RelativeTimeData,
   RowData,
@@ -28,12 +30,18 @@ export type DataContextType = {
   dateFieldsData: Partial<Record<DateField, DateFieldData>>;
   alphabetData?: AlphabetData;
   relativeTimeData?: RelativeTimeData;
+  hourMinuteData?: HourMinuteData;
   setMonthTranslation: (monthIndex: number, format: FormatLength, newTranslation: string) => void;
   setDayOfWeekTranslation: (dayIndex: number, format: FormatLength, newTranslation: string) => void;
   setDateFieldTranslation: (field: DateField, format: FormatLength, newTranslation: string) => void;
   setRelativeTimeTranslation: (
     field: DateField,
     offset: '-1' | '0' | '1',
+    newTranslation: string,
+  ) => void;
+  setHourMinuteTranslation: (
+    format: 'hm12' | 'hm24' | 'hms24' | 'hm12tz',
+    variant: 'morning' | 'evening',
     newTranslation: string,
   ) => void;
 };
@@ -49,6 +57,7 @@ export const DataContext = createContext<DataContextType | undefined>({
   setDayOfWeekTranslation: () => {},
   setDateFieldTranslation: () => {},
   setRelativeTimeTranslation: () => {},
+  setHourMinuteTranslation: () => {},
 });
 
 export const useDataContext = () => {
@@ -72,6 +81,7 @@ export const DataProvider: React.FC<{
   );
   const [alphabetData, setAlphabetData] = useState<AlphabetData | undefined>(undefined);
   const [relativeTimeData, setRelativeTimeData] = useState<RelativeTimeData>({});
+  const [hourMinuteData, setHourMinuteData] = useState<HourMinuteData | undefined>(undefined);
 
   const rowsByKey = useMemo(
     () =>
@@ -91,6 +101,7 @@ export const DataProvider: React.FC<{
     setDateFieldsData(getDateFieldsData(rowsByKey));
     setDaysOfWeekData(getDaysOfWeekData(rowsByKey));
     setRelativeTimeData(getRelativeTimeData(rowsByKey));
+    setHourMinuteData(getHourMinuteData(rowsByKey));
     setAlphabetData(extractAlphabetData(rows, extraText));
   }, [rowsByKey, rows, extraText]);
 
@@ -139,6 +150,18 @@ export const DataProvider: React.FC<{
       return { ...prev };
     });
   };
+  const setHourMinuteTranslation = (
+    format: 'hm12' | 'hm24' | 'hms24' | 'hm12tz',
+    variant: 'morning' | 'evening',
+    newTranslation: string,
+  ) => {
+    setHourMinuteData((prev) => {
+      if (!prev) return prev;
+      const data = prev?.[format]?.[variant];
+      if (data) data.translated = newTranslation;
+      return { ...prev };
+    });
+  };
 
   const dataContext: DataContextType = {
     setRows,
@@ -149,10 +172,12 @@ export const DataProvider: React.FC<{
     dateFieldsData,
     alphabetData,
     relativeTimeData,
+    hourMinuteData,
     setMonthTranslation,
     setDayOfWeekTranslation,
     setDateFieldTranslation,
     setRelativeTimeTranslation,
+    setHourMinuteTranslation,
   };
   return <DataContext.Provider value={dataContext}>{children}</DataContext.Provider>;
 };

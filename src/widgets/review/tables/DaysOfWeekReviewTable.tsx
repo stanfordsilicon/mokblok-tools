@@ -1,15 +1,14 @@
 import { useDataContext } from '@data/DataContext';
-import { FormatLength, SourceLanguage } from '@data/DataTypes';
+import { FormatLength } from '@data/DataTypes';
 
-import { useSettings } from '@settings/Settings';
+import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
-import Demo from './demos/Demo';
-import DemoID from './demos/DemoID';
-import FormatWidth from './FormatWidth';
-import { getSourceLanguageData } from './getSourceLanguageData';
+import Demo from '../demos/Demo';
+import DemoID from '../demos/DemoID';
+import FormatWidth from '../FormatWidth';
+import { getSourceLanguageData } from '../getSourceLanguageData';
 
 function DaysOfWeekReviewTable() {
-  const { sourceLanguage } = useSettings();
   const { daysOfWeekData } = useDataContext();
   return (
     <div>
@@ -19,7 +18,7 @@ function DaysOfWeekReviewTable() {
           <thead>
             <tr>
               <th colSpan={4} style={{ textAlign: 'center' }}>
-                {Object.entries(SourceLanguage).find(([, value]) => value === sourceLanguage)?.[0]}
+                <SourceLanguageLabel />
               </th>
               <th colSpan={4} style={{ textAlign: 'center' }}>
                 Translated
