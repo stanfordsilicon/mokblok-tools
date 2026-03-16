@@ -1,6 +1,7 @@
 import {
   DateField,
   HourMinuteFormat,
+  type DateCombinationData,
   type DateFieldData,
   type DayOfWeekData,
   type HourMinuteData,
@@ -263,4 +264,8 @@ export function getTimeIntervalData(rowsByKey: Record<string, RowData>): TimeInt
       },
     },
   };
+}
+
+export function getDateCombinationData(rowsByKey: Record<string, RowData>): DateCombinationData {
+  return Object.values(rowsByKey).filter((row) => row.key.startsWith('dc-'));
 }

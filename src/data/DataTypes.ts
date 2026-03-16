@@ -12,6 +12,7 @@ export type RowData = {
   french: string;
   translated: string;
   notes: string;
+  xpath?: string;
   key: string;
 };
 
@@ -87,6 +88,7 @@ export enum TimeIntervalDifference {
   Hour = 'h',
   Minute = 'm',
 }
+
 //ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hm"]/greatestDifference[@id="m"]
 type TimeInternalDataInPeriod = Partial<
   Record<TimeIntervalFormat, Partial<Record<TimeIntervalDifference, RowData>>>
@@ -96,3 +98,6 @@ export type TimeIntervalData = {
   h12alt: TimeInternalDataInPeriod;
   h24: TimeInternalDataInPeriod;
 };
+
+// Not yet organized
+export type DateCombinationData = RowData[];

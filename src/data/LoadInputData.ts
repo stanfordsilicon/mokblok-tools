@@ -36,7 +36,7 @@ export function parseInputTSV(tsv: string): RowData[] {
         // console.warn('Skipping line with missing key (ext_id/xpath):', line);
         return null; // Skip lines that don't match known keys
       }
-      return { english, french, translated, notes, key };
+      return { english, french, translated, notes, key, xpath };
     })
     .filter((row) => row != null); // Filter out nulls
 }

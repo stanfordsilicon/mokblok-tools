@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 
 import extractAlphabetData from './ExtractAlphabet';
 import {
+  getDateCombinationData,
   getDateFieldsData,
   getDaysOfWeekData,
   getHourMinuteData,
@@ -12,6 +13,7 @@ import {
 
 import type {
   AlphabetData,
+  DateCombinationData,
   DateField,
   DateFieldData,
   DayOfWeekData,
@@ -36,6 +38,7 @@ export type DataContextType = {
   relativeTimeData?: RelativeTimeData;
   hourMinuteData?: HourMinuteData;
   timeIntervalData?: TimeIntervalData;
+  dateCombinationsData?: DateCombinationData;
   setMonthTranslation: (monthIndex: number, format: FormatLength, newTranslation: string) => void;
   setDayOfWeekTranslation: (dayIndex: number, format: FormatLength, newTranslation: string) => void;
   setDateFieldTranslation: (field: DateField, format: FormatLength, newTranslation: string) => void;
@@ -55,6 +58,7 @@ export type DataContextType = {
     difference: TimeIntervalDifference,
     newTranslation: string,
   ) => void;
+  setDateCombinationTranslation: (combinationIndex: number, newTranslation: string) => void;
 };
 
 export const DataContext = createContext<DataContextType | undefined>({
@@ -70,6 +74,7 @@ export const DataContext = createContext<DataContextType | undefined>({
   setRelativeTimeTranslation: () => {},
   setHourMinuteTranslation: () => {},
   setTimeIntervalTranslation: () => {},
+  setDateCombinationTranslation: () => {},
 });
 
 export const useDataContext = () => {
@@ -95,6 +100,9 @@ export const DataProvider: React.FC<{
   const [relativeTimeData, setRelativeTimeData] = useState<RelativeTimeData>({});
   const [hourMinuteData, setHourMinuteData] = useState<HourMinuteData | undefined>(undefined);
   const [timeIntervalData, setTimeIntervalData] = useState<TimeIntervalData | undefined>(undefined);
+  const [dateCombinationsData, setDateCombinationsData] = useState<DateCombinationData | undefined>(
+    [],
+  );
 
   const rowsByKey = useMemo(
     () =>
@@ -116,6 +124,7 @@ export const DataProvider: React.FC<{
     setRelativeTimeData(getRelativeTimeData(rowsByKey));
     setHourMinuteData(getHourMinuteData(rowsByKey));
     setTimeIntervalData(getTimeIntervalData(rowsByKey));
+    setDateCombinationsData(getDateCombinationData(rowsByKey));
     setAlphabetData(extractAlphabetData(rows, extraText));
   }, [rowsByKey, rows, extraText]);
 
@@ -189,6 +198,14 @@ export const DataProvider: React.FC<{
       return { ...prev };
     });
   };
+  const setDateCombinationTranslation = (combinationIndex: number, newTranslation: string) => {
+    setDateCombinationsData((prev) => {
+      if (!prev) return prev;
+      const data = prev[combinationIndex];
+      if (data) data.translated = newTranslation;
+      return [...prev];
+    });
+  };
 
   const dataContext: DataContextType = {
     setRows,
@@ -201,12 +218,14 @@ export const DataProvider: React.FC<{
     relativeTimeData,
     hourMinuteData,
     timeIntervalData,
+    dateCombinationsData,
     setMonthTranslation,
     setDayOfWeekTranslation,
     setDateFieldTranslation,
     setRelativeTimeTranslation,
     setHourMinuteTranslation,
     setTimeIntervalTranslation,
+    setDateCombinationTranslation,
   };
   return <DataContext.Provider value={dataContext}>{children}</DataContext.Provider>;
 };
