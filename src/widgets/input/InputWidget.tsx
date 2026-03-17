@@ -60,7 +60,7 @@ const InputWidget = () => {
             borderRadius: '0.5em',
             lineHeight: '2em',
             width: '3em',
-            background: targetLanguage.length < 2 ? 'lightcoral' : 'white',
+            background: targetLanguage.length < 2 ? 'lightcoral' : 'var(--color-background)',
           }}
         />
       </div>

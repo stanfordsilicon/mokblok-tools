@@ -8,7 +8,7 @@ Let's say you are giving a review for an online class, a product, or a restauran
 DATE WORDS / TERMINOLOGIE DES DATES						
 "In French there are 3 ways to write the word for ""year"": ""année"" (the full form), ""an"" (short form) & ""a"" (narrow form). In English, there are also 3 forms: ""Year"", ""Yr."" (with a period) & ""Yr"" (no period). Does your language have the same abbreviations? Fewer? More? Please translate these into your language. If your language doesn't have a translation for all the translations, write ""DOES NOT EXIST"". If you have MORE abbreviations, please add NOTES in the NOTES column. 
 En français, il existe trois façons d’écrire le mot « année » : « année » (forme complète), « an » (forme courte) et « a » (forme abrégée). En anglais, on en trouve également trois formes : « Year », « Yr. » (avec point) et « Yr » (sans point). Votre langue possède-t-elle les mêmes abréviations ? En possède-t-elle moins ? Ou plus ? Veuillez traduire ces formes dans votre langue. Si votre langue ne propose pas de traduction pour l’une de ces formes, écrivez « N’EXISTE PAS ». Si vous avez PLUS d’abréviations, veuillez ajouter des NOTES dans la colonne reservée à cet effet."						
-ENGLISH	FRENCH	TRANSLATION IN YOUR LANGUAGE	VISUAL EXAMPLE		XPATH (Ignore/For Reference Only)	
+ENGLISH	FRENCH	TRANSLATION IN YOUR LANGUAGE	VISUAL EXAMPLE	NOTES	XPATH (Ignore/For Reference Only)	
 era	ère	ère			//ldml/dates/fields/field[@type="era"]/displayName	dw-1_XXX
 year	année	année			//ldml/dates/fields/field[@type="year"]/displayName	dw-2_XXX
 yr	a	a			//ldml/dates/fields/field[@type="year-narrow"]/displayName	dw-3_XXX

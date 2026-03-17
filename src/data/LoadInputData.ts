@@ -15,7 +15,7 @@ export function parseInputTSV(tsv: string): RowData[] {
   const indices = getColumnIndices(lines);
   if (!indices) return [];
   const maxIndex = Math.max(...Object.values(indices))!;
-  console.log('Column indices found:', indices);
+  // console.log('Column indices found:', indices);
 
   return lines
     .map((line) => {
