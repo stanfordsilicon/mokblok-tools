@@ -1,4 +1,3 @@
-
 import { useDataContext } from '@data/DataContext';
 import { FormatLength, SentenceContext } from '@data/DataTypes';
 
@@ -58,6 +57,7 @@ function QuartersReviewTable() {
   );
 }
 
+type InputCellProps = { context: SentenceContext; quarterIndex: number; format: FormatLength };
 function InputCell({ context, quarterIndex, format }: InputCellProps) {
   const { quartersData, setQuarterTranslation } = useDataContext();
   return (
