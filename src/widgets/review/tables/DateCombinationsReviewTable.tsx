@@ -3,6 +3,7 @@ import { useDataContext } from '@data/DataContext';
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
 import { getSourceLanguageData } from '../getSourceLanguageData';
+import HighlightInput from '../HighlightInput';
 
 function DateCombinationsReviewTable() {
   const { dateCombinationsData } = useDataContext();
@@ -50,9 +51,10 @@ function InputCell({ index }: InputCellProps) {
   const { dateCombinationsData, setDateCombinationTranslation } = useDataContext();
   return (
     <td>
-      <input
+      <HighlightInput
         value={dateCombinationsData?.[index]?.translated || ''}
-        onChange={(e) => setDateCombinationTranslation(index, e.target.value)}
+        onChange={(value) => setDateCombinationTranslation(index, value)}
+        highlight={/\d+/g}
         style={{ width: '15em' }}
         disabled={!dateCombinationsData?.[index]} // Disable if this combination doesn't exist
       />

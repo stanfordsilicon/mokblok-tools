@@ -4,6 +4,7 @@ import { CardinalDirection, FormatLength } from '@data/DataTypes';
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
 import { getSourceLanguageData } from '../getSourceLanguageData';
+import HighlightInput from '../HighlightInput';
 
 function CoordinatesReviewTable() {
   const { coordinatesData, directionExamples, setDirectionExample } = useDataContext();
@@ -56,9 +57,10 @@ function CoordinatesReviewTable() {
             <tr key={example.key}>
               <td>{getSourceLanguageData(example)}</td>
               <td>
-                <input
+                <HighlightInput
                   value={example.translated || ''}
-                  onChange={(e) => setDirectionExample(index, e.target.value)}
+                  onChange={(value) => setDirectionExample(index, value)}
+                  highlight={/\d+/g}
                   style={{ width: '20em' }}
                 />
               </td>
@@ -76,9 +78,10 @@ function InputCell({ format, direction }: InputCellProps) {
   if (!coordinatesData || !(format in coordinatesData)) return null;
   return (
     <td>
-      <input
+      <HighlightInput
         value={coordinatesData[format]?.[direction]?.translated || ''}
-        onChange={(e) => setCoordinatesTranslation(format, direction, e.target.value)}
+        onChange={(value) => setCoordinatesTranslation(format, direction, value)}
+        highlight={/\d+/g}
         style={{ width: '10em' }}
       />
     </td>

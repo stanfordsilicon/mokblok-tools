@@ -4,6 +4,7 @@ import type { TimeIntervalData, TimeIntervalDifference, TimeIntervalFormat } fro
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
 import { getSourceLanguageData } from '../getSourceLanguageData';
+import HighlightInput from '../HighlightInput';
 
 function TimeIntervalReviewTable() {
   const { timeIntervalData } = useDataContext();
@@ -68,10 +69,10 @@ function InputCell({ set, format, difference }: InputCellProps) {
   const { timeIntervalData, setTimeIntervalTranslation } = useDataContext();
   const currentTranslation = timeIntervalData?.[set]?.[format]?.[difference]?.translated || '';
   return (
-    <input
-      type="text"
+    <HighlightInput
+      highlight={/\d+/g}
+      onChange={(value) => setTimeIntervalTranslation(set, format, difference, value)}
       value={currentTranslation}
-      onChange={(e) => setTimeIntervalTranslation(set, format, difference, e.target.value)}
     />
   );
 }

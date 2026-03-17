@@ -4,6 +4,7 @@ import { HourMinuteFormat } from '@data/DataTypes';
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
 import { getSourceLanguageData } from '../getSourceLanguageData';
+import HighlightInput from '../HighlightInput';
 
 function HourMinuteReviewTable() {
   const { hourMinuteData } = useDataContext();
@@ -64,9 +65,10 @@ function InputCell({ format, variant }: InputCellProps) {
   const { hourMinuteData, setHourMinuteTranslation } = useDataContext();
   return (
     <td>
-      <input
+      <HighlightInput
         value={hourMinuteData?.[format]?.[variant]?.translated || ''}
-        onChange={(e) => setHourMinuteTranslation(format, variant, e.target.value)}
+        onChange={(value) => setHourMinuteTranslation(format, variant, value)}
+        highlight={/\d+/g}
         style={{ width: '6em' }}
         disabled={!hourMinuteData?.[format]?.[variant]}
       />
