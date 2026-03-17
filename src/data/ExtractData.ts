@@ -2,9 +2,11 @@ import {
   DateField,
   HourMinuteFormat,
   SentenceContext,
+  type CoordinatesData,
   type DateCombinationData,
   type DateFieldData,
   type DayOfWeekData,
+  type DirectionExamples,
   type HourMinuteData,
   type MonthData,
   type QuartersData,
@@ -311,4 +313,25 @@ export function getQuarterData(rowsByKey: Record<string, RowData>): QuartersData
       },
     ],
   };
+}
+
+export function getCoordinatesData(rowsByKey: Record<string, RowData>): CoordinatesData {
+  return {
+    wide: {
+      north: rowsByKey['co-1_XXX'],
+      south: rowsByKey['co-2_XXX'],
+      east: rowsByKey['co-3_XXX'],
+      west: rowsByKey['co-4_XXX'],
+    },
+    narrow: {
+      north: rowsByKey['co2-1_XXX'],
+      south: rowsByKey['co2-2_XXX'],
+      east: rowsByKey['co2-3_XXX'],
+      west: rowsByKey['co2-4_XXX'],
+    },
+  };
+}
+
+export function getDirectionExamples(rowsByKey: Record<string, RowData>): DirectionExamples {
+  return [rowsByKey['co3-1_XXX'], rowsByKey['co3-2_XXX'], rowsByKey['co3-3_XXX']];
 }

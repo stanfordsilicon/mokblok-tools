@@ -1,5 +1,6 @@
 import { useSettings } from '@settings/Settings';
 
+import CoordinatesReviewTable from './tables/CoordinatesReviewTable';
 import DateCombinationsReviewTable from './tables/DateCombinationsReviewTable';
 import DateFieldsReviewTable from './tables/DateFieldsReviewTable';
 import DaysOfWeekReviewTable from './tables/DaysOfWeekReviewTable';
@@ -40,6 +41,7 @@ const ReviewWidget: React.FC = () => {
       <TimeIntervalReviewTable />
       <DateCombinationsReviewTable />
       <QuartersReviewTable />
+      <CoordinatesReviewTable />
     </div>
   );
 };

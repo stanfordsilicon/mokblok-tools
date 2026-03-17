@@ -1,34 +1,38 @@
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 
+import {
+  CardinalDirection,
+  type AlphabetData,
+  type CoordinatesData,
+  type DateCombinationData,
+  type DateField,
+  type DateFieldData,
+  type DayOfWeekData,
+  type DirectionExamples,
+  type FormatLength,
+  type HourMinuteData,
+  type MonthData,
+  type QuartersData,
+  type RelativeTimeData,
+  type RowData,
+  type SentenceContext,
+  type TimeIntervalData,
+  type TimeIntervalDifference,
+  type TimeIntervalFormat,
+} from './DataTypes';
 import extractAlphabetData from './ExtractAlphabet';
 import {
+  getCoordinatesData,
   getDateCombinationData,
   getDateFieldsData,
   getDaysOfWeekData,
+  getDirectionExamples,
   getHourMinuteData,
   getMonthsData,
   getQuarterData,
   getRelativeTimeData,
   getTimeIntervalData,
 } from './ExtractData';
-
-import type {
-  AlphabetData,
-  DateCombinationData,
-  DateField,
-  DateFieldData,
-  DayOfWeekData,
-  FormatLength,
-  HourMinuteData,
-  MonthData,
-  QuartersData,
-  RelativeTimeData,
-  RowData,
-  SentenceContext,
-  TimeIntervalData,
-  TimeIntervalDifference,
-  TimeIntervalFormat,
-} from './DataTypes';
 
 export type DataContextType = {
   setRows: (lines: RowData[]) => void;
@@ -43,6 +47,8 @@ export type DataContextType = {
   timeIntervalData?: TimeIntervalData;
   dateCombinationsData?: DateCombinationData;
   quartersData?: QuartersData;
+  coordinatesData?: CoordinatesData;
+  directionExamples?: DirectionExamples;
   setMonthTranslation: (monthIndex: number, format: FormatLength, newTranslation: string) => void;
   setDayOfWeekTranslation: (dayIndex: number, format: FormatLength, newTranslation: string) => void;
   setDateFieldTranslation: (field: DateField, format: FormatLength, newTranslation: string) => void;
@@ -69,6 +75,12 @@ export type DataContextType = {
     format: FormatLength,
     newTranslation: string,
   ) => void;
+  setCoordinatesTranslation: (
+    format: FormatLength,
+    direction: CardinalDirection,
+    newTranslation: string,
+  ) => void;
+  setDirectionExample: (index: number, newTranslation: string) => void;
 };
 
 export const DataContext = createContext<DataContextType | undefined>({
@@ -86,6 +98,8 @@ export const DataContext = createContext<DataContextType | undefined>({
   setTimeIntervalTranslation: () => {},
   setDateCombinationTranslation: () => {},
   setQuarterTranslation: () => {},
+  setCoordinatesTranslation: () => {},
+  setDirectionExample: () => {},
 });
 
 export const useDataContext = () => {
@@ -115,7 +129,10 @@ export const DataProvider: React.FC<{
     [],
   );
   const [quartersData, setQuartersData] = useState<QuartersData | undefined>(undefined);
-
+  const [coordinatesData, setCoordinatesData] = useState<CoordinatesData | undefined>(undefined);
+  const [directionExamples, setDirectionExamples] = useState<DirectionExamples | undefined>(
+    undefined,
+  );
   const rowsByKey = useMemo(
     () =>
       rows.reduce(
@@ -138,6 +155,8 @@ export const DataProvider: React.FC<{
     setTimeIntervalData(getTimeIntervalData(rowsByKey));
     setDateCombinationsData(getDateCombinationData(rowsByKey));
     setQuartersData(getQuarterData(rowsByKey));
+    setCoordinatesData(getCoordinatesData(rowsByKey));
+    setDirectionExamples(getDirectionExamples(rowsByKey));
     setAlphabetData(extractAlphabetData(rows, extraText));
   }, [rowsByKey, rows, extraText]);
 
@@ -232,6 +251,26 @@ export const DataProvider: React.FC<{
       return { ...prev };
     });
   };
+  const setCoordinatesTranslation = (
+    format: FormatLength,
+    direction: CardinalDirection,
+    newTranslation: string,
+  ) => {
+    setCoordinatesData((prev) => {
+      if (!prev) return prev;
+      const data = prev[format]?.[direction];
+      if (data) data.translated = newTranslation;
+      return { ...prev };
+    });
+  };
+  const setDirectionExample = (index: number, newTranslation: string) => {
+    setDirectionExamples((prev) => {
+      if (!prev) return prev;
+      const example = prev[index];
+      if (example) example.translated = newTranslation;
+      return [...prev];
+    });
+  };
 
   const dataContext: DataContextType = {
     setRows,
@@ -246,6 +285,8 @@ export const DataProvider: React.FC<{
     timeIntervalData,
     dateCombinationsData,
     quartersData,
+    coordinatesData,
+    directionExamples,
     setMonthTranslation,
     setDayOfWeekTranslation,
     setDateFieldTranslation,
@@ -254,6 +295,8 @@ export const DataProvider: React.FC<{
     setTimeIntervalTranslation,
     setDateCombinationTranslation,
     setQuarterTranslation,
+    setCoordinatesTranslation,
+    setDirectionExample,
   };
   return <DataContext.Provider value={dataContext}>{children}</DataContext.Provider>;
 };

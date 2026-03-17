@@ -110,3 +110,12 @@ export enum SentenceContext {
 // 4 items, one for each quarter, with different lengths (e.g. "1st quarter", "Q1")
 // both as individual items (eg. "1st quarter") and in a combined form (e.g. "1st quarter of 2025")
 export type QuartersData = Record<SentenceContext, Partial<Record<FormatLength, RowData>>[]>;
+
+export enum CardinalDirection {
+  North = 'north',
+  South = 'south',
+  East = 'east',
+  West = 'west',
+}
+export type CoordinatesData = Partial<Record<FormatLength, Record<CardinalDirection, RowData>>>;
+export type DirectionExamples = RowData[];
