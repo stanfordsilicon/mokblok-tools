@@ -1,0 +1,44 @@
+import React from 'react';
+
+import { useDataContext } from '@data/DataContext';
+import { CardinalDirection, FormatLength } from '@data/DataTypes';
+
+import DemoID from './DemoID';
+import DemoSVG from './DemoSVG';
+
+const DemoCoordinatesDirections: React.FC = () => {
+  const { coordinatesData, directionExamples } = useDataContext();
+  const south = coordinatesData?.[CardinalDirection.South]?.[FormatLength.Wide]?.translated;
+  const west = coordinatesData?.[CardinalDirection.West]?.[FormatLength.Wide]?.translated;
+
+  return (
+    <DemoSVG id={DemoID.CoordinatesDirections} width={250} height={250}>
+      <rect x={10} y={10} width={230} height={50} fill="#f9f9f9" stroke="#ccc" rx={15} ry={15} />
+      <text x={20} y={30}>
+        Directions to...
+      </text>
+      <text x={20} y={50}>
+        {south} {west}
+      </text>
+      <rect x={20} y={80} width={100} height={40} fill="lightgreen" stroke="#ccc" rx={5} ry={5} />
+      <rect x={140} y={80} width={80} height={40} fill="lightgreen" stroke="#ccc" rx={5} ry={5} />
+      <rect x={20} y={140} width={100} height={40} fill="lightgreen" stroke="#ccc" rx={5} ry={5} />
+      <rect x={140} y={140} width={80} height={40} fill="lightgreen" stroke="#ccc" rx={5} ry={5} />
+      <path
+        d="M130 200 L130 140 C130 137, 137 130, 140 130 L180 130"
+        stroke="blue"
+        fill="none"
+        strokeWidth="8"
+      />
+      <text x={180} y={120} fontSize="2em" textAnchor="middle">
+        📍
+      </text>
+      <rect x={10} y={200} width={230} height={30} fill="#f9f9f9" stroke="#ccc" rx={15} ry={15} />
+      <text x={20} y={220}>
+        {directionExamples?.[0]?.translated || ''}
+      </text>
+    </DemoSVG>
+  );
+};
+
+export default DemoCoordinatesDirections;

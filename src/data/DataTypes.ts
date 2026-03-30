@@ -117,7 +117,7 @@ export enum CardinalDirection {
   East = 'east',
   West = 'west',
 }
-export type CoordinatesData = Partial<Record<FormatLength, Record<CardinalDirection, RowData>>>;
+export type CoordinatesData = Record<CardinalDirection, Partial<Record<FormatLength, RowData>>>;
 export type DirectionExamples = RowData[];
 
 export type ErasData = Partial<Record<FormatLength, RowData>>[];

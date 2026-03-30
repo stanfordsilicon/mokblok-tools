@@ -1,5 +1,7 @@
 import { ErrorBoundary } from 'react-error-boundary';
 
+import DemoCoordinatesDirections from './DemoCoordinatesDirections';
+import DemoCoordinatesMap from './DemoCoordinatesMap';
 import DemoDateFieldBreakdown from './DemoDateFieldBreakdown';
 import DemoDaysOfWeekInMonth from './DemoDaysOfWeekInMonth';
 import DemoDaysOfWeekInWeek from './DemoDaysOfWeekInWeek';
@@ -42,6 +44,10 @@ const DemoImage: React.FC<{ demoID: DemoID }> = ({ demoID }) => {
       return <DemoDaysOfWeekInWeek />;
     case DemoID.DateFieldBreakdown:
       return <DemoDateFieldBreakdown />;
+    case DemoID.CoordinatesMap:
+      return <DemoCoordinatesMap />;
+    case DemoID.CoordinatesDirections:
+      return <DemoCoordinatesDirections />;
   }
 };
 

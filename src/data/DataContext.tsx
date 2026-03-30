@@ -265,7 +265,7 @@ export const DataProvider: React.FC<{
   ) => {
     setCoordinatesData((prev) => {
       if (!prev) return prev;
-      const data = prev[format]?.[direction];
+      const data = prev[direction][format];
       if (data) data.translated = newTranslation;
       return { ...prev };
     });

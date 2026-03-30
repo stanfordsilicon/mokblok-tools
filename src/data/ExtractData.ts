@@ -318,17 +318,21 @@ export function getQuarterData(rowsByKey: Record<string, RowData>): QuartersData
 
 export function getCoordinatesData(rowsByKey: Record<string, RowData>): CoordinatesData {
   return {
-    wide: {
-      north: rowsByKey['co-1_XXX'],
-      south: rowsByKey['co-2_XXX'],
-      east: rowsByKey['co-3_XXX'],
-      west: rowsByKey['co-4_XXX'],
+    north: {
+      wide: rowsByKey['co-1_XXX'],
+      narrow: rowsByKey['co2-1_XXX'],
     },
-    narrow: {
-      north: rowsByKey['co2-1_XXX'],
-      south: rowsByKey['co2-2_XXX'],
-      east: rowsByKey['co2-3_XXX'],
-      west: rowsByKey['co2-4_XXX'],
+    south: {
+      wide: rowsByKey['co-2_XXX'],
+      narrow: rowsByKey['co2-2_XXX'],
+    },
+    east: {
+      wide: rowsByKey['co-3_XXX'],
+      narrow: rowsByKey['co2-3_XXX'],
+    },
+    west: {
+      wide: rowsByKey['co-4_XXX'],
+      narrow: rowsByKey['co2-4_XXX'],
     },
   };
 }

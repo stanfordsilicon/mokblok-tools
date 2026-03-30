@@ -4,6 +4,8 @@ enum DemoID {
   DaysOfWeekInMonth = 'daysOfWeekInMonth',
   DaysOfWeekInWeek = 'daysOfWeekInWeek',
   DateFieldBreakdown = 'dateFieldBreakdown',
+  CoordinatesMap = 'coordinatesMap',
+  CoordinatesDirections = 'coordinatesDirections',
 }
 
 export default DemoID;
