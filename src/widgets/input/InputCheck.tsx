@@ -13,6 +13,7 @@ const InputCheck: React.FC<{ numRows: number }> = ({ numRows }) => {
     coordinatesData,
     dateCombinationsData,
     directionExamples,
+    erasData,
   } = useDataContext();
   return (
     <table>
@@ -43,6 +44,9 @@ const InputCheck: React.FC<{ numRows: number }> = ({ numRows }) => {
       </Row>
       <Row title="Quarters" count={countRowData(quartersData)} denominator={16}>
         4 quarters × 2 lengths × 2 (standalone, inSentence)
+      </Row>
+      <Row title="Eras" count={countRowData(erasData)} denominator={8}>
+        2 eras × 2 variants × 2 lengths
       </Row>
     </table>
   );

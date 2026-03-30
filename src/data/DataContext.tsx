@@ -9,6 +9,7 @@ import {
   type DateFieldData,
   type DayOfWeekData,
   type DirectionExamples,
+  type ErasData,
   type FormatLength,
   type HourMinuteData,
   type MonthData,
@@ -27,6 +28,7 @@ import {
   getDateFieldsData,
   getDaysOfWeekData,
   getDirectionExamples,
+  getErasData,
   getHourMinuteData,
   getMonthsData,
   getQuarterData,
@@ -49,6 +51,7 @@ export type DataContextType = {
   quartersData?: QuartersData;
   coordinatesData?: CoordinatesData;
   directionExamples?: DirectionExamples;
+  erasData?: ErasData;
   setMonthTranslation: (monthIndex: number, format: FormatLength, newTranslation: string) => void;
   setDayOfWeekTranslation: (dayIndex: number, format: FormatLength, newTranslation: string) => void;
   setDateFieldTranslation: (field: DateField, format: FormatLength, newTranslation: string) => void;
@@ -81,6 +84,7 @@ export type DataContextType = {
     newTranslation: string,
   ) => void;
   setDirectionExample: (index: number, newTranslation: string) => void;
+  setEraData: (eraIndex: number, length: FormatLength, newTranslation: string) => void;
 };
 
 export const DataContext = createContext<DataContextType | undefined>({
@@ -100,6 +104,7 @@ export const DataContext = createContext<DataContextType | undefined>({
   setQuarterTranslation: () => {},
   setCoordinatesTranslation: () => {},
   setDirectionExample: () => {},
+  setEraData: () => {},
 });
 
 export const useDataContext = () => {
@@ -133,6 +138,7 @@ export const DataProvider: React.FC<{
   const [directionExamples, setDirectionExamples] = useState<DirectionExamples | undefined>(
     undefined,
   );
+  const [erasData, setErasData] = useState<ErasData | undefined>(undefined);
   const rowsByKey = useMemo(
     () =>
       rows.reduce(
@@ -157,6 +163,7 @@ export const DataProvider: React.FC<{
     setQuartersData(getQuarterData(rowsByKey));
     setCoordinatesData(getCoordinatesData(rowsByKey));
     setDirectionExamples(getDirectionExamples(rowsByKey));
+    setErasData(getErasData(rowsByKey));
     setAlphabetData(extractAlphabetData(rows, extraText));
   }, [rowsByKey, rows, extraText]);
 
@@ -271,6 +278,14 @@ export const DataProvider: React.FC<{
       return [...prev];
     });
   };
+  const setEraData = (eraIndex: number, length: FormatLength, newTranslation: string) => {
+    setErasData((prev) => {
+      if (!prev) return prev;
+      const era = prev[eraIndex][length];
+      if (era) era.translated = newTranslation;
+      return [...prev];
+    });
+  };
 
   const dataContext: DataContextType = {
     setRows,
@@ -287,6 +302,7 @@ export const DataProvider: React.FC<{
     quartersData,
     coordinatesData,
     directionExamples,
+    erasData,
     setMonthTranslation,
     setDayOfWeekTranslation,
     setDateFieldTranslation,
@@ -297,6 +313,7 @@ export const DataProvider: React.FC<{
     setQuarterTranslation,
     setCoordinatesTranslation,
     setDirectionExample,
+    setEraData,
   };
   return <DataContext.Provider value={dataContext}>{children}</DataContext.Provider>;
 };

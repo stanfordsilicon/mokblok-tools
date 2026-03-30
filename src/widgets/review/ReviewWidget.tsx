@@ -4,6 +4,7 @@ import CoordinatesReviewTable from './tables/CoordinatesReviewTable';
 import DateCombinationsReviewTable from './tables/DateCombinationsReviewTable';
 import DateFieldsReviewTable from './tables/DateFieldsReviewTable';
 import DaysOfWeekReviewTable from './tables/DaysOfWeekReviewTable';
+import EraReviewTable from './tables/EraReviewTable';
 import HourMinuteReviewTable from './tables/HourMinuteReviewTable';
 import MonthsReviewTable from './tables/MonthsReviewTable';
 import QuartersReviewTable from './tables/QuartersReviewTable';
@@ -42,6 +43,7 @@ const ReviewWidget: React.FC = () => {
       <DateCombinationsReviewTable />
       <QuartersReviewTable />
       <CoordinatesReviewTable />
+      <EraReviewTable />
     </div>
   );
 };

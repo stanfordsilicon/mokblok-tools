@@ -119,3 +119,5 @@ export enum CardinalDirection {
 }
 export type CoordinatesData = Partial<Record<FormatLength, Record<CardinalDirection, RowData>>>;
 export type DirectionExamples = RowData[];
+
+export type ErasData = Partial<Record<FormatLength, RowData>>[];

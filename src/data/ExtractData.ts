@@ -7,6 +7,7 @@ import {
   type DateFieldData,
   type DayOfWeekData,
   type DirectionExamples,
+  type ErasData,
   type HourMinuteData,
   type MonthData,
   type QuartersData,
@@ -334,4 +335,25 @@ export function getCoordinatesData(rowsByKey: Record<string, RowData>): Coordina
 
 export function getDirectionExamples(rowsByKey: Record<string, RowData>): DirectionExamples {
   return [rowsByKey['co3-1_XXX'], rowsByKey['co3-2_XXX'], rowsByKey['co3-3_XXX']];
+}
+
+export function getErasData(rowsByKey: Record<string, RowData>): ErasData {
+  return [
+    {
+      wide: rowsByKey['er-1_XXX'],
+      abbreviated: rowsByKey['er-2_XXX'],
+    },
+    {
+      wide: rowsByKey['er-3_XXX'],
+      abbreviated: rowsByKey['er-4_XXX'],
+    },
+    {
+      wide: rowsByKey['er-5_XXX'],
+      abbreviated: rowsByKey['er-6_XXX'],
+    },
+    {
+      wide: rowsByKey['er-7_XXX'],
+      abbreviated: rowsByKey['er-8_XXX'],
+    },
+  ];
 }
