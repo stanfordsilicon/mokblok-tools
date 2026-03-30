@@ -1,5 +1,6 @@
 import { useSettings } from '@settings/Settings';
 
+import DownloadAllDemos from './demos/DownloadAllDemos';
 import CoordinatesReviewTable from './tables/CoordinatesReviewTable';
 import DateCombinationsReviewTable from './tables/DateCombinationsReviewTable';
 import DateFieldsReviewTable from './tables/DateFieldsReviewTable';
@@ -29,10 +30,17 @@ const ReviewWidget: React.FC = () => {
 
   return (
     <div>
-      <div>
-        Set today (using browser date picker):{' '}
-        <input type="date" value={today.toISOString().split('T')[0]} onChange={handleDateChange} />{' '}
-        <input type="time" value={today.toTimeString().slice(0, 5)} onChange={handleTimeChange} />
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div>
+          Set today (using browser date picker):{' '}
+          <input
+            type="date"
+            value={today.toISOString().split('T')[0]}
+            onChange={handleDateChange}
+          />{' '}
+          <input type="time" value={today.toTimeString().slice(0, 5)} onChange={handleTimeChange} />
+        </div>
+        <DownloadAllDemos />
       </div>
       <MonthsReviewTable />
       <DaysOfWeekReviewTable />

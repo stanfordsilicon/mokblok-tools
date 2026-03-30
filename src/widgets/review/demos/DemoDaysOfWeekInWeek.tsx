@@ -13,7 +13,7 @@ const DemoDaysOfWeekInWeek: React.FC = () => {
   const currentMonth = today.getMonth(); // Current month (0-indexed)
 
   return (
-    <DemoSVG id={DemoID.DaysOfWeekInMonth} width={240} height={240}>
+    <DemoSVG id={DemoID.DaysOfWeekInWeek} width={240} height={240}>
       <path
         d="M10 -5 L5 0 L10 5"
         stroke="#ccc"
