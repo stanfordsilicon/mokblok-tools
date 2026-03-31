@@ -4,16 +4,13 @@ import { useDataContext } from '@data/DataContext';
 
 import { useSettings } from '@settings/Settings';
 
-import DemoID from './DemoID';
-import DemoSVG from './DemoSVG';
-
 const DemoDaysOfWeekInMonth: React.FC = () => {
   const { daysOfWeek, months } = useDataContext().data;
   const { today } = useSettings();
   const firstDayOfMonth = new Date(today.getFullYear(), today.getMonth(), 1).getDay(); // Get the day of the week for the first day of the month (0-6, where 0 is Sunday)
 
   return (
-    <DemoSVG id={DemoID.DaysOfWeekInMonth} width={240} height={240}>
+    <>
       <path
         d="M10 -5 L5 0 L10 5"
         stroke="#ccc"
@@ -69,7 +66,7 @@ const DemoDaysOfWeekInMonth: React.FC = () => {
           </g>
         ))}
       </g>
-    </DemoSVG>
+    </>
   );
 };
 

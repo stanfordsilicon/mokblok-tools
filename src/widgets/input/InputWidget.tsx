@@ -14,7 +14,7 @@ export enum LoadableLanguage {
   Malagasy = 'mlg',
 }
 
-import AlphabetReview from '@widgets/review/AlphabetReview';
+import AlphabetReview from '@widgets/review/tables/AlphabetReview';
 
 import InputCheck from './InputCheck';
 

@@ -9,40 +9,37 @@ function DateCombinationsReviewTable() {
   const { dateCombinations } = useDataContext().data;
 
   return (
-    <div>
-      <h3>Date Combinations</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Shortened XPath</th>
-            <th>
-              <SourceLanguageLabel />
-            </th>
-            <th>Translated</th>
-          </tr>
-        </thead>
-        <tbody>
-          {dateCombinations?.map((combination, index) => {
-            const shortXPath = combination.xpath
-              ?.replace(/\/\/ldml\/dates\/calendars\/calendar\[@type="([a-z]{2})[^"]+"\]\//, '$1/')
-              .replace(/\/([a-z])[a-z]*([A-Z])[a-z]*([A-Z])?[a-z]*/g, '/$1$2$3')
-              .replace(/@[a-z]+="([a-zA-Z]+)"/g, '$1');
-            return (
-              <tr key={index}>
-                <td>
-                  <span title={shortXPath}>
-                    {shortXPath?.slice(0, 20)}
-                    {shortXPath && shortXPath.length > 20 ? '...' : ''}
-                  </span>
-                </td>
-                <td>{getSourceLanguageData(combination)}</td>
-                <InputCell index={index} />
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Shortened XPath</th>
+          <th>
+            <SourceLanguageLabel />
+          </th>
+          <th>Translated</th>
+        </tr>
+      </thead>
+      <tbody>
+        {dateCombinations?.map((combination, index) => {
+          const shortXPath = combination.xpath
+            ?.replace(/\/\/ldml\/dates\/calendars\/calendar\[@type="([a-z]{2})[^"]+"\]\//, '$1/')
+            .replace(/\/([a-z])[a-z]*([A-Z])[a-z]*([A-Z])?[a-z]*/g, '/$1$2$3')
+            .replace(/@[a-z]+="([a-zA-Z]+)"/g, '$1');
+          return (
+            <tr key={index}>
+              <td>
+                <span title={shortXPath}>
+                  {shortXPath?.slice(0, 20)}
+                  {shortXPath && shortXPath.length > 20 ? '...' : ''}
+                </span>
+              </td>
+              <td>{getSourceLanguageData(combination)}</td>
+              <InputCell index={index} />
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
   );
 }
 

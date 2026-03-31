@@ -9,7 +9,8 @@ const DownloadAllDemos: React.FC = () => {
     Object.values(DemoID).forEach((demoID) => {
       const svg = document.getElementById(demoID) as SVGSVGElement | null;
       if (!svg) {
-        console.error(`SVG with ID ${demoID} not found`);
+        // Not visible
+        // console.error(`SVG with ID ${demoID} not found`);
         return;
       }
 

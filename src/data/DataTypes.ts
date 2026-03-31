@@ -126,19 +126,20 @@ export type DirectionExamples = RowData[];
 
 export type ErasData = Partial<Record<FormatLength, RowData>>[];
 
+// Order this by order of appearance
 export enum DataType {
-  Months = 'months',
-  DaysOfWeek = 'daysOfWeek',
-  DateFields = 'dateFields',
   Alphabet = 'alphabet',
+  DaysOfWeek = 'daysOfWeek',
+  Months = 'months',
+  Quarters = 'quarters',
+  Eras = 'eras',
+  DateFields = 'dateFields',
   RelativeTime = 'relativeTime',
   TimeCombinations = 'timeCombinations',
   TimeIntervals = 'timeIntervals',
   DateCombinations = 'dateCombinations',
-  Quarters = 'quarters',
   Coordinates = 'coordinates',
   DirectionExamples = 'directionExamples',
-  Eras = 'eras',
 }
 
 export type AllData = {

@@ -5,10 +5,7 @@ import { DateField } from '@data/DataTypes';
 
 import { useSettings } from '@settings/Settings';
 
-import { getSourceLanguageData } from '../getSourceLanguageData';
-
-import DemoID from './DemoID';
-import DemoSVG from './DemoSVG';
+import { getSourceLanguageData } from '../../getSourceLanguageData';
 
 const ShownDateFields: DateField[] = [
   //   DateField.Era,
@@ -60,7 +57,7 @@ const DemoDateFieldBreakdown: React.FC = () => {
   const todayData = relativeTime?.day?.['0'];
 
   return (
-    <DemoSVG id={DemoID.DateFieldBreakdown} width={240} height={240}>
+    <>
       <text x={120} y={30} textAnchor="middle" fontSize="1.2em">
         {todayData?.translated || getSourceLanguageData(todayData) || 'Today'}
       </text>
@@ -77,7 +74,7 @@ const DemoDateFieldBreakdown: React.FC = () => {
           </g>
         );
       })}
-    </DemoSVG>
+    </>
   );
 };
 

@@ -1,33 +1,36 @@
 import { ErrorBoundary } from 'react-error-boundary';
 
-import DemoCoordinatesDirections from './DemoCoordinatesDirections';
-import DemoCoordinatesMap from './DemoCoordinatesMap';
-import DemoDateFieldBreakdown from './DemoDateFieldBreakdown';
-import DemoDaysOfWeekInMonth from './DemoDaysOfWeekInMonth';
-import DemoDaysOfWeekInWeek from './DemoDaysOfWeekInWeek';
 import DemoID from './DemoID';
-import DemoMonthsGrid from './DemoMonthsGrid';
-import DemoMonthsTemp from './DemoMonthsTemp';
-import DemoQuartersCircle from './DemoQuartersCircle';
-import DemoQuartersEvents from './DemoQuartersEvents';
+import DemoLabel from './DemoLabel';
+import DemoCoordinatesDirections from './demos/DemoCoordinatesDirections';
+import DemoCoordinatesMap from './demos/DemoCoordinatesMap';
+import DemoDateFieldBreakdown from './demos/DemoDateFieldBreakdown';
+import DemoDaysOfWeekInMonth from './demos/DemoDaysOfWeekInMonth';
+import DemoDaysOfWeekInWeek from './demos/DemoDaysOfWeekInWeek';
+import DemoMonthsGrid from './demos/DemoMonthsGrid';
+import DemoMonthsTemp from './demos/DemoMonthsTemp';
+import DemoQuartersCircle from './demos/DemoQuartersCircle';
+import DemoQuartersEvents from './demos/DemoQuartersEvents';
+import DemoSVG from './DemoSVG';
 import DownloadDemoButton from './DownloadDemoButton';
 
 type Props = {
   demoID: DemoID;
-  title: string;
 };
 
-const Demo: React.FC<Props> = ({ demoID, title }) => {
+const Demo: React.FC<Props> = ({ demoID }) => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       <div>
-        {title}
+        <DemoLabel demoID={demoID} />
         <DownloadDemoButton demoID={demoID} />
       </div>
       <div style={{ margin: '1em' }}>
         {/* // Wrap in an error boundary to prevent the whole page from crashing if there's an issue with the demo */}
         <ErrorBoundary fallback={<div style={{ color: 'red' }}>Error loading demo</div>}>
-          <DemoImage demoID={demoID} />
+          <DemoSVG id={demoID} height={240} width={240}>
+            <DemoImage demoID={demoID} />
+          </DemoSVG>
         </ErrorBoundary>
       </div>
     </div>

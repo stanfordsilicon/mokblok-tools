@@ -1,19 +1,16 @@
+import { useState } from 'react';
+
+import { DataType } from '@data/DataTypes';
+
 import { useSettings } from '@settings/Settings';
 
-import DownloadAllDemos from './demos/DownloadAllDemos';
-import CoordinatesReviewTable from './tables/CoordinatesReviewTable';
-import DateCombinationsReviewTable from './tables/DateCombinationsReviewTable';
-import DateFieldsReviewTable from './tables/DateFieldsReviewTable';
-import DaysOfWeekReviewTable from './tables/DaysOfWeekReviewTable';
-import EraReviewTable from './tables/EraReviewTable';
-import MonthsReviewTable from './tables/MonthsReviewTable';
-import QuartersReviewTable from './tables/QuartersReviewTable';
-import RelativeTimeReviewTable from './tables/RelativeTimeReviewTable';
-import TimeCombinationseReviewTable from './tables/TimeCombinationsReviewTable';
-import TimeIntervalReviewTable from './tables/TimeIntervalReviewTable';
+import DataTypeSelector from './DataTypeSelector';
+import DownloadAllDemos from './demo/DownloadAllDemos';
+import ReviewSection from './ReviewSection';
 
 const ReviewWidget: React.FC = () => {
   const { today, setToday } = useSettings();
+  const [dataType, setDataType] = useState<DataType | undefined>(DataType.Alphabet);
   const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.value === '') return;
     const date = new Date(e.target.value);
@@ -29,7 +26,7 @@ const ReviewWidget: React.FC = () => {
   };
 
   return (
-    <div>
+    <div style={{ display: 'flex', gap: '1em', flexDirection: 'column' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <div>
           Set today (using browser date picker):{' '}
@@ -42,16 +39,14 @@ const ReviewWidget: React.FC = () => {
         </div>
         <DownloadAllDemos />
       </div>
-      <MonthsReviewTable />
-      <DaysOfWeekReviewTable />
-      <DateFieldsReviewTable />
-      <RelativeTimeReviewTable />
-      <TimeCombinationseReviewTable />
-      <TimeIntervalReviewTable />
-      <DateCombinationsReviewTable />
-      <QuartersReviewTable />
-      <CoordinatesReviewTable />
-      <EraReviewTable />
+      <DataTypeSelector curDataType={dataType} setDataType={setDataType} />
+      {dataType ? (
+        <ReviewSection dataType={dataType} />
+      ) : (
+        Object.values(DataType).map((dataType) => (
+          <ReviewSection dataType={dataType} key={dataType} />
+        ))
+      )}
     </div>
   );
 };

@@ -4,16 +4,13 @@ import { useDataContext } from '@data/DataContext';
 
 import { useSettings } from '@settings/Settings';
 
-import DemoID from './DemoID';
-import DemoSVG from './DemoSVG';
-
 const DemoDaysOfWeekInWeek: React.FC = () => {
   const { daysOfWeek, months } = useDataContext().data;
   const { today } = useSettings();
   const currentMonth = today.getMonth(); // Current month (0-indexed)
 
   return (
-    <DemoSVG id={DemoID.DaysOfWeekInWeek} width={240} height={240}>
+    <>
       <path
         d="M10 -5 L5 0 L10 5"
         stroke="#ccc"
@@ -64,7 +61,7 @@ const DemoDaysOfWeekInWeek: React.FC = () => {
           );
         })}
       </g>
-    </DemoSVG>
+    </>
   );
 };
 

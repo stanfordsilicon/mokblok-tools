@@ -3,16 +3,13 @@ import React from 'react';
 import { useDataContext } from '@data/DataContext';
 import { FormatLength, SentenceContext } from '@data/DataTypes';
 
-import DemoID from './DemoID';
-import DemoSVG from './DemoSVG';
-
 const DemoQuartersEvents: React.FC = () => {
   const { quarters } = useDataContext().data;
   // Example events for each quarter
   const events = [['🎉🎂'], ['🎓', '👰🤵'], ['🚜🎪'], ['🎿🏔', '👩🎂', '🎁']];
 
   return (
-    <DemoSVG id={DemoID.QuartersEvents} width={240} height={240}>
+    <>
       {/* Box at top that says "upcoming events" */}
       <rect x={10} y={10} width={220} height={30} fill="#f0f0f0" stroke="#ccc" />
       <text x={120} y={30} textAnchor="middle" fontSize="1em" fontWeight="bold">
@@ -46,7 +43,7 @@ const DemoQuartersEvents: React.FC = () => {
           )}
         </g>
       ))}
-    </DemoSVG>
+    </>
   );
 };
 

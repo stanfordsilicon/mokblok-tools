@@ -3,17 +3,14 @@ import React from 'react';
 import { useDataContext } from '@data/DataContext';
 import { CardinalDirection, FormatLength } from '@data/DataTypes';
 
-import DemoID from './DemoID';
-import DemoSVG from './DemoSVG';
-
 const DemoCoordinatesDirections: React.FC = () => {
   const { coordinates, directionExamples } = useDataContext().data;
   const south = coordinates?.[CardinalDirection.South]?.[FormatLength.Wide]?.translated;
   const west = coordinates?.[CardinalDirection.West]?.[FormatLength.Wide]?.translated;
 
   return (
-    <DemoSVG id={DemoID.CoordinatesDirections} width={250} height={250}>
-      <rect x={10} y={10} width={230} height={50} fill="#f9f9f9" stroke="#ccc" rx={15} ry={15} />
+    <>
+      <rect x={10} y={10} width={220} height={50} fill="#f9f9f9" stroke="#ccc" rx={15} ry={15} />
       <text x={20} y={30}>
         Directions to...
       </text>
@@ -33,11 +30,11 @@ const DemoCoordinatesDirections: React.FC = () => {
       <text x={180} y={120} fontSize="2em" textAnchor="middle">
         📍
       </text>
-      <rect x={10} y={200} width={230} height={30} fill="#f9f9f9" stroke="#ccc" rx={15} ry={15} />
+      <rect x={10} y={200} width={220} height={30} fill="#f9f9f9" stroke="#ccc" rx={15} ry={15} />
       <text x={20} y={220}>
         {directionExamples?.[0]?.translated || ''}
       </text>
-    </DemoSVG>
+    </>
   );
 };
 

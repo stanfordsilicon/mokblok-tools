@@ -4,15 +4,12 @@ import { useDataContext } from '@data/DataContext';
 
 import { useSettings } from '@settings/Settings';
 
-import DemoID from './DemoID';
-import DemoSVG from './DemoSVG';
-
 const DemoMonthsGrid: React.FC = () => {
   const { months } = useDataContext().data;
   const { today } = useSettings();
 
   return (
-    <DemoSVG id={DemoID.MonthsGrid} width={250} height={250}>
+    <>
       <rect x="10" y="10" width="230" height="230" fill="white" rx="10" ry="10" />
       <path
         d="M10 -5 L5 0 L10 5"
@@ -58,7 +55,7 @@ const DemoMonthsGrid: React.FC = () => {
           </g>
         );
       })}
-    </DemoSVG>
+    </>
   );
 };
 

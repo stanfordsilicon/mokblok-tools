@@ -3,16 +3,13 @@ import React from 'react';
 import { useDataContext } from '@data/DataContext';
 import { CardinalDirection, FormatLength } from '@data/DataTypes';
 
-import DemoID from './DemoID';
-import DemoSVG from './DemoSVG';
-
 const DemoCoordinatesMap: React.FC = () => {
   const { coordinates } = useDataContext().data;
   const north = coordinates?.[CardinalDirection.North]?.[FormatLength.Narrow]?.translated;
   const east = coordinates?.[CardinalDirection.East]?.[FormatLength.Narrow]?.translated;
 
   return (
-    <DemoSVG id={DemoID.CoordinatesMap} width={250} height={250}>
+    <>
       <g transform="translate(-2450,-600) scale(2) ">
         <path
           id="france"
@@ -29,7 +26,7 @@ const DemoCoordinatesMap: React.FC = () => {
       <text x={140} y={110} fontSize="0.8em" textAnchor="middle">
         {north?.replace('8584', '9')} {east?.replace('2945', '3')}
       </text>
-    </DemoSVG>
+    </>
   );
 };
 

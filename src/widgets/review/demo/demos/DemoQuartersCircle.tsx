@@ -5,9 +5,6 @@ import { FormatLength, SentenceContext } from '@data/DataTypes';
 
 import { useSettings } from '@settings/Settings';
 
-import DemoID from './DemoID';
-import DemoSVG from './DemoSVG';
-
 const DemoQuartersCircle: React.FC = () => {
   const { months, quarters } = useDataContext().data;
   const { today } = useSettings();
@@ -21,7 +18,7 @@ const DemoQuartersCircle: React.FC = () => {
   const dayOfYear = Math.floor(diff / oneDay);
 
   return (
-    <DemoSVG id={DemoID.QuartersCircle} width={240} height={240}>
+    <>
       {/* Outer circle for quarters */}
       <circle cx={120} cy={120} r={110} fill="#f9f9f9" stroke="#ccc" />
       {/* Quarter lines */}
@@ -93,7 +90,7 @@ const DemoQuartersCircle: React.FC = () => {
           {months?.[monthIndex]?.abbreviated?.translated || ''}
         </text>
       ))}
-    </DemoSVG>
+    </>
   );
 };
 

@@ -1,3 +1,4 @@
+// Strings should not include spaces or symbols -- they are used in the downloaded filenames
 enum DemoID {
   MonthsGrid = 'monthsGrid',
   MonthsTemp = 'monthsTemp',
@@ -7,7 +8,7 @@ enum DemoID {
   CoordinatesMap = 'coordinatesMap',
   CoordinatesDirections = 'coordinatesDirections',
   QuartersCircle = 'quartersCircle',
-  QuartersEvents = 'QuartersEvents',
+  QuartersEvents = 'quartersEvents',
 }
 
 export default DemoID;

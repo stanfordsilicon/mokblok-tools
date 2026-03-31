@@ -81,6 +81,10 @@ button:focus-visible {
   background-color: var(--color-button-selected);
 }
 
+table {
+  text-wrap: nowrap;
+}
+
 /* .input {
   border: 1px solid transparent;
   border-radius: 4px;

@@ -15,7 +15,6 @@ const AlphabetReview: React.FC = () => {
   } = useDataContext().data.alphabet || {};
   return (
     <div>
-      <h2>Alphabet Review</h2>
       <h3>Characters by frequency</h3>
       <div style={{ display: 'flex', gap: '.5em', flexWrap: 'wrap' }}>
         {Object.entries(characterHistogram || {})
