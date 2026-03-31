@@ -9,7 +9,10 @@ import { getSourceLanguageData } from '../getSourceLanguageData';
 import HighlightInput from '../HighlightInput';
 
 function CoordinatesReviewTable() {
-  const { coordinatesData, directionExamples, setDirectionExample } = useDataContext();
+  const {
+    data: { coordinates, directionExamples },
+    set,
+  } = useDataContext();
 
   return (
     <div>
@@ -35,11 +38,9 @@ function CoordinatesReviewTable() {
               {Object.values(CardinalDirection).map((direction) => {
                 return (
                   <tr key={direction}>
+                    <td>{getSourceLanguageData(coordinates?.[direction]?.[FormatLength.Wide])}</td>
                     <td>
-                      {getSourceLanguageData(coordinatesData?.[direction]?.[FormatLength.Wide])}
-                    </td>
-                    <td>
-                      {getSourceLanguageData(coordinatesData?.[direction]?.[FormatLength.Narrow])}
+                      {getSourceLanguageData(coordinates?.[direction]?.[FormatLength.Narrow])}
                     </td>
                     <InputCell format={FormatLength.Wide} direction={direction} />
                     <InputCell format={FormatLength.Narrow} direction={direction} />
@@ -65,7 +66,7 @@ function CoordinatesReviewTable() {
                   <td>
                     <HighlightInput
                       value={example.translated || ''}
-                      onChange={(value) => setDirectionExample(index, value)}
+                      onChange={(value) => set.directionExamples(index, value)}
                       highlight={/\d+/g}
                       style={{ width: '20em' }}
                     />
@@ -84,12 +85,15 @@ function CoordinatesReviewTable() {
 
 type InputCellProps = { format: FormatLength; direction: CardinalDirection };
 function InputCell({ format, direction }: InputCellProps) {
-  const { coordinatesData, setCoordinatesTranslation } = useDataContext();
+  const {
+    data: { coordinates },
+    set,
+  } = useDataContext();
   return (
     <td>
       <HighlightInput
-        value={coordinatesData?.[direction]?.[format]?.translated || ''}
-        onChange={(value) => setCoordinatesTranslation(format, direction, value)}
+        value={coordinates?.[direction]?.[format]?.translated || ''}
+        onChange={(value) => set.coordinates(format, direction, value)}
         highlight={/\d+/g}
         style={{ width: '10em' }}
       />

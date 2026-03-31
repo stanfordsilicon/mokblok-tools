@@ -31,7 +31,7 @@ const simulatedClimateData: ClimateDataPoint[] = [
 ];
 
 const MockMonthsTemp: React.FC = () => {
-  const { monthsData } = useDataContext();
+  const { months } = useDataContext().data;
   const { today } = useSettings();
 
   return (
@@ -55,7 +55,7 @@ const MockMonthsTemp: React.FC = () => {
       })}
 
       {/* Narrow month labels */}
-      {monthsData.map((month, index) => {
+      {months?.map((month, index) => {
         const x = index * 18 + 20;
         const y = 130;
         return (

@@ -6,7 +6,7 @@ import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 import { getSourceLanguageData } from '../getSourceLanguageData';
 
 function RelativeTimeReviewTable() {
-  const { relativeTimeData } = useDataContext();
+  const { relativeTime } = useDataContext().data;
 
   return (
     <div>
@@ -33,8 +33,8 @@ function RelativeTimeReviewTable() {
           </tr>
         </thead>
         <tbody>
-          {relativeTimeData &&
-            Object.entries(relativeTimeData).map(([field, times]) => (
+          {relativeTime &&
+            Object.entries(relativeTime).map(([field, times]) => (
               <tr key={field}>
                 <td>{field}</td>
                 {/* Source Language */}
@@ -55,12 +55,15 @@ function RelativeTimeReviewTable() {
 
 type InputCellProps = { field: DateField; offset: '-1' | '0' | '1' };
 function InputCell({ field, offset }: InputCellProps) {
-  const { relativeTimeData, setRelativeTimeTranslation } = useDataContext();
+  const {
+    data: { relativeTime },
+    set,
+  } = useDataContext();
   return (
     <td>
       <input
-        value={relativeTimeData?.[field]?.[offset]?.translated || ''}
-        onChange={(e) => setRelativeTimeTranslation(field, offset, e.target.value)}
+        value={relativeTime?.[field]?.[offset]?.translated || ''}
+        onChange={(e) => set.relativeTime(field, offset, e.target.value)}
         style={{ width: '6em' }}
         type="text"
       />

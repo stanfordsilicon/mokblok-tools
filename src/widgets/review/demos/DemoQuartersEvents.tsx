@@ -7,7 +7,7 @@ import DemoID from './DemoID';
 import DemoSVG from './DemoSVG';
 
 const DemoQuartersEvents: React.FC = () => {
-  const { quartersData } = useDataContext();
+  const { quarters } = useDataContext().data;
   // Example events for each quarter
   const events = [['🎉🎂'], ['🎓', '👰🤵'], ['🚜🎪'], ['🎿🏔', '👩🎂', '🎁']];
 
@@ -23,7 +23,7 @@ const DemoQuartersEvents: React.FC = () => {
       {[...Array(4)].map((_, quarter) => (
         <g key={quarter} style={{ transform: `translate(20px, ${50 + quarter * 45}px)` }}>
           <text y={10} textAnchor="start" alignmentBaseline="middle" fontSize="1em">
-            {quartersData?.[SentenceContext.InSentence][quarter][FormatLength.Wide]?.translated}
+            {quarters?.[SentenceContext.InSentence][quarter][FormatLength.Wide]?.translated}
           </text>
 
           {/* events as small boxes below the quarter names */}

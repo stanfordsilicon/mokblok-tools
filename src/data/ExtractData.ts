@@ -1,19 +1,19 @@
 import {
   DateField,
-  HourMinuteFormat,
   SentenceContext,
+  TimeCombinationsFormat,
   type CoordinatesData,
   type DateCombinationData,
   type DateFieldData,
   type DayOfWeekData,
   type DirectionExamples,
   type ErasData,
-  type HourMinuteData,
   type MonthData,
   type QuartersData,
   type RelativeTimeData,
   type RowData,
-  type TimeIntervalData,
+  type TimeCombinationsData,
+  type TimeIntervalsData,
 } from './DataTypes';
 
 export function getMonthsData(rowsByKey: Record<string, RowData>): MonthData[] {
@@ -203,28 +203,28 @@ export function getRelativeTimeData(rowsByKey: Record<string, RowData>): Relativ
   };
 }
 
-export function getHourMinuteData(rowsByKey: Record<string, RowData>): HourMinuteData {
+export function getTimeCombinationsData(rowsByKey: Record<string, RowData>): TimeCombinationsData {
   return {
-    [HourMinuteFormat.HM12]: {
+    [TimeCombinationsFormat.HM12]: {
       morning: rowsByKey['hr-4_XXX'],
       evening: rowsByKey['hr-1_XXX'],
     },
-    [HourMinuteFormat.HM12TZ]: {
+    [TimeCombinationsFormat.HM12TZ]: {
       morning: undefined, // not asked
       evening: rowsByKey['hr-7_XXX'],
     },
-    [HourMinuteFormat.HM24]: {
+    [TimeCombinationsFormat.HM24]: {
       morning: rowsByKey['hr-2_XXX'],
       evening: rowsByKey['hr-3_XXX'],
     },
-    [HourMinuteFormat.HMS24]: {
+    [TimeCombinationsFormat.HMS24]: {
       morning: rowsByKey['hr-6_XXX'],
       evening: rowsByKey['hr-5_XXX'],
     },
   };
 }
 
-export function getTimeIntervalData(rowsByKey: Record<string, RowData>): TimeIntervalData {
+export function getTimeIntervalsData(rowsByKey: Record<string, RowData>): TimeIntervalsData {
   return {
     h12: {
       h: {

@@ -1,5 +1,9 @@
 import { useDataContext } from '@data/DataContext';
-import type { TimeIntervalData, TimeIntervalDifference, TimeIntervalFormat } from '@data/DataTypes';
+import type {
+  TimeIntervalDifference,
+  TimeIntervalFormat,
+  TimeIntervalsData,
+} from '@data/DataTypes';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
@@ -7,7 +11,7 @@ import { getSourceLanguageData } from '../getSourceLanguageData';
 import HighlightInput from '../HighlightInput';
 
 function TimeIntervalReviewTable() {
-  const { timeIntervalData } = useDataContext();
+  const { timeIntervals } = useDataContext().data;
 
   return (
     <div>
@@ -31,18 +35,18 @@ function TimeIntervalReviewTable() {
           </tr>
         </thead>
         <tbody>
-          {Object.entries(timeIntervalData || {}).map(([set, formats]) =>
+          {Object.entries(timeIntervals || {}).map(([variant, formats]) =>
             Object.entries(formats).map(([format, differences], formatIndex) =>
               Object.entries(differences).map(([difference, data], differenceIndex) => (
-                <tr key={`${set}-${format}-${difference}`}>
-                  <td>{formatIndex === 0 && differenceIndex === 0 ? set : ''}</td>
+                <tr key={`${variant}-${format}-${difference}`}>
+                  <td>{formatIndex === 0 && differenceIndex === 0 ? variant : ''}</td>
                   <td>{getSourceLanguageData(data) || '-'}</td>
                   <td>
                     <em>TODO</em>
                   </td>
                   <td>
                     <InputCell
-                      set={set as keyof TimeIntervalData}
+                      variant={variant as keyof TimeIntervalsData}
                       format={format as TimeIntervalFormat}
                       difference={difference as TimeIntervalDifference}
                     />
@@ -61,17 +65,20 @@ function TimeIntervalReviewTable() {
 }
 
 type InputCellProps = {
-  set: keyof TimeIntervalData;
+  variant: keyof TimeIntervalsData;
   format: TimeIntervalFormat;
   difference: TimeIntervalDifference;
 };
-function InputCell({ set, format, difference }: InputCellProps) {
-  const { timeIntervalData, setTimeIntervalTranslation } = useDataContext();
-  const currentTranslation = timeIntervalData?.[set]?.[format]?.[difference]?.translated || '';
+function InputCell({ variant, format, difference }: InputCellProps) {
+  const {
+    data: { timeIntervals },
+    set,
+  } = useDataContext();
+  const currentTranslation = timeIntervals?.[variant]?.[format]?.[difference]?.translated || '';
   return (
     <HighlightInput
       highlight={/\d+/g}
-      onChange={(value) => setTimeIntervalTranslation(set, format, difference, value)}
+      onChange={(value) => set.timeIntervals(variant, format, difference, value)}
       value={currentTranslation}
     />
   );

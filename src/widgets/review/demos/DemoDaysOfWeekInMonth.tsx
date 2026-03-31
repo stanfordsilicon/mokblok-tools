@@ -8,7 +8,7 @@ import DemoID from './DemoID';
 import DemoSVG from './DemoSVG';
 
 const DemoDaysOfWeekInMonth: React.FC = () => {
-  const { daysOfWeekData, monthsData } = useDataContext();
+  const { daysOfWeek, months } = useDataContext().data;
   const { today } = useSettings();
   const firstDayOfMonth = new Date(today.getFullYear(), today.getMonth(), 1).getDay(); // Get the day of the week for the first day of the month (0-6, where 0 is Sunday)
 
@@ -22,7 +22,7 @@ const DemoDaysOfWeekInMonth: React.FC = () => {
         transform="translate(20,25)"
       />
       <text x={120} y={30} textAnchor="middle" fontSize="1.2em">
-        {monthsData[today.getMonth()]?.wide?.translated || ''}
+        {months?.[today.getMonth()]?.wide?.translated || ''}
       </text>
       <path
         d="M10 -5 L5 0 L10 5"
@@ -33,7 +33,7 @@ const DemoDaysOfWeekInMonth: React.FC = () => {
       />
       <g transform="translate(15,45)">
         {/* Days of week header */}
-        {daysOfWeekData.map((day, index) => (
+        {daysOfWeek?.map((day, index) => (
           <text key={index} x={index * 30 + 15} y={15} fontWeight="bold" textAnchor="middle">
             {day?.narrow?.translated || ''}
           </text>

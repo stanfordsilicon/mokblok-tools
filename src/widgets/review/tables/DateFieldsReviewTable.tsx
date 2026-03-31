@@ -9,7 +9,7 @@ import FormatWidth from '../FormatWidth';
 import { getSourceLanguageData } from '../getSourceLanguageData';
 
 const DateFieldsReviewTable: React.FC = () => {
-  const { dateFieldsData } = useDataContext();
+  const { dateFields } = useDataContext().data;
   return (
     <div>
       <h3>Date Fields</h3>
@@ -34,7 +34,7 @@ const DateFieldsReviewTable: React.FC = () => {
             </tr>
           </thead>
           <tbody>
-            {Object.entries(dateFieldsData).map(([fieldKey, fieldData]) => (
+            {Object.entries(dateFields ?? {}).map(([fieldKey, fieldData]) => (
               <tr key={fieldKey}>
                 {/* Source Language */}
                 <td>{getSourceLanguageData(fieldData.wide)}</td>
@@ -56,14 +56,17 @@ const DateFieldsReviewTable: React.FC = () => {
 
 type InputCellProps = { field: DateField; format: FormatLength };
 function InputCell({ field, format }: InputCellProps) {
-  const { dateFieldsData, setDateFieldTranslation } = useDataContext();
+  const {
+    data: { dateFields },
+    set,
+  } = useDataContext();
   return (
     <td>
       <input
-        value={dateFieldsData[field]?.[format]?.translated || ''}
-        onChange={(e) => setDateFieldTranslation(field, format, e.target.value)}
+        value={dateFields?.[field]?.[format]?.translated || ''}
+        onChange={(e) => set.dateFields(field, format, e.target.value)}
         style={{ width: FormatWidth[format] }}
-        disabled={!dateFieldsData[field]?.[format]} // Disable if this format doesn't exist for the field
+        disabled={!dateFields?.[field]?.[format]} // Disable if this format doesn't exist for the field
       />
     </td>
   );

@@ -7,9 +7,9 @@ import DemoID from './DemoID';
 import DemoSVG from './DemoSVG';
 
 const DemoCoordinatesMap: React.FC = () => {
-  const { coordinatesData } = useDataContext();
-  const north = coordinatesData?.[CardinalDirection.North]?.[FormatLength.Narrow]?.translated;
-  const east = coordinatesData?.[CardinalDirection.East]?.[FormatLength.Narrow]?.translated;
+  const { coordinates } = useDataContext().data;
+  const north = coordinates?.[CardinalDirection.North]?.[FormatLength.Narrow]?.translated;
+  const east = coordinates?.[CardinalDirection.East]?.[FormatLength.Narrow]?.translated;
 
   return (
     <DemoSVG id={DemoID.CoordinatesMap} width={250} height={250}>

@@ -1,17 +1,17 @@
 import { useDataContext } from '@data/DataContext';
-import { HourMinuteFormat } from '@data/DataTypes';
+import { TimeCombinationsFormat } from '@data/DataTypes';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
 import { getSourceLanguageData } from '../getSourceLanguageData';
 import HighlightInput from '../HighlightInput';
 
-function HourMinuteReviewTable() {
-  const { hourMinuteData } = useDataContext();
+function TimeCombinationsReviewTable() {
+  const { timeCombinations } = useDataContext().data;
 
   return (
     <div>
-      <h3>Hour and Minute</h3>
+      <h3>Time Combinations</h3>
       <table>
         <thead>
           <tr>
@@ -34,12 +34,12 @@ function HourMinuteReviewTable() {
           </tr>
         </thead>
         <tbody>
-          {hourMinuteData
-            ? Object.values(HourMinuteFormat).map((format) => (
+          {timeCombinations
+            ? Object.values(TimeCombinationsFormat).map((format) => (
                 <tr key={format}>
                   <td>{format}</td>
-                  <td>{getSourceLanguageData(hourMinuteData[format]?.morning) || '-'}</td>
-                  <td>{getSourceLanguageData(hourMinuteData[format]?.evening) || '-'}</td>
+                  <td>{getSourceLanguageData(timeCombinations[format]?.morning) || '-'}</td>
+                  <td>{getSourceLanguageData(timeCombinations[format]?.evening) || '-'}</td>
                   <td>
                     <em>TODO</em>
                   </td>
@@ -58,22 +58,25 @@ function HourMinuteReviewTable() {
 }
 
 type InputCellProps = {
-  format: HourMinuteFormat;
+  format: TimeCombinationsFormat;
   variant: 'morning' | 'evening';
 };
 function InputCell({ format, variant }: InputCellProps) {
-  const { hourMinuteData, setHourMinuteTranslation } = useDataContext();
+  const {
+    data: { timeCombinations },
+    set,
+  } = useDataContext();
   return (
     <td>
       <HighlightInput
-        value={hourMinuteData?.[format]?.[variant]?.translated || ''}
-        onChange={(value) => setHourMinuteTranslation(format, variant, value)}
+        value={timeCombinations?.[format]?.[variant]?.translated || ''}
+        onChange={(value) => set.timeCombinations(format, variant, value)}
         highlight={/\d+/g}
         style={{ width: '6em' }}
-        disabled={!hourMinuteData?.[format]?.[variant]}
+        disabled={!timeCombinations?.[format]?.[variant]}
       />
     </td>
   );
 }
 
-export default HourMinuteReviewTable;
+export default TimeCombinationsReviewTable;

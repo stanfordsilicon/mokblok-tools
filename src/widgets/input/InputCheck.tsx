@@ -4,49 +4,53 @@ import type React from 'react';
 
 const InputCheck: React.FC<{ numRows: number }> = ({ numRows }) => {
   const {
-    monthsData,
-    daysOfWeekData,
-    dateFieldsData,
-    quartersData,
-    relativeTimeData,
-    hourMinuteData,
-    coordinatesData,
-    dateCombinationsData,
+    months,
+    daysOfWeek,
+    dateFields,
+    quarters,
+    relativeTime,
+    timeCombinations,
+    timeIntervals,
+    coordinates,
+    dateCombinations,
     directionExamples,
-    erasData,
-  } = useDataContext();
+    eras,
+  } = useDataContext().data;
   return (
     <table>
       <tbody>
         <Row title="Total rows loaded" count={numRows} />
-        <Row title="Months" count={countRowData(monthsData)} denominator={36}>
+        <Row title="Months" count={countRowData(months)} denominator={36}>
           12 months × 3 forms
         </Row>
-        <Row title="Days of the week" count={countRowData(daysOfWeekData)} denominator={28}>
+        <Row title="Days of the week" count={countRowData(daysOfWeek)} denominator={28}>
           7 days × 4 forms
         </Row>
-        <Row title="Date fields" count={countRowData(dateFieldsData)} denominator={23}>
+        <Row title="Date fields" count={countRowData(dateFields)} denominator={23}>
           10 fields × 1-3 forms each
         </Row>
-        <Row title="Relative time" count={countRowData(relativeTimeData)} denominator={12}>
+        <Row title="Relative time" count={countRowData(relativeTime)} denominator={12}>
           4 date fields × 3 (past, present, future)
         </Row>
-        <Row title="Hour and Minute" count={countRowData(hourMinuteData)} denominator={7}>
+        <Row title="Time combinations" count={countRowData(timeCombinations)} denominator={7}>
           4 formats × 2 variants - 1 missing
         </Row>
-        <Row title="Date combinations" count={countRowData(dateCombinationsData)} denominator={99}>
+        <Row title="Time intervals" count={countRowData(timeIntervals)} denominator={18}>
           not yet quantified
         </Row>
-        <Row title="Coordinates" count={countRowData(coordinatesData)} denominator={8}>
+        <Row title="Date combinations" count={countRowData(dateCombinations)} denominator={99}>
+          not yet quantified
+        </Row>
+        <Row title="Coordinates" count={countRowData(coordinates)} denominator={8}>
           4 cardinal directions × 2 forms
         </Row>
         <Row title="Direction examples" count={countRowData(directionExamples)} denominator={3}>
           3 requested
         </Row>
-        <Row title="Quarters" count={countRowData(quartersData)} denominator={16}>
+        <Row title="Quarters" count={countRowData(quarters)} denominator={16}>
           4 quarters × 2 lengths × 2 (standalone, inSentence)
         </Row>
-        <Row title="Eras" count={countRowData(erasData)} denominator={8}>
+        <Row title="Eras" count={countRowData(eras)} denominator={8}>
           2 eras × 2 variants × 2 lengths
         </Row>
       </tbody>

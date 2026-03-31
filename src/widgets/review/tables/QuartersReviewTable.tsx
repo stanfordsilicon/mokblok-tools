@@ -9,7 +9,7 @@ import { getSourceLanguageData } from '../getSourceLanguageData';
 import HighlightInput from '../HighlightInput';
 
 function QuartersReviewTable() {
-  const { quartersData } = useDataContext();
+  const { quarters } = useDataContext().data;
 
   return (
     <div>
@@ -31,9 +31,9 @@ function QuartersReviewTable() {
             </tr>
           </thead>
           <tbody>
-            {quartersData &&
+            {quarters &&
               Object.values(SentenceContext).flatMap((context) =>
-                quartersData[context]?.flatMap((quarter, quarterIndex) => (
+                quarters[context]?.flatMap((quarter, quarterIndex) => (
                   <tr key={`${context}-${quarterIndex}`}>
                     <td>{getSourceLanguageData(quarter[FormatLength.Wide])}</td>
                     <td>{getSourceLanguageData(quarter[FormatLength.Abbreviated])}</td>
@@ -63,15 +63,18 @@ function QuartersReviewTable() {
 
 type InputCellProps = { context: SentenceContext; quarterIndex: number; format: FormatLength };
 function InputCell({ context, quarterIndex, format }: InputCellProps) {
-  const { quartersData, setQuarterTranslation } = useDataContext();
+  const {
+    data: { quarters },
+    set,
+  } = useDataContext();
   return (
     <td>
       <HighlightInput
         highlight={/\d+/g}
-        value={quartersData?.[context]?.[quarterIndex]?.[format]?.translated || ''}
-        onChange={(value) => setQuarterTranslation(context, quarterIndex, format, value)}
+        value={quarters?.[context]?.[quarterIndex]?.[format]?.translated || ''}
+        onChange={(value) => set.quarters(context, quarterIndex, format, value)}
         style={{ width: format === FormatLength.Wide ? '15em' : '10em' }}
-        disabled={!quartersData?.[context]?.[quarterIndex]?.[format]} // Disable if this quarter/format doesn't exist
+        disabled={!quarters?.[context]?.[quarterIndex]?.[format]} // Disable if this quarter/format doesn't exist
       />
     </td>
   );

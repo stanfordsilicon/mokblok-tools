@@ -9,7 +9,7 @@ import FormatWidth from '../FormatWidth';
 import { getSourceLanguageData } from '../getSourceLanguageData';
 
 function DaysOfWeekReviewTable() {
-  const { daysOfWeekData } = useDataContext();
+  const { daysOfWeek } = useDataContext().data;
   return (
     <div>
       <h3>Days of the Week</h3>
@@ -36,7 +36,7 @@ function DaysOfWeekReviewTable() {
             </tr>
           </thead>
           <tbody>
-            {daysOfWeekData.map((day, index) => (
+            {daysOfWeek?.map((day, index) => (
               <tr key={index}>
                 {/* Source Language */}
                 <td>{getSourceLanguageData(day[FormatLength.Wide])}</td>
@@ -61,12 +61,15 @@ function DaysOfWeekReviewTable() {
 
 type InputCellProps = { index: number; format: FormatLength };
 function InputCell({ index, format }: InputCellProps) {
-  const { daysOfWeekData, setDayOfWeekTranslation } = useDataContext();
+  const {
+    data: { daysOfWeek },
+    set,
+  } = useDataContext();
   return (
     <td>
       <input
-        value={daysOfWeekData[index]?.[format]?.translated || ''}
-        onChange={(e) => setDayOfWeekTranslation(index, format, e.target.value)}
+        value={daysOfWeek?.[index]?.[format]?.translated || ''}
+        onChange={(e) => set.daysOfWeek(index, format, e.target.value)}
         style={{ width: FormatWidth[format] }}
       />
     </td>

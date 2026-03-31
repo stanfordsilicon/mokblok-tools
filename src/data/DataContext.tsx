@@ -2,8 +2,11 @@ import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 
 import {
   CardinalDirection,
+  DataType,
+  type AllData,
   type AlphabetData,
   type CoordinatesData,
+  type DataSetters,
   type DateCombinationData,
   type DateField,
   type DateFieldData,
@@ -11,15 +14,15 @@ import {
   type DirectionExamples,
   type ErasData,
   type FormatLength,
-  type HourMinuteData,
   type MonthData,
   type QuartersData,
   type RelativeTimeData,
   type RowData,
   type SentenceContext,
-  type TimeIntervalData,
+  type TimeCombinationsData,
   type TimeIntervalDifference,
   type TimeIntervalFormat,
+  type TimeIntervalsData,
 } from './DataTypes';
 import extractAlphabetData from './ExtractAlphabet';
 import {
@@ -29,82 +32,39 @@ import {
   getDaysOfWeekData,
   getDirectionExamples,
   getErasData,
-  getHourMinuteData,
   getMonthsData,
   getQuarterData,
   getRelativeTimeData,
-  getTimeIntervalData,
+  getTimeCombinationsData,
+  getTimeIntervalsData,
 } from './ExtractData';
 
 export type DataContextType = {
   setRows: (lines: RowData[]) => void;
   setExtraText: (text: string) => void;
   rowsByKey: Record<string, RowData>;
-  monthsData: MonthData[];
-  daysOfWeekData: DayOfWeekData[];
-  dateFieldsData: Partial<Record<DateField, DateFieldData>>;
-  alphabetData?: AlphabetData;
-  relativeTimeData?: RelativeTimeData;
-  hourMinuteData?: HourMinuteData;
-  timeIntervalData?: TimeIntervalData;
-  dateCombinationsData?: DateCombinationData;
-  quartersData?: QuartersData;
-  coordinatesData?: CoordinatesData;
-  directionExamples?: DirectionExamples;
-  erasData?: ErasData;
-  setMonthTranslation: (monthIndex: number, format: FormatLength, newTranslation: string) => void;
-  setDayOfWeekTranslation: (dayIndex: number, format: FormatLength, newTranslation: string) => void;
-  setDateFieldTranslation: (field: DateField, format: FormatLength, newTranslation: string) => void;
-  setRelativeTimeTranslation: (
-    field: DateField,
-    offset: '-1' | '0' | '1',
-    newTranslation: string,
-  ) => void;
-  setHourMinuteTranslation: (
-    format: 'hm12' | 'hm24' | 'hms24' | 'hm12tz',
-    variant: 'morning' | 'evening',
-    newTranslation: string,
-  ) => void;
-  setTimeIntervalTranslation: (
-    set: keyof TimeIntervalData,
-    format: TimeIntervalFormat,
-    difference: TimeIntervalDifference,
-    newTranslation: string,
-  ) => void;
-  setDateCombinationTranslation: (combinationIndex: number, newTranslation: string) => void;
-  setQuarterTranslation: (
-    context: SentenceContext,
-    quarterIndex: number,
-    format: FormatLength,
-    newTranslation: string,
-  ) => void;
-  setCoordinatesTranslation: (
-    format: FormatLength,
-    direction: CardinalDirection,
-    newTranslation: string,
-  ) => void;
-  setDirectionExample: (index: number, newTranslation: string) => void;
-  setEraData: (eraIndex: number, length: FormatLength, newTranslation: string) => void;
+  data: AllData;
+  set: DataSetters;
 };
 
 export const DataContext = createContext<DataContextType | undefined>({
   setRows: () => {},
   setExtraText: () => {},
   rowsByKey: {},
-  monthsData: [],
-  daysOfWeekData: [],
-  dateFieldsData: {},
-  setMonthTranslation: () => {},
-  setDayOfWeekTranslation: () => {},
-  setDateFieldTranslation: () => {},
-  setRelativeTimeTranslation: () => {},
-  setHourMinuteTranslation: () => {},
-  setTimeIntervalTranslation: () => {},
-  setDateCombinationTranslation: () => {},
-  setQuarterTranslation: () => {},
-  setCoordinatesTranslation: () => {},
-  setDirectionExample: () => {},
-  setEraData: () => {},
+  data: {},
+  set: {
+    [DataType.Months]: () => {},
+    [DataType.DaysOfWeek]: () => {},
+    [DataType.DateFields]: () => {},
+    [DataType.RelativeTime]: () => {},
+    [DataType.TimeCombinations]: () => {},
+    [DataType.TimeIntervals]: () => {},
+    [DataType.DateCombinations]: () => {},
+    [DataType.Quarters]: () => {},
+    [DataType.Coordinates]: () => {},
+    [DataType.DirectionExamples]: () => {},
+    [DataType.Eras]: () => {},
+  },
 });
 
 export const useDataContext = () => {
@@ -128,8 +88,12 @@ export const DataProvider: React.FC<{
   );
   const [alphabetData, setAlphabetData] = useState<AlphabetData | undefined>(undefined);
   const [relativeTimeData, setRelativeTimeData] = useState<RelativeTimeData>({});
-  const [hourMinuteData, setHourMinuteData] = useState<HourMinuteData | undefined>(undefined);
-  const [timeIntervalData, setTimeIntervalData] = useState<TimeIntervalData | undefined>(undefined);
+  const [timeCombinations, setTimeCombinationsData] = useState<TimeCombinationsData | undefined>(
+    undefined,
+  );
+  const [timeIntervalsData, setTimeIntervalsData] = useState<TimeIntervalsData | undefined>(
+    undefined,
+  );
   const [dateCombinationsData, setDateCombinationsData] = useState<DateCombinationData | undefined>(
     [],
   );
@@ -157,8 +121,8 @@ export const DataProvider: React.FC<{
     setDateFieldsData(getDateFieldsData(rowsByKey));
     setDaysOfWeekData(getDaysOfWeekData(rowsByKey));
     setRelativeTimeData(getRelativeTimeData(rowsByKey));
-    setHourMinuteData(getHourMinuteData(rowsByKey));
-    setTimeIntervalData(getTimeIntervalData(rowsByKey));
+    setTimeCombinationsData(getTimeCombinationsData(rowsByKey));
+    setTimeIntervalsData(getTimeIntervalsData(rowsByKey));
     setDateCombinationsData(getDateCombinationData(rowsByKey));
     setQuartersData(getQuarterData(rowsByKey));
     setCoordinatesData(getCoordinatesData(rowsByKey));
@@ -212,25 +176,25 @@ export const DataProvider: React.FC<{
       return { ...prev };
     });
   };
-  const setHourMinuteTranslation = (
+  const setTimeCombinationsTranslation = (
     format: 'hm12' | 'hm24' | 'hms24' | 'hm12tz',
     variant: 'morning' | 'evening',
     newTranslation: string,
   ) => {
-    setHourMinuteData((prev) => {
+    setTimeCombinationsData((prev) => {
       if (!prev) return prev;
       const data = prev[format]?.[variant];
       if (data) data.translated = newTranslation;
       return { ...prev };
     });
   };
-  const setTimeIntervalTranslation = (
-    set: keyof TimeIntervalData,
+  const setTimeIntervalsTranslation = (
+    set: keyof TimeIntervalsData,
     format: TimeIntervalFormat,
     difference: TimeIntervalDifference,
     newTranslation: string,
   ) => {
-    setTimeIntervalData((prev) => {
+    setTimeIntervalsData((prev) => {
       if (!prev) return prev;
       const data = prev[set]?.[format]?.[difference];
       if (data) data.translated = newTranslation;
@@ -291,29 +255,33 @@ export const DataProvider: React.FC<{
     setRows,
     setExtraText,
     rowsByKey,
-    monthsData,
-    daysOfWeekData,
-    dateFieldsData,
-    alphabetData,
-    relativeTimeData,
-    hourMinuteData,
-    timeIntervalData,
-    dateCombinationsData,
-    quartersData,
-    coordinatesData,
-    directionExamples,
-    erasData,
-    setMonthTranslation,
-    setDayOfWeekTranslation,
-    setDateFieldTranslation,
-    setRelativeTimeTranslation,
-    setHourMinuteTranslation,
-    setTimeIntervalTranslation,
-    setDateCombinationTranslation,
-    setQuarterTranslation,
-    setCoordinatesTranslation,
-    setDirectionExample,
-    setEraData,
+    data: {
+      months: monthsData,
+      daysOfWeek: daysOfWeekData,
+      dateFields: dateFieldsData,
+      alphabet: alphabetData,
+      relativeTime: relativeTimeData,
+      timeCombinations,
+      timeIntervals: timeIntervalsData,
+      dateCombinations: dateCombinationsData,
+      quarters: quartersData,
+      coordinates: coordinatesData,
+      directionExamples,
+      eras: erasData,
+    },
+    set: {
+      months: setMonthTranslation,
+      daysOfWeek: setDayOfWeekTranslation,
+      dateFields: setDateFieldTranslation,
+      relativeTime: setRelativeTimeTranslation,
+      timeCombinations: setTimeCombinationsTranslation,
+      timeIntervals: setTimeIntervalsTranslation,
+      dateCombinations: setDateCombinationTranslation,
+      quarters: setQuarterTranslation,
+      coordinates: setCoordinatesTranslation,
+      directionExamples: setDirectionExample,
+      eras: setEraData,
+    },
   };
   return <DataContext.Provider value={dataContext}>{children}</DataContext.Provider>;
 };

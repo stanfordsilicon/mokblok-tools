@@ -12,7 +12,7 @@ const AlphabetReview: React.FC = () => {
     charactersUppercase,
     charactersOther,
     writingSystem,
-  } = useDataContext().alphabetData || {};
+  } = useDataContext().data.alphabet || {};
   return (
     <div>
       <h2>Alphabet Review</h2>

@@ -69,13 +69,16 @@ export type RelativeTimeData = Partial<
   Record<DateField, { '-1': RowData; '0': RowData; '1': RowData }>
 >;
 
-export enum HourMinuteFormat {
+export enum TimeCombinationsFormat {
   HM12 = 'hm12',
   HM24 = 'hm24',
   HMS24 = 'hms24',
   HM12TZ = 'hm12tz',
 }
-export type HourMinuteData = Record<HourMinuteFormat, { morning?: RowData; evening: RowData }>;
+export type TimeCombinationsData = Record<
+  TimeCombinationsFormat,
+  { morning?: RowData; evening: RowData }
+>;
 
 export enum TimeIntervalFormat {
   Hour = 'h',
@@ -93,7 +96,7 @@ export enum TimeIntervalDifference {
 type TimeInternalDataInPeriod = Partial<
   Record<TimeIntervalFormat, Partial<Record<TimeIntervalDifference, RowData>>>
 >;
-export type TimeIntervalData = {
+export type TimeIntervalsData = {
   h12: TimeInternalDataInPeriod;
   h12alt: TimeInternalDataInPeriod;
   h24: TimeInternalDataInPeriod;
@@ -118,6 +121,73 @@ export enum CardinalDirection {
   West = 'west',
 }
 export type CoordinatesData = Record<CardinalDirection, Partial<Record<FormatLength, RowData>>>;
+
 export type DirectionExamples = RowData[];
 
 export type ErasData = Partial<Record<FormatLength, RowData>>[];
+
+export enum DataType {
+  Months = 'months',
+  DaysOfWeek = 'daysOfWeek',
+  DateFields = 'dateFields',
+  Alphabet = 'alphabet',
+  RelativeTime = 'relativeTime',
+  TimeCombinations = 'timeCombinations',
+  TimeIntervals = 'timeIntervals',
+  DateCombinations = 'dateCombinations',
+  Quarters = 'quarters',
+  Coordinates = 'coordinates',
+  DirectionExamples = 'directionExamples',
+  Eras = 'eras',
+}
+
+export type AllData = {
+  [DataType.Months]?: MonthData[];
+  [DataType.DaysOfWeek]?: DayOfWeekData[];
+  [DataType.DateFields]?: Partial<Record<DateField, DateFieldData>>;
+  [DataType.Alphabet]?: AlphabetData;
+  [DataType.RelativeTime]?: RelativeTimeData;
+  [DataType.TimeCombinations]?: TimeCombinationsData;
+  [DataType.TimeIntervals]?: TimeIntervalsData;
+  [DataType.DateCombinations]?: DateCombinationData;
+  [DataType.Quarters]?: QuartersData;
+  [DataType.Coordinates]?: CoordinatesData;
+  [DataType.DirectionExamples]?: DirectionExamples;
+  [DataType.Eras]?: ErasData;
+};
+
+export type DataSetters = {
+  [DataType.Months]: (monthIndex: number, format: FormatLength, newTranslation: string) => void;
+  [DataType.DaysOfWeek]: (dayIndex: number, format: FormatLength, newTranslation: string) => void;
+  [DataType.DateFields]: (field: DateField, format: FormatLength, newTranslation: string) => void;
+  [DataType.RelativeTime]: (
+    field: DateField,
+    offset: '-1' | '0' | '1',
+    newTranslation: string,
+  ) => void;
+  [DataType.TimeCombinations]: (
+    format: 'hm12' | 'hm24' | 'hms24' | 'hm12tz',
+    variant: 'morning' | 'evening',
+    newTranslation: string,
+  ) => void;
+  [DataType.TimeIntervals]: (
+    set: keyof TimeIntervalsData,
+    format: TimeIntervalFormat,
+    difference: TimeIntervalDifference,
+    newTranslation: string,
+  ) => void;
+  [DataType.DateCombinations]: (combinationIndex: number, newTranslation: string) => void;
+  [DataType.Quarters]: (
+    context: SentenceContext,
+    quarterIndex: number,
+    format: FormatLength,
+    newTranslation: string,
+  ) => void;
+  [DataType.Coordinates]: (
+    format: FormatLength,
+    direction: CardinalDirection,
+    newTranslation: string,
+  ) => void;
+  [DataType.DirectionExamples]: (index: number, newTranslation: string) => void;
+  [DataType.Eras]: (eraIndex: number, length: FormatLength, newTranslation: string) => void;
+};

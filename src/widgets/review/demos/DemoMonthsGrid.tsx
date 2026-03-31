@@ -8,7 +8,7 @@ import DemoID from './DemoID';
 import DemoSVG from './DemoSVG';
 
 const DemoMonthsGrid: React.FC = () => {
-  const { monthsData } = useDataContext();
+  const { months } = useDataContext().data;
   const { today } = useSettings();
 
   return (
@@ -31,7 +31,7 @@ const DemoMonthsGrid: React.FC = () => {
         strokeWidth="2"
         transform="translate(220,40) rotate(180) "
       />
-      {monthsData.map((month, index) => {
+      {months?.map((month, index) => {
         const x = (index % 4) * 55 + 40;
         const y = Math.floor(index / 4) * 60 + 90;
         return (

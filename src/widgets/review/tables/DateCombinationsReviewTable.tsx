@@ -6,7 +6,7 @@ import { getSourceLanguageData } from '../getSourceLanguageData';
 import HighlightInput from '../HighlightInput';
 
 function DateCombinationsReviewTable() {
-  const { dateCombinationsData } = useDataContext();
+  const { dateCombinations } = useDataContext().data;
 
   return (
     <div>
@@ -22,7 +22,7 @@ function DateCombinationsReviewTable() {
           </tr>
         </thead>
         <tbody>
-          {dateCombinationsData?.map((combination, index) => {
+          {dateCombinations?.map((combination, index) => {
             const shortXPath = combination.xpath
               ?.replace(/\/\/ldml\/dates\/calendars\/calendar\[@type="([a-z]{2})[^"]+"\]\//, '$1/')
               .replace(/\/([a-z])[a-z]*([A-Z])[a-z]*([A-Z])?[a-z]*/g, '/$1$2$3')
@@ -48,15 +48,18 @@ function DateCombinationsReviewTable() {
 
 type InputCellProps = { index: number };
 function InputCell({ index }: InputCellProps) {
-  const { dateCombinationsData, setDateCombinationTranslation } = useDataContext();
+  const {
+    data: { dateCombinations },
+    set,
+  } = useDataContext();
   return (
     <td>
       <HighlightInput
-        value={dateCombinationsData?.[index]?.translated || ''}
-        onChange={(value) => setDateCombinationTranslation(index, value)}
+        value={dateCombinations?.[index]?.translated || ''}
+        onChange={(value) => set.dateCombinations(index, value)}
         highlight={/\d+/g}
         style={{ width: '15em' }}
-        disabled={!dateCombinationsData?.[index]} // Disable if this combination doesn't exist
+        disabled={!dateCombinations?.[index]} // Disable if this combination doesn't exist
       />
     </td>
   );

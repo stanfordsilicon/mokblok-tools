@@ -8,17 +8,21 @@ import {
 } from '@data/DataTypes';
 
 type XMLFormattedData = {
-  monthsXML: string;
-  daysOfWeekXML: string;
-  dateFieldsXML: string;
+  monthsXML?: string;
+  daysOfWeekXML?: string;
+  dateFieldsXML?: string;
 };
 
 const useXMLFormattedData = (): XMLFormattedData => {
-  const { monthsData, daysOfWeekData, dateFieldsData } = useDataContext();
+  const { months, daysOfWeek, dateFields } = useDataContext().data;
 
-  const monthsXML = getMonthsXML(monthsData).replaceAll('\n', '\n      ');
-  const daysOfWeekXML = getDaysOfWeekXML(daysOfWeekData).replaceAll('\n', '\n      ');
-  const dateFieldsXML = getDateFieldsXML(dateFieldsData).replaceAll('\n', '\n      ');
+  const monthsXML = months ? getMonthsXML(months).replaceAll('\n', '\n      ') : undefined;
+  const daysOfWeekXML = daysOfWeek
+    ? getDaysOfWeekXML(daysOfWeek).replaceAll('\n', '\n      ')
+    : undefined;
+  const dateFieldsXML = dateFields
+    ? getDateFieldsXML(dateFields).replaceAll('\n', '\n      ')
+    : undefined;
 
   // Apply indentation
 

@@ -7,9 +7,9 @@ import DemoID from './DemoID';
 import DemoSVG from './DemoSVG';
 
 const DemoCoordinatesDirections: React.FC = () => {
-  const { coordinatesData, directionExamples } = useDataContext();
-  const south = coordinatesData?.[CardinalDirection.South]?.[FormatLength.Wide]?.translated;
-  const west = coordinatesData?.[CardinalDirection.West]?.[FormatLength.Wide]?.translated;
+  const { coordinates, directionExamples } = useDataContext().data;
+  const south = coordinates?.[CardinalDirection.South]?.[FormatLength.Wide]?.translated;
+  const west = coordinates?.[CardinalDirection.West]?.[FormatLength.Wide]?.translated;
 
   return (
     <DemoSVG id={DemoID.CoordinatesDirections} width={250} height={250}>

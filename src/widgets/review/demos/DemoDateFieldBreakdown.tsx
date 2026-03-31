@@ -24,7 +24,7 @@ const ShownDateFields: DateField[] = [
 ];
 
 const DemoDateFieldBreakdown: React.FC = () => {
-  const { dateFieldsData, monthsData, daysOfWeekData, relativeTimeData } = useDataContext();
+  const { dateFields, months, daysOfWeek, relativeTime } = useDataContext().data;
   const { today } = useSettings();
 
   const getTodayFieldValue = useCallback(
@@ -37,13 +37,13 @@ const DemoDateFieldBreakdown: React.FC = () => {
         case DateField.Quarter:
           return Math.floor(today.getMonth() / 3) + 1; // Quarters are 1-indexed
         case DateField.Month:
-          return monthsData[today.getMonth()].wide?.translated ?? ''; // Months are 0-indexed
+          return months?.[today.getMonth()].wide?.translated ?? ''; // Months are 0-indexed
         case DateField.Week:
           return ''; // Not useful in this display
         case DateField.Day:
           return today.getDate();
         case DateField.DayOfWeek:
-          return daysOfWeekData[today.getDay()].wide?.translated ?? ''; // Sunday = 0, Monday = 1, ..., Saturday = 6
+          return daysOfWeek?.[today.getDay()].wide?.translated ?? ''; // Sunday = 0, Monday = 1, ..., Saturday = 6
         case DateField.Hour:
           return today.getHours();
         case DateField.Minute:
@@ -54,10 +54,10 @@ const DemoDateFieldBreakdown: React.FC = () => {
           return '';
       }
     },
-    [today, monthsData, daysOfWeekData],
+    [today, months, daysOfWeek],
   );
 
-  const todayData = relativeTimeData?.day?.['0'];
+  const todayData = relativeTime?.day?.['0'];
 
   return (
     <DemoSVG id={DemoID.DateFieldBreakdown} width={240} height={240}>
@@ -65,7 +65,7 @@ const DemoDateFieldBreakdown: React.FC = () => {
         {todayData?.translated || getSourceLanguageData(todayData) || 'Today'}
       </text>
       {ShownDateFields.map((fieldKey, index) => {
-        const fieldData = dateFieldsData[fieldKey];
+        const fieldData = dateFields?.[fieldKey];
         const x = 120;
         const y = index * 20 + 75;
         return (

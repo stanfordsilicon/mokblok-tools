@@ -8,7 +8,7 @@ import { getSourceLanguageData } from '../getSourceLanguageData';
 import HighlightInput from '../HighlightInput';
 
 function EraReviewTable() {
-  const { erasData } = useDataContext();
+  const { eras } = useDataContext().data;
 
   return (
     <div>
@@ -29,16 +29,14 @@ function EraReviewTable() {
           </tr>
         </thead>
         <tbody>
-          {erasData?.map((era, index) => {
-            return (
-              <tr key={index}>
-                <td>{getSourceLanguageData(era?.[FormatLength.Wide])}</td>
-                <td>{getSourceLanguageData(era?.[FormatLength.Abbreviated])}</td>
-                <InputCell index={index} format={FormatLength.Wide} />
-                <InputCell index={index} format={FormatLength.Abbreviated} />
-              </tr>
-            );
-          })}
+          {eras?.map((era, index) => (
+            <tr key={index}>
+              <td>{getSourceLanguageData(era?.[FormatLength.Wide])}</td>
+              <td>{getSourceLanguageData(era?.[FormatLength.Abbreviated])}</td>
+              <InputCell index={index} format={FormatLength.Wide} />
+              <InputCell index={index} format={FormatLength.Abbreviated} />
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
@@ -47,13 +45,16 @@ function EraReviewTable() {
 
 type InputCellProps = { index: number; format: FormatLength };
 function InputCell({ format, index }: InputCellProps) {
-  const { erasData, setEraData } = useDataContext();
-  if (!erasData || !(format in erasData[index])) return null;
+  const {
+    data: { eras },
+    set,
+  } = useDataContext();
+  if (!eras || !(format in eras[index])) return null;
   return (
     <td>
       <HighlightInput
-        value={erasData[index][format]?.translated || ''}
-        onChange={(value) => setEraData(index, format, value)}
+        value={eras[index][format]?.translated || ''}
+        onChange={(value) => set.eras(index, format, value)}
         highlight={/\d+/g}
         style={{ width: FormatWidth[format] }}
       />

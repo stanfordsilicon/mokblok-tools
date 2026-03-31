@@ -9,7 +9,7 @@ import DemoID from './DemoID';
 import DemoSVG from './DemoSVG';
 
 const DemoQuartersCircle: React.FC = () => {
-  const { monthsData, quartersData } = useDataContext();
+  const { months, quarters } = useDataContext().data;
   const { today } = useSettings();
   const currentMonth = today.getMonth(); // Current month (0-indexed)
   const yearStart = new Date(today.getFullYear(), 0, 0);
@@ -75,8 +75,8 @@ const DemoQuartersCircle: React.FC = () => {
           alignmentBaseline="middle"
           fontSize="1em"
         >
-          {quartersData?.[SentenceContext.Standalone][quarter][FormatLength.Abbreviated]
-            ?.translated || ''}
+          {quarters?.[SentenceContext.Standalone][quarter][FormatLength.Abbreviated]?.translated ||
+            ''}
         </text>
       ))}
 
@@ -90,7 +90,7 @@ const DemoQuartersCircle: React.FC = () => {
           alignmentBaseline="middle"
           fontSize="0.75em"
         >
-          {monthsData[monthIndex]?.abbreviated?.translated || ''}
+          {months?.[monthIndex]?.abbreviated?.translated || ''}
         </text>
       ))}
     </DemoSVG>

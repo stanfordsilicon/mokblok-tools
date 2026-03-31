@@ -9,7 +9,7 @@ import FormatWidth from '../FormatWidth';
 import { getSourceLanguageData } from '../getSourceLanguageData';
 
 function MonthsReviewTable() {
-  const { monthsData } = useDataContext();
+  const { months } = useDataContext().data;
 
   return (
     <div>
@@ -35,7 +35,7 @@ function MonthsReviewTable() {
             </tr>
           </thead>
           <tbody>
-            {monthsData.map((month, index) => (
+            {months?.map((month, index) => (
               <tr key={index}>
                 {/* Source Language */}
                 <td>{getSourceLanguageData(month[FormatLength.Wide])}</td>
@@ -59,12 +59,15 @@ function MonthsReviewTable() {
 
 type InputCellProps = { index: number; format: FormatLength };
 function InputCell({ index, format }: InputCellProps) {
-  const { monthsData, setMonthTranslation } = useDataContext();
+  const {
+    data: { months },
+    set,
+  } = useDataContext();
   return (
     <td>
       <input
-        value={monthsData[index]?.[format]?.translated || ''}
-        onChange={(e) => setMonthTranslation(index, format, e.target.value)}
+        value={months?.[index]?.[format]?.translated || ''}
+        onChange={(e) => set.months(index, format, e.target.value)}
         style={{ width: FormatWidth[format] }}
       />
     </td>
