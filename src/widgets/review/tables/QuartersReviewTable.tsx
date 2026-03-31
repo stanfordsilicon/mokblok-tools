@@ -3,6 +3,8 @@ import { FormatLength, SentenceContext } from '@data/DataTypes';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
+import Demo from '../demos/Demo';
+import DemoID from '../demos/DemoID';
 import { getSourceLanguageData } from '../getSourceLanguageData';
 import HighlightInput from '../HighlightInput';
 
@@ -52,6 +54,8 @@ function QuartersReviewTable() {
         </table>
 
         {/* Add any relevant demos or visualizations for quarters here */}
+        <Demo demoID={DemoID.QuartersCircle} title="Quarters in a Circle" />
+        <Demo demoID={DemoID.QuartersEvents} title="Quarters in a Due Date" />
       </div>
     </div>
   );

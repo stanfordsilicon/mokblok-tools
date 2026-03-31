@@ -8,6 +8,8 @@ import DemoDaysOfWeekInWeek from './DemoDaysOfWeekInWeek';
 import DemoID from './DemoID';
 import DemoMonthsGrid from './DemoMonthsGrid';
 import DemoMonthsTemp from './DemoMonthsTemp';
+import DemoQuartersCircle from './DemoQuartersCircle';
+import DemoQuartersEvents from './DemoQuartersEvents';
 import DownloadDemoButton from './DownloadDemoButton';
 
 type Props = {
@@ -48,6 +50,12 @@ const DemoImage: React.FC<{ demoID: DemoID }> = ({ demoID }) => {
       return <DemoCoordinatesMap />;
     case DemoID.CoordinatesDirections:
       return <DemoCoordinatesDirections />;
+    case DemoID.QuartersCircle:
+      return <DemoQuartersCircle />;
+    case DemoID.QuartersEvents:
+      return <DemoQuartersEvents />;
+    default:
+      return <div style={{ color: 'red' }}>Demo not found</div>;
   }
 };
 

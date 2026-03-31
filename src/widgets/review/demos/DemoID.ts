@@ -6,6 +6,8 @@ enum DemoID {
   DateFieldBreakdown = 'dateFieldBreakdown',
   CoordinatesMap = 'coordinatesMap',
   CoordinatesDirections = 'coordinatesDirections',
+  QuartersCircle = 'quartersCircle',
+  QuartersEvents = 'QuartersEvents',
 }
 
 export default DemoID;
