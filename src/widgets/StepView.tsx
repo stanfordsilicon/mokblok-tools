@@ -4,7 +4,7 @@ import SettingsWidget from '@settings/SettingsWidget';
 import StepName from '@settings/StepName';
 
 import ExportWidget from './export/ExportWidget';
-import InputWidget from './input/InputWidget';
+import InputBody from './input/InputBody';
 import ReviewWidget from './review/ReviewWidget';
 
 export type StepViewProps = {
@@ -14,7 +14,7 @@ export type StepViewProps = {
 const StepView: React.FC<StepViewProps> = ({ step }) => {
   switch (step) {
     case StepName.Input:
-      return <InputWidget />;
+      return <InputBody />;
     case StepName.Review:
       return <ReviewWidget />;
     case StepName.Export:

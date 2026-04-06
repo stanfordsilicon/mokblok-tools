@@ -1,10 +1,15 @@
-import { useCallback, useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { useDataContext } from '@data/DataContext';
+import { Doc, getDocFileSuffix } from '@data/Doc';
 import { loadInputText, parseInputTSV } from '@data/LoadInputData';
 
 import { useSettings } from '@settings/Settings';
 import useStoredParams from '@settings/useStoredParams';
+
+import InputCheck from './InputCheck';
+import InputDocSelector from './InputDocSelector';
+import InputLanguageSelector from './InputLanguageSelector';
 
 export enum LoadableLanguage {
   Abron = 'abr',
@@ -13,24 +18,32 @@ export enum LoadableLanguage {
   French = 'fra',
   Malagasy = 'mlg',
 }
-
-import AlphabetReview from '@widgets/review/tables/AlphabetReview';
-
-import InputCheck from './InputCheck';
-
 const InputWidget = () => {
   const { setRows, setExtraText } = useDataContext();
-  const { targetLanguage, setTargetLanguage } = useSettings();
+  const { setTargetLanguage } = useSettings();
   const { value: inputText, setValue: setInputText } = useStoredParams<string>('inputText', '');
+  const [inputDoc, setInputDoc] = useState<Doc>(Doc.Doc1);
   const extraTextArea = useRef<HTMLTextAreaElement>(null);
+  // const [texts, setTexts] = useState<Record<Doc, string>>({});
 
-  const onClickLanguage = useCallback(async (lang: LoadableLanguage) => {
-    setTargetLanguage(lang);
-    // Clear extra text area
-    if (extraTextArea.current) extraTextArea.current.value = '';
-    // setExtraText(''); // Clear extra text when loading new language
-    await loadInputText(`input_tsvs/${lang}_1.tsv`).then((data) => setInputText(data || ''));
-  }, []);
+  const clearInputText = useCallback(() => {
+    setInputText('');
+  }, [setInputText]);
+
+  const onClickLanguage = useCallback(
+    async (lang: LoadableLanguage) => {
+      setTargetLanguage(lang);
+      if (extraTextArea.current) extraTextArea.current.value = '';
+
+      const data =
+        (await loadInputText(`input_tsvs/${lang}_${getDocFileSuffix(inputDoc)}.tsv`)) || '';
+      const storageKey = `inputText_${inputDoc}`;
+
+      localStorage.setItem(storageKey, data);
+      setInputText(data);
+    },
+    [inputDoc, setInputText, setTargetLanguage],
+  );
 
   // Automatically updates the input lines dataset when inputText changes
   useEffect(() => {
@@ -39,57 +52,21 @@ const InputWidget = () => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '.5em' }}>
-      <div style={{ fontSize: '16px', fontWeight: 'bold' }}>Number formatting examples</div>
-      <div>Select a language to load its TSV data:</div>
-      <div style={{ display: 'flex', gap: '1em', alignItems: 'center' }}>
-        {Object.values(LoadableLanguage).map((lang) => (
-          <button
-            key={lang}
-            className={lang === targetLanguage ? 'selected' : ''}
-            onClick={() => onClickLanguage(lang)}
-          >
-            {/* Convert ID to a readable name */}
-            {Object.entries(LoadableLanguage).find(([, value]) => value === lang)?.[0]}
-          </button>
-        ))}
-        Manual Code:
-        <input
-          value={targetLanguage}
-          onChange={(e) => setTargetLanguage(e.target.value)}
-          style={{
-            borderRadius: '0.5em',
-            lineHeight: '2em',
-            width: '3em',
-            background: targetLanguage.length < 2 ? 'lightcoral' : 'var(--color-background)',
-          }}
-        />
-      </div>
-      <div>
-        Or paste your own TSV data below:{' '}
-        <button
-          style={{ width: 'fit-content', marginLeft: '1em' }}
-          onClick={() => {
-            setInputText('');
-            setTargetLanguage('');
-          }}
-        >
-          Clear
-        </button>
-      </div>
-      <textarea
-        style={{
-          width: '100%',
-          height: '300px',
-          marginTop: '1em',
-          fontSize: '8px',
-          tabSize: 16,
-          whiteSpace: 'nowrap',
+      <h3>Language</h3>
+      <InputLanguageSelector
+        onClickLanguage={onClickLanguage}
+        clearInputText={() => {
+          const storageKey = `inputText_${inputDoc}`;
+          localStorage.removeItem(storageKey);
+          clearInputText();
         }}
-        placeholder="Paste TSV data here..."
-        value={inputText}
-        onChange={(e) => {
-          setInputText(e.target.value);
-          // setTargetLanguage(''); // Clear target language when user pastes custom data
+      />
+      <h3>Input</h3>
+      <InputDocSelector
+        curDoc={inputDoc}
+        setDoc={(doc) => {
+          setInputDoc(doc);
+          setInputText(localStorage.getItem(`inputText_${doc}`) || '');
         }}
       />
       <InputCheck numRows={inputText ? parseInputTSV(inputText).length : 0} />
@@ -111,7 +88,6 @@ const InputWidget = () => {
           onChange={(e) => setExtraText(e.target.value)}
         />
       </div>
-      <AlphabetReview />
     </div>
   );
 };

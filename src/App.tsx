@@ -11,7 +11,7 @@ function App() {
       </div>
       <footer>
         <p>
-          © 2026 <a href="https://silicon.stanford.edu/">Stanford Silicon</a>. All rights reserved.
+          © 2026 <a href="https://silicon.stanford.edu/">Stanford SILICON</a>. All rights reserved.
         </p>
       </footer>
     </>

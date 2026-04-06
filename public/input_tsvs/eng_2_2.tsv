@@ -1,0 +1,119 @@
+id	ENGLISH	TRANSLATION IN YOUR LANGUAGE
+CLDR-1	CLDR (the Common Locale Data Repository) is a global database created by the Unicode Consortium, a not-for-profit global organization. CLDR helps computers work correctly in different languages. It includes things like the names of months and days, date and number formats, and other language rules that phones, websites, and apps rely on. In practice, the only way for most modern software to support a language properly is for that language to be included in CLDR. CLDR is the largest and most comprehensive shared database of language and regional information available today.	CLDR (the Common Locale Data Repository) is a global database created by the Unicode Consortium, a not-for-profit global organization. CLDR helps computers work correctly in different languages. It includes things like the names of months and days, date and number formats, and other language rules that phones, websites, and apps rely on. In practice, the only way for most modern software to support a language properly is for that language to be included in CLDR. CLDR is the largest and most comprehensive shared database of language and regional information available today.
+CLDR-2	Anyone can view CLDR data, but improving it and adding to it is a detailed process. Two times each year, volunteers and language experts can propose new translations, fix mistakes, discuss disagreements, and vote on what best represents real language use. They can also add new languages to CLDR, helping their languages become part of the digital age.	Anyone can view CLDR data, but improving it and adding to it is a detailed process. Two times each year, volunteers and language experts can propose new translations, fix mistakes, discuss disagreements, and vote on what best represents real language use. They can also add new languages to CLDR, helping their languages become part of the digital age.
+CLDR-3	Instead of decisions being made by a small group behind closed doors, CLDR is shaped through open discussion and review. After several stages of checking and approval, the final data is released and used by billions of devices and applications around the world.	Instead of decisions being made by a small group behind closed doors, CLDR is shaped through open discussion and review. After several stages of checking and approval, the final data is released and used by billions of devices and applications around the world.
+KBIUX-1	KBIUX: Multilingual and Multicultural UX/UI Design	KBIUX: Multilingual and Multicultural UX/UI Design
+KBIUX-2	KBIUX is a 5-week online course designed for beginners and early-career students (18+ years old) interested in the fundamentals of User Experience (UX) and User Interface (UI) design — with a specific focus on multilingual, multicultural design for under-resourced and digitally disadvantaged languages worldwide.	KBIUX is a 5-week online course designed for beginners and early-career students (18+ years old) interested in the fundamentals of User Experience (UX) and User Interface (UI) design — with a specific focus on multilingual, multicultural design for under-resourced and digitally disadvantaged languages worldwide.
+KBIUX-3	To learn more, please fill out this short survey:	To learn more, please fill out this short survey:
+Local Organization Form-1	Survey Form	Survey Form
+Local Organization Form-2	What is your email address?	What is your email address?
+Local Organization Form-3	What is your full name?	What is your full name?
+Local Organization Form-4	Which language do you wish to contribute data for?	Which language do you wish to contribute data for?
+Local Organization Form-5	What is your background with this language? Is your relationship with this language social, academic, and/or professional? Please share as much information as you can.	What is your background with this language? Is your relationship with this language social, academic, and/or professional? Please share as much information as you can.
+Local Organization Form-6	What organizations are you part of, and what is this organization's relationship with the language? For example, you could be part of an academic institution, a non-profit organization that focuses on this language, a government ministry focused on language, or a company that uses this language in its work.	What organizations are you part of, and what is this organization's relationship with the language? For example, you could be part of an academic institution, a non-profit organization that focuses on this language, a government ministry focused on language, or a company that uses this language in its work.
+Survey Tool	Translations in the Unicode Common Locale Data Repository are collected and managed through an online platform called the Survey Tool. This tool lets people view language data, suggest new translations or corrections, see what others have submitted, and discuss differences to reach agreement. During each submission period, contributors—including members of the Unicode Consortium, organizations, and the general public—are invited to review data for their languages and regions and propose updates. These updates can range from small wording changes to adding support for languages that are entirely new to the repository. Instead of a small group deciding everything in private, the tool lets many contributors discuss and vote, so the data reflects real language use. After several review stages, the approved information becomes part of the CLDR database, which is used by millions of phones, websites, and apps worldwide.	Translations in the Unicode Common Locale Data Repository are collected and managed through an online platform called the Survey Tool. This tool lets people view language data, suggest new translations or corrections, see what others have submitted, and discuss differences to reach agreement. During each submission period, contributors—including members of the Unicode Consortium, organizations, and the general public—are invited to review data for their languages and regions and propose updates. These updates can range from small wording changes to adding support for languages that are entirely new to the repository. Instead of a small group deciding everything in private, the tool lets many contributors discuss and vote, so the data reflects real language use. After several review stages, the approved information becomes part of the CLDR database, which is used by millions of phones, websites, and apps worldwide.
+MokBlok-1	MokBlok helps people check whether their translations make sense when used in real apps. Language data often looks correct in a list but causes problems when displayed in calendars, menus, or interfaces.	MokBlok helps people check whether their translations make sense when used in real apps. Language data often looks correct in a list but causes problems when displayed in calendars, menus, or interfaces.
+MokBlok-2	MokBlok takes translation data and automatically places it into realistic app screens, such as calendars or health apps. Contributors can see exactly how their language appears and quickly spot mistakes or awkward phrasing.	MokBlok takes translation data and automatically places it into realistic app screens, such as calendars or health apps. Contributors can see exactly how their language appears and quickly spot mistakes or awkward phrasing.
+MokBlok-3	MokBlok also provides examples of how other languages are used in digital interfaces. This is especially helpful for designers working with languages that are rarely supported and lack design references.	MokBlok also provides examples of how other languages are used in digital interfaces. This is especially helpful for designers working with languages that are rarely supported and lack design references.
+MokBlok-4	MokBlok makes it easier to review language data visually, instead of relying only on tables or text lists.	MokBlok makes it easier to review language data visually, instead of relying only on tables or text lists.
+Practitioners Program Call-1	SILICON Practitioners Program – Call for Proposals	SILICON Practitioners Program – Call for Proposals
+Practitioners Program Call-2	The SILICON Practitioners Program supports practitioners working to expand the digital presence of underrepresented languages. This program provides small grants to individuals with concrete, impact-driven projects that advance language inclusion across digital systems. Practitioners are supported by SILICON, a Stanford-based initiative focused on building durable, community-centered language infrastructure.	The SILICON Practitioners Program supports practitioners working to expand the digital presence of underrepresented languages. This program provides small grants to individuals with concrete, impact-driven projects that advance language inclusion across digital systems. Practitioners are supported by SILICON, a Stanford-based initiative focused on building durable, community-centered language infrastructure.
+Practitioners Program Call-3	The program is designed for people who are already doing the work or are ready to begin. Whether you are launching a new project, unblocking stalled progress, or bringing an existing effort to completion, the Practitioners Program offers funding, visibility, and institutional support to help move your work forward.	The program is designed for people who are already doing the work or are ready to begin. Whether you are launching a new project, unblocking stalled progress, or bringing an existing effort to completion, the Practitioners Program offers funding, visibility, and institutional support to help move your work forward.
+Practitioners Program Call-4	SILICON invites applications from a wide range of practitioners, including keyboard and app designers, linguistics, type designers, language ethnographers, OCR and machine learning specialists, large language model researchers, and others working at the intersection of language, design, and technology. Projects may focus on one or more living or historic Digitally Disadvantaged Languages and should demonstrate clear goals, measurable progress, and real-world applicability.	SILICON invites applications from a wide range of practitioners, including keyboard and app designers, linguistics, type designers, language ethnographers, OCR and machine learning specialists, large language model researchers, and others working at the intersection of language, design, and technology. Projects may focus on one or more living or historic Digitally Disadvantaged Languages and should demonstrate clear goals, measurable progress, and real-world applicability.
+Practitioners Program Call-1	Visit this website to learn more and to apply.	Visit this website to learn more and to apply.
+KBI-1	Did you know that English has over 1,000,000 fonts? (It's not just Helvetica!) Do you want to design a font for your language? The Donald Knuth & Charles Bigelow Type Design Incubator (KBI), run by SILICON at Stanford University, supports designers working with underrepresented and endangered writing systems.	Did you know that English has over 1,000,000 fonts? (It's not just Helvetica!) Do you want to design a font for your language? The Donald Knuth & Charles Bigelow Type Design Incubator (KBI), run by SILICON at Stanford University, supports designers working with underrepresented and endangered writing systems.
+KBI-2	"KBI is an entirely free program, where participants study with world-leading experts to start developing a font for their language. Participants receive expert instruction, structured workshops, and access to professional design software. The program is created for designers who may not have access to formal type design education or established industry networks. 
+Applicants must be 18 years of age, or older, and all countries are welcome to apply. "	"KBI is an entirely free program, where participants study with world-leading experts to start developing a font for their language. Participants receive expert instruction, structured workshops, and access to professional design software. The program is created for designers who may not have access to formal type design education or established industry networks. 
+Applicants must be 18 years of age, or older, and all countries are welcome to apply. "
+KBI-3	Visit this website to learn more and to apply.	Visit this website to learn more and to apply.
+LexRay-1	LexRay is a tool designed by SILICON (Stanford University) to make it easier to contribute language data to the Common Locale Data Repository (CLDR), the open database maintained by the Not-For-Profit global organization, Unicode.	LexRay is a tool designed by SILICON (Stanford University) to make it easier to contribute language data to the Common Locale Data Repository (CLDR), the open database maintained by the Not-For-Profit global organization, Unicode.
+LexRay-2	When a phone in the United States shows a date like “November 12,” this is all thanks to CLDR data, which is the only way that computers and phones know how that date should appear in different languages and regions. In Spanish, for example, the same date becomes “12 de noviembre.” Different word order, different structure, same meaning. CLDR encodes these patterns so operating systems, apps, and websites can localize content correctly worldwide.	When a phone in the United States shows a date like “November 12,” this is all thanks to CLDR data, which is the only way that computers and phones know how that date should appear in different languages and regions. In Spanish, for example, the same date becomes “12 de noviembre.” Different word order, different structure, same meaning. CLDR encodes these patterns so operating systems, apps, and websites can localize content correctly worldwide.
+LexRay-3	Out of roughly 7,000 human languages, the vast majority are not included in the CLDR database. Adding a language to the CLDR is therefore not just a technical step—it is a foundational act of empowering language communities to participate in the digital age.	Out of roughly 7,000 human languages, the vast majority are not included in the CLDR database. Adding a language to the CLDR is therefore not just a technical step—it is a foundational act of empowering language communities to participate in the digital age.
+LexRay-4	But working with the CLDR can be difficult, however. Beyond speaking your mother tongue, you must also understand CLDR “patterns” (such as "d 'de' MMMM" which is the pattern for "12 de noviembre" mentioned above). This technical requirement is often a major barrier.	But working with the CLDR can be difficult, however. Beyond speaking your mother tongue, you must also understand CLDR “patterns” (such as "d 'de' MMMM" which is the pattern for "12 de noviembre" mentioned above). This technical requirement is often a major barrier.
+LexRay-5	LexRay removes this obstacle. Instead of having to learn CLDR patterns, LexRay lets you work entirely in your language. You simply write in regular dates—such as “12 de noviembre”—and LexRay generates the correct CLDR pattern automatically.	LexRay removes this obstacle. Instead of having to learn CLDR patterns, LexRay lets you work entirely in your language. You simply write in regular dates—such as “12 de noviembre”—and LexRay generates the correct CLDR pattern automatically.
+Tom Bio	Tom Mullaney is Director of SILICON. He is Professor of Chinese History at Stanford University and Director of Stanford's Science, Technology and Society Program. He is a Guggenheim Fellow and the recipient of Stanford’s highest award for excellence in teaching, the Gores Award. His books include How We Disappear: A Personal History of Information (W.W. Norton, Forthcoming 2026), The Chinese Computer: A Global History of the Information Age (MIT Press 2024), Where Research Begins (University of Chicago Press, 2022, with Christopher Rea), The Chinese Typewriter: A History (MIT Press 2017), and Coming to Terms with the Nation: Ethnic Classification in Modern China (UC Press, 2010), among other works. His writings have appeared in Fast Company, MIT Technology Review, Quartz, the South China Morning Post, TechCrunch, the Journal of Asian Studies, Technology & Culture, Foreign Affairs, and Foreign Policy. His work has been featured in RadioLab, The Atlantic, the BBC, and in invited lectures at OpenAI, IBM, Google, Microsoft, Adobe, and more. He earned his BA and MA from the Johns Hopkins University, and his PhD from Columbia University.	Tom Mullaney is Director of SILICON. He is Professor of Chinese History at Stanford University and Director of Stanford's Science, Technology and Society Program. He is a Guggenheim Fellow and the recipient of Stanford’s highest award for excellence in teaching, the Gores Award. His books include How We Disappear: A Personal History of Information (W.W. Norton, Forthcoming 2026), The Chinese Computer: A Global History of the Information Age (MIT Press 2024), Where Research Begins (University of Chicago Press, 2022, with Christopher Rea), The Chinese Typewriter: A History (MIT Press 2017), and Coming to Terms with the Nation: Ethnic Classification in Modern China (UC Press, 2010), among other works. His writings have appeared in Fast Company, MIT Technology Review, Quartz, the South China Morning Post, TechCrunch, the Journal of Asian Studies, Technology & Culture, Foreign Affairs, and Foreign Policy. His work has been featured in RadioLab, The Atlantic, the BBC, and in invited lectures at OpenAI, IBM, Google, Microsoft, Adobe, and more. He earned his BA and MA from the Johns Hopkins University, and his PhD from Columbia University.
+Audrey Bio	Audrey Gao is the Project Coordinator for SILICON. She holds a B.A. from Emory University in philosophy and political science. Prior to joining Stanford, Audrey managed a team of undergraduate researchers focused on West African economic development and gender equality in Benin. She has also contributed to research projects investigating propaganda in Indian national elections and the role of race and ethnicity in congressional immigration voting records. During her time at the Georgia Innocence Project, Audrey worked with legislatures to advance wrongful conviction compensation legislation and evidence storage reform. A native speaker of Mandarin Chinese, Audrey studied German while studying abroad in Wiesbaden.	Audrey Gao is the Project Coordinator for SILICON. She holds a B.A. from Emory University in philosophy and political science. Prior to joining Stanford, Audrey managed a team of undergraduate researchers focused on West African economic development and gender equality in Benin. She has also contributed to research projects investigating propaganda in Indian national elections and the role of race and ethnicity in congressional immigration voting records. During her time at the Georgia Innocence Project, Audrey worked with legislatures to advance wrongful conviction compensation legislation and evidence storage reform. A native speaker of Mandarin Chinese, Audrey studied German while studying abroad in Wiesbaden.
+Elaine Bio	Elaine Treharne is Associate Director of SILICON. She is the Senior Associate Vice Provost for Undergraduate Education and the Roberta Bowman Denning Professor of the Humanities, Professor of English, Courtesy Professor of German Studies and of Comparative Literature, and the Robert K. Packard Fellow in Undergraduate Education at Stanford University. She is a medievalist, focusing on Manuscript and Archival Studies, Early British Literary Studies, and the long History of Text Technologies. She has published thirty-eight books and some eighty articles on these areas.	Elaine Treharne is Associate Director of SILICON. She is the Senior Associate Vice Provost for Undergraduate Education and the Roberta Bowman Denning Professor of the Humanities, Professor of English, Courtesy Professor of German Studies and of Comparative Literature, and the Robert K. Packard Fellow in Undergraduate Education at Stanford University. She is a medievalist, focusing on Manuscript and Archival Studies, Early British Literary Studies, and the long History of Text Technologies. She has published thirty-eight books and some eighty articles on these areas.
+CLDR Ticket-1	How to Report a Problem or Request a Change in Unicode CLDR	How to Report a Problem or Request a Change in Unicode CLDR
+CLDR Ticket-2	If you discover a problem with how Unicode CLDR represents your language—such as incorrect names, formats, translations, or missing data—you can report it by filing a “ticket.”	If you discover a problem with how Unicode CLDR represents your language—such as incorrect names, formats, translations, or missing data—you can report it by filing a “ticket.”
+CLDR Ticket-3	What does “ticket” mean?	What does “ticket” mean?
+CLDR Ticket-4	A ticket is simply a formal request or report.	A ticket is simply a formal request or report.
+CLDR Ticket-5	"It is a way to:
+
+- report a problem or error
+
+- ask a question
+
+- request a correction or improvement"	"It is a way to:
+
+- report a problem or error
+
+- ask a question
+
+- request a correction or improvement"
+CLDR Ticket-6	Think of a ticket as submitting a written issue that the Unicode CLDR team can track, discuss, and respond to.	Think of a ticket as submitting a written issue that the Unicode CLDR team can track, discuss, and respond to.
+CLDR Ticket-7	"Where to File a Ticket
+
+All CLDR tickets are filed on Unicode’s issue-tracking website (called Jira):
+
+https://unicode-org.atlassian.net/projects/CLDR/"	"Where to File a Ticket
+
+All CLDR tickets are filed on Unicode’s issue-tracking website (called Jira):
+
+https://unicode-org.atlassian.net/projects/CLDR/"
+CLDR Ticket-8	"How to File a Ticket (Step by Step)
+
+Log in to Jira
+
+You must have a Jira account to file a ticket.
+
+If you do not already have one, you can request a Jira account from the site.
+
+Click “Create”
+
+Once logged in, click the red “Create” button at the top of the page.
+
+This opens a form for submitting your ticket.
+
+Describe the problem or request
+
+Clearly explain what is wrong or what needs to be changed in CLDR.
+
+Include examples if possible (for example, how something should appear in your language).
+
+Choose a component"	"How to File a Ticket (Step by Step)
+
+Log in to Jira
+
+You must have a Jira account to file a ticket.
+
+If you do not already have one, you can request a Jira account from the site.
+
+Click “Create”
+
+Once logged in, click the red “Create” button at the top of the page.
+
+This opens a form for submitting your ticket.
+
+Describe the problem or request
+
+Clearly explain what is wrong or what needs to be changed in CLDR.
+
+Include examples if possible (for example, how something should appear in your language).
+
+Choose a component"
+CLDR Ticket-9	"You will be asked to assign a component (the part of CLDR your issue relates to).
+
+If you are unsure which one to choose, simply select “unknown.” This is acceptable.
+
+Submit the ticket
+
+After filling out the form, submit it."	"You will be asked to assign a component (the part of CLDR your issue relates to).
+
+If you are unsure which one to choose, simply select “unknown.” This is acceptable.
+
+Submit the ticket
+
+After filling out the form, submit it."
+CLDR Ticket-10	Your ticket will now be visible to the CLDR team and other contributors.	Your ticket will now be visible to the CLDR team and other contributors.
+CLDR Ticket-11	Once submitted, your ticket becomes part of the official CLDR review process, where it can be discussed, clarified, and—if appropriate—used to improve how your language is handled in Unicode CLDR.	Once submitted, your ticket becomes part of the official CLDR review process, where it can be discussed, clarified, and—if appropriate—used to improve how your language is handled in Unicode CLDR.

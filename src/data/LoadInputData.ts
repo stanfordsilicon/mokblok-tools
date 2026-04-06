@@ -2,7 +2,19 @@ import { SubmissionField, type RowData } from './DataTypes';
 
 export async function loadInputText(filePath: string): Promise<string | void> {
   return await fetch(filePath)
-    .then((res) => res.text())
+    .then((res) => {
+      const contentType = res.headers.get('content-type');
+      if (contentType === 'text/html') {
+        // the files should never be html
+        console.error('File not found:', filePath);
+        return;
+      }
+      if (!res.ok) {
+        console.error('Failed to load TSV file:', res.statusText);
+        return;
+      }
+      return res.text();
+    })
     .catch((err) => console.error('Error loading TSV:', err));
 }
 
