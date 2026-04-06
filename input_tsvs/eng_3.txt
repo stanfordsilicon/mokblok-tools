@@ -1,0 +1,97 @@
+Welcome to “Emoji for Everyone,” a global project launched by SILICON to translate emoji into every language in the world! 
+
+🧠 How to Translate an Emoji
+
+
+Imagine you're texting a friend and type “dog” to find the 🐶 emoji. Easy, right? But what if your keyboard is in French, Italian, or Chinese? You’d type “chien,” “cane,” or “狗”—but you’d still expect the same dog face to appear.
+
+
+That’s where emoji translation comes in. It's not just about translating words—it's about helping people find emojis that match their language, culture, and way of thinking.
+
+
+🏷 Step One: Short Names
+
+Each emoji has a short name. It’s a simple label like:
+🐶 = “dog face”
+🍕 = “slice of pizza”
+🍞 = “bread”
+These names aren’t supposed to be creative or funny. They’re meant to help users find emojis by typing common, expected words.
+
+When translating a name like “dog face,” don’t rely on automatic translation. Ask: “What would someone in my language type to find this emoji?”
+
+
+✍️ How to Write Good Short Names
+Short names are the main search terms for emoji. They should be clear and easy to recognize. Here's how:
+
+✅ Make Each Name Unique
+Every emoji must have its own name. You can’t give the same name to two different emojis (like 🐅 and 🐆 both being “big cat”).
+
+✂️ Keep It Short
+Short names should be quick to read and speak. Use “birthday cake,” not “a cake with candles and frosting.”
+
+👁 Describe What You See
+Use names that describe what the emoji shows. 🍔 should be “hamburger,” not “fast food sandwich.”
+
+🔁 Be Consistent
+If 📫 is “mailbox,” 📬 shouldn’t be “post box.” Stick with one naming style.
+
+🌍 Use Natural Language
+Don’t just copy English. Use words people in your language actually say. If no local term exists, borrowing English is okay—if it’s common.
+
+🛠 Don’t Worry About Perfection
+Names can be improved in the future. Just make the best choice for now.
+
+
+🔍 Step Two: Keywords
+
+Short names aren’t enough. Think of 🍞 again. Some users might search “toast” or “bakery.” That’s why we also use keywords—extra words people might type to find the emoji.
+
+Keywords help connect emojis to real-world search behavior. And every language needs its own set.
+🔑 How to Choose the Right Keywords
+
+1. Keywords Can Be Shared
+Unlike short names, many emojis can share the same keyword. “Mailbox” might be a keyword for 📫, 📪, 📬, and 📭.
+
+2. They Don’t Have to Be Short
+“Raincoat” is fine. Just avoid long phrases like “jacket for use in wet weather.”
+
+3. Choose Only What’s Needed
+Use around 3–5 good keywords. Avoid:
+Grammar variants: just use “walking,” not “walks” too
+Repeats from other emoji forms
+The emoji name itself
+Long phrases or duplicates like “umbrella” and “umbrella with rain drops”
+
+4. Use Natural, Common Words
+Use what people would actually type to search for the emoji. Don’t translate English literally.
+
+5. Avoid Harmful or Confusing Terms
+Never include keywords that could offend. Avoid:
+Linking religion with words like “superstition”
+Adding national identities to fantasy emojis (like 👺)
+Using emotional or judgmental words like “faith” or “holy”
+Stick to what the emoji shows: “cross,” “mosque,” “prayer beads.”
+
+6. It’s Okay to Be “Technically Wrong”
+If someone types “plant” to find 🍄, that’s okay—even if mushrooms aren’t plants. Your goal is to help them find the emoji, not to teach biology.
+
+📌 Summary
+
+To translate emoji effectively:
+
+Short Names Should Be:
+Unique for each emoji
+Short and easy to say
+Based on what the image shows
+Consistent with similar emoji
+Written in your language’s natural style
+Keywords Should Be:
+Useful and easy to search
+Around 3–5 per emoji
+Simple, natural, and not repetitive
+Culturally appropriate and sensitive
+You’re not just translating words—you’re helping your language community connect, communicate, and be seen.
+
+By choosing the right short names and keywords, you make emoji easier for everyone to use. 🌍💬📱
+Ready to get started? Go to silicon.stanford.edu and begin! 
+
