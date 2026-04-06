@@ -1,6 +1,6 @@
 import React from 'react';
 
-import type { Doc } from '@data/Doc';
+import { getDocFileType, type Doc } from '@data/Doc';
 
 import { type UseStoredParamsReturn } from '@settings/useStoredParams';
 
@@ -22,7 +22,7 @@ const InputTextArea: React.FC<Props> = ({ doc, texts }) => {
         tabSize: 16,
         whiteSpace: 'nowrap',
       }}
-      placeholder="Paste TSV data here..."
+      placeholder={`Paste ${getDocFileType(doc).toUpperCase()} data here...`}
       value={inputText}
       onChange={(e) => setInputText(e.target.value)}
     />

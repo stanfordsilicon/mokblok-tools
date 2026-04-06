@@ -6,6 +6,7 @@ import { loadInputText, parseInputTSV } from '@data/LoadInputData';
 
 import { useSettings } from '@settings/Settings';
 
+import InputCheck from './check/InputCheck';
 import InputDocSelector from './InputDocSelector';
 import InputLanguageSelector, { LoadableLanguage } from './InputLanguageSelector';
 import InputTextArea from './InputTextArea';
@@ -15,7 +16,7 @@ const InputBody = () => {
   const { setRows, setExtraText } = useDataContext();
   const { targetLanguage } = useSettings();
   const texts = useDocTextBlobs();
-  const [inputDoc, setInputDoc] = useState<Doc>(Doc.Doc1);
+  const [currentDoc, setCurrentDoc] = useState<Doc>(Doc.Doc1);
 
   const loadLanguageData = (lang: string) => {
     // Reload all docs
@@ -48,16 +49,17 @@ const InputBody = () => {
     setRows(parseInputTSV(texts[Doc.Doc1].value));
   }, [texts[Doc.Doc1].value, setRows]);
   useEffect(() => {
-    setExtraText(texts[Doc.Doc3].value);
-  }, [texts[Doc.Doc3].value, setExtraText]);
+    setExtraText(texts[Doc.Doc3].value + texts[Doc.Doc4].value);
+  }, [texts[Doc.Doc3].value, texts[Doc.Doc4].value, setExtraText]);
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '.5em' }}>
       <h3 style={{ margin: 0 }}>Language</h3>
       <InputLanguageSelector onClickLanguage={loadLanguageData} clearInputText={clearInputText} />
       <h3 style={{ margin: 0 }}>Input Files</h3>
-      <InputDocSelector curDoc={inputDoc} setDoc={(doc) => setInputDoc(doc)} texts={texts} />
-      <InputTextArea doc={inputDoc} texts={texts} />
+      <InputDocSelector curDoc={currentDoc} setDoc={(doc) => setCurrentDoc(doc)} texts={texts} />
+      <InputTextArea doc={currentDoc} texts={texts} />
+      <InputCheck doc={currentDoc} texts={texts} />
     </div>
   );
 };
