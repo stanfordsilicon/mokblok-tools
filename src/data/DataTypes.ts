@@ -1,3 +1,19 @@
+export type DataField = {
+  subject: string;
+  field: string;
+  instance: string;
+  length: string;
+  variant: string;
+  exampleNum: string;
+  xpath: string;
+  ext_id: string;
+  english: string;
+  englishPattern: string;
+  french: string;
+  level: string;
+  index: number;
+};
+
 export enum SubmissionField {
   English = 'english',
   French = 'french',

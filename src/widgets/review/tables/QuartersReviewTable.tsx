@@ -1,13 +1,20 @@
 import { useDataContext } from '@data/DataContext';
-import { FormatLength, SentenceContext } from '@data/DataTypes';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
-import { getSourceLanguageData } from '../getSourceLanguageData';
-import HighlightInput from '../HighlightInput';
+import { matrixBy } from '@shared/setUtils';
+
+import InputDataCell from '../InputDataCell';
+import SourceDataCell from '../SourceDataCell';
 
 function QuartersReviewTable() {
-  const { quarters } = useDataContext().data;
+  const { findDataFields } = useDataContext();
+  const quarterFields = findDataFields({ field: 'q' }).filter((f) => f.instance !== '');
+  const quarterMatrix = matrixBy(
+    quarterFields,
+    (f) => f.variant + '-' + f.instance,
+    (f) => f.length,
+  );
 
   return (
     <table>
@@ -26,46 +33,18 @@ function QuartersReviewTable() {
         </tr>
       </thead>
       <tbody>
-        {quarters &&
-          Object.values(SentenceContext).flatMap((context) =>
-            quarters[context]?.flatMap((quarter, quarterIndex) => (
-              <tr key={`${context}-${quarterIndex}`}>
-                <td>{getSourceLanguageData(quarter[FormatLength.Wide])}</td>
-                <td>{getSourceLanguageData(quarter[FormatLength.Abbreviated])}</td>
-                <InputCell
-                  context={context}
-                  quarterIndex={quarterIndex}
-                  format={FormatLength.Wide}
-                />
-                <InputCell
-                  context={context}
-                  quarterIndex={quarterIndex}
-                  format={FormatLength.Abbreviated}
-                />
-              </tr>
-            )),
-          )}
+        {Object.entries(quarterMatrix)
+          .sort((a, b) => a[0].localeCompare(b[0]))
+          .map(([length, row]) => (
+            <tr key={length}>
+              <SourceDataCell data={row['w']} />
+              <SourceDataCell data={row['a']} />
+              <InputDataCell data={row['w']} />
+              <InputDataCell data={row['a']} />
+            </tr>
+          ))}
       </tbody>
     </table>
-  );
-}
-
-type InputCellProps = { context: SentenceContext; quarterIndex: number; format: FormatLength };
-function InputCell({ context, quarterIndex, format }: InputCellProps) {
-  const {
-    data: { quarters },
-    set,
-  } = useDataContext();
-  return (
-    <td>
-      <HighlightInput
-        highlight={/\d+/g}
-        value={quarters?.[context]?.[quarterIndex]?.[format]?.translated || ''}
-        onChange={(value) => set.quarters(context, quarterIndex, format, value)}
-        style={{ width: format === FormatLength.Wide ? '15em' : '10em' }}
-        disabled={!quarters?.[context]?.[quarterIndex]?.[format]} // Disable if this quarter/format doesn't exist
-      />
-    </td>
   );
 }
 

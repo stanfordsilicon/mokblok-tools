@@ -1,0 +1,331 @@
+Subject	Field	Instance	Length	Context	Example#	XPath	ExtID	English	English (pattern)	French	Level
+dates	a	afternoon1		s	0	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="stand-alone"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="afternoon1"]	dw2-8_XXX	afternoon	afternoon	après-midi	Moderate
+dates	a	afternoon1		f	0	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="afternoon1"]	dw2-9_XXX	in the afternoon	in the afternoon	de l’après-midi	Moderate
+dates	a	afternoon1		f	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="afternoon1"]	dw2-10_XXX	1 in the afternoon	in the afternoon	1 de l’après-midi	Moderate
+dates	a	am		s	0	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="stand-alone"]/dayPeriodWidth[@type="abbreviated"]/dayPeriod[@type="am"]	dw2-1_XXX	AM	AM	AM	Moderate
+dates	a	am		f	0	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="narrow"]/dayPeriod[@type="am"]	dw2-2_XXX	a	a	AM	Moderate
+dates	a	evening1		s	0	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="stand-alone"]/dayPeriodWidth[@type="narrow"]/dayPeriod[@type="evening1"]	dw2-11_XXX	evening	evening	soir	Moderate
+dates	a	evening1		f	0	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="evening1"]	dw2-12_XXX	in the evening	in the evening	du soir	Moderate
+dates	a	evening1		f	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="evening1"]	dw2-13_XXX	9 in the evening	in the evening	9 du soir	Moderate
+dates	a	midnight		f	0	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="midnight"]	dw2-16_XXX	midnight	midnight	minuit	Moderate
+dates	a	morning1		s	0	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="stand-alone"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="morning1"]	dw2-5_XXX	morning	morning	matin	Moderate
+dates	a	morning1		f	0	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="morning1"]	dw2-6_XXX	in the morning	in the morning	du matin	Moderate
+dates	a	morning1		f	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="morning1"]	dw2-7_XXX	7 in the morning	in the morning	7 du matin	Moderate
+dates	a	night1		s	0	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="stand-alone"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="night1"]	dw2-14_XXX	night	night	nuit	Moderate
+dates	a	night1		f	0	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="night1"]	dw2-15_XXX	at night	at night	à la nuit	Moderate
+dates	a	pm		s	0	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="stand-alone"]/dayPeriodWidth[@type="abbreviated"]/dayPeriod[@type="pm"]	dw2-3_XXX	PM	PM	PM	Moderate
+dates	a	pm		f	0	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="narrow"]/dayPeriod[@type="pm"]	dw2-4_XXX	p	p	PM	Moderate
+dates	availableFormats	Ehm			1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Ehm"]	dc-31_XXX	Tue 3:30 PM	E h:mm a	Tue 3:30 PM	Moderate
+dates	availableFormats	EHm			1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="EHm"]	dc-33_XXX	Tue 15:30	E HH:mm	Tue 15:30	Moderate
+dates	availableFormats	Ehms			1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Ehms"]	dc-32_XXX	Tue 3:30:45 PM	E h:mm:ss a	Tue 3:30:45 PM	Moderate
+dates	availableFormats	EHms			1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="EHms"]	dc-34_XXX	Tue 15:30:45	E HH:mm:ss	Tue 15:30:45	Moderate
+dates	availableFormats	Gy			1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Gy"]	dc-87_XXX	2024 AD	y G	2024 AD	Moderate
+dates	availableFormats	GyMMM			1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="GyMMM"]	dc-82_XXX	Apr 2024 AD	MMM y G	Apr 2024 AD	Moderate
+dates	availableFormats	GyMMMd			1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="GyMMMd"]	dc-78_XXX	Apr 23, 2024 AD	MMM d, y G		Moderate
+dates	availableFormats	GyMMMEd			1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="GyMMMEd"]	dc-51_XXX	Tue, Apr 23, 2024 AD	E, MMM d, y G		Moderate
+dates	availableFormats	hm			1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="hm"]	hr-1_XXX	3:00 PM	h:mm a	3:00 PM	Basic
+dates	availableFormats	Hm			1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Hm"]	hr-2_XXX	10:48	HH:mm	10:48	Basic
+dates	availableFormats	Hm			2	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Hm"]	hr-3_XXX	16:12	HH:mm	16:12	Basic
+dates	availableFormats	hm			2	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="hm"]	hr-4_XXX	9:41 AM	h:mm a	9:41 AM	Basic
+dates	availableFormats	Hms			1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Hms"]	hr-5_XXX	16:14:24	HH:mm:ss	16:14:24	Basic
+dates	availableFormats	Hms			2	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Hms"]	hr-6_XXX	8:04:41	HH:mm:ss	8:04:41	Basic
+dates	availableFormats	hmv			1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="hmv"]	hr-7_XXX	11:30 PM GMT	h:mm a v	11:30 PM GMT	Moderate
+dates	availableFormats	M			1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="M"]	dc-58_XXX	April	L	April	Moderate
+dates	availableFormats	M			2	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="M"]	dc-59_XXX	April	L	April	Moderate
+dates	availableFormats	Md			1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Md"]	dc-62_XXX	4/23	M/d		Moderate
+dates	availableFormats	MEd			1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="MEd"]	dc-41_XXX	Thu, 4/23	E, M/d		Moderate
+dates	availableFormats	MMMd			1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="MMMd"]	dc-90_XXX	Apr 23	MMM d		Moderate
+dates	availableFormats	MMMEd			1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="MMMEd"]	dc-93_XXX	Wed, Apr 23	E, MMM d		Moderate
+dates	availableFormats	MMMMd			1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="MMMMd"]	dc-96_XXX	April 23	MMMM d		Moderate
+dates	availableFormats	MMMMW			1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="MMMMW"][@count="other"]	dc-97_XXX	week 4 of April	week' W 'of' MMMM		Moderate
+dates	availableFormats	y			1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="y"]	dc-10_XXX	2024	y	2024	Moderate
+dates	availableFormats	yM			1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yM"]	dc-6_XXX	4/2024	M/y	04/2024	Moderate
+dates	availableFormats	yMd			1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yMd"]	dc-9_XXX	4/23/2024	M/d/y		Basic
+dates	availableFormats	yMd			2	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yMd"]	dc-68_XXX	4/23/2024	M/d/y		Basic
+dates	availableFormats	yMM			1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yMM"]	dc-5_XXX	04/2024		04/2024	
+dates	availableFormats	yMMM			1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yMMM"]	dc-4_XXX	Apr 2024	MMM y	Apr 2024	Moderate
+dates	availableFormats	yMMMd			1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yMMMd"]	dc-8_XXX	Apr 23, 2024	MMM d, y		Basic
+dates	availableFormats	yMMMEd			1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yMMMEd"]	dc-7_XXX	Tue, Apr 23, 2024	E, MMM d, y		Moderate
+dates	availableFormats	yMMMM			1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yMMMM"]	dc-3_XXX	April 2024	MMMM y	April 2024	Moderate
+dates	availableFormats	yw		other	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yw"][@count="other"]	dc-1_XXX	week 17 of 2024	week' w 'of' Y		Moderate
+dates	availableFormats	yw		one	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yw"][@count="one"]	dc-2_XXX	week 1 of 2024	week' w 'of' Y		Moderate
+dates	d		w		0	//ldml/dates/fields/field[@type="day"]/displayName	dw-14_XXX	day	day	jour	Moderate
+dates	d		s		0	//ldml/dates/fields/field[@type="day-short"]/displayName	dw-15_XXX	day	day	j	Moderate
+dates	d	-1			0	//ldml/dates/fields/field[@type="day"]/relative[@type="-1"]	rt-3_XXX	yesterday	yesterday	hier	Moderate
+dates	d	0			0	//ldml/dates/fields/field[@type="day"]/relative[@type="0"]	rt-7_XXX	today	today	aujourd’hui	Moderate
+dates	d	1			0	//ldml/dates/fields/field[@type="day"]/relative[@type="1"]	rt-9_XXX	tomorrow	tomorrow	demain	Moderate
+dates	dateFormats		full		1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateFormats/dateFormatLength[@type="full"]/dateFormat[@type="standard"]/pattern[@type="standard"]	dc-53_XXX	Tuesday, April 23, 2024	EEEE, MMMM d, y		Moderate
+dates	dateFormats		full		2	//ldml/dates/calendars/calendar[@type="gregorian"]/dateFormats/dateFormatLength[@type="full"]/dateFormat[@type="standard"]/pattern[@type="standard"]	dc-54_XXX	Tuesday, April 23, 2024	EEEE, MMMM d, y		Moderate
+dates	dateFormats		medium		1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateFormats/dateFormatLength[@type="medium"]/dateFormat[@type="standard"]/pattern[@type="standard"]	dc-76_XXX	Apr 23, 2024	MMM d, y		Moderate
+dates	dateFormats		medium		2	//ldml/dates/calendars/calendar[@type="gregorian"]/dateFormats/dateFormatLength[@type="medium"]/dateFormat[@type="standard"]/pattern[@type="standard"]	dc-79_XXX	Apr 23, 2024	MMM d, y		Moderate
+dates	dateFormats		long		1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateFormats/dateFormatLength[@type="long"]/dateFormat[@type="standard"]/pattern[@type="standard"]	dc-84_XXX	April 23, 2024	MMMM d, y		Moderate
+dates	dateFormats		long		2	//ldml/dates/calendars/calendar[@type="gregorian"]/dateFormats/dateFormatLength[@type="long"]/dateFormat[@type="standard"]/pattern[@type="standard"]	dc-85_XXX	April 23, 2024	MMMM d, y		Moderate
+dates	dateFormats		short		1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateFormats/dateFormatLength[@type="short"]/dateFormat[@type="standard"]/pattern[@type="standard"]	dc-98_XXX	4/23/24	M/d/yy		Moderate
+dates	dateTimeFormats		full	atTime	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/dateTimeFormatLength[@type="full"]/dateTimeFormat[@type="atTime"]/pattern[@type="standard"]	dc-35_XXX	Tuesday at 3:30:45 PM	{1} 'at' {0}		Moderate
+dates	dateTimeFormats		long	atTime	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/dateTimeFormatLength[@type="long"]/dateTimeFormat[@type="atTime"]/pattern[@type="standard"]	dc-36_XXX	Tuesday at 3:30:45 PM	{1} 'at' {0}		Moderate
+dates	dateTimeFormats		full	standard	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/dateTimeFormatLength[@type="full"]/dateTimeFormat[@type="standard"]/pattern[@type="standard"]	dc-37_XXX	Tuesday, April 23, 2024 at 3:30:45 PM	{1}, {0}	Tuesday, April 23, 2024 at 3:30:45 PM	Moderate
+dates	dateTimeFormats		long	standard	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/dateTimeFormatLength[@type="long"]/dateTimeFormat[@type="standard"]/pattern[@type="standard"]	dc-38_XXX	April 23, 2024 at 3:30:45 PM	{1}, {0}	April 23, 2024 at 3:30:45 PM	Moderate
+dates	dateTimeFormats		medium	standard	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/dateTimeFormatLength[@type="medium"]/dateTimeFormat[@type="standard"]/pattern[@type="standard"]	dc-39_XXX	Apr 23, 2024 at 3:30 PM	{1}, {0}	Apr 23, 2024 at 3:30 PM	Moderate
+dates	dateTimeFormats		medium	atTime	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/dateTimeFormatLength[@type="medium"]/dateTimeFormat[@type="atTime"]/pattern[@type="standard"]	dc-40_XXX	Apr 23 at 3:30 PM	{1}, {0}	Apr 23 at 3:30 PM	Moderate
+dates	E		w		0	//ldml/dates/fields/field[@type="weekday"]/displayName	dw-23_XXX	day of the week	day of the week	jour de la semaine	Moderate
+dates	E	fri	w		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="format"]/dayWidth[@type="wide"]/day[@type="fri"]	wk-6_XXX	Friday	Friday	vendredi	Basic
+dates	E	fri	a		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="abbreviated"]/day[@type="fri"]	wk-13_XXX	Fri	Fri	ven.	Moderate
+dates	E	fri	s		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="short"]/day[@type="fri"]	wk-20_XXX	Fr	Fr	ve	Moderate
+dates	E	fri	n		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="narrow"]/day[@type="fri"]	wk-27_XXX	F	F	V	Moderate
+dates	E	mon	w		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="format"]/dayWidth[@type="wide"]/day[@type="mon"]	wk-2_XXX	Monday	Monday	lundi	Basic
+dates	E	mon	a		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="abbreviated"]/day[@type="mon"]	wk-9_XXX	Mon	Mon	lun.	Moderate
+dates	E	mon	s		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="short"]/day[@type="mon"]	wk-16_XXX	Mo	Mo	lu	Moderate
+dates	E	mon	n		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="narrow"]/day[@type="mon"]	wk-23_XXX	M	M	L	Moderate
+dates	E	sat	w		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="format"]/dayWidth[@type="wide"]/day[@type="sat"]	wk-7_XXX	Saturday	Saturday	samedi	Basic
+dates	E	sat	a		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="abbreviated"]/day[@type="sat"]	wk-14_XXX	Sat	Sat	sam.	Moderate
+dates	E	sat	s		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="short"]/day[@type="sat"]	wk-21_XXX	Sa	Sa	sa	Moderate
+dates	E	sat	n		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="narrow"]/day[@type="sat"]	wk-28_XXX	S	S	S	Moderate
+dates	E	sun	w		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="format"]/dayWidth[@type="wide"]/day[@type="sun"]	wk-1_XXX	Sunday	Sunday	dimanche	Basic
+dates	E	sun	a		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="abbreviated"]/day[@type="sun"]	wk-8_XXX	Sun	Sun	dim.	Moderate
+dates	E	sun	s		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="short"]/day[@type="sun"]	wk-15_XXX	Su	Su	di	Moderate
+dates	E	sun	n		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="narrow"]/day[@type="sun"]	wk-22_XXX	S	S	D	Moderate
+dates	E	thu	w		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="format"]/dayWidth[@type="wide"]/day[@type="thu"]	wk-5_XXX	Thursday	Thursday	jeudi	Basic
+dates	E	thu	a		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="abbreviated"]/day[@type="thu"]	wk-12_XXX	Thu	Thu	jeu.	Moderate
+dates	E	thu	s		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="short"]/day[@type="thu"]	wk-19_XXX	Th	Th	je	Moderate
+dates	E	thu	n		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="narrow"]/day[@type="thu"]	wk-26_XXX	T	T	J	Moderate
+dates	E	tue	w		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="format"]/dayWidth[@type="wide"]/day[@type="tue"]	wk-3_XXX	Tuesday	Tuesday	mardi	Basic
+dates	E	tue	a		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="abbreviated"]/day[@type="tue"]	wk-10_XXX	Tue	Tue	mar.	Moderate
+dates	E	tue	s		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="short"]/day[@type="tue"]	wk-17_XXX	Tu	Tu	ma	Moderate
+dates	E	tue	n		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="narrow"]/day[@type="tue"]	wk-24_XXX	T	T	M	Moderate
+dates	E	wed	w		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="format"]/dayWidth[@type="wide"]/day[@type="wed"]	wk-4_XXX	Wednesday	Wednesday	mercredi	Basic
+dates	E	wed	a		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="abbreviated"]/day[@type="wed"]	wk-11_XXX	Wed	Wed	mer.	Moderate
+dates	E	wed	s		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="short"]/day[@type="wed"]	wk-18_XXX	We	We	me	Moderate
+dates	E	wed	n		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="narrow"]/day[@type="wed"]	wk-25_XXX	W	W	M	Moderate
+dates	G		w		0	//ldml/dates/fields/field[@type="era"]/displayName	dw-1_XXX	era	era	ère	Moderate
+dates	G	0	w	variant	0	//ldml/dates/calendars/calendar[@type="gregorian"]/eras/eraNames/era[@type="0"][@alt="variant"]	er-1_XXX	Before Common Era	Before Common Era	avant l’ère commune	Moderate
+dates	G	0	a	variant	0	//ldml/dates/calendars/calendar[@type="gregorian"]/eras/eraAbbr/era[@type="0"][@alt="variant"]	er-2_XXX	BCE	BCE	AEC	Moderate
+dates	G	0	w		0	//ldml/dates/calendars/calendar[@type="gregorian"]/eras/eraNames/era[@type="0"]	er-3_XXX	Before Christ	Before Christ	avant Jésus-Christ	Moderate
+dates	G	0	a		0	//ldml/dates/calendars/calendar[@type="gregorian"]/eras/eraAbbr/era[@type="0"]	er-4_XXX	BC	BC	av. J.-C.	Moderate
+dates	G	1	w	variant	0	//ldml/dates/calendars/calendar[@type="gregorian"]/eras/eraNames/era[@type="1"][@alt="variant"]	er-5_XXX	Common Era	Common Era	de l’ère commune	Moderate
+dates	G	1	a	variant	0	//ldml/dates/calendars/calendar[@type="gregorian"]/eras/eraAbbr/era[@type="1"][@alt="variant"]	er-6_XXX	CE	CE	EC	Moderate
+dates	G	1	w		0	//ldml/dates/calendars/calendar[@type="gregorian"]/eras/eraNames/era[@type="1"]	er-7_XXX	Anno Domini	Anno Domini	après Jésus-Christ	Moderate
+dates	G	1	a		0	//ldml/dates/calendars/calendar[@type="gregorian"]/eras/eraAbbr/era[@type="1"]	er-8_XXX	AD	AD	ap. J.-C.	Moderate
+dates	h		w		0	//ldml/dates/fields/field[@type="hour"]/displayName	dw-16_XXX	hour	hour	heure	Moderate
+dates	h		n		0	//ldml/dates/fields/field[@type="hour-narrow"]/displayName	dw-17_XXX	hr	hr	h	Moderate
+dates	intervalFormats	Gy		y	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Gy"]/greatestDifference[@id="y"]	dc-86_XXX	2024 – 2027 AD	y – y G		Moderate
+dates	intervalFormats	Gy		G	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Gy"]/greatestDifference[@id="G"]	dc-88_XXX	107 BC – 2024 AD	y G – y G		Moderate
+dates	intervalFormats	GyM		M	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyM"]/greatestDifference[@id="M"]	dc-70_XXX	4/2024 – 5/2024 AD	M/y – M/y G		Moderate
+dates	intervalFormats	GyM		y	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyM"]/greatestDifference[@id="y"]	dc-71_XXX	4/2024 – 4/2027 AD	M/y – M/y G		Moderate
+dates	intervalFormats	GyM		G	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyM"]/greatestDifference[@id="G"]	dc-72_XXX	4/107 BC – 4/2024 AD	M/y G – M/y G		Moderate
+dates	intervalFormats	GyMd		G	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMd"]/greatestDifference[@id="G"]	dc-69_XXX	4/23/107 BC – 4/23/2024 AD	M/d/y G – M/d/y G	23/04/107 av. J.-C. – 23/04/2024 ap. J.-C.	Moderate
+dates	intervalFormats	GyMEd		d	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMEd"]/greatestDifference[@id="d"]	dc-44_XXX	Tue, 4/23/2024 – Wed, 4/24/2024 AD	E, M/d/y – E, M/d/y G		Moderate
+dates	intervalFormats	GyMEd		M	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMEd"]/greatestDifference[@id="M"]	dc-45_XXX	Tue, 4/23/2024 – Thu, 5/3/2024 AD	E, M/d/y – E, M/d/y G		Moderate
+dates	intervalFormats	GyMEd		y	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMEd"]/greatestDifference[@id="y"]	dc-46_XXX	Tue, 4/23/2024 – Fri, 4/23/2027 AD	E, M/d/y – E, M/d/y G		Moderate
+dates	intervalFormats	GyMEd		G	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMEd"]/greatestDifference[@id="G"]	dc-47_XXX	Tue, Apr 23, 107 BC – Tue, Apr 23, 2345  AD	E, M/d/y G – E, M/d/y G		Moderate
+dates	intervalFormats	GyMMM		y	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMM"]/greatestDifference[@id="y"]	dc-81_XXX	Apr 2024 – Apr 2027 AD	MMM y – MMM y G	Apr 2024 – Apr 2027 AD	Moderate
+dates	intervalFormats	GyMMM		G	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMM"]/greatestDifference[@id="G"]	dc-83_XXX	Apr 107 BC – Apr 2024 AD	MMM y G – MMM y G	Apr 107 BC – Apr 2024 AD	Moderate
+dates	intervalFormats	GyMMMd		y	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMMd"]/greatestDifference[@id="y"]	dc-77_XXX	Apr 23, 2024 – Apr 23, 2027 AD	MMM d, y – MMM d, y G		Moderate
+dates	intervalFormats	GyMMMd		G	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMMd"]/greatestDifference[@id="G"]	dc-80_XXX	Apr 23, 107 BC – Apr 23, 2024 AD	MMM d, y G – MMM d, y G		Moderate
+dates	intervalFormats	GyMMMEd		d	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMMEd"]/greatestDifference[@id="d"]	dc-48_XXX	Tue, Apr 23, 2024 – Wed, Apr 24, 2024 AD	E, MMM d – E, MMM d, y G		Moderate
+dates	intervalFormats	GyMMMEd		M	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMMEd"]/greatestDifference[@id="M"]	dc-49_XXX	Tue, Apr 23, 2024 – Thu, May 23, 2024 AD	E, MMM d – E, MMM d, y G		Moderate
+dates	intervalFormats	GyMMMEd		y	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMMEd"]/greatestDifference[@id="y"]	dc-50_XXX	Tue, Apr 23, 2024 – Fri, Apr 23, 2027 AD	E, MMM d, y – E, MMM d, y G		Moderate
+dates	intervalFormats	GyMMMEd		G	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyMMMEd"]/greatestDifference[@id="G"]	dc-52_XXX	Tue, Apr 23, 107 BC – Tue, Apr 23, 2345 AD	E, MMM d, y G – E, MMM d, y G		Moderate
+dates	intervalFormats	h		a	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="h"]/greatestDifference[@id="a"]	ti-1_XXX	3 PM - 4 PM	h a – h a	3 PM - 4 PM	Moderate
+dates	intervalFormats	h		h	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="h"]/greatestDifference[@id="h"]	ti-2_XXX	3 - 4 PM	h – h a	3 - 4 PM	Moderate
+dates	intervalFormats	H		H	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="H"]/greatestDifference[@id="H"]	ti-14_XXX	14–15	HH – HH	14–15	Moderate
+dates	intervalFormats	h		a	2	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="h"]/greatestDifference[@id="a"]	ti-17_XXX	10 AM – 2 PM	h a – h a	10 AM – 2 PM	Moderate
+dates	intervalFormats	h		h	2	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="h"]/greatestDifference[@id="h"]	ti-18_XXX	1–2 PM	h – h a	1–2 PM	Moderate
+dates	intervalFormats	H		H	2	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="H"]/greatestDifference[@id="H"]	ti-27_XXX	14–15	HH – HH	14–15	Moderate
+dates	intervalFormats	hm		a	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hm"]/greatestDifference[@id="a"]	ti-3_XXX	3:00 PM – 4:00 PM	h:mm a – h:mm a	3:00 PM – 4:00 PM	Moderate
+dates	intervalFormats	hm		h	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hm"]/greatestDifference[@id="h"]	ti-4_XXX	3:00–4:00 PM	h:mm – h:mm a	3:00–4:00 PM	Moderate
+dates	intervalFormats	hm		m	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hm"]/greatestDifference[@id="m"]	ti-5_XXX	3:00–3:15 PM	h:mm – h:mm a	3:00–3:15 PM	Moderate
+dates	intervalFormats	Hm		m	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Hm"]/greatestDifference[@id="m"]	ti-15_XXX	14:00–14:15	HH:mm – HH:mm	14:00–14:15	Moderate
+dates	intervalFormats	Hm		H	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Hm"]/greatestDifference[@id="H"]	ti-16_XXX	14:00–15:00	HH:mm – HH:mm	14:00–15:00	Moderate
+dates	intervalFormats	hm		a	2	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hm"]/greatestDifference[@id="a"]	ti-19_XXX	10:00 AM – 2:00 PM	h:mm a – h:mm a	10:00 AM – 2:00 PM	Moderate
+dates	intervalFormats	hm		h	2	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hm"]/greatestDifference[@id="h"]	ti-20_XXX	3:00–4:00 PM	h:mm – h:mm a	3:00–4:00 PM	Moderate
+dates	intervalFormats	hm		m	2	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hm"]/greatestDifference[@id="m"]	ti-21_XXX	3:00–3:15 PM	h:mm – h:mm a	3:00–3:15 PM	Moderate
+dates	intervalFormats	Hm		H	2	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Hm"]/greatestDifference[@id="H"]	ti-28_XXX	14:00–15:00	HH:mm – HH:mm	14:00–15:00	Moderate
+dates	intervalFormats	Hm		m	2	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Hm"]/greatestDifference[@id="m"]	ti-29_XXX	14:00–14:15	HH:mm – HH:mm	14:00–14:15	Moderate
+dates	intervalFormats	hmv		a	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hmv"]/greatestDifference[@id="a"]	ti-6_XXX	10:00 AM – 2:00 PM PT	h:mm a – h:mm a v	10:00 AM – 2:00 PM PT	Moderate
+dates	intervalFormats	hmv		h	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hmv"]/greatestDifference[@id="h"]	ti-7_XXX	1:00–2:00 PM PT	h:mm – h:mm a v	1:00–2:00 PM PT	Moderate
+dates	intervalFormats	hmv		m	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hmv"]/greatestDifference[@id="m"]	ti-8_XXX	1:00–1:15 PM PT	h:mm – h:mm a v	1:00–1:15 PM PT	Moderate
+dates	intervalFormats	Hmv		H	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Hmv"]/greatestDifference[@id="H"]	ti-11_XXX	14:00–15:00 PT	HH:mm – HH:mm v	14:00–15:00 PT	Moderate
+dates	intervalFormats	Hmv		m	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Hmv"]/greatestDifference[@id="m"]	ti-12_XXX	14:00–14:15 PT	HH:mm – HH:mm v	14:00–14:15 PT	Moderate
+dates	intervalFormats	hmv		a	2	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hmv"]/greatestDifference[@id="a"]	ti-22_XXX	10:00 AM – 2:00 PM PT	h:mm a – h:mm a v	10:00 AM – 2:00 PM PT	Moderate
+dates	intervalFormats	hmv		h	2	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hmv"]/greatestDifference[@id="h"]	ti-23_XXX	1:00–2:00 PM PT	h:mm – h:mm a v	1:00–2:00 PM PT	Moderate
+dates	intervalFormats	hmv		m	2	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hmv"]/greatestDifference[@id="m"]	ti-24_XXX	1:00–1:15 PM PT	h:mm – h:mm a v	1:00–1:15 PM PT	Moderate
+dates	intervalFormats	Hmv		H	2	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Hmv"]/greatestDifference[@id="H"]	ti-30_XXX	14:00–15:00 PT	HH:mm – HH:mm v	14:00–15:00 PT	Moderate
+dates	intervalFormats	Hmv		m	2	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Hmv"]/greatestDifference[@id="m"]	ti-31_XXX	14:00–14:15 PT	HH:mm – HH:mm v	14:00–14:15 PT	Moderate
+dates	intervalFormats	hv		a	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hv"]/greatestDifference[@id="a"]	ti-9_XXX	10 AM – 2 PM PT	h a – h a v	10 AM – 2 PM PT	Moderate
+dates	intervalFormats	hv		h	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hv"]/greatestDifference[@id="h"]	ti-10_XXX	1–2 PM PT	h – h a v	1–2 PM PT	Moderate
+dates	intervalFormats	Hv		H	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Hv"]/greatestDifference[@id="H"]	ti-13_XXX	14–15 PT	HH – HH v	14–15 PT	Moderate
+dates	intervalFormats	hv		a	2	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hv"]/greatestDifference[@id="a"]	ti-25_XXX	10 AM – 2 PM PT	h a – h a v	10 AM – 2 PM PT	Moderate
+dates	intervalFormats	hv		h	2	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hv"]/greatestDifference[@id="h"]	ti-26_XXX	1–2 PM PT	h – h a v	1–2 PM PT	Moderate
+dates	intervalFormats	Hv		H	2	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Hv"]/greatestDifference[@id="H"]	ti-32_XXX	14–15 PT	HH – HH v	14–15 PT	Moderate
+dates	intervalFormats	M		M	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="M"]/greatestDifference[@id="M"]	dc-60_XXX	April – May	M – M		Moderate
+dates	intervalFormats	M		M	2	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="M"]/greatestDifference[@id="M"]	dc-61_XXX	April – May	M – M		Moderate
+dates	intervalFormats	Md		m	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Md"]/greatestDifference[@id="m"]	dc-25_XXX	4/23 – 5/23	M/d – M/d		Moderate
+dates	intervalFormats	Md		d	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Md"]/greatestDifference[@id="d"]	dc-26_XXX	4/23 – 4/24	M/d – M/d		Moderate
+dates	intervalFormats	Md		d	2	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Md"]/greatestDifference[@id="d"]	dc-63_XXX	4/23 – 4/24	M/d – M/d		Moderate
+dates	intervalFormats	Md		M	2	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Md"]/greatestDifference[@id="M"]	dc-64_XXX	4/23 – 5/23	M/d – M/d		Moderate
+dates	intervalFormats	MEd		m	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="MEd"]/greatestDifference[@id="m"]	dc-22_XXX	Tue, 4/23 – Tue, 5/23	E, M/d – E, M/d		Moderate
+dates	intervalFormats	MEd		d	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="MEd"]/greatestDifference[@id="d"]	dc-23_XXX	Tue, 4/23 – Wed, 4/24	E, M/d – E, M/d		Moderate
+dates	intervalFormats	MEd		d	2	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="MEd"]/greatestDifference[@id="d"]	dc-42_XXX	Tue, 4/23 – Wed, 4/24	E, M/d – E, M/d		Moderate
+dates	intervalFormats	MEd		M	2	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="MEd"]/greatestDifference[@id="M"]	dc-43_XXX	Tue, 4/23 – Thu, 5/23	E, M/d – E, M/d		Moderate
+dates	intervalFormats	MMM		M	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="MMM"]/greatestDifference[@id="M"]	dc-89_XXX	Apr – May	MMM – MMM		Moderate
+dates	intervalFormats	MMMd		d	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="MMMd"]/greatestDifference[@id="d"]	dc-91_XXX	Apr 23 – 24	MMM d – d		Moderate
+dates	intervalFormats	MMMd		M	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="MMMd"]/greatestDifference[@id="M"]	dc-92_XXX	Apr 23 – May 23	MMM d – MMM d		Moderate
+dates	intervalFormats	MMMEd		d	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="MMMEd"]/greatestDifference[@id="d"]	dc-94_XXX	Tue, Apr 23 – Wed, Apr 24	E, MMM d – E, MMM d		Moderate
+dates	intervalFormats	MMMEd		M	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="MMMEd"]/greatestDifference[@id="M"]	dc-95_XXX	Tue, Apr 23 – Tue, May 23	E, MMM d – E, MMM d		Moderate
+dates	intervalFormats	y		y	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="y"]/greatestDifference[@id="y"]	dc-11_XXX	2024 – 2027	y – y		Moderate
+dates	intervalFormats	y		y	2	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="y"]/greatestDifference[@id="y"]	dc-29_XXX	2024 – 2027	y – y		Moderate
+dates	intervalFormats	y		y	3	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="y"]/greatestDifference[@id="y"]	dc-30_XXX	2023 – 2024	y – y		Moderate
+dates	intervalFormats	yM		y	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yM"]/greatestDifference[@id="y"]	dc-27_XXX	4/2024 – 4/2027	M/y – M/y		Moderate
+dates	intervalFormats	yM		m	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yM"]/greatestDifference[@id="m"]	dc-28_XXX	4/2024 – 5/2024	M/y – M/y		Moderate
+dates	intervalFormats	yMd		y	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMd"]/greatestDifference[@id="y"]	dc-24_XXX	4/23/2024 – 4/23/2027	M/d/y – M/d/y		Moderate
+dates	intervalFormats	yMd		d	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMd"]/greatestDifference[@id="d"]	dc-65_XXX	4/23/2024 – 4/24/2024	M/d/y – M/d/y		Moderate
+dates	intervalFormats	yMd		m	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMd"]/greatestDifference[@id="m"]	dc-66_XXX	4/23/2024 – 5/23/2024	M/d/y – M/d/y		Moderate
+dates	intervalFormats	yMd		y	2	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMd"]/greatestDifference[@id="y"]	dc-67_XXX	4/23/2024 – 4/23/2027	M/d/y – M/d/y		Moderate
+dates	intervalFormats	yMEd		y	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMEd"]/greatestDifference[@id="y"]	dc-21_XXX	Tue, 4/23/2024 – Tue, 4/23/2027	E, M/d/y – E, M/d/y		Moderate
+dates	intervalFormats	yMMM		y	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMM"]/greatestDifference[@id="y"]	dc-19_XXX	Apr 2024 – Apr 2027	MMM y – MMM y	Apr 2024 – Apr 2027	Moderate
+dates	intervalFormats	yMMM		m	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMM"]/greatestDifference[@id="m"]	dc-20_XXX	Apr – May 2024	MMM – MMM y		Moderate
+dates	intervalFormats	yMMM		M	2	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMM"]/greatestDifference[@id="M"]	dc-73_XXX	Apr – May 2024	MMM – MMM y		Moderate
+dates	intervalFormats	yMMMd		y	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMMd"]/greatestDifference[@id="y"]	dc-16_XXX	Apr 23, 2024 – Apr 23, 2027	MMM d, y – MMM d, y		Moderate
+dates	intervalFormats	yMMMd		m	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMMd"]/greatestDifference[@id="m"]	dc-17_XXX	Apr 23 – May 23, 2024	MMM d – MMM d, y		Moderate
+dates	intervalFormats	yMMMd		d	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMMd"]/greatestDifference[@id="d"]	dc-18_XXX	Apr 23 – 24, 2024	MMM d – d, y		Moderate
+dates	intervalFormats	yMMMd		d	2	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMMd"]/greatestDifference[@id="d"]	dc-74_XXX	Apr 23 – 24, 2024	MMM d – d, y		Moderate
+dates	intervalFormats	yMMMd		M	2	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMMd"]/greatestDifference[@id="M"]	dc-75_XXX	Apr 23 – May 23, 2024	MMM d – MMM d, y		Moderate
+dates	intervalFormats	yMMMEd		y	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMMEd"]/greatestDifference[@id="y"]	dc-13_XXX	Tue, Apr 23, 2024 – Tue, Apr 23, 2027	E, MMM d, y – E, MMM d, y		Moderate
+dates	intervalFormats	yMMMEd		m	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMMEd"]/greatestDifference[@id="m"]	dc-14_XXX	Tue, Apr 23 – Tue, May 23, 2024	E, MMM d – E, MMM d, y		Moderate
+dates	intervalFormats	yMMMEd		d	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMMEd"]/greatestDifference[@id="d"]	dc-15_XXX	Tue, Apr 23 – Wed, Apr 24, 2024	E, MMM d – E, MMM d, y		Moderate
+dates	intervalFormats	yMMMM		y	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="yMMMM"]/greatestDifference[@id="y"]	dc-12_XXX	April 2024 – May 2024	MMMM y – MMMM y	April 2024 – May 2024	Moderate
+dates	M		w		0	//ldml/dates/fields/field[@type="month"]/displayName	dw-8_XXX	month	month	mois	Moderate
+dates	M		s		0	//ldml/dates/fields/field[@type="month-short"]/displayName	dw-9_XXX	mo.	mo.	m.	Moderate
+dates	M		n		0	//ldml/dates/fields/field[@type="month-narrow"]/displayName	dw-10_XXX	mo	mo	m.	Moderate
+dates	m		w		0	//ldml/dates/fields/field[@type="minute"]/displayName	dw-18_XXX	minute	minute	minute	Moderate
+dates	m		n		0	//ldml/dates/fields/field[@type="minute-narrow"]/displayName	dw-19_XXX	min	min	min	Moderate
+dates	M	-1			0	//ldml/dates/fields/field[@type="month"]/relative[@type="-1"]	rt-1_XXX	last month	last month	le mois dernier	Moderate
+dates	M	0			0	//ldml/dates/fields/field[@type="month"]/relative[@type="0"]	rt-5_XXX	this month	this month	ce mois-ci	Moderate
+dates	M	1	w		0	//ldml/dates/calendars/calendar[@type="gregorian"]/months/monthContext[@type="stand-alone"]/monthWidth[@type="wide"]/month[@type="1"]	mw-1_XXX	January	January	janvier	Moderate
+dates	M	1	a		0	//ldml/dates/calendars/calendar[@type="gregorian"]/months/monthContext[@type="stand-alone"]/monthWidth[@type="abbreviated"]/month[@type="1"]	mw-13_XXX	Jan	Jan	janv.	Moderate
+dates	M	1	n		0	//ldml/dates/calendars/calendar[@type="gregorian"]/months/monthContext[@type="stand-alone"]/monthWidth[@type="narrow"]/month[@type="1"]	mw-25_XXX	J	J	J	Moderate
+dates	M	1			0	//ldml/dates/fields/field[@type="month"]/relative[@type="1"]	rt-10_XXX	next month	next month	le mois prochain	Moderate
+dates	M	10	w		0	//ldml/dates/calendars/calendar[@type="gregorian"]/months/monthContext[@type="stand-alone"]/monthWidth[@type="wide"]/month[@type="10"]	mw-10_XXX	October	October	octobre	Moderate
+dates	M	10	a		0	//ldml/dates/calendars/calendar[@type="gregorian"]/months/monthContext[@type="stand-alone"]/monthWidth[@type="abbreviated"]/month[@type="10"]	mw-22_XXX	Oct	Oct	oct.	Moderate
+dates	M	10	n		0	//ldml/dates/calendars/calendar[@type="gregorian"]/months/monthContext[@type="stand-alone"]/monthWidth[@type="narrow"]/month[@type="10"]	mw-34_XXX	O	O	O	Moderate
+dates	M	11	w		0	//ldml/dates/calendars/calendar[@type="gregorian"]/months/monthContext[@type="stand-alone"]/monthWidth[@type="wide"]/month[@type="11"]	mw-11_XXX	November	November	novembre	Moderate
+dates	M	11	a		0	//ldml/dates/calendars/calendar[@type="gregorian"]/months/monthContext[@type="stand-alone"]/monthWidth[@type="abbreviated"]/month[@type="11"]	mw-23_XXX	Nov	Nov	nov.	Moderate
+dates	M	11	n		0	//ldml/dates/calendars/calendar[@type="gregorian"]/months/monthContext[@type="stand-alone"]/monthWidth[@type="narrow"]/month[@type="11"]	mw-35_XXX	N	N	N	Moderate
+dates	M	12	w		0	//ldml/dates/calendars/calendar[@type="gregorian"]/months/monthContext[@type="stand-alone"]/monthWidth[@type="wide"]/month[@type="12"]	mw-12_XXX	December	December	décembre	Moderate
+dates	M	12	a		0	//ldml/dates/calendars/calendar[@type="gregorian"]/months/monthContext[@type="stand-alone"]/monthWidth[@type="abbreviated"]/month[@type="12"]	mw-24_XXX	Dec	Dec	déc.	Moderate
+dates	M	12	n		0	//ldml/dates/calendars/calendar[@type="gregorian"]/months/monthContext[@type="stand-alone"]/monthWidth[@type="narrow"]/month[@type="12"]	mw-36_XXX	D	D	D	Moderate
+dates	M	2	w		0	//ldml/dates/calendars/calendar[@type="gregorian"]/months/monthContext[@type="stand-alone"]/monthWidth[@type="wide"]/month[@type="2"]	mw-2_XXX	February	February	février	Moderate
+dates	M	2	a		0	//ldml/dates/calendars/calendar[@type="gregorian"]/months/monthContext[@type="stand-alone"]/monthWidth[@type="abbreviated"]/month[@type="2"]	mw-14_XXX	Feb	Feb	févr.	Moderate
+dates	M	2	n		0	//ldml/dates/calendars/calendar[@type="gregorian"]/months/monthContext[@type="stand-alone"]/monthWidth[@type="narrow"]/month[@type="2"]	mw-26_XXX	F	F	F	Moderate
+dates	M	3	w		0	//ldml/dates/calendars/calendar[@type="gregorian"]/months/monthContext[@type="stand-alone"]/monthWidth[@type="wide"]/month[@type="3"]	mw-3_XXX	March	March	mars	Moderate
+dates	M	3	a		0	//ldml/dates/calendars/calendar[@type="gregorian"]/months/monthContext[@type="stand-alone"]/monthWidth[@type="abbreviated"]/month[@type="3"]	mw-15_XXX	Mar	Mar	mars	Moderate
+dates	M	3	n		0	//ldml/dates/calendars/calendar[@type="gregorian"]/months/monthContext[@type="stand-alone"]/monthWidth[@type="narrow"]/month[@type="3"]	mw-27_XXX	M	M	M	Moderate
+dates	M	4	w		0	//ldml/dates/calendars/calendar[@type="gregorian"]/months/monthContext[@type="stand-alone"]/monthWidth[@type="wide"]/month[@type="4"]	mw-4_XXX	April	April	avril	Moderate
+dates	M	4	a		0	//ldml/dates/calendars/calendar[@type="gregorian"]/months/monthContext[@type="stand-alone"]/monthWidth[@type="abbreviated"]/month[@type="4"]	mw-16_XXX	Apr	Apr	avr.	Moderate
+dates	M	4	n		0	//ldml/dates/calendars/calendar[@type="gregorian"]/months/monthContext[@type="stand-alone"]/monthWidth[@type="narrow"]/month[@type="4"]	mw-28_XXX	A	A	A	Moderate
+dates	M	5	w		0	//ldml/dates/calendars/calendar[@type="gregorian"]/months/monthContext[@type="stand-alone"]/monthWidth[@type="wide"]/month[@type="5"]	mw-5_XXX	May	May	mai	Moderate
+dates	M	5	a		0	//ldml/dates/calendars/calendar[@type="gregorian"]/months/monthContext[@type="stand-alone"]/monthWidth[@type="abbreviated"]/month[@type="5"]	mw-17_XXX	May	May	mai	Moderate
+dates	M	5	n		0	//ldml/dates/calendars/calendar[@type="gregorian"]/months/monthContext[@type="stand-alone"]/monthWidth[@type="narrow"]/month[@type="5"]	mw-29_XXX	M	M	M	Moderate
+dates	M	6	w		0	//ldml/dates/calendars/calendar[@type="gregorian"]/months/monthContext[@type="stand-alone"]/monthWidth[@type="wide"]/month[@type="6"]	mw-6_XXX	June	June	juin	Moderate
+dates	M	6	a		0	//ldml/dates/calendars/calendar[@type="gregorian"]/months/monthContext[@type="stand-alone"]/monthWidth[@type="abbreviated"]/month[@type="6"]	mw-18_XXX	Jun	Jun	juin	Moderate
+dates	M	6	n		0	//ldml/dates/calendars/calendar[@type="gregorian"]/months/monthContext[@type="stand-alone"]/monthWidth[@type="narrow"]/month[@type="6"]	mw-30_XXX	J	J	J	Moderate
+dates	M	7	w		0	//ldml/dates/calendars/calendar[@type="gregorian"]/months/monthContext[@type="stand-alone"]/monthWidth[@type="wide"]/month[@type="7"]	mw-7_XXX	July	July	juillet	Moderate
+dates	M	7	a		0	//ldml/dates/calendars/calendar[@type="gregorian"]/months/monthContext[@type="stand-alone"]/monthWidth[@type="abbreviated"]/month[@type="7"]	mw-19_XXX	Jul	Jul	juil.	Moderate
+dates	M	7	n		0	//ldml/dates/calendars/calendar[@type="gregorian"]/months/monthContext[@type="stand-alone"]/monthWidth[@type="narrow"]/month[@type="7"]	mw-31_XXX	J	J	J	Moderate
+dates	M	8	w		0	//ldml/dates/calendars/calendar[@type="gregorian"]/months/monthContext[@type="stand-alone"]/monthWidth[@type="wide"]/month[@type="8"]	mw-8_XXX	August	August	août	Moderate
+dates	M	8	a		0	//ldml/dates/calendars/calendar[@type="gregorian"]/months/monthContext[@type="stand-alone"]/monthWidth[@type="abbreviated"]/month[@type="8"]	mw-20_XXX	Aug	Aug	août	Moderate
+dates	M	8	n		0	//ldml/dates/calendars/calendar[@type="gregorian"]/months/monthContext[@type="stand-alone"]/monthWidth[@type="narrow"]/month[@type="8"]	mw-32_XXX	A	A	A	Moderate
+dates	M	9	w		0	//ldml/dates/calendars/calendar[@type="gregorian"]/months/monthContext[@type="stand-alone"]/monthWidth[@type="wide"]/month[@type="9"]	mw-9_XXX	September	September	septembre	Moderate
+dates	M	9	a		0	//ldml/dates/calendars/calendar[@type="gregorian"]/months/monthContext[@type="stand-alone"]/monthWidth[@type="abbreviated"]/month[@type="9"]	mw-21_XXX	Sep	Sep	sept.	Moderate
+dates	M	9	n		0	//ldml/dates/calendars/calendar[@type="gregorian"]/months/monthContext[@type="stand-alone"]/monthWidth[@type="narrow"]/month[@type="9"]	mw-33_XXX	S	S	S	Moderate
+dates	q		w		0	//ldml/dates/fields/field[@type="quarter"]/displayName	dw-5_XXX	quarter	quarter	trimestre	Moderate
+dates	q		s		0	//ldml/dates/fields/field[@type="quarter-short"]/displayName	dw-6_XXX	qtr.	qtr.	trim.	Moderate
+dates	q		n		0	//ldml/dates/fields/field[@type="quarter-narrow"]/displayName	dw-7_XXX	qtr	qtr	trim.	Moderate
+dates	q	1	w	s	0	//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="stand-alone"]/quarterWidth[@type="wide"]/quarter[@type="1"]	qt-1_XXX	1st quarter	1st quarter	1er trimestre	Moderate
+dates	q	1	a	s	0	//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="stand-alone"]/quarterWidth[@type="abbreviated"]/quarter[@type="1"]	qt-5_XXX	Q1	Q1	T1	Moderate
+dates	q	1	w	f	1	//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="wide"]/quarter[@type="1"]	qt2-1_XXX	1st quarter of 2025	1st quarter	1er trimestre en 2025	Moderate
+dates	q	1	a	f	1	//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="abbreviated"]/quarter[@type="1"]	qt2-5_XXX	Q1 of 2025	Q1	T1 de 2025	Moderate
+dates	q	2	w	s	0	//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="stand-alone"]/quarterWidth[@type="wide"]/quarter[@type="2"]	qt-2_XXX	2nd quarter	2nd quarter	2e trimestre	Moderate
+dates	q	2	a	s	0	//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="stand-alone"]/quarterWidth[@type="abbreviated"]/quarter[@type="2"]	qt-6_XXX	Q2	Q2	T2	Moderate
+dates	q	2	w	f	1	//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="wide"]/quarter[@type="2"]	qt2-2_XXX	2nd quarter of 2025	2nd quarter	2e trimestre en 2025	Moderate
+dates	q	2	a	f	1	//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="abbreviated"]/quarter[@type="2"]	qt2-6_XXX	Q2 of 2025	Q2	T2 de 2025	Moderate
+dates	q	3	w	s	0	//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="stand-alone"]/quarterWidth[@type="wide"]/quarter[@type="3"]	qt-3_XXX	3rd quarter	3rd quarter	3e trimestre	Moderate
+dates	q	3	a	s	0	//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="stand-alone"]/quarterWidth[@type="abbreviated"]/quarter[@type="3"]	qt-7_XXX	Q3	Q3	T3	Moderate
+dates	q	3	w	f	1	//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="wide"]/quarter[@type="3"]	qt2-3_XXX	3rd quarter of 2025	3rd quarter	3e trimestre en 2025	Moderate
+dates	q	3	a	f	1	//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="abbreviated"]/quarter[@type="3"]	qt2-7_XXX	Q3 of 2025	Q3	T3 de 2025	Moderate
+dates	q	4	w	s	0	//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="stand-alone"]/quarterWidth[@type="wide"]/quarter[@type="4"]	qt-4_XXX	4th quarter	4th quarter	4e trimestre	Moderate
+dates	q	4	a	s	0	//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="stand-alone"]/quarterWidth[@type="abbreviated"]/quarter[@type="4"]	qt-8_XXX	Q4	Q4	T4	Moderate
+dates	q	4	w	f	1	//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="wide"]/quarter[@type="4"]	qt2-4_XXX	4th quarter of 2025	4th quarter	4e trimestre en 2025	Moderate
+dates	q	4	a	f	1	//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="abbreviated"]/quarter[@type="4"]	qt2-8_XXX	Q4 of 2025	Q4	T4 de 2025	Moderate
+dates	s		w		0	//ldml/dates/fields/field[@type="second"]/displayName	dw-20_XXX	second	second	seconde	Moderate
+dates	s		s		0	//ldml/dates/fields/field[@type="second-short"]/displayName	dw-21_XXX	sec.	sec.	s	Moderate
+dates	s		n		0	//ldml/dates/fields/field[@type="second-narrow"]/displayName	dw-22_XXX	sec	sec	s	Moderate
+dates	timeFormats		medium		1	//ldml/dates/calendars/calendar[@type="gregorian"]/timeFormats/timeFormatLength[@type="medium"]/timeFormat[@type="standard"]/pattern[@type="standard"]	dc-55_XXX	3:30:45 PM	h:mm:ss a		Moderate
+dates	timeFormats		long		1	//ldml/dates/calendars/calendar[@type="gregorian"]/timeFormats/timeFormatLength[@type="long"]/timeFormat[@type="standard"]/pattern[@type="standard"]	dc-56_XXX	3:30:45 PM PDT	h:mm:ss a z		Moderate
+dates	timeFormats		full		1	//ldml/dates/calendars/calendar[@type="gregorian"]/timeFormats/timeFormatLength[@type="full"]/timeFormat[@type="standard"]/pattern[@type="standard"]	dc-57_XXX	3:30:45 PM Pacific Daylight Time	h:mm:ss a zzzz		Moderate
+dates	w		w		0	//ldml/dates/fields/field[@type="week"]/displayName	dw-11_XXX	week	week	semaine	Moderate
+dates	w		s		0	//ldml/dates/fields/field[@type="week-short"]/displayName	dw-12_XXX	wk.	wk.	sem.	Moderate
+dates	w		n		0	//ldml/dates/fields/field[@type="week-narrow"]/displayName	dw-13_XXX	wk	wk	sem.	Moderate
+dates	w	-1			0	//ldml/dates/fields/field[@type="week"]/relative[@type="-1"]	rt-2_XXX	last week	last week	la semaine dernière	Moderate
+dates	w	0			0	//ldml/dates/fields/field[@type="week"]/relative[@type="0"]	rt-6_XXX	this week	this week	cette semaine	Moderate
+dates	w	1			0	//ldml/dates/fields/field[@type="week"]/relative[@type="1"]	rt-11_XXX	next week	next week	la semaine prochaine	Moderate
+dates	y		w		0	//ldml/dates/fields/field[@type="year"]/displayName	dw-2_XXX	year	year	année	Moderate
+dates	y		s		0	//ldml/dates/fields/field[@type="year-short"]/displayName	dw-3_XXX	yr.	yr.	an	Moderate
+dates	y		n		0	//ldml/dates/fields/field[@type="year-narrow"]/displayName	dw-4_XXX	yr	yr	a	Moderate
+dates	y	-1			0	//ldml/dates/fields/field[@type="year"]/relative[@type="-1"]	rt-4_XXX	last year	last year	l’année dernière	Moderate
+dates	y	0			0	//ldml/dates/fields/field[@type="year"]/relative[@type="0"]	rt-8_XXX	this year	this year	cette année	Moderate
+dates	y	1			0	//ldml/dates/fields/field[@type="year"]/relative[@type="1"]	rt-12_XXX	next year	next year	l’année prochaine	Moderate
+localeDisplayNames	numbers	arab			0	//ldml/localeDisplayNames/types/type[@key="numbers"][@type="arab"]		Arabic-Indic Digits	Arabic-Indic Digits	chiffres arabes	Moderate if Local
+localeDisplayNames	numbers	arabext			0	//ldml/localeDisplayNames/types/type[@key="numbers"][@type="arabext"]		Extended Arabic-Indic Digits	Extended Arabic-Indic Digits	chiffres arabes étendus	Moderate if Local
+localeDisplayNames	numbers	armn			0	//ldml/localeDisplayNames/types/type[@key="numbers"][@type="armn"]		Armenian Numerals	Armenian Numerals	chiffres arméniens	Moderate if Local
+localeDisplayNames	numbers	armnlow			0	//ldml/localeDisplayNames/types/type[@key="numbers"][@type="armnlow"]		Armenian Lowercase Numerals	Armenian Lowercase Numerals	chiffres arméniens minuscules	Moderate if Local
+localeDisplayNames	numbers	beng			0	//ldml/localeDisplayNames/types/type[@key="numbers"][@type="beng"]		Bangla Digits	Bangla Digits	chiffres bengalis	Moderate if Local
+localeDisplayNames	numbers	cakm			0	//ldml/localeDisplayNames/types/type[@key="numbers"][@type="cakm"]		Chakma Digits	Chakma Digits	chiffres chakmas	Moderate if Local
+localeDisplayNames	numbers	deva			0	//ldml/localeDisplayNames/types/type[@key="numbers"][@type="deva"]		Devanagari Digits	Devanagari Digits	chiffres dévanagaris	Moderate if Local
+localeDisplayNames	numbers	ethi			0	//ldml/localeDisplayNames/types/type[@key="numbers"][@type="ethi"]		Ethiopic Numerals	Ethiopic Numerals	chiffres éthiopiens	Moderate if Local
+localeDisplayNames	numbers	fullwide			0	//ldml/localeDisplayNames/types/type[@key="numbers"][@type="fullwide"]		Full-Width Digits	Full-Width Digits	chiffres pleine chasse	Moderate if Local
+localeDisplayNames	numbers	geor			0	//ldml/localeDisplayNames/types/type[@key="numbers"][@type="geor"]		Georgian Numerals	Georgian Numerals	chiffres géorgiens	Moderate if Local
+localeDisplayNames	numbers	grek			0	//ldml/localeDisplayNames/types/type[@key="numbers"][@type="grek"]		Greek Numerals	Greek Numerals	chiffres grecs	Moderate if Local
+localeDisplayNames	numbers	greklow			0	//ldml/localeDisplayNames/types/type[@key="numbers"][@type="greklow"]		Greek Lowercase Numerals	Greek Lowercase Numerals	chiffres grecs minuscules	Moderate if Local
+localeDisplayNames	numbers	gujr			0	//ldml/localeDisplayNames/types/type[@key="numbers"][@type="gujr"]		Gujarati Digits	Gujarati Digits	chiffres goudjarâtîs	Moderate if Local
+localeDisplayNames	numbers	guru			0	//ldml/localeDisplayNames/types/type[@key="numbers"][@type="guru"]		Gurmukhi Digits	Gurmukhi Digits	chiffres gourmoukhîs	Moderate if Local
+localeDisplayNames	numbers	hanidec			0	//ldml/localeDisplayNames/types/type[@key="numbers"][@type="hanidec"]		Chinese Decimal Numerals	Chinese Decimal Numerals	nombres décimaux chinois	Moderate if Local
+localeDisplayNames	numbers	hans			0	//ldml/localeDisplayNames/types/type[@key="numbers"][@type="hans"]		Simplified Chinese Numerals	Simplified Chinese Numerals	chiffres en chinois simplifié	Moderate if Local
+localeDisplayNames	numbers	hansfin			0	//ldml/localeDisplayNames/types/type[@key="numbers"][@type="hansfin"]		Simplified Chinese Financial Numerals	Simplified Chinese Financial Numerals	chiffres financiers en chinois simplifié	Moderate if Local
+localeDisplayNames	numbers	hant			0	//ldml/localeDisplayNames/types/type[@key="numbers"][@type="hant"]		Traditional Chinese Numerals	Traditional Chinese Numerals	chiffres en chinois traditionnel	Moderate if Local
+localeDisplayNames	numbers	hantfin			0	//ldml/localeDisplayNames/types/type[@key="numbers"][@type="hantfin"]		Traditional Chinese Financial Numerals	Traditional Chinese Financial Numerals	chiffres financiers en chinois traditionnel	Moderate if Local
+localeDisplayNames	numbers	hebr			0	//ldml/localeDisplayNames/types/type[@key="numbers"][@type="hebr"]		Hebrew Numerals	Hebrew Numerals	chiffres hébreux	Moderate if Local
+localeDisplayNames	numbers	java			0	//ldml/localeDisplayNames/types/type[@key="numbers"][@type="java"]		Javanese Digits	Javanese Digits	chiffres javanais	Moderate if Local
+localeDisplayNames	numbers	jpan			0	//ldml/localeDisplayNames/types/type[@key="numbers"][@type="jpan"]		Japanese Numerals	Japanese Numerals	chiffres japonais	Moderate if Local
+localeDisplayNames	numbers	jpanfin			0	//ldml/localeDisplayNames/types/type[@key="numbers"][@type="jpanfin"]		Japanese Financial Numerals	Japanese Financial Numerals	chiffres japonais financiers	Moderate if Local
+localeDisplayNames	numbers	khmr			0	//ldml/localeDisplayNames/types/type[@key="numbers"][@type="khmr"]		Khmer Digits	Khmer Digits	chiffres khmers	Moderate if Local
+localeDisplayNames	numbers	knda			0	//ldml/localeDisplayNames/types/type[@key="numbers"][@type="knda"]		Kannada Digits	Kannada Digits	chiffres en kannada	Moderate if Local
+localeDisplayNames	numbers	laoo			0	//ldml/localeDisplayNames/types/type[@key="numbers"][@type="laoo"]		Lao Digits	Lao Digits	chiffres laotiens	Moderate if Local
+localeDisplayNames	numbers	latn			0	//ldml/localeDisplayNames/types/type[@key="numbers"][@type="latn"]		Western Digits	Western Digits	chiffres occidentaux	Moderate
+localeDisplayNames	numbers	mlym			0	//ldml/localeDisplayNames/types/type[@key="numbers"][@type="mlym"]		Malayalam Digits	Malayalam Digits	chiffres malayâlams	Moderate if Local
+localeDisplayNames	numbers	mtei			0	//ldml/localeDisplayNames/types/type[@key="numbers"][@type="mtei"]		Meetei Mayek Digits	Meetei Mayek Digits	chiffres meitei-mayeks	Moderate if Local
+localeDisplayNames	numbers	mymr			0	//ldml/localeDisplayNames/types/type[@key="numbers"][@type="mymr"]		Myanmar Digits	Myanmar Digits	chiffres birmans	Moderate if Local
+localeDisplayNames	numbers	native			0	//ldml/localeDisplayNames/types/type[@key="numbers"][@type="native"]		Native Digits	Native Digits	chiffres natifs	Moderate if Local
+localeDisplayNames	numbers	olck			0	//ldml/localeDisplayNames/types/type[@key="numbers"][@type="olck"]		Ol Chiki Digits	Ol Chiki Digits	chiffres ol-chikis	Moderate if Local
+localeDisplayNames	numbers	orya			0	//ldml/localeDisplayNames/types/type[@key="numbers"][@type="orya"]		Odia Digits	Odia Digits	chiffres oriyas	Moderate if Local
+localeDisplayNames	numbers	roman			0	//ldml/localeDisplayNames/types/type[@key="numbers"][@type="roman"]		Roman Numerals	Roman Numerals	chiffres romains	Moderate if Local
+localeDisplayNames	numbers	romanlow			0	//ldml/localeDisplayNames/types/type[@key="numbers"][@type="romanlow"]		Roman Lowercase Numerals	Roman Lowercase Numerals	chiffres romains minuscules	Moderate if Local
+localeDisplayNames	numbers	taml			0	//ldml/localeDisplayNames/types/type[@key="numbers"][@type="taml"]		Traditional Tamil Numerals	Traditional Tamil Numerals	chiffres tamouls traditionnels	Moderate if Local
+localeDisplayNames	numbers	tamldec			0	//ldml/localeDisplayNames/types/type[@key="numbers"][@type="tamldec"]		Tamil Digits	Tamil Digits	chiffres tamouls	Moderate if Local
+localeDisplayNames	numbers	telu			0	//ldml/localeDisplayNames/types/type[@key="numbers"][@type="telu"]		Telugu Digits	Telugu Digits	chiffres télougous	Moderate if Local
+localeDisplayNames	numbers	thai			0	//ldml/localeDisplayNames/types/type[@key="numbers"][@type="thai"]		Thai Digits	Thai Digits	chiffres thaïs	Moderate if Local
+localeDisplayNames	numbers	tibt			0	//ldml/localeDisplayNames/types/type[@key="numbers"][@type="tibt"]		Tibetan Digits	Tibetan Digits	chiffres tibétains	Moderate if Local
+localeDisplayNames	numbers	vaii			0	//ldml/localeDisplayNames/types/type[@key="numbers"][@type="vaii"]		Vai Digits	Vai Digits	chiffres en vaï	Moderate if Local
+minimalPairs	ordinalMinimalPairs	few			1	//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal="few"]	co3-3_XXX	Take the 3rd right		Prenez la 3e à droite.	Moderate
+minimalPairs	ordinalMinimalPairs	one			1	//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal="one"]	co3-1_XXX	Take the 1st right	Take the {0}st right.	Prenez la 1re à droite.	Moderate
+minimalPairs	ordinalMinimalPairs	other			1	//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal="other"]		Take the 10th right		Prenez la 10e à droite.	Moderate
+minimalPairs	ordinalMinimalPairs	two			1	//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal="two"]	co3-2_XXX	Take the 2nd right		Prenez la 2e à droite.	Moderate
+units	coordinateUnitPattern	east	long		1	//ldml/units/unitLength[@type="long"]/coordinateUnit/coordinateUnitPattern[@type="east"]	co-3_XXX	2.2945° east	{0} east		Moderate
+units	coordinateUnitPattern	east	narrow		1	//ldml/units/unitLength[@type="narrow"]/coordinateUnit/coordinateUnitPattern[@type="east"]	co2-3_XXX	2.2945°E	{0}E		Moderate
+units	coordinateUnitPattern	north	long		1	//ldml/units/unitLength[@type="long"]/coordinateUnit/coordinateUnitPattern[@type="north"]	co-1_XXX	48.8584° north	{0} north		Moderate
+units	coordinateUnitPattern	north	narrow		1	//ldml/units/unitLength[@type="narrow"]/coordinateUnit/coordinateUnitPattern[@type="north"]	co2-1_XXX	48.8584°N	{0}N		Moderate
+units	coordinateUnitPattern	south	long		1	//ldml/units/unitLength[@type="long"]/coordinateUnit/coordinateUnitPattern[@type="south"]	co-2_XXX	22.5609° south	{0} south		Moderate
+units	coordinateUnitPattern	south	narrow		1	//ldml/units/unitLength[@type="narrow"]/coordinateUnit/coordinateUnitPattern[@type="south"]	co2-2_XXX	22.5609°S	{0}S		Moderate
+units	coordinateUnitPattern	west	long		1	//ldml/units/unitLength[@type="long"]/coordinateUnit/coordinateUnitPattern[@type="west"]	co-4_XXX	0.2057° west	{0} west		Moderate
+units	coordinateUnitPattern	west	narrow		1	//ldml/units/unitLength[@type="narrow"]/coordinateUnit/coordinateUnitPattern[@type="west"]	co2-4_XXX	0.2057°W	{0}W		Moderate
+units	displayName				0	//ldml/units/unitLength[@type="long"]/coordinateUnit/displayName	co-5_XXX	cardinal direction	cardinal direction		Moderate

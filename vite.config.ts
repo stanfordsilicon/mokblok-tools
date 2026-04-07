@@ -12,6 +12,7 @@ export default defineConfig({
       '@data': path.resolve(__dirname, 'src/data'),
       '@settings': path.resolve(__dirname, 'src/settings'),
       '@widgets': path.resolve(__dirname, 'src/widgets'),
+      '@shared': path.resolve(__dirname, 'src/shared'),
     },
   },
 });

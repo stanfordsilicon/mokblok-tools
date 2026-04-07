@@ -38,6 +38,9 @@
       "@widgets/*": [
         "src/widgets/*"
       ],
+      "@shared/*": [
+        "src/shared/*"
+      ],
     }
   },
   "include": [

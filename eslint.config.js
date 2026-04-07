@@ -69,6 +69,7 @@ export default defineConfig([
             { pattern: '@data/**', group: 'internal', position: 'after' },
             { pattern: '@settings/**', group: 'internal', position: 'after' },
             { pattern: '@widgets/**', group: 'internal', position: 'after' },
+            { pattern: '@shared/**', group: 'internal', position: 'after' },
           ],
           pathGroupsExcludedImportTypes: ['builtin'],
           'newlines-between': 'always',

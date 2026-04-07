@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useMemo, useState } from 'react';
+import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 
 import {
   CardinalDirection,
@@ -6,6 +6,7 @@ import {
   type AllData,
   type AlphabetData,
   type CoordinatesData,
+  type DataField,
   type DataSetters,
   type DateCombinationData,
   type DateField,
@@ -38,6 +39,7 @@ import {
   getTimeCombinationsData,
   getTimeIntervalsData,
 } from './ExtractData';
+import { loadDatafields } from './LoadDataFields';
 
 export type DataContextType = {
   setRows: (lines: RowData[]) => void;
@@ -45,6 +47,10 @@ export type DataContextType = {
   rowsByKey: Record<string, RowData>;
   data: AllData;
   set: DataSetters;
+  findDataField(query: Partial<DataField>): DataField | undefined;
+  findDataFields(query: Partial<DataField>): DataField[];
+  getTranslation(index: number): string | undefined;
+  setTranslation(index: number, newTranslation: string): void;
 };
 
 export const DataContext = createContext<DataContextType | undefined>({
@@ -65,6 +71,10 @@ export const DataContext = createContext<DataContextType | undefined>({
     [DataType.DirectionExamples]: () => {},
     [DataType.Eras]: () => {},
   },
+  findDataField: () => undefined,
+  findDataFields: () => [],
+  getTranslation: () => undefined,
+  setTranslation: () => {},
 });
 
 export const useDataContext = () => {
@@ -78,6 +88,7 @@ export const DataProvider: React.FC<{
 }> = ({ children }) => {
   // Input Data
   const [rows, setRows] = useState<RowData[]>([]);
+  const [dataFields, setDataFields] = useState<DataField[]>([]);
   const [extraText, setExtraText] = useState<string>('');
 
   // Structured Data
@@ -114,6 +125,47 @@ export const DataProvider: React.FC<{
       ),
     [rows],
   );
+  const [translationsByIndex, setTranslationsByIndex] = useState<Record<number, string>>({});
+
+  // Load the list of datafields
+  useEffect(() => {
+    const fetchDatafields = async () => {
+      const datafields = await loadDatafields();
+      if (datafields) setDataFields(datafields);
+    };
+    fetchDatafields();
+  }, []);
+  const findDataFields = useCallback(
+    (query: Partial<DataField>): DataField[] => {
+      return dataFields.filter((field) =>
+        Object.entries(query).every(([key, value]) => field[key as keyof DataField] === value),
+      );
+    },
+    [dataFields],
+  );
+  const findDataField = useCallback(
+    (query: Partial<DataField>): DataField | undefined => findDataFields(query)[0] || undefined,
+    [findDataFields],
+  );
+  const getTranslation = useCallback(
+    (index: number): string | undefined => translationsByIndex[index],
+    [translationsByIndex],
+  );
+  const setTranslation = useCallback((index: number, newTranslation: string) => {
+    setTranslationsByIndex((prev) => ({ ...prev, [index]: newTranslation }));
+  }, []);
+  const fillTranslations = useCallback(
+    (rowsByKey: Record<string, RowData>) => {
+      setTranslationsByIndex({}); // Clear existing translations
+      Object.entries(rowsByKey).forEach(([key, row]) => {
+        const field = findDataField({ ext_id: key }) ?? findDataField({ xpath: key });
+        if (field && row.translated) {
+          setTranslation(field.index, row.translated);
+        }
+      });
+    },
+    [dataFields.length, setTranslation],
+  );
 
   // When the inputted data changes, refresh the data
   useEffect(() => {
@@ -129,6 +181,7 @@ export const DataProvider: React.FC<{
     setDirectionExamples(getDirectionExamples(rowsByKey));
     setErasData(getErasData(rowsByKey));
     setAlphabetData(extractAlphabetData(rows, extraText));
+    fillTranslations(rowsByKey);
   }, [rowsByKey, rows, extraText]);
 
   // Translation Setters
@@ -282,6 +335,10 @@ export const DataProvider: React.FC<{
       directionExamples: setDirectionExample,
       eras: setEraData,
     },
+    findDataField,
+    findDataFields,
+    getTranslation,
+    setTranslation,
   };
   return <DataContext.Provider value={dataContext}>{children}</DataContext.Provider>;
 };
