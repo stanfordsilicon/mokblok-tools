@@ -39,8 +39,8 @@ function QuartersReviewTable() {
             <tr key={length}>
               <SourceDataCell data={row['w']} />
               <SourceDataCell data={row['a']} />
-              <InputDataCell data={row['w']} />
-              <InputDataCell data={row['a']} />
+              <InputDataCell data={row['w']} generalWidth="long" />
+              <InputDataCell data={row['a']} generalWidth="long" />
             </tr>
           ))}
       </tbody>

@@ -1,13 +1,22 @@
 import { useDataContext } from '@data/DataContext';
-import { FormatLength } from '@data/DataTypes';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
-import FormatWidth from '../FormatWidth';
-import { getSourceLanguageData } from '../getSourceLanguageData';
+import { matrixBy } from '@shared/setUtils';
+
+import InputDataCell from '../InputDataCell';
+import SourceDataCell from '../SourceDataCell';
 
 function MonthsReviewTable() {
-  const { months } = useDataContext().data;
+  const { findDataFields } = useDataContext();
+  const monthFields = findDataFields({ field: 'M' }).filter(
+    (f) => f.length !== '' && f.instance !== '',
+  );
+  const monthMatrix = matrixBy(
+    monthFields,
+    (f) => f.instance,
+    (f) => f.length,
+  );
 
   return (
     <table>
@@ -30,37 +39,20 @@ function MonthsReviewTable() {
         </tr>
       </thead>
       <tbody>
-        {months?.map((month, index) => (
-          <tr key={index}>
-            {/* Source Language */}
-            <td>{getSourceLanguageData(month[FormatLength.Wide])}</td>
-            <td>{getSourceLanguageData(month[FormatLength.Abbreviated])}</td>
-            <td>{getSourceLanguageData(month[FormatLength.Narrow])}</td>
-            {/* Target Language (editable) */}
-            <InputCell index={index} format={FormatLength.Wide} />
-            <InputCell index={index} format={FormatLength.Abbreviated} />
-            <InputCell index={index} format={FormatLength.Narrow} />
-          </tr>
-        ))}
+        {Object.entries(monthMatrix)
+          .sort((a, b) => parseInt(a[0]) - parseInt(b[0]))
+          .map(([length, row]) => (
+            <tr key={length}>
+              <SourceDataCell data={row['w']} />
+              <SourceDataCell data={row['a']} />
+              <SourceDataCell data={row['n']} />
+              <InputDataCell data={row['w']} />
+              <InputDataCell data={row['a']} />
+              <InputDataCell data={row['n']} />
+            </tr>
+          ))}
       </tbody>
     </table>
-  );
-}
-
-type InputCellProps = { index: number; format: FormatLength };
-function InputCell({ index, format }: InputCellProps) {
-  const {
-    data: { months },
-    set,
-  } = useDataContext();
-  return (
-    <td>
-      <input
-        value={months?.[index]?.[format]?.translated || ''}
-        onChange={(e) => set.months(index, format, e.target.value)}
-        style={{ width: FormatWidth[format] }}
-      />
-    </td>
   );
 }
 

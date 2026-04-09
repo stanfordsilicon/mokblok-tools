@@ -1,12 +1,23 @@
 import { useDataContext } from '@data/DataContext';
-import { DateField } from '@data/DataTypes';
+import { DateField } from '@data/DateField';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
-import { getSourceLanguageData } from '../getSourceLanguageData';
+import { matrixBy } from '@shared/setUtils';
+
+import InputDataCell from '../InputDataCell';
+import SourceDataCell from '../SourceDataCell';
 
 function RelativeTimeReviewTable() {
-  const { relativeTime } = useDataContext().data;
+  const { findDataFields } = useDataContext();
+  const relativeTimeFields = findDataFields({ subject: 'dates' }).filter(
+    (f) => ['-1', '0', '1'].includes(f.instance) && f.length === '',
+  );
+  const relativeTimeMatrix = matrixBy(
+    relativeTimeFields,
+    (f) => f.field,
+    (f) => f.instance,
+  );
 
   return (
     <table>
@@ -31,40 +42,23 @@ function RelativeTimeReviewTable() {
         </tr>
       </thead>
       <tbody>
-        {relativeTime &&
-          Object.entries(relativeTime).map(([field, times]) => (
+        {Object.values(DateField).map((field) => {
+          const data = relativeTimeMatrix[field];
+          if (!data) return null;
+          return (
             <tr key={field}>
               <td>{field}</td>
-              {/* Source Language */}
-              <td>{getSourceLanguageData(times['-1']) || '-'}</td>
-              <td>{getSourceLanguageData(times['0']) || '-'}</td>
-              <td>{getSourceLanguageData(times['1']) || '-'}</td>
-              {/* Target Language (editable) */}
-              <InputCell field={field as DateField} offset="-1" />
-              <InputCell field={field as DateField} offset="0" />
-              <InputCell field={field as DateField} offset="1" />
+              <SourceDataCell data={data['-1']} />
+              <SourceDataCell data={data['0']} />
+              <SourceDataCell data={data['1']} />
+              <InputDataCell data={data['-1']} />
+              <InputDataCell data={data['0']} />
+              <InputDataCell data={data['1']} />
             </tr>
-          ))}
+          );
+        })}
       </tbody>
     </table>
-  );
-}
-
-type InputCellProps = { field: DateField; offset: '-1' | '0' | '1' };
-function InputCell({ field, offset }: InputCellProps) {
-  const {
-    data: { relativeTime },
-    set,
-  } = useDataContext();
-  return (
-    <td>
-      <input
-        value={relativeTime?.[field]?.[offset]?.translated || ''}
-        onChange={(e) => set.relativeTime(field, offset, e.target.value)}
-        style={{ width: '6em' }}
-        type="text"
-      />
-    </td>
   );
 }
 

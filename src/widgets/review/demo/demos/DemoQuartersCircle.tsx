@@ -1,13 +1,20 @@
 import React from 'react';
 
 import { useDataContext } from '@data/DataContext';
-import { FormatLength, SentenceContext } from '@data/DataTypes';
 
 import { useSettings } from '@settings/Settings';
 
 const DemoQuartersCircle: React.FC = () => {
-  const { months, quarters } = useDataContext().data;
+  const { findDataField, getTranslation } = useDataContext();
   const { today } = useSettings();
+  const months = [...Array(12)]
+    .map((_, index) => findDataField({ field: 'M', instance: (index + 1).toString(), length: 'a' }))
+    .filter((m) => m != null);
+  const quarters = [...Array(4)]
+    .map((_, index) =>
+      findDataField({ field: 'q', instance: (index + 1).toString(), length: 'a', variant: 's' }),
+    )
+    .filter((q) => q != null);
   const currentMonth = today.getMonth(); // Current month (0-indexed)
   const yearStart = new Date(today.getFullYear(), 0, 0);
   const diff =
@@ -72,8 +79,7 @@ const DemoQuartersCircle: React.FC = () => {
           alignmentBaseline="middle"
           fontSize="1em"
         >
-          {quarters?.[SentenceContext.Standalone][quarter][FormatLength.Abbreviated]?.translated ||
-            ''}
+          {getTranslation(quarters[quarter].index) || ''}
         </text>
       ))}
 
@@ -87,7 +93,7 @@ const DemoQuartersCircle: React.FC = () => {
           alignmentBaseline="middle"
           fontSize="0.75em"
         >
-          {months?.[monthIndex]?.abbreviated?.translated || ''}
+          {getTranslation(months[monthIndex].index) || ''}
         </text>
       ))}
     </>

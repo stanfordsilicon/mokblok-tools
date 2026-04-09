@@ -12,7 +12,6 @@ import HighlightInput from '../HighlightInput';
 
 function TimeIntervalsReviewTable() {
   const { timeIntervals } = useDataContext().data;
-
   return (
     <table>
       <thead>

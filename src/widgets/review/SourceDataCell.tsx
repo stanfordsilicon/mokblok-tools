@@ -3,10 +3,11 @@ import { SourceLanguage, type DataField } from '@data/DataTypes';
 import { useSettings } from '@settings/Settings';
 
 type Props = {
-  data: DataField;
+  data?: DataField;
 };
 function SourceDataCell({ data }: Props) {
   const { sourceLanguage } = useSettings();
+  if (!data) return <td>-</td>;
   return <td>{sourceLanguage === SourceLanguage.English ? data.english : data.french}</td>;
 }
 

@@ -1,4 +1,4 @@
-import { ErrorBoundary } from 'react-error-boundary';
+import ErrorBoundary from '@shared/ErrorBoundary';
 
 import DemoID from './DemoID';
 import DemoLabel from './DemoLabel';
@@ -27,7 +27,7 @@ const Demo: React.FC<Props> = ({ demoID }) => {
       </div>
       <div style={{ margin: '1em' }}>
         {/* // Wrap in an error boundary to prevent the whole page from crashing if there's an issue with the demo */}
-        <ErrorBoundary fallback={<div style={{ color: 'red' }}>Error loading demo</div>}>
+        <ErrorBoundary>
           <DemoSVG id={demoID} height={240} width={240}>
             <DemoImage demoID={demoID} />
           </DemoSVG>

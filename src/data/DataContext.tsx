@@ -49,7 +49,7 @@ export type DataContextType = {
   set: DataSetters;
   findDataField(query: Partial<DataField>): DataField | undefined;
   findDataFields(query: Partial<DataField>): DataField[];
-  getTranslation(index: number): string | undefined;
+  getTranslation(index?: number): string | undefined;
   setTranslation(index: number, newTranslation: string): void;
 };
 
@@ -148,7 +148,8 @@ export const DataProvider: React.FC<{
     [findDataFields],
   );
   const getTranslation = useCallback(
-    (index: number): string | undefined => translationsByIndex[index],
+    (index?: number): string | undefined =>
+      index !== undefined ? translationsByIndex[index] : undefined,
     [translationsByIndex],
   );
   const setTranslation = useCallback((index: number, newTranslation: string) => {

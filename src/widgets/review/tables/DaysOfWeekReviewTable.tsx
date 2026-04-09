@@ -1,13 +1,23 @@
 import { useDataContext } from '@data/DataContext';
-import { FormatLength } from '@data/DataTypes';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
-import FormatWidth from '../FormatWidth';
-import { getSourceLanguageData } from '../getSourceLanguageData';
+import { matrixBy } from '@shared/setUtils';
+
+import InputDataCell from '../InputDataCell';
+import SourceDataCell from '../SourceDataCell';
 
 function DaysOfWeekReviewTable() {
-  const { daysOfWeek } = useDataContext().data;
+  const { findDataFields } = useDataContext();
+  const daysOfTheWeekFields = findDataFields({ field: 'E' }).filter(
+    (f) => f.length !== '' && f.instance !== '',
+  );
+  const daysOfTheWeekMatrix = matrixBy(
+    daysOfTheWeekFields,
+    (f) => f.instance,
+    (f) => f.length,
+  );
+
   return (
     <table style={{ height: 'fit-content' }}>
       <thead>
@@ -31,39 +41,22 @@ function DaysOfWeekReviewTable() {
         </tr>
       </thead>
       <tbody>
-        {daysOfWeek?.map((day, index) => (
-          <tr key={index}>
-            {/* Source Language */}
-            <td>{getSourceLanguageData(day[FormatLength.Wide])}</td>
-            <td>{getSourceLanguageData(day[FormatLength.Abbreviated])}</td>
-            <td>{getSourceLanguageData(day[FormatLength.Short])}</td>
-            <td>{getSourceLanguageData(day[FormatLength.Narrow])}</td>
-            {/* Target Language (editable) */}
-            <InputCell index={index} format={FormatLength.Wide} />
-            <InputCell index={index} format={FormatLength.Abbreviated} />
-            <InputCell index={index} format={FormatLength.Short} />
-            <InputCell index={index} format={FormatLength.Narrow} />
-          </tr>
-        ))}
+        {Object.entries(daysOfTheWeekMatrix)
+          .sort((a, b) => a[0].localeCompare(b[0]))
+          .map(([instance, row]) => (
+            <tr key={instance}>
+              <SourceDataCell data={row['w']} />
+              <SourceDataCell data={row['a']} />
+              <SourceDataCell data={row['s']} />
+              <SourceDataCell data={row['n']} />
+              <InputDataCell data={row['w']} />
+              <InputDataCell data={row['a']} />
+              <InputDataCell data={row['s']} />
+              <InputDataCell data={row['n']} />
+            </tr>
+          ))}
       </tbody>
     </table>
-  );
-}
-
-type InputCellProps = { index: number; format: FormatLength };
-function InputCell({ index, format }: InputCellProps) {
-  const {
-    data: { daysOfWeek },
-    set,
-  } = useDataContext();
-  return (
-    <td>
-      <input
-        value={daysOfWeek?.[index]?.[format]?.translated || ''}
-        onChange={(e) => set.daysOfWeek(index, format, e.target.value)}
-        style={{ width: FormatWidth[format] }}
-      />
-    </td>
   );
 }
 

@@ -1,6 +1,8 @@
 import DataTypeLabel from '@data/DataTypeLabel';
 import { DataType } from '@data/DataTypes';
 
+import ErrorBoundary from '@shared/ErrorBoundary';
+
 import DemosForDataType from './demo/DemosForDataType';
 import AlphabetReview from './tables/AlphabetReview';
 import CoordinatesReviewTable from './tables/CoordinatesReviewTable';
@@ -22,7 +24,9 @@ function ReviewSection({ dataType }: { dataType: DataType }) {
         <DataTypeLabel dataType={dataType} />
       </h2>
       <div style={{ display: 'flex', gap: '1em', flexDirection: 'row' }}>
-        <ReviewTable dataType={dataType} />
+        <ErrorBoundary>
+          <ReviewTable dataType={dataType} />
+        </ErrorBoundary>
         <DemosForDataType dataType={dataType} />
       </div>
     </div>

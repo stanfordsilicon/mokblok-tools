@@ -28,7 +28,10 @@ const simulatedClimateData: ClimateDataPoint[] = [
 ];
 
 const MockMonthsTemp: React.FC = () => {
-  const { months } = useDataContext().data;
+  const { findDataField, getTranslation } = useDataContext();
+  const months = [...Array(12)]
+    .map((_, index) => findDataField({ field: 'M', instance: (index + 1).toString(), length: 'n' }))
+    .filter((m) => m != null);
   const { today } = useSettings();
 
   return (
@@ -79,7 +82,7 @@ const MockMonthsTemp: React.FC = () => {
                 dominantBaseline="middle"
                 style={{ fontSize: '.75em', color: 'black' }}
               >
-                {month.narrow?.translated}
+                {getTranslation(month.index)}
               </text>
             </g>
           );

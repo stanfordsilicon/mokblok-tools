@@ -5,8 +5,11 @@ import { useDataContext } from '@data/DataContext';
 import { useSettings } from '@settings/Settings';
 
 const DemoMonthsGrid: React.FC = () => {
-  const { months } = useDataContext().data;
+  const { findDataField, getTranslation } = useDataContext();
   const { today } = useSettings();
+  const months = [...Array(12)]
+    .map((_, index) => findDataField({ field: 'M', instance: (index + 1).toString(), length: 'a' }))
+    .filter((m) => m != null);
 
   return (
     <>
@@ -50,7 +53,7 @@ const DemoMonthsGrid: React.FC = () => {
                 backgroundColor: index === today.getMonth() ? 'lightblue' : 'transparent',
               }}
             >
-              {month.abbreviated?.translated}
+              {getTranslation(month.index)}
             </text>
           </g>
         );

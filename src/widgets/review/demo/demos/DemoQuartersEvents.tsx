@@ -1,10 +1,14 @@
 import React from 'react';
 
 import { useDataContext } from '@data/DataContext';
-import { FormatLength, SentenceContext } from '@data/DataTypes';
 
 const DemoQuartersEvents: React.FC = () => {
-  const { quarters } = useDataContext().data;
+  const { findDataField, getTranslation } = useDataContext();
+  const quarters = [...Array(4)]
+    .map((_, index) =>
+      findDataField({ field: 'q', instance: (index + 1).toString(), length: 'a', variant: 'f' }),
+    )
+    .filter((q) => q != null);
   // Example events for each quarter
   const events = [['🎉🎂'], ['🎓', '👰🤵'], ['🚜🎪'], ['🎿🏔', '👩🎂', '🎁']];
 
@@ -20,7 +24,7 @@ const DemoQuartersEvents: React.FC = () => {
       {[...Array(4)].map((_, quarter) => (
         <g key={quarter} style={{ transform: `translate(20px, ${50 + quarter * 45}px)` }}>
           <text y={10} textAnchor="start" alignmentBaseline="middle" fontSize="1em">
-            {quarters?.[SentenceContext.InSentence][quarter][FormatLength.Wide]?.translated}
+            {getTranslation(quarters[quarter]?.index) || ''}
           </text>
 
           {/* events as small boxes below the quarter names */}
