@@ -4,12 +4,15 @@ import { DataType } from '@data/DataTypes';
 import ErrorBoundary from '@shared/ErrorBoundary';
 
 import DemosForDataType from './demo/DemosForDataType';
+import AllReviewTable from './tables/AllReviewTable';
 import AlphabetReview from './tables/AlphabetReview';
 import CoordinatesReviewTable from './tables/CoordinatesReviewTable';
 import DateCombinationsReviewTable from './tables/DateCombinationsReviewTable';
 import DateFieldsReviewTable from './tables/DateFieldsReviewTable';
+import DateIntervalsReviewTable from './tables/DateIntervalsReviewTable';
 import DaysOfWeekReviewTable from './tables/DaysOfWeekReviewTable';
 import DirectionsReviewTable from './tables/DirectionsReviewTable';
+import EraDatesReviewTable from './tables/EraDatesReviewTable';
 import ErasReviewTable from './tables/ErasReviewTable';
 import MonthsReviewTable from './tables/MonthsReviewTable';
 import QuartersReviewTable from './tables/QuartersReviewTable';
@@ -41,6 +44,8 @@ function ReviewTable({ dataType }: { dataType: DataType }) {
       return <CoordinatesReviewTable />;
     case DataType.DateCombinations:
       return <DateCombinationsReviewTable />;
+    case DataType.DateIntervals:
+      return <DateIntervalsReviewTable />;
     case DataType.DateFields:
       return <DateFieldsReviewTable />;
     case DataType.DaysOfWeek:
@@ -49,6 +54,8 @@ function ReviewTable({ dataType }: { dataType: DataType }) {
       return <DirectionsReviewTable />;
     case DataType.Eras:
       return <ErasReviewTable />;
+    case DataType.EraDateCombinations:
+      return <EraDatesReviewTable />;
     case DataType.Months:
       return <MonthsReviewTable />;
     case DataType.Quarters:
@@ -59,6 +66,8 @@ function ReviewTable({ dataType }: { dataType: DataType }) {
       return <TimeCombinationsReviewTable />;
     case DataType.TimeIntervals:
       return <TimeIntervalsReviewTable />;
+    case DataType.All:
+      return <AllReviewTable />;
   }
 }
 

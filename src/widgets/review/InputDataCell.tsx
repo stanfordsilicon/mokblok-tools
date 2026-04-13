@@ -5,22 +5,26 @@ import HighlightInput from './HighlightInput';
 
 type Props = {
   data?: DataField;
-  inputWidth?: 'short' | 'long';
+  inputWidth?: string;
 };
 
-const SHORT_WIDTHS: Record<string, string> = {
+const WIDTHS_BY_LENGTH: Record<string, string> = {
   w: '6em',
   a: '3em',
   s: '3em',
   n: '2em',
+  long: '15em',
+  medium: '10em',
+  short: '6em',
+  narrow: '2em',
 };
 
-function InputDataCell({ data, inputWidth = 'short' }: Props) {
+function InputDataCell({ data, inputWidth }: Props) {
   const { getTranslation, setTranslation } = useDataContext();
   if (!data) return <td>-</td>;
-  let width = data.length === 'w' || !data.length ? '15em' : '10em';
-  if (inputWidth === 'short') {
-    width = SHORT_WIDTHS[data.length] ?? SHORT_WIDTHS['w'];
+  let width = inputWidth;
+  if (!inputWidth) {
+    width = WIDTHS_BY_LENGTH[data.length] ?? WIDTHS_BY_LENGTH['w'];
   }
   return (
     <td>

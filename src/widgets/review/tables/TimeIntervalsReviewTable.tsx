@@ -76,6 +76,7 @@ function InputCell({ variant, format, difference }: InputCellProps) {
       highlight={/\d+/g}
       onChange={(value) => set.timeIntervals(variant, format, difference, value)}
       value={currentTranslation}
+      style={{ width: '15em' }}
     />
   );
 }

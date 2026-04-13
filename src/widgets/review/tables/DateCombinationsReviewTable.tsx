@@ -2,17 +2,20 @@ import { useDataContext } from '@data/DataContext';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
-import { getSourceLanguageData } from '../getSourceLanguageData';
-import HighlightInput from '../HighlightInput';
+import InputDataCell from '../InputDataCell';
+import SourceDataCell from '../SourceDataCell';
 
 function DateCombinationsReviewTable() {
-  const { dateCombinations } = useDataContext().data;
+  const { findDataFields } = useDataContext();
+  const availableFormats = findDataFields({ subject: 'dates', field: 'availableFormats' }).filter(
+    (f) => !f.instance.includes('G') && !f.instance.match(/^h/i),
+  );
 
   return (
     <table>
       <thead>
         <tr>
-          <th>Shortened XPath</th>
+          <th>Components</th>
           <th>
             <SourceLanguageLabel />
           </th>
@@ -20,45 +23,17 @@ function DateCombinationsReviewTable() {
         </tr>
       </thead>
       <tbody>
-        {dateCombinations?.map((combination, index) => {
-          const shortXPath = combination.xpath
-            ?.replace(/\/\/ldml\/dates\/calendars\/calendar\[@type="([a-z]{2})[^"]+"\]\//, '$1/')
-            .replace(/\/([a-z])[a-z]*([A-Z])[a-z]*([A-Z])?[a-z]*/g, '/$1$2$3')
-            .replace(/@[a-z]+="([a-zA-Z]+)"/g, '$1');
-          return (
-            <tr key={index}>
-              <td>
-                <span title={shortXPath}>
-                  {shortXPath?.slice(0, 20)}
-                  {shortXPath && shortXPath.length > 20 ? '...' : ''}
-                </span>
-              </td>
-              <td>{getSourceLanguageData(combination)}</td>
-              <InputCell index={index} />
-            </tr>
-          );
-        })}
+        {availableFormats?.map((datum) => (
+          <tr key={datum.index}>
+            <td>
+              {datum.instance} {datum.variant}
+            </td>
+            <SourceDataCell data={datum} />
+            <InputDataCell data={datum} inputWidth="20em" />
+          </tr>
+        ))}
       </tbody>
     </table>
-  );
-}
-
-type InputCellProps = { index: number };
-function InputCell({ index }: InputCellProps) {
-  const {
-    data: { dateCombinations },
-    set,
-  } = useDataContext();
-  return (
-    <td>
-      <HighlightInput
-        value={dateCombinations?.[index]?.translated || ''}
-        onChange={(value) => set.dateCombinations(index, value)}
-        highlight={/\d+/g}
-        style={{ width: '15em' }}
-        disabled={!dateCombinations?.[index]} // Disable if this combination doesn't exist
-      />
-    </td>
   );
 }
 

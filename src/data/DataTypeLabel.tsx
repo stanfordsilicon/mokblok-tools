@@ -1,18 +1,21 @@
 import { DataType } from './DataTypes';
 
 const DATA_TYPE_LABELS: Record<DataType, string> = {
-  [DataType.Months]: 'Months',
-  [DataType.DaysOfWeek]: 'Days of the Week',
-  [DataType.DateFields]: 'Date Fields',
+  [DataType.All]: 'Full List',
   [DataType.Alphabet]: 'Alphabet',
-  [DataType.RelativeTime]: 'Relative Time',
-  [DataType.TimeCombinations]: 'Time Combinations',
-  [DataType.TimeIntervals]: 'Time Intervals',
-  [DataType.DateCombinations]: 'Date Combinations',
-  [DataType.Quarters]: 'Quarters',
   [DataType.Coordinates]: 'Coordinates',
+  [DataType.DateCombinations]: 'Dates',
+  [DataType.DateFields]: 'Date Fields',
+  [DataType.DateIntervals]: 'Date Intervals',
+  [DataType.DaysOfWeek]: 'Days of the Week',
   [DataType.DirectionExamples]: 'Direction Examples',
+  [DataType.EraDateCombinations]: 'Era Dates',
   [DataType.Eras]: 'Eras',
+  [DataType.Months]: 'Months',
+  [DataType.Quarters]: 'Quarters',
+  [DataType.RelativeTime]: 'Relative Time',
+  [DataType.TimeCombinations]: 'Times',
+  [DataType.TimeIntervals]: 'Time Intervals',
 };
 
 function DataTypeLabel({ dataType }: { dataType: DataType }) {

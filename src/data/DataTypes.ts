@@ -154,8 +154,11 @@ export enum DataType {
   TimeCombinations = 'timeCombinations',
   TimeIntervals = 'timeIntervals',
   DateCombinations = 'dateCombinations',
+  DateIntervals = 'dateIntervals',
+  EraDateCombinations = 'eraDateCombinations',
   Coordinates = 'coordinates',
   DirectionExamples = 'directionExamples',
+  All = 'all',
 }
 
 export type AllData = {

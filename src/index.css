@@ -85,6 +85,13 @@ table {
   text-wrap: nowrap;
 }
 
+th {
+  position: sticky;
+  top: 0;
+  background: var(--color-background);
+  z-index: 10;
+}
+
 /* .input {
   border: 1px solid transparent;
   border-radius: 4px;

@@ -5,17 +5,20 @@ import DemoID from './DemoID';
 
 const demoIDsByDataType: Record<DataType, DemoID[]> = {
   [DataType.Alphabet]: [],
-  [DataType.Coordinates]: [DemoID.CoordinatesMap],
+  [DataType.Coordinates]: [DemoID.CoordinatesMap, DemoID.CoordinatesDirections],
   [DataType.DateCombinations]: [],
+  [DataType.DateIntervals]: [],
   [DataType.DateFields]: [DemoID.DateFieldBreakdown],
   [DataType.DaysOfWeek]: [DemoID.DaysOfWeekInWeek, DemoID.DaysOfWeekInMonth],
   [DataType.DirectionExamples]: [DemoID.CoordinatesDirections],
   [DataType.Eras]: [],
+  [DataType.EraDateCombinations]: [],
   [DataType.Months]: [DemoID.MonthsGrid, DemoID.MonthsTemp],
   [DataType.Quarters]: [DemoID.QuartersCircle, DemoID.QuartersEvents],
   [DataType.RelativeTime]: [],
   [DataType.TimeCombinations]: [],
   [DataType.TimeIntervals]: [],
+  [DataType.All]: [],
 };
 
 const DemosForDataType: React.FC<{ dataType: DataType }> = ({ dataType }) => {

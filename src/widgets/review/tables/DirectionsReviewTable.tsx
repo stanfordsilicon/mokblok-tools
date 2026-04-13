@@ -32,7 +32,7 @@ function DirectionsReviewTable() {
               directionFields[pluralAmount] && (
                 <tr key={pluralAmount}>
                   <SourceDataCell data={directionFields[pluralAmount][0]} />
-                  <InputDataCell data={directionFields[pluralAmount][0]} inputWidth="long" />
+                  <InputDataCell data={directionFields[pluralAmount][0]} inputWidth="15em" />
                 </tr>
               ),
           )}
