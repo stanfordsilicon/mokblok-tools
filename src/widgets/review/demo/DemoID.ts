@@ -9,6 +9,9 @@ enum DemoID {
   CoordinatesDirections = 'coordinatesDirections',
   QuartersCircle = 'quartersCircle',
   QuartersEvents = 'quartersEvents',
+  DateIntervalCreateEvent = 'dateIntervalCreateEvent',
+  TimeInterval24Hour = 'timeInterval24Hour',
+  TimeInterval12Hour = 'timeInterval12Hour',
 }
 
 export default DemoID;

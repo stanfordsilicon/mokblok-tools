@@ -5,12 +5,14 @@ import DemoLabel from './DemoLabel';
 import DemoCoordinatesDirections from './demos/DemoCoordinatesDirections';
 import DemoCoordinatesMap from './demos/DemoCoordinatesMap';
 import DemoDateFieldBreakdown from './demos/DemoDateFieldBreakdown';
+import DemoDateIntervalCreateEvent from './demos/DemoDateIntervalCreateEvent';
 import DemoDaysOfWeekInMonth from './demos/DemoDaysOfWeekInMonth';
 import DemoDaysOfWeekInWeek from './demos/DemoDaysOfWeekInWeek';
 import DemoMonthsGrid from './demos/DemoMonthsGrid';
 import DemoMonthsTemp from './demos/DemoMonthsTemp';
 import DemoQuartersCircle from './demos/DemoQuartersCircle';
 import DemoQuartersEvents from './demos/DemoQuartersEvents';
+import DemoTimeInterval from './demos/DemoTimeInterval';
 import DemoSVG from './DemoSVG';
 import DownloadDemoButton from './DownloadDemoButton';
 
@@ -57,6 +59,12 @@ const DemoImage: React.FC<{ demoID: DemoID }> = ({ demoID }) => {
       return <DemoQuartersCircle />;
     case DemoID.QuartersEvents:
       return <DemoQuartersEvents />;
+    case DemoID.DateIntervalCreateEvent:
+      return <DemoDateIntervalCreateEvent />;
+    case DemoID.TimeInterval24Hour:
+      return <DemoTimeInterval pattern="Hm" />;
+    case DemoID.TimeInterval12Hour:
+      return <DemoTimeInterval pattern="hm" />;
     default:
       return <div style={{ color: 'red' }}>Demo not found</div>;
   }

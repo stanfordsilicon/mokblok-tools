@@ -7,7 +7,7 @@ const demoIDsByDataType: Record<DataType, DemoID[]> = {
   [DataType.Alphabet]: [],
   [DataType.Coordinates]: [DemoID.CoordinatesMap, DemoID.CoordinatesDirections],
   [DataType.DateCombinations]: [],
-  [DataType.DateIntervals]: [],
+  [DataType.DateIntervals]: [DemoID.DateIntervalCreateEvent],
   [DataType.DateFields]: [DemoID.DateFieldBreakdown],
   [DataType.DaysOfWeek]: [DemoID.DaysOfWeekInWeek, DemoID.DaysOfWeekInMonth],
   [DataType.DirectionExamples]: [DemoID.CoordinatesDirections],
@@ -17,7 +17,7 @@ const demoIDsByDataType: Record<DataType, DemoID[]> = {
   [DataType.Quarters]: [DemoID.QuartersCircle, DemoID.QuartersEvents],
   [DataType.RelativeTime]: [],
   [DataType.TimeCombinations]: [],
-  [DataType.TimeIntervals]: [],
+  [DataType.TimeIntervals]: [DemoID.TimeInterval24Hour, DemoID.TimeInterval12Hour],
   [DataType.All]: [],
 };
 

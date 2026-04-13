@@ -10,6 +10,9 @@ const demoLabelMap: Record<DemoID, string> = {
   [DemoID.CoordinatesDirections]: 'Directions',
   [DemoID.QuartersCircle]: 'Quarters in a Circle',
   [DemoID.QuartersEvents]: 'Quarters in an Event View',
+  [DemoID.DateIntervalCreateEvent]: 'Creating a Date Interval Event',
+  [DemoID.TimeInterval24Hour]: 'Time Interval (24-Hour Clock)',
+  [DemoID.TimeInterval12Hour]: 'Time Interval (12-Hour Clock)',
 };
 
 function DemoLabel({ demoID }: { demoID: DemoID }) {
