@@ -24,7 +24,7 @@ const DemoQuartersEvents: React.FC = () => {
       {[...Array(4)].map((_, quarter) => (
         <g key={quarter} style={{ transform: `translate(20px, ${50 + quarter * 45}px)` }}>
           <text y={10} textAnchor="start" alignmentBaseline="middle" fontSize="1em">
-            {getTranslation(quarters[quarter]?.index) || ''}
+            {getTranslation(quarters[quarter]) || ''}
           </text>
 
           {/* events as small boxes below the quarter names */}

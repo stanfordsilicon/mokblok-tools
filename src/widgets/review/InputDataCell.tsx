@@ -5,7 +5,7 @@ import HighlightInput from './HighlightInput';
 
 type Props = {
   data?: DataField;
-  generalWidth?: 'short' | 'long';
+  inputWidth?: 'short' | 'long';
 };
 
 const SHORT_WIDTHS: Record<string, string> = {
@@ -15,18 +15,18 @@ const SHORT_WIDTHS: Record<string, string> = {
   n: '2em',
 };
 
-function InputDataCell({ data, generalWidth = 'short' }: Props) {
+function InputDataCell({ data, inputWidth = 'short' }: Props) {
   const { getTranslation, setTranslation } = useDataContext();
   if (!data) return <td>-</td>;
-  let width = data.length === 'w' ? '15em' : '10em';
-  if (generalWidth === 'short') {
+  let width = data.length === 'w' || !data.length ? '15em' : '10em';
+  if (inputWidth === 'short') {
     width = SHORT_WIDTHS[data.length] ?? SHORT_WIDTHS['w'];
   }
   return (
     <td>
       <HighlightInput
         highlight={/\d+/g}
-        value={getTranslation(data.index) || ''}
+        value={getTranslation(data) || ''}
         onChange={(value) => setTranslation(data.index, value)}
         style={{ width }}
       />

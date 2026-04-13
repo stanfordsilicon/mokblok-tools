@@ -79,7 +79,7 @@ const DemoQuartersCircle: React.FC = () => {
           alignmentBaseline="middle"
           fontSize="1em"
         >
-          {getTranslation(quarters[quarter].index) || ''}
+          {getTranslation(quarters[quarter]) || ''}
         </text>
       ))}
 
@@ -93,7 +93,7 @@ const DemoQuartersCircle: React.FC = () => {
           alignmentBaseline="middle"
           fontSize="0.75em"
         >
-          {getTranslation(months[monthIndex].index) || ''}
+          {getTranslation(months[monthIndex]) || ''}
         </text>
       ))}
     </>

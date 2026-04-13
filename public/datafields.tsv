@@ -263,6 +263,7 @@ dates	s		n		0	//ldml/dates/fields/field[@type="second-narrow"]/displayName	dw-22
 dates	timeFormats		medium		1	//ldml/dates/calendars/calendar[@type="gregorian"]/timeFormats/timeFormatLength[@type="medium"]/timeFormat[@type="standard"]/pattern[@type="standard"]	dc-55_XXX	3:30:45 PM	h:mm:ss a		Moderate
 dates	timeFormats		long		1	//ldml/dates/calendars/calendar[@type="gregorian"]/timeFormats/timeFormatLength[@type="long"]/timeFormat[@type="standard"]/pattern[@type="standard"]	dc-56_XXX	3:30:45 PM PDT	h:mm:ss a z		Moderate
 dates	timeFormats		full		1	//ldml/dates/calendars/calendar[@type="gregorian"]/timeFormats/timeFormatLength[@type="full"]/timeFormat[@type="standard"]/pattern[@type="standard"]	dc-57_XXX	3:30:45 PM Pacific Daylight Time	h:mm:ss a zzzz		Moderate
+dates	v				0	//ldml/dates/fields/field[@type="zone"]/displayName		time zone	time zone	fuseau horaire	Moderate
 dates	w		w		0	//ldml/dates/fields/field[@type="week"]/displayName	dw-11_XXX	week	week	semaine	Moderate
 dates	w		s		0	//ldml/dates/fields/field[@type="week-short"]/displayName	dw-12_XXX	wk.	wk.	sem.	Moderate
 dates	w		n		0	//ldml/dates/fields/field[@type="week-narrow"]/displayName	dw-13_XXX	wk	wk	sem.	Moderate
@@ -320,6 +321,859 @@ minimalPairs	ordinalMinimalPairs	few			1	//ldml/numbers/minimalPairs/ordinalMini
 minimalPairs	ordinalMinimalPairs	one			1	//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal="one"]	co3-1_XXX	Take the 1st right	Take the {0}st right.	Prenez la 1re à droite.	Moderate
 minimalPairs	ordinalMinimalPairs	other			1	//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal="other"]		Take the 10th right		Prenez la 10e à droite.	Moderate
 minimalPairs	ordinalMinimalPairs	two			1	//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal="two"]	co3-2_XXX	Take the 2nd right		Prenez la 2e à droite.	Moderate
+numbers	decimalFormats	1000	long	one	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="1000"][@count="one"]		1 thousand	0 thousand		Moderate
+numbers	decimalFormats	1000	long	other	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="1000"][@count="other"]		2 thousand	0 thousand		Moderate
+numbers	decimalFormats	1000	long	one	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="1000"][@count="one"]		1.5 thousand	0 thousand		Moderate
+numbers	decimalFormats	1000	long	other	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="1000"][@count="other"]		2.3 thousand	0 thousand		Moderate
+numbers	decimalFormats	1000	s	one	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="1000"][@count="one"]		1,000	0K	1K	Moderate
+numbers	decimalFormats	1000	s	other	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="1000"][@count="other"]		7,000	0K	7K	Moderate
+numbers	decimalFormats	1000	s	one	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="1000"][@count="one"]		1,500	0K	1.5K	Moderate
+numbers	decimalFormats	1000	s	other	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="1000"][@count="other"]		7,200	0K	7.2K	Moderate
+numbers	decimalFormats	10000	long	one	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="10000"][@count="one"]		10 thousand	00 thousand		Moderate
+numbers	decimalFormats	10000	long	other	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="10000"][@count="other"]		43 thousand	00 thousand		Moderate
+numbers	decimalFormats	10000	long	one	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="10000"][@count="one"]		10.5 thousand	00 thousand		Moderate
+numbers	decimalFormats	10000	long	other	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="10000"][@count="other"]		43.7 thousand	00 thousand		Moderate
+numbers	decimalFormats	10000	s	one	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="10000"][@count="one"]		10,000	00K	10K	Moderate
+numbers	decimalFormats	10000	s	other	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="10000"][@count="other"]		43,000	00K	43K	Moderate
+numbers	decimalFormats	10000	s	one	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="10000"][@count="one"]		10,500	00K	10.5K	Moderate
+numbers	decimalFormats	10000	s	other	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="10000"][@count="other"]		43,700	00K	43.7K	Moderate
+numbers	decimalFormats	100000	long	one	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="100000"][@count="one"]		134 thousand	000 thousand		Moderate
+numbers	decimalFormats	100000	long	other	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="100000"][@count="other"]		278 thousand	000 thousand		Moderate
+numbers	decimalFormats	100000	long	one	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="100000"][@count="one"]		134.7 thousand	000 thousand		Moderate
+numbers	decimalFormats	100000	long	other	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="100000"][@count="other"]		278.1 thousand	000 thousand		Moderate
+numbers	decimalFormats	100000	s	one	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="100000"][@count="one"]		134,000	000K	134K	Moderate
+numbers	decimalFormats	100000	s	other	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="100000"][@count="other"]		278,000	000K	278K	Moderate
+numbers	decimalFormats	100000	s	one	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="100000"][@count="one"]		134,700	000K	134.7K	Moderate
+numbers	decimalFormats	100000	s	other	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="100000"][@count="other"]		278,100	000K	278.1K	Moderate
+numbers	decimalFormats	1000000	long	one	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="1000000"][@count="one"]		1 million	0 million		Moderate
+numbers	decimalFormats	1000000	long	other	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="1000000"][@count="other"]		5 million	0 million		Moderate
+numbers	decimalFormats	1000000	long	one	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="1000000"][@count="one"]		1.1 million	0 million		Moderate
+numbers	decimalFormats	1000000	long	other	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="1000000"][@count="other"]		5.7 million	0 million		Moderate
+numbers	decimalFormats	1000000	s	one	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="1000000"][@count="one"]		1,000,000	0M	1M	Moderate
+numbers	decimalFormats	1000000	s	other	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="1000000"][@count="other"]		5,000,000	0M	5M	Moderate
+numbers	decimalFormats	1000000	s	one	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="1000000"][@count="one"]		1,100,000	0M	1.1M	Moderate
+numbers	decimalFormats	1000000	s	other	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="1000000"][@count="other"]		5,700,000	0M	5.7M	Moderate
+numbers	decimalFormats	10000000	long	one	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="10000000"][@count="one"]		11 million	00 million		Moderate
+numbers	decimalFormats	10000000	long	other	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="10000000"][@count="other"]		57 million	00 million		Moderate
+numbers	decimalFormats	10000000	long	one	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="10000000"][@count="one"]		11.5 million	00 million		Moderate
+numbers	decimalFormats	10000000	long	other	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="10000000"][@count="other"]		57.7 million	00 million		Moderate
+numbers	decimalFormats	10000000	s	one	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="10000000"][@count="one"]		11,000,000	00M	11M	Moderate
+numbers	decimalFormats	10000000	s	other	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="10000000"][@count="other"]		57,000,000	00M	57M	Moderate
+numbers	decimalFormats	10000000	s	one	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="10000000"][@count="one"]		11,500,000	00M	11.5M	Moderate
+numbers	decimalFormats	10000000	s	other	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="10000000"][@count="other"]		57,700,000	00M	57.7M	Moderate
+numbers	decimalFormats	100000000	long	one	3	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="10000000"][@count="one"]		134 million	00 million		Moderate
+numbers	decimalFormats	100000000	long	other	3	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="10000000"][@count="other"]		317 million	00 million		Moderate
+numbers	decimalFormats	100000000	long	one	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="100000000"][@count="one"]		134.7 million	000 million		Moderate
+numbers	decimalFormats	100000000	long	other	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="100000000"][@count="other"]		317.9 million	000 million		Moderate
+numbers	decimalFormats	100000000	s	one	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="100000000"][@count="one"]		134,000,000	000M	134M	Moderate
+numbers	decimalFormats	100000000	s	other	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="100000000"][@count="other"]		317,000,000	000M	317M	Moderate
+numbers	decimalFormats	100000000	s	one	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="100000000"][@count="one"]		134,700,000	000M	134.7M	Moderate
+numbers	decimalFormats	100000000	s	other	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="100000000"][@count="other"]		317,900,000	000M	317.9M	Moderate
+numbers	decimalFormats	1000000000	long	one	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="1000000000"][@count="one"]		1 billion	0 billion		Moderate
+numbers	decimalFormats	1000000000	long	other	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="1000000000"][@count="other"]		4 billion	0 billion		Moderate
+numbers	decimalFormats	1000000000	long	one	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="1000000000"][@count="one"]		1.2 billion	0 billion		Moderate
+numbers	decimalFormats	1000000000	long	other	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="1000000000"][@count="other"]		4.7 billion	0 billion		Moderate
+numbers	decimalFormats	1000000000	s	one	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="1000000000"][@count="one"]		1,000,000,000	0B	1B	Moderate
+numbers	decimalFormats	1000000000	s	other	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="1000000000"][@count="other"]		4,000,000,000	0B	4B	Moderate
+numbers	decimalFormats	1000000000	s	one	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="1000000000"][@count="one"]		1,200,000,000	0B	1.2B	Moderate
+numbers	decimalFormats	1000000000	s	other	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="1000000000"][@count="other"]		4,700,000,000	0B	4.7B	Moderate
+numbers	decimalFormats	10000000000	long	one	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="10000000000"][@count="one"]		11 billion	00 billion		Moderate
+numbers	decimalFormats	10000000000	long	other	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="10000000000"][@count="other"]		39 billion	00 billion		Moderate
+numbers	decimalFormats	10000000000	long	one	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="10000000000"][@count="one"]		11.2 billion	00 billion		Moderate
+numbers	decimalFormats	10000000000	long	other	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="10000000000"][@count="other"]		39.9 billion	00 billion		Moderate
+numbers	decimalFormats	10000000000	s	one	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="10000000000"][@count="one"]		11,000,000,000	00B	11B	Moderate
+numbers	decimalFormats	10000000000	s	other	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="10000000000"][@count="other"]		39,000,000,000	00B	39B	Moderate
+numbers	decimalFormats	10000000000	s	one	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="10000000000"][@count="one"]		11,200,000,000	00B	11.2B	Moderate
+numbers	decimalFormats	10000000000	s	other	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="10000000000"][@count="other"]		39,900,000,000	00B	39.9B	Moderate
+numbers	decimalFormats	100000000000	long	one	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="100000000000"][@count="one"]		134 billion	000 billion		Moderate
+numbers	decimalFormats	100000000000	long	other	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="100000000000"][@count="other"]		623 billion	000 billion		Moderate
+numbers	decimalFormats	100000000000	long	one	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="100000000000"][@count="one"]		134.7 billion	000 billion		Moderate
+numbers	decimalFormats	100000000000	long	other	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="100000000000"][@count="other"]		623.5 billion	000 billion		Moderate
+numbers	decimalFormats	100000000000	s	one	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="100000000000"][@count="one"]		134,000,000,000	000B	134B	Moderate
+numbers	decimalFormats	100000000000	s	other	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="100000000000"][@count="other"]		623,000,000,000	000B	623B	Moderate
+numbers	decimalFormats	100000000000	s	one	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="100000000000"][@count="one"]		134,700,000,000	000B	134.7B	Moderate
+numbers	decimalFormats	100000000000	s	other	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="100000000000"][@count="other"]		623,500,000,000	000B	623.5B	Moderate
+numbers	decimalFormats	1000000000000	long	one	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="1000000000000"][@count="one"]		1 trillion	0 trillion		Moderate
+numbers	decimalFormats	1000000000000	long	other	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="1000000000000"][@count="other"]		4 trillion	0 trillion		Moderate
+numbers	decimalFormats	1000000000000	long	one	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="1000000000000"][@count="one"]		1.7 trillion	0 trillion		Moderate
+numbers	decimalFormats	1000000000000	long	other	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="1000000000000"][@count="other"]		4.2 trillion	0 trillion		Moderate
+numbers	decimalFormats	1000000000000	s	one	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="1000000000000"][@count="one"]		1,000,000,000,000	0T	1T	Moderate
+numbers	decimalFormats	1000000000000	s	other	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="1000000000000"][@count="other"]		4,000,000,000,000	0T	4T	Moderate
+numbers	decimalFormats	1000000000000	s	one	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="1000000000000"][@count="one"]		1,700,000,000,000	0T	1.7T	Moderate
+numbers	decimalFormats	1000000000000	s	other	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="1000000000000"][@count="other"]		4,200,000,000,000	0T	4.2T	Moderate
+numbers	decimalFormats	10000000000000	long	one	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="10000000000000"][@count="one"]		17 trillion	00 trillion		Moderate
+numbers	decimalFormats	10000000000000	long	other	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="10000000000000"][@count="other"]		42 trillion	00 trillion		Moderate
+numbers	decimalFormats	10000000000000	long	one	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="10000000000000"][@count="one"]		17.8 trillion	00 trillion		Moderate
+numbers	decimalFormats	10000000000000	long	other	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="10000000000000"][@count="other"]		42.3 trillion	00 trillion		Moderate
+numbers	decimalFormats	10000000000000	s	one	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="10000000000000"][@count="one"]		17,000,000,000,000	00T	17T 	Moderate
+numbers	decimalFormats	10000000000000	s	other	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="10000000000000"][@count="other"]		42,000,000,000,000	00T	42T	Moderate
+numbers	decimalFormats	10000000000000	s	one	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="10000000000000"][@count="one"]		17,800,000,000,000	00T	17.8T	Moderate
+numbers	decimalFormats	10000000000000	s	other	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="10000000000000"][@count="other"]		42,300,000,000,000	00T	42.3T	Moderate
+numbers	decimalFormats	100000000000000	long	one	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="100000000000000"][@count="one"]		178 trillion	000 trillion		Moderate
+numbers	decimalFormats	100000000000000	long	other	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="100000000000000"][@count="other"]		423 trillion	000 trillion		Moderate
+numbers	decimalFormats	100000000000000	long	one	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="100000000000000"][@count="one"]		178.1 trillion	000 trillion		Moderate
+numbers	decimalFormats	100000000000000	long	other	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="100000000000000"][@count="other"]		423.9 trillion	000 trillion		Moderate
+numbers	decimalFormats	100000000000000	s	one	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="100000000000000"][@count="one"]		170,000,000,000,000	000T	170T 	Moderate
+numbers	decimalFormats	100000000000000	s	other	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="100000000000000"][@count="other"]		420,000,000,000,000	000T	420T	Moderate
+numbers	decimalFormats	100000000000000	s	one	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="100000000000000"][@count="one"]		170,900,000,000,000	000T	170.9T 	Moderate
+numbers	decimalFormats	100000000000000	s	other	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="100000000000000"][@count="other"]		420,500,000,000,000	000T	420.5T	Moderate
+territories	territory	001			0	//ldml/localeDisplayNames/territories/territory[@type="001"]		world	world	Monde	Moderate
+territories	territory	002			0	//ldml/localeDisplayNames/territories/territory[@type="002"]		Africa	Africa	Afrique	Moderate
+territories	territory	003			0	//ldml/localeDisplayNames/territories/territory[@type="003"]		North America	North America	Amérique du Nord	Moderate
+territories	territory	005			0	//ldml/localeDisplayNames/territories/territory[@type="005"]		South America	South America	Amérique du Sud	Moderate
+territories	territory	009			0	//ldml/localeDisplayNames/territories/territory[@type="009"]		Oceania	Oceania	Océanie	Moderate
+territories	territory	011			0	//ldml/localeDisplayNames/territories/territory[@type="011"]		Western Africa	Western Africa	Afrique occidentale	Moderate
+territories	territory	013			0	//ldml/localeDisplayNames/territories/territory[@type="013"]		Central America	Central America	Amérique centrale	Moderate
+territories	territory	014			0	//ldml/localeDisplayNames/territories/territory[@type="014"]		Eastern Africa	Eastern Africa	Afrique orientale	Moderate
+territories	territory	015			0	//ldml/localeDisplayNames/territories/territory[@type="015"]		Northern Africa	Northern Africa	Afrique septentrionale	Moderate
+territories	territory	017			0	//ldml/localeDisplayNames/territories/territory[@type="017"]		Middle Africa	Middle Africa	Afrique centrale	Moderate
+territories	territory	018			0	//ldml/localeDisplayNames/territories/territory[@type="018"]		Southern Africa	Southern Africa	Afrique australe	Moderate
+territories	territory	019			0	//ldml/localeDisplayNames/territories/territory[@type="019"]		Americas	Americas	Amériques	Moderate
+territories	territory	021			0	//ldml/localeDisplayNames/territories/territory[@type="021"]		Northern America	Northern America	Amérique septentrionale	Moderate
+territories	territory	029			0	//ldml/localeDisplayNames/territories/territory[@type="029"]		Caribbean	Caribbean	Caraïbes	Moderate
+territories	territory	030			0	//ldml/localeDisplayNames/territories/territory[@type="030"]		Eastern Asia	Eastern Asia	Asie de l’Est	Moderate
+territories	territory	034			0	//ldml/localeDisplayNames/territories/territory[@type="034"]		Southern Asia	Southern Asia	Asie du Sud	Moderate
+territories	territory	035			0	//ldml/localeDisplayNames/territories/territory[@type="035"]		Southeast Asia	Southeast Asia	Asie du Sud-Est	Moderate
+territories	territory	039			0	//ldml/localeDisplayNames/territories/territory[@type="039"]		Southern Europe	Southern Europe	Europe du Sud	Moderate
+territories	territory	053			0	//ldml/localeDisplayNames/territories/territory[@type="053"]		Australasia	Australasia	Australasie	Moderate
+territories	territory	054			0	//ldml/localeDisplayNames/territories/territory[@type="054"]		Melanesia	Melanesia	Mélanésie	Moderate
+territories	territory	057			0	//ldml/localeDisplayNames/territories/territory[@type="057"]		Micronesian Region	Micronesian Region	région micronésienne	Moderate
+territories	territory	061			0	//ldml/localeDisplayNames/territories/territory[@type="061"]		Polynesia	Polynesia	Polynésie	Moderate
+territories	territory	142			0	//ldml/localeDisplayNames/territories/territory[@type="142"]		Asia	Asia	Asie	Moderate
+territories	territory	143			0	//ldml/localeDisplayNames/territories/territory[@type="143"]		Central Asia	Central Asia	Asie centrale	Moderate
+territories	territory	145			0	//ldml/localeDisplayNames/territories/territory[@type="145"]		Western Asia	Western Asia	Asie de l’Ouest	Moderate
+territories	territory	150			0	//ldml/localeDisplayNames/territories/territory[@type="150"]		Europe	Europe	Europe	Moderate
+territories	territory	151			0	//ldml/localeDisplayNames/territories/territory[@type="151"]		Eastern Europe	Eastern Europe	Europe de l’Est	Moderate
+territories	territory	154			0	//ldml/localeDisplayNames/territories/territory[@type="154"]		Northern Europe	Northern Europe	Europe du Nord	Moderate
+territories	territory	155			0	//ldml/localeDisplayNames/territories/territory[@type="155"]		Western Europe	Western Europe	Europe de l’Ouest	Moderate
+territories	territory	202			0	//ldml/localeDisplayNames/territories/territory[@type="202"]		Sub-Saharan Africa	Sub-Saharan Africa	Afrique subsaharienne	Moderate
+territories	territory	419			0	//ldml/localeDisplayNames/territories/territory[@type="419"]		Latin America	Latin America	Amérique latine	Moderate
+territories	territory	EU			0	//ldml/localeDisplayNames/territories/territory[@type="EU"]		European Union	European Union	Union européenne	Moderate
+territories	territory	EZ			0	//ldml/localeDisplayNames/territories/territory[@type="EZ"]		Eurozone	Eurozone	zone euro	Moderate
+territories	territory	QO			0	//ldml/localeDisplayNames/territories/territory[@type="QO"]		Outlying Oceania	Outlying Oceania	régions éloignées de l’Océanie	Moderate
+territories	territory	UN			0	//ldml/localeDisplayNames/territories/territory[@type="UN"]		United Nations	United Nations	Nations Unies	Moderate
+territories	territory	UN	s		0	//ldml/localeDisplayNames/territories/territory[@type="UN"][@alt="short"]		UN	UN	ONU	Moderate
+territories	territory	XA			0	//ldml/localeDisplayNames/territories/territory[@type="XA"]		Pseudo-Accents	Pseudo-Accents	pseudo-accents	Moderate
+territories	territory	XB			0	//ldml/localeDisplayNames/territories/territory[@type="XB"]		Pseudo-Bidi	Pseudo-Bidi	pseudo-bidi	Moderate
+territories	territory	ZZ			0	//ldml/localeDisplayNames/territories/territory[@type="ZZ"]		Unknown Region	Unknown Region	région indéterminée	Moderate
+timezones	metazone	Afghanistan		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Afghanistan"]/long/standard		Afghanistan Time	Afghanistan Time	heure de l’Afghanistan	Moderate
+timezones	metazone	Africa_Central		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Africa_Central"]/long/standard		Central Africa Time	Central Africa Time	heure normale d’Afrique centrale	Moderate
+timezones	metazone	Africa_Eastern		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Africa_Eastern"]/long/standard		East Africa Time	East Africa Time	heure normale d’Afrique de l’Est	Moderate
+timezones	metazone	Africa_Southern		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Africa_Southern"]/long/standard		South Africa Standard Time	South Africa Standard Time	heure normale d’Afrique méridionale	Moderate
+timezones	metazone	Africa_Western		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Africa_Western"]/long/daylight		West Africa Summer Time	West Africa Summer Time	heure d’été d’Afrique de l’Ouest	Moderate
+timezones	metazone	Africa_Western		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Africa_Western"]/long/generic		West Africa Time	West Africa Time	heure d’Afrique de l’Ouest	Moderate
+timezones	metazone	Africa_Western		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Africa_Western"]/long/standard		West Africa Standard Time	West Africa Standard Time	heure normale d’Afrique de l’Ouest	Moderate
+timezones	metazone	Alaska		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Alaska"]/long/daylight		Alaska Daylight Time	Alaska Daylight Time	heure d’été de l’Alaska	Moderate
+timezones	metazone	Alaska		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Alaska"]/long/generic		Alaska Time	Alaska Time	heure de l’Alaska	Moderate
+timezones	metazone	Alaska		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Alaska"]/long/standard		Alaska Standard Time	Alaska Standard Time	heure normale de l’Alaska	Moderate
+timezones	metazone	Amazon		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Amazon"]/long/daylight		Amazon Summer Time	Amazon Summer Time	heure d’été de l’Amazonie	Moderate
+timezones	metazone	Amazon		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Amazon"]/long/generic		Amazon Time	Amazon Time	heure de l’Amazonie	Moderate
+timezones	metazone	Amazon		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Amazon"]/long/standard		Amazon Standard Time	Amazon Standard Time	heure normale de l’Amazonie	Moderate
+timezones	metazone	America_Central		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="America_Central"]/long/daylight		Central Daylight Time	Central Daylight Time	heure d’été du centre nord-américain	Moderate
+timezones	metazone	America_Central		generic	0	//ldml/dates/timeZoneNames/metazone[@type="America_Central"]/long/generic		Central Time	Central Time	heure du centre nord-américain	Moderate
+timezones	metazone	America_Central		standard	0	//ldml/dates/timeZoneNames/metazone[@type="America_Central"]/long/standard		Central Standard Time	Central Standard Time	heure normale du centre nord-américain	Moderate
+timezones	metazone	America_Eastern		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="America_Eastern"]/long/daylight		Eastern Daylight Time	Eastern Daylight Time	heure d’été de l’Est nord-américain	Moderate
+timezones	metazone	America_Eastern		generic	0	//ldml/dates/timeZoneNames/metazone[@type="America_Eastern"]/long/generic		Eastern Time	Eastern Time	heure de l’Est nord-américain	Moderate
+timezones	metazone	America_Eastern		standard	0	//ldml/dates/timeZoneNames/metazone[@type="America_Eastern"]/long/standard		Eastern Standard Time	Eastern Standard Time	heure normale de l’Est nord-américain	Moderate
+timezones	metazone	America_Mountain		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="America_Mountain"]/long/daylight		Mountain Daylight Time	Mountain Daylight Time	heure d’été des Rocheuses	Moderate
+timezones	metazone	America_Mountain		generic	0	//ldml/dates/timeZoneNames/metazone[@type="America_Mountain"]/long/generic		Mountain Time	Mountain Time	heure des Rocheuses	Moderate
+timezones	metazone	America_Mountain		standard	0	//ldml/dates/timeZoneNames/metazone[@type="America_Mountain"]/long/standard		Mountain Standard Time	Mountain Standard Time	heure normale des Rocheuses	Moderate
+timezones	metazone	America_Pacific		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="America_Pacific"]/long/daylight		Pacific Daylight Time	Pacific Daylight Time	heure d’été du Pacifique nord-américain	Moderate
+timezones	metazone	America_Pacific		generic	0	//ldml/dates/timeZoneNames/metazone[@type="America_Pacific"]/long/generic		Pacific Time	Pacific Time	heure du Pacifique nord-américain	Moderate
+timezones	metazone	America_Pacific		standard	0	//ldml/dates/timeZoneNames/metazone[@type="America_Pacific"]/long/standard		Pacific Standard Time	Pacific Standard Time	heure normale du Pacifique nord-américain	Moderate
+timezones	metazone	Apia		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Apia"]/long/daylight		Apia Daylight Time	Apia Daylight Time	heure d’été d’Apia	Moderate
+timezones	metazone	Apia		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Apia"]/long/generic		Apia Time	Apia Time	heure d’Apia	Moderate
+timezones	metazone	Apia		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Apia"]/long/standard		Apia Standard Time	Apia Standard Time	heure normale d’Apia	Moderate
+timezones	metazone	Arabian		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Arabian"]/long/daylight		Arabian Daylight Time	Arabian Daylight Time	heure d’été de l’Arabie	Moderate
+timezones	metazone	Arabian		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Arabian"]/long/generic		Arabian Time	Arabian Time	heure de l’Arabie	Moderate
+timezones	metazone	Arabian		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Arabian"]/long/standard		Arabian Standard Time	Arabian Standard Time	heure normale de l’Arabie	Moderate
+timezones	metazone	Argentina		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Argentina"]/long/daylight		Argentina Summer Time	Argentina Summer Time	heure d’été de l’Argentine	Moderate
+timezones	metazone	Argentina		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Argentina"]/long/generic		Argentina Time	Argentina Time	heure de l’Argentine	Moderate
+timezones	metazone	Argentina		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Argentina"]/long/standard		Argentina Standard Time	Argentina Standard Time	heure normale d’Argentine	Moderate
+timezones	metazone	Argentina_Western		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Argentina_Western"]/long/daylight		Western Argentina Summer Time	Western Argentina Summer Time	heure d’été de l’Ouest argentin	Moderate
+timezones	metazone	Argentina_Western		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Argentina_Western"]/long/generic		Western Argentina Time	Western Argentina Time	heure de l’Ouest argentin	Moderate
+timezones	metazone	Argentina_Western		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Argentina_Western"]/long/standard		Western Argentina Standard Time	Western Argentina Standard Time	heure normale de l’Ouest argentin	Moderate
+timezones	metazone	Armenia		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Armenia"]/long/daylight		Armenia Summer Time	Armenia Summer Time	heure d’été d’Arménie	Moderate
+timezones	metazone	Armenia		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Armenia"]/long/generic		Armenia Time	Armenia Time	heure de l’Arménie	Moderate
+timezones	metazone	Armenia		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Armenia"]/long/standard		Armenia Standard Time	Armenia Standard Time	heure normale de l’Arménie	Moderate
+timezones	metazone	Atlantic		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Atlantic"]/long/daylight		Atlantic Daylight Time	Atlantic Daylight Time	heure d’été de l’Atlantique	Moderate
+timezones	metazone	Atlantic		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Atlantic"]/long/generic		Atlantic Time	Atlantic Time	heure de l’Atlantique	Moderate
+timezones	metazone	Atlantic		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Atlantic"]/long/standard		Atlantic Standard Time	Atlantic Standard Time	heure normale de l’Atlantique	Moderate
+timezones	metazone	Australia_Central		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Australia_Central"]/long/daylight		Australian Central Daylight Time	Australian Central Daylight Time	heure d’été du centre de l’Australie	Moderate
+timezones	metazone	Australia_Central		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Australia_Central"]/long/generic		Central Australia Time	Central Australia Time	heure du centre de l’Australie	Moderate
+timezones	metazone	Australia_Central		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Australia_Central"]/long/standard		Australian Central Standard Time	Australian Central Standard Time	heure normale du centre de l’Australie	Moderate
+timezones	metazone	Australia_CentralWestern		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Australia_CentralWestern"]/long/daylight		Australian Central Western Daylight Time	Australian Central Western Daylight Time	heure d’été du centre-ouest de l’Australie	Moderate
+timezones	metazone	Australia_CentralWestern		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Australia_CentralWestern"]/long/generic		Australian Central Western Time	Australian Central Western Time	heure du centre-ouest de l’Australie	Moderate
+timezones	metazone	Australia_CentralWestern		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Australia_CentralWestern"]/long/standard		Australian Central Western Standard Time	Australian Central Western Standard Time	heure normale du centre-ouest de l’Australie	Moderate
+timezones	metazone	Australia_Eastern		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Australia_Eastern"]/long/daylight		Australian Eastern Daylight Time	Australian Eastern Daylight Time	heure d’été de l’Est de l’Australie	Moderate
+timezones	metazone	Australia_Eastern		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Australia_Eastern"]/long/generic		Eastern Australia Time	Eastern Australia Time	heure de l’Est de l’Australie	Moderate
+timezones	metazone	Australia_Eastern		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Australia_Eastern"]/long/standard		Australian Eastern Standard Time	Australian Eastern Standard Time	heure normale de l’Est de l’Australie	Moderate
+timezones	metazone	Australia_Western		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Australia_Western"]/long/daylight		Australian Western Daylight Time	Australian Western Daylight Time	heure d’été de l’Ouest de l’Australie	Moderate
+timezones	metazone	Australia_Western		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Australia_Western"]/long/generic		Western Australia Time	Western Australia Time	heure de l’Ouest de l’Australie	Moderate
+timezones	metazone	Australia_Western		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Australia_Western"]/long/standard		Australian Western Standard Time	Australian Western Standard Time	heure normale de l’Ouest de l’Australie	Moderate
+timezones	metazone	Azerbaijan		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Azerbaijan"]/long/daylight		Azerbaijan Summer Time	Azerbaijan Summer Time	heure d’été d’Azerbaïdjan	Moderate
+timezones	metazone	Azerbaijan		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Azerbaijan"]/long/generic		Azerbaijan Time	Azerbaijan Time	heure de l’Azerbaïdjan	Moderate
+timezones	metazone	Azerbaijan		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Azerbaijan"]/long/standard		Azerbaijan Standard Time	Azerbaijan Standard Time	heure normale de l’Azerbaïdjan	Moderate
+timezones	metazone	Azores		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Azores"]/long/daylight		Azores Summer Time	Azores Summer Time	heure d’été des Açores	Moderate
+timezones	metazone	Azores		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Azores"]/long/generic		Azores Time	Azores Time	heure des Açores	Moderate
+timezones	metazone	Azores		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Azores"]/long/standard		Azores Standard Time	Azores Standard Time	heure normale des Açores	Moderate
+timezones	metazone	Bangladesh		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Bangladesh"]/long/daylight		Bangladesh Summer Time	Bangladesh Summer Time	heure d’été du Bangladesh	Moderate
+timezones	metazone	Bangladesh		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Bangladesh"]/long/generic		Bangladesh Time	Bangladesh Time	heure du Bangladesh	Moderate
+timezones	metazone	Bangladesh		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Bangladesh"]/long/standard		Bangladesh Standard Time	Bangladesh Standard Time	heure normale du Bangladesh	Moderate
+timezones	metazone	Bhutan		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Bhutan"]/long/standard		Bhutan Time	Bhutan Time	heure du Bhoutan	Moderate
+timezones	metazone	Bolivia		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Bolivia"]/long/standard		Bolivia Time	Bolivia Time	heure de Bolivie	Moderate
+timezones	metazone	Brasilia		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Brasilia"]/long/daylight		Brasilia Summer Time	Brasilia Summer Time	heure d’été de Brasilia	Moderate
+timezones	metazone	Brasilia		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Brasilia"]/long/generic		Brasilia Time	Brasilia Time	heure de Brasilia	Moderate
+timezones	metazone	Brasilia		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Brasilia"]/long/standard		Brasilia Standard Time	Brasilia Standard Time	heure normale de Brasilia	Moderate
+timezones	metazone	Brunei		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Brunei"]/long/standard		Brunei Darussalam Time	Brunei Darussalam Time	heure du Brunei	Moderate
+timezones	metazone	Cape_Verde		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Cape_Verde"]/long/daylight		Cape Verde Summer Time	Cape Verde Summer Time	heure d’été du Cap-Vert	Moderate
+timezones	metazone	Cape_Verde		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Cape_Verde"]/long/generic		Cape Verde Time	Cape Verde Time	heure du Cap-Vert	Moderate
+timezones	metazone	Cape_Verde		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Cape_Verde"]/long/standard		Cape Verde Standard Time	Cape Verde Standard Time	heure normale du Cap-Vert	Moderate
+timezones	metazone	Chamorro		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Chamorro"]/long/standard		Chamorro Standard Time	Chamorro Standard Time	heure des Chamorro	Moderate
+timezones	metazone	Chatham		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Chatham"]/long/daylight		Chatham Daylight Time	Chatham Daylight Time	heure d’été des îles Chatham	Moderate
+timezones	metazone	Chatham		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Chatham"]/long/generic		Chatham Time	Chatham Time	heure des îles Chatham	Moderate
+timezones	metazone	Chatham		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Chatham"]/long/standard		Chatham Standard Time	Chatham Standard Time	heure normale des îles Chatham	Moderate
+timezones	metazone	Chile		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Chile"]/long/daylight		Chile Summer Time	Chile Summer Time	heure d’été du Chili	Moderate
+timezones	metazone	Chile		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Chile"]/long/generic		Chile Time	Chile Time	heure du Chili	Moderate
+timezones	metazone	Chile		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Chile"]/long/standard		Chile Standard Time	Chile Standard Time	heure normale du Chili	Moderate
+timezones	metazone	China		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="China"]/long/daylight		China Daylight Time	China Daylight Time	heure d’été de Chine	Moderate
+timezones	metazone	China		generic	0	//ldml/dates/timeZoneNames/metazone[@type="China"]/long/generic		China Time	China Time	heure de la Chine	Moderate
+timezones	metazone	China		standard	0	//ldml/dates/timeZoneNames/metazone[@type="China"]/long/standard		China Standard Time	China Standard Time	heure normale de la Chine	Moderate
+timezones	metazone	Christmas		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Christmas"]/long/standard		Christmas Island Time	Christmas Island Time	heure de l’île Christmas	Moderate
+timezones	metazone	Cocos		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Cocos"]/long/standard		Cocos Islands Time	Cocos Islands Time	heure des îles Cocos	Moderate
+timezones	metazone	Colombia		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Colombia"]/long/daylight		Colombia Summer Time	Colombia Summer Time	heure d’été de Colombie	Moderate
+timezones	metazone	Colombia		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Colombia"]/long/generic		Colombia Time	Colombia Time	heure de Colombie	Moderate
+timezones	metazone	Colombia		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Colombia"]/long/standard		Colombia Standard Time	Colombia Standard Time	heure normale de Colombie	Moderate
+timezones	metazone	Cook		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Cook"]/long/daylight		Cook Islands Half Summer Time	Cook Islands Half Summer Time	heure d’été des îles Cook	Moderate
+timezones	metazone	Cook		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Cook"]/long/generic		Cook Islands Time	Cook Islands Time	heure des îles Cook	Moderate
+timezones	metazone	Cook		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Cook"]/long/standard		Cook Islands Standard Time	Cook Islands Standard Time	heure normale des îles Cook	Moderate
+timezones	metazone	Cuba		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Cuba"]/long/daylight		Cuba Daylight Time	Cuba Daylight Time	heure d’été de Cuba	Moderate
+timezones	metazone	Cuba		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Cuba"]/long/generic		Cuba Time	Cuba Time	heure de Cuba	Moderate
+timezones	metazone	Cuba		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Cuba"]/long/standard		Cuba Standard Time	Cuba Standard Time	heure normale de Cuba	Moderate
+timezones	metazone	Davis		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Davis"]/long/standard		Davis Time	Davis Time	heure de Davis	Moderate
+timezones	metazone	DumontDUrville		standard	0	//ldml/dates/timeZoneNames/metazone[@type="DumontDUrville"]/long/standard		Dumont-d’Urville Time	Dumont-d’Urville Time	heure de Dumont-d’Urville	Moderate
+timezones	metazone	East_Timor		standard	0	//ldml/dates/timeZoneNames/metazone[@type="East_Timor"]/long/standard		East Timor Time	East Timor Time	heure du Timor oriental	Moderate
+timezones	metazone	Easter		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Easter"]/long/daylight		Easter Island Summer Time	Easter Island Summer Time	heure d’été de l’île de Pâques	Moderate
+timezones	metazone	Easter		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Easter"]/long/generic		Easter Island Time	Easter Island Time	heure de l’île de Pâques	Moderate
+timezones	metazone	Easter		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Easter"]/long/standard		Easter Island Standard Time	Easter Island Standard Time	heure normale de l’île de Pâques	Moderate
+timezones	metazone	Ecuador		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Ecuador"]/long/standard		Ecuador Time	Ecuador Time	heure de l’Équateur	Moderate
+timezones	metazone	Europe_Central		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Europe_Central"]/long/daylight		Central European Summer Time	Central European Summer Time	heure d’été d’Europe centrale	Moderate
+timezones	metazone	Europe_Central		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Europe_Central"]/long/generic		Central European Time	Central European Time	heure d’Europe centrale	Moderate
+timezones	metazone	Europe_Central		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Europe_Central"]/long/standard		Central European Standard Time	Central European Standard Time	heure normale d’Europe centrale	Moderate
+timezones	metazone	Europe_Eastern		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Europe_Eastern"]/long/daylight		Eastern European Summer Time	Eastern European Summer Time	heure d’été d’Europe de l’Est	Moderate
+timezones	metazone	Europe_Eastern		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Europe_Eastern"]/long/generic		Eastern European Time	Eastern European Time	heure d’Europe de l’Est	Moderate
+timezones	metazone	Europe_Eastern		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Europe_Eastern"]/long/standard		Eastern European Standard Time	Eastern European Standard Time	heure normale d’Europe de l’Est	Moderate
+timezones	metazone	Europe_Further_Eastern		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Europe_Further_Eastern"]/long/standard		Further-eastern European Time	Further-eastern European Time	heure de Kaliningrad	Moderate
+timezones	metazone	Europe_Western		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Europe_Western"]/long/daylight		Western European Summer Time	Western European Summer Time	heure d’été d’Europe de l’Ouest	Moderate
+timezones	metazone	Europe_Western		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Europe_Western"]/long/generic		Western European Time	Western European Time	heure d’Europe de l’Ouest	Moderate
+timezones	metazone	Europe_Western		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Europe_Western"]/long/standard		Western European Standard Time	Western European Standard Time	heure normale d’Europe de l’Ouest	Moderate
+timezones	metazone	Falkland		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Falkland"]/long/daylight		Falkland Islands Summer Time	Falkland Islands Summer Time	heure d’été des îles Malouines	Moderate
+timezones	metazone	Falkland		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Falkland"]/long/generic		Falkland Islands Time	Falkland Islands Time	heure des îles Malouines	Moderate
+timezones	metazone	Falkland		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Falkland"]/long/standard		Falkland Islands Standard Time	Falkland Islands Standard Time	heure normale des îles Malouines	Moderate
+timezones	metazone	Fiji		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Fiji"]/long/daylight		Fiji Summer Time	Fiji Summer Time	heure d’été des îles Fidji	Moderate
+timezones	metazone	Fiji		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Fiji"]/long/generic		Fiji Time	Fiji Time	heure des îles Fidji	Moderate
+timezones	metazone	Fiji		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Fiji"]/long/standard		Fiji Standard Time	Fiji Standard Time	heure normale des îles Fidji	Moderate
+timezones	metazone	French_Guiana		standard	0	//ldml/dates/timeZoneNames/metazone[@type="French_Guiana"]/long/standard		French Guiana Time	French Guiana Time	heure de la Guyane française	Moderate
+timezones	metazone	French_Southern		standard	0	//ldml/dates/timeZoneNames/metazone[@type="French_Southern"]/long/standard		French Southern & Antarctic Time	French Southern & Antarctic Time	heure des Terres australes et antarctiques françaises	Moderate
+timezones	metazone	Galapagos		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Galapagos"]/long/standard		Galapagos Time	Galapagos Time	heure des îles Galápagos	Moderate
+timezones	metazone	Gambier		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Gambier"]/long/standard		Gambier Time	Gambier Time	heure des îles Gambier	Moderate
+timezones	metazone	Georgia		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Georgia"]/long/daylight		Georgia Summer Time	Georgia Summer Time	heure d’été de Géorgie	Moderate
+timezones	metazone	Georgia		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Georgia"]/long/generic		Georgia Time	Georgia Time	heure de la Géorgie	Moderate
+timezones	metazone	Georgia		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Georgia"]/long/standard		Georgia Standard Time	Georgia Standard Time	heure normale de la Géorgie	Moderate
+timezones	metazone	Gilbert_Islands		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Gilbert_Islands"]/long/standard		Gilbert Islands Time	Gilbert Islands Time	heure des îles Gilbert	Moderate
+timezones	metazone	Greenland_Eastern		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Greenland_Eastern"]/long/daylight		East Greenland Summer Time	East Greenland Summer Time	heure d’été de l’Est du Groenland	Moderate
+timezones	metazone	Greenland_Eastern		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Greenland_Eastern"]/long/generic		East Greenland Time	East Greenland Time	heure de l’Est du Groenland	Moderate
+timezones	metazone	Greenland_Eastern		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Greenland_Eastern"]/long/standard		East Greenland Standard Time	East Greenland Standard Time	heure normale de l’Est du Groenland	Moderate
+timezones	metazone	Greenland_Western		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Greenland_Western"]/long/daylight		West Greenland Summer Time	West Greenland Summer Time	heure d’été de l’Ouest du Groenland	Moderate
+timezones	metazone	Greenland_Western		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Greenland_Western"]/long/generic		West Greenland Time	West Greenland Time	heure de l’Ouest du Groenland	Moderate
+timezones	metazone	Greenland_Western		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Greenland_Western"]/long/standard		West Greenland Standard Time	West Greenland Standard Time	heure normale de l’Ouest du Groenland	Moderate
+timezones	metazone	Gulf		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Gulf"]/long/standard		Gulf Standard Time	Gulf Standard Time	heure du Golfe	Moderate
+timezones	metazone	Guyana		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Guyana"]/long/standard		Guyana Time	Guyana Time	heure du Guyana	Moderate
+timezones	metazone	Hawaii_Aleutian		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Hawaii_Aleutian"]/long/daylight		Hawaii-Aleutian Daylight Time	Hawaii-Aleutian Daylight Time	heure d’été d’Hawaï - Aléoutiennes	Moderate
+timezones	metazone	Hawaii_Aleutian		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Hawaii_Aleutian"]/long/generic		Hawaii-Aleutian Time	Hawaii-Aleutian Time	heure d’Hawaï - Aléoutiennes	Moderate
+timezones	metazone	Hawaii_Aleutian		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Hawaii_Aleutian"]/long/standard		Hawaii-Aleutian Standard Time	Hawaii-Aleutian Standard Time	heure normale d’Hawaï - Aléoutiennes	Moderate
+timezones	metazone	Hong_Kong		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Hong_Kong"]/long/daylight		Hong Kong Summer Time	Hong Kong Summer Time	heure d’été de Hong Kong	Moderate
+timezones	metazone	Hong_Kong		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Hong_Kong"]/long/generic		Hong Kong Time	Hong Kong Time	heure de Hong Kong	Moderate
+timezones	metazone	Hong_Kong		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Hong_Kong"]/long/standard		Hong Kong Standard Time	Hong Kong Standard Time	heure normale de Hong Kong	Moderate
+timezones	metazone	Hovd		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Hovd"]/long/daylight		Hovd Summer Time	Hovd Summer Time	heure d’été de Hovd	Moderate
+timezones	metazone	Hovd		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Hovd"]/long/generic		Hovd Time	Hovd Time	heure de Hovd	Moderate
+timezones	metazone	Hovd		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Hovd"]/long/standard		Hovd Standard Time	Hovd Standard Time	heure normale de Hovd	Moderate
+timezones	metazone	India		standard	0	//ldml/dates/timeZoneNames/metazone[@type="India"]/long/standard		India Standard Time	India Standard Time	heure de l’Inde	Moderate
+timezones	metazone	Indian_Ocean		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Indian_Ocean"]/long/standard		Indian Ocean Time	Indian Ocean Time	heure de l’Océan Indien	Moderate
+timezones	metazone	Indochina		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Indochina"]/long/standard		Indochina Time	Indochina Time	heure d’Indochine	Moderate
+timezones	metazone	Indonesia_Central		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Indonesia_Central"]/long/standard		Central Indonesia Time	Central Indonesia Time	heure du Centre indonésien	Moderate
+timezones	metazone	Indonesia_Eastern		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Indonesia_Eastern"]/long/standard		Eastern Indonesia Time	Eastern Indonesia Time	heure de l’Est indonésien	Moderate
+timezones	metazone	Indonesia_Western		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Indonesia_Western"]/long/standard		Western Indonesia Time	Western Indonesia Time	heure de l’Ouest indonésien	Moderate
+timezones	metazone	Iran		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Iran"]/long/daylight		Iran Daylight Time	Iran Daylight Time	heure d’été d’Iran	Moderate
+timezones	metazone	Iran		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Iran"]/long/generic		Iran Time	Iran Time	heure de l’Iran	Moderate
+timezones	metazone	Iran		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Iran"]/long/standard		Iran Standard Time	Iran Standard Time	heure normale d’Iran	Moderate
+timezones	metazone	Irkutsk		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Irkutsk"]/long/daylight		Irkutsk Summer Time	Irkutsk Summer Time	heure d’été d’Irkoutsk	Moderate
+timezones	metazone	Irkutsk		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Irkutsk"]/long/generic		Irkutsk Time	Irkutsk Time	heure d’Irkoutsk	Moderate
+timezones	metazone	Irkutsk		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Irkutsk"]/long/standard		Irkutsk Standard Time	Irkutsk Standard Time	heure normale d’Irkoutsk	Moderate
+timezones	metazone	Israel		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Israel"]/long/daylight		Israel Daylight Time	Israel Daylight Time	heure d’été d’Israël	Moderate
+timezones	metazone	Israel		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Israel"]/long/generic		Israel Time	Israel Time	heure d’Israël	Moderate
+timezones	metazone	Israel		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Israel"]/long/standard		Israel Standard Time	Israel Standard Time	heure normale d’Israël	Moderate
+timezones	metazone	Japan		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Japan"]/long/daylight		Japan Daylight Time	Japan Daylight Time	heure d’été du Japon	Moderate
+timezones	metazone	Japan		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Japan"]/long/generic		Japan Time	Japan Time	heure du Japon	Moderate
+timezones	metazone	Japan		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Japan"]/long/standard		Japan Standard Time	Japan Standard Time	heure normale du Japon	Moderate
+timezones	metazone	Kazakhstan		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Kazakhstan"]/long/standard		Kazakhstan Time	Kazakhstan Time	heure du Kazakhstan	Moderate
+timezones	metazone	Kazakhstan_Eastern		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Kazakhstan_Eastern"]/long/standard		East Kazakhstan Time	East Kazakhstan Time	heure de l’Est du Kazakhstan	Moderate
+timezones	metazone	Kazakhstan_Western		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Kazakhstan_Western"]/long/standard		West Kazakhstan Time	West Kazakhstan Time	heure de l’Ouest du Kazakhstan	Moderate
+timezones	metazone	Korea		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Korea"]/long/daylight		Korean Daylight Time	Korean Daylight Time	heure d’été de Corée	Moderate
+timezones	metazone	Korea		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Korea"]/long/generic		Korean Time	Korean Time	heure de la Corée	Moderate
+timezones	metazone	Korea		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Korea"]/long/standard		Korean Standard Time	Korean Standard Time	heure normale de la Corée	Moderate
+timezones	metazone	Kosrae		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Kosrae"]/long/standard		Kosrae Time	Kosrae Time	heure de Kosrae	Moderate
+timezones	metazone	Krasnoyarsk		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Krasnoyarsk"]/long/daylight		Krasnoyarsk Summer Time	Krasnoyarsk Summer Time	heure d’été de Krasnoïarsk	Moderate
+timezones	metazone	Krasnoyarsk		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Krasnoyarsk"]/long/generic		Krasnoyarsk Time	Krasnoyarsk Time	heure de Krasnoïarsk	Moderate
+timezones	metazone	Krasnoyarsk		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Krasnoyarsk"]/long/standard		Krasnoyarsk Standard Time	Krasnoyarsk Standard Time	heure normale de Krasnoïarsk	Moderate
+timezones	metazone	Kyrgystan		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Kyrgystan"]/long/standard		Kyrgyzstan Time	Kyrgyzstan Time	heure du Kirghizistan	Moderate
+timezones	metazone	Line_Islands		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Line_Islands"]/long/standard		Line Islands Time	Line Islands Time	heure des îles de la Ligne	Moderate
+timezones	metazone	Lord_Howe		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Lord_Howe"]/long/daylight		Lord Howe Daylight Time	Lord Howe Daylight Time	heure d’été de Lord Howe	Moderate
+timezones	metazone	Lord_Howe		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Lord_Howe"]/long/generic		Lord Howe Time	Lord Howe Time	heure de Lord Howe	Moderate
+timezones	metazone	Lord_Howe		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Lord_Howe"]/long/standard		Lord Howe Standard Time	Lord Howe Standard Time	heure normale de Lord Howe	Moderate
+timezones	metazone	Magadan		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Magadan"]/long/daylight		Magadan Summer Time	Magadan Summer Time	heure d’été de Magadan	Moderate
+timezones	metazone	Magadan		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Magadan"]/long/generic		Magadan Time	Magadan Time	heure de Magadan	Moderate
+timezones	metazone	Magadan		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Magadan"]/long/standard		Magadan Standard Time	Magadan Standard Time	heure normale de Magadan	Moderate
+timezones	metazone	Malaysia		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Malaysia"]/long/standard		Malaysia Time	Malaysia Time	heure de la Malaisie	Moderate
+timezones	metazone	Maldives		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Maldives"]/long/standard		Maldives Time	Maldives Time	heure des Maldives	Moderate
+timezones	metazone	Marquesas		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Marquesas"]/long/standard		Marquesas Time	Marquesas Time	heure des îles Marquises	Moderate
+timezones	metazone	Marshall_Islands		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Marshall_Islands"]/long/standard		Marshall Islands Time	Marshall Islands Time	heure des îles Marshall	Moderate
+timezones	metazone	Mauritius		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Mauritius"]/long/daylight		Mauritius Summer Time	Mauritius Summer Time	heure d’été de Maurice	Moderate
+timezones	metazone	Mauritius		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Mauritius"]/long/generic		Mauritius Time	Mauritius Time	heure de Maurice	Moderate
+timezones	metazone	Mauritius		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Mauritius"]/long/standard		Mauritius Standard Time	Mauritius Standard Time	heure normale de Maurice	Moderate
+timezones	metazone	Mawson		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Mawson"]/long/standard		Mawson Time	Mawson Time	heure de Mawson	Moderate
+timezones	metazone	Mexico_Pacific		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Mexico_Pacific"]/long/daylight		Mexican Pacific Daylight Time	Mexican Pacific Daylight Time	heure d’été du Pacifique mexicain	Moderate
+timezones	metazone	Mexico_Pacific		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Mexico_Pacific"]/long/generic		Mexican Pacific Time	Mexican Pacific Time	heure du Pacifique mexicain	Moderate
+timezones	metazone	Mexico_Pacific		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Mexico_Pacific"]/long/standard		Mexican Pacific Standard Time	Mexican Pacific Standard Time	heure normale du Pacifique mexicain	Moderate
+timezones	metazone	Mongolia		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Mongolia"]/long/daylight		Ulaanbaatar Summer Time	Ulaanbaatar Summer Time	heure d’été d’Oulan-Bator	Moderate
+timezones	metazone	Mongolia		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Mongolia"]/long/generic		Ulaanbaatar Time	Ulaanbaatar Time	heure d’Oulan-Bator	Moderate
+timezones	metazone	Mongolia		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Mongolia"]/long/standard		Ulaanbaatar Standard Time	Ulaanbaatar Standard Time	heure normale d’Oulan-Bator	Moderate
+timezones	metazone	Moscow		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Moscow"]/long/daylight		Moscow Summer Time	Moscow Summer Time	heure d’été de Moscou	Moderate
+timezones	metazone	Moscow		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Moscow"]/long/generic		Moscow Time	Moscow Time	heure de Moscou	Moderate
+timezones	metazone	Moscow		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Moscow"]/long/standard		Moscow Standard Time	Moscow Standard Time	heure normale de Moscou	Moderate
+timezones	metazone	Myanmar		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Myanmar"]/long/standard		Myanmar Time	Myanmar Time	heure du Myanmar	Moderate
+timezones	metazone	Nauru		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Nauru"]/long/standard		Nauru Time	Nauru Time	heure de Nauru	Moderate
+timezones	metazone	Nepal		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Nepal"]/long/standard		Nepal Time	Nepal Time	heure du Népal	Moderate
+timezones	metazone	New_Caledonia		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="New_Caledonia"]/long/daylight		New Caledonia Summer Time	New Caledonia Summer Time	heure d’été de Nouvelle-Calédonie	Moderate
+timezones	metazone	New_Caledonia		generic	0	//ldml/dates/timeZoneNames/metazone[@type="New_Caledonia"]/long/generic		New Caledonia Time	New Caledonia Time	heure de la Nouvelle-Calédonie	Moderate
+timezones	metazone	New_Caledonia		standard	0	//ldml/dates/timeZoneNames/metazone[@type="New_Caledonia"]/long/standard		New Caledonia Standard Time	New Caledonia Standard Time	heure normale de la Nouvelle-Calédonie	Moderate
+timezones	metazone	New_Zealand		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="New_Zealand"]/long/daylight		New Zealand Daylight Time	New Zealand Daylight Time	heure d’été de la Nouvelle-Zélande	Moderate
+timezones	metazone	New_Zealand		generic	0	//ldml/dates/timeZoneNames/metazone[@type="New_Zealand"]/long/generic		New Zealand Time	New Zealand Time	heure de la Nouvelle-Zélande	Moderate
+timezones	metazone	New_Zealand		standard	0	//ldml/dates/timeZoneNames/metazone[@type="New_Zealand"]/long/standard		New Zealand Standard Time	New Zealand Standard Time	heure normale de la Nouvelle-Zélande	Moderate
+timezones	metazone	Newfoundland		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Newfoundland"]/long/daylight		Newfoundland Daylight Time	Newfoundland Daylight Time	heure d’été de Terre-Neuve	Moderate
+timezones	metazone	Newfoundland		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Newfoundland"]/long/generic		Newfoundland Time	Newfoundland Time	heure de Terre-Neuve	Moderate
+timezones	metazone	Newfoundland		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Newfoundland"]/long/standard		Newfoundland Standard Time	Newfoundland Standard Time	heure normale de Terre-Neuve	Moderate
+timezones	metazone	Niue		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Niue"]/long/standard		Niue Time	Niue Time	heure de Niue	Moderate
+timezones	metazone	Norfolk		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Norfolk"]/long/daylight		Norfolk Island Daylight Time	Norfolk Island Daylight Time	heure d’été de l’île Norfolk	Moderate
+timezones	metazone	Norfolk		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Norfolk"]/long/generic		Norfolk Island Time	Norfolk Island Time	heure de l’île Norfolk	Moderate
+timezones	metazone	Norfolk		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Norfolk"]/long/standard		Norfolk Island Standard Time	Norfolk Island Standard Time	heure normale de l’île Norfolk	Moderate
+timezones	metazone	Noronha		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Noronha"]/long/daylight		Fernando de Noronha Summer Time	Fernando de Noronha Summer Time	heure d’été de Fernando de Noronha	Moderate
+timezones	metazone	Noronha		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Noronha"]/long/generic		Fernando de Noronha Time	Fernando de Noronha Time	heure de Fernando de Noronha	Moderate
+timezones	metazone	Noronha		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Noronha"]/long/standard		Fernando de Noronha Standard Time	Fernando de Noronha Standard Time	heure normale de Fernando de Noronha	Moderate
+timezones	metazone	Novosibirsk		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Novosibirsk"]/long/daylight		Novosibirsk Summer Time	Novosibirsk Summer Time	heure d’été de Novossibirsk	Moderate
+timezones	metazone	Novosibirsk		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Novosibirsk"]/long/generic		Novosibirsk Time	Novosibirsk Time	heure de Novossibirsk	Moderate
+timezones	metazone	Novosibirsk		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Novosibirsk"]/long/standard		Novosibirsk Standard Time	Novosibirsk Standard Time	heure normale de Novossibirsk	Moderate
+timezones	metazone	Omsk		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Omsk"]/long/daylight		Omsk Summer Time	Omsk Summer Time	heure d’été de Omsk	Moderate
+timezones	metazone	Omsk		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Omsk"]/long/generic		Omsk Time	Omsk Time	heure de Omsk	Moderate
+timezones	metazone	Omsk		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Omsk"]/long/standard		Omsk Standard Time	Omsk Standard Time	heure normale de Omsk	Moderate
+timezones	metazone	Pakistan		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Pakistan"]/long/daylight		Pakistan Summer Time	Pakistan Summer Time	heure d’été du Pakistan	Moderate
+timezones	metazone	Pakistan		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Pakistan"]/long/generic		Pakistan Time	Pakistan Time	heure du Pakistan	Moderate
+timezones	metazone	Pakistan		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Pakistan"]/long/standard		Pakistan Standard Time	Pakistan Standard Time	heure normale du Pakistan	Moderate
+timezones	metazone	Palau		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Palau"]/long/standard		Palau Time	Palau Time	heure des Palaos	Moderate
+timezones	metazone	Papua_New_Guinea		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Papua_New_Guinea"]/long/standard		Papua New Guinea Time	Papua New Guinea Time	heure de la Papouasie-Nouvelle-Guinée	Moderate
+timezones	metazone	Paraguay		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Paraguay"]/long/daylight		Paraguay Summer Time	Paraguay Summer Time	heure d’été du Paraguay	Moderate
+timezones	metazone	Paraguay		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Paraguay"]/long/generic		Paraguay Time	Paraguay Time	heure du Paraguay	Moderate
+timezones	metazone	Paraguay		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Paraguay"]/long/standard		Paraguay Standard Time	Paraguay Standard Time	heure normale du Paraguay	Moderate
+timezones	metazone	Peru		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Peru"]/long/daylight		Peru Summer Time	Peru Summer Time	heure d’été du Pérou	Moderate
+timezones	metazone	Peru		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Peru"]/long/generic		Peru Time	Peru Time	heure du Pérou	Moderate
+timezones	metazone	Peru		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Peru"]/long/standard		Peru Standard Time	Peru Standard Time	heure normale du Pérou	Moderate
+timezones	metazone	Philippines		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Philippines"]/long/daylight		Philippine Summer Time	Philippine Summer Time	heure d’été des Philippines	Moderate
+timezones	metazone	Philippines		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Philippines"]/long/generic		Philippine Time	Philippine Time	heure des Philippines	Moderate
+timezones	metazone	Philippines		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Philippines"]/long/standard		Philippine Standard Time	Philippine Standard Time	heure normale des Philippines	Moderate
+timezones	metazone	Phoenix_Islands		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Phoenix_Islands"]/long/standard		Phoenix Islands Time	Phoenix Islands Time	heure des îles Phoenix	Moderate
+timezones	metazone	Pierre_Miquelon		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Pierre_Miquelon"]/long/daylight		St. Pierre & Miquelon Daylight Time	St. Pierre & Miquelon Daylight Time	heure d’été de Saint-Pierre-et-Miquelon	Moderate
+timezones	metazone	Pierre_Miquelon		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Pierre_Miquelon"]/long/generic		St. Pierre & Miquelon Time	St. Pierre & Miquelon Time	heure de Saint-Pierre-et-Miquelon	Moderate
+timezones	metazone	Pierre_Miquelon		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Pierre_Miquelon"]/long/standard		St. Pierre & Miquelon Standard Time	St. Pierre & Miquelon Standard Time	heure normale de Saint-Pierre-et-Miquelon	Moderate
+timezones	metazone	Pitcairn		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Pitcairn"]/long/standard		Pitcairn Time	Pitcairn Time	heure des îles Pitcairn	Moderate
+timezones	metazone	Ponape		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Ponape"]/long/standard		Ponape Time	Ponape Time	heure de l’île de Pohnpei	Moderate
+timezones	metazone	Pyongyang		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Pyongyang"]/long/standard		Pyongyang Time	Pyongyang Time	heure de Pyongyang	Moderate
+timezones	metazone	Reunion		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Reunion"]/long/standard		Réunion Time	Réunion Time	heure de La Réunion	Moderate
+timezones	metazone	Rothera		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Rothera"]/long/standard		Rothera Time	Rothera Time	heure de Rothera	Moderate
+timezones	metazone	Sakhalin		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Sakhalin"]/long/daylight		Sakhalin Summer Time	Sakhalin Summer Time	heure d’été de Sakhaline	Moderate
+timezones	metazone	Sakhalin		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Sakhalin"]/long/generic		Sakhalin Time	Sakhalin Time	heure de Sakhaline	Moderate
+timezones	metazone	Sakhalin		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Sakhalin"]/long/standard		Sakhalin Standard Time	Sakhalin Standard Time	heure normale de Sakhaline	Moderate
+timezones	metazone	Samoa		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Samoa"]/long/daylight		Samoa Daylight Time	Samoa Daylight Time	heure d’été des Samoa	Moderate
+timezones	metazone	Samoa		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Samoa"]/long/generic		Samoa Time	Samoa Time	heure des Samoa	Moderate
+timezones	metazone	Samoa		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Samoa"]/long/standard		Samoa Standard Time	Samoa Standard Time	heure normale des Samoa	Moderate
+timezones	metazone	Seychelles		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Seychelles"]/long/standard		Seychelles Time	Seychelles Time	heure des Seychelles	Moderate
+timezones	metazone	Singapore		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Singapore"]/long/standard		Singapore Standard Time	Singapore Standard Time	heure de Singapour	Moderate
+timezones	metazone	Solomon		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Solomon"]/long/standard		Solomon Islands Time	Solomon Islands Time	heure des îles Salomon	Moderate
+timezones	metazone	South_Georgia		standard	0	//ldml/dates/timeZoneNames/metazone[@type="South_Georgia"]/long/standard		South Georgia Time	South Georgia Time	heure de Géorgie du Sud	Moderate
+timezones	metazone	Suriname		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Suriname"]/long/standard		Suriname Time	Suriname Time	heure du Suriname	Moderate
+timezones	metazone	Syowa		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Syowa"]/long/standard		Syowa Time	Syowa Time	heure de Syowa	Moderate
+timezones	metazone	Tahiti		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Tahiti"]/long/standard		Tahiti Time	Tahiti Time	heure de Tahiti	Moderate
+timezones	metazone	Taipei		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Taipei"]/long/daylight		Taipei Daylight Time	Taipei Daylight Time	heure d’été de Taipei	Moderate
+timezones	metazone	Taipei		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Taipei"]/long/generic		Taipei Time	Taipei Time	heure de Taipei	Moderate
+timezones	metazone	Taipei		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Taipei"]/long/standard		Taipei Standard Time	Taipei Standard Time	heure normale de Taipei	Moderate
+timezones	metazone	Tajikistan		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Tajikistan"]/long/standard		Tajikistan Time	Tajikistan Time	heure du Tadjikistan	Moderate
+timezones	metazone	Tokelau		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Tokelau"]/long/standard		Tokelau Time	Tokelau Time	heure de Tokelau	Moderate
+timezones	metazone	Tonga		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Tonga"]/long/daylight		Tonga Summer Time	Tonga Summer Time	heure d’été de Tonga	Moderate
+timezones	metazone	Tonga		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Tonga"]/long/generic		Tonga Time	Tonga Time	heure des Tonga	Moderate
+timezones	metazone	Tonga		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Tonga"]/long/standard		Tonga Standard Time	Tonga Standard Time	heure normale des Tonga	Moderate
+timezones	metazone	Truk		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Truk"]/long/standard		Chuuk Time	Chuuk Time	heure de Chuuk	Moderate
+timezones	metazone	Turkmenistan		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Turkmenistan"]/long/daylight		Turkmenistan Summer Time	Turkmenistan Summer Time	heure d’été du Turkménistan	Moderate
+timezones	metazone	Turkmenistan		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Turkmenistan"]/long/generic		Turkmenistan Time	Turkmenistan Time	heure du Turkménistan	Moderate
+timezones	metazone	Turkmenistan		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Turkmenistan"]/long/standard		Turkmenistan Standard Time	Turkmenistan Standard Time	heure normale du Turkménistan	Moderate
+timezones	metazone	Tuvalu		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Tuvalu"]/long/standard		Tuvalu Time	Tuvalu Time	heure des Tuvalu	Moderate
+timezones	metazone	Uruguay		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Uruguay"]/long/daylight		Uruguay Summer Time	Uruguay Summer Time	heure d’été de l’Uruguay	Moderate
+timezones	metazone	Uruguay		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Uruguay"]/long/generic		Uruguay Time	Uruguay Time	heure de l’Uruguay	Moderate
+timezones	metazone	Uruguay		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Uruguay"]/long/standard		Uruguay Standard Time	Uruguay Standard Time	heure normale de l’Uruguay	Moderate
+timezones	metazone	Uzbekistan		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Uzbekistan"]/long/daylight		Uzbekistan Summer Time	Uzbekistan Summer Time	heure d’été de l’Ouzbékistan	Moderate
+timezones	metazone	Uzbekistan		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Uzbekistan"]/long/generic		Uzbekistan Time	Uzbekistan Time	heure de l’Ouzbékistan	Moderate
+timezones	metazone	Uzbekistan		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Uzbekistan"]/long/standard		Uzbekistan Standard Time	Uzbekistan Standard Time	heure normale de l’Ouzbékistan	Moderate
+timezones	metazone	Vanuatu		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Vanuatu"]/long/daylight		Vanuatu Summer Time	Vanuatu Summer Time	heure d’été de Vanuatu	Moderate
+timezones	metazone	Vanuatu		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Vanuatu"]/long/generic		Vanuatu Time	Vanuatu Time	heure du Vanuatu	Moderate
+timezones	metazone	Vanuatu		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Vanuatu"]/long/standard		Vanuatu Standard Time	Vanuatu Standard Time	heure normale du Vanuatu	Moderate
+timezones	metazone	Venezuela		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Venezuela"]/long/standard		Venezuela Time	Venezuela Time	heure du Venezuela	Moderate
+timezones	metazone	Vladivostok		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Vladivostok"]/long/daylight		Vladivostok Summer Time	Vladivostok Summer Time	heure d’été de Vladivostok	Moderate
+timezones	metazone	Vladivostok		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Vladivostok"]/long/generic		Vladivostok Time	Vladivostok Time	heure de Vladivostok	Moderate
+timezones	metazone	Vladivostok		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Vladivostok"]/long/standard		Vladivostok Standard Time	Vladivostok Standard Time	heure normale de Vladivostok	Moderate
+timezones	metazone	Volgograd		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Volgograd"]/long/daylight		Volgograd Summer Time	Volgograd Summer Time	heure d’été de Volgograd	Moderate
+timezones	metazone	Volgograd		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Volgograd"]/long/generic		Volgograd Time	Volgograd Time	heure de Volgograd	Moderate
+timezones	metazone	Volgograd		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Volgograd"]/long/standard		Volgograd Standard Time	Volgograd Standard Time	heure normale de Volgograd	Moderate
+timezones	metazone	Vostok		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Vostok"]/long/standard		Vostok Time	Vostok Time	heure de Vostok	Moderate
+timezones	metazone	Wake		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Wake"]/long/standard		Wake Island Time	Wake Island Time	heure de l’île Wake	Moderate
+timezones	metazone	Wallis		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Wallis"]/long/standard		Wallis & Futuna Time	Wallis & Futuna Time	heure de Wallis-et-Futuna	Moderate
+timezones	metazone	Yakutsk		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Yakutsk"]/long/daylight		Yakutsk Summer Time	Yakutsk Summer Time	heure d’été de Iakoutsk	Moderate
+timezones	metazone	Yakutsk		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Yakutsk"]/long/generic		Yakutsk Time	Yakutsk Time	heure de Iakoutsk	Moderate
+timezones	metazone	Yakutsk		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Yakutsk"]/long/standard		Yakutsk Standard Time	Yakutsk Standard Time	heure normale de Iakoutsk	Moderate
+timezones	metazone	Yekaterinburg		daylight	0	//ldml/dates/timeZoneNames/metazone[@type="Yekaterinburg"]/long/daylight		Yekaterinburg Summer Time	Yekaterinburg Summer Time	heure d’été d’Ekaterinbourg	Moderate
+timezones	metazone	Yekaterinburg		generic	0	//ldml/dates/timeZoneNames/metazone[@type="Yekaterinburg"]/long/generic		Yekaterinburg Time	Yekaterinburg Time	heure d’Ekaterinbourg	Moderate
+timezones	metazone	Yekaterinburg		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Yekaterinburg"]/long/standard		Yekaterinburg Standard Time	Yekaterinburg Standard Time	heure normale d’Ekaterinbourg	Moderate
+timezones	metazone	Yukon		standard	0	//ldml/dates/timeZoneNames/metazone[@type="Yukon"]/long/standard		Yukon Time	Yukon Time	heure normale du Yukon	Moderate
+timezones	zone	Africa/Abidjan			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Abidjan"]/exemplarCity		Abidjan	Abidjan	Abidjan	Moderate
+timezones	zone	Africa/Accra			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Accra"]/exemplarCity		Accra	Accra	Accra	Moderate
+timezones	zone	Africa/Addis_Ababa			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Addis_Ababa"]/exemplarCity		Addis Ababa	Addis Ababa	Addis-Abeba	Moderate
+timezones	zone	Africa/Algiers			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Algiers"]/exemplarCity		Algiers	Algiers	Alger	Moderate
+timezones	zone	Africa/Asmera			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Asmera"]/exemplarCity		Asmara	Asmara	Asmara	Moderate
+timezones	zone	Africa/Bamako			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Bamako"]/exemplarCity		Bamako	Bamako	Bamako	Moderate
+timezones	zone	Africa/Bangui			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Bangui"]/exemplarCity		Bangui	Bangui	Bangui	Moderate
+timezones	zone	Africa/Banjul			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Banjul"]/exemplarCity		Banjul	Banjul	Banjul	Moderate
+timezones	zone	Africa/Bissau			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Bissau"]/exemplarCity		Bissau	Bissau	Bissau	Moderate
+timezones	zone	Africa/Blantyre			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Blantyre"]/exemplarCity		Blantyre	Blantyre	Blantyre	Moderate
+timezones	zone	Africa/Brazzaville			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Brazzaville"]/exemplarCity		Brazzaville	Brazzaville	Brazzaville	Moderate
+timezones	zone	Africa/Bujumbura			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Bujumbura"]/exemplarCity		Bujumbura	Bujumbura	Bujumbura	Moderate
+timezones	zone	Africa/Cairo			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Cairo"]/exemplarCity		Cairo	Cairo	Le Caire	Moderate
+timezones	zone	Africa/Casablanca			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Casablanca"]/exemplarCity		Casablanca	Casablanca	Casablanca	Moderate
+timezones	zone	Africa/Ceuta			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Ceuta"]/exemplarCity		Ceuta	Ceuta	Ceuta	Moderate
+timezones	zone	Africa/Conakry			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Conakry"]/exemplarCity		Conakry	Conakry	Conakry	Moderate
+timezones	zone	Africa/Dakar			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Dakar"]/exemplarCity		Dakar	Dakar	Dakar	Moderate
+timezones	zone	Africa/Dar_es_Salaam			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Dar_es_Salaam"]/exemplarCity		Dar es Salaam	Dar es Salaam	Dar es Salaam	Moderate
+timezones	zone	Africa/Djibouti			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Djibouti"]/exemplarCity		Djibouti	Djibouti	Djibouti	Moderate
+timezones	zone	Africa/Douala			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Douala"]/exemplarCity		Douala	Douala	Douala	Moderate
+timezones	zone	Africa/El_Aaiun			0	//ldml/dates/timeZoneNames/zone[@type="Africa/El_Aaiun"]/exemplarCity		El Aaiun	El Aaiun	Laâyoune	Moderate
+timezones	zone	Africa/Freetown			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Freetown"]/exemplarCity		Freetown	Freetown	Freetown	Moderate
+timezones	zone	Africa/Gaborone			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Gaborone"]/exemplarCity		Gaborone	Gaborone	Gaborone	Moderate
+timezones	zone	Africa/Harare			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Harare"]/exemplarCity		Harare	Harare	Harare	Moderate
+timezones	zone	Africa/Johannesburg			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Johannesburg"]/exemplarCity		Johannesburg	Johannesburg	Johannesburg	Moderate
+timezones	zone	Africa/Juba			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Juba"]/exemplarCity		Juba	Juba	Juba	Moderate
+timezones	zone	Africa/Kampala			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Kampala"]/exemplarCity		Kampala	Kampala	Kampala	Moderate
+timezones	zone	Africa/Khartoum			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Khartoum"]/exemplarCity		Khartoum	Khartoum	Khartoum	Moderate
+timezones	zone	Africa/Kigali			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Kigali"]/exemplarCity		Kigali	Kigali	Kigali	Moderate
+timezones	zone	Africa/Kinshasa			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Kinshasa"]/exemplarCity		Kinshasa	Kinshasa	Kinshasa	Moderate
+timezones	zone	Africa/Lagos			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Lagos"]/exemplarCity		Lagos	Lagos	Lagos	Moderate
+timezones	zone	Africa/Libreville			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Libreville"]/exemplarCity		Libreville	Libreville	Libreville	Moderate
+timezones	zone	Africa/Lome			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Lome"]/exemplarCity		Lome	Lome	Lomé	Moderate
+timezones	zone	Africa/Luanda			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Luanda"]/exemplarCity		Luanda	Luanda	Luanda	Moderate
+timezones	zone	Africa/Lubumbashi			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Lubumbashi"]/exemplarCity		Lubumbashi	Lubumbashi	Lubumbashi	Moderate
+timezones	zone	Africa/Lusaka			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Lusaka"]/exemplarCity		Lusaka	Lusaka	Lusaka	Moderate
+timezones	zone	Africa/Malabo			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Malabo"]/exemplarCity		Malabo	Malabo	Malabo	Moderate
+timezones	zone	Africa/Maputo			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Maputo"]/exemplarCity		Maputo	Maputo	Maputo	Moderate
+timezones	zone	Africa/Maseru			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Maseru"]/exemplarCity		Maseru	Maseru	Maseru	Moderate
+timezones	zone	Africa/Mbabane			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Mbabane"]/exemplarCity		Mbabane	Mbabane	Mbabane	Moderate
+timezones	zone	Africa/Mogadishu			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Mogadishu"]/exemplarCity		Mogadishu	Mogadishu	Mogadiscio	Moderate
+timezones	zone	Africa/Monrovia			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Monrovia"]/exemplarCity		Monrovia	Monrovia	Monrovia	Moderate
+timezones	zone	Africa/Nairobi			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Nairobi"]/exemplarCity		Nairobi	Nairobi	Nairobi	Moderate
+timezones	zone	Africa/Ndjamena			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Ndjamena"]/exemplarCity		Ndjamena	Ndjamena	N’Djamena	Moderate
+timezones	zone	Africa/Niamey			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Niamey"]/exemplarCity		Niamey	Niamey	Niamey	Moderate
+timezones	zone	Africa/Nouakchott			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Nouakchott"]/exemplarCity		Nouakchott	Nouakchott	Nouakchott	Moderate
+timezones	zone	Africa/Ouagadougou			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Ouagadougou"]/exemplarCity		Ouagadougou	Ouagadougou	Ouagadougou	Moderate
+timezones	zone	Africa/Porto-Novo			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Porto-Novo"]/exemplarCity		Porto-Novo	Porto-Novo	Porto-Novo	Moderate
+timezones	zone	Africa/Sao_Tome			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Sao_Tome"]/exemplarCity		São Tomé	São Tomé	São Tomé	Moderate
+timezones	zone	Africa/Tripoli			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Tripoli"]/exemplarCity		Tripoli	Tripoli	Tripoli (Libye)	Moderate
+timezones	zone	Africa/Tunis			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Tunis"]/exemplarCity		Tunis	Tunis	Tunis	Moderate
+timezones	zone	Africa/Windhoek			0	//ldml/dates/timeZoneNames/zone[@type="Africa/Windhoek"]/exemplarCity		Windhoek	Windhoek	Windhoek	Moderate
+timezones	zone	America/Adak			0	//ldml/dates/timeZoneNames/zone[@type="America/Adak"]/exemplarCity		Adak	Adak	Adak	Moderate
+timezones	zone	America/Anchorage			0	//ldml/dates/timeZoneNames/zone[@type="America/Anchorage"]/exemplarCity		Anchorage	Anchorage	Anchorage	Moderate
+timezones	zone	America/Anguilla			0	//ldml/dates/timeZoneNames/zone[@type="America/Anguilla"]/exemplarCity		Anguilla	Anguilla	Anguilla	Moderate
+timezones	zone	America/Antigua			0	//ldml/dates/timeZoneNames/zone[@type="America/Antigua"]/exemplarCity		Antigua	Antigua	Antigua	Moderate
+timezones	zone	America/Araguaina			0	//ldml/dates/timeZoneNames/zone[@type="America/Araguaina"]/exemplarCity		Araguaina	Araguaina	Araguaína	Moderate
+timezones	zone	America/Argentina/La_Rioja			0	//ldml/dates/timeZoneNames/zone[@type="America/Argentina/La_Rioja"]/exemplarCity		La Rioja	La Rioja	La Rioja	Moderate
+timezones	zone	America/Argentina/Rio_Gallegos			0	//ldml/dates/timeZoneNames/zone[@type="America/Argentina/Rio_Gallegos"]/exemplarCity		Rio Gallegos	Rio Gallegos	Río Gallegos	Moderate
+timezones	zone	America/Argentina/Salta			0	//ldml/dates/timeZoneNames/zone[@type="America/Argentina/Salta"]/exemplarCity		Salta	Salta	Salta	Moderate
+timezones	zone	America/Argentina/San_Juan			0	//ldml/dates/timeZoneNames/zone[@type="America/Argentina/San_Juan"]/exemplarCity		San Juan	San Juan	San Juan	Moderate
+timezones	zone	America/Argentina/San_Luis			0	//ldml/dates/timeZoneNames/zone[@type="America/Argentina/San_Luis"]/exemplarCity		San Luis	San Luis	San Luis	Moderate
+timezones	zone	America/Argentina/Tucuman			0	//ldml/dates/timeZoneNames/zone[@type="America/Argentina/Tucuman"]/exemplarCity		Tucuman	Tucuman	Tucumán	Moderate
+timezones	zone	America/Argentina/Ushuaia			0	//ldml/dates/timeZoneNames/zone[@type="America/Argentina/Ushuaia"]/exemplarCity		Ushuaia	Ushuaia	Ushuaïa	Moderate
+timezones	zone	America/Aruba			0	//ldml/dates/timeZoneNames/zone[@type="America/Aruba"]/exemplarCity		Aruba	Aruba	Aruba	Moderate
+timezones	zone	America/Asuncion			0	//ldml/dates/timeZoneNames/zone[@type="America/Asuncion"]/exemplarCity		Asunción	Asunción	Asunción	Moderate
+timezones	zone	America/Bahia			0	//ldml/dates/timeZoneNames/zone[@type="America/Bahia"]/exemplarCity		Bahia	Bahia	Bahia	Moderate
+timezones	zone	America/Bahia_Banderas			0	//ldml/dates/timeZoneNames/zone[@type="America/Bahia_Banderas"]/exemplarCity		Bahía de Banderas	Bahía de Banderas	Bahia de Banderas	Moderate
+timezones	zone	America/Barbados			0	//ldml/dates/timeZoneNames/zone[@type="America/Barbados"]/exemplarCity		Barbados	Barbados	La Barbade	Moderate
+timezones	zone	America/Belem			0	//ldml/dates/timeZoneNames/zone[@type="America/Belem"]/exemplarCity		Belem	Belem	Belém	Moderate
+timezones	zone	America/Belize			0	//ldml/dates/timeZoneNames/zone[@type="America/Belize"]/exemplarCity		Belize	Belize	Belize	Moderate
+timezones	zone	America/Blanc-Sablon			0	//ldml/dates/timeZoneNames/zone[@type="America/Blanc-Sablon"]/exemplarCity		Blanc-Sablon	Blanc-Sablon	Blanc-Sablon	Moderate
+timezones	zone	America/Boa_Vista			0	//ldml/dates/timeZoneNames/zone[@type="America/Boa_Vista"]/exemplarCity		Boa Vista	Boa Vista	Boa Vista	Moderate
+timezones	zone	America/Bogota			0	//ldml/dates/timeZoneNames/zone[@type="America/Bogota"]/exemplarCity		Bogota	Bogota	Bogota	Moderate
+timezones	zone	America/Boise			0	//ldml/dates/timeZoneNames/zone[@type="America/Boise"]/exemplarCity		Boise	Boise	Boise	Moderate
+timezones	zone	America/Buenos_Aires			0	//ldml/dates/timeZoneNames/zone[@type="America/Buenos_Aires"]/exemplarCity		Buenos Aires	Buenos Aires	Buenos Aires	Moderate
+timezones	zone	America/Cambridge_Bay			0	//ldml/dates/timeZoneNames/zone[@type="America/Cambridge_Bay"]/exemplarCity		Cambridge Bay	Cambridge Bay	Cambridge Bay	Moderate
+timezones	zone	America/Campo_Grande			0	//ldml/dates/timeZoneNames/zone[@type="America/Campo_Grande"]/exemplarCity		Campo Grande	Campo Grande	Campo Grande	Moderate
+timezones	zone	America/Cancun			0	//ldml/dates/timeZoneNames/zone[@type="America/Cancun"]/exemplarCity		Cancún	Cancún	Cancún	Moderate
+timezones	zone	America/Caracas			0	//ldml/dates/timeZoneNames/zone[@type="America/Caracas"]/exemplarCity		Caracas	Caracas	Caracas	Moderate
+timezones	zone	America/Catamarca			0	//ldml/dates/timeZoneNames/zone[@type="America/Catamarca"]/exemplarCity		Catamarca	Catamarca	Catamarca	Moderate
+timezones	zone	America/Cayenne			0	//ldml/dates/timeZoneNames/zone[@type="America/Cayenne"]/exemplarCity		Cayenne	Cayenne	Cayenne	Moderate
+timezones	zone	America/Cayman			0	//ldml/dates/timeZoneNames/zone[@type="America/Cayman"]/exemplarCity		Cayman	Cayman	Caïmans	Moderate
+timezones	zone	America/Chicago			0	//ldml/dates/timeZoneNames/zone[@type="America/Chicago"]/exemplarCity		Chicago	Chicago	Chicago	Moderate
+timezones	zone	America/Chihuahua			0	//ldml/dates/timeZoneNames/zone[@type="America/Chihuahua"]/exemplarCity		Chihuahua	Chihuahua	Chihuahua	Moderate
+timezones	zone	America/Ciudad_Juarez			0	//ldml/dates/timeZoneNames/zone[@type="America/Ciudad_Juarez"]/exemplarCity		Ciudad Juárez	Ciudad Juárez	Ciudad Juárez	Moderate
+timezones	zone	America/Coral_Harbour			0	//ldml/dates/timeZoneNames/zone[@type="America/Coral_Harbour"]/exemplarCity		Atikokan	Atikokan	Atikokan	Moderate
+timezones	zone	America/Cordoba			0	//ldml/dates/timeZoneNames/zone[@type="America/Cordoba"]/exemplarCity		Cordoba	Cordoba	Córdoba	Moderate
+timezones	zone	America/Costa_Rica			0	//ldml/dates/timeZoneNames/zone[@type="America/Costa_Rica"]/exemplarCity		Costa Rica	Costa Rica	Costa Rica	Moderate
+timezones	zone	America/Creston			0	//ldml/dates/timeZoneNames/zone[@type="America/Creston"]/exemplarCity		Creston	Creston	Creston	Moderate
+timezones	zone	America/Cuiaba			0	//ldml/dates/timeZoneNames/zone[@type="America/Cuiaba"]/exemplarCity		Cuiaba	Cuiaba	Cuiabá	Moderate
+timezones	zone	America/Curacao			0	//ldml/dates/timeZoneNames/zone[@type="America/Curacao"]/exemplarCity		Curaçao	Curaçao	Curaçao	Moderate
+timezones	zone	America/Danmarkshavn			0	//ldml/dates/timeZoneNames/zone[@type="America/Danmarkshavn"]/exemplarCity		Danmarkshavn	Danmarkshavn	Danmarkshavn	Moderate
+timezones	zone	America/Dawson			0	//ldml/dates/timeZoneNames/zone[@type="America/Dawson"]/exemplarCity		Dawson	Dawson	Dawson	Moderate
+timezones	zone	America/Dawson_Creek			0	//ldml/dates/timeZoneNames/zone[@type="America/Dawson_Creek"]/exemplarCity		Dawson Creek	Dawson Creek	Dawson Creek	Moderate
+timezones	zone	America/Denver			0	//ldml/dates/timeZoneNames/zone[@type="America/Denver"]/exemplarCity		Denver	Denver	Denver	Moderate
+timezones	zone	America/Detroit			0	//ldml/dates/timeZoneNames/zone[@type="America/Detroit"]/exemplarCity		Detroit	Detroit	Détroit	Moderate
+timezones	zone	America/Dominica			0	//ldml/dates/timeZoneNames/zone[@type="America/Dominica"]/exemplarCity		Dominica	Dominica	Dominique	Moderate
+timezones	zone	America/Edmonton			0	//ldml/dates/timeZoneNames/zone[@type="America/Edmonton"]/exemplarCity		Edmonton	Edmonton	Edmonton	Moderate
+timezones	zone	America/Eirunepe			0	//ldml/dates/timeZoneNames/zone[@type="America/Eirunepe"]/exemplarCity		Eirunepe	Eirunepe	Eirunepé	Moderate
+timezones	zone	America/El_Salvador			0	//ldml/dates/timeZoneNames/zone[@type="America/El_Salvador"]/exemplarCity		El Salvador	El Salvador	El Salvador	Moderate
+timezones	zone	America/Fort_Nelson			0	//ldml/dates/timeZoneNames/zone[@type="America/Fort_Nelson"]/exemplarCity		Fort Nelson	Fort Nelson	Fort Nelson	Moderate
+timezones	zone	America/Fortaleza			0	//ldml/dates/timeZoneNames/zone[@type="America/Fortaleza"]/exemplarCity		Fortaleza	Fortaleza	Fortaleza	Moderate
+timezones	zone	America/Glace_Bay			0	//ldml/dates/timeZoneNames/zone[@type="America/Glace_Bay"]/exemplarCity		Glace Bay	Glace Bay	Glace Bay	Moderate
+timezones	zone	America/Godthab			0	//ldml/dates/timeZoneNames/zone[@type="America/Godthab"]/exemplarCity		Nuuk	Nuuk	Nuuk	Moderate
+timezones	zone	America/Goose_Bay			0	//ldml/dates/timeZoneNames/zone[@type="America/Goose_Bay"]/exemplarCity		Goose Bay	Goose Bay	Goose Bay	Moderate
+timezones	zone	America/Grand_Turk			0	//ldml/dates/timeZoneNames/zone[@type="America/Grand_Turk"]/exemplarCity		Grand Turk	Grand Turk	Grand Turk	Moderate
+timezones	zone	America/Grenada			0	//ldml/dates/timeZoneNames/zone[@type="America/Grenada"]/exemplarCity		Grenada	Grenada	Grenade	Moderate
+timezones	zone	America/Guadeloupe			0	//ldml/dates/timeZoneNames/zone[@type="America/Guadeloupe"]/exemplarCity		Guadeloupe	Guadeloupe	Guadeloupe	Moderate
+timezones	zone	America/Guatemala			0	//ldml/dates/timeZoneNames/zone[@type="America/Guatemala"]/exemplarCity		Guatemala	Guatemala	Guatemala	Moderate
+timezones	zone	America/Guayaquil			0	//ldml/dates/timeZoneNames/zone[@type="America/Guayaquil"]/exemplarCity		Guayaquil	Guayaquil	Guayaquil	Moderate
+timezones	zone	America/Guyana			0	//ldml/dates/timeZoneNames/zone[@type="America/Guyana"]/exemplarCity		Guyana	Guyana	Guyana	Moderate
+timezones	zone	America/Halifax			0	//ldml/dates/timeZoneNames/zone[@type="America/Halifax"]/exemplarCity		Halifax	Halifax	Halifax	Moderate
+timezones	zone	America/Havana			0	//ldml/dates/timeZoneNames/zone[@type="America/Havana"]/exemplarCity		Havana	Havana	La Havane	Moderate
+timezones	zone	America/Hermosillo			0	//ldml/dates/timeZoneNames/zone[@type="America/Hermosillo"]/exemplarCity		Hermosillo	Hermosillo	Hermosillo	Moderate
+timezones	zone	America/Indiana/Knox			0	//ldml/dates/timeZoneNames/zone[@type="America/Indiana/Knox"]/exemplarCity		Knox, Indiana	Knox, Indiana	Knox [Indiana]	Moderate
+timezones	zone	America/Indiana/Marengo			0	//ldml/dates/timeZoneNames/zone[@type="America/Indiana/Marengo"]/exemplarCity		Marengo, Indiana	Marengo, Indiana	Marengo [Indiana]	Moderate
+timezones	zone	America/Indiana/Petersburg			0	//ldml/dates/timeZoneNames/zone[@type="America/Indiana/Petersburg"]/exemplarCity		Petersburg, Indiana	Petersburg, Indiana	Petersburg [Indiana]	Moderate
+timezones	zone	America/Indiana/Tell_City			0	//ldml/dates/timeZoneNames/zone[@type="America/Indiana/Tell_City"]/exemplarCity		Tell City, Indiana	Tell City, Indiana	Tell City [Indiana]	Moderate
+timezones	zone	America/Indiana/Vevay			0	//ldml/dates/timeZoneNames/zone[@type="America/Indiana/Vevay"]/exemplarCity		Vevay, Indiana	Vevay, Indiana	Vevay [Indiana]	Moderate
+timezones	zone	America/Indiana/Vincennes			0	//ldml/dates/timeZoneNames/zone[@type="America/Indiana/Vincennes"]/exemplarCity		Vincennes, Indiana	Vincennes, Indiana	Vincennes [Indiana]	Moderate
+timezones	zone	America/Indiana/Winamac			0	//ldml/dates/timeZoneNames/zone[@type="America/Indiana/Winamac"]/exemplarCity		Winamac, Indiana	Winamac, Indiana	Winamac [Indiana]	Moderate
+timezones	zone	America/Indianapolis			0	//ldml/dates/timeZoneNames/zone[@type="America/Indianapolis"]/exemplarCity		Indianapolis	Indianapolis	Indianapolis	Moderate
+timezones	zone	America/Inuvik			0	//ldml/dates/timeZoneNames/zone[@type="America/Inuvik"]/exemplarCity		Inuvik	Inuvik	Inuvik	Moderate
+timezones	zone	America/Iqaluit			0	//ldml/dates/timeZoneNames/zone[@type="America/Iqaluit"]/exemplarCity		Iqaluit	Iqaluit	Iqaluit	Moderate
+timezones	zone	America/Jamaica			0	//ldml/dates/timeZoneNames/zone[@type="America/Jamaica"]/exemplarCity		Jamaica	Jamaica	Jamaïque	Moderate
+timezones	zone	America/Jujuy			0	//ldml/dates/timeZoneNames/zone[@type="America/Jujuy"]/exemplarCity		Jujuy	Jujuy	Jujuy	Moderate
+timezones	zone	America/Juneau			0	//ldml/dates/timeZoneNames/zone[@type="America/Juneau"]/exemplarCity		Juneau	Juneau	Juneau	Moderate
+timezones	zone	America/Kentucky/Monticello			0	//ldml/dates/timeZoneNames/zone[@type="America/Kentucky/Monticello"]/exemplarCity		Monticello, Kentucky	Monticello, Kentucky	Monticello [Kentucky]	Moderate
+timezones	zone	America/Kralendijk			0	//ldml/dates/timeZoneNames/zone[@type="America/Kralendijk"]/exemplarCity		Kralendijk	Kralendijk	Kralendijk	Moderate
+timezones	zone	America/La_Paz			0	//ldml/dates/timeZoneNames/zone[@type="America/La_Paz"]/exemplarCity		La Paz	La Paz	La Paz	Moderate
+timezones	zone	America/Lima			0	//ldml/dates/timeZoneNames/zone[@type="America/Lima"]/exemplarCity		Lima	Lima	Lima	Moderate
+timezones	zone	America/Los_Angeles			0	//ldml/dates/timeZoneNames/zone[@type="America/Los_Angeles"]/exemplarCity		Los Angeles	Los Angeles	Los Angeles	Moderate
+timezones	zone	America/Louisville			0	//ldml/dates/timeZoneNames/zone[@type="America/Louisville"]/exemplarCity		Louisville	Louisville	Louisville	Moderate
+timezones	zone	America/Lower_Princes			0	//ldml/dates/timeZoneNames/zone[@type="America/Lower_Princes"]/exemplarCity		Lower Prince’s Quarter	Lower Prince’s Quarter	Lower Prince’s Quarter	Moderate
+timezones	zone	America/Maceio			0	//ldml/dates/timeZoneNames/zone[@type="America/Maceio"]/exemplarCity		Maceio	Maceio	Maceió	Moderate
+timezones	zone	America/Managua			0	//ldml/dates/timeZoneNames/zone[@type="America/Managua"]/exemplarCity		Managua	Managua	Managua	Moderate
+timezones	zone	America/Manaus			0	//ldml/dates/timeZoneNames/zone[@type="America/Manaus"]/exemplarCity		Manaus	Manaus	Manaos	Moderate
+timezones	zone	America/Marigot			0	//ldml/dates/timeZoneNames/zone[@type="America/Marigot"]/exemplarCity		Marigot	Marigot	Marigot	Moderate
+timezones	zone	America/Martinique			0	//ldml/dates/timeZoneNames/zone[@type="America/Martinique"]/exemplarCity		Martinique	Martinique	Martinique	Moderate
+timezones	zone	America/Matamoros			0	//ldml/dates/timeZoneNames/zone[@type="America/Matamoros"]/exemplarCity		Matamoros	Matamoros	Matamoros	Moderate
+timezones	zone	America/Mazatlan			0	//ldml/dates/timeZoneNames/zone[@type="America/Mazatlan"]/exemplarCity		Mazatlan	Mazatlan	Mazatlán	Moderate
+timezones	zone	America/Mendoza			0	//ldml/dates/timeZoneNames/zone[@type="America/Mendoza"]/exemplarCity		Mendoza	Mendoza	Mendoza	Moderate
+timezones	zone	America/Menominee			0	//ldml/dates/timeZoneNames/zone[@type="America/Menominee"]/exemplarCity		Menominee	Menominee	Menominee	Moderate
+timezones	zone	America/Merida			0	//ldml/dates/timeZoneNames/zone[@type="America/Merida"]/exemplarCity		Mérida	Mérida	Mérida	Moderate
+timezones	zone	America/Metlakatla			0	//ldml/dates/timeZoneNames/zone[@type="America/Metlakatla"]/exemplarCity		Metlakatla	Metlakatla	Metlakatla	Moderate
+timezones	zone	America/Mexico_City			0	//ldml/dates/timeZoneNames/zone[@type="America/Mexico_City"]/exemplarCity		Mexico City	Mexico City	Mexico	Moderate
+timezones	zone	America/Miquelon			0	//ldml/dates/timeZoneNames/zone[@type="America/Miquelon"]/exemplarCity		Miquelon	Miquelon	Miquelon	Moderate
+timezones	zone	America/Moncton			0	//ldml/dates/timeZoneNames/zone[@type="America/Moncton"]/exemplarCity		Moncton	Moncton	Moncton	Moderate
+timezones	zone	America/Monterrey			0	//ldml/dates/timeZoneNames/zone[@type="America/Monterrey"]/exemplarCity		Monterrey	Monterrey	Monterrey	Moderate
+timezones	zone	America/Montevideo			0	//ldml/dates/timeZoneNames/zone[@type="America/Montevideo"]/exemplarCity		Montevideo	Montevideo	Montevideo	Moderate
+timezones	zone	America/Montserrat			0	//ldml/dates/timeZoneNames/zone[@type="America/Montserrat"]/exemplarCity		Montserrat	Montserrat	Montserrat	Moderate
+timezones	zone	America/Nassau			0	//ldml/dates/timeZoneNames/zone[@type="America/Nassau"]/exemplarCity		Nassau	Nassau	Nassau	Moderate
+timezones	zone	America/New_York			0	//ldml/dates/timeZoneNames/zone[@type="America/New_York"]/exemplarCity		New York	New York	New York	Moderate
+timezones	zone	America/Nome			0	//ldml/dates/timeZoneNames/zone[@type="America/Nome"]/exemplarCity		Nome	Nome	Nome	Moderate
+timezones	zone	America/Noronha			0	//ldml/dates/timeZoneNames/zone[@type="America/Noronha"]/exemplarCity		Noronha	Noronha	Noronha	Moderate
+timezones	zone	America/North_Dakota/Beulah			0	//ldml/dates/timeZoneNames/zone[@type="America/North_Dakota/Beulah"]/exemplarCity		Beulah, North Dakota	Beulah, North Dakota	Beulah (Dakota du Nord)	Moderate
+timezones	zone	America/North_Dakota/Center			0	//ldml/dates/timeZoneNames/zone[@type="America/North_Dakota/Center"]/exemplarCity		Center, North Dakota	Center, North Dakota	Center (Dakota du Nord)	Moderate
+timezones	zone	America/North_Dakota/New_Salem			0	//ldml/dates/timeZoneNames/zone[@type="America/North_Dakota/New_Salem"]/exemplarCity		New Salem, North Dakota	New Salem, North Dakota	New Salem (Dakota du Nord)	Moderate
+timezones	zone	America/Ojinaga			0	//ldml/dates/timeZoneNames/zone[@type="America/Ojinaga"]/exemplarCity		Ojinaga	Ojinaga	Ojinaga	Moderate
+timezones	zone	America/Panama			0	//ldml/dates/timeZoneNames/zone[@type="America/Panama"]/exemplarCity		Panama	Panama	Panama	Moderate
+timezones	zone	America/Paramaribo			0	//ldml/dates/timeZoneNames/zone[@type="America/Paramaribo"]/exemplarCity		Paramaribo	Paramaribo	Paramaribo	Moderate
+timezones	zone	America/Phoenix			0	//ldml/dates/timeZoneNames/zone[@type="America/Phoenix"]/exemplarCity		Phoenix	Phoenix	Phoenix	Moderate
+timezones	zone	America/Port-au-Prince			0	//ldml/dates/timeZoneNames/zone[@type="America/Port-au-Prince"]/exemplarCity		Port-au-Prince	Port-au-Prince	Port-au-Prince	Moderate
+timezones	zone	America/Port_of_Spain			0	//ldml/dates/timeZoneNames/zone[@type="America/Port_of_Spain"]/exemplarCity		Port of Spain	Port of Spain	Port-d’Espagne	Moderate
+timezones	zone	America/Porto_Velho			0	//ldml/dates/timeZoneNames/zone[@type="America/Porto_Velho"]/exemplarCity		Porto Velho	Porto Velho	Porto Velho	Moderate
+timezones	zone	America/Puerto_Rico			0	//ldml/dates/timeZoneNames/zone[@type="America/Puerto_Rico"]/exemplarCity		Puerto Rico	Puerto Rico	Porto Rico	Moderate
+timezones	zone	America/Punta_Arenas			0	//ldml/dates/timeZoneNames/zone[@type="America/Punta_Arenas"]/exemplarCity		Punta Arenas	Punta Arenas	Punta Arenas	Moderate
+timezones	zone	America/Rankin_Inlet			0	//ldml/dates/timeZoneNames/zone[@type="America/Rankin_Inlet"]/exemplarCity		Rankin Inlet	Rankin Inlet	Rankin Inlet	Moderate
+timezones	zone	America/Recife			0	//ldml/dates/timeZoneNames/zone[@type="America/Recife"]/exemplarCity		Recife	Recife	Recife	Moderate
+timezones	zone	America/Regina			0	//ldml/dates/timeZoneNames/zone[@type="America/Regina"]/exemplarCity		Regina	Regina	Regina	Moderate
+timezones	zone	America/Resolute			0	//ldml/dates/timeZoneNames/zone[@type="America/Resolute"]/exemplarCity		Resolute	Resolute	Resolute	Moderate
+timezones	zone	America/Rio_Branco			0	//ldml/dates/timeZoneNames/zone[@type="America/Rio_Branco"]/exemplarCity		Rio Branco	Rio Branco	Rio Branco	Moderate
+timezones	zone	America/Santarem			0	//ldml/dates/timeZoneNames/zone[@type="America/Santarem"]/exemplarCity		Santarem	Santarem	Santarém	Moderate
+timezones	zone	America/Santiago			0	//ldml/dates/timeZoneNames/zone[@type="America/Santiago"]/exemplarCity		Santiago	Santiago	Santiago	Moderate
+timezones	zone	America/Santo_Domingo			0	//ldml/dates/timeZoneNames/zone[@type="America/Santo_Domingo"]/exemplarCity		Santo Domingo	Santo Domingo	Saint-Domingue	Moderate
+timezones	zone	America/Sao_Paulo			0	//ldml/dates/timeZoneNames/zone[@type="America/Sao_Paulo"]/exemplarCity		Sao Paulo	Sao Paulo	São Paulo	Moderate
+timezones	zone	America/Scoresbysund			0	//ldml/dates/timeZoneNames/zone[@type="America/Scoresbysund"]/exemplarCity		Ittoqqortoormiit	Ittoqqortoormiit	Ittoqqortoormiit	Moderate
+timezones	zone	America/Sitka			0	//ldml/dates/timeZoneNames/zone[@type="America/Sitka"]/exemplarCity		Sitka	Sitka	Sitka	Moderate
+timezones	zone	America/St_Barthelemy			0	//ldml/dates/timeZoneNames/zone[@type="America/St_Barthelemy"]/exemplarCity		St. Barthélemy	St. Barthélemy	Saint-Barthélemy	Moderate
+timezones	zone	America/St_Johns			0	//ldml/dates/timeZoneNames/zone[@type="America/St_Johns"]/exemplarCity		St. John’s	St. John’s	Saint-Jean de Terre-Neuve	Moderate
+timezones	zone	America/St_Kitts			0	//ldml/dates/timeZoneNames/zone[@type="America/St_Kitts"]/exemplarCity		St. Kitts	St. Kitts	Saint-Christophe	Moderate
+timezones	zone	America/St_Lucia			0	//ldml/dates/timeZoneNames/zone[@type="America/St_Lucia"]/exemplarCity		St. Lucia	St. Lucia	Sainte-Lucie	Moderate
+timezones	zone	America/St_Thomas			0	//ldml/dates/timeZoneNames/zone[@type="America/St_Thomas"]/exemplarCity		St. Thomas	St. Thomas	Saint-Thomas	Moderate
+timezones	zone	America/St_Vincent			0	//ldml/dates/timeZoneNames/zone[@type="America/St_Vincent"]/exemplarCity		St. Vincent	St. Vincent	Saint-Vincent	Moderate
+timezones	zone	America/Swift_Current			0	//ldml/dates/timeZoneNames/zone[@type="America/Swift_Current"]/exemplarCity		Swift Current	Swift Current	Swift Current	Moderate
+timezones	zone	America/Tegucigalpa			0	//ldml/dates/timeZoneNames/zone[@type="America/Tegucigalpa"]/exemplarCity		Tegucigalpa	Tegucigalpa	Tegucigalpa	Moderate
+timezones	zone	America/Thule			0	//ldml/dates/timeZoneNames/zone[@type="America/Thule"]/exemplarCity		Thule	Thule	Thulé	Moderate
+timezones	zone	America/Tijuana			0	//ldml/dates/timeZoneNames/zone[@type="America/Tijuana"]/exemplarCity		Tijuana	Tijuana	Tijuana	Moderate
+timezones	zone	America/Toronto			0	//ldml/dates/timeZoneNames/zone[@type="America/Toronto"]/exemplarCity		Toronto	Toronto	Toronto	Moderate
+timezones	zone	America/Tortola			0	//ldml/dates/timeZoneNames/zone[@type="America/Tortola"]/exemplarCity		Tortola	Tortola	Tortola	Moderate
+timezones	zone	America/Vancouver			0	//ldml/dates/timeZoneNames/zone[@type="America/Vancouver"]/exemplarCity		Vancouver	Vancouver	Vancouver	Moderate
+timezones	zone	America/Whitehorse			0	//ldml/dates/timeZoneNames/zone[@type="America/Whitehorse"]/exemplarCity		Whitehorse	Whitehorse	Whitehorse	Moderate
+timezones	zone	America/Winnipeg			0	//ldml/dates/timeZoneNames/zone[@type="America/Winnipeg"]/exemplarCity		Winnipeg	Winnipeg	Winnipeg	Moderate
+timezones	zone	America/Yakutat			0	//ldml/dates/timeZoneNames/zone[@type="America/Yakutat"]/exemplarCity		Yakutat	Yakutat	Yakutat	Moderate
+timezones	zone	Antarctica/Casey			0	//ldml/dates/timeZoneNames/zone[@type="Antarctica/Casey"]/exemplarCity		Casey	Casey	Casey	Moderate
+timezones	zone	Antarctica/Davis			0	//ldml/dates/timeZoneNames/zone[@type="Antarctica/Davis"]/exemplarCity		Davis	Davis	Davis	Moderate
+timezones	zone	Antarctica/DumontDUrville			0	//ldml/dates/timeZoneNames/zone[@type="Antarctica/DumontDUrville"]/exemplarCity		Dumont d’Urville	Dumont d’Urville	Dumont-d’Urville	Moderate
+timezones	zone	Antarctica/Macquarie			0	//ldml/dates/timeZoneNames/zone[@type="Antarctica/Macquarie"]/exemplarCity		Macquarie	Macquarie	Macquarie	Moderate
+timezones	zone	Antarctica/Mawson			0	//ldml/dates/timeZoneNames/zone[@type="Antarctica/Mawson"]/exemplarCity		Mawson	Mawson	Mawson	Moderate
+timezones	zone	Antarctica/McMurdo			0	//ldml/dates/timeZoneNames/zone[@type="Antarctica/McMurdo"]/exemplarCity		McMurdo	McMurdo	McMurdo	Moderate
+timezones	zone	Antarctica/Palmer			0	//ldml/dates/timeZoneNames/zone[@type="Antarctica/Palmer"]/exemplarCity		Palmer	Palmer	Palmer	Moderate
+timezones	zone	Antarctica/Rothera			0	//ldml/dates/timeZoneNames/zone[@type="Antarctica/Rothera"]/exemplarCity		Rothera	Rothera	Rothera	Moderate
+timezones	zone	Antarctica/Syowa			0	//ldml/dates/timeZoneNames/zone[@type="Antarctica/Syowa"]/exemplarCity		Syowa	Syowa	Showa	Moderate
+timezones	zone	Antarctica/Troll			0	//ldml/dates/timeZoneNames/zone[@type="Antarctica/Troll"]/exemplarCity		Troll	Troll	Troll	Moderate
+timezones	zone	Antarctica/Vostok			0	//ldml/dates/timeZoneNames/zone[@type="Antarctica/Vostok"]/exemplarCity		Vostok	Vostok	Vostok	Moderate
+timezones	zone	Arctic/Longyearbyen			0	//ldml/dates/timeZoneNames/zone[@type="Arctic/Longyearbyen"]/exemplarCity		Longyearbyen	Longyearbyen	Longyearbyen	Moderate
+timezones	zone	Asia/Aden			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Aden"]/exemplarCity		Aden	Aden	Aden	Moderate
+timezones	zone	Asia/Almaty			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Almaty"]/exemplarCity		Almaty	Almaty	Alma Ata	Moderate
+timezones	zone	Asia/Amman			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Amman"]/exemplarCity		Amman	Amman	Amman	Moderate
+timezones	zone	Asia/Anadyr			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Anadyr"]/exemplarCity		Anadyr	Anadyr	Anadyr	Moderate
+timezones	zone	Asia/Aqtau			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Aqtau"]/exemplarCity		Aqtau	Aqtau	Aktaou	Moderate
+timezones	zone	Asia/Aqtobe			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Aqtobe"]/exemplarCity		Aqtobe	Aqtobe	Aktioubinsk	Moderate
+timezones	zone	Asia/Ashgabat			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Ashgabat"]/exemplarCity		Ashgabat	Ashgabat	Achgabat	Moderate
+timezones	zone	Asia/Atyrau			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Atyrau"]/exemplarCity		Atyrau	Atyrau	Atyraou	Moderate
+timezones	zone	Asia/Baghdad			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Baghdad"]/exemplarCity		Baghdad	Baghdad	Bagdad	Moderate
+timezones	zone	Asia/Bahrain			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Bahrain"]/exemplarCity		Bahrain	Bahrain	Bahreïn	Moderate
+timezones	zone	Asia/Baku			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Baku"]/exemplarCity		Baku	Baku	Bakou	Moderate
+timezones	zone	Asia/Bangkok			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Bangkok"]/exemplarCity		Bangkok	Bangkok	Bangkok	Moderate
+timezones	zone	Asia/Barnaul			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Barnaul"]/exemplarCity		Barnaul	Barnaul	Barnaul	Moderate
+timezones	zone	Asia/Beirut			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Beirut"]/exemplarCity		Beirut	Beirut	Beyrouth	Moderate
+timezones	zone	Asia/Bishkek			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Bishkek"]/exemplarCity		Bishkek	Bishkek	Bichkek	Moderate
+timezones	zone	Asia/Brunei			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Brunei"]/exemplarCity		Brunei	Brunei	Brunei	Moderate
+timezones	zone	Asia/Calcutta			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Calcutta"]/exemplarCity		Kolkata	Kolkata	Calcutta	Moderate
+timezones	zone	Asia/Chita			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Chita"]/exemplarCity		Chita	Chita	Tchita	Moderate
+timezones	zone	Asia/Colombo			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Colombo"]/exemplarCity		Colombo	Colombo	Colombo	Moderate
+timezones	zone	Asia/Damascus			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Damascus"]/exemplarCity		Damascus	Damascus	Damas	Moderate
+timezones	zone	Asia/Dhaka			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Dhaka"]/exemplarCity		Dhaka	Dhaka	Dhaka	Moderate
+timezones	zone	Asia/Dili			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Dili"]/exemplarCity		Dili	Dili	Dili	Moderate
+timezones	zone	Asia/Dubai			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Dubai"]/exemplarCity		Dubai	Dubai	Dubaï	Moderate
+timezones	zone	Asia/Dushanbe			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Dushanbe"]/exemplarCity		Dushanbe	Dushanbe	Douchanbé	Moderate
+timezones	zone	Asia/Famagusta			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Famagusta"]/exemplarCity		Famagusta	Famagusta	Famagouste	Moderate
+timezones	zone	Asia/Gaza			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Gaza"]/exemplarCity		Gaza	Gaza	Gaza	Moderate
+timezones	zone	Asia/Hebron			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Hebron"]/exemplarCity		Hebron	Hebron	Hébron	Moderate
+timezones	zone	Asia/Hong_Kong			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Hong_Kong"]/exemplarCity		Hong Kong	Hong Kong	Hong Kong	Moderate
+timezones	zone	Asia/Hovd			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Hovd"]/exemplarCity		Hovd	Hovd	Hovd	Moderate
+timezones	zone	Asia/Irkutsk			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Irkutsk"]/exemplarCity		Irkutsk	Irkutsk	Irkoutsk	Moderate
+timezones	zone	Asia/Jakarta			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Jakarta"]/exemplarCity		Jakarta	Jakarta	Jakarta	Moderate
+timezones	zone	Asia/Jayapura			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Jayapura"]/exemplarCity		Jayapura	Jayapura	Jayapura	Moderate
+timezones	zone	Asia/Jerusalem			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Jerusalem"]/exemplarCity		Jerusalem	Jerusalem	Jérusalem	Moderate
+timezones	zone	Asia/Kabul			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Kabul"]/exemplarCity		Kabul	Kabul	Kaboul	Moderate
+timezones	zone	Asia/Kamchatka			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Kamchatka"]/exemplarCity		Kamchatka	Kamchatka	Kamtchatka	Moderate
+timezones	zone	Asia/Karachi			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Karachi"]/exemplarCity		Karachi	Karachi	Karachi	Moderate
+timezones	zone	Asia/Katmandu			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Katmandu"]/exemplarCity		Kathmandu	Kathmandu	Katmandou	Moderate
+timezones	zone	Asia/Khandyga			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Khandyga"]/exemplarCity		Khandyga	Khandyga	Khandyga	Moderate
+timezones	zone	Asia/Krasnoyarsk			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Krasnoyarsk"]/exemplarCity		Krasnoyarsk	Krasnoyarsk	Krasnoïarsk	Moderate
+timezones	zone	Asia/Kuala_Lumpur			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Kuala_Lumpur"]/exemplarCity		Kuala Lumpur	Kuala Lumpur	Kuala Lumpur	Moderate
+timezones	zone	Asia/Kuching			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Kuching"]/exemplarCity		Kuching	Kuching	Kuching	Moderate
+timezones	zone	Asia/Kuwait			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Kuwait"]/exemplarCity		Kuwait	Kuwait	Koweït	Moderate
+timezones	zone	Asia/Macau			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Macau"]/exemplarCity		Macao	Macao	Macao	Moderate
+timezones	zone	Asia/Magadan			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Magadan"]/exemplarCity		Magadan	Magadan	Magadan	Moderate
+timezones	zone	Asia/Makassar			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Makassar"]/exemplarCity		Makassar	Makassar	Macassar	Moderate
+timezones	zone	Asia/Manila			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Manila"]/exemplarCity		Manila	Manila	Manille	Moderate
+timezones	zone	Asia/Muscat			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Muscat"]/exemplarCity		Muscat	Muscat	Mascate	Moderate
+timezones	zone	Asia/Nicosia			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Nicosia"]/exemplarCity		Nicosia	Nicosia	Nicosie	Moderate
+timezones	zone	Asia/Novokuznetsk			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Novokuznetsk"]/exemplarCity		Novokuznetsk	Novokuznetsk	Novokuznetsk	Moderate
+timezones	zone	Asia/Novosibirsk			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Novosibirsk"]/exemplarCity		Novosibirsk	Novosibirsk	Novossibirsk	Moderate
+timezones	zone	Asia/Omsk			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Omsk"]/exemplarCity		Omsk	Omsk	Omsk	Moderate
+timezones	zone	Asia/Oral			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Oral"]/exemplarCity		Oral	Oral	Ouralsk	Moderate
+timezones	zone	Asia/Phnom_Penh			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Phnom_Penh"]/exemplarCity		Phnom Penh	Phnom Penh	Phnom Penh	Moderate
+timezones	zone	Asia/Pontianak			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Pontianak"]/exemplarCity		Pontianak	Pontianak	Pontianak	Moderate
+timezones	zone	Asia/Pyongyang			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Pyongyang"]/exemplarCity		Pyongyang	Pyongyang	Pyongyang	Moderate
+timezones	zone	Asia/Qatar			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Qatar"]/exemplarCity		Qatar	Qatar	Qatar	Moderate
+timezones	zone	Asia/Qostanay			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Qostanay"]/exemplarCity		Kostanay	Kostanay	Kostanaï	Moderate
+timezones	zone	Asia/Qyzylorda			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Qyzylorda"]/exemplarCity		Qyzylorda	Qyzylorda	Kzyl Orda	Moderate
+timezones	zone	Asia/Rangoon			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Rangoon"]/exemplarCity		Yangon	Yangon	Rangoun	Moderate
+timezones	zone	Asia/Riyadh			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Riyadh"]/exemplarCity		Riyadh	Riyadh	Riyad	Moderate
+timezones	zone	Asia/Saigon			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Saigon"]/exemplarCity		Ho Chi Minh City	Ho Chi Minh City	Hô-Chi-Minh-Ville	Moderate
+timezones	zone	Asia/Sakhalin			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Sakhalin"]/exemplarCity		Sakhalin	Sakhalin	Sakhaline	Moderate
+timezones	zone	Asia/Samarkand			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Samarkand"]/exemplarCity		Samarkand	Samarkand	Samarcande	Moderate
+timezones	zone	Asia/Seoul			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Seoul"]/exemplarCity		Seoul	Seoul	Séoul	Moderate
+timezones	zone	Asia/Shanghai			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Shanghai"]/exemplarCity		Shanghai	Shanghai	Shanghai	Moderate
+timezones	zone	Asia/Singapore			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Singapore"]/exemplarCity		Singapore	Singapore	Singapour	Moderate
+timezones	zone	Asia/Srednekolymsk			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Srednekolymsk"]/exemplarCity		Srednekolymsk	Srednekolymsk	Srednekolymsk	Moderate
+timezones	zone	Asia/Taipei			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Taipei"]/exemplarCity		Taipei	Taipei	Taipei	Moderate
+timezones	zone	Asia/Tashkent			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Tashkent"]/exemplarCity		Tashkent	Tashkent	Tachkent	Moderate
+timezones	zone	Asia/Tbilisi			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Tbilisi"]/exemplarCity		Tbilisi	Tbilisi	Tbilissi	Moderate
+timezones	zone	Asia/Tehran			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Tehran"]/exemplarCity		Tehran	Tehran	Téhéran	Moderate
+timezones	zone	Asia/Thimphu			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Thimphu"]/exemplarCity		Thimphu	Thimphu	Thimphu	Moderate
+timezones	zone	Asia/Tokyo			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Tokyo"]/exemplarCity		Tokyo	Tokyo	Tokyo	Moderate
+timezones	zone	Asia/Tomsk			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Tomsk"]/exemplarCity		Tomsk	Tomsk	Tomsk	Moderate
+timezones	zone	Asia/Ulaanbaatar			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Ulaanbaatar"]/exemplarCity		Ulaanbaatar	Ulaanbaatar	Oulan-Bator	Moderate
+timezones	zone	Asia/Urumqi			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Urumqi"]/exemplarCity		Urumqi	Urumqi	Ürümqi	Moderate
+timezones	zone	Asia/Ust-Nera			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Ust-Nera"]/exemplarCity		Ust-Nera	Ust-Nera	Ust-Nera	Moderate
+timezones	zone	Asia/Vientiane			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Vientiane"]/exemplarCity		Vientiane	Vientiane	Vientiane	Moderate
+timezones	zone	Asia/Vladivostok			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Vladivostok"]/exemplarCity		Vladivostok	Vladivostok	Vladivostok	Moderate
+timezones	zone	Asia/Yakutsk			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Yakutsk"]/exemplarCity		Yakutsk	Yakutsk	Iakoutsk	Moderate
+timezones	zone	Asia/Yekaterinburg			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Yekaterinburg"]/exemplarCity		Yekaterinburg	Yekaterinburg	Ekaterinbourg	Moderate
+timezones	zone	Asia/Yerevan			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Yerevan"]/exemplarCity		Yerevan	Yerevan	Erevan	Moderate
+timezones	zone	Atlantic/Azores			0	//ldml/dates/timeZoneNames/zone[@type="Atlantic/Azores"]/exemplarCity		Azores	Azores	Açores	Moderate
+timezones	zone	Atlantic/Bermuda			0	//ldml/dates/timeZoneNames/zone[@type="Atlantic/Bermuda"]/exemplarCity		Bermuda	Bermuda	Bermudes	Moderate
+timezones	zone	Atlantic/Canary			0	//ldml/dates/timeZoneNames/zone[@type="Atlantic/Canary"]/exemplarCity		Canary	Canary	Îles Canaries	Moderate
+timezones	zone	Atlantic/Cape_Verde			0	//ldml/dates/timeZoneNames/zone[@type="Atlantic/Cape_Verde"]/exemplarCity		Cape Verde	Cape Verde	Cap-Vert	Moderate
+timezones	zone	Atlantic/Faeroe			0	//ldml/dates/timeZoneNames/zone[@type="Atlantic/Faeroe"]/exemplarCity		Faroe	Faroe	Îles Féroé	Moderate
+timezones	zone	Atlantic/Madeira			0	//ldml/dates/timeZoneNames/zone[@type="Atlantic/Madeira"]/exemplarCity		Madeira	Madeira	Madère	Moderate
+timezones	zone	Atlantic/Reykjavik			0	//ldml/dates/timeZoneNames/zone[@type="Atlantic/Reykjavik"]/exemplarCity		Reykjavik	Reykjavik	Reykjavik	Moderate
+timezones	zone	Atlantic/South_Georgia			0	//ldml/dates/timeZoneNames/zone[@type="Atlantic/South_Georgia"]/exemplarCity		South Georgia	South Georgia	Géorgie du Sud	Moderate
+timezones	zone	Atlantic/St_Helena			0	//ldml/dates/timeZoneNames/zone[@type="Atlantic/St_Helena"]/exemplarCity		St. Helena	St. Helena	Sainte-Hélène	Moderate
+timezones	zone	Atlantic/Stanley			0	//ldml/dates/timeZoneNames/zone[@type="Atlantic/Stanley"]/exemplarCity		Stanley	Stanley	Stanley	Moderate
+timezones	zone	Australia/Adelaide			0	//ldml/dates/timeZoneNames/zone[@type="Australia/Adelaide"]/exemplarCity		Adelaide	Adelaide	Adélaïde	Moderate
+timezones	zone	Australia/Brisbane			0	//ldml/dates/timeZoneNames/zone[@type="Australia/Brisbane"]/exemplarCity		Brisbane	Brisbane	Brisbane	Moderate
+timezones	zone	Australia/Broken_Hill			0	//ldml/dates/timeZoneNames/zone[@type="Australia/Broken_Hill"]/exemplarCity		Broken Hill	Broken Hill	Broken Hill	Moderate
+timezones	zone	Australia/Darwin			0	//ldml/dates/timeZoneNames/zone[@type="Australia/Darwin"]/exemplarCity		Darwin	Darwin	Darwin	Moderate
+timezones	zone	Australia/Eucla			0	//ldml/dates/timeZoneNames/zone[@type="Australia/Eucla"]/exemplarCity		Eucla	Eucla	Eucla	Moderate
+timezones	zone	Australia/Hobart			0	//ldml/dates/timeZoneNames/zone[@type="Australia/Hobart"]/exemplarCity		Hobart	Hobart	Hobart	Moderate
+timezones	zone	Australia/Lindeman			0	//ldml/dates/timeZoneNames/zone[@type="Australia/Lindeman"]/exemplarCity		Lindeman	Lindeman	Lindeman	Moderate
+timezones	zone	Australia/Lord_Howe			0	//ldml/dates/timeZoneNames/zone[@type="Australia/Lord_Howe"]/exemplarCity		Lord Howe	Lord Howe	Lord Howe	Moderate
+timezones	zone	Australia/Melbourne			0	//ldml/dates/timeZoneNames/zone[@type="Australia/Melbourne"]/exemplarCity		Melbourne	Melbourne	Melbourne	Moderate
+timezones	zone	Australia/Perth			0	//ldml/dates/timeZoneNames/zone[@type="Australia/Perth"]/exemplarCity		Perth	Perth	Perth	Moderate
+timezones	zone	Australia/Sydney			0	//ldml/dates/timeZoneNames/zone[@type="Australia/Sydney"]/exemplarCity		Sydney	Sydney	Sydney	Moderate
+timezones	zone	Etc/Unknown			0	//ldml/dates/timeZoneNames/zone[@type="Etc/Unknown"]/exemplarCity		Unknown City	Unknown City	ville inconnue	Moderate
+timezones	zone	Etc/UTC			0	//ldml/dates/timeZoneNames/zone[@type="Etc/UTC"]/long/standard		Coordinated Universal Time	Coordinated Universal Time	temps universel coordonné	Moderate
+timezones	zone	Europe/Amsterdam			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Amsterdam"]/exemplarCity		Amsterdam	Amsterdam	Amsterdam	Moderate
+timezones	zone	Europe/Andorra			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Andorra"]/exemplarCity		Andorra	Andorra	Andorre	Moderate
+timezones	zone	Europe/Astrakhan			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Astrakhan"]/exemplarCity		Astrakhan	Astrakhan	Astrakhan	Moderate
+timezones	zone	Europe/Athens			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Athens"]/exemplarCity		Athens	Athens	Athènes	Moderate
+timezones	zone	Europe/Belgrade			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Belgrade"]/exemplarCity		Belgrade	Belgrade	Belgrade	Moderate
+timezones	zone	Europe/Berlin			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Berlin"]/exemplarCity		Berlin	Berlin	Berlin	Moderate
+timezones	zone	Europe/Bratislava			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Bratislava"]/exemplarCity		Bratislava	Bratislava	Bratislava	Moderate
+timezones	zone	Europe/Brussels			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Brussels"]/exemplarCity		Brussels	Brussels	Bruxelles	Moderate
+timezones	zone	Europe/Bucharest			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Bucharest"]/exemplarCity		Bucharest	Bucharest	Bucarest	Moderate
+timezones	zone	Europe/Budapest			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Budapest"]/exemplarCity		Budapest	Budapest	Budapest	Moderate
+timezones	zone	Europe/Busingen			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Busingen"]/exemplarCity		Busingen	Busingen	Büsingen	Moderate
+timezones	zone	Europe/Chisinau			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Chisinau"]/exemplarCity		Chisinau	Chisinau	Chisinau	Moderate
+timezones	zone	Europe/Copenhagen			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Copenhagen"]/exemplarCity		Copenhagen	Copenhagen	Copenhague	Moderate
+timezones	zone	Europe/Dublin			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Dublin"]/exemplarCity		Dublin	Dublin	Dublin	Moderate
+timezones	zone	Europe/Dublin			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Dublin"]/long/daylight		Irish Standard Time	Irish Standard Time	heure d’été irlandaise	Moderate
+timezones	zone	Europe/Gibraltar			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Gibraltar"]/exemplarCity		Gibraltar	Gibraltar	Gibraltar	Moderate
+timezones	zone	Europe/Guernsey			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Guernsey"]/exemplarCity		Guernsey	Guernsey	Guernesey	Moderate
+timezones	zone	Europe/Helsinki			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Helsinki"]/exemplarCity		Helsinki	Helsinki	Helsinki	Moderate
+timezones	zone	Europe/Isle_of_Man			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Isle_of_Man"]/exemplarCity		Isle of Man	Isle of Man	Île de Man	Moderate
+timezones	zone	Europe/Istanbul			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Istanbul"]/exemplarCity		Istanbul	Istanbul	Istanbul	Moderate
+timezones	zone	Europe/Jersey			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Jersey"]/exemplarCity		Jersey	Jersey	Jersey	Moderate
+timezones	zone	Europe/Kaliningrad			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Kaliningrad"]/exemplarCity		Kaliningrad	Kaliningrad	Kaliningrad	Moderate
+timezones	zone	Europe/Kiev			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Kiev"]/exemplarCity		Kyiv	Kyiv	Kiev	Moderate
+timezones	zone	Europe/Kirov			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Kirov"]/exemplarCity		Kirov	Kirov	Kirov	Moderate
+timezones	zone	Europe/Lisbon			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Lisbon"]/exemplarCity		Lisbon	Lisbon	Lisbonne	Moderate
+timezones	zone	Europe/Ljubljana			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Ljubljana"]/exemplarCity		Ljubljana	Ljubljana	Ljubljana	Moderate
+timezones	zone	Europe/London			0	//ldml/dates/timeZoneNames/zone[@type="Europe/London"]/exemplarCity		London	London	Londres	Moderate
+timezones	zone	Europe/London			0	//ldml/dates/timeZoneNames/zone[@type="Europe/London"]/long/daylight		British Summer Time	British Summer Time	heure d’été britannique	Moderate
+timezones	zone	Europe/Luxembourg			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Luxembourg"]/exemplarCity		Luxembourg	Luxembourg	Luxembourg	Moderate
+timezones	zone	Europe/Madrid			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Madrid"]/exemplarCity		Madrid	Madrid	Madrid	Moderate
+timezones	zone	Europe/Malta			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Malta"]/exemplarCity		Malta	Malta	Malte	Moderate
+timezones	zone	Europe/Mariehamn			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Mariehamn"]/exemplarCity		Mariehamn	Mariehamn	Mariehamn	Moderate
+timezones	zone	Europe/Minsk			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Minsk"]/exemplarCity		Minsk	Minsk	Minsk	Moderate
+timezones	zone	Europe/Monaco			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Monaco"]/exemplarCity		Monaco	Monaco	Monaco	Moderate
+timezones	zone	Europe/Moscow			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Moscow"]/exemplarCity		Moscow	Moscow	Moscou	Moderate
+timezones	zone	Europe/Oslo			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Oslo"]/exemplarCity		Oslo	Oslo	Oslo	Moderate
+timezones	zone	Europe/Paris			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Paris"]/exemplarCity		Paris	Paris	Paris	Moderate
+timezones	zone	Europe/Podgorica			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Podgorica"]/exemplarCity		Podgorica	Podgorica	Podgorica	Moderate
+timezones	zone	Europe/Prague			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Prague"]/exemplarCity		Prague	Prague	Prague	Moderate
+timezones	zone	Europe/Riga			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Riga"]/exemplarCity		Riga	Riga	Riga	Moderate
+timezones	zone	Europe/Rome			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Rome"]/exemplarCity		Rome	Rome	Rome	Moderate
+timezones	zone	Europe/Samara			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Samara"]/exemplarCity		Samara	Samara	Samara	Moderate
+timezones	zone	Europe/San_Marino			0	//ldml/dates/timeZoneNames/zone[@type="Europe/San_Marino"]/exemplarCity		San Marino	San Marino	Saint-Marin	Moderate
+timezones	zone	Europe/Sarajevo			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Sarajevo"]/exemplarCity		Sarajevo	Sarajevo	Sarajevo	Moderate
+timezones	zone	Europe/Saratov			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Saratov"]/exemplarCity		Saratov	Saratov	Saratov	Moderate
+timezones	zone	Europe/Simferopol			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Simferopol"]/exemplarCity		Simferopol	Simferopol	Simferopol	Moderate
+timezones	zone	Europe/Skopje			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Skopje"]/exemplarCity		Skopje	Skopje	Skopje	Moderate
+timezones	zone	Europe/Sofia			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Sofia"]/exemplarCity		Sofia	Sofia	Sofia	Moderate
+timezones	zone	Europe/Stockholm			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Stockholm"]/exemplarCity		Stockholm	Stockholm	Stockholm	Moderate
+timezones	zone	Europe/Tallinn			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Tallinn"]/exemplarCity		Tallinn	Tallinn	Tallinn	Moderate
+timezones	zone	Europe/Tirane			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Tirane"]/exemplarCity		Tirane	Tirane	Tirana	Moderate
+timezones	zone	Europe/Ulyanovsk			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Ulyanovsk"]/exemplarCity		Ulyanovsk	Ulyanovsk	Oulianovsk	Moderate
+timezones	zone	Europe/Vaduz			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Vaduz"]/exemplarCity		Vaduz	Vaduz	Vaduz	Moderate
+timezones	zone	Europe/Vatican			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Vatican"]/exemplarCity		Vatican	Vatican	Le Vatican	Moderate
+timezones	zone	Europe/Vienna			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Vienna"]/exemplarCity		Vienna	Vienna	Vienne	Moderate
+timezones	zone	Europe/Vilnius			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Vilnius"]/exemplarCity		Vilnius	Vilnius	Vilnius	Moderate
+timezones	zone	Europe/Volgograd			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Volgograd"]/exemplarCity		Volgograd	Volgograd	Volgograd	Moderate
+timezones	zone	Europe/Warsaw			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Warsaw"]/exemplarCity		Warsaw	Warsaw	Varsovie	Moderate
+timezones	zone	Europe/Zagreb			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Zagreb"]/exemplarCity		Zagreb	Zagreb	Zagreb	Moderate
+timezones	zone	Europe/Zurich			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Zurich"]/exemplarCity		Zurich	Zurich	Zurich	Moderate
+timezones	zone	Indian/Antananarivo			0	//ldml/dates/timeZoneNames/zone[@type="Indian/Antananarivo"]/exemplarCity		Antananarivo	Antananarivo	Antananarivo	Moderate
+timezones	zone	Indian/Chagos			0	//ldml/dates/timeZoneNames/zone[@type="Indian/Chagos"]/exemplarCity		Chagos	Chagos	Chagos	Moderate
+timezones	zone	Indian/Christmas			0	//ldml/dates/timeZoneNames/zone[@type="Indian/Christmas"]/exemplarCity		Christmas	Christmas	Christmas	Moderate
+timezones	zone	Indian/Cocos			0	//ldml/dates/timeZoneNames/zone[@type="Indian/Cocos"]/exemplarCity		Cocos	Cocos	Cocos	Moderate
+timezones	zone	Indian/Comoro			0	//ldml/dates/timeZoneNames/zone[@type="Indian/Comoro"]/exemplarCity		Comoro	Comoro	Comores	Moderate
+timezones	zone	Indian/Kerguelen			0	//ldml/dates/timeZoneNames/zone[@type="Indian/Kerguelen"]/exemplarCity		Kerguelen	Kerguelen	Kerguelen	Moderate
+timezones	zone	Indian/Mahe			0	//ldml/dates/timeZoneNames/zone[@type="Indian/Mahe"]/exemplarCity		Mahe	Mahe	Mahé	Moderate
+timezones	zone	Indian/Maldives			0	//ldml/dates/timeZoneNames/zone[@type="Indian/Maldives"]/exemplarCity		Maldives	Maldives	Maldives	Moderate
+timezones	zone	Indian/Mauritius			0	//ldml/dates/timeZoneNames/zone[@type="Indian/Mauritius"]/exemplarCity		Mauritius	Mauritius	Maurice	Moderate
+timezones	zone	Indian/Mayotte			0	//ldml/dates/timeZoneNames/zone[@type="Indian/Mayotte"]/exemplarCity		Mayotte	Mayotte	Mayotte	Moderate
+timezones	zone	Indian/Reunion			0	//ldml/dates/timeZoneNames/zone[@type="Indian/Reunion"]/exemplarCity		Réunion	Réunion	La Réunion	Moderate
+timezones	zone	Pacific/Apia			0	//ldml/dates/timeZoneNames/zone[@type="Pacific/Apia"]/exemplarCity		Apia	Apia	Apia	Moderate
+timezones	zone	Pacific/Auckland			0	//ldml/dates/timeZoneNames/zone[@type="Pacific/Auckland"]/exemplarCity		Auckland	Auckland	Auckland	Moderate
+timezones	zone	Pacific/Bougainville			0	//ldml/dates/timeZoneNames/zone[@type="Pacific/Bougainville"]/exemplarCity		Bougainville	Bougainville	Bougainville	Moderate
+timezones	zone	Pacific/Chatham			0	//ldml/dates/timeZoneNames/zone[@type="Pacific/Chatham"]/exemplarCity		Chatham	Chatham	Chatham	Moderate
+timezones	zone	Pacific/Easter			0	//ldml/dates/timeZoneNames/zone[@type="Pacific/Easter"]/exemplarCity		Easter	Easter	Île de Pâques	Moderate
+timezones	zone	Pacific/Efate			0	//ldml/dates/timeZoneNames/zone[@type="Pacific/Efate"]/exemplarCity		Efate	Efate	Éfaté	Moderate
+timezones	zone	Pacific/Enderbury			0	//ldml/dates/timeZoneNames/zone[@type="Pacific/Enderbury"]/exemplarCity		Enderbury		Enderbury	Moderate
+timezones	zone	Pacific/Fakaofo			0	//ldml/dates/timeZoneNames/zone[@type="Pacific/Fakaofo"]/exemplarCity		Fakaofo	Fakaofo	Fakaofo	Moderate
+timezones	zone	Pacific/Fiji			0	//ldml/dates/timeZoneNames/zone[@type="Pacific/Fiji"]/exemplarCity		Fiji	Fiji	Fidji	Moderate
+timezones	zone	Pacific/Funafuti			0	//ldml/dates/timeZoneNames/zone[@type="Pacific/Funafuti"]/exemplarCity		Funafuti	Funafuti	Funafuti	Moderate
+timezones	zone	Pacific/Galapagos			0	//ldml/dates/timeZoneNames/zone[@type="Pacific/Galapagos"]/exemplarCity		Galapagos	Galapagos	Galápagos	Moderate
+timezones	zone	Pacific/Gambier			0	//ldml/dates/timeZoneNames/zone[@type="Pacific/Gambier"]/exemplarCity		Gambier	Gambier	Gambier	Moderate
+timezones	zone	Pacific/Guadalcanal			0	//ldml/dates/timeZoneNames/zone[@type="Pacific/Guadalcanal"]/exemplarCity		Guadalcanal	Guadalcanal	Guadalcanal	Moderate
+timezones	zone	Pacific/Guam			0	//ldml/dates/timeZoneNames/zone[@type="Pacific/Guam"]/exemplarCity		Guam	Guam	Guam	Moderate
+timezones	zone	Pacific/Honolulu			0	//ldml/dates/timeZoneNames/zone[@type="Pacific/Honolulu"]/exemplarCity		Honolulu 		Honolulu	Moderate
+timezones	zone	Pacific/Kanton			0	//ldml/dates/timeZoneNames/zone[@type="Pacific/Kanton"]/exemplarCity		Kanton	Kanton	Canton	Moderate
+timezones	zone	Pacific/Kiritimati			0	//ldml/dates/timeZoneNames/zone[@type="Pacific/Kiritimati"]/exemplarCity		Kiritimati	Kiritimati	Kiritimati	Moderate
+timezones	zone	Pacific/Kosrae			0	//ldml/dates/timeZoneNames/zone[@type="Pacific/Kosrae"]/exemplarCity		Kosrae	Kosrae	Kosrae	Moderate
+timezones	zone	Pacific/Kwajalein			0	//ldml/dates/timeZoneNames/zone[@type="Pacific/Kwajalein"]/exemplarCity		Kwajalein	Kwajalein	Kwajalein	Moderate
+timezones	zone	Pacific/Majuro			0	//ldml/dates/timeZoneNames/zone[@type="Pacific/Majuro"]/exemplarCity		Majuro	Majuro	Majuro	Moderate
+timezones	zone	Pacific/Marquesas			0	//ldml/dates/timeZoneNames/zone[@type="Pacific/Marquesas"]/exemplarCity		Marquesas	Marquesas	Marquises	Moderate
+timezones	zone	Pacific/Midway			0	//ldml/dates/timeZoneNames/zone[@type="Pacific/Midway"]/exemplarCity		Midway	Midway	Midway	Moderate
+timezones	zone	Pacific/Nauru			0	//ldml/dates/timeZoneNames/zone[@type="Pacific/Nauru"]/exemplarCity		Nauru	Nauru	Nauru	Moderate
+timezones	zone	Pacific/Niue			0	//ldml/dates/timeZoneNames/zone[@type="Pacific/Niue"]/exemplarCity		Niue	Niue	Niue	Moderate
+timezones	zone	Pacific/Norfolk			0	//ldml/dates/timeZoneNames/zone[@type="Pacific/Norfolk"]/exemplarCity		Norfolk	Norfolk	Norfolk	Moderate
+timezones	zone	Pacific/Noumea			0	//ldml/dates/timeZoneNames/zone[@type="Pacific/Noumea"]/exemplarCity		Noumea	Noumea	Nouméa	Moderate
+timezones	zone	Pacific/Pago_Pago			0	//ldml/dates/timeZoneNames/zone[@type="Pacific/Pago_Pago"]/exemplarCity		Pago Pago	Pago Pago	Pago Pago	Moderate
+timezones	zone	Pacific/Palau			0	//ldml/dates/timeZoneNames/zone[@type="Pacific/Palau"]/exemplarCity		Palau	Palau	Palaos	Moderate
+timezones	zone	Pacific/Pitcairn			0	//ldml/dates/timeZoneNames/zone[@type="Pacific/Pitcairn"]/exemplarCity		Pitcairn	Pitcairn	Pitcairn	Moderate
+timezones	zone	Pacific/Ponape			0	//ldml/dates/timeZoneNames/zone[@type="Pacific/Ponape"]/exemplarCity		Pohnpei	Pohnpei	Pohnpei	Moderate
+timezones	zone	Pacific/Port_Moresby			0	//ldml/dates/timeZoneNames/zone[@type="Pacific/Port_Moresby"]/exemplarCity		Port Moresby	Port Moresby	Port Moresby	Moderate
+timezones	zone	Pacific/Rarotonga			0	//ldml/dates/timeZoneNames/zone[@type="Pacific/Rarotonga"]/exemplarCity		Rarotonga	Rarotonga	Rarotonga	Moderate
+timezones	zone	Pacific/Saipan			0	//ldml/dates/timeZoneNames/zone[@type="Pacific/Saipan"]/exemplarCity		Saipan	Saipan	Saipan	Moderate
+timezones	zone	Pacific/Tahiti			0	//ldml/dates/timeZoneNames/zone[@type="Pacific/Tahiti"]/exemplarCity		Tahiti	Tahiti	Tahiti	Moderate
+timezones	zone	Pacific/Tarawa			0	//ldml/dates/timeZoneNames/zone[@type="Pacific/Tarawa"]/exemplarCity		Tarawa	Tarawa	Tarawa	Moderate
+timezones	zone	Pacific/Tongatapu			0	//ldml/dates/timeZoneNames/zone[@type="Pacific/Tongatapu"]/exemplarCity		Tongatapu	Tongatapu	Tongatapu	Moderate
+timezones	zone	Pacific/Truk			0	//ldml/dates/timeZoneNames/zone[@type="Pacific/Truk"]/exemplarCity		Chuuk	Chuuk	Chuuk	Moderate
+timezones	zone	Pacific/Wake			0	//ldml/dates/timeZoneNames/zone[@type="Pacific/Wake"]/exemplarCity		Wake	Wake	Wake	Moderate
+timezones	zone	Pacific/Wallis			0	//ldml/dates/timeZoneNames/zone[@type="Pacific/Wallis"]/exemplarCity		Wallis	Wallis	Wallis	Moderate
+units	coordinateUnit/displayName				0	//ldml/units/unitLength[@type="long"]/coordinateUnit/displayName	co-5_XXX	cardinal direction	cardinal direction		Moderate
 units	coordinateUnitPattern	east	long		1	//ldml/units/unitLength[@type="long"]/coordinateUnit/coordinateUnitPattern[@type="east"]	co-3_XXX	2.2945° east	{0} east		Moderate
 units	coordinateUnitPattern	east	narrow		1	//ldml/units/unitLength[@type="narrow"]/coordinateUnit/coordinateUnitPattern[@type="east"]	co2-3_XXX	2.2945°E	{0}E		Moderate
 units	coordinateUnitPattern	north	long		1	//ldml/units/unitLength[@type="long"]/coordinateUnit/coordinateUnitPattern[@type="north"]	co-1_XXX	48.8584° north	{0} north		Moderate
@@ -328,4 +1182,3 @@ units	coordinateUnitPattern	south	long		1	//ldml/units/unitLength[@type="long"]/
 units	coordinateUnitPattern	south	narrow		1	//ldml/units/unitLength[@type="narrow"]/coordinateUnit/coordinateUnitPattern[@type="south"]	co2-2_XXX	22.5609°S	{0}S		Moderate
 units	coordinateUnitPattern	west	long		1	//ldml/units/unitLength[@type="long"]/coordinateUnit/coordinateUnitPattern[@type="west"]	co-4_XXX	0.2057° west	{0} west		Moderate
 units	coordinateUnitPattern	west	narrow		1	//ldml/units/unitLength[@type="narrow"]/coordinateUnit/coordinateUnitPattern[@type="west"]	co2-4_XXX	0.2057°W	{0}W		Moderate
-units	displayName				0	//ldml/units/unitLength[@type="long"]/coordinateUnit/displayName	co-5_XXX	cardinal direction	cardinal direction		Moderate

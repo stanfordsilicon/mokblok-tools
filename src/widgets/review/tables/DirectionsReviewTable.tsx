@@ -1,42 +1,44 @@
 import { useDataContext } from '@data/DataContext';
+import PluralAmount from '@data/PluralAmount';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
-import { getSourceLanguageData } from '../getSourceLanguageData';
-import HighlightInput from '../HighlightInput';
+import { groupBy } from '@shared/setUtils';
+
+import InputDataCell from '../InputDataCell';
+import SourceDataCell from '../SourceDataCell';
 
 function DirectionsReviewTable() {
-  const {
-    data: { directionExamples },
-    set,
-  } = useDataContext();
+  const { findDataFields } = useDataContext();
+  const directionFields = groupBy(
+    findDataFields({ field: 'ordinalMinimalPairs' }),
+    (f) => f.instance,
+  );
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>
-            <SourceLanguageLabel />
-          </th>
-          <th>Translated</th>
-        </tr>
-      </thead>
-      <tbody>
-        {directionExamples?.map((example, index) => (
-          <tr key={example.key}>
-            <td>{getSourceLanguageData(example)}</td>
-            <td>
-              <HighlightInput
-                value={example.translated || ''}
-                onChange={(value) => set.directionExamples(index, value)}
-                highlight={/\d+/g}
-                style={{ width: '20em' }}
-              />
-            </td>
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              <SourceLanguageLabel />
+            </th>
+            <th>Translated</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {Object.values(PluralAmount).map(
+            (pluralAmount) =>
+              directionFields[pluralAmount] && (
+                <tr key={pluralAmount}>
+                  <SourceDataCell data={directionFields[pluralAmount][0]} />
+                  <InputDataCell data={directionFields[pluralAmount][0]} inputWidth="long" />
+                </tr>
+              ),
+          )}
+        </tbody>
+      </table>
+    </div>
   );
 }
 

@@ -82,7 +82,7 @@ const MockMonthsTemp: React.FC = () => {
                 dominantBaseline="middle"
                 style={{ fontSize: '.75em', color: 'black' }}
               >
-                {getTranslation(month.index)}
+                {getTranslation(month)}
               </text>
             </g>
           );

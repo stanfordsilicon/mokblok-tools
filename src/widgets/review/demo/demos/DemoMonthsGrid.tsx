@@ -53,7 +53,7 @@ const DemoMonthsGrid: React.FC = () => {
                 backgroundColor: index === today.getMonth() ? 'lightblue' : 'transparent',
               }}
             >
-              {getTranslation(month.index)}
+              {getTranslation(month)}
             </text>
           </g>
         );

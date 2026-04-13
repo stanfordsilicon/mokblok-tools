@@ -1,12 +1,21 @@
 import React from 'react';
 
 import { useDataContext } from '@data/DataContext';
-import { CardinalDirection, FormatLength } from '@data/DataTypes';
+import { CardinalDirection } from '@data/DataTypes';
 
 const DemoCoordinatesDirections: React.FC = () => {
-  const { coordinates, directionExamples } = useDataContext().data;
-  const south = coordinates?.[CardinalDirection.South]?.[FormatLength.Wide]?.translated;
-  const west = coordinates?.[CardinalDirection.West]?.[FormatLength.Wide]?.translated;
+  const { findDataField, getTranslation } = useDataContext();
+  const south = findDataField({
+    field: 'coordinateUnitPattern',
+    instance: CardinalDirection.South,
+    length: 'long',
+  });
+  const west = findDataField({
+    field: 'coordinateUnitPattern',
+    instance: CardinalDirection.West,
+    length: 'long',
+  });
+  const direction = findDataField({ field: 'ordinalMinimalPairs', instance: 'one' });
 
   return (
     <>
@@ -15,7 +24,7 @@ const DemoCoordinatesDirections: React.FC = () => {
         Directions to...
       </text>
       <text x={20} y={50}>
-        {south} {west}
+        {getTranslation(south)} {getTranslation(west)}
       </text>
       <rect x={20} y={80} width={100} height={40} fill="lightgreen" stroke="#ccc" rx={5} ry={5} />
       <rect x={140} y={80} width={80} height={40} fill="lightgreen" stroke="#ccc" rx={5} ry={5} />
@@ -32,7 +41,7 @@ const DemoCoordinatesDirections: React.FC = () => {
       </text>
       <rect x={10} y={200} width={220} height={30} fill="#f9f9f9" stroke="#ccc" rx={15} ry={15} />
       <text x={20} y={220}>
-        {directionExamples?.[0]?.translated || ''}
+        {getTranslation(direction)}
       </text>
     </>
   );
