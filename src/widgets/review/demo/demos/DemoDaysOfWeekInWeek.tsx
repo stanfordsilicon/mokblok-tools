@@ -4,8 +4,10 @@ import { useDataContext } from '@data/DataContext';
 
 import { useSettings } from '@settings/Settings';
 
+const dayKeys = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+
 const DemoDaysOfWeekInWeek: React.FC = () => {
-  const { daysOfWeek, months } = useDataContext().data;
+  const { findDataField, getTranslation } = useDataContext();
   const { today } = useSettings();
   const currentMonth = today.getMonth(); // Current month (0-indexed)
 
@@ -19,7 +21,9 @@ const DemoDaysOfWeekInWeek: React.FC = () => {
         transform="translate(20,25)"
       />
       <text x={120} y={30} textAnchor="middle" fontSize="1.2em">
-        {months?.[currentMonth]?.wide?.translated || ''}
+        {getTranslation(
+          findDataField({ field: 'M', length: 'w', instance: currentMonth + 1 + '' }),
+        ) ?? ''}
       </text>
       <path
         d="M10 -5 L5 0 L10 5"
@@ -30,9 +34,9 @@ const DemoDaysOfWeekInWeek: React.FC = () => {
       />
       <g transform="translate(15,45)">
         {/* Days of week header */}
-        {daysOfWeek?.map((day, index) => (
+        {dayKeys?.map((day, index) => (
           <text key={index} x={index * 30 + 15} y={15} fontWeight="bold" textAnchor="middle">
-            {day?.short?.translated || day?.short?.english || ''}
+            {getTranslation(findDataField({ field: 'E', length: 'n', instance: day })) ?? ''}
           </text>
         ))}
         {/* Day numbers */}

@@ -1,37 +1,26 @@
 import React from 'react';
 
 import { useDataContext } from '@data/DataContext';
-
-import { useSettings } from '@settings/Settings';
+import type { DataField } from '@data/DataTypes';
 
 const dayKeys = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
 
-const DemoDaysOfWeekInMonth: React.FC = () => {
+type Props = {
+  query: Partial<DataField>;
+};
+
+const DemoMonthlyCalendar: React.FC<Props> = ({ query }) => {
   const { findDataField, getTranslation } = useDataContext();
-  const { today } = useSettings();
-  const firstDayOfMonth = new Date(today.getFullYear(), today.getMonth(), 1).getDay(); // Get the day of the week for the first day of the month (0-6, where 0 is Sunday)
+  const dataField = findDataField(query)!;
+  const firstDate = new Date(dataField.var1 ?? 0);
+  const endDate = dataField.var2 ? new Date(dataField.var2) : new Date(firstDate);
+  const firstDayOfMonth = new Date(firstDate.getFullYear(), firstDate.getMonth(), 1).getDay(); // Get the day of the week for the first day of the month (0-6, where 0 is Sunday)
 
   return (
     <>
-      <path
-        d="M10 -5 L5 0 L10 5"
-        stroke="#ccc"
-        fill="none"
-        strokeWidth="2"
-        transform="translate(20,25)"
-      />
       <text x={120} y={30} textAnchor="middle" fontSize="1.2em">
-        {getTranslation(
-          findDataField({ field: 'M', length: 'w', instance: today.getMonth() + 1 + '' }),
-        ) ?? ''}
+        {getTranslation(dataField) ?? ''}
       </text>
-      <path
-        d="M10 -5 L5 0 L10 5"
-        stroke="#ccc"
-        fill="none"
-        strokeWidth="2"
-        transform="translate(220,25) rotate(180) "
-      />
       <g transform="translate(15,45)">
         {/* Days of week header */}
         {dayKeys?.map((day, index) => (
@@ -44,9 +33,12 @@ const DemoDaysOfWeekInMonth: React.FC = () => {
           <g key={weekIndex}>
             {[...Array(7)].map((_, dayIndex) => {
               const dayNumber = weekIndex * 7 + dayIndex - firstDayOfMonth + 1;
-              const date = new Date(today.getFullYear(), today.getMonth(), dayNumber);
-              const isCurrentMonth = date.getMonth() === today.getMonth();
-              const isToday = date.getDate() === today.getDate() && isCurrentMonth;
+              const date = new Date(firstDate.getFullYear(), firstDate.getMonth(), dayNumber);
+              const isCurrentMonth = date.getMonth() === firstDate.getMonth();
+              const isToday =
+                date.getDate() >= firstDate.getDate() &&
+                date.getDate() <= endDate.getDate() &&
+                isCurrentMonth;
               return (
                 <g key={dayIndex} transform={`translate(${dayIndex * 30},${weekIndex * 30 + 30})`}>
                   <rect
@@ -74,4 +66,4 @@ const DemoDaysOfWeekInMonth: React.FC = () => {
   );
 };
 
-export default DemoDaysOfWeekInMonth;
+export default DemoMonthlyCalendar;

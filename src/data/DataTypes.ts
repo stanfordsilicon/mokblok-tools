@@ -11,6 +11,8 @@ export type DataField = {
   englishPattern: string;
   french: string;
   level: string;
+  var1?: number;
+  var2?: number;
   index: number;
 };
 

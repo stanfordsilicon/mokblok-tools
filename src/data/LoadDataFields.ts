@@ -31,6 +31,8 @@ export async function loadDatafields(): Promise<DataField[] | void> {
           englishPattern: cells[9],
           french: cells[10],
           level: cells[11],
+          var1: Number(cells[12]) || undefined,
+          var2: Number(cells[13]) || undefined,
           index,
         } as DataField;
       });

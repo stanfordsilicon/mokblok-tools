@@ -5,9 +5,9 @@ import DemoLabel from './DemoLabel';
 import DemoCoordinatesDirections from './demos/DemoCoordinatesDirections';
 import DemoCoordinatesMap from './demos/DemoCoordinatesMap';
 import DemoDateFieldBreakdown from './demos/DemoDateFieldBreakdown';
-import DemoDateIntervalCreateEvent from './demos/DemoDateIntervalCreateEvent';
 import DemoDaysOfWeekInMonth from './demos/DemoDaysOfWeekInMonth';
 import DemoDaysOfWeekInWeek from './demos/DemoDaysOfWeekInWeek';
+import DemoMonthlyCalendar from './demos/DemoMonthlyCalendar';
 import DemoMonthsGrid from './demos/DemoMonthsGrid';
 import DemoMonthsTemp from './demos/DemoMonthsTemp';
 import DemoQuartersCircle from './demos/DemoQuartersCircle';
@@ -59,8 +59,16 @@ const DemoImage: React.FC<{ demoID: DemoID }> = ({ demoID }) => {
       return <DemoQuartersCircle />;
     case DemoID.QuartersEvents:
       return <DemoQuartersEvents />;
-    case DemoID.DateIntervalCreateEvent:
-      return <DemoDateIntervalCreateEvent />;
+    case DemoID.DateInterval_InMonth_MEd:
+    case DemoID.DateInterval_InMonth_MMMd:
+    case DemoID.DateInterval_InMonth_MMMEd:
+    case DemoID.DateInterval_InMonth_yMMMd:
+    case DemoID.DateInterval_InMonth_yMMMEd:
+      return (
+        <DemoMonthlyCalendar
+          query={{ field: 'intervalFormats', variant: 'd', instance: demoID.split('_').pop() }}
+        />
+      );
     case DemoID.TimeInterval24HourMin:
       return <DemoTimeInterval pattern="Hm" />;
     case DemoID.TimeInterval12HourMin:
