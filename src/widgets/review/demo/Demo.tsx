@@ -61,10 +61,18 @@ const DemoImage: React.FC<{ demoID: DemoID }> = ({ demoID }) => {
       return <DemoQuartersEvents />;
     case DemoID.DateIntervalCreateEvent:
       return <DemoDateIntervalCreateEvent />;
-    case DemoID.TimeInterval24Hour:
+    case DemoID.TimeInterval24HourMin:
       return <DemoTimeInterval pattern="Hm" />;
-    case DemoID.TimeInterval12Hour:
+    case DemoID.TimeInterval12HourMin:
       return <DemoTimeInterval pattern="hm" />;
+    case DemoID.TimeInterval24HourMinTimezone:
+      return <DemoTimeInterval pattern="Hmv" />;
+    case DemoID.TimeInterval12HourMinTimezone:
+      return <DemoTimeInterval pattern="hmv" />;
+    case DemoID.TimeInterval24HourOnly:
+      return <DemoTimeInterval pattern="H" />;
+    case DemoID.TimeInterval12HourOnly:
+      return <DemoTimeInterval pattern="h" />;
     default:
       return <div style={{ color: 'red' }}>Demo not found</div>;
   }

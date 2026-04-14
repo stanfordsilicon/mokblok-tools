@@ -27,10 +27,14 @@ function ReviewSection({ dataType }: { dataType: DataType }) {
         <DataTypeLabel dataType={dataType} />
       </h2>
       <div style={{ display: 'flex', gap: '1em', flexDirection: 'row' }}>
-        <ErrorBoundary>
-          <ReviewTable dataType={dataType} />
-        </ErrorBoundary>
-        <DemosForDataType dataType={dataType} />
+        <div>
+          <ErrorBoundary>
+            <ReviewTable dataType={dataType} />
+          </ErrorBoundary>
+        </div>
+        <div style={{ display: 'flex', gap: '1em', flexWrap: 'wrap' }}>
+          <DemosForDataType dataType={dataType} />
+        </div>
       </div>
     </div>
   );

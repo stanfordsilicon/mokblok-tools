@@ -17,7 +17,14 @@ const demoIDsByDataType: Record<DataType, DemoID[]> = {
   [DataType.Quarters]: [DemoID.QuartersCircle, DemoID.QuartersEvents],
   [DataType.RelativeTime]: [],
   [DataType.TimeCombinations]: [],
-  [DataType.TimeIntervals]: [DemoID.TimeInterval24Hour, DemoID.TimeInterval12Hour],
+  [DataType.TimeIntervals]: [
+    DemoID.TimeInterval24HourMin,
+    DemoID.TimeInterval12HourMin,
+    DemoID.TimeInterval24HourMinTimezone,
+    DemoID.TimeInterval12HourMinTimezone,
+    DemoID.TimeInterval24HourOnly,
+    DemoID.TimeInterval12HourOnly,
+  ],
   [DataType.All]: [],
 };
 

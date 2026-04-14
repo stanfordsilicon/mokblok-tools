@@ -27,3 +27,16 @@ export function matrixBy<T>(
   });
   return matrix;
 }
+
+export function uniqueBy<T, K extends string | number>(items: T[], keyFn: (item: T) => K): T[] {
+  const seen = new Set<K>();
+  const result: T[] = [];
+  items.forEach((item) => {
+    const key = keyFn(item);
+    if (!seen.has(key)) {
+      seen.add(key);
+      result.push(item);
+    }
+  });
+  return result;
+}

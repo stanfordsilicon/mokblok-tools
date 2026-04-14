@@ -10,8 +10,12 @@ enum DemoID {
   QuartersCircle = 'quartersCircle',
   QuartersEvents = 'quartersEvents',
   DateIntervalCreateEvent = 'dateIntervalCreateEvent',
-  TimeInterval24Hour = 'timeInterval24Hour',
-  TimeInterval12Hour = 'timeInterval12Hour',
+  TimeInterval24HourMin = 'timeInterval24HourMin',
+  TimeInterval12HourMin = 'timeInterval12HourMin',
+  TimeInterval24HourMinTimezone = 'timeInterval24HourMinTimezone',
+  TimeInterval12HourMinTimezone = 'timeInterval12HourMinTimezone',
+  TimeInterval24HourOnly = 'timeInterval24HourOnly',
+  TimeInterval12HourOnly = 'timeInterval12HourOnly',
 }
 
 export default DemoID;
