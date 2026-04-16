@@ -7,6 +7,7 @@ import DemoCoordinatesMap from './demos/DemoCoordinatesMap';
 import DemoDateFieldBreakdown from './demos/DemoDateFieldBreakdown';
 import DemoDaysOfWeekInMonth from './demos/DemoDaysOfWeekInMonth';
 import DemoDaysOfWeekInWeek from './demos/DemoDaysOfWeekInWeek';
+import DemoEraTimeline from './demos/DemoEraTimeline';
 import DemoMonthlyCalendar from './demos/DemoMonthlyCalendar';
 import DemoMonthsGrid from './demos/DemoMonthsGrid';
 import DemoMonthsTemp from './demos/DemoMonthsTemp';
@@ -81,6 +82,10 @@ const DemoImage: React.FC<{ demoID: DemoID }> = ({ demoID }) => {
       return <DemoTimeInterval pattern="H" />;
     case DemoID.TimeInterval12HourOnly:
       return <DemoTimeInterval pattern="h" />;
+    case DemoID.EraTimelineReligious:
+      return <DemoEraTimeline variant="" />;
+    case DemoID.EraTimelineSecular:
+      return <DemoEraTimeline variant="variant" />;
     default:
       return <div style={{ color: 'red' }}>Demo not found</div>;
   }

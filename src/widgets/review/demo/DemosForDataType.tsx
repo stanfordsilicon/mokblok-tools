@@ -17,7 +17,7 @@ const demoIDsByDataType: Record<DataType, DemoID[]> = {
   [DataType.DateFields]: [DemoID.DateFieldBreakdown],
   [DataType.DaysOfWeek]: [DemoID.DaysOfWeekInWeek, DemoID.DaysOfWeekInMonth],
   [DataType.DirectionExamples]: [DemoID.CoordinatesDirections],
-  [DataType.Eras]: [],
+  [DataType.Eras]: [DemoID.EraTimelineReligious, DemoID.EraTimelineSecular],
   [DataType.EraDateCombinations]: [],
   [DataType.Months]: [DemoID.MonthsGrid, DemoID.MonthsTemp],
   [DataType.Quarters]: [DemoID.QuartersCircle, DemoID.QuartersEvents],

@@ -20,6 +20,8 @@ enum DemoID {
   DateInterval_InMonth_MMMEd = 'dateInterval_InMonth_MMMEd',
   DateInterval_InMonth_yMMMd = 'dateInterval_InMonth_yMMMd',
   DateInterval_InMonth_yMMMEd = 'dateInterval_InMonth_yMMMEd',
+  EraTimelineReligious = 'eraTimelineReligious',
+  EraTimelineSecular = 'eraTimelineSecular',
 }
 
 export default DemoID;

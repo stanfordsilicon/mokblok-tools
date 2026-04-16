@@ -1,18 +1,13 @@
 import { useDataContext } from '@data/DataContext';
-import { FormatLength } from '@data/DataTypes';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
 import { matrixBy } from '@shared/setUtils';
 
-import FormatWidth from '../FormatWidth';
-import { getSourceLanguageData } from '../getSourceLanguageData';
-import HighlightInput from '../HighlightInput';
 import InputDataCell from '../InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function ErasReviewTable() {
-  const { eras } = useDataContext().data;
   const { findDataFields } = useDataContext();
   const eraFields = findDataFields({ field: 'G' });
   const eraMatrix = matrixBy(
@@ -44,39 +39,12 @@ function ErasReviewTable() {
             <tr key={instance}>
               <SourceDataCell data={row['w']} />
               <SourceDataCell data={row['a']} />
-              <InputDataCell data={row['w']} />
-              <InputDataCell data={row['a']} />
+              <InputDataCell data={row['w']} inputWidth="10em" />
+              <InputDataCell data={row['a']} inputWidth="4em" />
             </tr>
           ))}
-        {eras?.map((era, index) => (
-          <tr key={index}>
-            <td>{getSourceLanguageData(era?.[FormatLength.Wide])}</td>
-            <td>{getSourceLanguageData(era?.[FormatLength.Abbreviated])}</td>
-            <InputCell index={index} format={FormatLength.Wide} />
-            <InputCell index={index} format={FormatLength.Abbreviated} />
-          </tr>
-        ))}
       </tbody>
     </table>
-  );
-}
-
-type InputCellProps = { index: number; format: FormatLength };
-function InputCell({ format, index }: InputCellProps) {
-  const {
-    data: { eras },
-    set,
-  } = useDataContext();
-  if (!eras || !(format in eras[index])) return null;
-  return (
-    <td>
-      <HighlightInput
-        value={eras[index][format]?.translated || ''}
-        onChange={(value) => set.eras(index, format, value)}
-        highlight={/\d+/g}
-        style={{ width: FormatWidth[format] }}
-      />
-    </td>
   );
 }
 
