@@ -23,6 +23,7 @@ const demoLabelMap: Record<DemoID, string> = {
   [DemoID.TimeInterval24HourOnly]: 'Time Interval (24-Hour Clock, Hour Only)',
   [DemoID.EraTimelineReligious]: 'Era Timeline (Religious)',
   [DemoID.EraTimelineSecular]: 'Era Timeline (Secular)',
+  [DemoID.RelativeTimeEventEnd]: 'Choosing an end date',
 };
 
 function DemoLabel({ demoID }: { demoID: DemoID }) {

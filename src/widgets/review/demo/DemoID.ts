@@ -22,6 +22,7 @@ enum DemoID {
   DateInterval_InMonth_yMMMEd = 'dateInterval_InMonth_yMMMEd',
   EraTimelineReligious = 'eraTimelineReligious',
   EraTimelineSecular = 'eraTimelineSecular',
+  RelativeTimeEventEnd = 'relativeTimeEventEnd',
 }
 
 export default DemoID;

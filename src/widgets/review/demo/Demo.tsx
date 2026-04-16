@@ -13,6 +13,7 @@ import DemoMonthsGrid from './demos/DemoMonthsGrid';
 import DemoMonthsTemp from './demos/DemoMonthsTemp';
 import DemoQuartersCircle from './demos/DemoQuartersCircle';
 import DemoQuartersEvents from './demos/DemoQuartersEvents';
+import DemoRelativeTimeEventEnd from './demos/DemoRelativeTimeEventEnd';
 import DemoTimeInterval from './demos/DemoTimeInterval';
 import DemoSVG from './DemoSVG';
 import DownloadDemoButton from './DownloadDemoButton';
@@ -86,6 +87,8 @@ const DemoImage: React.FC<{ demoID: DemoID }> = ({ demoID }) => {
       return <DemoEraTimeline variant="" />;
     case DemoID.EraTimelineSecular:
       return <DemoEraTimeline variant="variant" />;
+    case DemoID.RelativeTimeEventEnd:
+      return <DemoRelativeTimeEventEnd />;
     default:
       return <div style={{ color: 'red' }}>Demo not found</div>;
   }

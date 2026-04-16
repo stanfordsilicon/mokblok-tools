@@ -21,7 +21,7 @@ const demoIDsByDataType: Record<DataType, DemoID[]> = {
   [DataType.EraDateCombinations]: [],
   [DataType.Months]: [DemoID.MonthsGrid, DemoID.MonthsTemp],
   [DataType.Quarters]: [DemoID.QuartersCircle, DemoID.QuartersEvents],
-  [DataType.RelativeTime]: [],
+  [DataType.RelativeTime]: [DemoID.RelativeTimeEventEnd],
   [DataType.TimeCombinations]: [],
   [DataType.TimeIntervals]: [
     DemoID.TimeInterval24HourMin,
