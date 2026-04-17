@@ -12,7 +12,7 @@ const AlphabetReview: React.FC = () => {
     charactersUppercase,
     charactersOther,
     writingSystem,
-  } = useDataContext().data.alphabet || {};
+  } = useDataContext().alphabet || {};
   return (
     <div>
       <h3>Characters by frequency</h3>

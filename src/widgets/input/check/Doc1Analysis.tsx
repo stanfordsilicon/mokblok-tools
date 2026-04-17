@@ -6,19 +6,6 @@ import type { DataField } from '@data/DataTypes';
 import CheckRow from './CheckRow';
 
 const Doc1Analysis: React.FC = () => {
-  const {
-    months,
-    daysOfWeek,
-    dateFields,
-    quarters,
-    relativeTime,
-    timeCombinations,
-    timeIntervals,
-    coordinates,
-    dateCombinations,
-    directionExamples,
-    eras,
-  } = useDataContext().data;
   const { findDataFields, getTranslation } = useDataContext();
   return (
     <>

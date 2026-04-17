@@ -1,27 +1,17 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 
-import {
-  DataType,
-  type AllData,
-  type AlphabetData,
-  type DataField,
-  type DataSetters,
-  type RowData,
-  type TimeCombinationsData,
-} from './DataTypes';
+import { type AlphabetData, type DataField, type RowData } from './DataTypes';
 import extractAlphabetData from './ExtractAlphabet';
-import { getTimeCombinationsData } from './ExtractData';
 import { loadDatafields } from './LoadDataFields';
 
 export type DataContextType = {
   setRows: (lines: RowData[]) => void;
   setExtraText: (text: string) => void;
   rowsByKey: Record<string, RowData>;
-  data: AllData;
-  set: DataSetters;
+  alphabet?: AlphabetData;
   findDataField(query: Partial<DataField>): DataField | undefined;
   findDataFields(query: Partial<DataField>): DataField[];
-  getTranslation(field: DataField): string;
+  getTranslation(field: DataField | undefined): string;
   setTranslation(index: number, newTranslation: string): void;
 };
 
@@ -29,10 +19,6 @@ export const DataContext = createContext<DataContextType | undefined>({
   setRows: () => {},
   setExtraText: () => {},
   rowsByKey: {},
-  data: {},
-  set: {
-    [DataType.TimeCombinations]: () => {},
-  },
   findDataField: () => undefined,
   findDataFields: () => [],
   getTranslation: () => '',
@@ -55,9 +41,6 @@ export const DataProvider: React.FC<{
 
   // Structured Data
   const [alphabetData, setAlphabetData] = useState<AlphabetData | undefined>(undefined);
-  const [timeCombinations, setTimeCombinationsData] = useState<TimeCombinationsData | undefined>(
-    undefined,
-  );
   const rowsByKey = useMemo(
     () =>
       rows.reduce(
@@ -116,36 +99,15 @@ export const DataProvider: React.FC<{
 
   // When the inputted data changes, refresh the data
   useEffect(() => {
-    setTimeCombinationsData(getTimeCombinationsData(rowsByKey));
     setAlphabetData(extractAlphabetData(rows, extraText));
     fillTranslations(rowsByKey);
   }, [rowsByKey, rows, extraText]);
-
-  // Translation Setters
-  const setTimeCombinationsTranslation = (
-    format: 'hm12' | 'hm24' | 'hms24' | 'hm12tz',
-    variant: 'morning' | 'evening',
-    newTranslation: string,
-  ) => {
-    setTimeCombinationsData((prev) => {
-      if (!prev) return prev;
-      const data = prev[format]?.[variant];
-      if (data) data.translated = newTranslation;
-      return { ...prev };
-    });
-  };
 
   const dataContext: DataContextType = {
     setRows,
     setExtraText,
     rowsByKey,
-    data: {
-      alphabet: alphabetData,
-      timeCombinations,
-    },
-    set: {
-      timeCombinations: setTimeCombinationsTranslation,
-    },
+    alphabet: alphabetData,
     findDataField,
     findDataFields,
     getTranslation,

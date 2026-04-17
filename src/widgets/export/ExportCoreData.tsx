@@ -23,7 +23,7 @@ const ExportCoreData: React.FC = () => {
   const { targetLanguage } = useSettings();
 
   const { charactersNumber, charactersAuxiliary, charactersBase, charactersPunctuation } =
-    useDataContext().data.alphabet || {};
+    useDataContext().alphabet || {};
 
   const formattedPunctuations = useMemo(() => {
     // Sort by "standardPunctuation" order

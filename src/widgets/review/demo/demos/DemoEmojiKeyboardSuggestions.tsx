@@ -8,7 +8,7 @@ const STANDARD_KEYS = [
 const DemoEmojiKeyboardSuggestions: React.FC<{ includeAnnotations: boolean }> = ({
   includeAnnotations,
 }) => {
-  const { findDataField, getTranslation, data } = useDataContext();
+  const { findDataField, getTranslation, alphabet } = useDataContext();
   const heartSuit = findDataField({ instance: '♥️' });
   const heartRed = findDataField({ instance: '❤️' });
   const heartFace = findDataField({ instance: '🥰' });
@@ -31,7 +31,7 @@ const DemoEmojiKeyboardSuggestions: React.FC<{ includeAnnotations: boolean }> = 
     !mostCommonWordCount || mostCommonWordCount[1] === 1 ? 'heart' : mostCommonWordCount[0];
 
   // Fake keyboard keys
-  const characterHistogram = data.alphabet?.characterHistogram ?? {};
+  const characterHistogram = alphabet?.characterHistogram ?? {};
   const keys =
     Object.entries(characterHistogram || {})
       .sort(([, countA], [, countB]) => countB - countA)

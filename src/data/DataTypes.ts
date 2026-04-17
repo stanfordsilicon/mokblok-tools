@@ -40,19 +40,6 @@ export enum SourceLanguage {
   French = 'fra',
 }
 
-export enum DateField {
-  Era = 'era',
-  Year = 'year',
-  Quarter = 'quarter',
-  Month = 'month',
-  Week = 'week',
-  Day = 'day',
-  DayOfWeek = 'day-of-week',
-  Hour = 'hour',
-  Minute = 'minute',
-  Second = 'second',
-}
-
 export enum FormatLength {
   Wide = 'wide',
   Abbreviated = 'abbreviated',
@@ -84,54 +71,10 @@ export type AlphabetData = {
   writingSystem: string;
 };
 
-export type RelativeTimeData = Partial<
-  Record<DateField, { '-1': RowData; '0': RowData; '1': RowData }>
->;
-
-export enum TimeCombinationsFormat {
-  HM12 = 'hm12',
-  HM24 = 'hm24',
-  HMS24 = 'hms24',
-  HM12TZ = 'hm12tz',
-}
-export type TimeCombinationsData = Record<
-  TimeCombinationsFormat,
-  { morning?: RowData; evening: RowData }
->;
-
-export enum TimeIntervalFormat {
-  Hour = 'h',
-  HourMinute = 'hm',
-  HourMinuteTimezone = 'hmv',
-  HourTimezone = 'hv',
-}
-export enum TimeIntervalDifference {
-  Period = 'a',
-  Hour = 'h',
-  Minute = 'm',
-}
-
-//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hm"]/greatestDifference[@id="m"]
-type TimeInternalDataInPeriod = Partial<
-  Record<TimeIntervalFormat, Partial<Record<TimeIntervalDifference, RowData>>>
->;
-export type TimeIntervalsData = {
-  h12: TimeInternalDataInPeriod;
-  h12alt: TimeInternalDataInPeriod;
-  h24: TimeInternalDataInPeriod;
-};
-
-// Not yet organized
-export type DateCombinationData = RowData[];
-
 export enum SentenceContext {
-  InSentence = 'in sentence',
-  Standalone = 'standalone',
+  InSentence = 'f',
+  Standalone = 's',
 }
-
-// 4 items, one for each quarter, with different lengths (e.g. "1st quarter", "Q1")
-// both as individual items (eg. "1st quarter") and in a combined form (e.g. "1st quarter of 2025")
-export type QuartersData = Record<SentenceContext, Partial<Record<FormatLength, RowData>>[]>;
 
 export enum CardinalDirection {
   North = 'north',
@@ -139,11 +82,6 @@ export enum CardinalDirection {
   East = 'east',
   West = 'west',
 }
-export type CoordinatesData = Record<CardinalDirection, Partial<Record<FormatLength, RowData>>>;
-
-export type DirectionExamples = RowData[];
-
-export type ErasData = Partial<Record<FormatLength, RowData>>[];
 
 // Order this by order of appearance
 export enum DataType {
@@ -164,16 +102,3 @@ export enum DataType {
   Emojis = 'emojis',
   All = 'all',
 }
-
-export type AllData = {
-  [DataType.Alphabet]?: AlphabetData;
-  [DataType.TimeCombinations]?: TimeCombinationsData;
-};
-
-export type DataSetters = {
-  [DataType.TimeCombinations]: (
-    format: 'hm12' | 'hm24' | 'hms24' | 'hm12tz',
-    variant: 'morning' | 'evening',
-    newTranslation: string,
-  ) => void;
-};

@@ -1,11 +1,10 @@
-import { useDataContext } from '@data/DataContext';
 import {
-  DateField,
   type DateFieldData,
   type DayOfWeekData,
   type MonthData,
   type RowData,
 } from '@data/DataTypes';
+import { DateField } from '@data/DateField';
 
 type XMLFormattedData = {
   monthsXML?: string;
@@ -14,7 +13,9 @@ type XMLFormattedData = {
 };
 
 const useXMLFormattedData = (): XMLFormattedData => {
-  const { months, daysOfWeek, dateFields } = useDataContext().data;
+  const months: MonthData[] = [];
+  const daysOfWeek: DayOfWeekData[] = [];
+  const dateFields: Partial<Record<DateField, DateFieldData>> = {};
 
   const monthsXML = months ? getMonthsXML(months).replaceAll('\n', '\n      ') : undefined;
   const daysOfWeekXML = daysOfWeek
@@ -89,13 +90,13 @@ function getIndexedXMLTag<T>(
 
 function getDateFieldsXML(dateFieldsData: Partial<Record<DateField, DateFieldData>>): string {
   const fields = [
-    ...getDateFieldVersions('era', dateFieldsData.era),
-    ...getDateFieldVersions('year', dateFieldsData.year),
-    ...getDateFieldVersions('month', dateFieldsData.month),
-    ...getDateFieldVersions('day', dateFieldsData.day),
-    ...getDateFieldVersions('hour', dateFieldsData.hour),
-    ...getDateFieldVersions('minute', dateFieldsData.minute),
-    ...getDateFieldVersions('second', dateFieldsData.second),
+    ...getDateFieldVersions('era', dateFieldsData[DateField.Era]),
+    ...getDateFieldVersions('year', dateFieldsData[DateField.Year]),
+    ...getDateFieldVersions('month', dateFieldsData[DateField.Month]),
+    ...getDateFieldVersions('day', dateFieldsData[DateField.Day]),
+    ...getDateFieldVersions('hour', dateFieldsData[DateField.Hour]),
+    ...getDateFieldVersions('minute', dateFieldsData[DateField.Minute]),
+    ...getDateFieldVersions('second', dateFieldsData[DateField.Second]),
   ].filter(Boolean);
   return `
 <fields>
