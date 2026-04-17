@@ -33,7 +33,7 @@ function ReviewSection({ dataType }: { dataType: DataType }) {
             <ReviewTable dataType={dataType} />
           </ErrorBoundary>
         </div>
-        <div style={{ display: 'flex', gap: '1em', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', gap: '1em', flexWrap: 'wrap', placeContent: 'start' }}>
           <DemosForDataType dataType={dataType} />
         </div>
       </div>

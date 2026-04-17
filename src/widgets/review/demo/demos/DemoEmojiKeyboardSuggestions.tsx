@@ -5,7 +5,9 @@ const STANDARD_KEYS = [
   ...['a', 's', 'd', 'f', 'g', 'h', 'j', 'k'],
 ];
 
-const DemoEmojiKeyboardSuggestions: React.FC = () => {
+const DemoEmojiKeyboardSuggestions: React.FC<{ includeAnnotations: boolean }> = ({
+  includeAnnotations,
+}) => {
   const { findDataField, getTranslation, data } = useDataContext();
   const heartSuit = findDataField({ instance: '♥️' });
   const heartRed = findDataField({ instance: '❤️' });
@@ -13,9 +15,9 @@ const DemoEmojiKeyboardSuggestions: React.FC = () => {
 
   // Find the common word in all translations to find probably the word for heart
   const heartWords = [
-    getTranslation(heartSuit)?.split(/\W/) ?? [],
-    getTranslation(heartRed)?.split(/\W/) ?? [],
-    getTranslation(heartFace)?.split(/\W/) ?? [],
+    getTranslation(heartFace)?.split(/\s/) ?? [],
+    getTranslation(heartRed)?.split(/\s/) ?? [],
+    getTranslation(heartSuit)?.split(/\s/) ?? [],
   ];
   const wordsCounted = heartWords.flat().reduce(
     (acc, word) => {
@@ -37,46 +39,55 @@ const DemoEmojiKeyboardSuggestions: React.FC = () => {
 
   return (
     <>
-      <rect x={130} y={10} width={100} height={40} fill="#ddf" stroke="#ccc" rx={15} ry={15} />
-      <text x={220} y={35} style={{ textAnchor: 'end' }}>
-        ☀️🌡️! 😀
-      </text>
-      <text x={220} y={65} style={{ textAnchor: 'end' }}>
-        {getTranslation(findDataField({ group: 'Times', instance: 'Hm', exampleNum: '1' }))}
-      </text>
-      <rect x={10} y={50} width={100} height={40} fill="#ffd" stroke="#ccc" rx={15} ry={15} />
-      <text x={20} y={75}>
-        💡! 🐕🏃?
-      </text>
-      <text x={10} y={105}>
-        {getTranslation(findDataField({ group: 'Times', instance: 'Hm', exampleNum: '2' }))}
-      </text>
-      <rect x={10} y={120} width={180} height={30} fill="#eee" stroke="#ccc" rx={10} ry={10} />
-      <text x={20} y={140}>
-        ✔️ {heartWord}|
-      </text>
-      <rect x={200} y={120} width={30} height={30} fill="#eee" stroke="#ccc" rx={15} ry={15} />
-      <text x={210} y={140}>
-        ▶
-      </text>
+      <g id="message1">
+        <rect x={130} y={10} width={100} height={40} fill="#ddf" stroke="#ccc" rx={15} ry={15} />
+        <text x={220} y={35} style={{ textAnchor: 'end' }}>
+          ☀️🌡️! 😀
+        </text>
+        <text x={220} y={65} style={{ textAnchor: 'end' }}>
+          {getTranslation(findDataField({ group: 'Times', instance: 'Hm', exampleNum: '1' }))}
+        </text>
+      </g>
+      <g id="message2">
+        <rect x={10} y={50} width={100} height={40} fill="#ffd" stroke="#ccc" rx={15} ry={15} />
+        <text x={20} y={75}>
+          💡! 🐕🏃?
+        </text>
+        <text x={10} y={105}>
+          {getTranslation(findDataField({ group: 'Times', instance: 'Hm', exampleNum: '2' }))}
+        </text>
+      </g>
 
-      <rect x={0} y={160} width={240} height={30} fill="#f7f7f7" stroke="#ccc" />
-      <text x={45} y={180} style={{ textAnchor: 'middle' }}>
-        {heartWord}
-      </text>
-      <line x1={90} y1={160} x2={90} y2={190} stroke="#ccc" />
-      <text x={100} y={180}>
-        ♥️
-      </text>
-      <line x1={130} y1={160} x2={130} y2={190} stroke="#ccc" />
-      <text x={140} y={180}>
-        ❤️
-      </text>
-      <line x1={170} y1={160} x2={170} y2={190} stroke="#ccc" />
-      <text x={180} y={180}>
-        🥰
-      </text>
-      <line x1={210} y1={160} x2={210} y2={190} stroke="#ccc" />
+      <g id="inputBox">
+        <rect x={10} y={120} width={180} height={30} fill="#eee" stroke="#ccc" rx={10} ry={10} />
+        <text x={20} y={140}>
+          ✔️ {heartWord}|
+        </text>
+        <rect x={200} y={120} width={30} height={30} fill="#eee" stroke="#ccc" rx={15} ry={15} />
+        <text x={210} y={140}>
+          ▶
+        </text>
+      </g>
+
+      <g id="suggestions">
+        <rect x={0} y={160} width={240} height={30} fill="#f7f7f7" stroke="#ccc" />
+        <text x={45} y={180} style={{ textAnchor: 'middle' }}>
+          {heartWord}
+        </text>
+        <line x1={90} y1={160} x2={90} y2={190} stroke="#ccc" />
+        <text x={100} y={180}>
+          ♥️
+        </text>
+        <line x1={130} y1={160} x2={130} y2={190} stroke="#ccc" />
+        <text x={140} y={180}>
+          ❤️
+        </text>
+        <line x1={170} y1={160} x2={170} y2={190} stroke="#ccc" />
+        <text x={180} y={180}>
+          🥰
+        </text>
+        <line x1={210} y1={160} x2={210} y2={190} stroke="#ccc" />
+      </g>
 
       <g id="keyboards" style={{ textAnchor: 'middle' }}>
         <rect x={10} y={195} width={20} height={20} fill="#f7f7f7" rx={5} ry={5} />
@@ -152,6 +163,57 @@ const DemoEmojiKeyboardSuggestions: React.FC = () => {
           {keys[17]}
         </text>
       </g>
+
+      {includeAnnotations && (
+        <g id="annotations1" transform="translate(220, 50)" style={{ textAnchor: 'end' }}>
+          <path d="M-20,0 L-30,-10 L-40,0 Z" fill="#f7f7f7" stroke="#ccc" />
+          <rect
+            x={-120}
+            y={0}
+            width={120}
+            height={70}
+            fill="#f7f7f7"
+            stroke="#ccc"
+            rx={15}
+            ry={15}
+          />
+          <text x={-10} y={20}>
+            {getTranslation(findDataField({ instance: '☀️' }))}
+          </text>
+          <text x={-10} y={40}>
+            {getTranslation(findDataField({ instance: '🌡️' }))}
+          </text>
+          <text x={-10} y={60}>
+            {getTranslation(findDataField({ instance: '😀' }))}
+          </text>
+        </g>
+      )}
+
+      {includeAnnotations && (
+        <g id="annotations2" transform="translate(20, 130)" style={{ textAnchor: 'start' }}>
+          <path d="M20,0 L30,-50 L40,0 Z" fill="#f7f7f7" stroke="#ccc" />
+          <rect
+            x={0}
+            y={0}
+            width={120}
+            height={70}
+            fill="#f7f7f7"
+            stroke="#ccc"
+            style={{ boxShadow: '2px 2px 5px rgba(0,0,0)' }}
+            rx={15}
+            ry={15}
+          />
+          <text x={10} y={20}>
+            {getTranslation(findDataField({ instance: '💡' }))}
+          </text>
+          <text x={10} y={40}>
+            {getTranslation(findDataField({ instance: '🐕' }))}
+          </text>
+          <text x={10} y={60}>
+            {getTranslation(findDataField({ instance: '🏃' }))}
+          </text>
+        </g>
+      )}
     </>
   );
 };

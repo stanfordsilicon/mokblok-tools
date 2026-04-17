@@ -56,8 +56,6 @@ const DemoTimeInterval: React.FC<{ pattern: string }> = ({ pattern }) => {
         )
         .map((int, index) => {
           const hourNums = intervalToHourNums(int);
-          if (pattern.includes('v')) console.log(int.english, hourNums);
-
           return (
             <g key={index} transform={`translate(${index * 50 + 60}, 50)`}>
               <rect

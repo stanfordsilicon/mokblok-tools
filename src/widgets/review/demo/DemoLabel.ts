@@ -25,6 +25,7 @@ const demoLabelMap: Record<DemoID, string> = {
   [DemoID.EraTimelineSecular]: 'Era Timeline (Secular)',
   [DemoID.RelativeTimeEventEnd]: 'Choosing an end date',
   [DemoID.EmojiKeyboardSuggestions]: 'Emoji Keyboard Suggestions',
+  [DemoID.EmojiExplanations]: 'Emoji Explanations',
 };
 
 function DemoLabel({ demoID }: { demoID: DemoID }) {

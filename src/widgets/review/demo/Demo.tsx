@@ -91,7 +91,9 @@ const DemoImage: React.FC<{ demoID: DemoID }> = ({ demoID }) => {
     case DemoID.RelativeTimeEventEnd:
       return <DemoRelativeTimeEventEnd />;
     case DemoID.EmojiKeyboardSuggestions:
-      return <DemoEmojiKeyboardSuggestions />;
+      return <DemoEmojiKeyboardSuggestions includeAnnotations={false} />;
+    case DemoID.EmojiExplanations:
+      return <DemoEmojiKeyboardSuggestions includeAnnotations={true} />;
     default:
       return <div style={{ color: 'red' }}>Demo not found</div>;
   }
