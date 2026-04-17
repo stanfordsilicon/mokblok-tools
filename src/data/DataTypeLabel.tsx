@@ -9,6 +9,7 @@ const DATA_TYPE_LABELS: Record<DataType, string> = {
   [DataType.DateIntervals]: 'Date Intervals',
   [DataType.DaysOfWeek]: 'Days of the Week',
   [DataType.DirectionExamples]: 'Direction Examples',
+  [DataType.Emojis]: 'Emojis',
   [DataType.EraDateCombinations]: 'Era Dates',
   [DataType.Eras]: 'Eras',
   [DataType.Months]: 'Months',

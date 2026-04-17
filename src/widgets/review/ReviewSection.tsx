@@ -12,6 +12,7 @@ import DateFieldsReviewTable from './tables/DateFieldsReviewTable';
 import DateIntervalsReviewTable from './tables/DateIntervalsReviewTable';
 import DaysOfWeekReviewTable from './tables/DaysOfWeekReviewTable';
 import DirectionsReviewTable from './tables/DirectionsReviewTable';
+import EmojisReviewTable from './tables/EmojisReviewTable';
 import EraDatesReviewTable from './tables/EraDatesReviewTable';
 import ErasReviewTable from './tables/ErasReviewTable';
 import MonthsReviewTable from './tables/MonthsReviewTable';
@@ -56,6 +57,8 @@ function ReviewTable({ dataType }: { dataType: DataType }) {
       return <DaysOfWeekReviewTable />;
     case DataType.DirectionExamples:
       return <DirectionsReviewTable />;
+    case DataType.Emojis:
+      return <EmojisReviewTable />;
     case DataType.Eras:
       return <ErasReviewTable />;
     case DataType.EraDateCombinations:

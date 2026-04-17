@@ -23,6 +23,7 @@ enum DemoID {
   EraTimelineReligious = 'eraTimelineReligious',
   EraTimelineSecular = 'eraTimelineSecular',
   RelativeTimeEventEnd = 'relativeTimeEventEnd',
+  EmojiKeyboardSuggestions = 'emojiKeyboardSuggestions',
 }
 
 export default DemoID;

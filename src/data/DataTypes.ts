@@ -1,5 +1,6 @@
 export type DataField = {
   subject: string;
+  group: string;
   field: string;
   instance: string;
   length: string;
@@ -160,6 +161,7 @@ export enum DataType {
   EraDateCombinations = 'eraDateCombinations',
   Coordinates = 'coordinates',
   DirectionExamples = 'directionExamples',
+  Emojis = 'emojis',
   All = 'all',
 }
 

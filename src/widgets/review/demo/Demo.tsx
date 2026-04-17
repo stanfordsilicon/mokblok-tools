@@ -7,6 +7,7 @@ import DemoCoordinatesMap from './demos/DemoCoordinatesMap';
 import DemoDateFieldBreakdown from './demos/DemoDateFieldBreakdown';
 import DemoDaysOfWeekInMonth from './demos/DemoDaysOfWeekInMonth';
 import DemoDaysOfWeekInWeek from './demos/DemoDaysOfWeekInWeek';
+import DemoEmojiKeyboardSuggestions from './demos/DemoEmojiKeyboardSuggestions';
 import DemoEraTimeline from './demos/DemoEraTimeline';
 import DemoMonthlyCalendar from './demos/DemoMonthlyCalendar';
 import DemoMonthsGrid from './demos/DemoMonthsGrid';
@@ -89,6 +90,8 @@ const DemoImage: React.FC<{ demoID: DemoID }> = ({ demoID }) => {
       return <DemoEraTimeline variant="variant" />;
     case DemoID.RelativeTimeEventEnd:
       return <DemoRelativeTimeEventEnd />;
+    case DemoID.EmojiKeyboardSuggestions:
+      return <DemoEmojiKeyboardSuggestions />;
     default:
       return <div style={{ color: 'red' }}>Demo not found</div>;
   }

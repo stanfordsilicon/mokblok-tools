@@ -148,10 +148,9 @@ export const DataProvider: React.FC<{
     [findDataFields],
   );
   const getTranslation = useCallback(
-    (index: DataField | number | undefined): string | undefined => {
-      if (index === undefined) return undefined;
-      const indexNumber = typeof index === 'number' ? index : index.index;
-      return translationsByIndex[indexNumber];
+    (datum: DataField | undefined): string | undefined => {
+      if (!datum) return undefined;
+      return translationsByIndex[datum.index] ?? datum.english ?? undefined;
     },
     [translationsByIndex],
   );
