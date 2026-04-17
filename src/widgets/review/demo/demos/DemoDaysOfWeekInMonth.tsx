@@ -1,10 +1,9 @@
 import React from 'react';
 
 import { useDataContext } from '@data/DataContext';
+import { DayKeys } from '@data/DayKeys';
 
 import { useSettings } from '@settings/Settings';
-
-const dayKeys = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
 
 const DemoDaysOfWeekInMonth: React.FC = () => {
   const { findDataField, getTranslation } = useDataContext();
@@ -34,7 +33,7 @@ const DemoDaysOfWeekInMonth: React.FC = () => {
       />
       <g transform="translate(15,45)">
         {/* Days of week header */}
-        {dayKeys?.map((day, index) => (
+        {DayKeys?.map((day, index) => (
           <text key={index} x={index * 30 + 15} y={15} fontWeight="bold" textAnchor="middle">
             {getTranslation(findDataField({ field: 'E', length: 'n', instance: day })) ?? ''}
           </text>

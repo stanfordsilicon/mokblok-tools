@@ -1,12 +1,15 @@
+// Ordered from larger to smaller (and time-zone last)
 export enum DateField {
   Era = 'G',
   Year = 'y',
-  Quarter = 'Q',
+  Quarter = 'q',
   Month = 'M',
   Week = 'w',
-  Day = 'd',
   DayOfWeek = 'E',
-  Hour = 'H',
+  Day = 'd',
+  TimeOfDay = 'a', // am/pm
+  Hour = 'h',
   Minute = 'm',
   Second = 's',
+  Timezone = 'v',
 }

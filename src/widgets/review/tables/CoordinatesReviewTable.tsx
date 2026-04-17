@@ -1,16 +1,25 @@
 import { useDataContext } from '@data/DataContext';
-import { CardinalDirection, FormatLength } from '@data/DataTypes';
+import PluralAmount from '@data/PluralAmount';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
-import { getSourceLanguageData } from '../getSourceLanguageData';
-import HighlightInput from '../HighlightInput';
+import { groupBy, matrixBy } from '@shared/setUtils';
+
+import InputDataCell from '../InputDataCell';
+import SourceDataCell from '../SourceDataCell';
 
 function CoordinatesReviewTable() {
-  const {
-    data: { coordinates, directionExamples },
-    set,
-  } = useDataContext();
+  const { findDataFields } = useDataContext();
+  const coordFields = findDataFields({ field: 'coordinateUnitPattern' });
+  const coordMatrix = matrixBy(
+    coordFields,
+    (f) => f.instance,
+    (f) => f.length,
+  );
+  const directionFields = groupBy(
+    findDataFields({ field: 'ordinalMinimalPairs' }),
+    (f) => f.instance,
+  );
 
   return (
     <div>
@@ -23,23 +32,21 @@ function CoordinatesReviewTable() {
             <th colSpan={2}>Translated</th>
           </tr>
           <tr>
-            <th>Wide</th>
+            <th>Long</th>
             <th>Narrow</th>
-            <th>Wide</th>
+            <th>Long</th>
             <th>Narrow</th>
           </tr>
         </thead>
         <tbody>
-          {Object.values(CardinalDirection).map((direction) => {
-            return (
-              <tr key={direction}>
-                <td>{getSourceLanguageData(coordinates?.[direction]?.[FormatLength.Wide])}</td>
-                <td>{getSourceLanguageData(coordinates?.[direction]?.[FormatLength.Narrow])}</td>
-                <InputCell format={FormatLength.Wide} direction={direction} />
-                <InputCell format={FormatLength.Narrow} direction={direction} />
-              </tr>
-            );
-          })}
+          {Object.entries(coordMatrix).map(([length, row]) => (
+            <tr key={length}>
+              <SourceDataCell data={row['long']} />
+              <SourceDataCell data={row['narrow']} />
+              <InputDataCell data={row['long']} inputWidth="10em" />
+              <InputDataCell data={row['narrow']} inputWidth="10em" />
+            </tr>
+          ))}
         </tbody>
       </table>
       <h4>Examples</h4>
@@ -53,40 +60,18 @@ function CoordinatesReviewTable() {
           </tr>
         </thead>
         <tbody>
-          {directionExamples?.map((example, index) => (
-            <tr key={example.key}>
-              <td>{getSourceLanguageData(example)}</td>
-              <td>
-                <HighlightInput
-                  value={example.translated || ''}
-                  onChange={(value) => set.directionExamples(index, value)}
-                  highlight={/\d+/g}
-                  style={{ width: '20em' }}
-                />
-              </td>
-            </tr>
-          ))}
+          {Object.values(PluralAmount).map(
+            (pluralAmount) =>
+              directionFields[pluralAmount] && (
+                <tr key={pluralAmount}>
+                  <SourceDataCell data={directionFields[pluralAmount][0]} />
+                  <InputDataCell data={directionFields[pluralAmount][0]} inputWidth="15em" />
+                </tr>
+              ),
+          )}
         </tbody>
       </table>
     </div>
-  );
-}
-
-type InputCellProps = { format: FormatLength; direction: CardinalDirection };
-function InputCell({ format, direction }: InputCellProps) {
-  const {
-    data: { coordinates },
-    set,
-  } = useDataContext();
-  return (
-    <td>
-      <HighlightInput
-        value={coordinates?.[direction]?.[format]?.translated || ''}
-        onChange={(value) => set.coordinates(format, direction, value)}
-        highlight={/\d+/g}
-        style={{ width: '10em' }}
-      />
-    </td>
   );
 }
 

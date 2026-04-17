@@ -1,11 +1,10 @@
 import React, { useCallback } from 'react';
 
 import { useDataContext } from '@data/DataContext';
-import { DateField } from '@data/DataTypes';
+import { DateField } from '@data/DateField';
+import { DayKeys } from '@data/DayKeys';
 
 import { useSettings } from '@settings/Settings';
-
-import { getSourceLanguageData } from '../../getSourceLanguageData';
 
 const ShownDateFields: DateField[] = [
   //   DateField.Era,
@@ -21,8 +20,8 @@ const ShownDateFields: DateField[] = [
 ];
 
 const DemoDateFieldBreakdown: React.FC = () => {
-  const { dateFields, months, daysOfWeek, relativeTime } = useDataContext().data;
   const { today } = useSettings();
+  const { getTranslation, findDataField } = useDataContext();
 
   const getTodayFieldValue = useCallback(
     (fieldKey: DateField): string | number => {
@@ -34,13 +33,22 @@ const DemoDateFieldBreakdown: React.FC = () => {
         case DateField.Quarter:
           return Math.floor(today.getMonth() / 3) + 1; // Quarters are 1-indexed
         case DateField.Month:
-          return months?.[today.getMonth()].wide?.translated ?? ''; // Months are 0-indexed
+          return (
+            getTranslation(
+              findDataField({ field: 'M', instance: String(today.getMonth() + 1), length: 'w' }),
+            ) || ''
+          ); // Months are 0-indexed
+        // return months?.[today.getMonth()].wide?.translated ?? ''; // Months are 0-indexed
         case DateField.Week:
           return ''; // Not useful in this display
         case DateField.Day:
           return today.getDate();
         case DateField.DayOfWeek:
-          return daysOfWeek?.[today.getDay()].wide?.translated ?? ''; // Sunday = 0, Monday = 1, ..., Saturday = 6
+          return (
+            getTranslation(
+              findDataField({ field: 'E', instance: DayKeys[today.getDay()], length: 'w' }),
+            ) || ''
+          );
         case DateField.Hour:
           return today.getHours();
         case DateField.Minute:
@@ -51,26 +59,24 @@ const DemoDateFieldBreakdown: React.FC = () => {
           return '';
       }
     },
-    [today, months, daysOfWeek],
+    [today, getTranslation, findDataField],
   );
-
-  const todayData = relativeTime?.day?.['0'];
 
   return (
     <>
       <text x={120} y={30} textAnchor="middle" fontSize="1.2em">
-        {todayData?.translated || getSourceLanguageData(todayData) || 'Today'}
+        {getTranslation(findDataField({ field: 'd', instance: '0' })) ?? ''}
       </text>
       {ShownDateFields.map((fieldKey, index) => {
-        const fieldData = dateFields?.[fieldKey];
+        const fieldData = findDataField({ field: fieldKey, length: 'w' });
         const x = 120;
         const y = index * 20 + 75;
         return (
           <g key={index} transform={`translate(${x},${y})`}>
-            <text x={-20} textAnchor="end">
-              {fieldData?.wide?.translated || fieldData?.wide?.english || ''}
+            <text x={-10} textAnchor="end">
+              {getTranslation(fieldData) ?? ''}
             </text>
-            <text x={20}>{getTodayFieldValue(fieldKey)}</text>
+            <text x={10}>{getTodayFieldValue(fieldKey)}</text>
           </g>
         );
       })}

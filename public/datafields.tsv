@@ -1,4 +1,4 @@
-Subject	Field	Instance	Length	Variant	Example#	XPath	ExtID	English	English (pattern)	French	Level	Var1	Var2
+Subject	Group	Field	Instance	Length	Variant	Example#	XPath	ExtID	English	English (pattern)	French	Level	Var1	Var2
 dates	DateFields	d		w		0	//ldml/dates/fields/field[@type="day"]/displayName	dw-14_XXX	day	day	jour	Moderate		
 dates	DateFields	d		s		0	//ldml/dates/fields/field[@type="day-short"]/displayName	dw-15_XXX	day	day	j	Moderate		
 dates	DateFields	E		w		0	//ldml/dates/fields/field[@type="weekday"]/displayName	dw-23_XXX	day of the week	day of the week	jour de la semaine	Moderate		
@@ -99,34 +99,34 @@ dates	DateTimes	dateTimeFormats		medium	atTime	1	//ldml/dates/calendars/calendar
 dates	DateTimes	timeFormats		medium		1	//ldml/dates/calendars/calendar[@type="gregorian"]/timeFormats/timeFormatLength[@type="medium"]/timeFormat[@type="standard"]/pattern[@type="standard"]	dc-55_XXX	3:30:45 PM	h:mm:ss a		Moderate	1,713,911,445,000	
 dates	DateTimes	timeFormats		long		1	//ldml/dates/calendars/calendar[@type="gregorian"]/timeFormats/timeFormatLength[@type="long"]/timeFormat[@type="standard"]/pattern[@type="standard"]	dc-56_XXX	3:30:45 PM PDT	h:mm:ss a z		Moderate	1,713,911,445,000	
 dates	DateTimes	timeFormats		full		1	//ldml/dates/calendars/calendar[@type="gregorian"]/timeFormats/timeFormatLength[@type="full"]/timeFormat[@type="standard"]/pattern[@type="standard"]	dc-57_XXX	3:30:45 PM Pacific Daylight Time	h:mm:ss a zzzz		Moderate	1,713,911,445,000	
-dates	DayOfWeek	E	fri	w		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="format"]/dayWidth[@type="wide"]/day[@type="fri"]	wk-6_XXX	Friday	Friday	vendredi	Basic		
-dates	DayOfWeek	E	fri	a		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="abbreviated"]/day[@type="fri"]	wk-13_XXX	Fri	Fri	ven.	Moderate		
-dates	DayOfWeek	E	fri	s		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="short"]/day[@type="fri"]	wk-20_XXX	Fr	Fr	ve	Moderate		
-dates	DayOfWeek	E	fri	n		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="narrow"]/day[@type="fri"]	wk-27_XXX	F	F	V	Moderate		
-dates	DayOfWeek	E	mon	w		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="format"]/dayWidth[@type="wide"]/day[@type="mon"]	wk-2_XXX	Monday	Monday	lundi	Basic		
-dates	DayOfWeek	E	mon	a		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="abbreviated"]/day[@type="mon"]	wk-9_XXX	Mon	Mon	lun.	Moderate		
-dates	DayOfWeek	E	mon	s		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="short"]/day[@type="mon"]	wk-16_XXX	Mo	Mo	lu	Moderate		
-dates	DayOfWeek	E	mon	n		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="narrow"]/day[@type="mon"]	wk-23_XXX	M	M	L	Moderate		
-dates	DayOfWeek	E	sat	w		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="format"]/dayWidth[@type="wide"]/day[@type="sat"]	wk-7_XXX	Saturday	Saturday	samedi	Basic		
-dates	DayOfWeek	E	sat	a		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="abbreviated"]/day[@type="sat"]	wk-14_XXX	Sat	Sat	sam.	Moderate		
-dates	DayOfWeek	E	sat	s		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="short"]/day[@type="sat"]	wk-21_XXX	Sa	Sa	sa	Moderate		
-dates	DayOfWeek	E	sat	n		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="narrow"]/day[@type="sat"]	wk-28_XXX	S	S	S	Moderate		
-dates	DayOfWeek	E	sun	w		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="format"]/dayWidth[@type="wide"]/day[@type="sun"]	wk-1_XXX	Sunday	Sunday	dimanche	Basic		
-dates	DayOfWeek	E	sun	a		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="abbreviated"]/day[@type="sun"]	wk-8_XXX	Sun	Sun	dim.	Moderate		
-dates	DayOfWeek	E	sun	s		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="short"]/day[@type="sun"]	wk-15_XXX	Su	Su	di	Moderate		
-dates	DayOfWeek	E	sun	n		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="narrow"]/day[@type="sun"]	wk-22_XXX	S	S	D	Moderate		
-dates	DayOfWeek	E	thu	w		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="format"]/dayWidth[@type="wide"]/day[@type="thu"]	wk-5_XXX	Thursday	Thursday	jeudi	Basic		
-dates	DayOfWeek	E	thu	a		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="abbreviated"]/day[@type="thu"]	wk-12_XXX	Thu	Thu	jeu.	Moderate		
-dates	DayOfWeek	E	thu	s		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="short"]/day[@type="thu"]	wk-19_XXX	Th	Th	je	Moderate		
-dates	DayOfWeek	E	thu	n		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="narrow"]/day[@type="thu"]	wk-26_XXX	T	T	J	Moderate		
-dates	DayOfWeek	E	tue	w		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="format"]/dayWidth[@type="wide"]/day[@type="tue"]	wk-3_XXX	Tuesday	Tuesday	mardi	Basic		
-dates	DayOfWeek	E	tue	a		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="abbreviated"]/day[@type="tue"]	wk-10_XXX	Tue	Tue	mar.	Moderate		
-dates	DayOfWeek	E	tue	s		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="short"]/day[@type="tue"]	wk-17_XXX	Tu	Tu	ma	Moderate		
-dates	DayOfWeek	E	tue	n		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="narrow"]/day[@type="tue"]	wk-24_XXX	T	T	M	Moderate		
-dates	DayOfWeek	E	wed	w		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="format"]/dayWidth[@type="wide"]/day[@type="wed"]	wk-4_XXX	Wednesday	Wednesday	mercredi	Basic		
-dates	DayOfWeek	E	wed	a		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="abbreviated"]/day[@type="wed"]	wk-11_XXX	Wed	Wed	mer.	Moderate		
-dates	DayOfWeek	E	wed	s		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="short"]/day[@type="wed"]	wk-18_XXX	We	We	me	Moderate		
-dates	DayOfWeek	E	wed	n		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="narrow"]/day[@type="wed"]	wk-25_XXX	W	W	M	Moderate		
+dates	DaysOfWeek	E	fri	w		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="format"]/dayWidth[@type="wide"]/day[@type="fri"]	wk-6_XXX	Friday	Friday	vendredi	Basic		
+dates	DaysOfWeek	E	fri	a		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="abbreviated"]/day[@type="fri"]	wk-13_XXX	Fri	Fri	ven.	Moderate		
+dates	DaysOfWeek	E	fri	s		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="short"]/day[@type="fri"]	wk-20_XXX	Fr	Fr	ve	Moderate		
+dates	DaysOfWeek	E	fri	n		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="narrow"]/day[@type="fri"]	wk-27_XXX	F	F	V	Moderate		
+dates	DaysOfWeek	E	mon	w		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="format"]/dayWidth[@type="wide"]/day[@type="mon"]	wk-2_XXX	Monday	Monday	lundi	Basic		
+dates	DaysOfWeek	E	mon	a		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="abbreviated"]/day[@type="mon"]	wk-9_XXX	Mon	Mon	lun.	Moderate		
+dates	DaysOfWeek	E	mon	s		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="short"]/day[@type="mon"]	wk-16_XXX	Mo	Mo	lu	Moderate		
+dates	DaysOfWeek	E	mon	n		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="narrow"]/day[@type="mon"]	wk-23_XXX	M	M	L	Moderate		
+dates	DaysOfWeek	E	sat	w		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="format"]/dayWidth[@type="wide"]/day[@type="sat"]	wk-7_XXX	Saturday	Saturday	samedi	Basic		
+dates	DaysOfWeek	E	sat	a		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="abbreviated"]/day[@type="sat"]	wk-14_XXX	Sat	Sat	sam.	Moderate		
+dates	DaysOfWeek	E	sat	s		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="short"]/day[@type="sat"]	wk-21_XXX	Sa	Sa	sa	Moderate		
+dates	DaysOfWeek	E	sat	n		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="narrow"]/day[@type="sat"]	wk-28_XXX	S	S	S	Moderate		
+dates	DaysOfWeek	E	sun	w		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="format"]/dayWidth[@type="wide"]/day[@type="sun"]	wk-1_XXX	Sunday	Sunday	dimanche	Basic		
+dates	DaysOfWeek	E	sun	a		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="abbreviated"]/day[@type="sun"]	wk-8_XXX	Sun	Sun	dim.	Moderate		
+dates	DaysOfWeek	E	sun	s		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="short"]/day[@type="sun"]	wk-15_XXX	Su	Su	di	Moderate		
+dates	DaysOfWeek	E	sun	n		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="narrow"]/day[@type="sun"]	wk-22_XXX	S	S	D	Moderate		
+dates	DaysOfWeek	E	thu	w		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="format"]/dayWidth[@type="wide"]/day[@type="thu"]	wk-5_XXX	Thursday	Thursday	jeudi	Basic		
+dates	DaysOfWeek	E	thu	a		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="abbreviated"]/day[@type="thu"]	wk-12_XXX	Thu	Thu	jeu.	Moderate		
+dates	DaysOfWeek	E	thu	s		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="short"]/day[@type="thu"]	wk-19_XXX	Th	Th	je	Moderate		
+dates	DaysOfWeek	E	thu	n		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="narrow"]/day[@type="thu"]	wk-26_XXX	T	T	J	Moderate		
+dates	DaysOfWeek	E	tue	w		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="format"]/dayWidth[@type="wide"]/day[@type="tue"]	wk-3_XXX	Tuesday	Tuesday	mardi	Basic		
+dates	DaysOfWeek	E	tue	a		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="abbreviated"]/day[@type="tue"]	wk-10_XXX	Tue	Tue	mar.	Moderate		
+dates	DaysOfWeek	E	tue	s		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="short"]/day[@type="tue"]	wk-17_XXX	Tu	Tu	ma	Moderate		
+dates	DaysOfWeek	E	tue	n		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="narrow"]/day[@type="tue"]	wk-24_XXX	T	T	M	Moderate		
+dates	DaysOfWeek	E	wed	w		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="format"]/dayWidth[@type="wide"]/day[@type="wed"]	wk-4_XXX	Wednesday	Wednesday	mercredi	Basic		
+dates	DaysOfWeek	E	wed	a		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="abbreviated"]/day[@type="wed"]	wk-11_XXX	Wed	Wed	mer.	Moderate		
+dates	DaysOfWeek	E	wed	s		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="short"]/day[@type="wed"]	wk-18_XXX	We	We	me	Moderate		
+dates	DaysOfWeek	E	wed	n		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="narrow"]/day[@type="wed"]	wk-25_XXX	W	W	M	Moderate		
 dates	EraDates	availableFormats	Gy			1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Gy"]	dc-87_XXX	2024 AD	y G	2024 AD	Moderate	1,713,855,600,000	
 dates	EraDates	availableFormats	GyMMM			1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="GyMMM"]	dc-82_XXX	Apr 2024 AD	MMM y G	Apr 2024 AD	Moderate	1,713,855,600,000	
 dates	EraDates	availableFormats	GyMMMd			1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="GyMMMd"]	dc-78_XXX	Apr 23, 2024 AD	MMM d, y G		Moderate	1,713,855,600,000	

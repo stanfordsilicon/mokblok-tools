@@ -1,13 +1,22 @@
 import { useDataContext } from '@data/DataContext';
-import { DateField, FormatLength } from '@data/DataTypes';
+import { DateField } from '@data/DateField';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
-import FormatWidth from '../FormatWidth';
-import { getSourceLanguageData } from '../getSourceLanguageData';
+import { matrixBy } from '@shared/setUtils';
+
+import InputDataCell from '../InputDataCell';
+import SourceDataCell from '../SourceDataCell';
 
 const DateFieldsReviewTable: React.FC = () => {
-  const { dateFields } = useDataContext().data;
+  const { findDataFields } = useDataContext();
+  const dateFields = findDataFields({ group: 'DateFields', exampleNum: '0' });
+  const dateFieldMatrix = matrixBy(
+    dateFields,
+    (f) => f.field,
+    (f) => f.length,
+  );
+
   return (
     <table>
       <thead>
@@ -29,39 +38,22 @@ const DateFieldsReviewTable: React.FC = () => {
         </tr>
       </thead>
       <tbody>
-        {Object.entries(dateFields ?? {}).map(([fieldKey, fieldData]) => (
-          <tr key={fieldKey}>
-            {/* Source Language */}
-            <td>{getSourceLanguageData(fieldData.wide)}</td>
-            <td>{getSourceLanguageData(fieldData.short)}</td>
-            <td>{getSourceLanguageData(fieldData.narrow)}</td>
-            {/* Target Language (editable) */}
-            <InputCell field={fieldKey as DateField} format={FormatLength.Wide} />
-            <InputCell field={fieldKey as DateField} format={FormatLength.Short} />
-            <InputCell field={fieldKey as DateField} format={FormatLength.Narrow} />
-          </tr>
-        ))}
+        {Object.values(DateField)
+          .map((field) => dateFieldMatrix[field])
+          .filter((row) => !!row) // Remove rows with no data
+          .map((row, index) => (
+            <tr key={index}>
+              <SourceDataCell data={row['w']} />
+              <SourceDataCell data={row['s']} />
+              <SourceDataCell data={row['n']} />
+              <InputDataCell data={row['w']} />
+              <InputDataCell data={row['s']} />
+              <InputDataCell data={row['n']} />
+            </tr>
+          ))}
       </tbody>
     </table>
   );
 };
-
-type InputCellProps = { field: DateField; format: FormatLength };
-function InputCell({ field, format }: InputCellProps) {
-  const {
-    data: { dateFields },
-    set,
-  } = useDataContext();
-  return (
-    <td>
-      <input
-        value={dateFields?.[field]?.[format]?.translated || ''}
-        onChange={(e) => set.dateFields(field, format, e.target.value)}
-        style={{ width: FormatWidth[format] }}
-        disabled={!dateFields?.[field]?.[format]} // Disable if this format doesn't exist for the field
-      />
-    </td>
-  );
-}
 
 export default DateFieldsReviewTable;

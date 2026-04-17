@@ -1,12 +1,15 @@
 import React from 'react';
 
 import { useDataContext } from '@data/DataContext';
-import { CardinalDirection, FormatLength } from '@data/DataTypes';
 
 const DemoCoordinatesMap: React.FC = () => {
-  const { coordinates } = useDataContext().data;
-  const north = coordinates?.[CardinalDirection.North]?.[FormatLength.Narrow]?.translated;
-  const east = coordinates?.[CardinalDirection.East]?.[FormatLength.Narrow]?.translated;
+  const { getTranslation, findDataField } = useDataContext();
+  const north = getTranslation(
+    findDataField({ field: 'coordinateUnitPattern', instance: 'north', length: 'narrow' }),
+  );
+  const east = getTranslation(
+    findDataField({ field: 'coordinateUnitPattern', instance: 'east', length: 'narrow' }),
+  );
 
   return (
     <>
