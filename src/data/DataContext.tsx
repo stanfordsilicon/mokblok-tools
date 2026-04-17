@@ -11,7 +11,7 @@ export type DataContextType = {
   alphabet?: AlphabetData;
   findDataField(query: Partial<DataField>): DataField | undefined;
   findDataFields(query: Partial<DataField>): DataField[];
-  getTranslation(field: DataField | undefined): string;
+  getTranslation(field: DataField | undefined, fallback?: boolean): string;
   setTranslation(index: number, newTranslation: string): void;
 };
 
@@ -75,9 +75,9 @@ export const DataProvider: React.FC<{
     [findDataFields],
   );
   const getTranslation = useCallback(
-    (datum: DataField | undefined): string => {
+    (datum: DataField | undefined, fallback = true): string => {
       if (!datum) return '';
-      return translationsByIndex[datum.index] ?? datum.english;
+      return translationsByIndex[datum.index] ?? (fallback ? datum.english : '');
     },
     [translationsByIndex],
   );

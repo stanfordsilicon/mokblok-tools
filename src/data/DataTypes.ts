@@ -1,3 +1,5 @@
+import type { CoverageLevel } from './CoverageLevel';
+
 export type DataField = {
   subject: string;
   group: string;
@@ -11,7 +13,7 @@ export type DataField = {
   english: string;
   englishPattern: string;
   french: string;
-  level: string;
+  level: CoverageLevel;
   var1?: number;
   var2?: number;
   index: number;
@@ -46,19 +48,6 @@ export enum FormatLength {
   Short = 'short',
   Narrow = 'narrow',
 }
-
-export const MonthFormats = [FormatLength.Wide, FormatLength.Abbreviated, FormatLength.Narrow];
-export const DayOfWeekFormats = [
-  FormatLength.Wide,
-  FormatLength.Abbreviated,
-  FormatLength.Short,
-  FormatLength.Narrow,
-];
-export const DateFieldFormats = [FormatLength.Wide, FormatLength.Short, FormatLength.Narrow];
-
-export type MonthData = Partial<Record<FormatLength, RowData>>;
-export type DayOfWeekData = Partial<Record<FormatLength, RowData>>;
-export type DateFieldData = Partial<Record<FormatLength, RowData>>;
 
 export type AlphabetData = {
   characterHistogram: Record<string, number>;

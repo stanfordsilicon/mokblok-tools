@@ -1,5 +1,6 @@
 // Columns: Subject	Field	Instance	Length	Context	Example#	XPath	ExtID	English	English (pattern)	French	Level
 
+import type { CoverageLevel } from './CoverageLevel';
 import type { DataField } from './DataTypes';
 
 export async function loadDatafields(): Promise<DataField[] | void> {
@@ -31,7 +32,7 @@ export async function loadDatafields(): Promise<DataField[] | void> {
           english: cells[9],
           englishPattern: cells[10],
           french: cells[11],
-          level: cells[12],
+          level: cells[12].toLowerCase() as CoverageLevel,
           var1: Number(cells[13]) || undefined,
           var2: Number(cells[14]) || undefined,
           index,

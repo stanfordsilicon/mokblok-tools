@@ -7,7 +7,7 @@ export enum DateField {
   Week = 'w',
   DayOfWeek = 'E',
   Day = 'd',
-  TimeOfDay = 'a', // am/pm
+  DayPeriod = 'a', // am/pm
   Hour = 'h',
   Minute = 'm',
   Second = 's',

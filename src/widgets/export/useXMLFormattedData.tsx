@@ -1,123 +1,72 @@
-import {
-  type DateFieldData,
-  type DayOfWeekData,
-  type MonthData,
-  type RowData,
-} from '@data/DataTypes';
-import { DateField } from '@data/DateField';
+import { isWithinCoverageLevel } from '@data/CoverageLevel';
+import { useDataContext } from '@data/DataContext';
 
-type XMLFormattedData = {
-  monthsXML?: string;
-  daysOfWeekXML?: string;
-  dateFieldsXML?: string;
+import { useSettings } from '@settings/Settings';
+
+// type XMLObject = Record<string, XMLObject | string>;
+interface XMLObject {
+  [key: string]: XMLObject | string;
+}
+
+const useXMLFormattedData = (): string => {
+  const { findDataFields, getTranslation } = useDataContext();
+  const { coverageLevel } = useSettings();
+  const allFields = findDataFields({})
+    // Only consider fields with an XPath and exampleNum of 0 (avoid exporting pattern examples, can only export patterns)
+    .filter((f) => f.xpath && !parseInt(f.exampleNum));
+  const ldml: XMLObject = {};
+
+  // Construct the full tree
+  allFields.forEach((field) => {
+    // Skip fields that are above the selected coverage level
+    if (!isWithinCoverageLevel(field.level, coverageLevel)) return;
+
+    const translation = getTranslation(field, /* fallback */ false);
+    if (!translation) return; // Skip fields without translations
+
+    // Sometimes paths have slashes in names, eg. `zone[@type="Africa/Abidjan"]`.
+    // To handle this, we can split on slashes that are not within brackets.
+    // The regex will split on slashes that are not followed by a closing bracket,
+    // which should work for most cases.
+    const pathParts = field.xpath.replace('//ldml/', '').split(/\/(?![^[]*\])/); // Split on slashes that are not within brackets
+
+    let currentLevel = ldml;
+    pathParts.forEach((part, index) => {
+      const isLastPart = index === pathParts.length - 1;
+      if (isLastPart) {
+        currentLevel[part] = translation; // Set the translation at the leaf node
+      } else {
+        if (!currentLevel[part]) currentLevel[part] = {} as XMLObject;
+
+        if (typeof currentLevel[part] === 'string')
+          return console.warn(`Unexpected string value at ${part} while processing ${field.xpath}`);
+        currentLevel = currentLevel[part] as XMLObject; // Move into the next level
+      }
+    });
+  });
+
+  // Convert the tree to an XML string
+  const xmlString = (obj: XMLObject, indent = ''): string => {
+    return Object.entries(obj)
+      .map(([key, value]) => {
+        const tagWithAttributes = key
+          .replace(/\[@([A-Za-z]+)="([a-zA-Z0-9_\-/]+)"\]/g, ' $1="$2"') // convert attributes to XML format
+          .replace(/\[@([a-z]+)="(\p{Emoji_Presentation}|\p{Emoji}\uFE0F)"\]/gu, ' $1="$2"'); // Handle emoji attributes
+        const tagName = tagWithAttributes.split(' ')[0]; // Get the base tag name for indentation
+        if (typeof value === 'string') {
+          const escapedValue = value
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+          return `${indent}<${tagWithAttributes}>${escapedValue}</${tagName}>`;
+        } else {
+          return `${indent}<${tagWithAttributes}>\n${xmlString(value, indent + '  ')}\n${indent}</${tagName}>`;
+        }
+      })
+      .join('\n');
+  };
+
+  return `${xmlString(ldml, '  ')}`;
 };
-
-const useXMLFormattedData = (): XMLFormattedData => {
-  const months: MonthData[] = [];
-  const daysOfWeek: DayOfWeekData[] = [];
-  const dateFields: Partial<Record<DateField, DateFieldData>> = {};
-
-  const monthsXML = months ? getMonthsXML(months).replaceAll('\n', '\n      ') : undefined;
-  const daysOfWeekXML = daysOfWeek
-    ? getDaysOfWeekXML(daysOfWeek).replaceAll('\n', '\n      ')
-    : undefined;
-  const dateFieldsXML = dateFields
-    ? getDateFieldsXML(dateFields).replaceAll('\n', '\n      ')
-    : undefined;
-
-  // Apply indentation
-
-  return { monthsXML, daysOfWeekXML, dateFieldsXML };
-};
-
-function getMonthsXML(monthsData: MonthData[]): string {
-  return `
-<months>
-  <monthContext type="format">
-    <monthWidth type="wide">
-${getIndexedXMLTag(DateField.Month, monthsData, (m) => m.wide)}
-    </monthWidth>
-    <monthWidth type="abbreviated"> 
-${getIndexedXMLTag(DateField.Month, monthsData, (m) => m.abbreviated)} 
-    </monthWidth>
-    <monthWidth type="narrow">
-${getIndexedXMLTag(DateField.Month, monthsData, (m) => m.narrow)} 
-    </monthWidth>
-  </monthContext>
-</months>`;
-}
-
-function getDaysOfWeekXML(daysOfWeekData: DayOfWeekData[]): string {
-  return `
-<days>
-  <dayContext type="format">
-    <dayWidth type="wide">
-${getIndexedXMLTag(DateField.Day, daysOfWeekData, (d) => d.wide)}
-    </dayWidth>
-    <dayWidth type="abbreviated"> 
-${getIndexedXMLTag(DateField.Day, daysOfWeekData, (d) => d.abbreviated)} 
-    </dayWidth>
-    <dayWidth type="short"> 
-${getIndexedXMLTag(DateField.Day, daysOfWeekData, (d) => d.abbreviated)} 
-    </dayWidth>
-    <dayWidth type="narrow">
-${getIndexedXMLTag(DateField.Day, daysOfWeekData, (d) => d.narrow)} 
-    </dayWidth>
-  </dayContext>
-</days>`;
-}
-
-const dayOfWeekKeys = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
-
-// Returns values like <month type="1">January</month>
-function getIndexedXMLTag<T>(
-  dateField: DateField,
-  items: T[],
-  getRow: (item: T) => RowData | undefined,
-): string {
-  return items
-    .map((item, index) => {
-      const row = getRow(item);
-      const value = row?.translated?.trim();
-      if (!row || !value) return null; // Skip missing or whitespace-only values
-      const type = dateField == DateField.Day ? dayOfWeekKeys[index] : index + 1;
-      return `<${dateField} type="${type}">${value}</${dateField}>`;
-    })
-    .filter(Boolean)
-    .map((line) => ' '.repeat(6) + line)
-    .join('\n');
-}
-
-function getDateFieldsXML(dateFieldsData: Partial<Record<DateField, DateFieldData>>): string {
-  const fields = [
-    ...getDateFieldVersions('era', dateFieldsData[DateField.Era]),
-    ...getDateFieldVersions('year', dateFieldsData[DateField.Year]),
-    ...getDateFieldVersions('month', dateFieldsData[DateField.Month]),
-    ...getDateFieldVersions('day', dateFieldsData[DateField.Day]),
-    ...getDateFieldVersions('hour', dateFieldsData[DateField.Hour]),
-    ...getDateFieldVersions('minute', dateFieldsData[DateField.Minute]),
-    ...getDateFieldVersions('second', dateFieldsData[DateField.Second]),
-  ].filter(Boolean);
-  return `
-<fields>
-${fields.map((line) => '  ' + line).join('\n')}
-</fields>`;
-}
-
-function getDateFieldVersions(type: string, fieldData: DateFieldData | undefined): string[] {
-  if (!fieldData) return [];
-  return [
-    getFieldMaybe(`${type}`, fieldData?.wide?.translated),
-    getFieldMaybe(`${type}-short`, fieldData?.short?.translated),
-    getFieldMaybe(`${type}-narrow`, fieldData?.narrow?.translated),
-  ].filter(Boolean) as string[];
-}
-
-function getFieldMaybe(type: string, displayName: string | undefined): string {
-  if (!displayName) return '';
-  return `<field type="${type}">
-    <displayName>${displayName}</displayName>
-  </field>`;
-}
 
 export default useXMLFormattedData;

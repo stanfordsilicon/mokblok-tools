@@ -33,12 +33,8 @@ function TimeIntervalsReviewTable() {
           <tr key={datum.index}>
             <td>{datum.instance}</td>
             <td>{datum.variant}</td>
-            <td>
-              <SourceDataCell data={datum} />
-            </td>
-            <td>
-              <InputDataCell data={datum} inputWidth="15em" />
-            </td>
+            <SourceDataCell data={datum} />
+            <InputDataCell data={datum} inputWidth="15em" />
           </tr>
         ))}
       </tbody>
