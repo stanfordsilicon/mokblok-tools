@@ -10,6 +10,7 @@ import CoordinatesReviewTable from './tables/CoordinatesReviewTable';
 import DateCombinationsReviewTable from './tables/DateCombinationsReviewTable';
 import DateFieldsReviewTable from './tables/DateFieldsReviewTable';
 import DateIntervalsReviewTable from './tables/DateIntervalsReviewTable';
+import DayPeriodsReviewTable from './tables/DayPeriodsReviewTable';
 import DaysOfWeekReviewTable from './tables/DaysOfWeekReviewTable';
 import DirectionsReviewTable from './tables/DirectionsReviewTable';
 import EmojisReviewTable from './tables/EmojisReviewTable';
@@ -53,6 +54,8 @@ function ReviewTable({ dataType }: { dataType: DataType }) {
       return <DateIntervalsReviewTable />;
     case DataType.DateFields:
       return <DateFieldsReviewTable />;
+    case DataType.DayPeriods:
+      return <DayPeriodsReviewTable />;
     case DataType.DaysOfWeek:
       return <DaysOfWeekReviewTable />;
     case DataType.DirectionExamples:

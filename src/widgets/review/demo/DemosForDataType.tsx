@@ -15,6 +15,7 @@ const demoIDsByDataType: Record<DataType, DemoID[]> = {
     DemoID.DateInterval_InMonth_yMMMEd,
   ],
   [DataType.DateFields]: [DemoID.DateFieldBreakdown],
+  [DataType.DayPeriods]: [],
   [DataType.DaysOfWeek]: [DemoID.DaysOfWeekInWeek, DemoID.DaysOfWeekInMonth],
   [DataType.DirectionExamples]: [DemoID.CoordinatesDirections],
   [DataType.Emojis]: [DemoID.EmojiKeyboardSuggestions, DemoID.EmojiExplanations],

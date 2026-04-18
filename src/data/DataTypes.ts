@@ -75,19 +75,27 @@ export enum CardinalDirection {
 // Order this by order of appearance
 export enum DataType {
   Alphabet = 'alphabet',
+
+  // Date and time
+  DateFields = 'dateFields',
+  DayPeriods = 'dayPeriods',
   DaysOfWeek = 'daysOfWeek',
   Months = 'months',
   Quarters = 'quarters',
   Eras = 'eras',
-  DateFields = 'dateFields',
+
   RelativeTime = 'relativeTime',
   TimeCombinations = 'timeCombinations',
   TimeIntervals = 'timeIntervals',
   DateCombinations = 'dateCombinations',
   DateIntervals = 'dateIntervals',
+  // DateTimeCombinations = 'dateTimeCombinations',
   EraDateCombinations = 'eraDateCombinations',
+
+  // Quantities
   Coordinates = 'coordinates',
   DirectionExamples = 'directionExamples',
+
   Emojis = 'emojis',
   All = 'all',
 }
