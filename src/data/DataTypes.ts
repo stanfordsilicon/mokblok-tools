@@ -89,7 +89,7 @@ export enum DataType {
   TimeIntervals = 'timeIntervals',
   DateCombinations = 'dateCombinations',
   DateIntervals = 'dateIntervals',
-  // DateTimeCombinations = 'dateTimeCombinations',
+  DateTimeCombinations = 'dateTimeCombinations',
   EraDateCombinations = 'eraDateCombinations',
 
   // Quantities

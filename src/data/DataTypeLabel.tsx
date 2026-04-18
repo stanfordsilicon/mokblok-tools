@@ -7,6 +7,7 @@ const DATA_TYPE_LABELS: Record<DataType, string> = {
   [DataType.DateCombinations]: 'Dates',
   [DataType.DateFields]: 'Date Fields',
   [DataType.DateIntervals]: 'Date Intervals',
+  [DataType.DateTimeCombinations]: 'Date & Times',
   [DataType.DayPeriods]: 'Day Periods',
   [DataType.DaysOfWeek]: 'Days of the Week',
   [DataType.DirectionExamples]: 'Direction Examples',

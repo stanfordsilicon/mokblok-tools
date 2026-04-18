@@ -2,19 +2,20 @@ import { useDataContext } from '@data/DataContext';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
-import { uniqueBy } from '@shared/setUtils';
+import { sortBy, uniqueBy } from '@shared/setUtils';
 
 import InputDataCell from '../InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function TimeIntervalsReviewTable() {
   const { findDataFields } = useDataContext();
+  // const intervalFormats = findDataFields({ subject: 'dates', field: 'intervalFormats' }).filter(
+  //   (f) => f.instance.match(/^h/i),
+  // );
   const intervalFormats = uniqueBy(
-    findDataFields({ subject: 'dates', field: 'intervalFormats' }).filter((f) =>
-      f.instance.match(/^h/i),
-    ),
+    sortBy(findDataFields({ group: 'TimeIntervals' }), (f) => f.instance),
     (f) => f.english,
-  ).sort((a, b) => a.instance.localeCompare(b.instance));
+  );
 
   return (
     <table>
