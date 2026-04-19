@@ -17,6 +17,7 @@ import DirectionsReviewTable from './tables/DirectionsReviewTable';
 import EmojisReviewTable from './tables/EmojisReviewTable';
 import EraDatesReviewTable from './tables/EraDatesReviewTable';
 import ErasReviewTable from './tables/ErasReviewTable';
+import MathsReviewTable from './tables/MathsReviewTable';
 import MonthsReviewTable from './tables/MonthsReviewTable';
 import QuartersReviewTable from './tables/QuartersReviewTable';
 import QuotesReviewTable from './tables/QuotesReviewTable';
@@ -71,6 +72,8 @@ function ReviewTable({ dataType }: { dataType: DataType }) {
       return <ErasReviewTable />;
     case DataType.EraDateCombinations:
       return <EraDatesReviewTable />;
+    case DataType.Maths:
+      return <MathsReviewTable />;
     case DataType.Months:
       return <MonthsReviewTable />;
     case DataType.Quarters:

@@ -2,15 +2,21 @@ import { useDataContext } from '@data/DataContext';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
+import { sortBy } from '@shared/setUtils';
 
 import InputDataCell from '../InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
-function SymbolsReviewTable() {
+const symbols = ['decimal', 'percentSign', 'plusSign', 'minusSign', 'multiplication', 'division'];
+
+function MathsReviewTable() {
   const { findDataFields } = useDataContext();
-  const symbolsWithExamples = findDataFields({ group: 'Symbols', field: 'symbols' });
-  const symbols = symbolsWithExamples.filter((f) => f.exampleNum === '0');
-  const symbolsExamples = symbolsWithExamples.filter((f) => f.exampleNum !== '0');
+  const maths = sortBy(
+    sortBy(findDataFields({ group: 'Maths' }), (a) => a.length),
+    (a) => symbols.indexOf(a.instance),
+  );
+  const mathsSymbols = maths.filter((f) => f.exampleNum === '0');
+  const mathsExamples = maths.filter((f) => f.exampleNum !== '0');
 
   return (
     <>
@@ -24,7 +30,7 @@ function SymbolsReviewTable() {
           </tr>
         </thead>
         <tbody>
-          {symbolsExamples?.map((example) => (
+          {mathsExamples?.map((example) => (
             <tr key={example.index}>
               <SourceDataCell data={example} />
               <InputDataCell data={example} inputWidth="15em" />
@@ -43,13 +49,13 @@ function SymbolsReviewTable() {
           </tr>
         </thead>
         <tbody>
-          {symbols?.map((datum) => (
-            <tr key={datum.index}>
+          {mathsSymbols?.map((row) => (
+            <tr key={row.index}>
               <td>
-                {datum.instance} {datum.length}
+                {row.instance} {row.length}
               </td>
-              <SourceDataCell data={datum} />
-              <InputDataCell data={datum} inputWidth="3em" />
+              <SourceDataCell data={row} />
+              <InputDataCell data={row} inputWidth="3em" />
             </tr>
           ))}
         </tbody>
@@ -58,4 +64,4 @@ function SymbolsReviewTable() {
   );
 }
 
-export default SymbolsReviewTable;
+export default MathsReviewTable;

@@ -6,6 +6,20 @@ core	Alphabet	characters	punctuation			0	//ldml/characters/exemplarCharacters[@t
 core	Alphabet	characters	uppercase			0	//ldml/characters/exemplarCharacters[@type="index"]		[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z]		[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z]	Moderate		
 core	Alphabet	numberingSystem	default			0	//ldml/numbers/defaultNumberingSystem		latn		latn	Basic		
 core	Alphabet	numberingSystem	native			0	//ldml/numbers/otherNumberingSystems/native		latn		latn	Basic		
+core	Maths	symbols	division			1		uli-594_64	9 ÷ 3 = 3		9 ÷ 3 = 3			
+core	Maths	symbols	division			2		uli-594_65	10 ÷ 2 = 5		10 ÷ 2 = 5			
+core	Maths	symbols	division			3		uli-594_66	100 ÷ 2 = 50		100 ÷ 2 = 50			
+core	Maths	symbols	minusSign			1	//ldml/numbers/symbols[@numberSystem="latn"]/minusSign	uli-594_58	5 - 2.5 = 2.5		5 - 2,5 = 2,5	Basic		
+core	Maths	symbols	minusSign			2	//ldml/numbers/symbols[@numberSystem="latn"]/minusSign	uli-594_59	8 - 4 = 4		8 - 4 = 4	Basic		
+core	Maths	symbols	minusSign			3	//ldml/numbers/symbols[@numberSystem="latn"]/minusSign	uli-594_60	15 - 5 = 10		15 - 5 = 10	Basic		
+core	Maths	symbols	minusSign			0	//ldml/numbers/symbols[@numberSystem="latn"]/minusSign		-		-	Basic		
+core	Maths	symbols	multiplication			1		uli-594_61	5 x 3 = 15		5 x 3 = 15			
+core	Maths	symbols	multiplication			2		uli-594_62	4 x 4 = 16		4 x 4 = 16			
+core	Maths	symbols	multiplication			3		uli-594_63	2 x 3 = 6		2 x 3 = 6			
+core	Maths	symbols	plusSign			1	//ldml/numbers/symbols[@numberSystem="latn"]/plusSign	uli-594_55	2.5 + 2.5 = 5		2,5 + 2,5 = 5	Basic		
+core	Maths	symbols	plusSign			2	//ldml/numbers/symbols[@numberSystem="latn"]/plusSign	uli-594_56	3.5 + 3.5 = 7		3,5 + 3,5 = 7	Basic		
+core	Maths	symbols	plusSign			3	//ldml/numbers/symbols[@numberSystem="latn"]/plusSign	uli-594_57	7.5 + 7.5 = 15		7,5 + 7,5 = 15	Basic		
+core	Maths	symbols	plusSign			0	//ldml/numbers/symbols[@numberSystem="latn"]/plusSign		+		+	Basic		
 core	Quotes	quotes				1	//ldml/delimiters/quotationStart	uli-594_86	When I walked into the room, she said "Hello"		Quand je suis entrée dans la pièce, elle a dit « Bonjour ».	Basic		
 core	Quotes	quotes				2	//ldml/delimiters/quotationStart	uli-594_87	When I walked into the room, he said "Would you like some coffee?"		Quand je suis entré dans la pièce, il m'a dit : « Voulez-vous un café ? »	Basic		
 core	Quotes	quotes				3	//ldml/delimiters/quotationStart	uli-594_88	When I walked into the room, she said "Please close the door behind you"		Quand je suis entrée dans la pièce, elle a dit : « Veuillez fermer la porte derrière vous. »	Basic		
@@ -15,15 +29,25 @@ core	Quotes	quotes	start	n		0	//ldml/delimiters/alternateQuotationStart		‘		«
 core	Quotes	quotes	start			0	//ldml/delimiters/quotationStart		“		«	Basic		
 core	Symbols	Minimum Grouping Digits				0	//ldml/numbers/minimumGroupingDigits		1		1	Moderate		
 core	Symbols	symbols	approximatelySign			0	//ldml/numbers/symbols[@numberSystem="latn"]/approximatelySign		~		≃	Moderate		
+core	Symbols	symbols	decimal	long		1	//ldml/numbers/symbols[@numberSystem="latn"]/decimal	uli-594_49	5 divided by 2 equals 2.5		5 divisé par 2 égale 2,5	Basic		
+core	Symbols	symbols	decimal	long		2	//ldml/numbers/symbols[@numberSystem="latn"]/decimal	uli-594_50	7 divided by 2 equals 3.5		7 divisé par 2 égale 3,5	Basic		
+core	Symbols	symbols	decimal	long		3	//ldml/numbers/symbols[@numberSystem="latn"]/decimal	uli-594_51	15 divided by 2 equals 7.5		15 divisé par 2 égale 7,5	Basic		
+core	Symbols	symbols	decimal			1	//ldml/numbers/symbols[@numberSystem="latn"]/decimal	uli-594_52	2.5		2,5	Basic		
+core	Symbols	symbols	decimal			2	//ldml/numbers/symbols[@numberSystem="latn"]/decimal	uli-594_53	3.5		3,5	Basic		
+core	Symbols	symbols	decimal			3	//ldml/numbers/symbols[@numberSystem="latn"]/decimal	uli-594_54	7.5		7,5	Basic		
 core	Symbols	symbols	decimal			0	//ldml/numbers/symbols[@numberSystem="latn"]/decimal		.		,	Basic		
 core	Symbols	symbols	exponential			0	//ldml/numbers/symbols[@numberSystem="latn"]/exponential		E		E	Moderate		
 core	Symbols	symbols	group			0	//ldml/numbers/symbols[@numberSystem="latn"]/group		,		 	Basic		
 core	Symbols	symbols	infinity			0	//ldml/numbers/symbols[@numberSystem="latn"]/infinity		∞		∞	Moderate		
-core	Symbols	symbols	minusSign			0	//ldml/numbers/symbols[@numberSystem="latn"]/minusSign		-		-	Basic		
 core	Symbols	symbols	nan			0	//ldml/numbers/symbols[@numberSystem="latn"]/nan		NaN		NaN	Moderate		
+core	Symbols	symbols	percentSign	long		1	//ldml/numbers/symbols[@numberSystem="latn"]/percentSign	uli-594_43	The battery is 100% full.		La batterie est chargée à 100%.	Basic		
+core	Symbols	symbols	percentSign	long		2	//ldml/numbers/symbols[@numberSystem="latn"]/percentSign	uli-594_44	The battery is 53% full.		La batterie est chargée à 53%.	Basic		
+core	Symbols	symbols	percentSign	long		3	//ldml/numbers/symbols[@numberSystem="latn"]/percentSign	uli-594_45	The battery is 10% full.		La batterie est chargée à 10%.	Basic		
+core	Symbols	symbols	percentSign			1	//ldml/numbers/symbols[@numberSystem="latn"]/percentSign	uli-594_46	100%		100%	Basic		
+core	Symbols	symbols	percentSign			2	//ldml/numbers/symbols[@numberSystem="latn"]/percentSign	uli-594_47	53%		53%	Basic		
+core	Symbols	symbols	percentSign			3	//ldml/numbers/symbols[@numberSystem="latn"]/percentSign	uli-594_48	10%		10%	Basic		
 core	Symbols	symbols	percentSign			0	//ldml/numbers/symbols[@numberSystem="latn"]/percentSign		%		%	Basic		
 core	Symbols	symbols	perMille			0	//ldml/numbers/symbols[@numberSystem="latn"]/perMille		‰		‰	Moderate		
-core	Symbols	symbols	plusSign			0	//ldml/numbers/symbols[@numberSystem="latn"]/plusSign		+		+	Basic		
 core	Symbols	symbols	superscriptingExponent			0	//ldml/numbers/symbols[@numberSystem="latn"]/superscriptingExponent		×		×	Moderate		
 dates	DateFields	d		w		0	//ldml/dates/fields/field[@type="day"]/displayName	dw-14_XXX	day	day	jour	Moderate		
 dates	DateFields	d		s		0	//ldml/dates/fields/field[@type="day-short"]/displayName	dw-15_XXX	day	day	j	Moderate		

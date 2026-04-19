@@ -77,6 +77,7 @@ export enum DataType {
   Alphabet = 'alphabet',
   Symbols = 'symbols',
   Quotes = 'quotes',
+  Maths = 'maths',
 
   // Date and time
   DateFields = 'dateFields',
