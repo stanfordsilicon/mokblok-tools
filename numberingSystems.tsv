@@ -1,0 +1,103 @@
+#cldr/common/bcp47/number.xml			#cldr/common/supplemental/numberingSystems.xml		
+Code	Name	Version	Method	Digits	Rules reference
+adlm	Adlam digits	30	numeric	&#x1E950;&#x1E951;&#x1E952;&#x1E953;&#x1E954;&#x1E955;&#x1E956;&#x1E957;&#x1E958;&#x1E959;	
+ahom	Ahom digits	28	numeric	&#x11730;&#x11731;&#x11732;&#x11733;&#x11734;&#x11735;&#x11736;&#x11737;&#x11738;&#x11739;	
+arab	Arabic-Indic digits		numeric	٠١٢٣٤٥٦٧٨٩	
+arabext	Extended Arabic-Indic digits		numeric	۰۱۲۳۴۵۶۷۸۹	
+armn	Armenian upper case numerals — algorithmic		algorithmic	ԱԲԳԴԵԶԷԸԹ	armenian-upper
+armnlow	Armenian lower case numerals — algorithmic		algorithmic	աբգդեզէըթ	armenian-lower
+bali	Balinese digits	21	numeric	᭐᭑᭒᭓᭔᭕᭖᭗᭘᭙	
+beng	Bengali digits		numeric	০১২৩৪৫৬৭৮৯	
+bhks	Bhaiksuki digits	30	numeric	&#x11C50;&#x11C51;&#x11C52;&#x11C53;&#x11C54;&#x11C55;&#x11C56;&#x11C57;&#x11C58;&#x11C59;	
+brah	Brahmi digits	21	numeric	&#x11066;&#x11067;&#x11068;&#x11069;&#x1106A;&#x1106B;&#x1106C;&#x1106D;&#x1106E;&#x1106F;	
+cakm	Chakma digits	21	numeric	&#x11136;&#x11137;&#x11138;&#x11139;&#x1113A;&#x1113B;&#x1113C;&#x1113D;&#x1113E;&#x1113F;	
+cham	Cham digits	21	numeric	꩐꩑꩒꩓꩔꩕꩖꩗꩘꩙	
+chis	Chisoi digits	49	numeric	&#x16DA0;&#x16DA1;&#x16DA2;&#x16DA3;&#x16DA4;&#x16DA5;&#x16DA6;&#x16DA7;&#x16DA8;&#x16DA9;	
+cyrl	Cyrillic numerals — algorithmic	28	algorithmic	авгдєѕзиѳ	cyrillic-lower
+deva	Devanagari digits		numeric	०१२३४५६७८९	
+diak	Dives Akuru digits	36.1	numeric	&#x11950;&#x11951;&#x11952;&#x11953;&#x11954;&#x11955;&#x11956;&#x11957;&#x11958;&#x11959;	
+ethi	Ethiopic numerals — algorithmic		algorithmic	፩፪፫፬፭፮፯፰፱	ethiopic
+finance	Financial numerals — may be algorithmic	21			
+fullwide	Full width digits		numeric	０１２３４５６７８９	
+gara	Garay digits	46	numeric	&#x10D40;&#x10D41;&#x10D42;&#x10D43;&#x10D44;&#x10D45;&#x10D46;&#x10D47;&#x10D48;&#x10D49;	
+geor	Georgian numerals — algorithmic		algorithmic	აბგდევზჱთ	georgian
+gong	Gunjala Gondi digits	33.1	numeric	&#x11DA0;&#x11DA1;&#x11DA2;&#x11DA3;&#x11DA4;&#x11DA5;&#x11DA6;&#x11DA7;&#x11DA8;&#x11DA9;	
+gonm	Masaram Gondi digits	32	numeric	&#x11D50;&#x11D51;&#x11D52;&#x11D53;&#x11D54;&#x11D55;&#x11D56;&#x11D57;&#x11D58;&#x11D59;	
+grek	Greek upper case numerals — algorithmic		algorithmic	ΑʹΒʹΓʹΔʹΕʹϚʹΖʹΗʹΘʹ	greek-upper
+greklow	Greek lower case numerals — algorithmic		algorithmic	α̅β̅γ̅δ̅γ̅ϛ̅ζ̅η̅θ̅	greek-lower
+gujr	Gujarati digits		numeric	૦૧૨૩૪૫૬૭૮૯	
+gukh	Gurung Khema digits	46	numeric	&#x16130;&#x16131;&#x16132;&#x16133;&#x16134;&#x16135;&#x16136;&#x16137;&#x16138;&#x16139;	
+guru	Gurmukhi digits		numeric	੦੧੨੩੪੫੬੭੮੯	
+hanidays	Han-character day-of-month numbering for lunar/other traditional calendars	25	algorithmic	〇一二三四五六七八九	zh/SpelloutRules/spellout-numbering-days
+hanidec	Positional decimal system using Chinese number ideographs as digits	1.9	numeric	〇一二三四五六七八九	
+hans	Simplified Chinese numerals — algorithmic		algorithmic	〇一二三四五六七八九	zh/SpelloutRules/spellout-cardinal
+hansfin	Simplified Chinese financial numerals — algorithmic		algorithmic	〇一二三四五六七八九	zh/SpelloutRules/spellout-cardinal-financial
+hant	Traditional Chinese numerals — algorithmic		algorithmic	〇一二三四五六七八九	zh_Hant/SpelloutRules/spellout-cardinal
+hantfin	Traditional Chinese financial numerals — algorithmic		algorithmic	〇一二三四五六七八九	zh_Hant/SpelloutRules/spellout-cardinal-financial
+hebr	Hebrew numerals — algorithmic		algorithmic	״אבגדהוזחט	hebrew
+hmng	Pahawh Hmong digits	28	numeric	&#x16B50;&#x16B51;&#x16B52;&#x16B53;&#x16B54;&#x16B55;&#x16B56;&#x16B57;&#x16B58;&#x16B59;	
+hmnp	Nyiakeng Puachue Hmong digits	35	numeric	&#x1E140;&#x1E141;&#x1E142;&#x1E143;&#x1E144;&#x1E145;&#x1E146;&#x1E147;&#x1E148;&#x1E149;	
+java	Javanese digits	21	numeric	꧐꧑꧒꧓꧔꧕꧖꧗꧘꧙	
+jpan	Japanese numerals — algorithmic		algorithmic	〇一二三四五六七八九	ja/SpelloutRules/spellout-cardinal
+jpanfin	Japanese financial numerals — algorithmic		algorithmic	〇一二三四五六七八九	ja/SpelloutRules/spellout-cardinal-financial
+jpanyear	Japanese first-year Gannen numbering for Japanese calendar	35	algorithmic	〇一二三四五六七八九	ja/SpelloutRules/spellout-numbering-year-latn
+kali	Kayah Li digits	21	numeric	꤀꤁꤂꤃꤄꤅꤆꤇꤈꤉	
+kawi	Kawi digits	42	numeric	&#x11F50;&#x11F51;&#x11F52;&#x11F53;&#x11F54;&#x11F55;&#x11F56;&#x11F57;&#x11F58;&#x11F59;	
+khmr	Khmer digits		numeric	០១២៣៤៥៦៧៨៩	
+knda	Kannada digits		numeric	೦೧೨೩೪೫೬೭೮೯	
+krai	Kirat Rai digits	46	numeric	&#x16D70;&#x16D71;&#x16D72;&#x16D73;&#x16D74;&#x16D75;&#x16D76;&#x16D77;&#x16D78;&#x16D79;	
+lana	Tai Tham Hora (secular) digits	21	numeric	᪀᪁᪂᪃᪄᪅᪆᪇᪈᪉	
+lanatham	Tai Tham Tham (ecclesiastical) digits	21	numeric	᪐᪑᪒᪓᪔᪕᪖᪗᪘᪙	
+laoo	Lao digits		numeric	໐໑໒໓໔໕໖໗໘໙	
+latn	Latin digits		numeric	0123456789	
+lepc	Lepcha digits	21	numeric	᱀᱁᱂᱃᱄᱅᱆᱇᱈᱉	
+limb	Limbu digits	21	numeric	᥆᥇᥈᥉᥊᥋᥌᥍᥎᥏	
+mathbold	Mathematical bold digits	28	numeric	&#x1D7CE;&#x1D7CF;&#x1D7D0;&#x1D7D1;&#x1D7D2;&#x1D7D3;&#x1D7D4;&#x1D7D5;&#x1D7D6;&#x1D7D7;	
+mathdbl	Mathematical double-struck digits	28	numeric	&#x1D7D8;&#x1D7D9;&#x1D7DA;&#x1D7DB;&#x1D7DC;&#x1D7DD;&#x1D7DE;&#x1D7DF;&#x1D7E0;&#x1D7E1;	
+mathmono	Mathematical monospace digits	28	numeric	&#x1D7F6;&#x1D7F7;&#x1D7F8;&#x1D7F9;&#x1D7FA;&#x1D7FB;&#x1D7FC;&#x1D7FD;&#x1D7FE;&#x1D7FF;	
+mathsanb	Mathematical sans-serif bold digits	28	numeric	&#x1D7EC;&#x1D7ED;&#x1D7EE;&#x1D7EF;&#x1D7F0;&#x1D7F1;&#x1D7F2;&#x1D7F3;&#x1D7F4;&#x1D7F5;	
+mathsans	Mathematical sans-serif digits	28	numeric	&#x1D7E2;&#x1D7E3;&#x1D7E4;&#x1D7E5;&#x1D7E6;&#x1D7E7;&#x1D7E8;&#x1D7E9;&#x1D7EA;&#x1D7EB;	
+mlym	Malayalam digits		numeric	൦൧൨൩൪൫൬൭൮൯	
+modi	Modi digits	28	numeric	&#x11650;&#x11651;&#x11652;&#x11653;&#x11654;&#x11655;&#x11656;&#x11657;&#x11658;&#x11659;	
+mong	Mongolian digits		numeric	᠐᠑᠒᠓᠔᠕᠖᠗᠘᠙	
+mroo	Mro digits	28	numeric	&#x16A60;&#x16A61;&#x16A62;&#x16A63;&#x16A64;&#x16A65;&#x16A66;&#x16A67;&#x16A68;&#x16A69;	
+mtei	Meetei Mayek digits	21	numeric	꯰꯱꯲꯳꯴꯵꯶꯷꯸꯹	
+mymr	Myanmar digits		numeric	၀၁၂၃၄၅၆၇၈၉	
+mymrepka	Myanmar Eastern Pwo Karen digits	46	numeric	&#x116DA;&#x116DB;&#x116DC;&#x116DD;&#x116DE;&#x116DF;&#x116E0;&#x116E1;&#x116E2;&#x116E3;	
+mymrpao	Myanmar Pao digits	46	numeric	&#x116D0;&#x116D1;&#x116D2;&#x116D3;&#x116D4;&#x116D5;&#x116D6;&#x116D7;&#x116D8;&#x116D9;	
+mymrshan	Myanmar Shan digits	21	numeric	႐႑႒႓႔႕႖႗႘႙	
+mymrtlng	Myanmar Tai Laing digits	28	numeric	&#xA9F0;&#xA9F1;&#xA9F2;&#xA9F3;&#xA9F4;&#xA9F5;&#xA9F6;&#xA9F7;&#xA9F8;&#xA9F9;	
+nagm	Nag Mundari digits	42	numeric	&#x1E4F0;&#x1E4F1;&#x1E4F2;&#x1E4F3;&#x1E4F4;&#x1E4F5;&#x1E4F6;&#x1E4F7;&#x1E4F8;&#x1E4F9;	
+native	Native digits	21			
+newa	Newa digits	30	numeric	&#x11450;&#x11451;&#x11452;&#x11453;&#x11454;&#x11455;&#x11456;&#x11457;&#x11458;&#x11459;	
+nkoo	N'Ko digits	21	numeric	߀߁߂߃߄߅߆߇߈߉	
+olck	Ol Chiki digits	21	numeric	᱐᱑᱒᱓᱔᱕᱖᱗᱘᱙	
+onao	Ol Onal digits	46	numeric	&#x1E5F1;&#x1E5F2;&#x1E5F3;&#x1E5F4;&#x1E5F5;&#x1E5F6;&#x1E5F7;&#x1E5F8;&#x1E5F9;&#x1E5FA;	
+orya	Oriya digits		numeric	୦୧୨୩୪୫୬୭୮୯	
+osma	Osmanya digits	21	numeric	&#x104A0;&#x104A1;&#x104A2;&#x104A3;&#x104A4;&#x104A5;&#x104A6;&#x104A7;&#x104A8;&#x104A9;	
+outlined	Legacy computing outlined digits	46	numeric	&#x1CCF0;&#x1CCF1;&#x1CCF2;&#x1CCF3;&#x1CCF4;&#x1CCF5;&#x1CCF6;&#x1CCF7;&#x1CCF8;&#x1CCF9;	
+rohg	Hanifi Rohingya digits	33.1	numeric	&#x10D30;&#x10D31;&#x10D32;&#x10D33;&#x10D34;&#x10D35;&#x10D36;&#x10D37;&#x10D38;&#x10D39;	
+roman	Roman upper case numerals — algorithmic		algorithmic	IVXLCDM	roman-upper
+romanlow	Roman lowercase numerals — algorithmic		algorithmic	ivxlcdm	roman-lower
+saur	Saurashtra digits	21	numeric	꣐꣑꣒꣓꣔꣕꣖꣗꣘꣙	
+segment	Legacy computing segmented digits	37	numeric	&#x1FBF0;&#x1FBF1;&#x1FBF2;&#x1FBF3;&#x1FBF4;&#x1FBF5;&#x1FBF6;&#x1FBF7;&#x1FBF8;&#x1FBF9;	
+shrd	Sharada digits	21	numeric	&#x111D0;&#x111D1;&#x111D2;&#x111D3;&#x111D4;&#x111D5;&#x111D6;&#x111D7;&#x111D8;&#x111D9;	
+sind	Khudawadi digits	28	numeric	&#x112F0;&#x112F1;&#x112F2;&#x112F3;&#x112F4;&#x112F5;&#x112F6;&#x112F7;&#x112F8;&#x112F9;	
+sinh	Sinhala Lith digits	28	numeric	&#x0DE6;&#x0DE7;&#x0DE8;&#x0DE9;&#x0DEA;&#x0DEB;&#x0DEC;&#x0DED;&#x0DEE;&#x0DEF;	
+sora	Sora_Sompeng digits	21	numeric	&#x110F0;&#x110F1;&#x110F2;&#x110F3;&#x110F4;&#x110F5;&#x110F6;&#x110F7;&#x110F8;&#x110F9;	
+sund	Sundanese digits	21	numeric	᮰᮱᮲᮳᮴᮵᮶᮷᮸᮹	
+sunu	Sunuwar digits	46	numeric	&#x11BF0;&#x11BF1;&#x11BF2;&#x11BF3;&#x11BF4;&#x11BF5;&#x11BF6;&#x11BF7;&#x11BF8;&#x11BF9;	
+takr	Takri digits	21	numeric	&#x116C0;&#x116C1;&#x116C2;&#x116C3;&#x116C4;&#x116C5;&#x116C6;&#x116C7;&#x116C8;&#x116C9;	
+talu	New Tai Lue digits	21	numeric	᧐᧑᧒᧓᧔᧕᧖᧗᧘᧙	
+taml	Tamil numerals — algorithmic		algorithmic	௦௧௨௩௪௫௬௭௮௯	tamil
+tamldec	Modern Tamil decimal digits	2.0.1	numeric	௦௧௨௩௪௫௬௭௮௯	
+tnsa	Tangsa digits	40	numeric	&#x16AC0;&#x16AC1;&#x16AC2;&#x16AC3;&#x16AC4;&#x16AC5;&#x16AC6;&#x16AC7;&#x16AC8;&#x16AC9;	
+telu	Telugu digits		numeric	౦౧౨౩౪౫౬౭౮౯	
+thai	Thai digits		numeric	๐๑๒๓๔๕๖๗๘๙	
+tibt	Tibetan digits		numeric	༠༡༢༣༤༥༦༧༨༩	
+tirh	Tirhuta digits	28	numeric	&#x114D0;&#x114D1;&#x114D2;&#x114D3;&#x114D4;&#x114D5;&#x114D6;&#x114D7;&#x114D8;&#x114D9;	
+tols	Tolong Siki digits	48	numeric	&#x11DE0;&#x11DE1;&#x11DE2;&#x11DE3;&#x11DE4;&#x11DE5;&#x11DE6;&#x11DE7;&#x11DE8;&#x11DE9;	
+traditio	Traditional numerals — may be algorithmic" alias="traditional	21			
+vaii	Vai digits	21	numeric	꘠꘡꘢꘣꘤꘥꘦꘧꘨꘩	
+wara	Warang Citi digits	28	numeric	&#x118E0;&#x118E1;&#x118E2;&#x118E3;&#x118E4;&#x118E5;&#x118E6;&#x118E7;&#x118E8;&#x118E9;	
+wcho	Wancho digits	35	numeric	&#x1E2F0;&#x1E2F1;&#x1E2F2;&#x1E2F3;&#x1E2F4;&#x1E2F5;&#x1E2F6;&#x1E2F7;&#x1E2F8;&#x1E2F9;	

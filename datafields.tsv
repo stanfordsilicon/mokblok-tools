@@ -1,4 +1,108 @@
-Subject	Group	Field	Instance	Length	Variant	Example#	XPath	ExtID	English	English (pattern)	French	Level	Var1	Var2
+core		plurals	book		one	1		uli-594_76	1 book		1 livre			
+core		plurals	book		two	1		uli-594_77	2 books		2 livres			
+core		plurals	book		many	1		uli-594_78	5 books		5 livres			
+core		plurals	book		other	1		uli-594_79	10 books		10 livres			
+core		plurals	book			1		uli-594_80	book		livre			
+core		plurals	song		one	1		uli-594_81	1 song		1 chanson			
+core		plurals	song		two	1		uli-594_82	2 songs		2 chansons			
+core		plurals	song		many	1		uli-594_83	5 songs		5 chansons			
+core		plurals	song		other	1		uli-594_84	10 songs		10 chansons			
+core		plurals	song			1		uli-594_85	song		chanson			
+core	Alphabet	characters	auxiliary			0	//ldml/characters/exemplarCharacters[@type="auxiliary"]		[áàăâåäãā æ ç éèĕêëē íìĭîïī ñ óòŏôöøō œ úùŭûüū ÿ]		[áåäãā ć ē íìī ĳ ñ óòöõø ř šſ ß úǔ]	Basic		
+core	Alphabet	characters	main			0	//ldml/characters/exemplarCharacters		[a b c d e f g h i j k l m n o p q r s t u v w x y z]		[aàâ æ b cç d eéèêë f g h iîï j k l m n oô œ p q r s t uùûü v w x yÿ z]	Basic		
+core	Alphabet	characters	numbers			0	//ldml/characters/exemplarCharacters[@type="numbers"]		[\- ‑ , . % ‰ + 0 1 2 3 4 5 6 7 8 9]		[  \- ‑ , . % ‰ + − 0 1 2² 3³ 4 5 6 7 8 9 ᵈ ᵉ ʳ ˢ]	Basic		
+core	Alphabet	characters	punctuation			0	//ldml/characters/exemplarCharacters[@type="punctuation"]		[\- ‐‑ – — , ; \: ! ? . … '‘’ &quot;“” ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]		[\- ‐‑ – — , ; \: ! ? . … ’ "“” « » ( ) \[ \] § @ * / \& # † ‡]	Basic		
+core	Alphabet	characters	uppercase			0	//ldml/characters/exemplarCharacters[@type="index"]		[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z]		[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z]	Moderate		
+core	Alphabet	numberingSystem	default			0	//ldml/numbers/defaultNumberingSystem		latn		latn	Basic		
+core	Alphabet	numberingSystem	native			0	//ldml/numbers/otherNumberingSystems/native		latn		latn	Basic		
+core	Maths	symbols	division			1		uli-594_64	9 ÷ 3 = 3		9 ÷ 3 = 3			
+core	Maths	symbols	division			2		uli-594_65	10 ÷ 2 = 5		10 ÷ 2 = 5			
+core	Maths	symbols	division			3		uli-594_66	100 ÷ 2 = 50		100 ÷ 2 = 50			
+core	Maths	symbols	minusSign			1	//ldml/numbers/symbols[@numberSystem="latn"]/minusSign	uli-594_58	5 - 2.5 = 2.5		5 - 2,5 = 2,5	Basic		
+core	Maths	symbols	minusSign			2	//ldml/numbers/symbols[@numberSystem="latn"]/minusSign	uli-594_59	8 - 4 = 4		8 - 4 = 4	Basic		
+core	Maths	symbols	minusSign			3	//ldml/numbers/symbols[@numberSystem="latn"]/minusSign	uli-594_60	15 - 5 = 10		15 - 5 = 10	Basic		
+core	Maths	symbols	minusSign			0	//ldml/numbers/symbols[@numberSystem="latn"]/minusSign		-		-	Basic		
+core	Maths	symbols	multiplication			1		uli-594_61	5 x 3 = 15		5 x 3 = 15			
+core	Maths	symbols	multiplication			2		uli-594_62	4 x 4 = 16		4 x 4 = 16			
+core	Maths	symbols	multiplication			3		uli-594_63	2 x 3 = 6		2 x 3 = 6			
+core	Maths	symbols	plusSign			1	//ldml/numbers/symbols[@numberSystem="latn"]/plusSign	uli-594_55	2.5 + 2.5 = 5		2,5 + 2,5 = 5	Basic		
+core	Maths	symbols	plusSign			2	//ldml/numbers/symbols[@numberSystem="latn"]/plusSign	uli-594_56	3.5 + 3.5 = 7		3,5 + 3,5 = 7	Basic		
+core	Maths	symbols	plusSign			3	//ldml/numbers/symbols[@numberSystem="latn"]/plusSign	uli-594_57	7.5 + 7.5 = 15		7,5 + 7,5 = 15	Basic		
+core	Maths	symbols	plusSign			0	//ldml/numbers/symbols[@numberSystem="latn"]/plusSign		+		+	Basic		
+core	Plurals	plurals			one	1		uli-594_40	I finish school in 1 year.		Je termine mes études dans un an.			
+core	Plurals	plurals			two	1		uli-594_41	I finish school in 2 years.		Je termine mes études dans 2 ans.			
+core	Plurals	plurals			many	1		uli-594_42	I finish school in 5 years.		Je termine mes études dans 5 ans.			
+core	Plurals	plurals	d		one	1		uli-594_10						
+core	Plurals	plurals	d		two	1		uli-594_11						
+core	Plurals	plurals	d		many	1		uli-594_12						
+core	Plurals	plurals	d	long	one	1		uli-594_31						
+core	Plurals	plurals	d	long	two	1		uli-594_32						
+core	Plurals	plurals	d	long	many	1		uli-594_33						
+core	Plurals	plurals	h		one	1		uli-594_1				#N/A		
+core	Plurals	plurals	h		two	1		uli-594_2						
+core	Plurals	plurals	h		many	1		uli-594_3						
+core	Plurals	plurals	h	long	one	1		uli-594_22						
+core	Plurals	plurals	h	long	two	1		uli-594_23						
+core	Plurals	plurals	h	long	many	1		uli-594_24						
+core	Plurals	plurals	m		one	1		uli-594_4						
+core	Plurals	plurals	m		two	1		uli-594_5						
+core	Plurals	plurals	m		many	1		uli-594_6						
+core	Plurals	plurals	M		one	1		uli-594_16						
+core	Plurals	plurals	M		two	1		uli-594_17						
+core	Plurals	plurals	M		many	1		uli-594_18						
+core	Plurals	plurals	m	long	one	1		uli-594_25						
+core	Plurals	plurals	m	long	two	1		uli-594_26						
+core	Plurals	plurals	m	long	many	1		uli-594_27						
+core	Plurals	plurals	M	long	one	1		uli-594_37						
+core	Plurals	plurals	M	long	two	1		uli-594_38						
+core	Plurals	plurals	M	long	many	1		uli-594_39						
+core	Plurals	plurals	s		one	1		uli-594_7						
+core	Plurals	plurals	s		two	1		uli-594_8						
+core	Plurals	plurals	s		many	1		uli-594_9						
+core	Plurals	plurals	s	long	one	1		uli-594_28						
+core	Plurals	plurals	s	long	two	1		uli-594_29						
+core	Plurals	plurals	s	long	many	1		uli-594_30						
+core	Plurals	plurals	w		one	1		uli-594_13						
+core	Plurals	plurals	w		two	1		uli-594_14						
+core	Plurals	plurals	w		many	1		uli-594_15						
+core	Plurals	plurals	w	long	one	1		uli-594_34						
+core	Plurals	plurals	w	long	two	1		uli-594_35						
+core	Plurals	plurals	w	long	many	1		uli-594_36						
+core	Plurals	plurals	y		one	1		uli-594_19						
+core	Plurals	plurals	y		two	1		uli-594_20						
+core	Plurals	plurals	y		many	1		uli-594_21						
+core	Quotes	quotes				1	//ldml/delimiters/quotationStart	uli-594_86	When I walked into the room, she said "Hello"		Quand je suis entrée dans la pièce, elle a dit « Bonjour ».	Basic		
+core	Quotes	quotes				2	//ldml/delimiters/quotationStart	uli-594_87	When I walked into the room, he said "Would you like some coffee?"		Quand je suis entré dans la pièce, il m'a dit : « Voulez-vous un café ? »	Basic		
+core	Quotes	quotes				3	//ldml/delimiters/quotationStart	uli-594_88	When I walked into the room, she said "Please close the door behind you"		Quand je suis entrée dans la pièce, elle a dit : « Veuillez fermer la porte derrière vous. »	Basic		
+core	Quotes	quotes	end	n		0	//ldml/delimiters/alternateQuotationEnd		’		»	Basic		
+core	Quotes	quotes	end			0	//ldml/delimiters/quotationEnd		”		»	Basic		
+core	Quotes	quotes	start	n		0	//ldml/delimiters/alternateQuotationStart		‘		«	Basic		
+core	Quotes	quotes	start			0	//ldml/delimiters/quotationStart		“		«	Basic		
+core	Symbols	Minimum Grouping Digits				0	//ldml/numbers/minimumGroupingDigits		1		1	Moderate		
+core	Symbols	symbols	approximatelySign			0	//ldml/numbers/symbols[@numberSystem="latn"]/approximatelySign		~		≃	Moderate		
+core	Symbols	symbols	decimal	long		1	//ldml/numbers/symbols[@numberSystem="latn"]/decimal	uli-594_49	5 divided by 2 equals 2.5		5 divisé par 2 égale 2,5	Basic		
+core	Symbols	symbols	decimal	long		2	//ldml/numbers/symbols[@numberSystem="latn"]/decimal	uli-594_50	7 divided by 2 equals 3.5		7 divisé par 2 égale 3,5	Basic		
+core	Symbols	symbols	decimal	long		3	//ldml/numbers/symbols[@numberSystem="latn"]/decimal	uli-594_51	15 divided by 2 equals 7.5		15 divisé par 2 égale 7,5	Basic		
+core	Symbols	symbols	decimal			1	//ldml/numbers/symbols[@numberSystem="latn"]/decimal	uli-594_52	2.5		2,5	Basic		
+core	Symbols	symbols	decimal			2	//ldml/numbers/symbols[@numberSystem="latn"]/decimal	uli-594_53	3.5		3,5	Basic		
+core	Symbols	symbols	decimal			3	//ldml/numbers/symbols[@numberSystem="latn"]/decimal	uli-594_54	7.5		7,5	Basic		
+core	Symbols	symbols	decimal			0	//ldml/numbers/symbols[@numberSystem="latn"]/decimal		.		,	Basic		
+core	Symbols	symbols	exponential			0	//ldml/numbers/symbols[@numberSystem="latn"]/exponential		E		E	Moderate		
+core	Symbols	symbols	group			0	//ldml/numbers/symbols[@numberSystem="latn"]/group		,		 	Basic		
+core	Symbols	symbols	infinity			0	//ldml/numbers/symbols[@numberSystem="latn"]/infinity		∞		∞	Moderate		
+core	Symbols	symbols	nan			0	//ldml/numbers/symbols[@numberSystem="latn"]/nan		NaN		NaN	Moderate		
+core	Symbols	symbols	percentSign	long		1	//ldml/numbers/symbols[@numberSystem="latn"]/percentSign	uli-594_43	The battery is 100% full.		La batterie est chargée à 100%.	Basic		
+core	Symbols	symbols	percentSign	long		2	//ldml/numbers/symbols[@numberSystem="latn"]/percentSign	uli-594_44	The battery is 53% full.		La batterie est chargée à 53%.	Basic		
+core	Symbols	symbols	percentSign	long		3	//ldml/numbers/symbols[@numberSystem="latn"]/percentSign	uli-594_45	The battery is 10% full.		La batterie est chargée à 10%.	Basic		
+core	Symbols	symbols	percentSign			1	//ldml/numbers/symbols[@numberSystem="latn"]/percentSign	uli-594_46	100%		100%	Basic		
+core	Symbols	symbols	percentSign			2	//ldml/numbers/symbols[@numberSystem="latn"]/percentSign	uli-594_47	53%		53%	Basic		
+core	Symbols	symbols	percentSign			3	//ldml/numbers/symbols[@numberSystem="latn"]/percentSign	uli-594_48	10%		10%	Basic		
+core	Symbols	symbols	percentSign			0	//ldml/numbers/symbols[@numberSystem="latn"]/percentSign		%		%	Basic		
+core	Symbols	symbols	perMille			0	//ldml/numbers/symbols[@numberSystem="latn"]/perMille		‰		‰	Moderate		
+core	Symbols	symbols	questionMark			1		uli-594_192	Does this picture look accurate?		Cette image vous semble-t-elle fidèle ?			
+core	Symbols	symbols	questionMark			2		uli-594_193	If this picture doesn't look accurate, why? Please explain.		Si cette image ne vous semble pas exacte, pourquoi ? Veuillez expliquer.			
+core	Symbols	symbols	questionMark			3		uli-594_194	What would be a more accurate way?		Quelle serait une méthode plus précise ?			
+core	Symbols	symbols	superscriptingExponent			0	//ldml/numbers/symbols[@numberSystem="latn"]/superscriptingExponent		×		×	Moderate		
 dates	DateFields	d		w		0	//ldml/dates/fields/field[@type="day"]/displayName	dw-14_XXX	day	day	jour	Moderate		
 dates	DateFields	d		s		0	//ldml/dates/fields/field[@type="day-short"]/displayName	dw-15_XXX	day	day	j	Moderate		
 dates	DateFields	E		w		0	//ldml/dates/fields/field[@type="weekday"]/displayName	dw-23_XXX	day of the week	day of the week	jour de la semaine	Moderate		
@@ -99,6 +203,22 @@ dates	DateTimes	dateTimeFormats		medium	atTime	1	//ldml/dates/calendars/calendar
 dates	DateTimes	timeFormats		medium		1	//ldml/dates/calendars/calendar[@type="gregorian"]/timeFormats/timeFormatLength[@type="medium"]/timeFormat[@type="standard"]/pattern[@type="standard"]	dc-55_XXX	3:30:45 PM	h:mm:ss a		Moderate	1,713,911,445,000	
 dates	DateTimes	timeFormats		long		1	//ldml/dates/calendars/calendar[@type="gregorian"]/timeFormats/timeFormatLength[@type="long"]/timeFormat[@type="standard"]/pattern[@type="standard"]	dc-56_XXX	3:30:45 PM PDT	h:mm:ss a z		Moderate	1,713,911,445,000	
 dates	DateTimes	timeFormats		full		1	//ldml/dates/calendars/calendar[@type="gregorian"]/timeFormats/timeFormatLength[@type="full"]/timeFormat[@type="standard"]/pattern[@type="standard"]	dc-57_XXX	3:30:45 PM Pacific Daylight Time	h:mm:ss a zzzz		Moderate	1,713,911,445,000	
+dates	DayPeriods	a	afternoon1	w	s	0	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="stand-alone"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="afternoon1"]	dw2-8_XXX	afternoon	afternoon	après-midi	Moderate		
+dates	DayPeriods	a	afternoon1	w	f	0	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="afternoon1"]	dw2-9_XXX	in the afternoon	in the afternoon	de l’après-midi	Moderate		
+dates	DayPeriods	a	afternoon1	w	f	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="afternoon1"]	dw2-10_XXX	1 in the afternoon	in the afternoon	1 de l’après-midi	Moderate		
+dates	DayPeriods	a	am	w	s	0	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="stand-alone"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="am"]	dw2-1_XXX	AM	AM	AM	Moderate		
+dates	DayPeriods	a	am	n	f	0	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="narrow"]/dayPeriod[@type="am"]	dw2-2_XXX	a	a	AM	Moderate		
+dates	DayPeriods	a	evening1	w	s	0	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="stand-alone"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="evening1"]	dw2-11_XXX	evening	evening	soir	Moderate		
+dates	DayPeriods	a	evening1	w	f	0	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="evening1"]	dw2-12_XXX	in the evening	in the evening	du soir	Moderate		
+dates	DayPeriods	a	evening1	w	f	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="evening1"]	dw2-13_XXX	9 in the evening	in the evening	9 du soir	Moderate		
+dates	DayPeriods	a	midnight	w	s	0	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="stand-alone"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="midnight"]	dw2-16_XXX	midnight	midnight	minuit	Moderate		
+dates	DayPeriods	a	morning1	w	s	0	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="stand-alone"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="morning1"]	dw2-5_XXX	morning	morning	matin	Moderate		
+dates	DayPeriods	a	morning1	w	f	0	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="morning1"]	dw2-6_XXX	in the morning	in the morning	du matin	Moderate		
+dates	DayPeriods	a	morning1	w	f	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="morning1"]	dw2-7_XXX	7 in the morning	in the morning	7 du matin	Moderate		
+dates	DayPeriods	a	night1	w	s	0	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="stand-alone"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="night1"]	dw2-14_XXX	night	night	nuit	Moderate		
+dates	DayPeriods	a	night1	w	f	0	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="night1"]	dw2-15_XXX	at night	at night	à la nuit	Moderate		
+dates	DayPeriods	a	pm	w	s	0	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="stand-alone"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="pm"]	dw2-3_XXX	PM	PM	PM	Moderate		
+dates	DayPeriods	a	pm	n	f	0	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="narrow"]/dayPeriod[@type="pm"]	dw2-4_XXX	p	p	PM	Moderate		
 dates	DaysOfWeek	E	fri	w		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="format"]/dayWidth[@type="wide"]/day[@type="fri"]	wk-6_XXX	Friday	Friday	vendredi	Basic		
 dates	DaysOfWeek	E	fri	a		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="abbreviated"]/day[@type="fri"]	wk-13_XXX	Fri	Fri	ven.	Moderate		
 dates	DaysOfWeek	E	fri	s		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="short"]/day[@type="fri"]	wk-20_XXX	Fr	Fr	ve	Moderate		
@@ -209,6 +329,27 @@ dates	Quarters	q	4	w	s	0	//ldml/dates/calendars/calendar[@type="gregorian"]/quar
 dates	Quarters	q	4	a	s	0	//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="stand-alone"]/quarterWidth[@type="abbreviated"]/quarter[@type="4"]	qt-8_XXX	Q4	Q4	T4	Moderate		
 dates	Quarters	q	4	w	f	1	//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="wide"]/quarter[@type="4"]	qt2-4_XXX	4th quarter of 2025	4th quarter	4e trimestre en 2025	Moderate		
 dates	Quarters	q	4	a	f	1	//ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="format"]/quarterWidth[@type="abbreviated"]/quarter[@type="4"]	qt2-8_XXX	Q4 of 2025	Q4	T4 de 2025	Moderate		
+dates	Relative Time	past	d		one	1	//ldml/dates/fields/field[@type="day"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"]	uli-594_180	He left 1 day ago		Il est parti il ​​y a un jour	Modern		
+dates	Relative Time	past	d		two	1	//ldml/dates/fields/field[@type="day"]/relativeTime[@type="past"]/relativeTimePattern[@count="two"]	uli-594_181	He left 2 days ago		Il est parti il ​​y a 2 jours			
+dates	Relative Time	past	d		other	1	//ldml/dates/fields/field[@type="day"]/relativeTime[@type="past"]/relativeTimePattern[@count="other"]	uli-594_182	He left 5 days ago		Il est parti il ​​y a 5 jours	Modern		
+dates	Relative Time	past	h		one	1	//ldml/dates/fields/field[@type="hour"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"]	uli-594_171	He left 1 hour ago		Il est parti il ​​y a une heure	Modern		
+dates	Relative Time	past	h		two	1	//ldml/dates/fields/field[@type="hour"]/relativeTime[@type="past"]/relativeTimePattern[@count="two"]	uli-594_172	He left 2 hours ago		Il est parti il ​​y a 2 heures			
+dates	Relative Time	past	h		other	1	//ldml/dates/fields/field[@type="hour"]/relativeTime[@type="past"]/relativeTimePattern[@count="other"]	uli-594_173	He left 5 hours ago		Il est parti il ​​y a 5 heures	Modern		
+dates	Relative Time	past	m		one	1	//ldml/dates/fields/field[@type="minute"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"]	uli-594_174	He left 1 minute ago		Il est parti il ​​y a une minute	Modern		
+dates	Relative Time	past	m		two	1	//ldml/dates/fields/field[@type="minute"]/relativeTime[@type="past"]/relativeTimePattern[@count="two"]	uli-594_175	He left 2 minutes ago		Il est parti il ​​y a 2 minutes			
+dates	Relative Time	past	m		other	1	//ldml/dates/fields/field[@type="minute"]/relativeTime[@type="past"]/relativeTimePattern[@count="other"]	uli-594_176	He left 5 minutes ago		Il est parti il ​​y a 5 minutes	Modern		
+dates	Relative Time	past	M		one	1	//ldml/dates/fields/field[@type="month"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"]	uli-594_186	He finished school 1 month ago		Il a terminé ses études il y a un mois	Modern		
+dates	Relative Time	past	M		two	1	//ldml/dates/fields/field[@type="month"]/relativeTime[@type="past"]/relativeTimePattern[@count="two"]	uli-594_187	He finished school 2 months ago		Il a terminé ses études il y a 2 mois			
+dates	Relative Time	past	M		other	1	//ldml/dates/fields/field[@type="month"]/relativeTime[@type="past"]/relativeTimePattern[@count="other"]	uli-594_188	He finished school 5 months ago		Il a terminé ses études il y a 5 mois	Modern		
+dates	Relative Time	past	s		one	1	//ldml/dates/fields/field[@type="second"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"]	uli-594_177	He left 1 second ago		Il est parti il ​​y a une seconde	Modern		
+dates	Relative Time	past	s		two	1	//ldml/dates/fields/field[@type="second"]/relativeTime[@type="past"]/relativeTimePattern[@count="two"]	uli-594_178	He left 2 seconds ago		Il est parti il ​​y a 2 secondes			
+dates	Relative Time	past	s		other	1	//ldml/dates/fields/field[@type="second"]/relativeTime[@type="past"]/relativeTimePattern[@count="other"]	uli-594_179	He left 5 seconds ago		Il est parti il ​​y a 5 secondes	Modern		
+dates	Relative Time	past	w		one	1	//ldml/dates/fields/field[@type="week"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"]	uli-594_183	He left 1 week ago		Il est parti il ​​y a une semaine	Modern		
+dates	Relative Time	past	w		two	1	//ldml/dates/fields/field[@type="week"]/relativeTime[@type="past"]/relativeTimePattern[@count="two"]	uli-594_184	He left 2 weeks ago		Il est parti il ​​y a 2 semaines			
+dates	Relative Time	past	w		other	1	//ldml/dates/fields/field[@type="week"]/relativeTime[@type="past"]/relativeTimePattern[@count="other"]	uli-594_185	He left 5 weeks ago		Il est parti il ​​y a 5 semaines	Modern		
+dates	Relative Time	past	y		one	1	//ldml/dates/fields/field[@type="year"]/relativeTime[@type="past"]/relativeTimePattern[@count="one"]	uli-594_189	He finished school 1 year ago		Il a terminé ses études il y a un an.	Modern		
+dates	Relative Time	past	y		two	1	//ldml/dates/fields/field[@type="year"]/relativeTime[@type="past"]/relativeTimePattern[@count="two"]	uli-594_190	He finished school 2 years ago		Il a terminé ses études il y a 2 ans			
+dates	Relative Time	past	y		other	1	//ldml/dates/fields/field[@type="year"]/relativeTime[@type="past"]/relativeTimePattern[@count="other"]	uli-594_191	He finished school 5 years ago		Il a terminé ses études il y a 5 ans	Modern		
 dates	RelativeTime	d	-1			0	//ldml/dates/fields/field[@type="day"]/relative[@type="-1"]	rt-3_XXX	yesterday	yesterday	hier	Moderate		
 dates	RelativeTime	d	0			0	//ldml/dates/fields/field[@type="day"]/relative[@type="0"]	rt-7_XXX	today	today	aujourd’hui	Moderate		
 dates	RelativeTime	d	1			0	//ldml/dates/fields/field[@type="day"]/relative[@type="1"]	rt-9_XXX	tomorrow	tomorrow	demain	Moderate		
@@ -253,22 +394,6 @@ dates	TimeIntervals	intervalFormats	Hv		H	1	//ldml/dates/calendars/calendar[@typ
 dates	TimeIntervals	intervalFormats	hv		a	2	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hv"]/greatestDifference[@id="a"]	ti-25_XXX	10 AM – 2 PM PT	h a – h a v	10 AM – 2 PM PT	Moderate		
 dates	TimeIntervals	intervalFormats	hv		h	2	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="hv"]/greatestDifference[@id="h"]	ti-26_XXX	1–2 PM PT	h – h a v	1–2 PM PT	Moderate		
 dates	TimeIntervals	intervalFormats	Hv		H	2	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Hv"]/greatestDifference[@id="H"]	ti-32_XXX	14–15 PT	HH – HH v	14–15 PT	Moderate		
-dates	TimeOfDay	a	afternoon1	w	s	0	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="stand-alone"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="afternoon1"]	dw2-8_XXX	afternoon	afternoon	après-midi	Moderate		
-dates	TimeOfDay	a	afternoon1	w	f	0	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="afternoon1"]	dw2-9_XXX	in the afternoon	in the afternoon	de l’après-midi	Moderate		
-dates	TimeOfDay	a	afternoon1	w	f	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="afternoon1"]	dw2-10_XXX	1 in the afternoon	in the afternoon	1 de l’après-midi	Moderate		
-dates	TimeOfDay	a	am	a	s	0	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="stand-alone"]/dayPeriodWidth[@type="abbreviated"]/dayPeriod[@type="am"]	dw2-1_XXX	AM	AM	AM	Moderate		
-dates	TimeOfDay	a	am	n	f	0	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="narrow"]/dayPeriod[@type="am"]	dw2-2_XXX	a	a	AM	Moderate		
-dates	TimeOfDay	a	evening1	w	s	0	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="stand-alone"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="evening1"]	dw2-11_XXX	evening	evening	soir	Moderate		
-dates	TimeOfDay	a	evening1	w	f	0	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="evening1"]	dw2-12_XXX	in the evening	in the evening	du soir	Moderate		
-dates	TimeOfDay	a	evening1	w	f	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="evening1"]	dw2-13_XXX	9 in the evening	in the evening	9 du soir	Moderate		
-dates	TimeOfDay	a	midnight	w	f	0	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="midnight"]	dw2-16_XXX	midnight	midnight	minuit	Moderate		
-dates	TimeOfDay	a	morning1	w	s	0	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="stand-alone"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="morning1"]	dw2-5_XXX	morning	morning	matin	Moderate		
-dates	TimeOfDay	a	morning1	w	f	0	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="morning1"]	dw2-6_XXX	in the morning	in the morning	du matin	Moderate		
-dates	TimeOfDay	a	morning1	w	f	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="morning1"]	dw2-7_XXX	7 in the morning	in the morning	7 du matin	Moderate		
-dates	TimeOfDay	a	night1	w	s	0	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="stand-alone"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="night1"]	dw2-14_XXX	night	night	nuit	Moderate		
-dates	TimeOfDay	a	night1	w	f	0	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="night1"]	dw2-15_XXX	at night	at night	à la nuit	Moderate		
-dates	TimeOfDay	a	pm	a	s	0	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="stand-alone"]/dayPeriodWidth[@type="abbreviated"]/dayPeriod[@type="pm"]	dw2-3_XXX	PM	PM	PM	Moderate		
-dates	TimeOfDay	a	pm	n	f	0	//ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="narrow"]/dayPeriod[@type="pm"]	dw2-4_XXX	p	p	PM	Moderate		
 dates	Times	availableFormats	hm			2	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="hm"]	hr-1_XXX	3:00 PM	h:mm a	3:00 PM	Basic		
 dates	Times	availableFormats	Hm			1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Hm"]	hr-2_XXX	10:48	HH:mm	10:48	Basic		
 dates	Times	availableFormats	Hm			2	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Hm"]	hr-3_XXX	16:12	HH:mm	16:12	Basic		
@@ -668,54 +793,6 @@ numbers	NumbersCompactLong	decimalFormats	100000000000000	long	one	1	//ldml/numb
 numbers	NumbersCompactLong	decimalFormats	100000000000000	long	other	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="100000000000000"][@count="other"]		423 trillion	000 trillion		Moderate		
 numbers	NumbersCompactLong	decimalFormats	100000000000000	long	one	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="100000000000000"][@count="one"]		178.1 trillion	000 trillion		Moderate		
 numbers	NumbersCompactLong	decimalFormats	100000000000000	long	other	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="100000000000000"][@count="other"]		423.9 trillion	000 trillion		Moderate		
-numbers	NumbersCompactShort	decimalFormats	1000	s	one	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="1000"][@count="one"]		1,000	0K	1K	Moderate		
-numbers	NumbersCompactShort	decimalFormats	1000	s	other	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="1000"][@count="other"]		7,000	0K	7K	Moderate		
-numbers	NumbersCompactShort	decimalFormats	1000	s	one	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="1000"][@count="one"]		1,500	0K	1.5K	Moderate		
-numbers	NumbersCompactShort	decimalFormats	1000	s	other	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="1000"][@count="other"]		7,200	0K	7.2K	Moderate		
-numbers	NumbersCompactShort	decimalFormats	10000	s	one	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="10000"][@count="one"]		10,000	00K	10K	Moderate		
-numbers	NumbersCompactShort	decimalFormats	10000	s	other	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="10000"][@count="other"]		43,000	00K	43K	Moderate		
-numbers	NumbersCompactShort	decimalFormats	10000	s	one	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="10000"][@count="one"]		10,500	00K	10.5K	Moderate		
-numbers	NumbersCompactShort	decimalFormats	10000	s	other	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="10000"][@count="other"]		43,700	00K	43.7K	Moderate		
-numbers	NumbersCompactShort	decimalFormats	100000	s	one	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="100000"][@count="one"]		134,000	000K	134K	Moderate		
-numbers	NumbersCompactShort	decimalFormats	100000	s	other	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="100000"][@count="other"]		278,000	000K	278K	Moderate		
-numbers	NumbersCompactShort	decimalFormats	100000	s	one	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="100000"][@count="one"]		134,700	000K	134.7K	Moderate		
-numbers	NumbersCompactShort	decimalFormats	100000	s	other	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="100000"][@count="other"]		278,100	000K	278.1K	Moderate		
-numbers	NumbersCompactShort	decimalFormats	1000000	s	one	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="1000000"][@count="one"]		1,000,000	0M	1M	Moderate		
-numbers	NumbersCompactShort	decimalFormats	1000000	s	other	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="1000000"][@count="other"]		5,000,000	0M	5M	Moderate		
-numbers	NumbersCompactShort	decimalFormats	1000000	s	one	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="1000000"][@count="one"]		1,100,000	0M	1.1M	Moderate		
-numbers	NumbersCompactShort	decimalFormats	1000000	s	other	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="1000000"][@count="other"]		5,700,000	0M	5.7M	Moderate		
-numbers	NumbersCompactShort	decimalFormats	10000000	s	one	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="10000000"][@count="one"]		11,000,000	00M	11M	Moderate		
-numbers	NumbersCompactShort	decimalFormats	10000000	s	other	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="10000000"][@count="other"]		57,000,000	00M	57M	Moderate		
-numbers	NumbersCompactShort	decimalFormats	10000000	s	one	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="10000000"][@count="one"]		11,500,000	00M	11.5M	Moderate		
-numbers	NumbersCompactShort	decimalFormats	10000000	s	other	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="10000000"][@count="other"]		57,700,000	00M	57.7M	Moderate		
-numbers	NumbersCompactShort	decimalFormats	100000000	s	one	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="100000000"][@count="one"]		134,000,000	000M	134M	Moderate		
-numbers	NumbersCompactShort	decimalFormats	100000000	s	other	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="100000000"][@count="other"]		317,000,000	000M	317M	Moderate		
-numbers	NumbersCompactShort	decimalFormats	100000000	s	one	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="100000000"][@count="one"]		134,700,000	000M	134.7M	Moderate		
-numbers	NumbersCompactShort	decimalFormats	100000000	s	other	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="100000000"][@count="other"]		317,900,000	000M	317.9M	Moderate		
-numbers	NumbersCompactShort	decimalFormats	1000000000	s	one	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="1000000000"][@count="one"]		1,000,000,000	0B	1B	Moderate		
-numbers	NumbersCompactShort	decimalFormats	1000000000	s	other	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="1000000000"][@count="other"]		4,000,000,000	0B	4B	Moderate		
-numbers	NumbersCompactShort	decimalFormats	1000000000	s	one	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="1000000000"][@count="one"]		1,200,000,000	0B	1.2B	Moderate		
-numbers	NumbersCompactShort	decimalFormats	1000000000	s	other	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="1000000000"][@count="other"]		4,700,000,000	0B	4.7B	Moderate		
-numbers	NumbersCompactShort	decimalFormats	10000000000	s	one	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="10000000000"][@count="one"]		11,000,000,000	00B	11B	Moderate		
-numbers	NumbersCompactShort	decimalFormats	10000000000	s	other	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="10000000000"][@count="other"]		39,000,000,000	00B	39B	Moderate		
-numbers	NumbersCompactShort	decimalFormats	10000000000	s	one	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="10000000000"][@count="one"]		11,200,000,000	00B	11.2B	Moderate		
-numbers	NumbersCompactShort	decimalFormats	10000000000	s	other	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="10000000000"][@count="other"]		39,900,000,000	00B	39.9B	Moderate		
-numbers	NumbersCompactShort	decimalFormats	100000000000	s	one	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="100000000000"][@count="one"]		134,000,000,000	000B	134B	Moderate		
-numbers	NumbersCompactShort	decimalFormats	100000000000	s	other	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="100000000000"][@count="other"]		623,000,000,000	000B	623B	Moderate		
-numbers	NumbersCompactShort	decimalFormats	100000000000	s	one	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="100000000000"][@count="one"]		134,700,000,000	000B	134.7B	Moderate		
-numbers	NumbersCompactShort	decimalFormats	100000000000	s	other	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="100000000000"][@count="other"]		623,500,000,000	000B	623.5B	Moderate		
-numbers	NumbersCompactShort	decimalFormats	1000000000000	s	one	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="1000000000000"][@count="one"]		1,000,000,000,000	0T	1T	Moderate		
-numbers	NumbersCompactShort	decimalFormats	1000000000000	s	other	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="1000000000000"][@count="other"]		4,000,000,000,000	0T	4T	Moderate		
-numbers	NumbersCompactShort	decimalFormats	1000000000000	s	one	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="1000000000000"][@count="one"]		1,700,000,000,000	0T	1.7T	Moderate		
-numbers	NumbersCompactShort	decimalFormats	1000000000000	s	other	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="1000000000000"][@count="other"]		4,200,000,000,000	0T	4.2T	Moderate		
-numbers	NumbersCompactShort	decimalFormats	10000000000000	s	one	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="10000000000000"][@count="one"]		17,000,000,000,000	00T	17T 	Moderate		
-numbers	NumbersCompactShort	decimalFormats	10000000000000	s	other	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="10000000000000"][@count="other"]		42,000,000,000,000	00T	42T	Moderate		
-numbers	NumbersCompactShort	decimalFormats	10000000000000	s	one	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="10000000000000"][@count="one"]		17,800,000,000,000	00T	17.8T	Moderate		
-numbers	NumbersCompactShort	decimalFormats	10000000000000	s	other	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="10000000000000"][@count="other"]		42,300,000,000,000	00T	42.3T	Moderate		
-numbers	NumbersCompactShort	decimalFormats	100000000000000	s	one	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="100000000000000"][@count="one"]		170,000,000,000,000	000T	170T 	Moderate		
-numbers	NumbersCompactShort	decimalFormats	100000000000000	s	other	1	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="100000000000000"][@count="other"]		420,000,000,000,000	000T	420T	Moderate		
-numbers	NumbersCompactShort	decimalFormats	100000000000000	s	one	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="100000000000000"][@count="one"]		170,900,000,000,000	000T	170.9T 	Moderate		
-numbers	NumbersCompactShort	decimalFormats	100000000000000	s	other	2	//ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="100000000000000"][@count="other"]		420,500,000,000,000	000T	420.5T	Moderate		
 territories	TerritoriesRegions	territory	001			0	//ldml/localeDisplayNames/territories/territory[@type="001"]		world	world	Monde	Moderate		
 territories	TerritoriesRegions	territory	002			0	//ldml/localeDisplayNames/territories/territory[@type="002"]		Africa	Africa	Afrique	Moderate		
 territories	TerritoriesRegions	territory	003			0	//ldml/localeDisplayNames/territories/territory[@type="003"]		North America	North America	Amérique du Nord	Moderate		
@@ -1472,6 +1549,81 @@ timezones	TimeZonesWestAsia	zone	Asia/Riyadh			0	//ldml/dates/timeZoneNames/zone
 timezones	TimeZonesWestAsia	zone	Asia/Tbilisi			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Tbilisi"]/exemplarCity		Tbilisi	Tbilisi	Tbilissi	Moderate		
 timezones	TimeZonesWestAsia	zone	Asia/Yerevan			0	//ldml/dates/timeZoneNames/zone[@type="Asia/Yerevan"]/exemplarCity		Yerevan	Yerevan	Erevan	Moderate		
 timezones	TimeZonesWestAsia	zone	Europe/Istanbul			0	//ldml/dates/timeZoneNames/zone[@type="Europe/Istanbul"]/exemplarCity		Istanbul	Istanbul	Istanbul	Moderate		
+translations	CLDR Ticket	CLDR Ticket	1					CLDR Ticket-1	How to Report a Problem or Request a Change in Unicode CLDR					
+translations	CLDR Ticket	CLDR Ticket	10					CLDR Ticket-10	Your ticket will now be visible to the CLDR team and other contributors.					
+translations	CLDR Ticket	CLDR Ticket	11					CLDR Ticket-11	Once submitted, your ticket becomes part of the official CLDR review process, where it can be discussed, clarified, and—if appropriate—used to improve how your language is handled in Unicode CLDR.					
+translations	CLDR Ticket	CLDR Ticket	2					CLDR Ticket-2	If you discover a problem with how Unicode CLDR represents your language—such as incorrect names, formats, translations, or missing data—you can report it by filing a “ticket.”					
+translations	CLDR Ticket	CLDR Ticket	3					CLDR Ticket-3	What does “ticket” mean?					
+translations	CLDR Ticket	CLDR Ticket	4					CLDR Ticket-4	A ticket is simply a formal request or report.					
+translations	CLDR Ticket	CLDR Ticket	5					CLDR Ticket-5	It is a way to:\n\n- report a problem or error\n\n- ask a question\n\n- request a correction or improvement					
+translations	CLDR Ticket	CLDR Ticket	6					CLDR Ticket-6	Think of a ticket as submitting a written issue that the Unicode CLDR team can track, discuss, and respond to.					
+translations	CLDR Ticket	CLDR Ticket	7					CLDR Ticket-7	Where to File a Ticket\n\nAll CLDR tickets are filed on Unicode’s issue-tracking website (called Jira):\n\nhttps://unicode-org.atlassian.net/projects/CLDR/					
+translations	CLDR Ticket	CLDR Ticket	8					CLDR Ticket-8	How to File a Ticket (Step by Step)\n\nLog in to Jira\n\nYou must have a Jira account to file a ticket.\n\nIf you do not already have one, you can request a Jira account from the site.\n\nClick “Create”\n\nOnce logged in, click the red “Create” button at the top of the page.\n\nThis opens a form for submitting your ticket.\n\nDescribe the problem or request\n\nClearly explain what is wrong or what needs to be changed in CLDR.\n\nInclude examples if possible (for example, how something should appear in your language).\n\nChoose a component					
+translations	CLDR Ticket	CLDR Ticket	9					CLDR Ticket-9	You will be asked to assign a component (the part of CLDR your issue relates to).\n\nIf you are unsure which one to choose, simply select “unknown.” This is acceptable.\n\nSubmit the ticket\n\nAfter filling out the form, submit it.					
+translations	Paragraphs	Bio	1					Tom Bio	Tom Mullaney is Director of SILICON. He is Professor of Chinese History at Stanford University and Director of Stanford's Science, Technology and Society Program. He is a Guggenheim Fellow and the recipient of Stanford’s highest award for excellence in teaching, the Gores Award. His books include How We Disappear: A Personal History of Information (W.W. Norton, Forthcoming 2026), The Chinese Computer: A Global History of the Information Age (MIT Press 2024), Where Research Begins (University of Chicago Press, 2022, with Christopher Rea), The Chinese Typewriter: A History (MIT Press 2017), and Coming to Terms with the Nation: Ethnic Classification in Modern China (UC Press, 2010), among other works. His writings have appeared in Fast Company, MIT Technology Review, Quartz, the South China Morning Post, TechCrunch, the Journal of Asian Studies, Technology & Culture, Foreign Affairs, and Foreign Policy. His work has been featured in RadioLab, The Atlantic, the BBC, and in invited lectures at OpenAI, IBM, Google, Microsoft, Adobe, and more. He earned his BA and MA from the Johns Hopkins University, and his PhD from Columbia University.					
+translations	Paragraphs	Bio	2					Audrey Bio	Audrey Gao is the Project Coordinator for SILICON. She holds a B.A. from Emory University in philosophy and political science. Prior to joining Stanford, Audrey managed a team of undergraduate researchers focused on West African economic development and gender equality in Benin. She has also contributed to research projects investigating propaganda in Indian national elections and the role of race and ethnicity in congressional immigration voting records. During her time at the Georgia Innocence Project, Audrey worked with legislatures to advance wrongful conviction compensation legislation and evidence storage reform. A native speaker of Mandarin Chinese, Audrey studied German while studying abroad in Wiesbaden.					
+translations	Paragraphs	Bio	3					Elaine Bio	Elaine Treharne is Associate Director of SILICON. She is the Senior Associate Vice Provost for Undergraduate Education and the Roberta Bowman Denning Professor of the Humanities, Professor of English, Courtesy Professor of German Studies and of Comparative Literature, and the Robert K. Packard Fellow in Undergraduate Education at Stanford University. She is a medievalist, focusing on Manuscript and Archival Studies, Early British Literary Studies, and the long History of Text Technologies. She has published thirty-eight books and some eighty articles on these areas.					
+translations	Paragraphs	CLDR	1					CLDR-1	CLDR (the Common Locale Data Repository) is a global database created by the Unicode Consortium, a not-for-profit global organization. CLDR helps computers work correctly in different languages. It includes things like the names of months and days, date and number formats, and other language rules that phones, websites, and apps rely on. In practice, the only way for most modern software to support a language properly is for that language to be included in CLDR. CLDR is the largest and most comprehensive shared database of language and regional information available today.					
+translations	Paragraphs	CLDR	2					CLDR-2	Anyone can view CLDR data, but improving it and adding to it is a detailed process. Two times each year, volunteers and language experts can propose new translations, fix mistakes, discuss disagreements, and vote on what best represents real language use. They can also add new languages to CLDR, helping their languages become part of the digital age.					
+translations	Paragraphs	CLDR	3					CLDR-3	Instead of decisions being made by a small group behind closed doors, CLDR is shaped through open discussion and review. After several stages of checking and approval, the final data is released and used by billions of devices and applications around the world.					
+translations	Paragraphs	KBI	1					KBI-1	Did you know that English has over 1,000,000 fonts? (It's not just Helvetica!) Do you want to design a font for your language? The Donald Knuth & Charles Bigelow Type Design Incubator (KBI), run by SILICON at Stanford University, supports designers working with underrepresented and endangered writing systems.					
+translations	Paragraphs	KBI	2					KBI-2	KBI is an entirely free program, where participants study with world-leading experts to start developing a font for their language. Participants receive expert instruction, structured workshops, and access to professional design software. The program is created for designers who may not have access to formal type design education or established industry networks. \nApplicants must be 18 years of age, or older, and all countries are welcome to apply. 					
+translations	Paragraphs	KBI	3					KBI-3	Visit this website to learn more and to apply.					
+translations	Paragraphs	KBIUX	1					KBIUX-1	KBIUX: Multilingual and Multicultural UX/UI Design					
+translations	Paragraphs	KBIUX	2					KBIUX-2	KBIUX is a 5-week online course designed for beginners and early-career students (18+ years old) interested in the fundamentals of User Experience (UX) and User Interface (UI) design — with a specific focus on multilingual, multicultural design for under-resourced and digitally disadvantaged languages worldwide.					
+translations	Paragraphs	KBIUX	3					KBIUX-3	To learn more, please fill out this short survey:					
+translations	Paragraphs	LexRay	1					LexRay-1	LexRay is a tool designed by SILICON (Stanford University) to make it easier to contribute language data to the Common Locale Data Repository (CLDR), the open database maintained by the Not-For-Profit global organization, Unicode.					
+translations	Paragraphs	LexRay	2					LexRay-2	When a phone in the United States shows a date like “November 12,” this is all thanks to CLDR data, which is the only way that computers and phones know how that date should appear in different languages and regions. In Spanish, for example, the same date becomes “12 de noviembre.” Different word order, different structure, same meaning. CLDR encodes these patterns so operating systems, apps, and websites can localize content correctly worldwide.					
+translations	Paragraphs	LexRay	3					LexRay-3	Out of roughly 7,000 human languages, the vast majority are not included in the CLDR database. Adding a language to the CLDR is therefore not just a technical step—it is a foundational act of empowering language communities to participate in the digital age.					
+translations	Paragraphs	LexRay	4					LexRay-4	But working with the CLDR can be difficult, however. Beyond speaking your mother tongue, you must also understand CLDR “patterns” (such as "d 'de' MMMM" which is the pattern for "12 de noviembre" mentioned above). This technical requirement is often a major barrier.					
+translations	Paragraphs	LexRay	5					LexRay-5	LexRay removes this obstacle. Instead of having to learn CLDR patterns, LexRay lets you work entirely in your language. You simply write in regular dates—such as “12 de noviembre”—and LexRay generates the correct CLDR pattern automatically.					
+translations	Paragraphs	Local Organization Form	1					Local Organization Form-1	Survey Form					
+translations	Paragraphs	Local Organization Form	2					Local Organization Form-2	What is your email address?					
+translations	Paragraphs	Local Organization Form	3					Local Organization Form-3	What is your full name?					
+translations	Paragraphs	Local Organization Form	4					Local Organization Form-4	Which language do you wish to contribute data for?					
+translations	Paragraphs	Local Organization Form	5					Local Organization Form-5	What is your background with this language? Is your relationship with this language social, academic, and/or professional? Please share as much information as you can.					
+translations	Paragraphs	Local Organization Form	6					Local Organization Form-6	What organizations are you part of, and what is this organization's relationship with the language? For example, you could be part of an academic institution, a non-profit organization that focuses on this language, a government ministry focused on language, or a company that uses this language in its work.					
+translations	Paragraphs	MokBlok	1					MokBlok-1	MokBlok helps people check whether their translations make sense when used in real apps. Language data often looks correct in a list but causes problems when displayed in calendars, menus, or interfaces.					
+translations	Paragraphs	MokBlok	2					MokBlok-2	MokBlok takes translation data and automatically places it into realistic app screens, such as calendars or health apps. Contributors can see exactly how their language appears and quickly spot mistakes or awkward phrasing.					
+translations	Paragraphs	MokBlok	3					MokBlok-3	MokBlok also provides examples of how other languages are used in digital interfaces. This is especially helpful for designers working with languages that are rarely supported and lack design references.					
+translations	Paragraphs	MokBlok	4					MokBlok-4	MokBlok makes it easier to review language data visually, instead of relying only on tables or text lists.					
+translations	Paragraphs	Practitioners Program Call	1					Practitioners Program Call-1	SILICON Practitioners Program – Call for Proposals					
+translations	Paragraphs	Practitioners Program Call	2					Practitioners Program Call-2	The SILICON Practitioners Program supports practitioners working to expand the digital presence of underrepresented languages. This program provides small grants to individuals with concrete, impact-driven projects that advance language inclusion across digital systems. Practitioners are supported by SILICON, a Stanford-based initiative focused on building durable, community-centered language infrastructure.					
+translations	Paragraphs	Practitioners Program Call	3					Practitioners Program Call-3	The program is designed for people who are already doing the work or are ready to begin. Whether you are launching a new project, unblocking stalled progress, or bringing an existing effort to completion, the Practitioners Program offers funding, visibility, and institutional support to help move your work forward.					
+translations	Paragraphs	Practitioners Program Call	4					Practitioners Program Call-4	SILICON invites applications from a wide range of practitioners, including keyboard and app designers, linguistics, type designers, language ethnographers, OCR and machine learning specialists, large language model researchers, and others working at the intersection of language, design, and technology. Projects may focus on one or more living or historic Digitally Disadvantaged Languages and should demonstrate clear goals, measurable progress, and real-world applicability.					
+translations	Paragraphs	Practitioners Program Call	5					Practitioners Program Call-1	Visit this website to learn more and to apply.					
+translations	Paragraphs	Survey Tool						Survey Tool	Translations in the Unicode Common Locale Data Repository are collected and managed through an online platform called the Survey Tool. This tool lets people view language data, suggest new translations or corrections, see what others have submitted, and discuss differences to reach agreement. During each submission period, contributors—including members of the Unicode Consortium, organizations, and the general public—are invited to review data for their languages and regions and propose updates. These updates can range from small wording changes to adding support for languages that are entirely new to the repository. Instead of a small group deciding everything in private, the tool lets many contributors discuss and vote, so the data reflects real language use. After several review stages, the approved information becomes part of the CLDR database, which is used by millions of phones, websites, and apps worldwide.					
+translations	Tech Words	technology	Airplane					uli-594_217	Airplane		Avion			
+translations	Tech Words	technology	App					uli-594_200	App		Application			
+translations	Tech Words	technology	Bank					uli-594_205	Bank		Banque			
+translations	Tech Words	technology	Bus					uli-594_223	Bus		Bus			
+translations	Tech Words	technology	Calendar					uli-594_213	Calendar		Calendrier			
+translations	Tech Words	technology	Car					uli-594_221	Car		Voiture			
+translations	Tech Words	technology	Clock					uli-594_214	Clock		Horloge			
+translations	Tech Words	technology	Computer					uli-594_197	Computer		Ordinateur			
+translations	Tech Words	technology	Correct					uli-594_195	Correct		Correct			
+translations	Tech Words	technology	Doctor					uli-594_210	Doctor		Médecin			
+translations	Tech Words	technology	Education					uli-594_209	Education		Éducation			
+translations	Tech Words	technology	email					uli-594_204	email		e-mail			
+translations	Tech Words	technology	email address					uli-594_203	email address		adresse email			
+translations	Tech Words	technology	Game					uli-594_207	Game		Jeu			
+translations	Tech Words	technology	Hospital					uli-594_220	Hospital		Hôpital			
+translations	Tech Words	technology	Hotel					uli-594_216	Hotel		Hôtel			
+translations	Tech Words	technology	Incorrect					uli-594_196	Incorrect		Incorrect			
+translations	Tech Words	technology	Internet					uli-594_202	Internet		Internet			
+translations	Tech Words	technology	Motocycle					uli-594_222	Motocycle		Moto			
+translations	Tech Words	technology	Movie					uli-594_206	Movie		Film			
+translations	Tech Words	technology	Post Office					uli-594_225	Post Office		Bureau de poste			
+translations	Tech Words	technology	Restaurant					uli-594_219	Restaurant		Restaurant			
+translations	Tech Words	technology	School					uli-594_211	School		École			
+translations	Tech Words	technology	Smart Phone					uli-594_199	Smart Phone		Smartphone			
+translations	Tech Words	technology	Sports					uli-594_208	Sports		Sportif			
+translations	Tech Words	technology	Taxi					uli-594_224	Taxi		Taxi			
+translations	Tech Words	technology	Telephone					uli-594_198	Telephone		Téléphone			
+translations	Tech Words	technology	Temperature					uli-594_215	Temperature		Température			
+translations	Tech Words	technology	Train					uli-594_218	Train		Former			
+translations	Tech Words	technology	Weather					uli-594_212	Weather		Météo			
+translations	Tech Words	technology	Website					uli-594_201	Website		Site web			
 units	Coordinates	coordinateUnit/displayName				0	//ldml/units/unitLength[@type="long"]/coordinateUnit/displayName	co-5_XXX	cardinal direction	cardinal direction		Moderate		
 units	Coordinates	coordinateUnitPattern	east	long		1	//ldml/units/unitLength[@type="long"]/coordinateUnit/coordinateUnitPattern[@type="east"]	co-3_XXX	2.2945° east	{0} east		Moderate		
 units	Coordinates	coordinateUnitPattern	east	narrow		1	//ldml/units/unitLength[@type="narrow"]/coordinateUnit/coordinateUnitPattern[@type="east"]	co2-3_XXX	2.2945°E	{0}E		Moderate		
