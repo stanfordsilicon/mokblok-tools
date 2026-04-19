@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import { DataProvider } from '@data/DataContext';
+import { LinguisticsProvider } from '@data/LinguisticsContext';
 
 import { SettingsProvider } from '@settings/Settings';
 import StepName from '@settings/StepName';
@@ -13,20 +14,22 @@ const PageBody: React.FC = () => {
 
   return (
     <SettingsProvider>
-      <DataProvider>
-        <StepSelector step={step} setStep={setStep} />
-        <div
-          style={{
-            border: '1px solid #ccc',
-            padding: '1em',
-            borderRadius: '1em',
-            fontSize: '0.8em',
-            minWidth: '400px',
-          }}
-        >
-          <StepView step={step} />
-        </div>
-      </DataProvider>
+      <LinguisticsProvider>
+        <DataProvider>
+          <StepSelector step={step} setStep={setStep} />
+          <div
+            style={{
+              border: '1px solid #ccc',
+              padding: '1em',
+              borderRadius: '1em',
+              fontSize: '0.8em',
+              minWidth: '400px',
+            }}
+          >
+            <StepView step={step} />
+          </div>
+        </DataProvider>
+      </LinguisticsProvider>
     </SettingsProvider>
   );
 };
