@@ -5,6 +5,7 @@ import DemoID from './DemoID';
 
 const demoIDsByDataType: Record<DataType, DemoID[]> = {
   [DataType.Alphabet]: [],
+  [DataType.CLDRTicket]: [],
   [DataType.Coordinates]: [DemoID.CoordinatesMap, DemoID.CoordinatesDirections],
   [DataType.DateCombinations]: [],
   [DataType.DateIntervals]: [
@@ -24,10 +25,12 @@ const demoIDsByDataType: Record<DataType, DemoID[]> = {
   [DataType.EraDateCombinations]: [],
   [DataType.Maths]: [],
   [DataType.Months]: [DemoID.MonthsGrid, DemoID.MonthsTemp],
+  [DataType.Paragraphs]: [],
   [DataType.Quarters]: [DemoID.QuartersCircle, DemoID.QuartersEvents],
   [DataType.Quotes]: [],
   [DataType.RelativeTime]: [DemoID.RelativeTimeEventEnd],
   [DataType.Symbols]: [],
+  [DataType.TechWords]: [],
   [DataType.TimeCombinations]: [],
   [DataType.TimeIntervals]: [
     DemoID.TimeInterval24HourMin,

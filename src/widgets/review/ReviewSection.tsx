@@ -6,6 +6,7 @@ import ErrorBoundary from '@shared/ErrorBoundary';
 import DemosForDataType from './demo/DemosForDataType';
 import AllReviewTable from './tables/AllReviewTable';
 import AlphabetReview from './tables/AlphabetReview';
+import CLDRTicketReviewTable from './tables/CLDRTicketReviewTable';
 import CoordinatesReviewTable from './tables/CoordinatesReviewTable';
 import DateCombinationsReviewTable from './tables/DateCombinationsReviewTable';
 import DateFieldsReviewTable from './tables/DateFieldsReviewTable';
@@ -19,10 +20,12 @@ import EraDatesReviewTable from './tables/EraDatesReviewTable';
 import ErasReviewTable from './tables/ErasReviewTable';
 import MathsReviewTable from './tables/MathsReviewTable';
 import MonthsReviewTable from './tables/MonthsReviewTable';
+import ParagraphsReviewTable from './tables/ParagraphsReviewTable';
 import QuartersReviewTable from './tables/QuartersReviewTable';
 import QuotesReviewTable from './tables/QuotesReviewTable';
 import RelativeTimeReviewTable from './tables/RelativeTimeReviewTable';
 import SymbolsReviewTable from './tables/SymbolsReviewTable';
+import TechWordsReviewTable from './tables/TechWordsReviewTable';
 import TimeCombinationsReviewTable from './tables/TimeCombinationsReviewTable';
 import TimeIntervalsReviewTable from './tables/TimeIntervalsReviewTable';
 
@@ -50,6 +53,8 @@ function ReviewTable({ dataType }: { dataType: DataType }) {
   switch (dataType) {
     case DataType.Alphabet:
       return <AlphabetReview />;
+    case DataType.CLDRTicket:
+      return <CLDRTicketReviewTable />;
     case DataType.Coordinates:
       return <CoordinatesReviewTable />;
     case DataType.DateCombinations:
@@ -76,6 +81,8 @@ function ReviewTable({ dataType }: { dataType: DataType }) {
       return <MathsReviewTable />;
     case DataType.Months:
       return <MonthsReviewTable />;
+    case DataType.Paragraphs:
+      return <ParagraphsReviewTable />;
     case DataType.Quarters:
       return <QuartersReviewTable />;
     case DataType.Quotes:
@@ -84,6 +91,8 @@ function ReviewTable({ dataType }: { dataType: DataType }) {
       return <RelativeTimeReviewTable />;
     case DataType.Symbols:
       return <SymbolsReviewTable />;
+    case DataType.TechWords:
+      return <TechWordsReviewTable />;
     case DataType.TimeCombinations:
       return <TimeCombinationsReviewTable />;
     case DataType.TimeIntervals:

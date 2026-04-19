@@ -30,7 +30,7 @@ export enum SubmissionField {
 
 export type RowData = {
   english: string;
-  french: string;
+  french?: string;
   translated: string;
   notes: string;
   xpath?: string;
@@ -99,6 +99,11 @@ export enum DataType {
   Coordinates = 'coordinates',
   DirectionExamples = 'directionExamples',
 
+  // Translations
   Emojis = 'emojis',
+  TechWords = 'techWords',
+  Paragraphs = 'paragraphs',
+  CLDRTicket = 'cldrTicket',
+
   All = 'all',
 }

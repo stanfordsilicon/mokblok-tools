@@ -7,8 +7,8 @@ enum Section2_3 {
   Currencies = 'CURRENCIES (African + Major Global Currencies)',
   Emoji = 'EMOJI',
 }
-// id	ENGLISH	FRENCH	TRANSLATION IN YOUR LANGUAGE	NOTES BY TRANSLATOR (IF NECESSARY)
 
+// id	ENGLISH	FRENCH	TRANSLATION IN YOUR LANGUAGE	NOTES BY TRANSLATOR (IF NECESSARY)
 export function parseDoc2Part1(tsv: string): RowData[] {
   // Remove lines in comments by finding new lines in "" blocks
   const text = tsv.replace(/"([^"\t]|"")*"/g, (match) => match.replace(/\n/g, ' '));
@@ -25,6 +25,85 @@ export function parseDoc2Part1(tsv: string): RowData[] {
       notes: fields[4],
       key: fields[0],
     });
+  });
+  return rows;
+}
+
+// id	ENGLISH	TRANSLATION IN YOUR LANGUAGE	NOTES BY TRANSLATOR (IF NECESSARY)
+export function parseDoc2Part2(tsv: string): RowData[] {
+  // Remove lines in comments by finding new lines in "" blocks
+  const text = tsv.replace(/"([^"\t]|"")*"/g, (match) => match.replace(/\n/g, ' '));
+  const lines = text.split('\n').slice(1); // Remove header
+
+  const rows: RowData[] = [];
+
+  // Since these are long-form entries, sometimes they have newlines within them, which get split into multiple lines.
+  let currentRow: RowData | null = null;
+  // let currentField = ''; // Track the current field (english, translated, notes)
+
+  lines.forEach((line) => {
+    const fields = line.split('\t');
+
+    // Is this necessary?
+    // // if a line doesn't have enough tabs, it's probably a continuation of the previous line's translation or notes
+    // if (fields.length < 4) {
+    //   if (currentRow) {
+    //     if (currentField === 'english') {
+    //       currentRow.english += '&#10;' + fields[0].trim();
+
+    //       if (fields.length > 2) {
+    //         currentRow.translated += '&#10;' + fields[1].trim();
+    //         currentField = 'notes';
+    //       } else if (fields.length === 2) {
+    //         currentRow.translated += '&#10;' + fields[1].trim();
+    //         currentField = 'translated';
+    //       }
+    //     } else if (currentField === 'translated') {
+    //       currentRow.translated += '&#10;' + fields[0].trim();
+    //       if (fields.length > 1) {
+    //         currentRow.notes += '&#10;' + fields[1].trim();
+    //         currentField = 'notes';
+    //       }
+    //     } else if (currentField === 'notes') {
+    //       currentRow.notes += '&#10;' + fields[0].trim();
+    //     }
+    //   } else if (fields.length === 2) {
+    //     // If the line has only one field, it might be a continuation of the previous notes
+    //     currentRow = {
+    //       english: fields[1],
+    //       translated: '',
+    //       notes: '',
+    //       key: fields[0],
+    //     };
+    //     currentField = 'english';
+    //   } else if (fields.length === 3) {
+    //     // If the line has two fields, it might be a continuation of the previous translation
+    //     currentRow = {
+    //       english: fields[1],
+    //       translated: fields[2],
+    //       notes: '',
+    //       key: fields[0],
+    //     };
+    //     currentField = 'translated';
+    //   } else {
+    //     // If the line has only one field and its not a continuation of the previous row, something is wrong
+    //     console.warn(
+    //       'Skipping line with insufficient columns and no current row to attach to:',
+    //       line,
+    //     );
+    //   }
+    //   return;
+    // }
+
+    // Regular case
+    // currentField = 'notes';
+    currentRow = {
+      english: fields[1],
+      translated: fields[2],
+      notes: fields[3],
+      key: fields[0],
+    };
+    rows.push(currentRow);
   });
   return rows;
 }

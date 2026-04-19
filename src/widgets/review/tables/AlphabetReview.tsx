@@ -15,7 +15,6 @@ const charSets = ['base', 'uppercase', 'auxiliary', 'numbers', 'punctuation'] as
 const AlphabetReview: React.FC = () => {
   const { findDataFields, getTranslation } = useDataContext();
   const { numberingSystems } = useLinguisticsContext();
-  console.log('numberingSystems', numberingSystems);
   const alphabetFields = findDataFields({ group: 'Alphabet' });
 
   return (

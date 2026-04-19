@@ -3,6 +3,7 @@ import { DataType } from './DataTypes';
 const DATA_TYPE_LABELS: Record<DataType, string> = {
   [DataType.All]: 'Full List',
   [DataType.Alphabet]: 'Alphabet',
+  [DataType.CLDRTicket]: 'CLDR Ticket',
   [DataType.Coordinates]: 'Coordinates',
   [DataType.DateCombinations]: 'Dates',
   [DataType.DateFields]: 'Date Fields',
@@ -16,10 +17,12 @@ const DATA_TYPE_LABELS: Record<DataType, string> = {
   [DataType.Eras]: 'Eras',
   [DataType.Maths]: 'Maths',
   [DataType.Months]: 'Months',
+  [DataType.Paragraphs]: 'Paragraphs',
   [DataType.Quarters]: 'Quarters',
   [DataType.Quotes]: 'Quotes',
   [DataType.RelativeTime]: 'Relative Time',
   [DataType.Symbols]: 'Symbols',
+  [DataType.TechWords]: 'Tech Words',
   [DataType.TimeCombinations]: 'Times',
   [DataType.TimeIntervals]: 'Time Intervals',
 };

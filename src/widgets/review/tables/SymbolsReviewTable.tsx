@@ -2,7 +2,6 @@ import { useDataContext } from '@data/DataContext';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
-
 import InputDataCell from '../InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 

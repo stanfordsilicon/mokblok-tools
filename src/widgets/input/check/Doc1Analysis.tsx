@@ -40,9 +40,9 @@ const Doc1Analysis: React.FC = () => {
       <CheckRow
         title="Time combinations"
         count={countTranslations(findDataFields({ group: 'Times' }), getTranslation)}
-        denominator={7}
+        denominator={8}
       >
-        4 formats × 2 variants - 1 missing
+        4 formats × 2 variants
       </CheckRow>
       <CheckRow
         title="Time intervals"
@@ -67,9 +67,9 @@ const Doc1Analysis: React.FC = () => {
       <CheckRow
         title="Coordinates"
         count={countTranslations(findDataFields({ group: 'Coordinates' }), getTranslation)}
-        denominator={12}
+        denominator={13}
       >
-        4 cardinal directions × 2 forms + 1 "Cardinal Direction" + 3 direction examples
+        4 cardinal directions × 2 forms + 1 "Cardinal Direction" + 4 direction examples
       </CheckRow>
       <CheckRow
         title="Quarters"
