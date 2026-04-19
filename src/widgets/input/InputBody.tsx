@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { useDataContext } from '@data/DataContext';
 import { Doc, getDocFileSuffix, getDocFileType } from '@data/Doc';
 import { loadInputText, parseInputTSV } from '@data/LoadInputData';
-import { parseDoc2Part3 } from '@data/ParseDoc2';
+import { parseDoc2Part1, parseDoc2Part3 } from '@data/ParseDoc2';
 
 import { useSettings } from '@settings/Settings';
 
@@ -48,9 +48,16 @@ const InputBody = () => {
   }, [targetLanguage]);
   useEffect(() => {
     const doc1Rows = parseInputTSV(texts[Doc.Doc1].value);
+    const doc2_1Rows = parseDoc2Part1(texts[Doc.Doc2_1].value);
     const doc2_3Rows = parseDoc2Part3(texts[Doc.Doc2_3].value);
-    setRows([...doc1Rows, ...doc2_3Rows]);
-  }, [texts[Doc.Doc1].value, texts[Doc.Doc2_3].value, setRows]);
+    setRows([...doc1Rows, ...doc2_1Rows, ...doc2_3Rows]);
+  }, [
+    texts[Doc.Doc1].value,
+    texts[Doc.Doc2_1].value,
+    texts[Doc.Doc2_2].value,
+    texts[Doc.Doc2_3].value,
+    setRows,
+  ]);
   useEffect(() => {
     setExtraText(texts[Doc.Doc3].value + texts[Doc.Doc4].value);
   }, [texts[Doc.Doc3].value, texts[Doc.Doc4].value, setExtraText]);

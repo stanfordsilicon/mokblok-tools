@@ -16,7 +16,9 @@ const DATA_TYPE_LABELS: Record<DataType, string> = {
   [DataType.Eras]: 'Eras',
   [DataType.Months]: 'Months',
   [DataType.Quarters]: 'Quarters',
+  [DataType.Quotes]: 'Quotes',
   [DataType.RelativeTime]: 'Relative Time',
+  [DataType.Symbols]: 'Symbols',
   [DataType.TimeCombinations]: 'Times',
   [DataType.TimeIntervals]: 'Time Intervals',
 };

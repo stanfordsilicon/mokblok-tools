@@ -1,11 +1,18 @@
 Subject	Group	Field	Instance	Length	Variant	Example#	XPath	ExtID	English	English (pattern)	French	Level	Var1	Var2
 core	Alphabet	characters	auxiliary			0	//ldml/characters/exemplarCharacters[@type="auxiliary"]		[áàăâåäãā æ ç éèĕêëē íìĭîïī ñ óòŏôöøō œ úùŭûüū ÿ]		[áåäãā ć ē íìī ĳ ñ óòöõø ř šſ ß úǔ]	Basic		
-core	Alphabet	characters	uppercase			0	//ldml/characters/exemplarCharacters[@type="index"]		[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z]		[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z]	Moderate		
+core	Alphabet	characters	main			0	//ldml/characters/exemplarCharacters		[a b c d e f g h i j k l m n o p q r s t u v w x y z]		[aàâ æ b cç d eéèêë f g h iîï j k l m n oô œ p q r s t uùûü v w x yÿ z]	Basic		
 core	Alphabet	characters	numbers			0	//ldml/characters/exemplarCharacters[@type="numbers"]		[\- ‑ , . % ‰ + 0 1 2 3 4 5 6 7 8 9]		[  \- ‑ , . % ‰ + − 0 1 2² 3³ 4 5 6 7 8 9 ᵈ ᵉ ʳ ˢ]	Basic		
 core	Alphabet	characters	punctuation			0	//ldml/characters/exemplarCharacters[@type="punctuation"]		[\- ‐‑ – — , ; \: ! ? . … '‘’ &quot;“” ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]		[\- ‐‑ – — , ; \: ! ? . … ’ "“” « » ( ) \[ \] § @ * / \& # † ‡]	Basic		
-core	Alphabet	characters	main			0	//ldml/characters/exemplarCharacters		[a b c d e f g h i j k l m n o p q r s t u v w x y z]		[aàâ æ b cç d eéèêë f g h iîï j k l m n oô œ p q r s t uùûü v w x yÿ z]	Basic		
+core	Alphabet	characters	uppercase			0	//ldml/characters/exemplarCharacters[@type="index"]		[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z]		[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z]	Moderate		
 core	Alphabet	numberingSystem	default			0	//ldml/numbers/defaultNumberingSystem		latn		latn	Basic		
 core	Alphabet	numberingSystem	native			0	//ldml/numbers/otherNumberingSystems/native		latn		latn	Basic		
+core	Quotes	quotes				1	//ldml/delimiters/quotationStart	uli-594_86	When I walked into the room, she said "Hello"		Quand je suis entrée dans la pièce, elle a dit « Bonjour ».	Basic		
+core	Quotes	quotes				2	//ldml/delimiters/quotationStart	uli-594_87	When I walked into the room, he said "Would you like some coffee?"		Quand je suis entré dans la pièce, il m'a dit : « Voulez-vous un café ? »	Basic		
+core	Quotes	quotes				3	//ldml/delimiters/quotationStart	uli-594_88	When I walked into the room, she said "Please close the door behind you"		Quand je suis entrée dans la pièce, elle a dit : « Veuillez fermer la porte derrière vous. »	Basic		
+core	Quotes	quotes	end	n		0	//ldml/delimiters/alternateQuotationEnd		’		»	Basic		
+core	Quotes	quotes	end			0	//ldml/delimiters/quotationEnd		”		»	Basic		
+core	Quotes	quotes	start	n		0	//ldml/delimiters/alternateQuotationStart		‘		«	Basic		
+core	Quotes	quotes	start			0	//ldml/delimiters/quotationStart		“		«	Basic		
 core	Symbols	Minimum Grouping Digits				0	//ldml/numbers/minimumGroupingDigits		1		1	Moderate		
 core	Symbols	symbols	approximatelySign			0	//ldml/numbers/symbols[@numberSystem="latn"]/approximatelySign		~		≃	Moderate		
 core	Symbols	symbols	decimal			0	//ldml/numbers/symbols[@numberSystem="latn"]/decimal		.		,	Basic		
@@ -17,10 +24,6 @@ core	Symbols	symbols	nan			0	//ldml/numbers/symbols[@numberSystem="latn"]/nan		N
 core	Symbols	symbols	percentSign			0	//ldml/numbers/symbols[@numberSystem="latn"]/percentSign		%		%	Basic		
 core	Symbols	symbols	perMille			0	//ldml/numbers/symbols[@numberSystem="latn"]/perMille		‰		‰	Moderate		
 core	Symbols	symbols	plusSign			0	//ldml/numbers/symbols[@numberSystem="latn"]/plusSign		+		+	Basic		
-core	Symbols	symbols	quotationEnd	n		0	//ldml/delimiters/alternateQuotationEnd		’		»	Basic		
-core	Symbols	symbols	quotationEnd			0	//ldml/delimiters/quotationEnd		”		»	Basic		
-core	Symbols	symbols	quotationStart	n		0	//ldml/delimiters/alternateQuotationStart		‘		«	Basic		
-core	Symbols	symbols	quotationStart			0	//ldml/delimiters/quotationStart		“		«	Basic		
 core	Symbols	symbols	superscriptingExponent			0	//ldml/numbers/symbols[@numberSystem="latn"]/superscriptingExponent		×		×	Moderate		
 dates	DateFields	d		w		0	//ldml/dates/fields/field[@type="day"]/displayName	dw-14_XXX	day	day	jour	Moderate		
 dates	DateFields	d		s		0	//ldml/dates/fields/field[@type="day-short"]/displayName	dw-15_XXX	day	day	j	Moderate		

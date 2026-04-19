@@ -75,6 +75,8 @@ export enum CardinalDirection {
 // Order this by order of appearance
 export enum DataType {
   Alphabet = 'alphabet',
+  Symbols = 'symbols',
+  Quotes = 'quotes',
 
   // Date and time
   DateFields = 'dateFields',

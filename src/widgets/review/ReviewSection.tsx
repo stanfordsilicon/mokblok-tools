@@ -19,7 +19,9 @@ import EraDatesReviewTable from './tables/EraDatesReviewTable';
 import ErasReviewTable from './tables/ErasReviewTable';
 import MonthsReviewTable from './tables/MonthsReviewTable';
 import QuartersReviewTable from './tables/QuartersReviewTable';
+import QuotesReviewTable from './tables/QuotesReviewTable';
 import RelativeTimeReviewTable from './tables/RelativeTimeReviewTable';
+import SymbolsReviewTable from './tables/SymbolsReviewTable';
 import TimeCombinationsReviewTable from './tables/TimeCombinationsReviewTable';
 import TimeIntervalsReviewTable from './tables/TimeIntervalsReviewTable';
 
@@ -73,8 +75,12 @@ function ReviewTable({ dataType }: { dataType: DataType }) {
       return <MonthsReviewTable />;
     case DataType.Quarters:
       return <QuartersReviewTable />;
+    case DataType.Quotes:
+      return <QuotesReviewTable />;
     case DataType.RelativeTime:
       return <RelativeTimeReviewTable />;
+    case DataType.Symbols:
+      return <SymbolsReviewTable />;
     case DataType.TimeCombinations:
       return <TimeCombinationsReviewTable />;
     case DataType.TimeIntervals:

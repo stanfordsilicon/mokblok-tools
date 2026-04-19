@@ -7,6 +7,27 @@ enum Section2_3 {
   Currencies = 'CURRENCIES (African + Major Global Currencies)',
   Emoji = 'EMOJI',
 }
+// id	ENGLISH	FRENCH	TRANSLATION IN YOUR LANGUAGE	NOTES BY TRANSLATOR (IF NECESSARY)
+
+export function parseDoc2Part1(tsv: string): RowData[] {
+  // Remove lines in comments by finding new lines in "" blocks
+  const text = tsv.replace(/"([^"\t]|"")*"/g, (match) => match.replace(/\n/g, ' '));
+  const lines = text.split('\n').slice(1); // Remove header
+
+  const rows: RowData[] = [];
+
+  lines.forEach((line) => {
+    const fields = line.split('\t');
+    rows.push({
+      english: fields[1],
+      french: fields[2],
+      translated: fields[3],
+      notes: fields[4],
+      key: fields[0],
+    });
+  });
+  return rows;
+}
 
 export function parseDoc2Part3(tsv: string): RowData[] {
   // Remove lines in comments by finding new lines in "" blocks
