@@ -25,6 +25,7 @@ const DATA_TYPE_LABELS: Record<DataType, string> = {
   [DataType.TechWords]: 'Tech Words',
   [DataType.TimeCombinations]: 'Times',
   [DataType.TimeIntervals]: 'Time Intervals',
+  [DataType.Timezones]: 'Time Zones',
 };
 
 function DataTypeLabel({ dataType }: { dataType: DataType }) {

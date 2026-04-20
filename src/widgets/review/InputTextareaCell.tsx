@@ -14,7 +14,13 @@ function InputTextareaCell({ data, style }: Props) {
       <textarea
         value={getTranslation(data) || ''}
         onChange={(e) => setTranslation(data.index, e.target.value)}
-        style={{ width: '30em', ...style }}
+        style={{
+          width: '30em',
+          ...style,
+          backgroundColor: getTranslation(data, false)
+            ? 'var(--color-input-background)'
+            : 'var(--color-input-unfilled)',
+        }}
       />
     </td>
   );

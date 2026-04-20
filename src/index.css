@@ -9,6 +9,7 @@
   --color-button-selected: #5555ff22;
   --color-input-background: rgb(59, 59, 59);
   --color-input-border: rgb(133, 133, 133);
+  --color-input-unfilled: #aa7755;
 }
 
 :root {
@@ -114,5 +115,6 @@ th {
 
     --color-input-background: #ffffff;
     --color-input-border: currentColor;
+    --color-input-unfilled: #ffddaa;
   }
 }

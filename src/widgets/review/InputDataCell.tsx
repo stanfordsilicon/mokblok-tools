@@ -32,7 +32,12 @@ function InputDataCell({ data, inputWidth }: Props) {
         highlight={/\d+/g}
         value={getTranslation(data) || ''}
         onChange={(value) => setTranslation(data.index, value)}
-        style={{ width }}
+        style={{
+          width,
+          backgroundColor: getTranslation(data, false)
+            ? 'var(--color-input-background)'
+            : 'var(--color-input-unfilled)',
+        }}
       />
     </td>
   );

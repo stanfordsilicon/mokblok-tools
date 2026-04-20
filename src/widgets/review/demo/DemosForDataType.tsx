@@ -40,6 +40,7 @@ const demoIDsByDataType: Record<DataType, DemoID[]> = {
     DemoID.TimeInterval24HourOnly,
     DemoID.TimeInterval12HourOnly,
   ],
+  [DataType.Timezones]: [],
   [DataType.All]: [],
 };
 

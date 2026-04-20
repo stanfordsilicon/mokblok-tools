@@ -28,6 +28,7 @@ import SymbolsReviewTable from './tables/SymbolsReviewTable';
 import TechWordsReviewTable from './tables/TechWordsReviewTable';
 import TimeCombinationsReviewTable from './tables/TimeCombinationsReviewTable';
 import TimeIntervalsReviewTable from './tables/TimeIntervalsReviewTable';
+import TimezonesReviewTable from './tables/TimeZonesReviewTable';
 
 function ReviewSection({ dataType }: { dataType: DataType }) {
   return (
@@ -97,6 +98,8 @@ function ReviewTable({ dataType }: { dataType: DataType }) {
       return <TimeCombinationsReviewTable />;
     case DataType.TimeIntervals:
       return <TimeIntervalsReviewTable />;
+    case DataType.Timezones:
+      return <TimezonesReviewTable />;
     case DataType.All:
       return <AllReviewTable />;
   }

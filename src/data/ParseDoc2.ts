@@ -1,13 +1,5 @@
 import type { RowData } from './DataTypes';
 
-enum Section2_3 {
-  LargeNumbers = 'LARGE NUMBERS',
-  Timezones = 'TIMEZONES and GEOGRAPHIC NAMES (Africa)',
-  GeographicNames = 'GEOGRAPHIC NAMES',
-  Currencies = 'CURRENCIES (African + Major Global Currencies)',
-  Emoji = 'EMOJI',
-}
-
 // id	ENGLISH	FRENCH	TRANSLATION IN YOUR LANGUAGE	NOTES BY TRANSLATOR (IF NECESSARY)
 export function parseDoc2Part1(tsv: string): RowData[] {
   // Remove lines in comments by finding new lines in "" blocks
@@ -108,6 +100,15 @@ export function parseDoc2Part2(tsv: string): RowData[] {
   return rows;
 }
 
+enum Section2_3 {
+  LargeNumbers = 'LARGE NUMBERS',
+  NumberAbbreviations = 'NUMBER ABBREVIATIONS',
+  Timezones = 'TIMEZONES and GEOGRAPHIC NAMES (Africa)',
+  GeographicNames = 'GEOGRAPHIC NAMES',
+  Currencies = 'CURRENCIES (African + Major Global Currencies)',
+  Emoji = 'EMOJI',
+}
+
 export function parseDoc2Part3(tsv: string): RowData[] {
   // Remove lines in comments by finding new lines in "" blocks
   const text = tsv.replace(/"([^"\t]|"")*"/g, (match) => match.replace(/\n/g, ' '));
@@ -122,6 +123,13 @@ export function parseDoc2Part3(tsv: string): RowData[] {
       section = fields[0] as Section2_3;
       return;
     }
+    if (
+      section === Section2_3.LargeNumbers &&
+      fields[0].startsWith('In English, the SHORTEST abbreviation')
+    ) {
+      section = Section2_3.NumberAbbreviations;
+      return;
+    }
     switch (section) {
       case Section2_3.Emoji:
         rows.push({
@@ -130,6 +138,18 @@ export function parseDoc2Part3(tsv: string): RowData[] {
           translated: fields[3],
           notes: fields[4],
           key: fields[0],
+        });
+        break;
+      case Section2_3.Timezones:
+      case Section2_3.GeographicNames:
+      case Section2_3.Currencies:
+        rows.push({
+          english: fields[0],
+          french: fields[1],
+          translated: fields[2],
+          notes: fields[3],
+          xpath: fields[4],
+          key: fields[4],
         });
         break;
       default:

@@ -100,6 +100,7 @@ export enum DataType {
   DirectionExamples = 'directionExamples',
 
   // Translations
+  Timezones = 'timezones',
   Emojis = 'emojis',
   TechWords = 'techWords',
   Paragraphs = 'paragraphs',
