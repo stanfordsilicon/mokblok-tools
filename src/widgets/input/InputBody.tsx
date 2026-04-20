@@ -51,7 +51,6 @@ const InputBody = () => {
     const doc2_1Rows = parseDoc2Part1(texts[Doc.Doc2_1].value);
     const doc2_2Rows = parseDoc2Part2(texts[Doc.Doc2_2].value);
     const doc2_3Rows = parseDoc2Part3(texts[Doc.Doc2_3].value);
-    console.log(doc2_2Rows);
     setRows([...doc1Rows, ...doc2_1Rows, ...doc2_2Rows, ...doc2_3Rows]);
   }, [
     texts[Doc.Doc1].value,

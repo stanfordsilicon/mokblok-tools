@@ -20,6 +20,7 @@ const DATA_TYPE_LABELS: Record<DataType, string> = {
   [DataType.Paragraphs]: 'Paragraphs',
   [DataType.Quarters]: 'Quarters',
   [DataType.Quotes]: 'Quotes',
+  [DataType.Regions]: 'Regions',
   [DataType.RelativeTime]: 'Relative Time',
   [DataType.Symbols]: 'Symbols',
   [DataType.TechWords]: 'Tech Words',

@@ -28,6 +28,7 @@ const demoIDsByDataType: Record<DataType, DemoID[]> = {
   [DataType.Paragraphs]: [],
   [DataType.Quarters]: [DemoID.QuartersCircle, DemoID.QuartersEvents],
   [DataType.Quotes]: [],
+  [DataType.Regions]: [],
   [DataType.RelativeTime]: [DemoID.RelativeTimeEventEnd],
   [DataType.Symbols]: [],
   [DataType.TechWords]: [],

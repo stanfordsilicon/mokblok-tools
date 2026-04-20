@@ -23,12 +23,13 @@ import MonthsReviewTable from './tables/MonthsReviewTable';
 import ParagraphsReviewTable from './tables/ParagraphsReviewTable';
 import QuartersReviewTable from './tables/QuartersReviewTable';
 import QuotesReviewTable from './tables/QuotesReviewTable';
+import RegionsReviewTable from './tables/RegionsReviewTable';
 import RelativeTimeReviewTable from './tables/RelativeTimeReviewTable';
 import SymbolsReviewTable from './tables/SymbolsReviewTable';
 import TechWordsReviewTable from './tables/TechWordsReviewTable';
 import TimeCombinationsReviewTable from './tables/TimeCombinationsReviewTable';
 import TimeIntervalsReviewTable from './tables/TimeIntervalsReviewTable';
-import TimezonesReviewTable from './tables/TimeZonesReviewTable';
+import TimezonesReviewTable from './tables/TimezonesReviewTable';
 
 function ReviewSection({ dataType }: { dataType: DataType }) {
   return (
@@ -88,6 +89,8 @@ function ReviewTable({ dataType }: { dataType: DataType }) {
       return <QuartersReviewTable />;
     case DataType.Quotes:
       return <QuotesReviewTable />;
+    case DataType.Regions:
+      return <RegionsReviewTable />;
     case DataType.RelativeTime:
       return <RelativeTimeReviewTable />;
     case DataType.Symbols:

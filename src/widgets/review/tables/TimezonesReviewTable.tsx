@@ -8,7 +8,7 @@ import InputDataCell from '../InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function TimezonesReviewTable() {
-  const { findDataFields } = useDataContext();
+  const { findDataFields, getTranslation, findDataField } = useDataContext();
   const timezonesByGroup = groupBy(findDataFields({ subject: 'timezones' }), (f) => f.group);
 
   return (
@@ -19,9 +19,14 @@ function TimezonesReviewTable() {
           (f) => f.instance,
           (f) => f.variant,
         );
+        const groupNameTranslated = getTranslation(findDataField({ english: group }));
         return (
           <div key={group}>
-            <h3>{group}</h3>
+            <h3>
+              {groupNameTranslated && groupNameTranslated !== group
+                ? `${groupNameTranslated} (${group})`
+                : group}
+            </h3>
             <table>
               <thead>
                 <tr>
