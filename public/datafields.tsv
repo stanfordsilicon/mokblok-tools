@@ -1561,6 +1561,15 @@ translations	CLDR Ticket	CLDR Ticket	6					CLDR Ticket-6	Think of a ticket as su
 translations	CLDR Ticket	CLDR Ticket	7					CLDR Ticket-7	Where to File a Ticket\n\nAll CLDR tickets are filed on Unicode’s issue-tracking website (called Jira):\n\nhttps://unicode-org.atlassian.net/projects/CLDR/					
 translations	CLDR Ticket	CLDR Ticket	8					CLDR Ticket-8	How to File a Ticket (Step by Step)\n\nLog in to Jira\n\nYou must have a Jira account to file a ticket.\n\nIf you do not already have one, you can request a Jira account from the site.\n\nClick “Create”\n\nOnce logged in, click the red “Create” button at the top of the page.\n\nThis opens a form for submitting your ticket.\n\nDescribe the problem or request\n\nClearly explain what is wrong or what needs to be changed in CLDR.\n\nInclude examples if possible (for example, how something should appear in your language).\n\nChoose a component					
 translations	CLDR Ticket	CLDR Ticket	9					CLDR Ticket-9	You will be asked to assign a component (the part of CLDR your issue relates to).\n\nIf you are unsure which one to choose, simply select “unknown.” This is acceptable.\n\nSubmit the ticket\n\nAfter filling out the form, submit it.					
+translations	Language Names	LocaleDisplayNames	ar				//ldml/localeDisplayNames/languages/language[@type="ar"]	uli-594_72	Arabic		arabe	Basic if Local		
+translations	Language Names	LocaleDisplayNames	de				//ldml/localeDisplayNames/languages/language[@type="de"]	uli-594_73	German		allemand	Basic if Local		
+translations	Language Names	LocaleDisplayNames	en				//ldml/localeDisplayNames/languages/language[@type="en"]	uli-594_67	English		anglais	Basic		
+translations	Language Names	LocaleDisplayNames	es				//ldml/localeDisplayNames/languages/language[@type="es"]	uli-594_70	Spanish		espagnol	Basic if Local		
+translations	Language Names	LocaleDisplayNames	fr				//ldml/localeDisplayNames/languages/language[@type="fr"]	uli-594_69	French		français	Basic if Local		
+translations	Language Names	LocaleDisplayNames	nl				//ldml/localeDisplayNames/languages/language[@type="nl"]	uli-594_75	Dutch		néerlandais	Basic if Local		
+translations	Language Names	LocaleDisplayNames	pt				//ldml/localeDisplayNames/languages/language[@type="pt"]	uli-594_71	Portuguese		portugais	Basic if Local		
+translations	Language Names	LocaleDisplayNames	ru				//ldml/localeDisplayNames/languages/language[@type="ru"]	uli-594_74	Russian		russe	Basic if Local		
+translations	Language Names	LocaleDisplayNames	zh				//ldml/localeDisplayNames/languages/language[@type="zh"]	uli-594_68	Chinese		chinois	Basic if Local		
 translations	Paragraphs	Bio	1					Tom Bio	Tom Mullaney is Director of SILICON. He is Professor of Chinese History at Stanford University and Director of Stanford's Science, Technology and Society Program. He is a Guggenheim Fellow and the recipient of Stanford’s highest award for excellence in teaching, the Gores Award. His books include How We Disappear: A Personal History of Information (W.W. Norton, Forthcoming 2026), The Chinese Computer: A Global History of the Information Age (MIT Press 2024), Where Research Begins (University of Chicago Press, 2022, with Christopher Rea), The Chinese Typewriter: A History (MIT Press 2017), and Coming to Terms with the Nation: Ethnic Classification in Modern China (UC Press, 2010), among other works. His writings have appeared in Fast Company, MIT Technology Review, Quartz, the South China Morning Post, TechCrunch, the Journal of Asian Studies, Technology & Culture, Foreign Affairs, and Foreign Policy. His work has been featured in RadioLab, The Atlantic, the BBC, and in invited lectures at OpenAI, IBM, Google, Microsoft, Adobe, and more. He earned his BA and MA from the Johns Hopkins University, and his PhD from Columbia University.					
 translations	Paragraphs	Bio	2					Audrey Bio	Audrey Gao is the Project Coordinator for SILICON. She holds a B.A. from Emory University in philosophy and political science. Prior to joining Stanford, Audrey managed a team of undergraduate researchers focused on West African economic development and gender equality in Benin. She has also contributed to research projects investigating propaganda in Indian national elections and the role of race and ethnicity in congressional immigration voting records. During her time at the Georgia Innocence Project, Audrey worked with legislatures to advance wrongful conviction compensation legislation and evidence storage reform. A native speaker of Mandarin Chinese, Audrey studied German while studying abroad in Wiesbaden.					
 translations	Paragraphs	Bio	3					Elaine Bio	Elaine Treharne is Associate Director of SILICON. She is the Senior Associate Vice Provost for Undergraduate Education and the Roberta Bowman Denning Professor of the Humanities, Professor of English, Courtesy Professor of German Studies and of Comparative Literature, and the Robert K. Packard Fellow in Undergraduate Education at Stanford University. She is a medievalist, focusing on Manuscript and Archival Studies, Early British Literary Studies, and the long History of Text Technologies. She has published thirty-eight books and some eighty articles on these areas.					
@@ -1594,6 +1603,73 @@ translations	Paragraphs	Practitioners Program Call	3					Practitioners Program C
 translations	Paragraphs	Practitioners Program Call	4					Practitioners Program Call-4	SILICON invites applications from a wide range of practitioners, including keyboard and app designers, linguistics, type designers, language ethnographers, OCR and machine learning specialists, large language model researchers, and others working at the intersection of language, design, and technology. Projects may focus on one or more living or historic Digitally Disadvantaged Languages and should demonstrate clear goals, measurable progress, and real-world applicability.					
 translations	Paragraphs	Practitioners Program Call	5					Practitioners Program Call-1	Visit this website to learn more and to apply.					
 translations	Paragraphs	Survey Tool						Survey Tool	Translations in the Unicode Common Locale Data Repository are collected and managed through an online platform called the Survey Tool. This tool lets people view language data, suggest new translations or corrections, see what others have submitted, and discuss differences to reach agreement. During each submission period, contributors—including members of the Unicode Consortium, organizations, and the general public—are invited to review data for their languages and regions and propose updates. These updates can range from small wording changes to adding support for languages that are entirely new to the repository. Instead of a small group deciding everything in private, the tool lets many contributors discuss and vote, so the data reflects real language use. After several review stages, the approved information becomes part of the CLDR database, which is used by millions of phones, websites, and apps worldwide.					
+translations	Secondary Language Names	LocaleDisplayNames	aa				//ldml/localeDisplayNames/languages/language[@type="aa"]		Afar			Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	abr				//ldml/localeDisplayNames/languages/language[@type="abr"]		Abron			Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	ada				//ldml/localeDisplayNames/languages/language[@type="ada"]		Dangme			Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	ak				//ldml/localeDisplayNames/languages/language[@type="ak"]		Akan			Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	ann				//ldml/localeDisplayNames/languages/language[@type="ann"]		Obolo			Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	any				//ldml/localeDisplayNames/languages/language[@type="any"]		Anyin			Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	az				//ldml/localeDisplayNames/languages/language[@type="az"]		Azerbaijani		azerbaïdjanais	Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	bax				//ldml/localeDisplayNames/languages/language[@type="bax"]		Bamun		bamoun	Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	bcc				//ldml/localeDisplayNames/languages/language[@type="bcc"]		Southern Balochi			Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	bci				//ldml/localeDisplayNames/languages/language[@type="bci"]		Baoulé			Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	bem				//ldml/localeDisplayNames/languages/language[@type="bem"]		Bemba			Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	bev				//ldml/localeDisplayNames/languages/language[@type="bev"]		Daloa Bété			Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	bgn				//ldml/localeDisplayNames/languages/language[@type="bgn"]		Western Balochi			Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	bgp				//ldml/localeDisplayNames/languages/language[@type="bgp"]		Eastern Balochi			Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	bho				//ldml/localeDisplayNames/languages/language[@type="bho"]		Bhojpuri		bhodjpouri	Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	bs				//ldml/localeDisplayNames/languages/language[@type="bs"]		Bosnian		bosniaque	Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	ceb				//ldml/localeDisplayNames/languages/language[@type="ceb"]		Cebuano		cebuano	Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	cgg				//ldml/localeDisplayNames/languages/language[@type="cgg"]		Chiga			Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	dag				//ldml/localeDisplayNames/languages/language[@type="dag"]		Dagbani			Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	dua				//ldml/localeDisplayNames/languages/language[@type="dua"]		Duala		douala	Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	dyo				//ldml/localeDisplayNames/languages/language[@type="dyo"]		Jola-Fonyi			Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	dyu				//ldml/localeDisplayNames/languages/language[@type="dyu"]		Dyula		dioula	Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	ewe				//ldml/localeDisplayNames/languages/language[@type="ewe"]		Ewe			Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	ewo				//ldml/localeDisplayNames/languages/language[@type="ewo"]		Ewondo		éwondo	Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	fo				//ldml/localeDisplayNames/languages/language[@type="fo"]		Faroese		féroïen	Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	ful				//ldml/localeDisplayNames/languages/language[@type="ful"]		Fulah		peul	Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	gaa				//ldml/localeDisplayNames/languages/language[@type="gaa"]		Ga			Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	ha				//ldml/localeDisplayNames/languages/language[@type="ha"]		Hausa		haoussa	Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	kam				//ldml/localeDisplayNames/languages/language[@type="kam"]		Kamba			Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	kln				//ldml/localeDisplayNames/languages/language[@type="kln"]		Kalenjin			Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	kpe				//ldml/localeDisplayNames/languages/language[@type="kpe"]		Kpelle		kpellé	Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	ku				//ldml/localeDisplayNames/languages/language[@type="ku"]		Kurdish		kurde	Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	lag				//ldml/localeDisplayNames/languages/language[@type="lag"]		Langi			Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	lb				//ldml/localeDisplayNames/languages/language[@type="lb"]		Luxembourgish		luxembourgeois	Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	lg				//ldml/localeDisplayNames/languages/language[@type="lg"]		Ganda			Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	lub				//ldml/localeDisplayNames/languages/language[@type="lub"]		Luba-Katanga			Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	mas				//ldml/localeDisplayNames/languages/language[@type="mas"]		Masai		massaï	Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	mfe				//ldml/localeDisplayNames/languages/language[@type="mfe"]		Morisyen			Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	mg				//ldml/localeDisplayNames/languages/language[@type="mg"]		Malagasy		malgache	Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	mn				//ldml/localeDisplayNames/languages/language[@type="mn"]		Mongolian		mongol	Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	mt				//ldml/localeDisplayNames/languages/language[@type="mt"]		Maltese		maltais	Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	nd				//ldml/localeDisplayNames/languages/language[@type="nd"]		Ndebele			Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	nku				//ldml/localeDisplayNames/languages/language[@type="nku"]		Bouna Kulango			Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	nso				//ldml/localeDisplayNames/languages/language[@type="nso"]		Northern Sotho			Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	nus				//ldml/localeDisplayNames/languages/language[@type="nus"]		Nuer			Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	nyn				//ldml/localeDisplayNames/languages/language[@type="nyn"]		Nyankore			Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	orm				//ldml/localeDisplayNames/languages/language[@type="orm"]		Oromo			Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	pap				//ldml/localeDisplayNames/languages/language[@type="pap"]		Papiamentu			Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	pnb				//ldml/localeDisplayNames/languages/language[@type="pnb"]		Western Panjabi			Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	rhg				//ldml/localeDisplayNames/languages/language[@type="rhg"]		Rohingya			Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	rw				//ldml/localeDisplayNames/languages/language[@type="rw"]		Kinyarwanda		rwanda	Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	rwk				//ldml/localeDisplayNames/languages/language[@type="rwk"]		Rwa			Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	sg				//ldml/localeDisplayNames/languages/language[@type="sg"]		Sango		sango	Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	sn				//ldml/localeDisplayNames/languages/language[@type="sn"]		Shona			Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	sot				//ldml/localeDisplayNames/languages/language[@type="sot"]		Southern Sotho		sotho du Sud	Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	ss				//ldml/localeDisplayNames/languages/language[@type="ss"]		Swati			Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	tg				//ldml/localeDisplayNames/languages/language[@type="tg"]		Tajik		tadjik	Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	tig				//ldml/localeDisplayNames/languages/language[@type="tig"]		Tigre		tigré	Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	tn				//ldml/localeDisplayNames/languages/language[@type="tn"]		Tswana			Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	ts				//ldml/localeDisplayNames/languages/language[@type="ts"]		Tsonga			Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	uz				//ldml/localeDisplayNames/languages/language[@type="uz"]		Uzbek		ouzbek	Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	ve				//ldml/localeDisplayNames/languages/language[@type="ve"]		Venda			Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	vmw				//ldml/localeDisplayNames/languages/language[@type="vmw"]		Makhuwa		macua	Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	wo				//ldml/localeDisplayNames/languages/language[@type="wo"]		Wolof		wolof	Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	xog				//ldml/localeDisplayNames/languages/language[@type="xog"]		Soga			Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	zgh				//ldml/localeDisplayNames/languages/language[@type="zgh"]		Standard Moroccan Tamazight		amazighe standard marocain	Basic if Local		
+translations	Secondary Language Names	LocaleDisplayNames	zlm				//ldml/localeDisplayNames/languages/language[@type="zlm"]		Malay		malai	Basic if Local		
 translations	Tech Words	technology	Airplane					uli-594_217	Airplane		Avion			
 translations	Tech Words	technology	App					uli-594_200	App		Application			
 translations	Tech Words	technology	Bank					uli-594_205	Bank		Banque			

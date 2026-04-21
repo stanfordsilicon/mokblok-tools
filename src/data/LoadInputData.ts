@@ -18,7 +18,7 @@ export async function loadInputText(filePath: string): Promise<string | void> {
     .catch((err) => console.error('Error loading TSV:', err));
 }
 
-export function parseInputTSV(tsv: string): RowData[] {
+export function parseDoc1TSV(tsv: string): RowData[] {
   // Remove lines in comments by finding new lines in "" blocks
   const text = tsv.replace(/"([^"\t]|"")*"/g, (match) => match.replace(/\n/g, ' '));
   const lines = text.split('\n');
@@ -27,7 +27,6 @@ export function parseInputTSV(tsv: string): RowData[] {
   const indices = getColumnIndices(lines);
   if (!indices) return [];
   const maxIndex = Math.max(...Object.values(indices))!;
-  // console.log('Column indices found:', indices);
 
   return lines
     .map((line) => {
@@ -37,6 +36,7 @@ export function parseInputTSV(tsv: string): RowData[] {
         // console.warn('Skipping line with insufficient columns:', line);
         return null; // Skip lines that don't have enough columns
       }
+
       const english = cells[indices[SubmissionField.English]];
       const french = cells[indices[SubmissionField.French]];
       const translated = cells[indices[SubmissionField.Translated]];

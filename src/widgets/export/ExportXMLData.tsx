@@ -6,7 +6,7 @@ import ExportDownloadXMLButton from './ExportDownloadXMLButton';
 import useXMLFormattedData from './useXMLFormattedData';
 
 const ExportXMLData: React.FC = () => {
-  const { targetLanguage, coverageLevel } = useSettings();
+  const { targetLanguageBCP, coverageLevel } = useSettings();
   const ldml = useXMLFormattedData();
 
   const fullXML = useMemo(() => {
@@ -16,11 +16,11 @@ const ExportXMLData: React.FC = () => {
 <ldml>
   <identity>
     <version number="$Revision$"/>
-    <language type="${targetLanguage}"/>
+    <language type="${targetLanguageBCP}"/>
   </identity>
 ${ldml}
 </ldml>`;
-  }, [ldml, targetLanguage]);
+  }, [ldml, targetLanguageBCP]);
 
   return (
     <>

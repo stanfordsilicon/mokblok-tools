@@ -15,6 +15,7 @@ const DATA_TYPE_LABELS: Record<DataType, string> = {
   [DataType.Emojis]: 'Emojis',
   [DataType.EraDateCombinations]: 'Era Dates',
   [DataType.Eras]: 'Eras',
+  [DataType.LanguageNames]: 'Language Names',
   [DataType.Maths]: 'Maths',
   [DataType.Months]: 'Months',
   [DataType.Paragraphs]: 'Paragraphs',

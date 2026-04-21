@@ -23,6 +23,7 @@ const demoIDsByDataType: Record<DataType, DemoID[]> = {
   [DataType.Emojis]: [DemoID.EmojiKeyboardSuggestions, DemoID.EmojiExplanations],
   [DataType.Eras]: [DemoID.EraTimelineReligious, DemoID.EraTimelineSecular],
   [DataType.EraDateCombinations]: [],
+  [DataType.LanguageNames]: [],
   [DataType.Maths]: [],
   [DataType.Months]: [DemoID.MonthsGrid, DemoID.MonthsTemp],
   [DataType.Paragraphs]: [],

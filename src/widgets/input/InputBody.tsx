@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 
 import { useDataContext } from '@data/DataContext';
 import { Doc, getDocFileSuffix, getDocFileType } from '@data/Doc';
-import { loadInputText, parseInputTSV } from '@data/LoadInputData';
+import { loadInputText, parseDoc1TSV } from '@data/LoadInputData';
 import { parseDoc2Part1, parseDoc2Part2, parseDoc2Part3 } from '@data/ParseDoc2';
 
 import { useSettings } from '@settings/Settings';
@@ -47,7 +47,7 @@ const InputBody = () => {
       loadLanguageData(targetLanguage);
   }, [targetLanguage]);
   useEffect(() => {
-    const doc1Rows = parseInputTSV(texts[Doc.Doc1].value);
+    const doc1Rows = parseDoc1TSV(texts[Doc.Doc1].value);
     const doc2_1Rows = parseDoc2Part1(texts[Doc.Doc2_1].value);
     const doc2_2Rows = parseDoc2Part2(texts[Doc.Doc2_2].value);
     const doc2_3Rows = parseDoc2Part3(texts[Doc.Doc2_3].value);
