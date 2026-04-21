@@ -1,10 +1,9 @@
-import DataTypeLabel from '@data/DataTypeLabel';
-import { DataType } from '@data/DataTypes';
+import { DataSection } from '@data/DataSection';
+import DataTypeLabel from '@data/DataSectionLabel';
 
 import ErrorBoundary from '@shared/ErrorBoundary';
 
-import DemosForDataType from './demo/DemosForDataType';
-import AllReviewTable from './tables/AllReviewTable';
+import DemosForSection from './demo/DemosForSection';
 import AlphabetReview from './tables/AlphabetReview';
 import CLDRTicketReviewTable from './tables/CLDRTicketReviewTable';
 import CoordinatesReviewTable from './tables/CoordinatesReviewTable';
@@ -18,6 +17,7 @@ import DirectionsReviewTable from './tables/DirectionsReviewTable';
 import EmojisReviewTable from './tables/EmojisReviewTable';
 import EraDatesReviewTable from './tables/EraDatesReviewTable';
 import ErasReviewTable from './tables/ErasReviewTable';
+import AllReviewTable from './tables/FullReviewTable';
 import LanguageNamesReviewTable from './tables/LanguageNamesReviewTable';
 import MathsReviewTable from './tables/MathsReviewTable';
 import MonthsReviewTable from './tables/MonthsReviewTable';
@@ -32,81 +32,81 @@ import TimeCombinationsReviewTable from './tables/TimeCombinationsReviewTable';
 import TimeIntervalsReviewTable from './tables/TimeIntervalsReviewTable';
 import TimezonesReviewTable from './tables/TimezonesReviewTable';
 
-function ReviewSection({ dataType }: { dataType: DataType }) {
+function ReviewSection({ dataSection }: { dataSection: DataSection }) {
   return (
     <div>
       <h2 style={{ margin: '.5em 0' }}>
-        <DataTypeLabel dataType={dataType} />
+        <DataTypeLabel dataSection={dataSection} />
       </h2>
       <div style={{ display: 'flex', gap: '1em', flexDirection: 'row' }}>
         <div>
           <ErrorBoundary>
-            <ReviewTable dataType={dataType} />
+            <ReviewTable dataSection={dataSection} />
           </ErrorBoundary>
         </div>
         <div style={{ display: 'flex', gap: '1em', flexWrap: 'wrap', placeContent: 'start' }}>
-          <DemosForDataType dataType={dataType} />
+          <DemosForSection dataSection={dataSection} />
         </div>
       </div>
     </div>
   );
 }
 
-function ReviewTable({ dataType }: { dataType: DataType }) {
-  switch (dataType) {
-    case DataType.Alphabet:
+function ReviewTable({ dataSection }: { dataSection: DataSection }) {
+  switch (dataSection) {
+    case DataSection.Alphabet:
       return <AlphabetReview />;
-    case DataType.CLDRTicket:
+    case DataSection.CLDRTicket:
       return <CLDRTicketReviewTable />;
-    case DataType.Coordinates:
+    case DataSection.Coordinates:
       return <CoordinatesReviewTable />;
-    case DataType.DateCombinations:
+    case DataSection.DateCombinations:
       return <DateCombinationsReviewTable />;
-    case DataType.DateIntervals:
+    case DataSection.DateIntervals:
       return <DateIntervalsReviewTable />;
-    case DataType.DateFields:
+    case DataSection.DateFields:
       return <DateFieldsReviewTable />;
-    case DataType.DateTimeCombinations:
+    case DataSection.DateTimeCombinations:
       return <DateTimeCombinationsReviewTable />;
-    case DataType.DayPeriods:
+    case DataSection.DayPeriods:
       return <DayPeriodsReviewTable />;
-    case DataType.DaysOfWeek:
+    case DataSection.DaysOfWeek:
       return <DaysOfWeekReviewTable />;
-    case DataType.DirectionExamples:
+    case DataSection.DirectionExamples:
       return <DirectionsReviewTable />;
-    case DataType.Emojis:
+    case DataSection.Emojis:
       return <EmojisReviewTable />;
-    case DataType.Eras:
+    case DataSection.Eras:
       return <ErasReviewTable />;
-    case DataType.EraDateCombinations:
+    case DataSection.EraDateCombinations:
       return <EraDatesReviewTable />;
-    case DataType.LanguageNames:
+    case DataSection.LanguageNames:
       return <LanguageNamesReviewTable />;
-    case DataType.Maths:
+    case DataSection.Maths:
       return <MathsReviewTable />;
-    case DataType.Months:
+    case DataSection.Months:
       return <MonthsReviewTable />;
-    case DataType.Paragraphs:
+    case DataSection.Paragraphs:
       return <ParagraphsReviewTable />;
-    case DataType.Quarters:
+    case DataSection.Quarters:
       return <QuartersReviewTable />;
-    case DataType.Quotes:
+    case DataSection.Quotes:
       return <QuotesReviewTable />;
-    case DataType.Regions:
+    case DataSection.Regions:
       return <RegionsReviewTable />;
-    case DataType.RelativeTime:
+    case DataSection.RelativeTime:
       return <RelativeTimeReviewTable />;
-    case DataType.Symbols:
+    case DataSection.Symbols:
       return <SymbolsReviewTable />;
-    case DataType.TechWords:
+    case DataSection.TechWords:
       return <TechWordsReviewTable />;
-    case DataType.TimeCombinations:
+    case DataSection.TimeCombinations:
       return <TimeCombinationsReviewTable />;
-    case DataType.TimeIntervals:
+    case DataSection.TimeIntervals:
       return <TimeIntervalsReviewTable />;
-    case DataType.Timezones:
+    case DataSection.Timezones:
       return <TimezonesReviewTable />;
-    case DataType.All:
+    case DataSection.FullTable:
       return <AllReviewTable />;
   }
 }

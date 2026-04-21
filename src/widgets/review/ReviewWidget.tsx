@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-import { DataType } from '@data/DataTypes';
+import { DataPage, DataSection, getSectionsForPage } from '@data/DataSection';
 
 import { useSettings } from '@settings/Settings';
 
@@ -9,8 +9,17 @@ import DownloadAllDemos from './demo/DownloadAllDemos';
 import ReviewSection from './ReviewSection';
 
 const ReviewWidget: React.FC = () => {
+  const [page, setPage] = useState<DataPage | undefined>(DataPage.Core);
+  const [section, setSection] = useState<DataSection | undefined>(DataSection.Alphabet);
+  const sections = page ? getSectionsForPage(page) : Object.values(DataSection);
+  useEffect(() => {
+    const sectionsForPage = page ? getSectionsForPage(page) : [];
+    if (section && page && !sectionsForPage.includes(section)) {
+      setSection(sectionsForPage[0]);
+    }
+  }, [page, section]);
+
   const { today, setToday } = useSettings();
-  const [dataType, setDataType] = useState<DataType | undefined>(DataType.Alphabet);
   const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.value === '') return;
     const date = new Date(e.target.value);
@@ -26,7 +35,7 @@ const ReviewWidget: React.FC = () => {
   };
 
   return (
-    <div style={{ display: 'flex', gap: '1em', flexDirection: 'column' }}>
+    <div style={{ display: 'flex', gap: '1em', flexDirection: 'column', width: '1200px' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <div>
           Set today (using browser date picker):{' '}
@@ -39,13 +48,16 @@ const ReviewWidget: React.FC = () => {
         </div>
         <DownloadAllDemos />
       </div>
-      <DataTypeSelector curDataType={dataType} setDataType={setDataType} />
-      {dataType ? (
-        <ReviewSection dataType={dataType} />
+      <DataTypeSelector
+        selectedPage={page}
+        setPage={setPage}
+        selectedSection={section}
+        setSection={setSection}
+      />
+      {section ? (
+        <ReviewSection dataSection={section} />
       ) : (
-        Object.values(DataType).map((dataType) => (
-          <ReviewSection dataType={dataType} key={dataType} />
-        ))
+        sections.map((section) => <ReviewSection dataSection={section} key={section} />)
       )}
     </div>
   );

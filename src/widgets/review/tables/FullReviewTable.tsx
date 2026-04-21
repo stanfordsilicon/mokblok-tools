@@ -7,7 +7,7 @@ import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 import InputDataCell from '../InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
-function AllReviewTable() {
+function FullReviewTable() {
   const { findDataFields } = useDataContext();
   const allFields = findDataFields({});
   const [subjectFilter, setSubjectFilter] = React.useState('');
@@ -89,4 +89,4 @@ function FilterCell({ value, onChange }: { value: string; onChange: (value: stri
   );
 }
 
-export default AllReviewTable;
+export default FullReviewTable;

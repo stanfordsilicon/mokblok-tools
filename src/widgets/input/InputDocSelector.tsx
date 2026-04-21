@@ -2,51 +2,36 @@ import { Doc } from '@data/Doc';
 
 import type { UseStoredParamsReturn } from '@settings/useStoredParams';
 
+import Tab from '@shared/Tab';
+
 const InputDocSelector: React.FC<{
   curDoc: Doc;
   setDoc: (doc: Doc) => void;
   texts: Record<Doc, UseStoredParamsReturn<string>>;
 }> = ({ curDoc, setDoc, texts }) => {
   return (
-    <div style={{ display: 'flex', gap: '0.25em 1em', flexWrap: 'wrap' }}>
+    <div
+      style={{
+        display: 'flex',
+        gap: '0.25em 1em',
+        flexWrap: 'wrap',
+        borderBottom: '2px solid #eee',
+        marginBottom: '0.5em',
+      }}
+    >
       {Object.values(Doc).map((doc) => (
-        <DocButton
+        <Tab
           key={doc}
           label={doc}
-          targetDoc={doc}
-          currentDoc={curDoc}
-          setDoc={setDoc}
-          hasText={texts[doc].value.length > 0}
+          option={doc}
+          selected={curDoc}
+          setSelected={setDoc}
+          style={{
+            color: texts[doc].value.length === 0 ? 'var(--color-text-highlighted)' : undefined,
+          }}
         />
       ))}
     </div>
-  );
-};
-
-const DocButton: React.FC<{
-  label: React.ReactNode;
-  targetDoc: Doc;
-  currentDoc: Doc;
-  setDoc: (doc: Doc) => void;
-  hasText: boolean;
-}> = ({ label, targetDoc, currentDoc, setDoc, hasText }) => {
-  const isCurrent = currentDoc === targetDoc;
-  const border = isCurrent ? 'solid #ccc' : 'none';
-  return (
-    <button
-      onClick={() => setDoc(targetDoc)}
-      className={isCurrent ? 'selected' : ''}
-      style={{
-        borderRadius: '.5em .5em 0 0',
-        borderTop: border,
-        borderLeft: border,
-        borderRight: border,
-        padding: '.5em 1em',
-        color: !hasText ? 'var(--color-text-highlighted)' : undefined,
-      }}
-    >
-      {label}
-    </button>
   );
 };
 
