@@ -13,6 +13,7 @@ export type DataField = {
   english: string;
   englishPattern: string;
   french: string;
+  frenchPattern: string;
   level: CoverageLevel;
   var1?: number;
   var2?: number;

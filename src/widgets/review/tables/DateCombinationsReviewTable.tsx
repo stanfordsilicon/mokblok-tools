@@ -4,6 +4,7 @@ import { useDataContext } from '@data/DataContext';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
+import { FormattedDateString } from '../DateString';
 import InputDataCell from '../InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
@@ -32,6 +33,10 @@ function DateCombinationsReviewTable() {
               {datum.instance} {datum.variant}
             </td>
             <SourceDataCell data={datum} />
+            <td>
+              <FormattedDateString entry={datum} />
+            </td>
+            <td>{datum.englishPattern}</td>
             <InputDataCell data={datum} inputWidth="20em" />
           </tr>
         ))}

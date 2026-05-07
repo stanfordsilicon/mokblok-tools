@@ -4,6 +4,9 @@ import { type AlphabetData, type DataField, type RowData } from './DataTypes';
 import extractAlphabetData from './ExtractAlphabet';
 import { loadDatafields } from './LoadDataFields';
 
+export type FindDataField = (query: Partial<DataField>) => DataField | undefined;
+export type FindDataFields = (query: Partial<DataField>) => DataField[];
+
 export type DataContextType = {
   setRows: (lines: RowData[]) => void;
   setExtraText: (text: string) => void;

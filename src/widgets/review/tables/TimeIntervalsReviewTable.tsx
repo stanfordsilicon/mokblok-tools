@@ -6,6 +6,7 @@ import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
 import { sortBy, uniqueBy } from '@shared/setUtils';
 
+import { FormattedDateString } from '../DateString';
 import InputDataCell from '../InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
@@ -34,6 +35,9 @@ function TimeIntervalsReviewTable() {
           <tr key={datum.index}>
             <td>{datum.instance}</td>
             <td>{datum.variant}</td>
+            <td>
+              <FormattedDateString entry={datum} />
+            </td>
             <SourceDataCell data={datum} />
             <InputDataCell data={datum} inputWidth="15em" />
           </tr>

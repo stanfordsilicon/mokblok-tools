@@ -6,6 +6,7 @@ import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
 import { sortBy, uniqueBy } from '@shared/setUtils';
 
+import { FormattedDateString } from '../DateString';
 import InputDataCell from '../InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
@@ -40,6 +41,9 @@ function DateTimeCombinationsReviewTable() {
             <td>{datum.variant}</td>
             <td>{datum.length}</td>
             <SourceDataCell data={datum} />
+            <td>
+              <FormattedDateString entry={datum} />
+            </td>
             <InputDataCell
               data={datum}
               inputWidth={datum.field === 'dateFormats' ? '10em' : '25em'}

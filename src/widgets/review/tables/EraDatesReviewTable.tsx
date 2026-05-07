@@ -4,6 +4,7 @@ import { useDataContext } from '@data/DataContext';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
+import { FormattedDateString } from '../DateString';
 import InputDataCell from '../InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
@@ -47,7 +48,11 @@ function EraDatesReviewTable() {
           {eraIntervals.map((datum) => (
             <tr key={datum.index}>
               <SourceDataCell data={datum} />
-              <InputDataCell data={datum} inputWidth="20em" />
+              <td>
+                <FormattedDateString entry={datum} />
+              </td>
+              <td>{datum.englishPattern}</td>
+              <InputDataCell data={datum} inputWidth="25em" />
             </tr>
           ))}
         </tbody>

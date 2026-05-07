@@ -32,9 +32,10 @@ export async function loadDatafields(): Promise<DataField[] | void> {
           english: cells[9],
           englishPattern: cells[10],
           french: cells[11],
-          level: cells[12].toLowerCase() as CoverageLevel,
-          var1: Number(cells[13].replaceAll(',', '')) || undefined,
-          var2: Number(cells[14].replaceAll(',', '')) || undefined,
+          frenchPattern: cells[12],
+          level: cells[13].toLowerCase() as CoverageLevel,
+          var1: Number(cells[14].replaceAll(',', '')) || undefined,
+          var2: Number(cells[15].replaceAll(',', '')) || undefined,
           index,
         } as DataField;
       });
