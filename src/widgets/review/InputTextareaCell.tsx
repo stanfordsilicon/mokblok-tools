@@ -1,6 +1,7 @@
+import { useTranslation } from 'react-i18next';
+
 import { useDataContext } from '@data/DataContext';
 import type { DataField } from '@data/DataTypes';
-import { useTranslation } from 'react-i18next';
 
 type Props = {
   data?: DataField;

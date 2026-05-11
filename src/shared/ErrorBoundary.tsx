@@ -39,7 +39,7 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
   }
 }
 
-const ErrorFallback: React.FC<{ message: string }> = ({ message }) => {
+const ErrorFallback: React.FC<{ message: string | null }> = ({ message }) => {
   const { t } = useTranslation();
   const fallbackMessage = message || t('errors.unknownError');
   return (
