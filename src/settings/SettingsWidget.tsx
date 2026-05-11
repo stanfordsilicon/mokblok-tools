@@ -37,16 +37,17 @@ const SettingsWidget: React.FC = () => {
       </div>
       <div style={{ display: 'flex', gap: '1em', alignItems: 'center', flexWrap: 'wrap' }}>
         <strong>{t('settings.coverageLevel')}:</strong>
-        {Object.values(CoverageLevel).map((lang) => (
-          <button
-            key={lang}
-            className={lang === coverageLevel ? 'selected' : ''}
-            onClick={() => setCoverageLevel(lang)}
-          >
-            {/* Convert ID to a readable name */}
-            {Object.entries(CoverageLevel).find(([, value]) => value === lang)?.[0]}
-          </button>
-        ))}
+        <select
+          className="settings-select"
+          value={coverageLevel}
+          onChange={(e) => setCoverageLevel(e.target.value as CoverageLevel)}
+        >
+          {Object.entries(CoverageLevel).map(([key, value]) => (
+            <option key={value} value={value}>
+              {t(`coverageLevelName.${key}`, key)}
+            </option>
+          ))}
+        </select>
       </div>
     </div>
   );

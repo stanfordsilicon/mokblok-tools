@@ -67,6 +67,15 @@
         "targetLanguageCode": "Code de langue cible",
         "coverageLevel": "Niveau de couverture"
     },
+    "coverageLevelName": {
+        "Core": "Base",
+        "Basic": "Basique",
+        "BasicIfLocal": "Basique (si local)",
+        "Moderate": "Modere",
+        "ModerateIfLocal": "Modere (si local)",
+        "Modern": "Moderne",
+        "Comprehensive": "Complet"
+    },
     "languageName": {
         "abr": "Abron",
         "bho": "Bhojpuri",
