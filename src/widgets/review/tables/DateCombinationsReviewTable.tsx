@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import { useDataContext } from '@data/DataContext';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
@@ -10,16 +12,17 @@ function DateCombinationsReviewTable() {
   const availableFormats = findDataFields({ subject: 'dates', field: 'availableFormats' }).filter(
     (f) => !f.instance.includes('G') && !f.instance.match(/^h/i),
   );
+  const { t } = useTranslation();
 
   return (
     <table>
       <thead>
         <tr>
-          <th>Components</th>
+          <th>{t('review.components')}</th>
           <th>
             <SourceLanguageLabel />
           </th>
-          <th>Translated</th>
+          <th>{t('review.translated')}</th>
         </tr>
       </thead>
       <tbody>

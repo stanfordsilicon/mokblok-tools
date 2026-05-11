@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { useDataContext } from '@data/DataContext';
 
@@ -16,6 +17,7 @@ function FullReviewTable() {
   const [lengthFilter, setLengthFilter] = React.useState('');
   const [variantFilter, setVariantFilter] = React.useState('');
   const [exampleNumFilter, setExampleNumFilter] = React.useState('');
+  const { t } = useTranslation();
 
   const filteredFields = useMemo(
     () =>
@@ -43,16 +45,16 @@ function FullReviewTable() {
     <table>
       <thead>
         <tr>
-          <th>Subject</th>
-          <th>Field</th>
-          <th>Instance</th>
-          <th>Length</th>
-          <th>Variant</th>
-          <th>Example #</th>
+          <th>{t('review.subject')}</th>
+          <th>{t('review.field')}</th>
+          <th>{t('review.instance')}</th>
+          <th>{t('review.length')}</th>
+          <th>{t('review.variant')}</th>
+          <th>{t('review.exampleNumber')}</th>
           <th>
             <SourceLanguageLabel />
           </th>
-          <th>Translated</th>
+          <th>{t('review.translated')}</th>
         </tr>
         <tr>
           <FilterCell value={subjectFilter} onChange={setSubjectFilter} />

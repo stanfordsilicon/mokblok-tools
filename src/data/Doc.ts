@@ -1,10 +1,10 @@
 export enum Doc {
-  Doc1 = 'Doc 1 (Core Data, Date/Time Patterns)',
-  Doc2_1 = 'Doc 2 part 1 (Translations, Math)',
-  Doc2_2 = 'Doc 2 part 2 (Long Form Text)',
-  Doc2_3 = 'Doc 2 part 3 (Numbers, Geography, Currency & Emojis)',
-  Doc3 = 'Doc 3 (Emoji Guidance)',
-  Doc4 = 'Doc 4 (Digitally Disadvantaged Languages)',
+  Doc1 = 'Doc 1',
+  Doc2_1 = 'Doc 2 part 1',
+  Doc2_2 = 'Doc 2 part 2',
+  Doc2_3 = 'Doc 2 part 3',
+  Doc3 = 'Doc 3',
+  Doc4 = 'Doc 4',
 }
 
 export function getDocFileSuffix(doc: Doc): string {

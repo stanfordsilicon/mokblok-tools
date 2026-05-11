@@ -1,3 +1,4 @@
+import { t } from 'i18next';
 import { useEffect, useState } from 'react';
 
 import { DataPage, DataSection, getSectionsForPage } from '@data/DataSection';
@@ -38,7 +39,7 @@ const ReviewWidget: React.FC = () => {
     <div style={{ display: 'flex', gap: '1em', flexDirection: 'column', width: '1200px' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <div>
-          Set today (using browser date picker):{' '}
+          {t('review.setToday')}:{' '}
           <input
             type="date"
             value={today.toISOString().split('T')[0]}

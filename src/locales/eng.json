@@ -1,0 +1,132 @@
+{
+    "welcome": "Welcome to our application!",
+    "goodbye": "Goodbye!",
+    "greeting": "Hello, {$name}!",
+    "apples": ".input {$value :number}\n.match $value\none   {{{#bold}1{/bold} apple}}\n*     {{{#bold}{$value}{/bold} apples}}",
+    "title": "MokBlok Tools",
+    "allRightsReserved": "All rights reserved.",
+    "input": {
+        "title": "Input",
+        "language": {
+            "title": "Language",
+            "description": "Select a language to load its saved data",
+            "manual": "Or paste your own TSV data below and enter the language code manually",
+            "ctaClear": "Clear language & text"
+        },
+        "files": {
+            "title": "Input Files",
+            "placeholderTsv": "Paste your TSV data here",
+            "placeholderTxt": "Paste your TXT data here",
+            "Doc 1": "Doc 1 (Core Data, Date/Time Patterns)",
+            "Doc 2 part 1": "Doc 2 part 1 (Translations, Math)",
+            "Doc 2 part 2": "Doc 2 part 2 (Long Form Text)",
+            "Doc 2 part 3": "Doc 2 part 3 (Numbers, Geography, Currency & Emojis)",
+            "Doc 3": "Doc 3 (Emoji Guidance)",
+            "Doc 4": "Doc 4 (Digitally Disadvantaged Languages)"
+        },
+        "check": {
+            "Total rows": "Total rows",
+            "Total words": "Total words",
+            "Total characters": "Total characters"
+        }
+    },
+    "review": {
+        "title": "Review",
+        "setToday": "Set today (using browser date picker)",
+        "downloadAllDemos": "Download all demos",
+        "translated": "Translated",
+        "moreLanguages": "More languages",
+        "subject": "Subject",
+        "field": "Field",
+        "instance": "Instance",
+        "length": "Length",
+        "variant": "Variant",
+        "exampleNumber": "Example #",
+        "timezone": {
+            "generic": "Generic, city name",
+            "standard": "standard",
+            "daylight": "daylight"
+        },
+        "components": "Components",
+        "greatestDifference": "Greatest Difference",
+        "start": "Start",
+        "end": "End",
+        "standalone": "Standalone",
+        "inSentence": "In Sentence",
+        "exampleSentence": "Example Sentence",
+        "past": "Past",
+        "present": "Present",
+        "future": "Future",
+        "morning": "Morning",
+        "evening": "Evening",
+        "pattern": "Pattern"
+    },
+    "export": {
+        "title": "Export",
+        "download": "Download TSV"
+    },
+    "settings": {
+        "title": "Settings",
+        "sourceLanguage": "Source language",
+        "targetLanguageCode": "Target language code",
+        "coverageLevel": "Coverage level"
+    },
+    "languageName": {
+        "abr": "Abron",
+        "bho": "Bhojpuri",
+        "eng": "English",
+        "eng_Latf": "English (Fraktur)",
+        "fra": "French",
+        "mlg": "Malagasy"
+    },
+    "dataPage": {
+        "all": "All Pages",
+        "core": "Core",
+        "dateAndTime": "Date & Time",
+        "fullTable": "Full Table",
+        "quantities": "Quantities",
+        "translations": "Translations"
+    },
+    "dataSection": {
+        "allOf": "All {{section}}",
+        "alphabet": "Alphabet",
+        "symbols": "Symbols",
+        "quotes": "Quotes",
+        "maths": "Maths",
+        "dateFields": "Date Fields",
+        "dayPeriods": "Day Periods",
+        "daysOfWeek": "Days of Week",
+        "months": "Months",
+        "quarters": "Quarters",
+        "eras": "Eras",
+        "relativeTime": "Relative Time",
+        "timeCombinations": "Time Combinations",
+        "timeIntervals": "Time Intervals",
+        "dateCombinations": "Date Combinations",
+        "dateIntervals": "Date Intervals",
+        "dateTimeCombinations": "Date Time Combinations",
+        "eraDateCombinations": "Era Date Combinations",
+        "coordinates": "Coordinates",
+        "directionExamples": "Direction Examples",
+        "languageNames": "Language Names",
+        "regions": "Regions",
+        "timezones": "Timezones",
+        "emojis": "Emojis",
+        "techWords": "Tech Words",
+        "paragraphs": "Paragraphs",
+        "cldrTicket": "CLDR Ticket",
+        "fullTable": "Full Table"
+    },
+    "length": {
+        "wide": "Wide",
+        "w": "Wide",
+        "long": "Long",
+        "abbreviated": "Abbreviated",
+        "abbr": "Abbr.",
+        "a": "Abbr.",
+        "short": "Short",
+        "s": "Short",
+        "narrow": "Narrow",
+        "n": "Narrow"
+    }
+}

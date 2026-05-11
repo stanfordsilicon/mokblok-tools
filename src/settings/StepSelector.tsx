@@ -1,26 +1,34 @@
+import { useTranslation } from 'react-i18next';
+
 import StepName from './StepName';
 
 const StepSelector: React.FC<{
   step: StepName;
   setStep: (step: StepName) => void;
 }> = ({ step, setStep }) => {
+  const { t } = useTranslation();
   return (
     <div style={{ display: 'flex', gap: '1em', marginLeft: '1em' }}>
-      <StepButton label="Input" targetStep={StepName.Input} currentStep={step} setStep={setStep} />
       <StepButton
-        label="Review"
+        label={t('input.title')}
+        targetStep={StepName.Input}
+        currentStep={step}
+        setStep={setStep}
+      />
+      <StepButton
+        label={t('review.title')}
         targetStep={StepName.Review}
         currentStep={step}
         setStep={setStep}
       />
       <StepButton
-        label="Export"
+        label={t('export.title')}
         targetStep={StepName.Export}
         currentStep={step}
         setStep={setStep}
       />
       <StepButton
-        label="Settings"
+        label={t('settings.title')}
         targetStep={StepName.Settings}
         currentStep={step}
         setStep={setStep}

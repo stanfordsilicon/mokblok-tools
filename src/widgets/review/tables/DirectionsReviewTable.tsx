@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import { useDataContext } from '@data/DataContext';
 import PluralAmount from '@data/PluralAmount';
 
@@ -14,6 +16,7 @@ function DirectionsReviewTable() {
     findDataFields({ field: 'ordinalMinimalPairs' }),
     (f) => f.instance,
   );
+  const { t } = useTranslation();
 
   return (
     <div>
@@ -23,7 +26,7 @@ function DirectionsReviewTable() {
             <th>
               <SourceLanguageLabel />
             </th>
-            <th>Translated</th>
+            <th>{t('review.translated')}</th>
           </tr>
         </thead>
         <tbody>

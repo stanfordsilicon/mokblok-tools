@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import { useSettings } from '@settings/Settings';
 
 // These languages have pre-saved TSV data that can be loaded with a click.
@@ -16,9 +18,10 @@ type Props = {
 
 const InputLanguageSelector = ({ onClickLanguage, clearInputText }: Props) => {
   const { targetLanguage, setTargetLanguage } = useSettings();
+  const { t } = useTranslation();
   return (
     <div>
-      <div>Select a language to load its saved data:</div>
+      <div>{t('input.language.description')}</div>
       <div style={{ display: 'flex', gap: '1em', alignItems: 'center' }}>
         {Object.values(LoadableLanguage).map((lang: LoadableLanguage) => (
           <button
@@ -30,12 +33,12 @@ const InputLanguageSelector = ({ onClickLanguage, clearInputText }: Props) => {
             }}
           >
             {/* Convert ID to a readable name */}
-            {Object.entries(LoadableLanguage).find(([, value]) => value === lang)?.[0]}
+            {t(`languageName.${lang}`, lang)}
           </button>
         ))}
       </div>
       <div style={{ display: 'flex', gap: '1em', alignItems: 'center', marginTop: '1em' }}>
-        <div>Or paste your own TSV data below and enter the language code manually:</div>
+        <div>{t('input.language.manual')}</div>
         <input
           value={targetLanguage}
           onChange={(e) => setTargetLanguage(e.target.value)}
@@ -52,7 +55,7 @@ const InputLanguageSelector = ({ onClickLanguage, clearInputText }: Props) => {
             setTargetLanguage('');
           }}
         >
-          Clear language & text
+          {t('input.language.ctaClear')}
         </button>
       </div>
     </div>

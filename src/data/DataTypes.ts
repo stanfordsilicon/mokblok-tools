@@ -39,6 +39,7 @@ export type RowData = {
 
 export enum SourceLanguage {
   English = 'eng',
+  EnglishFraktur = 'eng_Latf',
   French = 'fra',
 }
 

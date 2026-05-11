@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import { useDataContext } from '@data/DataContext';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
@@ -16,18 +18,19 @@ function DateTimeCombinationsReviewTable() {
     ),
     (datum) => datum.field + datum.variant + datum.length,
   );
+  const { t } = useTranslation();
 
   return (
     <table>
       <thead>
         <tr>
-          <th>Field</th>
-          <th>Variant</th>
-          <th>Length</th>
+          <th>{t('review.field')}</th>
+          <th>{t('review.variant')}</th>
+          <th>{t('review.length')}</th>
           <th>
             <SourceLanguageLabel />
           </th>
-          <th>Translated</th>
+          <th>{t('review.translated')}</th>
         </tr>
       </thead>
       <tbody>

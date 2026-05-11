@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import { useDataContext } from '@data/DataContext';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
@@ -9,6 +11,7 @@ import SourceDataCell from '../SourceDataCell';
 
 function ErasReviewTable() {
   const { findDataFields } = useDataContext();
+  const { t } = useTranslation();
   const eraFields = findDataFields({ field: 'G' });
   const eraMatrix = matrixBy(
     eraFields,
@@ -23,13 +26,13 @@ function ErasReviewTable() {
           <th colSpan={2}>
             <SourceLanguageLabel />
           </th>
-          <th colSpan={2}>Translated</th>
+          <th colSpan={2}>{t('review.translated')}</th>
         </tr>
         <tr>
-          <th>Wide</th>
-          <th>Abbr.</th>
-          <th>Wide</th>
-          <th>Abbr.</th>
+          <th>{t('length.wide')}</th>
+          <th>{t('length.abbr')}</th>
+          <th>{t('length.wide')}</th>
+          <th>{t('length.abbr')}</th>
         </tr>
       </thead>
       <tbody>

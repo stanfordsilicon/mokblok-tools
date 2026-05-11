@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import { useDataContext } from '@data/DataContext';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
@@ -8,6 +10,7 @@ import InputDataCell from '../InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function TimezonesReviewTable() {
+  const { t } = useTranslation();
   const { findDataFields, getTranslation, findDataField } = useDataContext();
   const timezonesByGroup = groupBy(findDataFields({ subject: 'timezones' }), (f) => f.group);
 
@@ -33,13 +36,13 @@ function TimezonesReviewTable() {
                   <th>
                     <SourceLanguageLabel />
                   </th>
-                  <th colSpan={3}>Translated</th>
+                  <th colSpan={3}>{t('review.translated')}</th>
                 </tr>
                 <tr>
                   <th></th>
-                  <th>Generic, City Name</th>
-                  <th>Standard</th>
-                  <th>Daylight</th>
+                  <th>{t('review.timezone.generic')}</th>
+                  <th>{t('review.timezone.standard')}</th>
+                  <th>{t('review.timezone.daylight')}</th>
                 </tr>
               </thead>
               <tbody>

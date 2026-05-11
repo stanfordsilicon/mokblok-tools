@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { CoverageLevel } from '@data/CoverageLevel';
 import { SourceLanguage } from '@data/DataTypes';
@@ -6,6 +7,7 @@ import { SourceLanguage } from '@data/DataTypes';
 import { useSettings } from './Settings';
 
 const SettingsWidget: React.FC = () => {
+  const { t } = useTranslation();
   const {
     coverageLevel,
     setCoverageLevel,
@@ -18,24 +20,23 @@ const SettingsWidget: React.FC = () => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1em' }}>
       <div style={{ display: 'flex', gap: '1em', alignItems: 'center' }}>
-        Source language:
+        {t('settings.sourceLanguage')}:
         {Object.values(SourceLanguage).map((lang) => (
           <button
             key={lang}
             className={lang === sourceLanguage ? 'selected' : ''}
             onClick={() => setSourceLanguage(lang)}
           >
-            {/* Convert ID to a readable name */}
-            {Object.entries(SourceLanguage).find(([, value]) => value === lang)?.[0]}
+            {t(`languageName.${lang}`, lang)}
           </button>
         ))}
       </div>
       <div style={{ display: 'flex', gap: '1em', alignItems: 'center' }}>
-        Target language code:{' '}
+        {t('settings.targetLanguageCode')}:{' '}
         <input value={targetLanguage} onChange={(e) => setTargetLanguage(e.target.value)} />
       </div>
       <div style={{ display: 'flex', gap: '1em', alignItems: 'center' }}>
-        Coverage Level:
+        {t('settings.coverageLevel')}:
         {Object.values(CoverageLevel).map((lang) => (
           <button
             key={lang}

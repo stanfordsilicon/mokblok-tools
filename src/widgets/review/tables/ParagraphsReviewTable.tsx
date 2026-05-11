@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import { useDataContext } from '@data/DataContext';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
@@ -8,6 +10,7 @@ import InputTextareaCell from '../InputTextareaCell';
 import SourceDataCell from '../SourceDataCell';
 
 function ParagraphsReviewTable() {
+  const { t } = useTranslation();
   const { findDataFields } = useDataContext();
   const paragraphsByGroup = groupBy(findDataFields({ group: 'Paragraphs' }), (f) => f.field);
 
@@ -26,7 +29,7 @@ function ParagraphsReviewTable() {
                 <th>
                   <SourceLanguageLabel />
                 </th>
-                <th>Translated</th>
+                <th>{t('review.translated')}</th>
               </tr>
             </thead>
             <tbody>

@@ -1,0 +1,132 @@
+{
+  "welcome": "𝔚𝔢𝔩𝔠𝔬𝔪𝔢 𝔱𝔬 𝔬𝔲𝔯 𝔞𝔭𝔭𝔩𝔦𝔠𝔞𝔱𝔦𝔬𝔫!",
+  "goodbye": "𝔊𝔬𝔬𝔡𝔟𝔶𝔢!",
+  "greeting": "ℌ𝔢𝔩𝔩𝔬, {$name}!",
+  "apples": ".input {$value :number}\n.match $value\none   {{{#bold}1{/bold} 𝔞𝔭𝔭𝔩𝔢}}\n*     {{{#bold}{$value}{/bold} 𝔞𝔭𝔭𝔩𝔢𝔰}}",
+  "title": "𝔐𝔬𝔨𝔅𝔩𝔬𝔨 𝔗𝔬𝔬𝔩𝔰",
+  "allRightsReserved": "𝔄𝔩𝔩 𝔯𝔦𝔤𝔥𝔱𝔰 𝔯𝔢𝔰𝔢𝔯𝔳𝔢𝔡.",
+  "input": {
+    "title": "ℑ𝔫𝔭𝔲𝔱",
+    "language": {
+      "title": "𝔏𝔞𝔫𝔤𝔲𝔞𝔤𝔢",
+      "description": "𝔖𝔢𝔩𝔢𝔠𝔱 𝔞 𝔩𝔞𝔫𝔤𝔲𝔞𝔤𝔢 𝔱𝔬 𝔩𝔬𝔞𝔡 𝔦𝔱𝔰 𝔰𝔞𝔳𝔢𝔡 𝔡𝔞𝔱𝔞",
+      "manual": "𝔒𝔯 𝔭𝔞𝔰𝔱𝔢 𝔶𝔬𝔲𝔯 𝔬𝔴𝔫 𝔗𝔖𝔙 𝔡𝔞𝔱𝔞 𝔟𝔢𝔩𝔬𝔴 𝔞𝔫𝔡 𝔢𝔫𝔱𝔢𝔯 𝔱𝔥𝔢 𝔩𝔞𝔫𝔤𝔲𝔞𝔤𝔢 𝔠𝔬𝔡𝔢 𝔪𝔞𝔫𝔲𝔞𝔩𝔩𝔶",
+      "ctaClear": "ℭ𝔩𝔢𝔞𝔯 𝔩𝔞𝔫𝔤𝔲𝔞𝔤𝔢 & 𝔱𝔢𝔵𝔱"
+    },
+    "files": {
+      "title": "ℑ𝔫𝔭𝔲𝔱 𝔉𝔦𝔩𝔢𝔰",
+      "placeholderTsv": "𝔓𝔞𝔰𝔱𝔢 𝔶𝔬𝔲𝔯 𝔗𝔖𝔙 𝔡𝔞𝔱𝔞 𝔥𝔢𝔯𝔢",
+      "placeholderTxt": "𝔓𝔞𝔰𝔱𝔢 𝔶𝔬𝔲𝔯 𝔗𝔛𝔗 𝔡𝔞𝔱𝔞 𝔥𝔢𝔯𝔢",
+      "Doc 1": "𝔇𝔬𝔠 1 (ℭ𝔬𝔯𝔢 𝔇𝔞𝔱𝔞, 𝔇𝔞𝔱𝔢/𝔗𝔦𝔪𝔢 𝔓𝔞𝔱𝔱𝔢𝔯𝔫𝔰)",
+      "Doc 2 part 1": "𝔇𝔬𝔠 2 𝔭𝔞𝔯𝔱 1 (𝔗𝔯𝔞𝔫𝔰𝔩𝔞𝔱𝔦𝔬𝔫𝔰, 𝔐𝔞𝔱𝔥)",
+      "Doc 2 part 2": "𝔇𝔬𝔠 2 𝔭𝔞𝔯𝔱 2 (𝔏𝔬𝔫𝔤 𝔉𝔬𝔯𝔪 𝔗𝔢𝔵𝔱)",
+      "Doc 2 part 3": "𝔇𝔬𝔠 2 𝔭𝔞𝔯𝔱 3 (𝔑𝔲𝔪𝔟𝔢𝔯𝔰, 𝔊𝔢𝔬𝔤𝔯𝔞𝔭𝔥𝔶, ℭ𝔲𝔯𝔯𝔢𝔫𝔠𝔶 & 𝔈𝔪𝔬𝔧𝔦𝔰)",
+      "Doc 3": "𝔇𝔬𝔠 3 (𝔈𝔪𝔬𝔧𝔦 𝔊𝔲𝔦𝔡𝔞𝔫𝔠𝔢)",
+      "Doc 4": "𝔇𝔬𝔠 4 (𝔇𝔦𝔤𝔦𝔱𝔞𝔩𝔩𝔶 𝔇𝔦𝔰𝔞𝔡𝔳𝔞𝔫𝔱𝔞𝔤𝔢𝔡 𝔏𝔞𝔫𝔤𝔲𝔞𝔤𝔢𝔰)"
+    },
+    "check": {
+      "Total rows": "𝔗𝔬𝔱𝔞𝔩 𝔯𝔬𝔴𝔰",
+      "Total words": "𝔗𝔬𝔱𝔞𝔩 𝔴𝔬𝔯𝔡𝔰",
+      "Total characters": "𝔗𝔬𝔱𝔞𝔩 𝔠𝔥𝔞𝔯𝔞𝔠𝔱𝔢𝔯𝔰"
+    }
+  },
+  "review": {
+    "title": "ℜ𝔢𝔳𝔦𝔢𝔴",
+    "setToday": "𝔖𝔢𝔱 𝔱𝔬𝔡𝔞𝔶 (𝔲𝔰𝔦𝔫𝔤 𝔟𝔯𝔬𝔴𝔰𝔢𝔯 𝔡𝔞𝔱𝔢 𝔭𝔦𝔠𝔨𝔢𝔯)",
+    "downloadAllDemos": "𝔇𝔬𝔴𝔫𝔩𝔬𝔞𝔡 𝔞𝔩𝔩 𝔡𝔢𝔪𝔬𝔰",
+    "translated": "𝔗𝔯𝔞𝔫𝔰𝔩𝔞𝔱𝔢𝔡",
+    "moreLanguages": "𝔐𝔬𝔯𝔢 𝔩𝔞𝔫𝔤𝔲𝔞𝔤𝔢𝔰",
+    "subject": "𝔖𝔲𝔟𝔧𝔢𝔠𝔱",
+    "field": "𝔉𝔦𝔢𝔩𝔡",
+    "instance": "ℑ𝔫𝔰𝔱𝔞𝔫𝔠𝔢",
+    "length": "𝔏𝔢𝔫𝔤𝔱𝔥",
+    "variant": "𝔙𝔞𝔯𝔦𝔞𝔫𝔱",
+    "exampleNumber": "𝔈𝔵𝔞𝔪𝔭𝔩𝔢 #",
+    "timezone": {
+      "generic": "𝔊𝔢𝔫𝔢𝔯𝔦𝔠, 𝔠𝔦𝔱𝔶 𝔫𝔞𝔪𝔢",
+      "standard": "𝔰𝔱𝔞𝔫𝔡𝔞𝔯𝔡",
+      "daylight": "𝔡𝔞𝔶𝔩𝔦𝔤𝔥𝔱"
+    },
+    "components": "ℭ𝔬𝔪𝔭𝔬𝔫𝔢𝔫𝔱𝔰",
+    "greatestDifference": "𝔊𝔯𝔢𝔞𝔱𝔢𝔰𝔱 𝔇𝔦𝔣𝔣𝔢𝔯𝔢𝔫𝔠𝔢",
+    "start": "𝔖𝔱𝔞𝔯𝔱",
+    "end": "𝔈𝔫𝔡",
+    "standalone": "𝔖𝔱𝔞𝔫𝔡𝔞𝔩𝔬𝔫𝔢",
+    "inSentence": "ℑ𝔫 𝔖𝔢𝔫𝔱𝔢𝔫𝔠𝔢",
+    "exampleSentence": "𝔈𝔵𝔞𝔪𝔭𝔩𝔢 𝔖𝔢𝔫𝔱𝔢𝔫𝔠𝔢",
+    "past": "𝔓𝔞𝔰𝔱",
+    "present": "𝔓𝔯𝔢𝔰𝔢𝔫𝔱",
+    "future": "𝔉𝔲𝔱𝔲𝔯𝔢",
+    "morning": "𝔐𝔬𝔯𝔫𝔦𝔫𝔤",
+    "evening": "𝔈𝔳𝔢𝔫𝔦𝔫𝔤",
+    "pattern": "𝔓𝔞𝔱𝔱𝔢𝔯𝔫"
+  },
+  "export": {
+    "title": "𝔈𝔵𝔭𝔬𝔯𝔱",
+    "download": "𝔇𝔬𝔴𝔫𝔩𝔬𝔞𝔡 𝔗𝔖𝔙"
+  },
+  "settings": {
+    "title": "𝔖𝔢𝔱𝔱𝔦𝔫𝔤𝔰",
+    "sourceLanguage": "𝔖𝔬𝔲𝔯𝔠𝔢 𝔩𝔞𝔫𝔤𝔲𝔞𝔤𝔢",
+    "targetLanguageCode": "𝔗𝔞𝔯𝔤𝔢𝔱 𝔩𝔞𝔫𝔤𝔲𝔞𝔤𝔢 𝔠𝔬𝔡𝔢",
+    "coverageLevel": "ℭ𝔬𝔳𝔢𝔯𝔞𝔤𝔢 𝔩𝔢𝔳𝔢𝔩"
+  },
+  "languageName": {
+    "abr": "𝔄𝔟𝔯𝔬𝔫",
+    "bho": "𝔅𝔥𝔬𝔧𝔭𝔲𝔯𝔦",
+    "eng": "𝔈𝔫𝔤𝔩𝔦𝔰𝔥",
+    "eng_Latf": "𝔈𝔫𝔤𝔩𝔦𝔰𝔥 (𝔉𝔯𝔞𝔨𝔱𝔲𝔯)",
+    "fra": "𝔉𝔯𝔢𝔫𝔠𝔥",
+    "mlg": "𝔐𝔞𝔩𝔞𝔤𝔞𝔰𝔶"
+  },
+  "dataPage": {
+    "all": "𝔄𝔩𝔩 𝔓𝔞𝔤𝔢𝔰",
+    "core": "ℭ𝔬𝔯𝔢",
+    "dateAndTime": "𝔇𝔞𝔱𝔢 & 𝔗𝔦𝔪𝔢",
+    "fullTable": "𝔉𝔲𝔩𝔩 𝔗𝔞𝔟𝔩𝔢",
+    "quantities": "𝔔𝔲𝔞𝔫𝔱𝔦𝔱𝔦𝔢𝔰",
+    "translations": "𝔗𝔯𝔞𝔫𝔰𝔩𝔞𝔱𝔦𝔬𝔫𝔰"
+  },
+  "dataSection": {
+    "allOf": "𝔄𝔩𝔩 {{section}}",
+    "alphabet": "𝔄𝔩𝔭𝔥𝔞𝔟𝔢𝔱",
+    "symbols": "𝔖𝔶𝔪𝔟𝔬𝔩𝔰",
+    "quotes": "𝔔𝔲𝔬𝔱𝔢𝔰",
+    "maths": "𝔐𝔞𝔱𝔥𝔰",
+    "dateFields": "𝔇𝔞𝔱𝔢 𝔉𝔦𝔢𝔩𝔡𝔰",
+    "dayPeriods": "𝔇𝔞𝔶 𝔓𝔢𝔯𝔦𝔬𝔡𝔰",
+    "daysOfWeek": "𝔇𝔞𝔶𝔰 𝔬𝔣 𝔚𝔢𝔢𝔨",
+    "months": "𝔐𝔬𝔫𝔱𝔥𝔰",
+    "quarters": "𝔔𝔲𝔞𝔯𝔱𝔢𝔯𝔰",
+    "eras": "𝔈𝔯𝔞𝔰",
+    "relativeTime": "ℜ𝔢𝔩𝔞𝔱𝔦𝔳𝔢 𝔗𝔦𝔪𝔢",
+    "timeCombinations": "𝔗𝔦𝔪𝔢 ℭ𝔬𝔪𝔟𝔦𝔫𝔞𝔱𝔦𝔬𝔫𝔰",
+    "timeIntervals": "𝔗𝔦𝔪𝔢 ℑ𝔫𝔱𝔢𝔯𝔳𝔞𝔩𝔰",
+    "dateCombinations": "𝔇𝔞𝔱𝔢 ℭ𝔬𝔪𝔟𝔦𝔫𝔞𝔱𝔦𝔬𝔫𝔰",
+    "dateIntervals": "𝔇𝔞𝔱𝔢 ℑ𝔫𝔱𝔢𝔯𝔳𝔞𝔩𝔰",
+    "dateTimeCombinations": "𝔇𝔞𝔱𝔢 𝔗𝔦𝔪𝔢 ℭ𝔬𝔪𝔟𝔦𝔫𝔞𝔱𝔦𝔬𝔫𝔰",
+    "eraDateCombinations": "𝔈𝔯𝔞 𝔇𝔞𝔱𝔢 ℭ𝔬𝔪𝔟𝔦𝔫𝔞𝔱𝔦𝔬𝔫𝔰",
+    "coordinates": "ℭ𝔬𝔬𝔯𝔡𝔦𝔫𝔞𝔱𝔢𝔰",
+    "directionExamples": "𝔇𝔦𝔯𝔢𝔠𝔱𝔦𝔬𝔫 𝔈𝔵𝔞𝔪𝔭𝔩𝔢𝔰",
+    "languageNames": "𝔏𝔞𝔫𝔤𝔲𝔞𝔤𝔢 𝔑𝔞𝔪𝔢𝔰",
+    "regions": "ℜ𝔢𝔤𝔦𝔬𝔫𝔰",
+    "timezones": "𝔗𝔦𝔪𝔢𝔷𝔬𝔫𝔢𝔰",
+    "emojis": "𝔈𝔪𝔬𝔧𝔦𝔰",
+    "techWords": "𝔗𝔢𝔠𝔥 𝔚𝔬𝔯𝔡𝔰",
+    "paragraphs": "𝔓𝔞𝔯𝔞𝔤𝔯𝔞𝔭𝔥𝔰",
+    "cldrTicket": "ℭ𝔏𝔇ℜ 𝔗𝔦𝔠𝔨𝔢𝔱",
+    "fullTable": "𝔉𝔲𝔩𝔩 𝔗𝔞𝔟𝔩𝔢"
+  },
+  "length": {
+    "wide": "𝔚𝔦𝔡𝔢",
+    "w": "𝔚𝔦𝔡𝔢",
+    "long": "𝔏𝔬𝔫𝔤",
+    "abbreviated": "𝔄𝔟𝔟𝔯𝔢𝔳𝔦𝔞𝔱𝔢𝔡",
+    "abbr": "𝔄𝔟𝔟𝔯.",
+    "a": "𝔄𝔟𝔟𝔯.",
+    "short": "𝔖𝔥𝔬𝔯𝔱",
+    "s": "𝔖𝔥𝔬𝔯𝔱",
+    "narrow": "𝔑𝔞𝔯𝔯𝔬𝔴",
+    "n": "𝔑𝔞𝔯𝔯𝔬𝔴"
+  }
+}

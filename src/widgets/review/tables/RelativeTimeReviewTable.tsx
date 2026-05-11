@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import { useDataContext } from '@data/DataContext';
 import { DateField } from '@data/DateField';
 
@@ -9,6 +11,7 @@ import InputDataCell from '../InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function RelativeTimeReviewTable() {
+  const { t } = useTranslation();
   const { findDataFields } = useDataContext();
   const relativeTimeFields = findDataFields({ subject: 'dates' }).filter(
     (f) => ['-1', '0', '1'].includes(f.instance) && f.length === '',
@@ -28,17 +31,17 @@ function RelativeTimeReviewTable() {
             <SourceLanguageLabel />
           </th>
           <th colSpan={3} style={{ textAlign: 'center' }}>
-            Translated
+            {t('review.translated')}
           </th>
         </tr>
         <tr>
           <th></th>
-          <th>Past</th>
-          <th>Present</th>
-          <th>Future</th>
-          <th>Past</th>
-          <th>Present</th>
-          <th>Future</th>
+          <th>{t('review.past')}</th>
+          <th>{t('review.present')}</th>
+          <th>{t('review.future')}</th>
+          <th>{t('review.past')}</th>
+          <th>{t('review.present')}</th>
+          <th>{t('review.future')}</th>
         </tr>
       </thead>
       <tbody>

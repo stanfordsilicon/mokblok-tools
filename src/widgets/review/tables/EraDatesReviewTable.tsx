@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import { useDataContext } from '@data/DataContext';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
@@ -10,6 +12,7 @@ function EraDatesReviewTable() {
   const allEraFields = findDataFields({ subject: 'dates' }).filter((f) => f.instance.includes('G'));
   const availableEraDates = allEraFields.filter((f) => f.field === 'availableFormats');
   const eraIntervals = allEraFields.filter((f) => f.field === 'intervalFormats');
+  const { t } = useTranslation();
 
   return (
     <div>
@@ -21,7 +24,7 @@ function EraDatesReviewTable() {
             <th>
               <SourceLanguageLabel />
             </th>
-            <th>Translated</th>
+            <th>{t('review.translated')}</th>
           </tr>
         </thead>
         <tbody>

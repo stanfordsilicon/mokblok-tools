@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import { useDataContext } from '@data/DataContext';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
@@ -6,6 +8,7 @@ import InputDataCell from '../InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function SymbolsReviewTable() {
+  const { t } = useTranslation();
   const { findDataFields } = useDataContext();
   const symbolsWithExamples = findDataFields({ group: 'Symbols', field: 'symbols' });
   const symbols = symbolsWithExamples.filter((f) => f.exampleNum === '0');
@@ -19,7 +22,7 @@ function SymbolsReviewTable() {
             <th>
               <SourceLanguageLabel />
             </th>
-            <th>Translated</th>
+            <th>{t('review.translated')}</th>
           </tr>
         </thead>
         <tbody>
@@ -34,11 +37,11 @@ function SymbolsReviewTable() {
       <table>
         <thead>
           <tr>
-            <th>Components</th>
+            <th>{t('review.components')}</th>
             <th>
               <SourceLanguageLabel />
             </th>
-            <th>Translated</th>
+            <th>{t('review.translated')}</th>
           </tr>
         </thead>
         <tbody>

@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import { useDataContext } from '@data/DataContext';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
@@ -9,6 +11,7 @@ import InputTextareaCell from '../InputTextareaCell';
 import SourceDataCell from '../SourceDataCell';
 
 function QuotesReviewTable() {
+  const { t } = useTranslation();
   const { findDataFields } = useDataContext();
   const quotes = sortBy(findDataFields({ group: 'Quotes' }), (a) => a.length);
   const quotesMatrix = matrixBy(
@@ -26,7 +29,7 @@ function QuotesReviewTable() {
             <th>
               <SourceLanguageLabel />
             </th>
-            <th>Translated</th>
+            <th>{t('review.translated')}</th>
           </tr>
         </thead>
         <tbody>
@@ -41,18 +44,18 @@ function QuotesReviewTable() {
       <table>
         <thead>
           <tr>
-            <th>Length</th>
+            <th>{t('review.length')}</th>
             <th colSpan={2}>
               <SourceLanguageLabel />
             </th>
-            <th colSpan={2}>Translated</th>
+            <th colSpan={2}>{t('review.translated')}</th>
           </tr>
           <tr>
             <th></th>
-            <th>Start</th>
-            <th>End</th>
-            <th>Start</th>
-            <th>End</th>
+            <th>{t('review.start')}</th>
+            <th>{t('review.end')}</th>
+            <th>{t('review.start')}</th>
+            <th>{t('review.end')}</th>
           </tr>
         </thead>
         <tbody>

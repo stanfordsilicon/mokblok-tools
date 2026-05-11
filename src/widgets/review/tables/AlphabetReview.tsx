@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { useDataContext } from '@data/DataContext';
 import { useLinguisticsContext } from '@data/LinguisticsContext';
@@ -16,11 +17,12 @@ const AlphabetReview: React.FC = () => {
   const { findDataFields, getTranslation } = useDataContext();
   const { numberingSystems } = useLinguisticsContext();
   const alphabetFields = findDataFields({ group: 'Alphabet' });
+  const { t } = useTranslation();
 
   return (
     <div>
       <InferredCharacters />
-      <h3>Translated</h3>
+      <h3>{t('review.translated')}</h3>
       <table>
         <thead>
           <tr>
@@ -28,7 +30,7 @@ const AlphabetReview: React.FC = () => {
             <th>
               <SourceLanguageLabel />
             </th>
-            <th>Translated</th>
+            <th>{t('review.translated')}</th>
           </tr>
         </thead>
         <tbody>
@@ -52,7 +54,7 @@ const AlphabetReview: React.FC = () => {
             <th>
               <SourceLanguageLabel />
             </th>
-            <th>Translated</th>
+            <th>{t('review.translated')}</th>
             <th>Digits</th>
           </tr>
         </thead>

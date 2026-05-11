@@ -1,5 +1,6 @@
+import { useTranslation } from 'react-i18next';
+
 import { DataPage, DataSection, getSectionsForPage } from '@data/DataSection';
-import DataSectionLabel, { DataPageLabel } from '@data/DataSectionLabel';
 
 import Tab from '@shared/Tab';
 
@@ -10,6 +11,7 @@ const DataTypeSelector: React.FC<{
   setSection: (dataType: DataSection | undefined) => void;
 }> = ({ selectedPage, setPage, selectedSection, setSection }) => {
   const sections = selectedPage ? getSectionsForPage(selectedPage) : Object.values(DataSection);
+  const { t } = useTranslation();
 
   return (
     <div>
@@ -22,11 +24,16 @@ const DataTypeSelector: React.FC<{
           marginBottom: '0.5em',
         }}
       >
-        <Tab label="All Pages" option={undefined} selected={selectedPage} setSelected={setPage} />
+        <Tab
+          label={t('dataPage.all')}
+          option={undefined}
+          selected={selectedPage}
+          setSelected={setPage}
+        />
         {Object.values(DataPage).map((page) => (
           <Tab
             key={page}
-            label={<DataPageLabel dataPage={page} />}
+            label={t(`dataPage.${page}`)}
             option={page}
             selected={selectedPage}
             setSelected={setPage}
@@ -44,7 +51,9 @@ const DataTypeSelector: React.FC<{
       >
         {selectedPage !== DataPage.FullTable && (
           <Tab
-            label={<>All {selectedPage ? <DataPageLabel dataPage={selectedPage} /> : 'Sections'}</>}
+            label={t('dataSection.allOf', {
+              section: t(`dataPage.${selectedPage}`),
+            })}
             option={undefined}
             selected={selectedSection}
             setSelected={setSection}
@@ -53,7 +62,7 @@ const DataTypeSelector: React.FC<{
         {sections.map((dataType) => (
           <Tab
             key={dataType}
-            label={<DataSectionLabel dataSection={dataType} />}
+            label={t(`dataSection.${dataType}`)}
             option={dataType}
             selected={selectedSection}
             setSelected={setSection}

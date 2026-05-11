@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { useDataContext } from '@data/DataContext';
 import { Doc, getDocFileSuffix, getDocFileType } from '@data/Doc';
@@ -62,12 +63,13 @@ const InputBody = () => {
   useEffect(() => {
     setExtraText(texts[Doc.Doc3].value + texts[Doc.Doc4].value);
   }, [texts[Doc.Doc3].value, texts[Doc.Doc4].value, setExtraText]);
+  const { t } = useTranslation();
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '.5em' }}>
-      <h3 style={{ margin: 0 }}>Language</h3>
+      <h3 style={{ margin: 0 }}>{t('input.language.title')}</h3>
       <InputLanguageSelector onClickLanguage={loadLanguageData} clearInputText={clearInputText} />
-      <h3 style={{ margin: 0 }}>Input Files</h3>
+      <h3 style={{ margin: 0 }}>{t('input.files.title')}</h3>
       <InputDocSelector curDoc={currentDoc} setDoc={(doc) => setCurrentDoc(doc)} texts={texts} />
       <InputTextArea doc={currentDoc} texts={texts} />
       <InputCheck doc={currentDoc} texts={texts} />

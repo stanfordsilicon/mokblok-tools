@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import { useDataContext } from '@data/DataContext';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
@@ -8,6 +10,7 @@ import InputDataCell from '../InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function TimeCombinationsReviewTable() {
+  const { t } = useTranslation();
   const { findDataFields } = useDataContext();
   const timesArray = findDataFields({ group: 'Times' });
   const timesMatrix = matrixBy(
@@ -25,16 +28,16 @@ function TimeCombinationsReviewTable() {
             <SourceLanguageLabel />
           </th>
           <th colSpan={3} style={{ textAlign: 'center' }}>
-            Translated
+            {t('review.translated')}
           </th>
         </tr>
         <tr>
           <th></th>
-          <th>Morning</th>
-          <th>Evening</th>
-          <th>Pattern</th>
-          <th>Morning</th>
-          <th>Evening</th>
+          <th>{t('review.morning')}</th>
+          <th>{t('review.evening')}</th>
+          <th>{t('review.pattern')}</th>
+          <th>{t('review.morning')}</th>
+          <th>{t('review.evening')}</th>
         </tr>
       </thead>
       <tbody>

@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import { useDataContext } from '@data/DataContext';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
@@ -8,10 +10,8 @@ import InputDataCell from '../InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function TimeIntervalsReviewTable() {
+  const { t } = useTranslation();
   const { findDataFields } = useDataContext();
-  // const intervalFormats = findDataFields({ subject: 'dates', field: 'intervalFormats' }).filter(
-  //   (f) => f.instance.match(/^h/i),
-  // );
   const intervalFormats = uniqueBy(
     sortBy(findDataFields({ group: 'TimeIntervals' }), (f) => f.instance),
     (f) => f.english,
@@ -21,12 +21,12 @@ function TimeIntervalsReviewTable() {
     <table>
       <thead>
         <tr>
-          <th>Components</th>
-          <th>Greatest Difference</th>
+          <th>{t('review.components')}</th>
+          <th>{t('review.greatestDifference')}</th>
           <th style={{ textAlign: 'center' }}>
             <SourceLanguageLabel />
           </th>
-          <th style={{ textAlign: 'center' }}>Translated</th>
+          <th style={{ textAlign: 'center' }}>{t('review.translated')}</th>
         </tr>
       </thead>
       <tbody>

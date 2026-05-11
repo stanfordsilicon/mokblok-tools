@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import { useDataContext } from '@data/DataContext';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
@@ -6,6 +8,7 @@ import InputDataCell from '../InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function RegionsReviewTable() {
+  const { t } = useTranslation();
   const { findDataFields } = useDataContext();
   const regions = findDataFields({ group: 'Regions' });
 
@@ -17,7 +20,7 @@ function RegionsReviewTable() {
             <th>
               <SourceLanguageLabel />
             </th>
-            <th>Translated</th>
+            <th>{t('review.translated')}</th>
           </tr>
         </thead>
         <tbody>

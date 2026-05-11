@@ -9,15 +9,19 @@
     "lint": "eslint .",
     "lint-fix": "eslint . --fix",
     "preview": "vite preview",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "generate:eng-latf": "node scripts/generate-eng-latf.mjs"
   },
   "dependencies": {
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-prettier": "^5.5.5",
     "eslint-plugin-react": "^7.37.5",
+    "i18next": "^25.10.10",
+    "mf2react": "^0.1.12",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-error-boundary": "^6.1.0",
+    "react-i18next": "^16.6.6",
     "react-router-dom": "^7.13.0"
   },
   "devDependencies": {

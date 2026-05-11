@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import { useDataContext } from '@data/DataContext';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
@@ -23,6 +25,7 @@ const DayPeriodsReviewTable = () => {
     (f) => f.instance,
     (f) => f.variant + f.exampleNum,
   );
+  const { t } = useTranslation();
 
   return (
     <>
@@ -33,14 +36,14 @@ const DayPeriodsReviewTable = () => {
               <SourceLanguageLabel />
             </th>
             <th colSpan={2} style={{ textAlign: 'center' }}>
-              Translated
+              {t('review.translated')}
             </th>
           </tr>
           <tr>
-            <th>Wide</th>
-            <th>Narrow</th>
-            <th>Wide</th>
-            <th>Narrow</th>
+            <th>{t('length.wide')}</th>
+            <th>{t('length.narrow')}</th>
+            <th>{t('length.wide')}</th>
+            <th>{t('length.narrow')}</th>
           </tr>
         </thead>
         <tbody>
@@ -64,16 +67,16 @@ const DayPeriodsReviewTable = () => {
               <SourceLanguageLabel />
             </th>
             <th colSpan={3} style={{ textAlign: 'center' }}>
-              Translated
+              {t('review.translated')}
             </th>
           </tr>
           <tr>
-            <th>Standalone</th>
-            <th>In Sentence</th>
-            <th>Example Sentence</th>
-            <th>Standalone</th>
-            <th>In Sentence</th>
-            <th>Example Sentence</th>
+            <th>{t('review.standalone')}</th>
+            <th>{t('review.inSentence')}</th>
+            <th>{t('review.exampleSentence')}</th>
+            <th>{t('review.standalone')}</th>
+            <th>{t('review.inSentence')}</th>
+            <th>{t('review.exampleSentence')}</th>
           </tr>
         </thead>
         <tbody>

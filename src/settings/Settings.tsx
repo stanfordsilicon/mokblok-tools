@@ -1,7 +1,9 @@
-import { createContext, useContext, useMemo, useState } from 'react';
+import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 
 import { CoverageLevel } from '@data/CoverageLevel';
 import { SourceLanguage } from '@data/DataTypes';
+
+import i18n from '../i18n';
 
 import useStoredParams from './useStoredParams';
 
@@ -80,6 +82,12 @@ export const SettingsProvider: React.FC<{
     if (targetLanguage === 'aze') return 'az';
     return targetLanguage;
   }, [targetLanguage]);
+  useEffect(() => {
+    const changeLanguage = async () => {
+      await i18n.changeLanguage(sourceLanguage);
+    };
+    void changeLanguage();
+  }, [sourceLanguage]);
 
   const settingsContext: SettingsContextType = {
     setCoverageLevel,

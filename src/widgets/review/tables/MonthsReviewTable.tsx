@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import { useDataContext } from '@data/DataContext';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
@@ -8,6 +10,7 @@ import InputDataCell from '../InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function MonthsReviewTable() {
+  const { t } = useTranslation();
   const { findDataFields } = useDataContext();
   const monthFields = findDataFields({ field: 'M' }).filter(
     (f) => f.length !== '' && f.instance !== '',
@@ -26,16 +29,16 @@ function MonthsReviewTable() {
             <SourceLanguageLabel />
           </th>
           <th colSpan={3} style={{ textAlign: 'center' }}>
-            Translated
+            {t('review.translated')}
           </th>
         </tr>
         <tr>
-          <th>Wide</th>
-          <th title="Abbreviated">Abbr.</th>
-          <th>Narrow</th>
-          <th>Wide</th>
-          <th title="Abbreviated">Abbr.</th>
-          <th>Narrow</th>
+          <th>{t('length.wide')}</th>
+          <th title={t('review.abbreviated')}>{t('review.abbr')}</th>
+          <th>{t('length.narrow')}</th>
+          <th>{t('length.wide')}</th>
+          <th title={t('review.abbreviated')}>{t('review.abbr')}</th>
+          <th>{t('length.narrow')}</th>
         </tr>
       </thead>
       <tbody>

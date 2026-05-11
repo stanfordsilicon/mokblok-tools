@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { getDocFileType, type Doc } from '@data/Doc';
 
@@ -11,6 +12,7 @@ type Props = {
 
 const InputTextArea: React.FC<Props> = ({ doc, texts }) => {
   const { value: inputText, setValue: setInputText } = texts[doc];
+  const { t } = useTranslation();
 
   return (
     <textarea
@@ -22,7 +24,11 @@ const InputTextArea: React.FC<Props> = ({ doc, texts }) => {
         tabSize: 16,
         whiteSpace: 'nowrap',
       }}
-      placeholder={`Paste ${getDocFileType(doc).toUpperCase()} data here...`}
+      placeholder={
+        getDocFileType(doc) === 'tsv'
+          ? t('input.files.placeholderTsv')
+          : t('input.files.placeholderTxt')
+      }
       value={inputText}
       onChange={(e) => setInputText(e.target.value)}
     />

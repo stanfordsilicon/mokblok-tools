@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import { useDataContext } from '@data/DataContext';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
@@ -17,6 +19,7 @@ function DaysOfWeekReviewTable() {
     (f) => f.instance,
     (f) => f.length,
   );
+  const { t } = useTranslation();
 
   return (
     <table style={{ height: 'fit-content' }}>
@@ -26,18 +29,18 @@ function DaysOfWeekReviewTable() {
             <SourceLanguageLabel />
           </th>
           <th colSpan={4} style={{ textAlign: 'center' }}>
-            Translated
+            {t('review.translated')}
           </th>
         </tr>
         <tr>
-          <th>Wide</th>
-          <th title="Abbreviated">Abbr.</th>
-          <th>Short</th>
-          <th>Narrow</th>
-          <th>Wide</th>
-          <th title="Abbreviated">Abbr.</th>
-          <th>Short</th>
-          <th>Narrow</th>
+          <th>{t('length.wide')}</th>
+          <th title={t('length.abbreviated')}>{t('length.abbr')}</th>
+          <th>{t('length.short')}</th>
+          <th>{t('length.narrow')}</th>
+          <th>{t('length.wide')}</th>
+          <th title={t('length.abbreviated')}>{t('length.abbr')}</th>
+          <th>{t('length.short')}</th>
+          <th>{t('length.narrow')}</th>
         </tr>
       </thead>
       <tbody>

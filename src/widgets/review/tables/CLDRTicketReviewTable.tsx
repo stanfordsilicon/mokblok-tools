@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import { useDataContext } from '@data/DataContext';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
@@ -8,6 +10,7 @@ import SourceDataCell from '../SourceDataCell';
 function CLDRTicketReviewTable() {
   const { findDataFields } = useDataContext();
   const sentences = findDataFields({ group: 'CLDR Ticket' });
+  const { t } = useTranslation();
 
   function getHeight(english: string) {
     return Math.max(english.length / 50, 1.5) + 'em';
@@ -21,7 +24,7 @@ function CLDRTicketReviewTable() {
             <th>
               <SourceLanguageLabel />
             </th>
-            <th>Translated</th>
+            <th>{t('review.translated')}</th>
           </tr>
         </thead>
         <tbody>

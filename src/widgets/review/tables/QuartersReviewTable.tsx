@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import { useDataContext } from '@data/DataContext';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
@@ -8,6 +10,7 @@ import InputDataCell from '../InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function QuartersReviewTable() {
+  const { t } = useTranslation();
   const { findDataFields } = useDataContext();
   const quarterFields = findDataFields({ field: 'q' }).filter((f) => f.instance !== '');
   const quarterMatrix = matrixBy(
@@ -23,13 +26,13 @@ function QuartersReviewTable() {
           <th colSpan={2}>
             <SourceLanguageLabel />
           </th>
-          <th colSpan={2}>Translation</th>
+          <th colSpan={2}>{t('review.translated')}</th>
         </tr>
         <tr>
-          <th>Wide</th>
-          <th>Abbr.</th>
-          <th>Wide</th>
-          <th>Abbr.</th>
+          <th>{t('length.wide')}</th>
+          <th title={t('review.abbreviated')}>{t('review.abbr')}</th>
+          <th>{t('length.wide')}</th>
+          <th title={t('review.abbreviated')}>{t('review.abbr')}</th>
         </tr>
       </thead>
       <tbody>

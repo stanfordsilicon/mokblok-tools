@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import { useDataContext } from '@data/DataContext';
 
 import { useSettings } from '@settings/Settings';
@@ -7,6 +9,7 @@ import InputDataCell from '../InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function LanguageNamesReviewTable() {
+  const { t } = useTranslation();
   const { targetLanguageBCP } = useSettings();
   const { findDataFields } = useDataContext();
   const languageNameFields = findDataFields({ group: 'Language Names' });
@@ -29,7 +32,7 @@ function LanguageNamesReviewTable() {
             <th>
               <SourceLanguageLabel />
             </th>
-            <th>Translated</th>
+            <th>{t('review.translated')}</th>
           </tr>
         </thead>
         <tbody>
@@ -49,7 +52,7 @@ function LanguageNamesReviewTable() {
           ))}
           <tr>
             <th colSpan={2} style={{ textAlign: 'center' }}>
-              More Languages
+              {t('review.moreLanguages')}
             </th>
           </tr>
           {secondaryLanguageNameFields.map((row) => (

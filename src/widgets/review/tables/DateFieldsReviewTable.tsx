@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import { useDataContext } from '@data/DataContext';
 import { DateField } from '@data/DateField';
 
@@ -16,6 +18,7 @@ const DateFieldsReviewTable: React.FC = () => {
     (f) => f.field,
     (f) => f.length,
   );
+  const { t } = useTranslation();
 
   return (
     <table>
@@ -25,16 +28,16 @@ const DateFieldsReviewTable: React.FC = () => {
             <SourceLanguageLabel />
           </th>
           <th colSpan={3} style={{ textAlign: 'center' }}>
-            Translated
+            {t('review.translated')}
           </th>
         </tr>
         <tr>
-          <th>Wide</th>
-          <th>Short</th>
-          <th>Narrow</th>
-          <th>Wide</th>
-          <th>Short</th>
-          <th>Narrow</th>
+          <th>{t('length.wide')}</th>
+          <th>{t('length.short')}</th>
+          <th>{t('length.narrow')}</th>
+          <th>{t('length.wide')}</th>
+          <th>{t('length.short')}</th>
+          <th>{t('length.narrow')}</th>
         </tr>
       </thead>
       <tbody>

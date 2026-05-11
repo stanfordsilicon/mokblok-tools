@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { Doc } from '@data/Doc';
 
@@ -12,6 +13,7 @@ type Props = {
   texts: Record<Doc, UseStoredParamsReturn<string>>;
 };
 const InputCheck: React.FC<Props> = ({ doc, texts }) => {
+  const { t } = useTranslation();
   const lines = texts[doc].value
     .split('\n')
     .map((l) => l.trim())
@@ -20,16 +22,16 @@ const InputCheck: React.FC<Props> = ({ doc, texts }) => {
     <table style={{ width: 'fit-content' }}>
       <tbody>
         <CheckRow
-          title="Total rows"
+          title={t('input.check.Total rows')}
           count={lines.length}
           denominator={getExpectedNumberOfLines(doc)}
         />
         <CheckRow
-          title="Total words"
+          title={t('input.check.Total words')}
           count={lines.reduce((sum, line) => sum + line.split(/\s+/).length, 0)}
         />
         <CheckRow
-          title="Total characters"
+          title={t('input.check.Total characters')}
           count={lines.reduce((sum, line) => sum + line.length, 0)}
         />
         {doc === Doc.Doc1 && <Doc1Analysis />}

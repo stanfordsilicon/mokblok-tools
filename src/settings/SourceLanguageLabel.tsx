@@ -1,10 +1,11 @@
-import { SourceLanguage } from '@data/DataTypes';
+import { useTranslation } from 'react-i18next';
 
 import { useSettings } from './Settings';
 
 function SourceLanguageLabel() {
   const { sourceLanguage } = useSettings();
-  return Object.entries(SourceLanguage).find(([, value]) => value === sourceLanguage)?.[0];
+  const { t } = useTranslation();
+  return <>{t(`languageName.${sourceLanguage}`)}</>;
 }
 
 export default SourceLanguageLabel;

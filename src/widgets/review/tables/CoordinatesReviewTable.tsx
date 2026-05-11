@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import { useDataContext } from '@data/DataContext';
 import { CardinalDirection } from '@data/DataTypes';
 
@@ -16,6 +18,7 @@ function CoordinatesReviewTable() {
     (f) => f.instance,
     (f) => f.length,
   );
+  const { t } = useTranslation();
 
   return (
     <div>
@@ -25,13 +28,13 @@ function CoordinatesReviewTable() {
             <th colSpan={2}>
               <SourceLanguageLabel />
             </th>
-            <th colSpan={2}>Translated</th>
+            <th colSpan={2}>{t('review.translated')}</th>
           </tr>
           <tr>
-            <th>Long</th>
-            <th>Narrow</th>
-            <th>Long</th>
-            <th>Narrow</th>
+            <th>{t('length.long')}</th>
+            <th>{t('length.narrow')}</th>
+            <th>{t('length.long')}</th>
+            <th>{t('length.narrow')}</th>
           </tr>
         </thead>
         <tbody>

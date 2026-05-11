@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import { useDataContext } from '@data/DataContext';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
@@ -10,6 +12,7 @@ import SourceDataCell from '../SourceDataCell';
 const symbols = ['decimal', 'percentSign', 'plusSign', 'minusSign', 'multiplication', 'division'];
 
 function MathsReviewTable() {
+  const { t } = useTranslation();
   const { findDataFields } = useDataContext();
   const maths = sortBy(
     sortBy(findDataFields({ group: 'Maths' }), (a) => a.length),
@@ -26,7 +29,7 @@ function MathsReviewTable() {
             <th>
               <SourceLanguageLabel />
             </th>
-            <th>Translated</th>
+            <th>{t('review.translated')}</th>
           </tr>
         </thead>
         <tbody>
@@ -41,11 +44,11 @@ function MathsReviewTable() {
       <table>
         <thead>
           <tr>
-            <th>Components</th>
+            <th>{t('review.components')}</th>
             <th>
               <SourceLanguageLabel />
             </th>
-            <th>Translated</th>
+            <th>{t('review.translated')}</th>
           </tr>
         </thead>
         <tbody>

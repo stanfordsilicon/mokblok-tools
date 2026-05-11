@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import { Doc } from '@data/Doc';
 
 import type { UseStoredParamsReturn } from '@settings/useStoredParams';
@@ -9,6 +11,7 @@ const InputDocSelector: React.FC<{
   setDoc: (doc: Doc) => void;
   texts: Record<Doc, UseStoredParamsReturn<string>>;
 }> = ({ curDoc, setDoc, texts }) => {
+  const { t } = useTranslation();
   return (
     <div
       style={{
@@ -22,7 +25,7 @@ const InputDocSelector: React.FC<{
       {Object.values(Doc).map((doc) => (
         <Tab
           key={doc}
-          label={doc}
+          label={t(`input.files.${doc}`)}
           option={doc}
           selected={curDoc}
           setSelected={setDoc}
