@@ -5,7 +5,8 @@ import StepName from './StepName';
 const StepSelector: React.FC<{
   step: StepName;
   setStep: (step: StepName) => void;
-}> = ({ step, setStep }) => {
+  toggleSettings?: () => void;
+}> = ({ step, setStep, toggleSettings }) => {
   const { t } = useTranslation();
   return (
     <div style={{ display: 'flex', gap: '1em', marginLeft: '1em' }}>
@@ -27,12 +28,9 @@ const StepSelector: React.FC<{
         currentStep={step}
         setStep={setStep}
       />
-      <StepButton
-        label={t('settings.title')}
-        targetStep={StepName.Settings}
-        currentStep={step}
-        setStep={setStep}
-      />
+      <button onClick={toggleSettings} style={{ marginLeft: 'auto', padding: '.5em 1em' }}>
+        {t('settings.title')} ⚙
+      </button>
     </div>
   );
 };

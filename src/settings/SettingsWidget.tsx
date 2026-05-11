@@ -19,8 +19,8 @@ const SettingsWidget: React.FC = () => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1em' }}>
-      <div style={{ display: 'flex', gap: '1em', alignItems: 'center' }}>
-        {t('settings.sourceLanguage')}:
+      <div style={{ display: 'flex', gap: '1em', alignItems: 'center', flexWrap: 'wrap' }}>
+        <strong>{t('settings.sourceLanguage')}:</strong>
         {Object.values(SourceLanguage).map((lang) => (
           <button
             key={lang}
@@ -32,11 +32,11 @@ const SettingsWidget: React.FC = () => {
         ))}
       </div>
       <div style={{ display: 'flex', gap: '1em', alignItems: 'center' }}>
-        {t('settings.targetLanguageCode')}:{' '}
+        <strong>{t('settings.targetLanguageCode')}:</strong>{' '}
         <input value={targetLanguage} onChange={(e) => setTargetLanguage(e.target.value)} />
       </div>
-      <div style={{ display: 'flex', gap: '1em', alignItems: 'center' }}>
-        {t('settings.coverageLevel')}:
+      <div style={{ display: 'flex', gap: '1em', alignItems: 'center', flexWrap: 'wrap' }}>
+        <strong>{t('settings.coverageLevel')}:</strong>
         {Object.values(CoverageLevel).map((lang) => (
           <button
             key={lang}
