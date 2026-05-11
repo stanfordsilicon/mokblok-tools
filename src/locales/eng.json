@@ -1,8 +1,4 @@
 {
-    "welcome": "Welcome to our application!",
-    "goodbye": "Goodbye!",
-    "greeting": "Hello, {$name}!",
-    "apples": ".input {$value :number}\n.match $value\none   {{{#bold}1{/bold} apple}}\n*     {{{#bold}{$value}{/bold} apples}}",
     "title": "MokBlok Tools",
     "allRightsReserved": "All rights reserved.",
     "input": {
@@ -77,7 +73,9 @@
         "eng": "English",
         "eng_Latf": "English (Fraktur)",
         "fra": "French",
-        "mlg": "Malagasy"
+        "mlg": "Malagasy",
+        "spa": "Spanish",
+        "ita": "Italian"
     },
     "dataPage": {
         "all": "All Pages",

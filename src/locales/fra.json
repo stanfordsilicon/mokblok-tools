@@ -1,1 +1,130 @@
-{}
+{
+    "title": "Outils MokBlok",
+    "allRightsReserved": "Tous droits réservés.",
+    "input": {
+        "title": "Entrée",
+        "language": {
+            "title": "Langue",
+            "description": "Sélectionnez une langue pour charger ses données enregistrées",
+            "manual": "Ou collez vos propres données TSV ci-dessous et saisissez manuellement le code de langue",
+            "ctaClear": "Effacer la langue et le texte"
+        },
+        "files": {
+            "title": "Fichiers d’entrée",
+            "placeholderTsv": "Collez vos données TSV ici",
+            "placeholderTxt": "Collez vos données TXT ici",
+            "Doc 1": "Doc 1 (Données de base, formats de date et d’heure)",
+            "Doc 2 part 1": "Doc 2 partie 1 (Traductions, mathématiques)",
+            "Doc 2 part 2": "Doc 2 partie 2 (Texte long)",
+            "Doc 2 part 3": "Doc 2 partie 3 (Nombres, géographie, devises et émojis)",
+            "Doc 3": "Doc 3 (Guide des émojis)",
+            "Doc 4": "Doc 4 (Langues numériquement défavorisées)"
+        },
+        "check": {
+            "Total rows": "Nombre total de lignes",
+            "Total words": "Nombre total de mots",
+            "Total characters": "Nombre total de caractères"
+        }
+    },
+    "review": {
+        "title": "Révision",
+        "setToday": "Définir aujourd’hui (à l’aide du sélecteur de date du navigateur)",
+        "downloadAllDemos": "Télécharger toutes les démos",
+        "translated": "Traduit",
+        "moreLanguages": "Plus de langues",
+        "subject": "Sujet",
+        "field": "Champ",
+        "instance": "Instance",
+        "length": "Longueur",
+        "variant": "Variante",
+        "exampleNumber": "Exemple n°",
+        "timezone": {
+            "generic": "Générique, nom de ville",
+            "standard": "standard",
+            "daylight": "heure d’été"
+        },
+        "components": "Composants",
+        "greatestDifference": "Plus grande différence",
+        "start": "Début",
+        "end": "Fin",
+        "standalone": "Autonome",
+        "inSentence": "Dans une phrase",
+        "exampleSentence": "Phrase d’exemple",
+        "past": "Passé",
+        "present": "Présent",
+        "future": "Futur",
+        "morning": "Matin",
+        "evening": "Soir",
+        "pattern": "Modèle"
+    },
+    "export": {
+        "title": "Exporter",
+        "download": "Télécharger le TSV"
+    },
+    "settings": {
+        "title": "Paramètres",
+        "sourceLanguage": "Langue source",
+        "targetLanguageCode": "Code de langue cible",
+        "coverageLevel": "Niveau de couverture"
+    },
+    "languageName": {
+        "abr": "Abron",
+        "bho": "Bhojpuri",
+        "eng": "Anglais",
+        "eng_Latf": "Anglais (Fraktur)",
+        "fra": "Français",
+        "mlg": "Malgache",
+        "spa": "Espagnol",
+        "ita": "Italien"
+    },
+    "dataPage": {
+        "all": "Toutes les pages",
+        "core": "Base",
+        "dateAndTime": "Date et heure",
+        "fullTable": "Table complète",
+        "quantities": "Quantités",
+        "translations": "Traductions"
+    },
+    "dataSection": {
+        "allOf": "Tous les {{section}}",
+        "alphabet": "Alphabet",
+        "symbols": "Symboles",
+        "quotes": "Guillemets",
+        "maths": "Mathématiques",
+        "dateFields": "Champs de date",
+        "dayPeriods": "Périodes de la journée",
+        "daysOfWeek": "Jours de la semaine",
+        "months": "Mois",
+        "quarters": "Trimestres",
+        "eras": "Ères",
+        "relativeTime": "Temps relatif",
+        "timeCombinations": "Combinaisons d’heures",
+        "timeIntervals": "Intervalles de temps",
+        "dateCombinations": "Combinaisons de dates",
+        "dateIntervals": "Intervalles de dates",
+        "dateTimeCombinations": "Combinaisons date-heure",
+        "eraDateCombinations": "Combinaisons de dates avec ère",
+        "coordinates": "Coordonnées",
+        "directionExamples": "Exemples de direction",
+        "languageNames": "Noms de langues",
+        "regions": "Régions",
+        "timezones": "Fuseaux horaires",
+        "emojis": "Émojis",
+        "techWords": "Termes techniques",
+        "paragraphs": "Paragraphes",
+        "cldrTicket": "Ticket CLDR",
+        "fullTable": "Table complète"
+    },
+    "length": {
+        "wide": "Large",
+        "w": "Large",
+        "long": "Long",
+        "abbreviated": "Abrégé",
+        "abbr": "Abr.",
+        "a": "Abr.",
+        "short": "Court",
+        "s": "Court",
+        "narrow": "Étroit",
+        "n": "Étroit"
+    }
+}

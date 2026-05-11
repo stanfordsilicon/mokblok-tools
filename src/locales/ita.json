@@ -1,1 +1,130 @@
-{}
+{
+    "title": "Strumenti MokBlok",
+    "allRightsReserved": "Tutti i diritti riservati.",
+    "input": {
+        "title": "Input",
+        "language": {
+            "title": "Lingua",
+            "description": "Seleziona una lingua per caricare i dati salvati",
+            "manual": "Oppure incolla qui sotto i tuoi dati TSV e inserisci manualmente il codice della lingua",
+            "ctaClear": "Cancella lingua e testo"
+        },
+        "files": {
+            "title": "File di input",
+            "placeholderTsv": "Incolla qui i tuoi dati TSV",
+            "placeholderTxt": "Incolla qui i tuoi dati TXT",
+            "Doc 1": "Doc 1 (Dati principali, formati di data e ora)",
+            "Doc 2 part 1": "Doc 2 parte 1 (Traduzioni, matematica)",
+            "Doc 2 part 2": "Doc 2 parte 2 (Testo lungo)",
+            "Doc 2 part 3": "Doc 2 parte 3 (Numeri, geografia, valute ed emoji)",
+            "Doc 3": "Doc 3 (Guida alle emoji)",
+            "Doc 4": "Doc 4 (Lingue digitalmente svantaggiate)"
+        },
+        "check": {
+            "Total rows": "Righe totali",
+            "Total words": "Parole totali",
+            "Total characters": "Caratteri totali"
+        }
+    },
+    "review": {
+        "title": "Revisione",
+        "setToday": "Imposta oggi (usando il selettore di data del browser)",
+        "downloadAllDemos": "Scarica tutte le demo",
+        "translated": "Tradotto",
+        "moreLanguages": "Più lingue",
+        "subject": "Oggetto",
+        "field": "Campo",
+        "instance": "Istanza",
+        "length": "Lunghezza",
+        "variant": "Variante",
+        "exampleNumber": "Esempio n.",
+        "timezone": {
+            "generic": "Generico, nome della città",
+            "standard": "standard",
+            "daylight": "ora legale"
+        },
+        "components": "Componenti",
+        "greatestDifference": "Differenza maggiore",
+        "start": "Inizio",
+        "end": "Fine",
+        "standalone": "Autonomo",
+        "inSentence": "In una frase",
+        "exampleSentence": "Frase di esempio",
+        "past": "Passato",
+        "present": "Presente",
+        "future": "Futuro",
+        "morning": "Mattina",
+        "evening": "Sera",
+        "pattern": "Modello"
+    },
+    "export": {
+        "title": "Esporta",
+        "download": "Scarica TSV"
+    },
+    "settings": {
+        "title": "Impostazioni",
+        "sourceLanguage": "Lingua sorgente",
+        "targetLanguageCode": "Codice lingua di destinazione",
+        "coverageLevel": "Livello di copertura"
+    },
+    "languageName": {
+        "abr": "Abron",
+        "bho": "Bhojpuri",
+        "eng": "Inglese",
+        "eng_Latf": "Inglese (Fraktur)",
+        "fra": "Francese",
+        "mlg": "Malgascio",
+        "spa": "Spagnolo",
+        "ita": "Italiano"
+    },
+    "dataPage": {
+        "all": "Tutte le pagine",
+        "core": "Base",
+        "dateAndTime": "Data e ora",
+        "fullTable": "Tabella completa",
+        "quantities": "Quantità",
+        "translations": "Traduzioni"
+    },
+    "dataSection": {
+        "allOf": "Tutti i {{section}}",
+        "alphabet": "Alfabeto",
+        "symbols": "Simboli",
+        "quotes": "Virgolette",
+        "maths": "Matematica",
+        "dateFields": "Campi data",
+        "dayPeriods": "Periodi del giorno",
+        "daysOfWeek": "Giorni della settimana",
+        "months": "Mesi",
+        "quarters": "Trimestri",
+        "eras": "Ere",
+        "relativeTime": "Tempo relativo",
+        "timeCombinations": "Combinazioni di orari",
+        "timeIntervals": "Intervalli di tempo",
+        "dateCombinations": "Combinazioni di date",
+        "dateIntervals": "Intervalli di date",
+        "dateTimeCombinations": "Combinazioni data-ora",
+        "eraDateCombinations": "Combinazioni di date con era",
+        "coordinates": "Coordinate",
+        "directionExamples": "Esempi di direzione",
+        "languageNames": "Nomi delle lingue",
+        "regions": "Regioni",
+        "timezones": "Fusi orari",
+        "emojis": "Emoji",
+        "techWords": "Termini tecnici",
+        "paragraphs": "Paragrafi",
+        "cldrTicket": "Ticket CLDR",
+        "fullTable": "Tabella completa"
+    },
+    "length": {
+        "wide": "Largo",
+        "w": "Largo",
+        "long": "Lungo",
+        "abbreviated": "Abbreviato",
+        "abbr": "Abbr.",
+        "a": "Abbr.",
+        "short": "Breve",
+        "s": "Breve",
+        "narrow": "Stretto",
+        "n": "Stretto"
+    }
+}
