@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { useSettings } from '@settings/Settings';
 
@@ -6,6 +7,7 @@ import ExportDownloadXMLButton from './ExportDownloadXMLButton';
 import useXMLFormattedData from './useXMLFormattedData';
 
 const ExportXMLData: React.FC = () => {
+  const { t } = useTranslation();
   const { targetLanguageBCP, coverageLevel } = useSettings();
   const ldml = useXMLFormattedData();
 
@@ -25,14 +27,12 @@ ${ldml}
   return (
     <>
       <div>
-        <strong>Full XML</strong>
+        <strong>{t('export.fullXmlTitle')}</strong>
         <ExportDownloadXMLButton filename={coverageLevel} xmlContent={fullXML} />
       </div>
       <span>
-        Contribute this data to CLDR in the Survey Tool bulk upload tool{' '}
-        <a href="https://st.unicode.org/cldr-apps/v#upload///">
-          https://st.unicode.org/cldr-apps/v#upload///
-        </a>
+        {t('export.cldrUploadPrefix')}{' '}
+        <a href={t('export.cldrUploadUrl')}>{t('export.cldrUploadUrl')}</a>
       </span>
       <textarea style={{ width: '40em', height: '30em' }} value={fullXML} readOnly />
     </>

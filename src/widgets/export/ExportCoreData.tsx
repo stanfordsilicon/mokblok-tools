@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { useDataContext } from '@data/DataContext';
 
@@ -20,6 +21,7 @@ const punctuationTransforms: Record<string, string> = {
 const standardPunctuation = ['-‑,;:!?.…\'‘’"“”()[]§@/&#%′″'];
 
 const ExportCoreData: React.FC = () => {
+  const { t } = useTranslation();
   const { targetLanguage, targetLanguageBCP } = useSettings();
   const { alphabet, findDataField, getTranslation } = useDataContext();
   const { charactersNumber, charactersAuxiliary, charactersBase, charactersPunctuation } =
@@ -79,12 +81,11 @@ const ExportCoreData: React.FC = () => {
   return (
     <>
       <div>
-        <strong>Core Locale Data </strong>
+        <strong>{t('export.coreLocaleDataTitle')} </strong>
         <ExportDownloadXMLButton filename="core" xmlContent={fullXML} />
       </div>
       <span>
-        In order to add the locale to the survey tool, submit this to a new datafile{' '}
-        <code>{targetLanguage}.xml</code>
+        {t('export.coreLocaleInstructions')} <code>{targetLanguage}.xml</code>
       </span>
       <textarea style={{ width: '40em', height: '10em' }} value={fullXML} readOnly />
     </>

@@ -26,7 +26,7 @@ function RelativeTimeReviewTable() {
     <table>
       <thead>
         <tr>
-          <th>Field</th>
+          <th>{t('review.field')}</th>
           <th colSpan={3} style={{ textAlign: 'center' }}>
             <SourceLanguageLabel />
           </th>

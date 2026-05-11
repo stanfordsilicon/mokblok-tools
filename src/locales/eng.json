@@ -34,6 +34,7 @@
         "moreLanguages": "More languages",
         "subject": "Subject",
         "field": "Field",
+        "type": "Type",
         "instance": "Instance",
         "length": "Length",
         "variant": "Variant",
@@ -55,11 +56,31 @@
         "future": "Future",
         "morning": "Morning",
         "evening": "Evening",
-        "pattern": "Pattern"
+        "pattern": "Pattern",
+        "alphabet": {
+            "set": "Set",
+            "numberingSystem": "Numbering System",
+            "digits": "Digits",
+            "charactersByFrequency": "Characters by frequency",
+            "space": "[space]",
+            "charactersByClass": "Characters by class",
+            "writingSystem": "Writing System",
+            "baseAlphabet": "Base Alphabet",
+            "uppercaseIndex": "Uppercase (Index)",
+            "auxiliary": "Auxiliary",
+            "numbers": "Numbers",
+            "punctuation": "Punctuation",
+            "other": "Other"
+        }
     },
     "export": {
         "title": "Export",
-        "download": "Download TSV"
+        "download": "Download TSV",
+        "coreLocaleDataTitle": "Core Locale Data",
+        "coreLocaleInstructions": "In order to add the locale to the survey tool, submit this to a new datafile",
+        "fullXmlTitle": "Full XML",
+        "cldrUploadPrefix": "Contribute this data to CLDR in the Survey Tool bulk upload tool",
+        "cldrUploadUrl": "https://st.unicode.org/cldr-apps/v#upload///"
     },
     "settings": {
         "title": "Settings",
@@ -85,6 +106,21 @@
         "mlg": "Malagasy",
         "spa": "Spanish",
         "ita": "Italian"
+    },
+    "common": {
+        "emptyCell": "-"
+    },
+    "errors": {
+        "unknownWidget": "Unknown widget",
+        "demoNotFound": "Demo not found",
+        "unknownError": "An unknown error occurred",
+        "somethingWentWrong": "Something went wrong.",
+        "refreshInstructions": "Please try refreshing the page or contact support if the issue persists.",
+        "refreshPage": "Refresh Page"
+    },
+    "footer": {
+        "copyright": "© {{year}}",
+        "organizationName": "Stanford SILICON"
     },
     "dataPage": {
         "all": "All Pages",

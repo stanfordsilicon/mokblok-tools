@@ -26,7 +26,7 @@ const AlphabetReview: React.FC = () => {
       <table>
         <thead>
           <tr>
-            <th>Set</th>
+            <th>{t('review.alphabet.set')}</th>
             <th>
               <SourceLanguageLabel />
             </th>
@@ -46,16 +46,16 @@ const AlphabetReview: React.FC = () => {
           })}
         </tbody>
       </table>
-      <h3>Numbering System</h3>
+      <h3>{t('review.alphabet.numberingSystem')}</h3>
       <table>
         <thead>
           <tr>
-            <th>Type</th>
+            <th>{t('review.type')}</th>
             <th>
               <SourceLanguageLabel />
             </th>
             <th>{t('review.translated')}</th>
-            <th>Digits</th>
+            <th>{t('review.alphabet.digits')}</th>
           </tr>
         </thead>
         <tbody>
@@ -79,6 +79,7 @@ const AlphabetReview: React.FC = () => {
 };
 
 const InferredCharacters: React.FC = () => {
+  const { t } = useTranslation();
   const {
     characterHistogram,
     charactersNumber,
@@ -92,48 +93,48 @@ const InferredCharacters: React.FC = () => {
 
   return (
     <div>
-      <h3>Characters by frequency</h3>
+      <h3>{t('review.alphabet.charactersByFrequency')}</h3>
       <div style={{ display: 'flex', gap: '.5em', flexWrap: 'wrap' }}>
         {Object.entries(characterHistogram || {})
           .sort(([, countA], [, countB]) => countB - countA)
           .map(([char, count]) => (
             <div key={char}>
-              {char === ' ' ? '[space]' : char}
+              {char === ' ' ? t('review.alphabet.space') : char}
               <div style={{ fontWeight: 'lighter' }}>{count}</div>
             </div>
           ))}
       </div>
-      <h3>Characters by class</h3>
+      <h3>{t('review.alphabet.charactersByClass')}</h3>
       <table>
         <tbody>
           <tr>
-            <th>Writing System</th>
+            <th>{t('review.alphabet.writingSystem')}</th>
             <td>{writingSystem}</td>
           </tr>
           <tr>
-            <th>Base Alphabet</th>
+            <th>{t('review.alphabet.baseAlphabet')}</th>
             <td>{charactersBase?.join(' ')}</td>
           </tr>
           <tr>
-            <th>Uppercase (Index)</th>
+            <th>{t('review.alphabet.uppercaseIndex')}</th>
             <td>{charactersUppercase?.join(' ')}</td>
           </tr>
           <tr>
-            <th>Auxiliary</th>
+            <th>{t('review.alphabet.auxiliary')}</th>
             <td>{charactersAuxiliary?.join(' ')}</td>
           </tr>
           <tr>
-            <th>Numbers</th>
+            <th>{t('review.alphabet.numbers')}</th>
             <td>{charactersNumber?.join(' ')}</td>
           </tr>
           <tr>
-            <th>Punctuation</th>
+            <th>{t('review.alphabet.punctuation')}</th>
             <td>{charactersPunctuation?.join(' ')}</td>
             {/* Standard punctuation characters: */}
             {/* \- ‑ , ; \: ! ? . … '‘’ &quot;“” ( ) \[ \] § @ / \&amp; # % ′ ″ */}
           </tr>
           <tr>
-            <th>Other</th>
+            <th>{t('review.alphabet.other')}</th>
             <td>{charactersOther?.join(' ')}</td>
           </tr>
         </tbody>

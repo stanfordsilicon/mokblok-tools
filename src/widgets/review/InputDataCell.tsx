@@ -1,5 +1,6 @@
 import { useDataContext } from '@data/DataContext';
 import type { DataField } from '@data/DataTypes';
+import { useTranslation } from 'react-i18next';
 
 import HighlightInput from './HighlightInput';
 
@@ -20,8 +21,9 @@ const WIDTHS_BY_LENGTH: Record<string, string> = {
 };
 
 function InputDataCell({ data, inputWidth }: Props) {
+  const { t } = useTranslation();
   const { getTranslation, setTranslation } = useDataContext();
-  if (!data) return <td>-</td>;
+  if (!data) return <td>{t('common.emptyCell')}</td>;
   let width = inputWidth;
   if (!inputWidth) {
     width = WIDTHS_BY_LENGTH[data.length] ?? WIDTHS_BY_LENGTH['w'];

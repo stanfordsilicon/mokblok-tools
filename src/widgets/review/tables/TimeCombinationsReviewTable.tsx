@@ -23,7 +23,7 @@ function TimeCombinationsReviewTable() {
     <table>
       <thead>
         <tr>
-          <th>Type</th>
+          <th>{t('review.type')}</th>
           <th colSpan={3} style={{ textAlign: 'center' }}>
             <SourceLanguageLabel />
           </th>

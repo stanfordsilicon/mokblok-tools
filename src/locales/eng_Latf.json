@@ -34,6 +34,7 @@
     "moreLanguages": "𝔐𝔬𝔯𝔢 𝔩𝔞𝔫𝔤𝔲𝔞𝔤𝔢𝔰",
     "subject": "𝔖𝔲𝔟𝔧𝔢𝔠𝔱",
     "field": "𝔉𝔦𝔢𝔩𝔡",
+    "type": "𝔗𝔶𝔭𝔢",
     "instance": "ℑ𝔫𝔰𝔱𝔞𝔫𝔠𝔢",
     "length": "𝔏𝔢𝔫𝔤𝔱𝔥",
     "variant": "𝔙𝔞𝔯𝔦𝔞𝔫𝔱",
@@ -55,11 +56,31 @@
     "future": "𝔉𝔲𝔱𝔲𝔯𝔢",
     "morning": "𝔐𝔬𝔯𝔫𝔦𝔫𝔤",
     "evening": "𝔈𝔳𝔢𝔫𝔦𝔫𝔤",
-    "pattern": "𝔓𝔞𝔱𝔱𝔢𝔯𝔫"
+    "pattern": "𝔓𝔞𝔱𝔱𝔢𝔯𝔫",
+    "alphabet": {
+      "set": "𝔖𝔢𝔱",
+      "numberingSystem": "𝔑𝔲𝔪𝔟𝔢𝔯𝔦𝔫𝔤 𝔖𝔶𝔰𝔱𝔢𝔪",
+      "digits": "𝔇𝔦𝔤𝔦𝔱𝔰",
+      "charactersByFrequency": "ℭ𝔥𝔞𝔯𝔞𝔠𝔱𝔢𝔯𝔰 𝔟𝔶 𝔣𝔯𝔢𝔮𝔲𝔢𝔫𝔠𝔶",
+      "space": "[𝔰𝔭𝔞𝔠𝔢]",
+      "charactersByClass": "ℭ𝔥𝔞𝔯𝔞𝔠𝔱𝔢𝔯𝔰 𝔟𝔶 𝔠𝔩𝔞𝔰𝔰",
+      "writingSystem": "𝔚𝔯𝔦𝔱𝔦𝔫𝔤 𝔖𝔶𝔰𝔱𝔢𝔪",
+      "baseAlphabet": "𝔅𝔞𝔰𝔢 𝔄𝔩𝔭𝔥𝔞𝔟𝔢𝔱",
+      "uppercaseIndex": "𝔘𝔭𝔭𝔢𝔯𝔠𝔞𝔰𝔢 (ℑ𝔫𝔡𝔢𝔵)",
+      "auxiliary": "𝔄𝔲𝔵𝔦𝔩𝔦𝔞𝔯𝔶",
+      "numbers": "𝔑𝔲𝔪𝔟𝔢𝔯𝔰",
+      "punctuation": "𝔓𝔲𝔫𝔠𝔱𝔲𝔞𝔱𝔦𝔬𝔫",
+      "other": "𝔒𝔱𝔥𝔢𝔯"
+    }
   },
   "export": {
     "title": "𝔈𝔵𝔭𝔬𝔯𝔱",
-    "download": "𝔇𝔬𝔴𝔫𝔩𝔬𝔞𝔡 𝔗𝔖𝔙"
+    "download": "𝔇𝔬𝔴𝔫𝔩𝔬𝔞𝔡 𝔗𝔖𝔙",
+    "coreLocaleDataTitle": "ℭ𝔬𝔯𝔢 𝔏𝔬𝔠𝔞𝔩𝔢 𝔇𝔞𝔱𝔞",
+    "coreLocaleInstructions": "ℑ𝔫 𝔬𝔯𝔡𝔢𝔯 𝔱𝔬 𝔞𝔡𝔡 𝔱𝔥𝔢 𝔩𝔬𝔠𝔞𝔩𝔢 𝔱𝔬 𝔱𝔥𝔢 𝔰𝔲𝔯𝔳𝔢𝔶 𝔱𝔬𝔬𝔩, 𝔰𝔲𝔟𝔪𝔦𝔱 𝔱𝔥𝔦𝔰 𝔱𝔬 𝔞 𝔫𝔢𝔴 𝔡𝔞𝔱𝔞𝔣𝔦𝔩𝔢",
+    "fullXmlTitle": "𝔉𝔲𝔩𝔩 𝔛𝔐𝔏",
+    "cldrUploadPrefix": "ℭ𝔬𝔫𝔱𝔯𝔦𝔟𝔲𝔱𝔢 𝔱𝔥𝔦𝔰 𝔡𝔞𝔱𝔞 𝔱𝔬 ℭ𝔏𝔇ℜ 𝔦𝔫 𝔱𝔥𝔢 𝔖𝔲𝔯𝔳𝔢𝔶 𝔗𝔬𝔬𝔩 𝔟𝔲𝔩𝔨 𝔲𝔭𝔩𝔬𝔞𝔡 𝔱𝔬𝔬𝔩",
+    "cldrUploadUrl": "𝔥𝔱𝔱𝔭𝔰://𝔰𝔱.𝔲𝔫𝔦𝔠𝔬𝔡𝔢.𝔬𝔯𝔤/𝔠𝔩𝔡𝔯-𝔞𝔭𝔭𝔰/𝔳#𝔲𝔭𝔩𝔬𝔞𝔡///"
   },
   "settings": {
     "title": "𝔖𝔢𝔱𝔱𝔦𝔫𝔤𝔰",
@@ -85,6 +106,21 @@
     "mlg": "𝔐𝔞𝔩𝔞𝔤𝔞𝔰𝔶",
     "spa": "𝔖𝔭𝔞𝔫𝔦𝔰𝔥",
     "ita": "ℑ𝔱𝔞𝔩𝔦𝔞𝔫"
+  },
+  "common": {
+    "emptyCell": "-"
+  },
+  "errors": {
+    "unknownWidget": "𝔘𝔫𝔨𝔫𝔬𝔴𝔫 𝔴𝔦𝔡𝔤𝔢𝔱",
+    "demoNotFound": "𝔇𝔢𝔪𝔬 𝔫𝔬𝔱 𝔣𝔬𝔲𝔫𝔡",
+    "unknownError": "𝔄𝔫 𝔲𝔫𝔨𝔫𝔬𝔴𝔫 𝔢𝔯𝔯𝔬𝔯 𝔬𝔠𝔠𝔲𝔯𝔯𝔢𝔡",
+    "somethingWentWrong": "𝔖𝔬𝔪𝔢𝔱𝔥𝔦𝔫𝔤 𝔴𝔢𝔫𝔱 𝔴𝔯𝔬𝔫𝔤.",
+    "refreshInstructions": "𝔓𝔩𝔢𝔞𝔰𝔢 𝔱𝔯𝔶 𝔯𝔢𝔣𝔯𝔢𝔰𝔥𝔦𝔫𝔤 𝔱𝔥𝔢 𝔭𝔞𝔤𝔢 𝔬𝔯 𝔠𝔬𝔫𝔱𝔞𝔠𝔱 𝔰𝔲𝔭𝔭𝔬𝔯𝔱 𝔦𝔣 𝔱𝔥𝔢 𝔦𝔰𝔰𝔲𝔢 𝔭𝔢𝔯𝔰𝔦𝔰𝔱𝔰.",
+    "refreshPage": "ℜ𝔢𝔣𝔯𝔢𝔰𝔥 𝔓𝔞𝔤𝔢"
+  },
+  "footer": {
+    "copyright": "© {{year}}",
+    "organizationName": "𝔖𝔱𝔞𝔫𝔣𝔬𝔯𝔡 𝔖ℑ𝔏ℑℭ𝔒𝔑"
   },
   "dataPage": {
     "all": "𝔄𝔩𝔩 𝔓𝔞𝔤𝔢𝔰",

@@ -1,5 +1,6 @@
 import { useDataContext } from '@data/DataContext';
 import type { DataField } from '@data/DataTypes';
+import { useTranslation } from 'react-i18next';
 
 type Props = {
   data?: DataField;
@@ -7,8 +8,9 @@ type Props = {
 };
 
 function InputTextareaCell({ data, style }: Props) {
+  const { t } = useTranslation();
   const { getTranslation, setTranslation } = useDataContext();
-  if (!data) return <td>-</td>;
+  if (!data) return <td>{t('common.emptyCell')}</td>;
   return (
     <td>
       <textarea

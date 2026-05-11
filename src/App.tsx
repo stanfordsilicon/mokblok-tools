@@ -5,6 +5,7 @@ import PageBody from './PageBody';
 
 function App() {
   const { t } = useTranslation();
+  const year = new Date().getFullYear();
 
   return (
     <I18nextProvider i18n={i18n}>
@@ -16,7 +17,8 @@ function App() {
       </div>
       <footer>
         <p>
-          © 2026 <a href="https://silicon.stanford.edu/">Stanford SILICON</a>.{' '}
+          {t('footer.copyright', { year })}{' '}
+          <a href="https://silicon.stanford.edu/">{t('footer.organizationName')}</a>.{' '}
           {t('allRightsReserved')}
         </p>
       </footer>

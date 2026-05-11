@@ -34,6 +34,7 @@
         "moreLanguages": "Plus de langues",
         "subject": "Sujet",
         "field": "Champ",
+        "type": "Type",
         "instance": "Instance",
         "length": "Longueur",
         "variant": "Variante",
@@ -55,11 +56,31 @@
         "future": "Futur",
         "morning": "Matin",
         "evening": "Soir",
-        "pattern": "Modèle"
+        "pattern": "Modèle",
+        "alphabet": {
+            "set": "Ensemble",
+            "numberingSystem": "Système de numérotation",
+            "digits": "Chiffres",
+            "charactersByFrequency": "Caractères par fréquence",
+            "space": "[espace]",
+            "charactersByClass": "Caractères par classe",
+            "writingSystem": "Système d’écriture",
+            "baseAlphabet": "Alphabet de base",
+            "uppercaseIndex": "Majuscules (index)",
+            "auxiliary": "Auxiliaire",
+            "numbers": "Nombres",
+            "punctuation": "Ponctuation",
+            "other": "Autre"
+        }
     },
     "export": {
         "title": "Exporter",
-        "download": "Télécharger le TSV"
+        "download": "Télécharger le TSV",
+        "coreLocaleDataTitle": "Données locales principales",
+        "coreLocaleInstructions": "Pour ajouter la locale à l’outil de sondage, soumettez ceci à un nouveau fichier de données",
+        "fullXmlTitle": "XML complet",
+        "cldrUploadPrefix": "Contribuez ces données à CLDR dans l’outil d’importation en masse du Survey Tool",
+        "cldrUploadUrl": "https://st.unicode.org/cldr-apps/v#upload///"
     },
     "settings": {
         "title": "Paramètres",
@@ -85,6 +106,21 @@
         "mlg": "Malgache",
         "spa": "Espagnol",
         "ita": "Italien"
+    },
+    "common": {
+        "emptyCell": "-"
+    },
+    "errors": {
+        "unknownWidget": "Widget inconnu",
+        "demoNotFound": "Démo introuvable",
+        "unknownError": "Une erreur inconnue est survenue",
+        "somethingWentWrong": "Quelque chose s’est mal passé.",
+        "refreshInstructions": "Veuillez actualiser la page ou contacter le support si le problème persiste.",
+        "refreshPage": "Actualiser la page"
+    },
+    "footer": {
+        "copyright": "© {{year}}",
+        "organizationName": "Stanford SILICON"
     },
     "dataPage": {
         "all": "Toutes les pages",

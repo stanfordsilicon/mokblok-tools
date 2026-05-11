@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import { SourceLanguage, type DataField } from '@data/DataTypes';
 
 import { useSettings } from '@settings/Settings';
@@ -9,8 +11,9 @@ type Props = {
   style?: React.CSSProperties;
 };
 function SourceDataCell({ data, style }: Props) {
+  const { t } = useTranslation();
   const { sourceLanguage } = useSettings();
-  if (!data) return <td>-</td>;
+  if (!data) return <td>{t('common.emptyCell')}</td>;
 
   let sourceTranslation = data.english;
   if (sourceLanguage === SourceLanguage.French && data.french) {
