@@ -71,6 +71,22 @@
             "numbers": "Numeri",
             "punctuation": "Punteggiatura",
             "other": "Altro"
+        },
+        "plurals": {
+            "category": "Categoria di plurale",
+            "instances": {
+                "book": "Libro",
+                "song": "Canzone"
+            },
+            "categories": {
+                "base": "Base",
+                "zero": "Zero",
+                "one": "Uno",
+                "two": "Due",
+                "few": "Pochi",
+                "many": "Molti",
+                "other": "Altro"
+            }
         }
     },
     "export": {
@@ -136,6 +152,7 @@
         "symbols": "Simboli",
         "quotes": "Virgolette",
         "maths": "Matematica",
+        "plurals": "Categorie di plurale",
         "dateFields": "Campi data",
         "dayPeriods": "Periodi del giorno",
         "daysOfWeek": "Giorni della settimana",

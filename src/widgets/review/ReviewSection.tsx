@@ -23,6 +23,7 @@ import LanguageNamesReviewTable from './tables/LanguageNamesReviewTable';
 import MathsReviewTable from './tables/MathsReviewTable';
 import MonthsReviewTable from './tables/MonthsReviewTable';
 import ParagraphsReviewTable from './tables/ParagraphsReviewTable';
+import PluralsReviewTable from './tables/PluralsReviewTable';
 import QuartersReviewTable from './tables/QuartersReviewTable';
 import QuotesReviewTable from './tables/QuotesReviewTable';
 import RegionsReviewTable from './tables/RegionsReviewTable';
@@ -88,6 +89,8 @@ function ReviewTable({ dataSection }: { dataSection: DataSection }) {
       return <MonthsReviewTable />;
     case DataSection.Paragraphs:
       return <ParagraphsReviewTable />;
+    case DataSection.Plurals:
+      return <PluralsReviewTable />;
     case DataSection.Quarters:
       return <QuartersReviewTable />;
     case DataSection.Quotes:

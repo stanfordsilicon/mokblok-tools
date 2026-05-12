@@ -26,6 +26,7 @@ const demoIDsBySection: Record<DataSection, DemoID[]> = {
   [DataSection.LanguageNames]: [],
   [DataSection.Maths]: [],
   [DataSection.Months]: [DemoID.MonthsGrid, DemoID.MonthsTemp],
+  [DataSection.Plurals]: [],
   [DataSection.Paragraphs]: [],
   [DataSection.Quarters]: [DemoID.QuartersCircle, DemoID.QuartersEvents],
   [DataSection.Quotes]: [],

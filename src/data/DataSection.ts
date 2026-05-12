@@ -12,6 +12,7 @@ export enum DataSection {
   Symbols = 'symbols',
   Quotes = 'quotes',
   Maths = 'maths',
+  Plurals = 'plurals',
 
   // Date and time
   DateFields = 'dateFields',
@@ -49,7 +50,13 @@ export enum DataSection {
 export function getSectionsForPage(page: DataPage): DataSection[] {
   switch (page) {
     case DataPage.Core:
-      return [DataSection.Alphabet, DataSection.Symbols, DataSection.Quotes, DataSection.Maths];
+      return [
+        DataSection.Alphabet,
+        DataSection.Symbols,
+        DataSection.Quotes,
+        DataSection.Maths,
+        DataSection.Plurals,
+      ];
     case DataPage.DateAndTime:
       return [
         DataSection.DateFields,

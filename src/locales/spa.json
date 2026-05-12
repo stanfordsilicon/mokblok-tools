@@ -71,6 +71,22 @@
             "numbers": "Números",
             "punctuation": "Puntuación",
             "other": "Otro"
+        },
+        "plurals": {
+            "category": "Categoría de plural",
+            "instances": {
+                "book": "Libro",
+                "song": "Canción"
+            },
+            "categories": {
+                "base": "Base",
+                "zero": "Cero",
+                "one": "Uno",
+                "two": "Dos",
+                "few": "Pocos",
+                "many": "Muchos",
+                "other": "Otro"
+            }
         }
     },
     "export": {
@@ -136,6 +152,7 @@
         "symbols": "Símbolos",
         "quotes": "Comillas",
         "maths": "Matemáticas",
+        "plurals": "Categorías de plural",
         "dateFields": "Campos de fecha",
         "dayPeriods": "Períodos del día",
         "daysOfWeek": "Días de la semana",
