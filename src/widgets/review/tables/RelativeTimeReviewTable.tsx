@@ -12,8 +12,8 @@ import SourceDataCell from '../SourceDataCell';
 
 function RelativeTimeReviewTable() {
   const { t } = useTranslation();
-  const { findDataFields } = useDataContext();
-  const relativeTimeFields = findDataFields({ subject: 'dates' }).filter(
+  const { findDataEntries } = useDataContext();
+  const relativeTimeFields = findDataEntries({ subject: 'dates' }).filter(
     (f) => ['-1', '0', '1'].includes(f.instance) && f.length === '',
   );
   const relativeTimeMatrix = matrixBy(
@@ -46,17 +46,17 @@ function RelativeTimeReviewTable() {
       </thead>
       <tbody>
         {Object.values(DateField).map((field) => {
-          const data = relativeTimeMatrix[field];
-          if (!data) return null;
+          const row = relativeTimeMatrix[field];
+          if (!row) return null;
           return (
             <tr key={field}>
               <td>{field}</td>
-              <SourceDataCell data={data['-1']} />
-              <SourceDataCell data={data['0']} />
-              <SourceDataCell data={data['1']} />
-              <InputDataCell data={data['-1']} />
-              <InputDataCell data={data['0']} />
-              <InputDataCell data={data['1']} />
+              <SourceDataCell entry={row['-1']} />
+              <SourceDataCell entry={row['0']} />
+              <SourceDataCell entry={row['1']} />
+              <InputDataCell entry={row['-1']} />
+              <InputDataCell entry={row['0']} />
+              <InputDataCell entry={row['1']} />
             </tr>
           );
         })}

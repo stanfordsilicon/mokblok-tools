@@ -6,7 +6,7 @@ import { DayKeys } from '@data/DayKeys';
 import { getExampleDate } from '@settings/selectors/ExampleDateSelector';
 
 const DemoDaysOfWeekInWeek: React.FC = () => {
-  const { findDataField, getTranslation } = useDataContext();
+  const { findDataEntry, getTranslation } = useDataContext();
   const today = getExampleDate();
   const currentMonth = today.getMonth(); // Current month (0-indexed)
 
@@ -21,7 +21,7 @@ const DemoDaysOfWeekInWeek: React.FC = () => {
       />
       <text x={120} y={30} textAnchor="middle" fontSize="1.2em">
         {getTranslation(
-          findDataField({ field: 'M', length: 'w', instance: currentMonth + 1 + '' }),
+          findDataEntry({ field: 'M', length: 'w', instance: currentMonth + 1 + '' }),
         ) ?? ''}
       </text>
       <path
@@ -35,7 +35,7 @@ const DemoDaysOfWeekInWeek: React.FC = () => {
         {/* Days of week header */}
         {DayKeys?.map((day, index) => (
           <text key={index} x={index * 30 + 15} y={15} fontWeight="bold" textAnchor="middle">
-            {getTranslation(findDataField({ field: 'E', length: 'n', instance: day })) ?? ''}
+            {getTranslation(findDataEntry({ field: 'E', length: 'n', instance: day })) ?? ''}
           </text>
         ))}
         {/* Day numbers */}

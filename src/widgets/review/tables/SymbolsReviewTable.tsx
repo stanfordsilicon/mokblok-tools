@@ -9,8 +9,8 @@ import SourceDataCell from '../SourceDataCell';
 
 function SymbolsReviewTable() {
   const { t } = useTranslation();
-  const { findDataFields } = useDataContext();
-  const symbolsWithExamples = findDataFields({ group: 'Symbols', field: 'symbols' });
+  const { findDataEntries } = useDataContext();
+  const symbolsWithExamples = findDataEntries({ group: 'Symbols', field: 'symbols' });
   const symbols = symbolsWithExamples.filter((f) => f.exampleNum === '0');
   const symbolsExamples = symbolsWithExamples.filter((f) => f.exampleNum !== '0');
 
@@ -26,10 +26,10 @@ function SymbolsReviewTable() {
           </tr>
         </thead>
         <tbody>
-          {symbolsExamples?.map((example) => (
-            <tr key={example.index}>
-              <SourceDataCell data={example} />
-              <InputDataCell data={example} inputWidth="15em" />
+          {symbolsExamples?.map((entry) => (
+            <tr key={entry.index}>
+              <SourceDataCell entry={entry} />
+              <InputDataCell entry={entry} inputWidth="15em" />
             </tr>
           ))}
         </tbody>
@@ -45,13 +45,13 @@ function SymbolsReviewTable() {
           </tr>
         </thead>
         <tbody>
-          {symbols?.map((datum) => (
-            <tr key={datum.index}>
+          {symbols?.map((entry) => (
+            <tr key={entry.index}>
               <td>
-                {datum.instance} {datum.length}
+                {entry.instance} {entry.length}
               </td>
-              <SourceDataCell data={datum} />
-              <InputDataCell data={datum} inputWidth="3em" />
+              <SourceDataCell entry={entry} />
+              <InputDataCell entry={entry} inputWidth="3em" />
             </tr>
           ))}
         </tbody>

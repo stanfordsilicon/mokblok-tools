@@ -12,9 +12,9 @@ import SourceDataCell from '../SourceDataCell';
 function LanguageNamesReviewTable() {
   const { t } = useTranslation();
   const targetLanguageBCP = getLanguageBCP(useURLParams().targetLanguage);
-  const { findDataFields } = useDataContext();
-  const languageNameFields = findDataFields({ group: 'Language Names' });
-  const secondaryLanguageNameFields = findDataFields({ group: 'Secondary Language Names' });
+  const { findDataEntries } = useDataContext();
+  const languageNameFields = findDataEntries({ group: 'Language Names' });
+  const secondaryLanguageNameFields = findDataEntries({ group: 'Secondary Language Names' });
 
   // If the target language is in the secondaryLanguageNameField, move it to the main languageNameFields for review
   const ownLanguageFieldIndex = secondaryLanguageNameFields.findIndex(
@@ -37,10 +37,10 @@ function LanguageNamesReviewTable() {
           </tr>
         </thead>
         <tbody>
-          {languageNameFields.map((row) => (
-            <tr key={row.index}>
+          {languageNameFields.map((entry) => (
+            <tr key={entry.index}>
               <SourceDataCell
-                data={row}
+                entry={entry}
                 style={{
                   maxWidth: '20em',
                   overflow: 'hidden',
@@ -48,7 +48,7 @@ function LanguageNamesReviewTable() {
                   whiteSpace: 'nowrap',
                 }}
               />
-              <InputDataCell data={row} inputWidth="15em" />
+              <InputDataCell entry={entry} inputWidth="15em" />
             </tr>
           ))}
           <tr>
@@ -56,10 +56,10 @@ function LanguageNamesReviewTable() {
               {t('review.moreLanguages')}
             </th>
           </tr>
-          {secondaryLanguageNameFields.map((row) => (
-            <tr key={row.index}>
+          {secondaryLanguageNameFields.map((entry) => (
+            <tr key={entry.index}>
               <SourceDataCell
-                data={row}
+                entry={entry}
                 style={{
                   maxWidth: '20em',
                   overflow: 'hidden',
@@ -67,7 +67,7 @@ function LanguageNamesReviewTable() {
                   whiteSpace: 'nowrap',
                 }}
               />
-              <InputDataCell data={row} inputWidth="15em" />
+              <InputDataCell entry={entry} inputWidth="15em" />
             </tr>
           ))}
         </tbody>

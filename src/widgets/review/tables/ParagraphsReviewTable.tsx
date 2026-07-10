@@ -11,8 +11,8 @@ import SourceDataCell from '../SourceDataCell';
 
 function ParagraphsReviewTable() {
   const { t } = useTranslation();
-  const { findDataFields } = useDataContext();
-  const paragraphsByGroup = groupBy(findDataFields({ group: 'Paragraphs' }), (f) => f.field);
+  const { findDataEntries } = useDataContext();
+  const paragraphsByGroup = groupBy(findDataEntries({ group: 'Paragraphs' }), (f) => f.field);
 
   function getHeight(english: string) {
     return Math.max(english.length / 50, 1.5) + 'em';
@@ -33,12 +33,12 @@ function ParagraphsReviewTable() {
               </tr>
             </thead>
             <tbody>
-              {paragraphs.map((datum) => (
-                <tr key={datum.instance}>
-                  <SourceDataCell data={datum} style={{ textWrap: 'balance' }} />
+              {paragraphs.map((entry) => (
+                <tr key={entry.instance}>
+                  <SourceDataCell entry={entry} style={{ textWrap: 'balance' }} />
                   <InputTextareaCell
-                    data={datum}
-                    style={{ height: getHeight(datum.english), width: '50em' }}
+                    entry={entry}
+                    style={{ height: getHeight(entry.english), width: '50em' }}
                   />
                 </tr>
               ))}

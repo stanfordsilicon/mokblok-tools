@@ -12,8 +12,8 @@ import SourceDataCell from '../SourceDataCell';
 
 function QuotesReviewTable() {
   const { t } = useTranslation();
-  const { findDataFields } = useDataContext();
-  const quotes = sortBy(findDataFields({ group: 'Quotes' }), (a) => a.length);
+  const { findDataEntries } = useDataContext();
+  const quotes = sortBy(findDataEntries({ group: 'Quotes' }), (a) => a.length);
   const quotesMatrix = matrixBy(
     quotes.filter((f) => f.exampleNum === '0'),
     (f) => f.length,
@@ -35,8 +35,8 @@ function QuotesReviewTable() {
         <tbody>
           {quotesExamples?.map((example) => (
             <tr key={example.index}>
-              <SourceDataCell data={example} style={{ width: '30em', textWrap: 'auto' }} />
-              <InputTextareaCell data={example} />
+              <SourceDataCell entry={example} style={{ width: '30em', textWrap: 'auto' }} />
+              <InputTextareaCell entry={example} />
             </tr>
           ))}
         </tbody>
@@ -62,10 +62,10 @@ function QuotesReviewTable() {
           {['', 'n']?.map((length) => (
             <tr key={length}>
               <td>{length === '' ? 'Regular' : 'Narrow'}</td>
-              <SourceDataCell data={quotesMatrix[length]['start']} />
-              <SourceDataCell data={quotesMatrix[length]['end']} />
-              <InputDataCell data={quotesMatrix[length]['start']} inputWidth="2em" />
-              <InputDataCell data={quotesMatrix[length]['end']} inputWidth="2em" />
+              <SourceDataCell entry={quotesMatrix[length]['start']} />
+              <SourceDataCell entry={quotesMatrix[length]['end']} />
+              <InputDataCell entry={quotesMatrix[length]['start']} inputWidth="2em" />
+              <InputDataCell entry={quotesMatrix[length]['end']} inputWidth="2em" />
             </tr>
           ))}
         </tbody>

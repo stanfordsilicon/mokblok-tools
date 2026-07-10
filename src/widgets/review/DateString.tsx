@@ -1,17 +1,17 @@
 import { useCallback } from 'react';
 
 import { useDataContext } from '@data/DataContext';
-import { SourceLanguage, type DataField } from '@data/DataTypes';
+import { SourceLanguage, type DataEntry } from '@data/DataTypes';
 import { DayKeys } from '@data/DayKeys';
 import getSourcePattern from '@data/getSourcePattern';
 
 import { useURLParams } from '@settings/URLParams';
 
-export function FormattedDateString({ entry }: { entry: DataField }) {
+export function FormattedDateString({ entry }: { entry: DataEntry }) {
   const { sourceLanguage } = useURLParams();
   const sourcePattern = getSourcePattern(entry);
 
-  // Otherwise get it from the datafields.tsv
+  // Otherwise get it from the dataentries.tsv
   return (
     <DateString
       format={sourcePattern}
@@ -32,15 +32,15 @@ type DateStringProps = {
 // For example "1713855600000", "dd/MM/y – dd/MM/y" or "'week' w 'of' Y"
 // TODO support dateTimeFormats
 function DateString({ format, lang, var1, var2 }: DateStringProps) {
-  const { findDataField, getTranslation } = useDataContext();
+  const { findDataEntry, getTranslation } = useDataContext();
   const getString = useCallback(
-    (query: Partial<DataField>): string => {
-      const dataEntry = findDataField(query);
+    (query: Partial<DataEntry>): string => {
+      const dataEntry = findDataEntry(query);
       if (!dataEntry) return '!!!';
       if (lang === 'translation') return getTranslation(dataEntry);
       return lang === 'english' ? dataEntry.english : dataEntry.french;
     },
-    [findDataField, lang, getTranslation],
+    [findDataEntry, lang, getTranslation],
   );
 
   const date1 = new Date(var1 || 0);
@@ -80,7 +80,7 @@ function DateString({ format, lang, var1, var2 }: DateStringProps) {
 function getDateVariable(
   seq: string,
   date: Date,
-  getString: (query: Partial<DataField>) => string,
+  getString: (query: Partial<DataEntry>) => string,
 ) {
   switch (seq) {
     case 'G':

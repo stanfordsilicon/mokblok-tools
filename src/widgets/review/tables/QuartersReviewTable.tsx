@@ -11,8 +11,8 @@ import SourceDataCell from '../SourceDataCell';
 
 function QuartersReviewTable() {
   const { t } = useTranslation();
-  const { findDataFields } = useDataContext();
-  const quarterFields = findDataFields({ field: 'q' }).filter((f) => f.instance !== '');
+  const { findDataEntries } = useDataContext();
+  const quarterFields = findDataEntries({ field: 'q' }).filter((f) => f.instance !== '');
   const quarterMatrix = matrixBy(
     quarterFields,
     (f) => f.variant + '-' + f.instance,
@@ -40,10 +40,10 @@ function QuartersReviewTable() {
           .sort((a, b) => a[0].localeCompare(b[0]))
           .map(([length, row]) => (
             <tr key={length}>
-              <SourceDataCell data={row['w']} />
-              <SourceDataCell data={row['a']} />
-              <InputDataCell data={row['w']} inputWidth="15em" />
-              <InputDataCell data={row['a']} inputWidth="10em" />
+              <SourceDataCell entry={row['w']} />
+              <SourceDataCell entry={row['a']} />
+              <InputDataCell entry={row['w']} inputWidth="15em" />
+              <InputDataCell entry={row['a']} inputWidth="10em" />
             </tr>
           ))}
       </tbody>

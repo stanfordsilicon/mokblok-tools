@@ -11,8 +11,8 @@ import SourceDataCell from '../SourceDataCell';
 
 function TimeCombinationsReviewTable() {
   const { t } = useTranslation();
-  const { findDataFields } = useDataContext();
-  const timesArray = findDataFields({ group: 'Times' });
+  const { findDataEntries } = useDataContext();
+  const timesArray = findDataEntries({ group: 'Times' });
   const timesMatrix = matrixBy(
     timesArray,
     (f) => f.instance,
@@ -41,14 +41,14 @@ function TimeCombinationsReviewTable() {
         </tr>
       </thead>
       <tbody>
-        {Object.entries(timesMatrix).map(([instance, data]) => (
+        {Object.entries(timesMatrix).map(([instance, row]) => (
           <tr key={instance}>
             <td>{instance}</td>
-            <SourceDataCell data={data['1']} />
-            <SourceDataCell data={data['2']} />
-            <td>{data[1].englishPattern}</td>
-            <InputDataCell data={data['1']} />
-            <InputDataCell data={data['2']} />
+            <SourceDataCell entry={row['1']} />
+            <SourceDataCell entry={row['2']} />
+            <td>{row['1'].englishPattern}</td>
+            <InputDataCell entry={row['1']} />
+            <InputDataCell entry={row['2']} />
           </tr>
         ))}
       </tbody>

@@ -8,8 +8,8 @@ import { FormattedDateString } from '../DateString';
 import InputDataCell from '../InputDataCell';
 
 function DateIntervalsReviewTable() {
-  const { findDataFields } = useDataContext();
-  const intervalFormats = findDataFields({ subject: 'dates', field: 'intervalFormats' }).filter(
+  const { findDataEntries } = useDataContext();
+  const intervalFormats = findDataEntries({ subject: 'dates', field: 'intervalFormats' }).filter(
     (f) => !f.instance.includes('G') && !f.instance.match(/^h/i),
   );
   const { t } = useTranslation();
@@ -27,14 +27,14 @@ function DateIntervalsReviewTable() {
         </tr>
       </thead>
       <tbody>
-        {intervalFormats?.map((datum) => (
-          <tr key={datum.index}>
-            <td>{datum.instance}</td>
-            <td>{datum.variant}</td>
+        {intervalFormats?.map((entry) => (
+          <tr key={entry.index}>
+            <td>{entry.instance}</td>
+            <td>{entry.variant}</td>
             <td>
-              <FormattedDateString entry={datum} />
+              <FormattedDateString entry={entry} />
             </td>
-            <InputDataCell data={datum} inputWidth="25em" />
+            <InputDataCell entry={entry} inputWidth="25em" />
           </tr>
         ))}
       </tbody>

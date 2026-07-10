@@ -5,14 +5,14 @@ import { useDataContext } from '@data/DataContext';
 import { getExampleDate } from '@settings/selectors/ExampleDateSelector';
 
 const DemoQuartersCircle: React.FC = () => {
-  const { findDataField, getTranslation } = useDataContext();
+  const { findDataEntry, getTranslation } = useDataContext();
   const today = getExampleDate();
   const months = [...Array(12)]
-    .map((_, index) => findDataField({ field: 'M', instance: (index + 1).toString(), length: 'a' }))
+    .map((_, index) => findDataEntry({ field: 'M', instance: (index + 1).toString(), length: 'a' }))
     .filter((m) => m != null);
   const quarters = [...Array(4)]
     .map((_, index) =>
-      findDataField({ field: 'q', instance: (index + 1).toString(), length: 'a', variant: 's' }),
+      findDataEntry({ field: 'q', instance: (index + 1).toString(), length: 'a', variant: 's' }),
     )
     .filter((q) => q != null);
   const currentMonth = today.getMonth(); // Current month (0-indexed)

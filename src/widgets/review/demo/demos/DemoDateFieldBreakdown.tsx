@@ -21,7 +21,7 @@ const ShownDateFields: DateField[] = [
 
 const DemoDateFieldBreakdown: React.FC = () => {
   const today = getExampleDate();
-  const { getTranslation, findDataField } = useDataContext();
+  const { getTranslation, findDataEntry } = useDataContext();
 
   const getTodayFieldValue = useCallback(
     (fieldKey: DateField): string | number => {
@@ -35,7 +35,7 @@ const DemoDateFieldBreakdown: React.FC = () => {
         case DateField.Month:
           return (
             getTranslation(
-              findDataField({ field: 'M', instance: String(today.getMonth() + 1), length: 'w' }),
+              findDataEntry({ field: 'M', instance: String(today.getMonth() + 1), length: 'w' }),
             ) || ''
           ); // Months are 0-indexed
         // return months?.[today.getMonth()].wide?.translated ?? ''; // Months are 0-indexed
@@ -46,7 +46,7 @@ const DemoDateFieldBreakdown: React.FC = () => {
         case DateField.DayOfWeek:
           return (
             getTranslation(
-              findDataField({ field: 'E', instance: DayKeys[today.getDay()], length: 'w' }),
+              findDataEntry({ field: 'E', instance: DayKeys[today.getDay()], length: 'w' }),
             ) || ''
           );
         case DateField.Hour:
@@ -59,16 +59,16 @@ const DemoDateFieldBreakdown: React.FC = () => {
           return '';
       }
     },
-    [today, getTranslation, findDataField],
+    [today, getTranslation, findDataEntry],
   );
 
   return (
     <>
       <text x={120} y={30} textAnchor="middle" fontSize="1.2em">
-        {getTranslation(findDataField({ field: 'd', instance: '0' })) ?? ''}
+        {getTranslation(findDataEntry({ field: 'd', instance: '0' })) ?? ''}
       </text>
       {ShownDateFields.map((fieldKey, index) => {
-        const fieldData = findDataField({ field: fieldKey, length: 'w' });
+        const fieldData = findDataEntry({ field: fieldKey, length: 'w' });
         const x = 120;
         const y = index * 20 + 75;
         return (

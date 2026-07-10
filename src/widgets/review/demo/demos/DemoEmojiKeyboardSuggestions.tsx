@@ -8,10 +8,10 @@ const STANDARD_KEYS = [
 const DemoEmojiKeyboardSuggestions: React.FC<{ includeAnnotations: boolean }> = ({
   includeAnnotations,
 }) => {
-  const { findDataField, getTranslation, alphabet } = useDataContext();
-  const heartSuit = findDataField({ instance: '♥️' });
-  const heartRed = findDataField({ instance: '❤️' });
-  const heartFace = findDataField({ instance: '🥰' });
+  const { findDataEntry, getTranslation, alphabet } = useDataContext();
+  const heartSuit = findDataEntry({ instance: '♥️' });
+  const heartRed = findDataEntry({ instance: '❤️' });
+  const heartFace = findDataEntry({ instance: '🥰' });
 
   // Find the common word in all translations to find probably the word for heart
   const heartWords = [
@@ -45,7 +45,7 @@ const DemoEmojiKeyboardSuggestions: React.FC<{ includeAnnotations: boolean }> = 
           ☀️🌡️! 😀
         </text>
         <text x={220} y={65} style={{ textAnchor: 'end' }}>
-          {getTranslation(findDataField({ group: 'Times', instance: 'Hm', exampleNum: '1' }))}
+          {getTranslation(findDataEntry({ group: 'Times', instance: 'Hm', exampleNum: '1' }))}
         </text>
       </g>
       <g id="message2">
@@ -54,7 +54,7 @@ const DemoEmojiKeyboardSuggestions: React.FC<{ includeAnnotations: boolean }> = 
           💡! 🐕🏃?
         </text>
         <text x={10} y={105}>
-          {getTranslation(findDataField({ group: 'Times', instance: 'Hm', exampleNum: '2' }))}
+          {getTranslation(findDataEntry({ group: 'Times', instance: 'Hm', exampleNum: '2' }))}
         </text>
       </g>
 
@@ -178,13 +178,13 @@ const DemoEmojiKeyboardSuggestions: React.FC<{ includeAnnotations: boolean }> = 
             ry={15}
           />
           <text x={-10} y={20}>
-            {getTranslation(findDataField({ instance: '☀️' }))}
+            {getTranslation(findDataEntry({ instance: '☀️' }))}
           </text>
           <text x={-10} y={40}>
-            {getTranslation(findDataField({ instance: '🌡️' }))}
+            {getTranslation(findDataEntry({ instance: '🌡️' }))}
           </text>
           <text x={-10} y={60}>
-            {getTranslation(findDataField({ instance: '😀' }))}
+            {getTranslation(findDataEntry({ instance: '😀' }))}
           </text>
         </g>
       )}
@@ -204,13 +204,13 @@ const DemoEmojiKeyboardSuggestions: React.FC<{ includeAnnotations: boolean }> = 
             ry={15}
           />
           <text x={10} y={20}>
-            {getTranslation(findDataField({ instance: '💡' }))}
+            {getTranslation(findDataEntry({ instance: '💡' }))}
           </text>
           <text x={10} y={40}>
-            {getTranslation(findDataField({ instance: '🐕' }))}
+            {getTranslation(findDataEntry({ instance: '🐕' }))}
           </text>
           <text x={10} y={60}>
-            {getTranslation(findDataField({ instance: '🏃' }))}
+            {getTranslation(findDataEntry({ instance: '🏃' }))}
           </text>
         </g>
       )}

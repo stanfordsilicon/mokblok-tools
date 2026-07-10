@@ -11,13 +11,13 @@ import InputDataCell from '../InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function DateTimeCombinationsReviewTable() {
-  const { findDataFields } = useDataContext();
+  const { findDataEntries } = useDataContext();
   const availableFormats = uniqueBy(
     sortBy(
-      findDataFields({ group: 'DateTimes' }),
-      (datum) => datum.field + datum.variant + datum.length,
+      findDataEntries({ group: 'DateTimes' }),
+      (entry) => entry.field + entry.variant + entry.length,
     ),
-    (datum) => datum.field + datum.variant + datum.length,
+    (entry) => entry.field + entry.variant + entry.length,
   );
   const { t } = useTranslation();
 
@@ -35,18 +35,18 @@ function DateTimeCombinationsReviewTable() {
         </tr>
       </thead>
       <tbody>
-        {availableFormats?.map((datum) => (
-          <tr key={datum.index}>
-            <td>{datum.field}</td>
-            <td>{datum.variant}</td>
-            <td>{datum.length}</td>
-            <SourceDataCell data={datum} />
+        {availableFormats?.map((entry) => (
+          <tr key={entry.index}>
+            <td>{entry.field}</td>
+            <td>{entry.variant}</td>
+            <td>{entry.length}</td>
+            <SourceDataCell entry={entry} />
             <td>
-              <FormattedDateString entry={datum} />
+              <FormattedDateString entry={entry} />
             </td>
             <InputDataCell
-              data={datum}
-              inputWidth={datum.field === 'dateFormats' ? '10em' : '25em'}
+              entry={entry}
+              inputWidth={entry.field === 'dateFormats' ? '10em' : '25em'}
             />
           </tr>
         ))}

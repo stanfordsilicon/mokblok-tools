@@ -2,9 +2,9 @@ import { useURLParams } from '@settings/URLParams';
 
 import { useDataContext } from './DataContext';
 
-import type { DataField } from './DataTypes';
+import type { DataEntry } from './DataTypes';
 
-function getSourcePattern(entry: DataField): string {
+function getSourcePattern(entry: DataEntry): string {
   const { sourceLanguage } = useURLParams();
   const { getSourceData } = useDataContext();
 

@@ -9,8 +9,8 @@ import SourceDataCell from '../SourceDataCell';
 
 function TechWordsReviewTable() {
   const { t } = useTranslation();
-  const { findDataFields } = useDataContext();
-  const techWords = findDataFields({ group: 'Tech Words' });
+  const { findDataEntries } = useDataContext();
+  const techWords = findDataEntries({ group: 'Tech Words' });
 
   return (
     <div>
@@ -24,10 +24,10 @@ function TechWordsReviewTable() {
           </tr>
         </thead>
         <tbody>
-          {techWords.map((datum) => (
-            <tr key={datum.instance}>
-              <SourceDataCell data={datum} />
-              <InputDataCell data={datum} inputWidth="15em" />
+          {techWords.map((entry) => (
+            <tr key={entry.instance}>
+              <SourceDataCell entry={entry} />
+              <InputDataCell entry={entry} inputWidth="15em" />
             </tr>
           ))}
         </tbody>

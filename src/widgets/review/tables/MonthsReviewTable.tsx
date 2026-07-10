@@ -11,8 +11,8 @@ import SourceDataCell from '../SourceDataCell';
 
 function MonthsReviewTable() {
   const { t } = useTranslation();
-  const { findDataFields } = useDataContext();
-  const monthFields = findDataFields({ field: 'M' }).filter(
+  const { findDataEntries } = useDataContext();
+  const monthFields = findDataEntries({ field: 'M' }).filter(
     (f) => f.length !== '' && f.instance !== '',
   );
   const monthMatrix = matrixBy(
@@ -46,12 +46,12 @@ function MonthsReviewTable() {
           .sort((a, b) => parseInt(a[0]) - parseInt(b[0]))
           .map(([length, row]) => (
             <tr key={length}>
-              <SourceDataCell data={row['w']} />
-              <SourceDataCell data={row['a']} />
-              <SourceDataCell data={row['n']} />
-              <InputDataCell data={row['w']} />
-              <InputDataCell data={row['a']} />
-              <InputDataCell data={row['n']} />
+              <SourceDataCell entry={row['w']} />
+              <SourceDataCell entry={row['a']} />
+              <SourceDataCell entry={row['n']} />
+              <InputDataCell entry={row['w']} />
+              <InputDataCell entry={row['a']} />
+              <InputDataCell entry={row['n']} />
             </tr>
           ))}
       </tbody>

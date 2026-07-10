@@ -3,10 +3,10 @@ import React from 'react';
 import { useDataContext } from '@data/DataContext';
 
 const DemoQuartersEvents: React.FC = () => {
-  const { findDataField, getTranslation } = useDataContext();
+  const { findDataEntry, getTranslation } = useDataContext();
   const quarters = [...Array(4)]
     .map((_, index) =>
-      findDataField({ field: 'q', instance: (index + 1).toString(), length: 'a', variant: 'f' }),
+      findDataEntry({ field: 'q', instance: (index + 1).toString(), length: 'a', variant: 'f' }),
     )
     .filter((q) => q != null);
   // Example events for each quarter

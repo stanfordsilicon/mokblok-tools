@@ -1,32 +1,32 @@
 import { useTranslation } from 'react-i18next';
 
 import { useDataContext } from '@data/DataContext';
-import { SourceLanguage, type DataField } from '@data/DataTypes';
+import { SourceLanguage, type DataEntry } from '@data/DataTypes';
 
 import { useURLParams } from '@settings/URLParams';
 
 import { getFraktur } from '@shared/stringUtils';
 
 type Props = {
-  data?: DataField;
+  entry?: DataEntry;
   style?: React.CSSProperties;
 };
-function SourceDataCell({ data, style }: Props) {
+function SourceDataCell({ entry, style }: Props) {
   const { t } = useTranslation();
   const { getSourceData } = useDataContext();
   const { sourceLanguage } = useURLParams();
-  if (!data) return <td>{t('common.emptyCell')}</td>;
+  if (!entry) return <td>{t('common.emptyCell')}</td>;
 
-  let sourceTranslation = data.english;
-  if (data.exampleNum === '0') {
+  let sourceTranslation = entry.english;
+  if (entry.exampleNum === '0') {
     // Can only get Direct translations (exampleNum=0) for now
-    const sourceData = getSourceData(data);
+    const sourceData = getSourceData(entry);
     if (sourceData) sourceTranslation = sourceData;
   }
-  if (sourceLanguage === SourceLanguage.French && data.french) {
-    sourceTranslation = data.french;
+  if (sourceLanguage === SourceLanguage.French && entry.french) {
+    sourceTranslation = entry.french;
   } else if (sourceLanguage === SourceLanguage.EnglishFraktur) {
-    sourceTranslation = getFraktur(data.english);
+    sourceTranslation = getFraktur(entry.english);
   }
 
   if (sourceTranslation.includes('\\n')) {

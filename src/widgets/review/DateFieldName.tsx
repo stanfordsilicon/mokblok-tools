@@ -11,9 +11,9 @@ type Props = {
   language: 'source' | 'target';
 };
 const DateFieldName: React.FC<Props> = ({ field, language = 'target' }) => {
-  const { getTranslation, findDataField } = useDataContext();
+  const { getTranslation, findDataEntry } = useDataContext();
   const { sourceLanguage } = useURLParams();
-  const data = findDataField({
+  const data = findDataEntry({
     field,
     instance: '',
   });

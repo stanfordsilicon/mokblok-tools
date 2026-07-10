@@ -9,8 +9,10 @@ import InputDataCell from '../InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function EraDatesReviewTable() {
-  const { findDataFields } = useDataContext();
-  const allEraFields = findDataFields({ subject: 'dates' }).filter((f) => f.instance.includes('G'));
+  const { findDataEntries } = useDataContext();
+  const allEraFields = findDataEntries({ subject: 'dates' }).filter((f) =>
+    f.instance.includes('G'),
+  );
   const availableEraDates = allEraFields.filter((f) => f.field === 'availableFormats');
   const eraIntervals = allEraFields.filter((f) => f.field === 'intervalFormats');
   const { t } = useTranslation();
@@ -34,10 +36,10 @@ function EraDatesReviewTable() {
               Dates
             </th>
           </tr>
-          {availableEraDates.map((datum) => (
-            <tr key={datum.index}>
-              <SourceDataCell data={datum} />
-              <InputDataCell data={datum} inputWidth="10em" />
+          {availableEraDates.map((entry) => (
+            <tr key={entry.index}>
+              <SourceDataCell entry={entry} />
+              <InputDataCell entry={entry} inputWidth="10em" />
             </tr>
           ))}
           <tr>
@@ -45,14 +47,14 @@ function EraDatesReviewTable() {
               Intervals
             </th>
           </tr>
-          {eraIntervals.map((datum) => (
-            <tr key={datum.index}>
-              <SourceDataCell data={datum} />
+          {eraIntervals.map((entry) => (
+            <tr key={entry.index}>
+              <SourceDataCell entry={entry} />
               <td>
-                <FormattedDateString entry={datum} />
+                <FormattedDateString entry={entry} />
               </td>
-              <td>{datum.englishPattern}</td>
-              <InputDataCell data={datum} inputWidth="25em" />
+              <td>{entry.englishPattern}</td>
+              <InputDataCell entry={entry} inputWidth="25em" />
             </tr>
           ))}
         </tbody>

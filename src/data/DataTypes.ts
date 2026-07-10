@@ -1,6 +1,6 @@
 import type { CoverageLevel } from './CoverageLevel';
 
-export type DataField = {
+export type DataEntry = {
   subject: string;
   group: string;
   field: string;

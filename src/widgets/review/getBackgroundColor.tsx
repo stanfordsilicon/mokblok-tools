@@ -1,10 +1,10 @@
 import { useDataContext } from '@data/DataContext';
-import type { DataField } from '@data/DataTypes';
+import type { DataEntry } from '@data/DataTypes';
 
 import { BackgroundStyle } from '@settings/BackgroundStyle';
 import { useURLParams } from '@settings/URLParams';
 
-function getBackgroundColor(data?: DataField) {
+function getBackgroundColor(data?: DataEntry) {
   const { bgStyle } = useURLParams();
   const { getTranslation } = useDataContext();
   if (!data) return 'var(--color-input-background)';

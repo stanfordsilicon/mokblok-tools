@@ -28,9 +28,9 @@ const simulatedClimateData: ClimateDataPoint[] = [
 ];
 
 const MockMonthsTemp: React.FC = () => {
-  const { findDataField, getTranslation } = useDataContext();
+  const { findDataEntry, getTranslation } = useDataContext();
   const months = [...Array(12)]
-    .map((_, index) => findDataField({ field: 'M', instance: (index + 1).toString(), length: 'n' }))
+    .map((_, index) => findDataEntry({ field: 'M', instance: (index + 1).toString(), length: 'n' }))
     .filter((m) => m != null);
   const today = getExampleDate();
 

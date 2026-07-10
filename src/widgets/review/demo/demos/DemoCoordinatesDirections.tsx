@@ -4,18 +4,18 @@ import { useDataContext } from '@data/DataContext';
 import { CardinalDirection } from '@data/DataTypes';
 
 const DemoCoordinatesDirections: React.FC = () => {
-  const { findDataField, getTranslation } = useDataContext();
-  const south = findDataField({
+  const { findDataEntry, getTranslation } = useDataContext();
+  const south = findDataEntry({
     field: 'coordinateUnitPattern',
     instance: CardinalDirection.South,
     length: 'long',
   });
-  const west = findDataField({
+  const west = findDataEntry({
     field: 'coordinateUnitPattern',
     instance: CardinalDirection.West,
     length: 'long',
   });
-  const direction = findDataField({ field: 'ordinalMinimalPairs', instance: 'one' });
+  const direction = findDataEntry({ field: 'ordinalMinimalPairs', instance: 'one' });
 
   return (
     <>

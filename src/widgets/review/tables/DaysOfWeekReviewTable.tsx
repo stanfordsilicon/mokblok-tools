@@ -13,8 +13,8 @@ import SourceDataCell from '../SourceDataCell';
 const dayOfWeekOrdered = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
 
 function DaysOfWeekReviewTable() {
-  const { findDataFields } = useDataContext();
-  const daysOfTheWeekFields = findDataFields({ field: 'E' }).filter(
+  const { findDataEntries } = useDataContext();
+  const daysOfTheWeekFields = findDataEntries({ field: 'E' }).filter(
     (f) => f.length !== '' && f.instance !== '',
   );
   const daysOfTheWeekMatrix = matrixBy(
@@ -51,14 +51,14 @@ function DaysOfWeekReviewTable() {
           .sort((a, b) => dayOfWeekOrdered.indexOf(a[0]) - dayOfWeekOrdered.indexOf(b[0]))
           .map(([instance, row]) => (
             <tr key={instance}>
-              <SourceDataCell data={row['w']} />
-              <SourceDataCell data={row['a']} />
-              <SourceDataCell data={row['s']} />
-              <SourceDataCell data={row['n']} />
-              <InputDataCell data={row['w']} />
-              <InputDataCell data={row['a']} />
-              <InputDataCell data={row['s']} />
-              <InputDataCell data={row['n']} />
+              <SourceDataCell entry={row['w']} />
+              <SourceDataCell entry={row['a']} />
+              <SourceDataCell entry={row['s']} />
+              <SourceDataCell entry={row['n']} />
+              <InputDataCell entry={row['w']} />
+              <InputDataCell entry={row['a']} />
+              <InputDataCell entry={row['s']} />
+              <InputDataCell entry={row['n']} />
             </tr>
           ))}
       </tbody>

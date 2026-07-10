@@ -3,12 +3,12 @@ import React from 'react';
 import { useDataContext } from '@data/DataContext';
 
 const DemoCoordinatesMap: React.FC = () => {
-  const { getTranslation, findDataField } = useDataContext();
+  const { getTranslation, findDataEntry } = useDataContext();
   const north = getTranslation(
-    findDataField({ field: 'coordinateUnitPattern', instance: 'north', length: 'narrow' }),
+    findDataEntry({ field: 'coordinateUnitPattern', instance: 'north', length: 'narrow' }),
   );
   const east = getTranslation(
-    findDataField({ field: 'coordinateUnitPattern', instance: 'east', length: 'narrow' }),
+    findDataEntry({ field: 'coordinateUnitPattern', instance: 'east', length: 'narrow' }),
   );
 
   return (

@@ -11,8 +11,8 @@ import InputDataCell from '../InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 const DateFieldsReviewTable: React.FC = () => {
-  const { findDataFields } = useDataContext();
-  const dateFields = findDataFields({ group: 'DateFields', exampleNum: '0' });
+  const { findDataEntries } = useDataContext();
+  const dateFields = findDataEntries({ group: 'DateFields', exampleNum: '0' });
   const dateFieldMatrix = matrixBy(
     dateFields,
     (f) => f.field,
@@ -46,12 +46,12 @@ const DateFieldsReviewTable: React.FC = () => {
           .filter((row) => !!row) // Remove rows with no data
           .map((row, index) => (
             <tr key={index}>
-              <SourceDataCell data={row['w']} />
-              <SourceDataCell data={row['s']} />
-              <SourceDataCell data={row['n']} />
-              <InputDataCell data={row['w']} />
-              <InputDataCell data={row['s']} />
-              <InputDataCell data={row['n']} />
+              <SourceDataCell entry={row['w']} />
+              <SourceDataCell entry={row['s']} />
+              <SourceDataCell entry={row['n']} />
+              <InputDataCell entry={row['w']} />
+              <InputDataCell entry={row['s']} />
+              <InputDataCell entry={row['n']} />
             </tr>
           ))}
       </tbody>

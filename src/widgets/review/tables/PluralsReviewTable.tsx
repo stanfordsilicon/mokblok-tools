@@ -19,22 +19,22 @@ type VariantKey = (typeof pluralVariantOrder)[number];
 
 const PluralsReviewTable: React.FC = () => {
   const { t } = useTranslation();
-  const { findDataFields } = useDataContext();
+  const { findDataEntries } = useDataContext();
 
-  const pluralFields = findDataFields({ field: 'plurals' }).filter((field) =>
-    pluralInstances.includes(field.instance as PluralInstance),
+  const pluralFields = findDataEntries({ field: 'plurals' }).filter((entry) =>
+    pluralInstances.includes(entry.instance as PluralInstance),
   );
   const pluralMatrix = matrixBy(
     pluralFields,
-    (field) => field.instance,
-    (field) => field.variant || 'base',
+    (entry) => entry.instance,
+    (entry) => entry.variant || 'base',
   );
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1em' }}>
       {pluralInstances.map((instance) => {
-        const rowsForInstance = pluralMatrix[instance];
-        if (!rowsForInstance) return null;
+        const entriesForInstance = pluralMatrix[instance];
+        if (!entriesForInstance) return null;
         return (
           <div key={instance}>
             <h3>{t(`review.plurals.instances.${instance}`)}</h3>
@@ -50,13 +50,13 @@ const PluralsReviewTable: React.FC = () => {
               </thead>
               <tbody>
                 {pluralVariantOrder.map((variantKey) => {
-                  const row = rowsForInstance[variantKey as VariantKey];
-                  if (!row) return null;
+                  const entry = entriesForInstance[variantKey as VariantKey];
+                  if (!entry) return null;
                   return (
                     <tr key={variantKey}>
                       <td>{t(`review.plurals.categories.${variantKey}`, variantKey)}</td>
-                      <SourceDataCell data={row} />
-                      <InputDataCell data={row} inputWidth="15em" />
+                      <SourceDataCell entry={entry} />
+                      <InputDataCell entry={entry} inputWidth="15em" />
                     </tr>
                   );
                 })}

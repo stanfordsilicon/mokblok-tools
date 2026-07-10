@@ -9,8 +9,8 @@ import { FormattedDateString } from '../DateString';
 import InputDataCell from '../InputDataCell';
 
 function DateCombinationsReviewTable() {
-  const { findDataFields } = useDataContext();
-  const availableFormats = findDataFields({ subject: 'dates', field: 'availableFormats' }).filter(
+  const { findDataEntries } = useDataContext();
+  const availableFormats = findDataEntries({ subject: 'dates', field: 'availableFormats' }).filter(
     (f) => !f.instance.includes('G') && !f.instance.match(/^h/i),
   );
   const { t } = useTranslation();
@@ -33,12 +33,12 @@ function DateCombinationsReviewTable() {
             <td>
               {entry.instance} {entry.variant}
             </td>
-            {/* <SourceDataCell data={entry} /> */}
+            {/* <SourceDataCell entry={entry} /> */}
             <td>
               <FormattedDateString entry={entry} />
             </td>
             <td>{getSourcePattern(entry)}</td>
-            <InputDataCell data={entry} inputWidth="20em" />
+            <InputDataCell entry={entry} inputWidth="20em" />
           </tr>
         ))}
       </tbody>

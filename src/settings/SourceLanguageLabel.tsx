@@ -1,15 +1,10 @@
 import { useTranslation } from 'react-i18next';
 
-import { SourceLanguage } from '@data/DataTypes';
-
 import { useURLParams } from './URLParams';
 
 function SourceLanguageLabel() {
   const { sourceLanguage } = useURLParams();
   const { t } = useTranslation();
-  if ([SourceLanguage.Spanish, SourceLanguage.Italian].includes(sourceLanguage)) {
-    return <>{t(`languageName.en`)}</>;
-  }
   return <>{t(`languageName.${sourceLanguage}`)}</>;
 }
 

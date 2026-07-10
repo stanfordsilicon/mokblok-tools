@@ -8,8 +8,8 @@ import InputTextareaCell from '../InputTextareaCell';
 import SourceDataCell from '../SourceDataCell';
 
 function CLDRTicketReviewTable() {
-  const { findDataFields } = useDataContext();
-  const sentences = findDataFields({ group: 'CLDR Ticket' });
+  const { findDataEntries } = useDataContext();
+  const sentences = findDataEntries({ group: 'CLDR Ticket' });
   const { t } = useTranslation();
 
   function getHeight(english: string) {
@@ -30,9 +30,9 @@ function CLDRTicketReviewTable() {
         <tbody>
           {sentences.map((sentence) => (
             <tr key={sentence.instance}>
-              <SourceDataCell data={sentence} style={{ textWrap: 'balance' }} />
+              <SourceDataCell entry={sentence} style={{ textWrap: 'balance' }} />
               <InputTextareaCell
-                data={sentence}
+                entry={sentence}
                 style={{ height: getHeight(sentence.english), width: '50em' }}
               />
             </tr>

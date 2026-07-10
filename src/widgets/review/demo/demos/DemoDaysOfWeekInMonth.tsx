@@ -6,7 +6,7 @@ import { DayKeys } from '@data/DayKeys';
 import { getExampleDate } from '@settings/selectors/ExampleDateSelector';
 
 const DemoDaysOfWeekInMonth: React.FC = () => {
-  const { findDataField, getTranslation } = useDataContext();
+  const { findDataEntry, getTranslation } = useDataContext();
   const today = getExampleDate();
   const firstDayOfMonth = new Date(today.getFullYear(), today.getMonth(), 1).getDay(); // Get the day of the week for the first day of the month (0-6, where 0 is Sunday)
 
@@ -21,7 +21,7 @@ const DemoDaysOfWeekInMonth: React.FC = () => {
       />
       <text x={120} y={30} textAnchor="middle" fontSize="1.2em">
         {getTranslation(
-          findDataField({ field: 'M', length: 'w', instance: today.getMonth() + 1 + '' }),
+          findDataEntry({ field: 'M', length: 'w', instance: today.getMonth() + 1 + '' }),
         ) ?? ''}
       </text>
       <path
@@ -35,7 +35,7 @@ const DemoDaysOfWeekInMonth: React.FC = () => {
         {/* Days of week header */}
         {DayKeys?.map((day, index) => (
           <text key={index} x={index * 30 + 15} y={15} fontWeight="bold" textAnchor="middle">
-            {getTranslation(findDataField({ field: 'E', length: 'n', instance: day })) ?? ''}
+            {getTranslation(findDataEntry({ field: 'E', length: 'n', instance: day })) ?? ''}
           </text>
         ))}
         {/* Calendar grid */}

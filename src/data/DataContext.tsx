@@ -2,32 +2,32 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useState } 
 
 import { useURLParams } from '@settings/URLParams';
 
-import { type AlphabetData, type DataField, type RowData } from './DataTypes';
+import { type AlphabetData, type DataEntry, type RowData } from './DataTypes';
 import extractAlphabetData from './ExtractAlphabet';
 import { loadCLDRXMLWithInheritance } from './loadCLDRXML';
-import { loadDatafields } from './LoadDataFields';
+import { loadDataEntries } from './LoadDataEntries';
 
-export type FindDataField = (query: Partial<DataField>) => DataField | undefined;
-export type FindDataFields = (query: Partial<DataField>) => DataField[];
+export type FindDataEntry = (query: Partial<DataEntry>) => DataEntry | undefined;
+export type FindDataEntries = (query: Partial<DataEntry>) => DataEntry[];
 
 export type DataContextType = {
   setRows: (lines: RowData[]) => void;
   setExtraText: (text: string) => void;
   rowsByKey: Record<string, RowData>;
   alphabet?: AlphabetData;
-  findDataField(query: Partial<DataField>): DataField | undefined;
-  findDataFields(query: Partial<DataField>): DataField[];
-  getTranslation(field: DataField | undefined, fallback?: boolean): string;
+  findDataEntry(query: Partial<DataEntry>): DataEntry | undefined;
+  findDataEntries(query: Partial<DataEntry>): DataEntry[];
+  getTranslation(entry: DataEntry | undefined, fallback?: boolean): string;
   setTranslation(index: number, newTranslation: string): void;
-  getSourceData(field: DataField | undefined): string | undefined;
+  getSourceData(entry: DataEntry | undefined): string | undefined;
 };
 
 export const DataContext = createContext<DataContextType | undefined>({
   setRows: () => {},
   setExtraText: () => {},
   rowsByKey: {},
-  findDataField: () => undefined,
-  findDataFields: () => [],
+  findDataEntry: () => undefined,
+  findDataEntries: () => [],
   getTranslation: () => '',
   setTranslation: () => {},
   getSourceData: () => '',
@@ -44,7 +44,7 @@ export const DataProvider: React.FC<{
 }> = ({ children }) => {
   // Input Data
   const [rows, setRows] = useState<RowData[]>([]);
-  const [dataFields, setDataFields] = useState<DataField[]>([]);
+  const [dataEntries, setDataEntries] = useState<DataEntry[]>([]);
   const [extraText, setExtraText] = useState<string>('');
   const [sourceXMLData, setSourceXMLData] = useState<Record<string, string>>({});
   const { sourceLanguage } = useURLParams();
@@ -64,30 +64,30 @@ export const DataProvider: React.FC<{
   );
   const [translationsByIndex, setTranslationsByIndex] = useState<Record<number, string>>({});
 
-  // Load the list of datafields
+  // Load the list of data entries
   useEffect(() => {
-    const fetchDatafields = async () => {
-      const datafields = await loadDatafields();
-      if (datafields) setDataFields(datafields);
+    const fetchDataEntries = async () => {
+      const dataEntries = await loadDataEntries();
+      if (dataEntries) setDataEntries(dataEntries);
     };
-    fetchDatafields();
+    fetchDataEntries();
   }, []);
-  const findDataFields = useCallback(
-    (query: Partial<DataField>): DataField[] => {
-      return dataFields.filter((field) =>
-        Object.entries(query).every(([key, value]) => field[key as keyof DataField] === value),
+  const findDataEntries = useCallback(
+    (query: Partial<DataEntry>): DataEntry[] => {
+      return dataEntries.filter((entry) =>
+        Object.entries(query).every(([key, value]) => entry[key as keyof DataEntry] === value),
       );
     },
-    [dataFields],
+    [dataEntries],
   );
-  const findDataField = useCallback(
-    (query: Partial<DataField>): DataField | undefined => findDataFields(query)[0] || undefined,
-    [findDataFields],
+  const findDataEntry = useCallback(
+    (query: Partial<DataEntry>): DataEntry | undefined => findDataEntries(query)[0] || undefined,
+    [findDataEntries],
   );
   const getTranslation = useCallback(
-    (datum: DataField | undefined, fallback = true): string => {
-      if (!datum) return '';
-      return translationsByIndex[datum.index] ?? (fallback ? datum.english : '');
+    (entry: DataEntry | undefined, fallback = true): string => {
+      if (!entry) return '';
+      return translationsByIndex[entry.index] ?? (fallback ? entry.english : '');
     },
     [translationsByIndex],
   );
@@ -98,18 +98,18 @@ export const DataProvider: React.FC<{
     (rowsByKey: Record<string, RowData>) => {
       setTranslationsByIndex({}); // Clear existing translations
       Object.entries(rowsByKey).forEach(([key, row]) => {
-        const field = findDataField({ ext_id: key }) ?? findDataField({ xpath: key });
-        if (field && row.translated) {
-          setTranslation(field.index, row.translated);
+        const entry = findDataEntry({ ext_id: key }) ?? findDataEntry({ xpath: key });
+        if (entry && row.translated) {
+          setTranslation(entry.index, row.translated);
         }
       });
     },
-    [dataFields.length, setTranslation],
+    [dataEntries.length, setTranslation],
   );
   const getSourceData = useCallback(
-    (field: DataField | undefined): string | undefined => {
-      if (!field) return undefined;
-      return sourceXMLData[field.xpath];
+    (entry: DataEntry | undefined): string | undefined => {
+      if (!entry) return undefined;
+      return sourceXMLData[entry.xpath];
     },
     [sourceXMLData],
   );
@@ -121,10 +121,10 @@ export const DataProvider: React.FC<{
   }, [rowsByKey, rows, extraText]);
   useEffect(() => {
     const fetchXMLData = async () => {
-      if (dataFields.length === 0) return;
+      if (dataEntries.length === 0) return;
       const allXMLdata = await loadCLDRXMLWithInheritance(sourceLanguage);
       // Only save XPaths we are using
-      const applicableXML = dataFields.reduce(
+      const applicableXML = dataEntries.reduce(
         (acc, row) => {
           if (row.xpath == null || !allXMLdata[row.xpath]) return acc;
           acc[row.xpath] = allXMLdata[row.xpath];
@@ -135,15 +135,15 @@ export const DataProvider: React.FC<{
       setSourceXMLData(applicableXML);
     };
     fetchXMLData();
-  }, [sourceLanguage, dataFields]);
+  }, [sourceLanguage, dataEntries]);
 
   const dataContext: DataContextType = {
     setRows,
     setExtraText,
     rowsByKey,
     alphabet: alphabetData,
-    findDataField,
-    findDataFields,
+    findDataEntry,
+    findDataEntries,
     getTranslation,
     getSourceData,
     setTranslation,

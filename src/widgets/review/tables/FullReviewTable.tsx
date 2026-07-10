@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { CoverageLevel, getCoverageLevelKey } from '@data/CoverageLevel';
 import { useDataContext } from '@data/DataContext';
-import type { DataField } from '@data/DataTypes';
+import type { DataEntry } from '@data/DataTypes';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
@@ -12,8 +12,8 @@ import InputDataCell from '../InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function FullReviewTable() {
-  const { findDataFields } = useDataContext();
-  const allFields = findDataFields({});
+  const { findDataEntries } = useDataContext();
+  const allEntries = findDataEntries({});
   const [subjectFilter, setSubjectFilter] = React.useState('');
   const [fieldFilter, setFieldFilter] = React.useState('');
   const [instanceFilter, setInstanceFilter] = React.useState('');
@@ -25,9 +25,9 @@ function FullReviewTable() {
   );
   const { t } = useTranslation();
 
-  const filteredFields = useMemo(
+  const filteredEntries = useMemo(
     () =>
-      allFields.filter(
+      allEntries.filter(
         (f) =>
           f.subject.includes(subjectFilter) &&
           f.field.includes(fieldFilter) &&
@@ -38,7 +38,7 @@ function FullReviewTable() {
           (coverageLevelFilter === undefined || f.level === coverageLevelFilter),
       ),
     [
-      allFields,
+      allEntries,
       subjectFilter,
       fieldFilter,
       instanceFilter,
@@ -83,8 +83,8 @@ function FullReviewTable() {
         </tr>
       </thead>
       <tbody>
-        {filteredFields.map((field) => (
-          <TranslationRow key={field.index} field={field} />
+        {filteredEntries.map((entry) => (
+          <TranslationRow key={entry.index} entry={entry} />
         ))}
       </tbody>
     </table>
@@ -129,23 +129,23 @@ function FilterCoverageLevelCell({
   );
 }
 
-function TranslationRow({ field }: { field: DataField }) {
+function TranslationRow({ entry }: { entry: DataEntry }) {
   const { getSourceData } = useDataContext();
   const { t } = useTranslation();
   return (
-    <tr key={field.index} style={{ backgroundColor: getBackgroundColor(field) }}>
-      <td>{field.subject}</td>
-      <td>{field.field}</td>
-      <td>{field.instance}</td>
-      <td>{field.length}</td>
-      <td>{field.variant}</td>
-      <td>{field.exampleNum}</td>
-      <SourceDataCell data={field} style={{ maxWidth: '15em' }} />
-      <InputDataCell data={field} inputWidth="15em" />
+    <tr key={entry.index} style={{ backgroundColor: getBackgroundColor(entry) }}>
+      <td>{entry.subject}</td>
+      <td>{entry.field}</td>
+      <td>{entry.instance}</td>
+      <td>{entry.length}</td>
+      <td>{entry.variant}</td>
+      <td>{entry.exampleNum}</td>
+      <SourceDataCell entry={entry} style={{ maxWidth: '15em' }} />
+      <InputDataCell entry={entry} inputWidth="15em" />
       <td style={{ overflow: 'hidden' }}>
-        {t(`coverageLevelName.${getCoverageLevelKey(field.level)}`)}
+        {t(`coverageLevelName.${getCoverageLevelKey(entry.level)}`)}
       </td>
-      <td>{getSourceData(field)}</td>
+      <td>{getSourceData(entry)}</td>
     </tr>
   );
 }

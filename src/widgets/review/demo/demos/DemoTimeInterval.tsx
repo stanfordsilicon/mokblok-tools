@@ -1,13 +1,13 @@
 import { useDataContext } from '@data/DataContext';
-import type { DataField } from '@data/DataTypes';
+import type { DataEntry } from '@data/DataTypes';
 
 import { uniqueBy } from '@shared/setUtils';
 
 const DemoTimeInterval: React.FC<{ pattern: string }> = ({ pattern }) => {
-  const { findDataField, findDataFields, getTranslation } = useDataContext();
-  const date = findDataField({ field: 'availableFormats', instance: 'MEd' });
+  const { findDataEntry, findDataEntries, getTranslation } = useDataContext();
+  const date = findDataEntry({ field: 'availableFormats', instance: 'MEd' });
   const intervals = uniqueBy(
-    findDataFields({ field: 'intervalFormats', instance: pattern }).filter(
+    findDataEntries({ field: 'intervalFormats', instance: pattern }).filter(
       (f) => f.english !== '3:00 PM – 4:00 PM' && f.english !== '3 PM - 4 PM',
     ),
     (f) => f.english,
@@ -17,7 +17,7 @@ const DemoTimeInterval: React.FC<{ pattern: string }> = ({ pattern }) => {
     if (pattern.includes('H')) return `${hour}:00`;
     return `${((hour + 11) % 12) + 1} ${hour < 12 ? 'AM' : 'PM'}`;
   };
-  const intervalToHourNums = (interval: DataField) => {
+  const intervalToHourNums = (interval: DataEntry) => {
     const parts = interval.english
       .replace('PT', '')
       .split(/–|-/)

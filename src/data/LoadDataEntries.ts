@@ -2,10 +2,10 @@
 
 import { parseCoverageLevel } from './CoverageLevel';
 
-import type { DataField } from './DataTypes';
+import type { DataEntry } from './DataTypes';
 
-export async function loadDatafields(): Promise<DataField[] | void> {
-  const filePath = 'datafields.tsv';
+export async function loadDataEntries(): Promise<DataEntry[] | void> {
+  const filePath = 'dataentries.tsv';
   return await fetch(filePath)
     .then((res) => {
       const contentType = res.headers.get('content-type');
@@ -38,7 +38,7 @@ export async function loadDatafields(): Promise<DataField[] | void> {
           var1: Number(cells[14].replaceAll(',', '')) || undefined,
           var2: Number(cells[15].replaceAll(',', '')) || undefined,
           index,
-        } as DataField;
+        } as DataEntry;
       });
     })
     .catch((err) => console.error('Error loading TSV:', err));

@@ -10,8 +10,8 @@ import InputDataCell from '../InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function EmojisReviewTable() {
-  const { findDataFields } = useDataContext();
-  const emojisByGroup = groupBy(findDataFields({ subject: 'emoji' }), (f) => f.group);
+  const { findDataEntries } = useDataContext();
+  const emojisByGroup = groupBy(findDataEntries({ subject: 'emoji' }), (f) => f.group);
   const { t } = useTranslation();
 
   return (
@@ -32,11 +32,11 @@ function EmojisReviewTable() {
               </tr>
             </thead>
             <tbody>
-              {emojis.map((datum) => (
-                <tr key={datum.instance}>
-                  <td>{datum.instance}</td>
-                  <SourceDataCell data={datum} />
-                  <InputDataCell data={datum} inputWidth="15em" />
+              {emojis.map((entry) => (
+                <tr key={entry.instance}>
+                  <td>{entry.instance}</td>
+                  <SourceDataCell entry={entry} />
+                  <InputDataCell entry={entry} inputWidth="15em" />
                 </tr>
               ))}
             </tbody>

@@ -5,10 +5,10 @@ import { useDataContext } from '@data/DataContext';
 import { getExampleDate } from '@settings/selectors/ExampleDateSelector';
 
 const DemoMonthsGrid: React.FC = () => {
-  const { findDataField, getTranslation } = useDataContext();
+  const { findDataEntry, getTranslation } = useDataContext();
   const today = getExampleDate();
   const months = [...Array(12)]
-    .map((_, index) => findDataField({ field: 'M', instance: (index + 1).toString(), length: 'a' }))
+    .map((_, index) => findDataEntry({ field: 'M', instance: (index + 1).toString(), length: 'a' }))
     .filter((m) => m != null);
 
   return (

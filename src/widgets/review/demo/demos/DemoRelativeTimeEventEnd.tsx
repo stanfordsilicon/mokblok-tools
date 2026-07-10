@@ -3,12 +3,12 @@ import { useDataContext } from '@data/DataContext';
 import { groupBy } from '@shared/setUtils';
 
 const DemoRelativeTimeEventEnd: React.FC = () => {
-  const { findDataField, findDataFields, getTranslation } = useDataContext();
+  const { findDataEntry, findDataEntries, getTranslation } = useDataContext();
   const nextTimes = groupBy(
-    findDataFields({ subject: 'dates', instance: '1', length: '' }),
+    findDataEntries({ subject: 'dates', instance: '1', length: '' }),
     (f) => f.field,
   );
-  const todayField = findDataField({ subject: 'dates', field: 'd', instance: '0', length: '' });
+  const todayField = findDataEntry({ subject: 'dates', field: 'd', instance: '0', length: '' });
 
   return (
     <>
@@ -31,7 +31,7 @@ const DemoRelativeTimeEventEnd: React.FC = () => {
             {getTranslation(todayField)} ➔ {getTranslation(nextTimes[period]?.[0])}
           </text>
           <text x={0} y={20} textAnchor="start" fontSize="0.8em">
-            {getTranslation(findDataField({ variant: period.toLowerCase(), instance: 'yMd' })!)}
+            {getTranslation(findDataEntry({ variant: period.toLowerCase(), instance: 'yMd' })!)}
           </text>
         </g>
       ))}

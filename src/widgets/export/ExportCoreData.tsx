@@ -25,11 +25,11 @@ const ExportCoreData: React.FC = () => {
   const { t } = useTranslation();
   const { targetLanguage } = useURLParams();
   const targetLanguageBCP = getLanguageBCP(targetLanguage);
-  const { alphabet, findDataField, getTranslation } = useDataContext();
+  const { alphabet, findDataEntry, getTranslation } = useDataContext();
   const { charactersNumber, charactersAuxiliary, charactersBase, charactersPunctuation } =
     alphabet || {};
   const endonym = getTranslation(
-    findDataField({ field: 'LocaleDisplayNames', instance: targetLanguageBCP }),
+    findDataEntry({ field: 'LocaleDisplayNames', instance: targetLanguageBCP }),
     false /* don't fall back to English */,
   );
 

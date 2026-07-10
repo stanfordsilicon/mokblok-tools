@@ -11,9 +11,9 @@ import InputDataCell from '../InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function DirectionsReviewTable() {
-  const { findDataFields } = useDataContext();
+  const { findDataEntries } = useDataContext();
   const directionFields = groupBy(
-    findDataFields({ field: 'ordinalMinimalPairs' }),
+    findDataEntries({ field: 'ordinalMinimalPairs' }),
     (f) => f.instance,
   );
   const { t } = useTranslation();
@@ -34,8 +34,8 @@ function DirectionsReviewTable() {
             (pluralAmount) =>
               directionFields[pluralAmount] && (
                 <tr key={pluralAmount}>
-                  <SourceDataCell data={directionFields[pluralAmount][0]} />
-                  <InputDataCell data={directionFields[pluralAmount][0]} inputWidth="15em" />
+                  <SourceDataCell entry={directionFields[pluralAmount][0]} />
+                  <InputDataCell entry={directionFields[pluralAmount][0]} inputWidth="15em" />
                 </tr>
               ),
           )}

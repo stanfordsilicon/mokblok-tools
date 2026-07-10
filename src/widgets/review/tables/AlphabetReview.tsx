@@ -14,9 +14,9 @@ import SourceDataCell from '../SourceDataCell';
 const charSets = ['base', 'uppercase', 'auxiliary', 'numbers', 'punctuation'] as const;
 
 const AlphabetReview: React.FC = () => {
-  const { findDataFields, getTranslation } = useDataContext();
+  const { findDataEntries, getTranslation } = useDataContext();
   const { numberingSystems } = useLinguisticsContext();
-  const alphabetFields = findDataFields({ group: 'Alphabet' });
+  const alphabetFields = findDataEntries({ group: 'Alphabet' });
   const { t } = useTranslation();
 
   return (
@@ -39,8 +39,8 @@ const AlphabetReview: React.FC = () => {
             return (
               <tr key={charSet}>
                 <td>{charSet}</td>
-                <SourceDataCell data={row} />
-                <InputDataCell data={row} inputWidth="30em" />
+                <SourceDataCell entry={row} />
+                <InputDataCell entry={row} inputWidth="30em" />
               </tr>
             );
           })}
@@ -66,8 +66,8 @@ const AlphabetReview: React.FC = () => {
             return (
               <tr key={instance}>
                 <td>{instance}</td>
-                <SourceDataCell data={row} />
-                <InputDataCell data={row} />
+                <SourceDataCell entry={row} />
+                <InputDataCell entry={row} />
                 <td>{decodeHtmlEntities(numberingSystems?.[getTranslation(row)]?.digits || '')}</td>
               </tr>
             );

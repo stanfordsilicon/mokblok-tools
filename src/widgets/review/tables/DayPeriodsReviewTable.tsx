@@ -13,8 +13,8 @@ const amPMs = ['am', 'pm'];
 const dayPeriods = ['morning1', 'afternoon1', 'evening1', 'night1', 'midnight'];
 
 const DayPeriodsReviewTable = () => {
-  const { findDataFields } = useDataContext();
-  const dayPeriodFields = findDataFields({ group: 'DayPeriods' });
+  const { findDataEntries } = useDataContext();
+  const dayPeriodFields = findDataEntries({ group: 'DayPeriods' });
   const amPMMatrix = matrixBy(
     dayPeriodFields.filter((f) => ['am', 'pm'].includes(f.instance)),
     (f) => f.instance,
@@ -51,10 +51,10 @@ const DayPeriodsReviewTable = () => {
             const row = amPMMatrix[dayPeriod];
             return (
               <tr key={dayPeriod}>
-                <SourceDataCell data={row?.['w']} />
-                <SourceDataCell data={row?.['n']} />
-                <InputDataCell data={row?.['w']} />
-                <InputDataCell data={row?.['n']} />
+                <SourceDataCell entry={row?.['w']} />
+                <SourceDataCell entry={row?.['n']} />
+                <InputDataCell entry={row?.['w']} />
+                <InputDataCell entry={row?.['n']} />
               </tr>
             );
           })}
@@ -84,12 +84,12 @@ const DayPeriodsReviewTable = () => {
             const row = naturalsMatrix[dayPeriod];
             return (
               <tr key={dayPeriod}>
-                <SourceDataCell data={row?.['s0']} />
-                <SourceDataCell data={row?.['f0']} />
-                <SourceDataCell data={row?.['f1']} />
-                <InputDataCell data={row?.['s0']} />
-                <InputDataCell data={row?.['f0']} inputWidth="10em" />
-                <InputDataCell data={row?.['f1']} inputWidth="10em" />
+                <SourceDataCell entry={row?.['s0']} />
+                <SourceDataCell entry={row?.['f0']} />
+                <SourceDataCell entry={row?.['f1']} />
+                <InputDataCell entry={row?.['s0']} />
+                <InputDataCell entry={row?.['f0']} inputWidth="10em" />
+                <InputDataCell entry={row?.['f1']} inputWidth="10em" />
               </tr>
             );
           })}

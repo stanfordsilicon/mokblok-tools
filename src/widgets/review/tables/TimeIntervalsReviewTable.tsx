@@ -12,9 +12,9 @@ import SourceDataCell from '../SourceDataCell';
 
 function TimeIntervalsReviewTable() {
   const { t } = useTranslation();
-  const { findDataFields } = useDataContext();
+  const { findDataEntries } = useDataContext();
   const intervalFormats = uniqueBy(
-    sortBy(findDataFields({ group: 'TimeIntervals' }), (f) => f.instance),
+    sortBy(findDataEntries({ group: 'TimeIntervals' }), (f) => f.instance),
     (f) => f.english,
   );
 
@@ -31,15 +31,15 @@ function TimeIntervalsReviewTable() {
         </tr>
       </thead>
       <tbody>
-        {intervalFormats.map((datum) => (
-          <tr key={datum.index}>
-            <td>{datum.instance}</td>
-            <td>{datum.variant}</td>
+        {intervalFormats.map((entry) => (
+          <tr key={entry.index}>
+            <td>{entry.instance}</td>
+            <td>{entry.variant}</td>
             <td>
-              <FormattedDateString entry={datum} />
+              <FormattedDateString entry={entry} />
             </td>
-            <SourceDataCell data={datum} />
-            <InputDataCell data={datum} inputWidth="15em" />
+            <SourceDataCell entry={entry} />
+            <InputDataCell entry={entry} inputWidth="15em" />
           </tr>
         ))}
       </tbody>

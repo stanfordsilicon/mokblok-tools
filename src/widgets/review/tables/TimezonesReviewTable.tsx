@@ -11,8 +11,8 @@ import SourceDataCell from '../SourceDataCell';
 
 function TimezonesReviewTable() {
   const { t } = useTranslation();
-  const { findDataFields, getTranslation, findDataField } = useDataContext();
-  const timezonesByGroup = groupBy(findDataFields({ subject: 'timezones' }), (f) => f.group);
+  const { findDataEntries, getTranslation, findDataEntry } = useDataContext();
+  const timezonesByGroup = groupBy(findDataEntries({ subject: 'timezones' }), (f) => f.group);
 
   return (
     <div>
@@ -22,7 +22,7 @@ function TimezonesReviewTable() {
           (f) => f.instance,
           (f) => f.variant,
         );
-        const groupNameTranslated = getTranslation(findDataField({ english: group }));
+        const groupNameTranslated = getTranslation(findDataEntry({ english: group }));
         return (
           <div key={group}>
             <h3>
@@ -48,10 +48,10 @@ function TimezonesReviewTable() {
               <tbody>
                 {Object.entries(zonesByDaylight).map(([instance, zones]) => (
                   <tr key={instance}>
-                    <SourceDataCell data={zones[''] ?? zones['generic'] ?? zones['standard']} />
-                    <InputDataCell data={zones[''] ?? zones['generic']} inputWidth="15em" />
-                    <InputDataCell data={zones['standard']} inputWidth="15em" />
-                    <InputDataCell data={zones['daylight']} inputWidth="15em" />
+                    <SourceDataCell entry={zones[''] ?? zones['generic'] ?? zones['standard']} />
+                    <InputDataCell entry={zones[''] ?? zones['generic']} inputWidth="15em" />
+                    <InputDataCell entry={zones['standard']} inputWidth="15em" />
+                    <InputDataCell entry={zones['daylight']} inputWidth="15em" />
                   </tr>
                 ))}
               </tbody>

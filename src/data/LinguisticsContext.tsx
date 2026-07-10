@@ -22,11 +22,11 @@ export const LinguisticsProvider: React.FC<{
   const [numberingSystems, setNumberingSystems] = useState<Record<string, NumberingSystem>>({});
 
   useEffect(() => {
-    const fetchDatafields = async () => {
+    const fetchData = async () => {
       const numberingSystems = await loadNumberingSystems();
       setNumberingSystems(numberingSystems);
     };
-    void fetchDatafields();
+    void fetchData();
   }, []);
 
   const linguisticsContext: LinguisticsContextType = {

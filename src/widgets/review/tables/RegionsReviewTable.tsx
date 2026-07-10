@@ -9,8 +9,8 @@ import SourceDataCell from '../SourceDataCell';
 
 function RegionsReviewTable() {
   const { t } = useTranslation();
-  const { findDataFields } = useDataContext();
-  const regions = findDataFields({ group: 'Regions' });
+  const { findDataEntries } = useDataContext();
+  const regions = findDataEntries({ group: 'Regions' });
 
   return (
     <div>
@@ -24,10 +24,10 @@ function RegionsReviewTable() {
           </tr>
         </thead>
         <tbody>
-          {regions.map((datum) => (
-            <tr key={datum.instance + datum.variant}>
-              <SourceDataCell data={datum} />
-              <InputDataCell data={datum} inputWidth="15em" />
+          {regions.map((entry) => (
+            <tr key={entry.instance + entry.variant}>
+              <SourceDataCell entry={entry} />
+              <InputDataCell entry={entry} inputWidth="15em" />
             </tr>
           ))}
         </tbody>

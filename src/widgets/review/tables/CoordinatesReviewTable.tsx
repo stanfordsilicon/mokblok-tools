@@ -11,8 +11,8 @@ import InputDataCell from '../InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function CoordinatesReviewTable() {
-  const { findDataFields } = useDataContext();
-  const coordFields = findDataFields({ field: 'coordinateUnitPattern' });
+  const { findDataEntries } = useDataContext();
+  const coordFields = findDataEntries({ field: 'coordinateUnitPattern' });
   const coordMatrix = matrixBy(
     coordFields,
     (f) => f.instance,
@@ -40,10 +40,10 @@ function CoordinatesReviewTable() {
         <tbody>
           {Object.values(CardinalDirection).map((direction) => (
             <tr key={direction}>
-              <SourceDataCell data={coordMatrix[direction]?.['long']} />
-              <SourceDataCell data={coordMatrix[direction]?.['narrow']} />
-              <InputDataCell data={coordMatrix[direction]?.['long']} inputWidth="10em" />
-              <InputDataCell data={coordMatrix[direction]?.['narrow']} inputWidth="10em" />
+              <SourceDataCell entry={coordMatrix[direction]?.['long']} />
+              <SourceDataCell entry={coordMatrix[direction]?.['narrow']} />
+              <InputDataCell entry={coordMatrix[direction]?.['long']} inputWidth="10em" />
+              <InputDataCell entry={coordMatrix[direction]?.['narrow']} inputWidth="10em" />
             </tr>
           ))}
         </tbody>

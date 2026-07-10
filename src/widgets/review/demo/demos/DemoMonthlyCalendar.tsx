@@ -1,30 +1,30 @@
 import React from 'react';
 
 import { useDataContext } from '@data/DataContext';
-import type { DataField } from '@data/DataTypes';
+import type { DataEntry } from '@data/DataTypes';
 import { DayKeys } from '@data/DayKeys';
 
 type Props = {
-  query: Partial<DataField>;
+  query: Partial<DataEntry>;
 };
 
 const DemoMonthlyCalendar: React.FC<Props> = ({ query }) => {
-  const { findDataField, getTranslation } = useDataContext();
-  const dataField = findDataField(query)!;
-  const firstDate = new Date(dataField?.var1 ?? 0);
-  const endDate = dataField?.var2 ? new Date(dataField.var2) : new Date(firstDate);
+  const { findDataEntry, getTranslation } = useDataContext();
+  const entry = findDataEntry(query)!;
+  const firstDate = new Date(entry?.var1 ?? 0);
+  const endDate = entry?.var2 ? new Date(entry.var2) : new Date(firstDate);
   const firstDayOfMonth = new Date(firstDate.getFullYear(), firstDate.getMonth(), 1).getDay(); // Get the day of the week for the first day of the month (0-6, where 0 is Sunday)
 
   return (
     <>
       <text x={120} y={30} textAnchor="middle" fontSize="1.2em">
-        {getTranslation(dataField) ?? ''}
+        {getTranslation(entry) ?? ''}
       </text>
       <g transform="translate(15,45)">
         {/* Days of week header */}
         {DayKeys?.map((day, index) => (
           <text key={index} x={index * 30 + 15} y={15} fontWeight="bold" textAnchor="middle">
-            {getTranslation(findDataField({ field: 'E', length: 'n', instance: day })) ?? ''}
+            {getTranslation(findDataEntry({ field: 'E', length: 'n', instance: day })) ?? ''}
           </text>
         ))}
         {/* Calendar grid */}

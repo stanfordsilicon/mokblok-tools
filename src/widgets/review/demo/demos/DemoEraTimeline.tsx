@@ -1,12 +1,12 @@
 import { useDataContext } from '@data/DataContext';
 
 const DemoTimeInterval: React.FC<{ variant: '' | 'variant' }> = ({ variant }) => {
-  const { findDataField, getTranslation } = useDataContext();
-  const eraTitle = findDataField({ field: 'G', instance: '' });
-  const pastShort = findDataField({ field: 'G', instance: '0', length: 'a', variant });
-  const pastLong = findDataField({ field: 'G', instance: '0', length: 'w', variant });
-  const presentShort = findDataField({ field: 'G', instance: '1', length: 'a', variant });
-  const presentLong = findDataField({ field: 'G', instance: '1', length: 'w', variant });
+  const { findDataEntry, getTranslation } = useDataContext();
+  const eraTitle = findDataEntry({ field: 'G', instance: '' });
+  const pastShort = findDataEntry({ field: 'G', instance: '0', length: 'a', variant });
+  const pastLong = findDataEntry({ field: 'G', instance: '0', length: 'w', variant });
+  const presentShort = findDataEntry({ field: 'G', instance: '1', length: 'a', variant });
+  const presentLong = findDataEntry({ field: 'G', instance: '1', length: 'w', variant });
 
   return (
     <>

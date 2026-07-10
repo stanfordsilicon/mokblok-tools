@@ -10,9 +10,9 @@ import InputDataCell from '../InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function ErasReviewTable() {
-  const { findDataFields } = useDataContext();
+  const { findDataEntries } = useDataContext();
   const { t } = useTranslation();
-  const eraFields = findDataFields({ field: 'G' });
+  const eraFields = findDataEntries({ field: 'G' });
   const eraMatrix = matrixBy(
     eraFields,
     (f) => f.instance + f.variant,
@@ -40,10 +40,10 @@ function ErasReviewTable() {
           .sort((a, b) => a[0].localeCompare(b[0]))
           .map(([instance, row]) => (
             <tr key={instance}>
-              <SourceDataCell data={row['w']} />
-              <SourceDataCell data={row['a']} />
-              <InputDataCell data={row['w']} inputWidth="10em" />
-              <InputDataCell data={row['a']} inputWidth="4em" />
+              <SourceDataCell entry={row['w']} />
+              <SourceDataCell entry={row['a']} />
+              <InputDataCell entry={row['w']} inputWidth="10em" />
+              <InputDataCell entry={row['a']} inputWidth="4em" />
             </tr>
           ))}
       </tbody>
