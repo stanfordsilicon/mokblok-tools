@@ -11,8 +11,8 @@ type Props = {
 const DemoMonthlyCalendar: React.FC<Props> = ({ query }) => {
   const { findDataField, getTranslation } = useDataContext();
   const dataField = findDataField(query)!;
-  const firstDate = new Date(dataField.var1 ?? 0);
-  const endDate = dataField.var2 ? new Date(dataField.var2) : new Date(firstDate);
+  const firstDate = new Date(dataField?.var1 ?? 0);
+  const endDate = dataField?.var2 ? new Date(dataField.var2) : new Date(firstDate);
   const firstDayOfMonth = new Date(firstDate.getFullYear(), firstDate.getMonth(), 1).getDay(); // Get the day of the week for the first day of the month (0-6, where 0 is Sunday)
 
   return (

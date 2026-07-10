@@ -1,6 +1,8 @@
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { getCoverageLevelLabel } from '@data/CoverageLevel';
+
 import { getLanguageBCP } from '@settings/LanguageCodes';
 import { useURLParams } from '@settings/URLParams';
 
@@ -30,7 +32,10 @@ ${ldml}
     <>
       <div>
         <strong>{t('export.fullXmlTitle')}</strong>
-        <ExportDownloadXMLButton filename={coverageLevel} xmlContent={fullXML} />
+        <ExportDownloadXMLButton
+          filename={getCoverageLevelLabel(coverageLevel)}
+          xmlContent={fullXML}
+        />
       </div>
       <span>
         {t('export.cldrUploadPrefix')}{' '}

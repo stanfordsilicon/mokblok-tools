@@ -1,7 +1,7 @@
 import React, { createContext, useCallback, useContext, useEffect, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-import { CoverageLevel } from '@data/CoverageLevel';
+import { CoverageLevel, parseCoverageLevel } from '@data/CoverageLevel';
 import { DataPage, DataSection } from '@data/DataSection';
 import { SourceLanguage } from '@data/DataTypes';
 
@@ -72,8 +72,7 @@ export function getParamsFromURL(urlParams: URLSearchParams): Partial<URLParams>
           params[key] = value as SourceLanguage;
         break;
       case 'coverageLevel':
-        if (Object.values(CoverageLevel).includes(value as CoverageLevel))
-          params[key] = value as CoverageLevel;
+        params[key] = parseCoverageLevel(value);
         break;
       case 'step':
         if (Object.values(StepName).includes(value as StepName)) params[key] = value as StepName;

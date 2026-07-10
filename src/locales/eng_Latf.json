@@ -105,6 +105,7 @@
     "coverageLevel": "ℭ𝔬𝔳𝔢𝔯𝔞𝔤𝔢 𝔩𝔢𝔳𝔢𝔩"
   },
   "coverageLevelName": {
+    "Unknown": "𝔘𝔫𝔨𝔫𝔬𝔴𝔫",
     "Core": "ℭ𝔬𝔯𝔢",
     "Basic": "𝔅𝔞𝔰𝔦𝔠",
     "BasicIfLocal": "𝔅𝔞𝔰𝔦𝔠 (𝔦𝔣 𝔩𝔬𝔠𝔞𝔩)",

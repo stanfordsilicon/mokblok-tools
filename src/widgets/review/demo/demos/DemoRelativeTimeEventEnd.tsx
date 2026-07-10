@@ -26,9 +26,9 @@ const DemoRelativeTimeEventEnd: React.FC = () => {
         </marker>
       </defs>
       {['d', 'M', 'y'].map((period, index) => (
-        <g id="periods" transform={`translate(30, ${50 + index * 60})`}>
+        <g id="periods" key={index} transform={`translate(30, ${50 + index * 60})`}>
           <text x={0} y={0} textAnchor="start">
-            {getTranslation(todayField)} ➔ {getTranslation(nextTimes[period][0])}
+            {getTranslation(todayField)} ➔ {getTranslation(nextTimes[period]?.[0])}
           </text>
           <text x={0} y={20} textAnchor="start" fontSize="0.8em">
             {getTranslation(findDataField({ variant: period.toLowerCase(), instance: 'yMd' })!)}

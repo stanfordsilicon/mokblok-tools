@@ -105,11 +105,12 @@
         "coverageLevel": "Niveau de couverture"
     },
     "coverageLevelName": {
+        "Unknown": "Inconnu",
         "Core": "Base",
         "Basic": "Basique",
         "BasicIfLocal": "Basique (si local)",
-        "Moderate": "Modere",
-        "ModerateIfLocal": "Modere (si local)",
+        "Moderate": "Modéré",
+        "ModerateIfLocal": "Modéré (si local)",
         "Modern": "Moderne",
         "Comprehensive": "Complet"
     },

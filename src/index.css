@@ -10,6 +10,15 @@
   --color-input-background: rgb(59, 59, 59);
   --color-input-border: rgb(133, 133, 133);
   --color-input-unfilled: #aa7755;
+
+  --color-level-0: hsl(0, 0%, 60%);
+  --color-level-1: hsl(0, 50%, 60%);
+  --color-level-2: hsl(30, 50%, 60%);
+  --color-level-3: hsl(60, 50%, 60%);
+  --color-level-4: hsl(120, 50%, 60%);
+  --color-level-5: hsl(180, 50%, 60%);
+  --color-level-6: hsl(240, 50%, 60%);
+  --color-level-7: hsl(300, 50%, 60%);
 }
 
 :root {
