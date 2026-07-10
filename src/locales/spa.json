@@ -106,6 +106,7 @@
         "backgroundStyle": "Estilo de fondo"
     },
     "coverageLevelName": {
+        "Any": "Cualquiera",
         "Unknown": "Desconocido",
         "Core": "Básico",
         "Basic": "Básico",

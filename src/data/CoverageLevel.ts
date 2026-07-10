@@ -49,6 +49,10 @@ export function getCoverageLevelLabel(level: CoverageLevel): string {
   }
 }
 
+export function getCoverageLevelKey(level: CoverageLevel): string {
+  return CoverageLevel[level] || 'Unknown';
+}
+
 export function parseCoverageLevel(level: string): CoverageLevel {
   switch (level.toLowerCase().replace(/\s+/g, '')) {
     case 'core':

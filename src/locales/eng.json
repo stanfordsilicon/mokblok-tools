@@ -106,6 +106,7 @@
         "backgroundStyle": "Background style"
     },
     "coverageLevelName": {
+        "Any": "Any",
         "Unknown": "Unknown",
         "Core": "Core",
         "Basic": "Basic",

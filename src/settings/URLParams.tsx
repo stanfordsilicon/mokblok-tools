@@ -12,7 +12,7 @@ import StepName from './StepName';
 
 const GLOBAL_DEFAULTS: Readonly<URLParams> = {
   sourceLanguage: SourceLanguage.English,
-  targetLanguage: 'mlg',
+  targetLanguage: 'mg',
   coverageLevel: CoverageLevel.Moderate,
   step: StepName.Input,
   page: DataPage.DateAndTime,

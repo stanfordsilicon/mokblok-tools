@@ -13,7 +13,9 @@ function App() {
     <URLParamsProvider>
       <I18nextProvider i18n={i18n}>
         <header>
-          <h1>{t('title')}</h1>
+          <h1>
+            <a href="/">{t('title')}</a>
+          </h1>
         </header>
         <div>
           <PageBody />

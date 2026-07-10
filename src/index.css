@@ -124,6 +124,26 @@ th {
   z-index: 10;
 }
 
+table.FullReviewTable {
+  border-collapse: collapse;
+}
+
+.FullReviewTable th {
+  white-space: wrap;
+}
+
+.FullReviewTable th,
+.FullReviewTable td {
+  border: 1px solid black;
+  border: 0px;
+  padding: 0.25em 0.5em;
+  text-align: left;
+}
+
+.FullReviewTable td {
+  overflow: hidden;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     --color-text: #213547;
