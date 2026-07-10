@@ -1,14 +1,4 @@
-Subject	Group	Field	Instance	Length	Variant	Example#	XPath	ExtID	English	English (pattern)	French	Level	Var1	Var2
-core		plurals	book		one	1		uli-594_76	1 book		1 livre				
-core		plurals	book		two	1		uli-594_77	2 books		2 livres				
-core		plurals	book		many	1		uli-594_78	5 books		5 livres				
-core		plurals	book		other	1		uli-594_79	10 books		10 livres				
-core		plurals	book			1		uli-594_80	book		livre				
-core		plurals	song		one	1		uli-594_81	1 song		1 chanson				
-core		plurals	song		two	1		uli-594_82	2 songs		2 chansons				
-core		plurals	song		many	1		uli-594_83	5 songs		5 chansons				
-core		plurals	song		other	1		uli-594_84	10 songs		10 chansons				
-core		plurals	song			1		uli-594_85	song		chanson				
+Subject	Group	Field	Instance	Length	Variant	Example#	XPath	ExtID	English	English (pattern)	French	French (pattern)	Level	Var 1	Var 2
 core	Alphabet	characters	auxiliary			0	//ldml/characters/exemplarCharacters[@type="auxiliary"]		[áàăâåäãā æ ç éèĕêëē íìĭîïī ñ óòŏôöøō œ úùŭûüū ÿ]		[áåäãā ć ē íìī ĳ ñ óòöõø ř šſ ß úǔ]		Basic		
 core	Alphabet	characters	main			0	//ldml/characters/exemplarCharacters		[a b c d e f g h i j k l m n o p q r s t u v w x y z]		[aàâ æ b cç d eéèêë f g h iîï j k l m n oô œ p q r s t uùûü v w x yÿ z]		Basic		
 core	Alphabet	characters	numbers			0	//ldml/characters/exemplarCharacters[@type="numbers"]		[\- ‑ , . % ‰ + 0 1 2 3 4 5 6 7 8 9]		[  \- ‑ , . % ‰ + − 0 1 2² 3³ 4 5 6 7 8 9 ᵈ ᵉ ʳ ˢ]		Basic		
@@ -16,6 +6,16 @@ core	Alphabet	characters	punctuation			0	//ldml/characters/exemplarCharacters[@t
 core	Alphabet	characters	uppercase			0	//ldml/characters/exemplarCharacters[@type="index"]		[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z]		[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z]		Moderate		
 core	Alphabet	numberingSystem	default			0	//ldml/numbers/defaultNumberingSystem		latn		latn		Basic		
 core	Alphabet	numberingSystem	native			0	//ldml/numbers/otherNumberingSystems/native		latn		latn		Basic		
+core	Base Plurals	plurals	book		one	1		uli-594_76	1 book		1 livre				
+core	Base Plurals	plurals	book		two	1		uli-594_77	2 books		2 livres				
+core	Base Plurals	plurals	book		many	1		uli-594_78	5 books		5 livres				
+core	Base Plurals	plurals	book		other	1		uli-594_79	10 books		10 livres				
+core	Base Plurals	plurals	book			1		uli-594_80	book		livre				
+core	Base Plurals	plurals	song		one	1		uli-594_81	1 song		1 chanson				
+core	Base Plurals	plurals	song		two	1		uli-594_82	2 songs		2 chansons				
+core	Base Plurals	plurals	song		many	1		uli-594_83	5 songs		5 chansons				
+core	Base Plurals	plurals	song		other	1		uli-594_84	10 songs		10 chansons				
+core	Base Plurals	plurals	song			1		uli-594_85	song		chanson				
 core	Maths	symbols	division			1		uli-594_64	9 ÷ 3 = 3		9 ÷ 3 = 3				
 core	Maths	symbols	division			2		uli-594_65	10 ÷ 2 = 5		10 ÷ 2 = 5				
 core	Maths	symbols	division			3		uli-594_66	100 ÷ 2 = 50		100 ÷ 2 = 50				
@@ -30,48 +30,6 @@ core	Maths	symbols	plusSign			1	//ldml/numbers/symbols[@numberSystem="latn"]/plu
 core	Maths	symbols	plusSign			2	//ldml/numbers/symbols[@numberSystem="latn"]/plusSign	uli-594_56	3.5 + 3.5 = 7		3,5 + 3,5 = 7		Basic		
 core	Maths	symbols	plusSign			3	//ldml/numbers/symbols[@numberSystem="latn"]/plusSign	uli-594_57	7.5 + 7.5 = 15		7,5 + 7,5 = 15		Basic		
 core	Maths	symbols	plusSign			0	//ldml/numbers/symbols[@numberSystem="latn"]/plusSign		+		+		Basic		
-core	Plurals	plurals			one	1		uli-594_40	I finish school in 1 year.		Je termine mes études dans un an.				
-core	Plurals	plurals			two	1		uli-594_41	I finish school in 2 years.		Je termine mes études dans 2 ans.				
-core	Plurals	plurals			many	1		uli-594_42	I finish school in 5 years.		Je termine mes études dans 5 ans.				
-core	Plurals	plurals	d		one	1		uli-594_10							
-core	Plurals	plurals	d		two	1		uli-594_11							
-core	Plurals	plurals	d		many	1		uli-594_12							
-core	Plurals	plurals	d	long	one	1		uli-594_31							
-core	Plurals	plurals	d	long	two	1		uli-594_32							
-core	Plurals	plurals	d	long	many	1		uli-594_33							
-core	Plurals	plurals	h		one	1		uli-594_1					#N/A		
-core	Plurals	plurals	h		two	1		uli-594_2							
-core	Plurals	plurals	h		many	1		uli-594_3							
-core	Plurals	plurals	h	long	one	1		uli-594_22							
-core	Plurals	plurals	h	long	two	1		uli-594_23							
-core	Plurals	plurals	h	long	many	1		uli-594_24							
-core	Plurals	plurals	m		one	1		uli-594_4							
-core	Plurals	plurals	m		two	1		uli-594_5							
-core	Plurals	plurals	m		many	1		uli-594_6							
-core	Plurals	plurals	M		one	1		uli-594_16							
-core	Plurals	plurals	M		two	1		uli-594_17							
-core	Plurals	plurals	M		many	1		uli-594_18							
-core	Plurals	plurals	m	long	one	1		uli-594_25							
-core	Plurals	plurals	m	long	two	1		uli-594_26							
-core	Plurals	plurals	m	long	many	1		uli-594_27							
-core	Plurals	plurals	M	long	one	1		uli-594_37							
-core	Plurals	plurals	M	long	two	1		uli-594_38							
-core	Plurals	plurals	M	long	many	1		uli-594_39							
-core	Plurals	plurals	s		one	1		uli-594_7							
-core	Plurals	plurals	s		two	1		uli-594_8							
-core	Plurals	plurals	s		many	1		uli-594_9							
-core	Plurals	plurals	s	long	one	1		uli-594_28							
-core	Plurals	plurals	s	long	two	1		uli-594_29							
-core	Plurals	plurals	s	long	many	1		uli-594_30							
-core	Plurals	plurals	w		one	1		uli-594_13							
-core	Plurals	plurals	w		two	1		uli-594_14							
-core	Plurals	plurals	w		many	1		uli-594_15							
-core	Plurals	plurals	w	long	one	1		uli-594_34							
-core	Plurals	plurals	w	long	two	1		uli-594_35							
-core	Plurals	plurals	w	long	many	1		uli-594_36							
-core	Plurals	plurals	y		one	1		uli-594_19							
-core	Plurals	plurals	y		two	1		uli-594_20							
-core	Plurals	plurals	y		many	1		uli-594_21							
 core	Quotes	quotes				1	//ldml/delimiters/quotationStart	uli-594_86	When I walked into the room, she said "Hello"		Quand je suis entrée dans la pièce, elle a dit « Bonjour ».		Basic		
 core	Quotes	quotes				2	//ldml/delimiters/quotationStart	uli-594_87	When I walked into the room, he said "Would you like some coffee?"		Quand je suis entré dans la pièce, il m'a dit : « Voulez-vous un café ? »		Basic		
 core	Quotes	quotes				3	//ldml/delimiters/quotationStart	uli-594_88	When I walked into the room, she said "Please close the door behind you"		Quand je suis entrée dans la pièce, elle a dit : « Veuillez fermer la porte derrière vous. »		Basic		
@@ -104,6 +62,48 @@ core	Symbols	symbols	questionMark			1		uli-594_192	Does this picture look accura
 core	Symbols	symbols	questionMark			2		uli-594_193	If this picture doesn't look accurate, why? Please explain.		Si cette image ne vous semble pas exacte, pourquoi ? Veuillez expliquer.				
 core	Symbols	symbols	questionMark			3		uli-594_194	What would be a more accurate way?		Quelle serait une méthode plus précise ?				
 core	Symbols	symbols	superscriptingExponent			0	//ldml/numbers/symbols[@numberSystem="latn"]/superscriptingExponent		×		×		Moderate		
+core	Time Plurals	plurals			one	1		uli-594_40	I finish school in 1 year.		Je termine mes études dans un an.				
+core	Time Plurals	plurals			two	1		uli-594_41	I finish school in 2 years.		Je termine mes études dans 2 ans.				
+core	Time Plurals	plurals			many	1		uli-594_42	I finish school in 5 years.		Je termine mes études dans 5 ans.				
+core	Time Plurals	plurals	d		one	1	//ldml/units/unitLength[@type="long"]/unit[@type="duration-day"]/unitPattern[@count="one"]	uli-594_10		{0} day		{0} jour	Modern		
+core	Time Plurals	plurals	d		two	1	//ldml/units/unitLength[@type="long"]/unit[@type="duration-day"]/unitPattern[@count="two"]	uli-594_11							
+core	Time Plurals	plurals	d		many	1	//ldml/units/unitLength[@type="long"]/unit[@type="duration-day"]/unitPattern[@count="many"]	uli-594_12							
+core	Time Plurals	plurals	d	long	one	1		uli-594_31							
+core	Time Plurals	plurals	d	long	two	1		uli-594_32							
+core	Time Plurals	plurals	d	long	many	1		uli-594_33							
+core	Time Plurals	plurals	h		one	1	//ldml/units/unitLength[@type="long"]/unit[@type="duration-hour"]/unitPattern[@count="one"]	uli-594_1		{0} hour		{0} heure	Modern		
+core	Time Plurals	plurals	h		two	1	//ldml/units/unitLength[@type="long"]/unit[@type="duration-hour"]/unitPattern[@count="two"]	uli-594_2							
+core	Time Plurals	plurals	h		many	1	//ldml/units/unitLength[@type="long"]/unit[@type="duration-hour"]/unitPattern[@count="many"]	uli-594_3							
+core	Time Plurals	plurals	h	long	one	1		uli-594_22							
+core	Time Plurals	plurals	h	long	two	1		uli-594_23							
+core	Time Plurals	plurals	h	long	many	1		uli-594_24							
+core	Time Plurals	plurals	m		one	1	//ldml/units/unitLength[@type="long"]/unit[@type="duration-minute"]/unitPattern[@count="one"]	uli-594_4		{0} minute		{0} minute	Modern		
+core	Time Plurals	plurals	m		two	1	//ldml/units/unitLength[@type="long"]/unit[@type="duration-minute"]/unitPattern[@count="two"]	uli-594_5							
+core	Time Plurals	plurals	m		many	1	//ldml/units/unitLength[@type="long"]/unit[@type="duration-minute"]/unitPattern[@count="many"]	uli-594_6							
+core	Time Plurals	plurals	M		one	1	//ldml/units/unitLength[@type="long"]/unit[@type="duration-month"]/unitPattern[@count="one"]	uli-594_16		{0} month		{0} mois	Modern		
+core	Time Plurals	plurals	M		two	1	//ldml/units/unitLength[@type="long"]/unit[@type="duration-month"]/unitPattern[@count="two"]	uli-594_17							
+core	Time Plurals	plurals	M		many	1	//ldml/units/unitLength[@type="long"]/unit[@type="duration-month"]/unitPattern[@count="many"]	uli-594_18							
+core	Time Plurals	plurals	m	long	one	1		uli-594_25							
+core	Time Plurals	plurals	m	long	two	1		uli-594_26							
+core	Time Plurals	plurals	m	long	many	1		uli-594_27							
+core	Time Plurals	plurals	M	long	one	1		uli-594_37							
+core	Time Plurals	plurals	M	long	two	1		uli-594_38							
+core	Time Plurals	plurals	M	long	many	1		uli-594_39							
+core	Time Plurals	plurals	s		one	1	//ldml/units/unitLength[@type="long"]/unit[@type="duration-second"]/unitPattern[@count="one"]	uli-594_7		{0} second		{0} seconde	Modern		
+core	Time Plurals	plurals	s		two	1	//ldml/units/unitLength[@type="long"]/unit[@type="duration-second"]/unitPattern[@count="two"]	uli-594_8							
+core	Time Plurals	plurals	s		many	1	//ldml/units/unitLength[@type="long"]/unit[@type="duration-second"]/unitPattern[@count="many"]	uli-594_9							
+core	Time Plurals	plurals	s	long	one	1		uli-594_28							
+core	Time Plurals	plurals	s	long	two	1		uli-594_29							
+core	Time Plurals	plurals	s	long	many	1		uli-594_30							
+core	Time Plurals	plurals	w		one	1	//ldml/units/unitLength[@type="long"]/unit[@type="duration-week"]/unitPattern[@count="one"]	uli-594_13		{0} week		{0} semaine	Modern		
+core	Time Plurals	plurals	w		two	1	//ldml/units/unitLength[@type="long"]/unit[@type="duration-week"]/unitPattern[@count="two"]	uli-594_14							
+core	Time Plurals	plurals	w		many	1	//ldml/units/unitLength[@type="long"]/unit[@type="duration-week"]/unitPattern[@count="many"]	uli-594_15							
+core	Time Plurals	plurals	w	long	one	1		uli-594_34							
+core	Time Plurals	plurals	w	long	two	1		uli-594_35							
+core	Time Plurals	plurals	w	long	many	1		uli-594_36							
+core	Time Plurals	plurals	y		one	1	//ldml/units/unitLength[@type="long"]/unit[@type="duration-year"]/unitPattern[@count="one"]	uli-594_19		{0} year		{0} an	Modern		
+core	Time Plurals	plurals	y		two	1	//ldml/units/unitLength[@type="long"]/unit[@type="duration-year"]/unitPattern[@count="two"]	uli-594_20							
+core	Time Plurals	plurals	y		many	1	//ldml/units/unitLength[@type="long"]/unit[@type="duration-year"]/unitPattern[@count="many"]	uli-594_21							
 dates	DateFields	d		w		0	//ldml/dates/fields/field[@type="day"]/displayName	dw-14_XXX	day	day	jour	jour	Moderate		
 dates	DateFields	d		s		0	//ldml/dates/fields/field[@type="day-short"]/displayName	dw-15_XXX	d	day	j	j	Moderate		
 dates	DateFields	E		w		0	//ldml/dates/fields/field[@type="weekday"]/displayName	dw-23_XXX	day of the week	day of the week	jour de la semaine	jour de la semaine	Moderate		
@@ -401,8 +401,8 @@ dates	Times	availableFormats	Hm			2	//ldml/dates/calendars/calendar[@type="grego
 dates	Times	availableFormats	hm			1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="hm"]	hr-4_XXX	9:41 AM	h:mm a	9:41 AM	h:mm a	Basic	1713890460000	
 dates	Times	availableFormats	Hms			2	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Hms"]	hr-5_XXX	16:14:24	HH:mm:ss	16:14:24	HH:mm:ss	Basic	1713914064000	
 dates	Times	availableFormats	Hms			1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Hms"]	hr-6_XXX	8:04:41	HH:mm:ss	8:04:41	HH:mm:ss	Basic	1713884681000	
-dates	Times	availableFormats	hmv			2	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="hmv"]	hr-7_XXX	11:30  PM GMT	HH:mm v	23:30 GMT	HH:mm v	Moderate	1713940200000	
-dates	Times	availableFormats	hmv			1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="hmv"]		6:45 AM GMT	HH:mm v	6:45 AM GMT	HH:mm v	Moderate	1713879900000	
+dates	Times	availableFormats	hmv			2	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="hmv"]	hr-7_XXX	11:30  PM GMT	h:mm a v	23:30 GMT	h:mm a v	Moderate	1713940200000	
+dates	Times	availableFormats	hmv			1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="hmv"]		6:45 AM GMT	h:mm a v	6:45 AM GMT	h:mm a v	Moderate	1713879900000	
 emoji	Abstract	keyword	☑️			0	//ldml/annotations/annotation[@cp="☑️"][@type="tts"]	☑️	check box with check		case cochée		Modern		
 emoji	Abstract	keyword	☢️			0	//ldml/annotations/annotation[@cp="☢️"][@type="tts"]	☢️	radioactive		radioactif		Modern		
 emoji	Abstract	keyword	☣️			0	//ldml/annotations/annotation[@cp="☣️"][@type="tts"]	☣️	biohazard		danger biologique		Modern		

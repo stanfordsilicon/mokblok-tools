@@ -3,6 +3,9 @@ import { useTranslation } from 'react-i18next';
 import { useDataContext } from '@data/DataContext';
 import type { DataField } from '@data/DataTypes';
 
+
+import getBackgroundColor from './getBackgroundColor';
+
 type Props = {
   data?: DataField;
   style?: React.CSSProperties;
@@ -11,7 +14,9 @@ type Props = {
 function InputTextareaCell({ data, style }: Props) {
   const { t } = useTranslation();
   const { getTranslation, setTranslation } = useDataContext();
+  const backgroundColor = getBackgroundColor(data);
   if (!data) return <td>{t('common.emptyCell')}</td>;
+
   return (
     <td>
       <textarea
@@ -20,9 +25,7 @@ function InputTextareaCell({ data, style }: Props) {
         style={{
           width: '30em',
           ...style,
-          backgroundColor: getTranslation(data, false)
-            ? 'var(--color-input-background)'
-            : 'var(--color-input-unfilled)',
+          backgroundColor,
         }}
       />
     </td>

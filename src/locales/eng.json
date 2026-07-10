@@ -102,7 +102,8 @@
         "title": "Settings",
         "sourceLanguage": "Source language",
         "targetLanguageCode": "Target language code",
-        "coverageLevel": "Coverage level"
+        "coverageLevel": "Coverage level",
+        "backgroundStyle": "Background style"
     },
     "coverageLevelName": {
         "Unknown": "Unknown",
@@ -113,6 +114,11 @@
         "ModerateIfLocal": "Moderate (if local)",
         "Modern": "Modern",
         "Comprehensive": "Comprehensive"
+    },
+    "backgroundStyleName": {
+        "None": "None",
+        "Missing": "Missing translations",
+        "CoverageLevel": "Coverage level"
     },
     "languageName": {
         "abr": "Abron",

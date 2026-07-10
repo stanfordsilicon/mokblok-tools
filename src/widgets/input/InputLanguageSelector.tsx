@@ -6,9 +6,9 @@ import { useURLParams } from '@settings/URLParams';
 export enum LoadableLanguage {
   Abron = 'abr',
   Bhojpuri = 'bho',
-  English = 'eng',
-  French = 'fra',
-  Malagasy = 'mlg',
+  English = 'en',
+  French = 'fr',
+  Malagasy = 'mg',
 }
 
 type Props = {

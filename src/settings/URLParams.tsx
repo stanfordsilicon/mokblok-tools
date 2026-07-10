@@ -7,6 +7,7 @@ import { SourceLanguage } from '@data/DataTypes';
 
 import i18n from '../i18n';
 
+import { BackgroundStyle } from './BackgroundStyle';
 import StepName from './StepName';
 
 const GLOBAL_DEFAULTS: Readonly<URLParams> = {
@@ -16,6 +17,7 @@ const GLOBAL_DEFAULTS: Readonly<URLParams> = {
   step: StepName.Input,
   page: DataPage.DateAndTime,
   section: DataSection.DaysOfWeek,
+  bgStyle: BackgroundStyle.Missing,
 };
 
 export type URLParams = {
@@ -25,6 +27,7 @@ export type URLParams = {
   step: StepName;
   page: DataPage;
   section: DataSection;
+  bgStyle: BackgroundStyle;
 };
 
 type URLParamsContextState = URLParams & {
@@ -86,6 +89,10 @@ export function getParamsFromURL(urlParams: URLSearchParams): Partial<URLParams>
         break;
       case 'targetLanguage':
         params[key] = value;
+        break;
+      case 'bgStyle':
+        if (Object.values(BackgroundStyle).includes(Number(value) as BackgroundStyle))
+          params[key] = Number(value) as BackgroundStyle;
         break;
       default:
         break;

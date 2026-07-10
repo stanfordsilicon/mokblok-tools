@@ -5,6 +5,7 @@ import { useDataContext } from '@data/DataContext';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
+import getBackgroundColor from '../getBackgroundColor';
 import InputDataCell from '../InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
@@ -67,14 +68,14 @@ function FullReviewTable() {
       </thead>
       <tbody>
         {filteredFields.map((field) => (
-          <tr key={field.index}>
+          <tr key={field.index} style={{ backgroundColor: getBackgroundColor(field) }}>
             <td>{field.subject}</td>
             <td>{field.field}</td>
             <td>{field.instance}</td>
             <td>{field.length}</td>
             <td>{field.variant}</td>
             <td>{field.exampleNum}</td>
-            <SourceDataCell data={field} />
+            <SourceDataCell data={field} style={{ maxWidth: '15em' }} />
             <InputDataCell data={field} inputWidth="15em" />
           </tr>
         ))}

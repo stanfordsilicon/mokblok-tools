@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useDataContext } from '@data/DataContext';
 import type { DataField } from '@data/DataTypes';
 
+import getBackgroundColor from './getBackgroundColor';
 import HighlightInput from './HighlightInput';
 
 type Props = {
@@ -24,11 +25,13 @@ const WIDTHS_BY_LENGTH: Record<string, string> = {
 function InputDataCell({ data, inputWidth }: Props) {
   const { t } = useTranslation();
   const { getTranslation, setTranslation } = useDataContext();
+  const backgroundColor = getBackgroundColor(data);
   if (!data) return <td>{t('common.emptyCell')}</td>;
   let width = inputWidth;
   if (!inputWidth) {
     width = WIDTHS_BY_LENGTH[data.length] ?? WIDTHS_BY_LENGTH['w'];
   }
+
   return (
     <td>
       <HighlightInput
@@ -37,9 +40,7 @@ function InputDataCell({ data, inputWidth }: Props) {
         onChange={(value) => setTranslation(data.index, value)}
         style={{
           width,
-          backgroundColor: getTranslation(data, false)
-            ? 'var(--color-input-background)'
-            : 'var(--color-input-unfilled)',
+          backgroundColor,
         }}
       />
     </td>

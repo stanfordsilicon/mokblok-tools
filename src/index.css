@@ -138,5 +138,14 @@ th {
     --color-input-background: #ffffff;
     --color-input-border: currentColor;
     --color-input-unfilled: #ffddaa;
+
+    --color-level-0: hsl(0, 0%, 70%);
+    --color-level-1: hsl(0, 60%, 70%);
+    --color-level-2: hsl(30, 60%, 70%);
+    --color-level-3: hsl(60, 60%, 70%);
+    --color-level-4: hsl(120, 60%, 70%);
+    --color-level-5: hsl(180, 60%, 70%);
+    --color-level-6: hsl(240, 60%, 70%);
+    --color-level-7: hsl(300, 60%, 70%);
   }
 }

@@ -114,6 +114,11 @@
     "Modern": "𝔐𝔬𝔡𝔢𝔯𝔫",
     "Comprehensive": "ℭ𝔬𝔪𝔭𝔯𝔢𝔥𝔢𝔫𝔰𝔦𝔳𝔢"
   },
+  "backgroundStyleName": {
+    "None": "𝔑𝔬𝔫𝔢",
+    "Missing": "𝔐𝔦𝔰𝔰𝔦𝔫𝔤 𝔱𝔯𝔞𝔫𝔰𝔩𝔞𝔱𝔦𝔬𝔫𝔰",
+    "CoverageLevel": "ℭ𝔬𝔳𝔢𝔯𝔞𝔤𝔢 𝔩𝔢𝔳𝔢𝔩"
+  },
   "languageName": {
     "abr": "𝔄𝔟𝔯𝔬𝔫",
     "bho": "𝔅𝔥𝔬𝔧𝔭𝔲𝔯𝔦",
