@@ -4,7 +4,7 @@ import { useDataContext } from '@data/DataContext';
 import { DateField } from '@data/DateField';
 import { DayKeys } from '@data/DayKeys';
 
-import { useSettings } from '@settings/Settings';
+import { getExampleDate } from '@settings/selectors/ExampleDateSelector';
 
 const ShownDateFields: DateField[] = [
   //   DateField.Era,
@@ -20,7 +20,7 @@ const ShownDateFields: DateField[] = [
 ];
 
 const DemoDateFieldBreakdown: React.FC = () => {
-  const { today } = useSettings();
+  const today = getExampleDate();
   const { getTranslation, findDataField } = useDataContext();
 
   const getTodayFieldValue = useCallback(

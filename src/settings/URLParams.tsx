@@ -18,6 +18,7 @@ const GLOBAL_DEFAULTS: Readonly<URLParams> = {
   page: DataPage.DateAndTime,
   section: DataSection.DaysOfWeek,
   bgStyle: BackgroundStyle.Missing,
+  dateExample: 0,
 };
 
 export type URLParams = {
@@ -28,6 +29,7 @@ export type URLParams = {
   page: DataPage;
   section: DataSection;
   bgStyle: BackgroundStyle;
+  dateExample: number; // DateTime in seconds for examples
 };
 
 type URLParamsContextState = URLParams & {
@@ -93,6 +95,9 @@ export function getParamsFromURL(urlParams: URLSearchParams): Partial<URLParams>
       case 'bgStyle':
         if (Object.values(BackgroundStyle).includes(Number(value) as BackgroundStyle))
           params[key] = Number(value) as BackgroundStyle;
+        break;
+      case 'dateExample':
+        if (!isNaN(Number(value))) params[key] = Number(value);
         break;
       default:
         break;

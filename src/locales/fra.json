@@ -28,7 +28,6 @@
     },
     "review": {
         "title": "Révision",
-        "setToday": "Définir aujourd’hui (à l’aide du sélecteur de date du navigateur)",
         "downloadAllDemos": "Télécharger toutes les démos",
         "translated": "Traduit",
         "moreLanguages": "Plus de langues",
@@ -104,7 +103,8 @@
         "sourceLanguage": "Langue source",
         "targetLanguageCode": "Code de langue cible",
         "coverageLevel": "Niveau de couverture",
-        "backgroundStyle": "Style d’arrière-plan"
+        "backgroundStyle": "Style d’arrière-plan",
+        "dateExample": "Exemple de date"
     },
     "coverageLevelName": {
         "Any": "Tout",

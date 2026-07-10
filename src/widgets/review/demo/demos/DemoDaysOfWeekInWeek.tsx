@@ -3,11 +3,11 @@ import React from 'react';
 import { useDataContext } from '@data/DataContext';
 import { DayKeys } from '@data/DayKeys';
 
-import { useSettings } from '@settings/Settings';
+import { getExampleDate } from '@settings/selectors/ExampleDateSelector';
 
 const DemoDaysOfWeekInWeek: React.FC = () => {
   const { findDataField, getTranslation } = useDataContext();
-  const { today } = useSettings();
+  const today = getExampleDate();
   const currentMonth = today.getMonth(); // Current month (0-indexed)
 
   return (

@@ -28,7 +28,6 @@
     },
     "review": {
         "title": "Review",
-        "setToday": "Set today (using browser date picker)",
         "downloadAllDemos": "Download all demos",
         "translated": "Translated",
         "moreLanguages": "More languages",
@@ -104,7 +103,8 @@
         "sourceLanguage": "Source language",
         "targetLanguageCode": "Target language code",
         "coverageLevel": "Coverage level",
-        "backgroundStyle": "Background style"
+        "backgroundStyle": "Background style",
+        "dateExample": "Example date"
     },
     "coverageLevelName": {
         "Any": "Any",

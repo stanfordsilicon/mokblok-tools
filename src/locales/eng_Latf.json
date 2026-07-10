@@ -28,7 +28,6 @@
   },
   "review": {
     "title": "ℜ𝔢𝔳𝔦𝔢𝔴",
-    "setToday": "𝔖𝔢𝔱 𝔱𝔬𝔡𝔞𝔶 (𝔲𝔰𝔦𝔫𝔤 𝔟𝔯𝔬𝔴𝔰𝔢𝔯 𝔡𝔞𝔱𝔢 𝔭𝔦𝔠𝔨𝔢𝔯)",
     "downloadAllDemos": "𝔇𝔬𝔴𝔫𝔩𝔬𝔞𝔡 𝔞𝔩𝔩 𝔡𝔢𝔪𝔬𝔰",
     "translated": "𝔗𝔯𝔞𝔫𝔰𝔩𝔞𝔱𝔢𝔡",
     "moreLanguages": "𝔐𝔬𝔯𝔢 𝔩𝔞𝔫𝔤𝔲𝔞𝔤𝔢𝔰",
@@ -56,8 +55,8 @@
     "future": "𝔉𝔲𝔱𝔲𝔯𝔢",
     "morning": "𝔐𝔬𝔯𝔫𝔦𝔫𝔤",
     "evening": "𝔈𝔳𝔢𝔫𝔦𝔫𝔤",
-    "pattern": "𝔓𝔞𝔱𝔱𝔢𝔯𝔫",
     "sourcePattern": "𝔖𝔬𝔲𝔯𝔠𝔢 𝔓𝔞𝔱𝔱𝔢𝔯𝔫",
+    "pattern": "𝔓𝔞𝔱𝔱𝔢𝔯𝔫",
     "alphabet": {
       "set": "𝔖𝔢𝔱",
       "numberingSystem": "𝔑𝔲𝔪𝔟𝔢𝔯𝔦𝔫𝔤 𝔖𝔶𝔰𝔱𝔢𝔪",
@@ -103,7 +102,9 @@
     "title": "𝔖𝔢𝔱𝔱𝔦𝔫𝔤𝔰",
     "sourceLanguage": "𝔖𝔬𝔲𝔯𝔠𝔢 𝔩𝔞𝔫𝔤𝔲𝔞𝔤𝔢",
     "targetLanguageCode": "𝔗𝔞𝔯𝔤𝔢𝔱 𝔩𝔞𝔫𝔤𝔲𝔞𝔤𝔢 𝔠𝔬𝔡𝔢",
-    "coverageLevel": "ℭ𝔬𝔳𝔢𝔯𝔞𝔤𝔢 𝔩𝔢𝔳𝔢𝔩"
+    "coverageLevel": "ℭ𝔬𝔳𝔢𝔯𝔞𝔤𝔢 𝔩𝔢𝔳𝔢𝔩",
+    "backgroundStyle": "𝔅𝔞𝔠𝔨𝔤𝔯𝔬𝔲𝔫𝔡 𝔰𝔱𝔶𝔩𝔢",
+    "dateExample": "𝔈𝔵𝔞𝔪𝔭𝔩𝔢 𝔡𝔞𝔱𝔢"
   },
   "coverageLevelName": {
     "Any": "𝔄𝔫𝔶",

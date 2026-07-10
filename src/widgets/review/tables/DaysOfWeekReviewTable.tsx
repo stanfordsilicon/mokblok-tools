@@ -9,6 +9,9 @@ import { matrixBy } from '@shared/setUtils';
 import InputDataCell from '../InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
+// TODO allow for non-Sunday first day of week
+const dayOfWeekOrdered = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+
 function DaysOfWeekReviewTable() {
   const { findDataFields } = useDataContext();
   const daysOfTheWeekFields = findDataFields({ field: 'E' }).filter(
@@ -45,7 +48,7 @@ function DaysOfWeekReviewTable() {
       </thead>
       <tbody>
         {Object.entries(daysOfTheWeekMatrix)
-          .sort((a, b) => a[0].localeCompare(b[0]))
+          .sort((a, b) => dayOfWeekOrdered.indexOf(a[0]) - dayOfWeekOrdered.indexOf(b[0]))
           .map(([instance, row]) => (
             <tr key={instance}>
               <SourceDataCell data={row['w']} />

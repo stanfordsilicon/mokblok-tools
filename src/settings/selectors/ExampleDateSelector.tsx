@@ -1,0 +1,43 @@
+import { useTranslation } from 'react-i18next';
+
+import { useURLParams } from '@settings/URLParams';
+
+const ExampleDateSelector: React.FC = () => {
+  const { t } = useTranslation();
+  const { dateExample, updateURLParams } = useURLParams();
+
+  const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.value === '') return;
+    const updatedDate = new Date(e.target.value);
+    updateURLParams({ dateExample: updatedDate.getTime() });
+  };
+  const handleTimeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.value === '') return;
+    const [hours, minutes] = e.target.value.split(':').map(Number);
+    const updatedDate = new Date(dateExample ? new Date(dateExample) : new Date());
+    updatedDate.setHours(hours);
+    updatedDate.setMinutes(minutes);
+    updateURLParams({ dateExample: updatedDate.getTime() });
+  };
+
+  const today = dateExample ? new Date(dateExample) : new Date();
+  return (
+    <div style={{ display: 'flex', gap: '1em', alignItems: 'center', flexWrap: 'wrap' }}>
+      <strong>{t('settings.dateExample')}:</strong>
+      <input
+        type="date"
+        value={today.toISOString().split('T')[0]}
+        onChange={handleDateChange}
+      />{' '}
+      <input type="time" value={today.toTimeString().slice(0, 5)} onChange={handleTimeChange} />
+      <button onClick={() => updateURLParams({ dateExample: undefined })}>×</button>
+    </div>
+  );
+};
+
+export const getExampleDate = () => {
+  const { dateExample } = useURLParams();
+  return dateExample ? new Date(dateExample) : new Date();
+};
+
+export default ExampleDateSelector;

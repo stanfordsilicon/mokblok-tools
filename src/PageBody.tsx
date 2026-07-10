@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { DataProvider } from '@data/DataContext';
 import { LinguisticsProvider } from '@data/LinguisticsContext';
 
-import { SettingsProvider } from '@settings/Settings';
 import SettingsWidget from '@settings/SettingsWidget';
 import StepSelector from '@settings/StepSelector';
 import { useURLParams } from '@settings/URLParams';
@@ -16,26 +15,24 @@ const PageBody: React.FC = () => {
   const toggleSettings = () => setSettingsOpen(!settingsOpen);
 
   return (
-    <SettingsProvider>
-      <LinguisticsProvider>
-        <DataProvider>
-          <StepSelector toggleSettings={toggleSettings} />
-          <div
-            style={{
-              border: '1px solid #ccc',
-              padding: '1em',
-              borderRadius: '1em',
-              fontSize: '0.8em',
-              minWidth: '400px',
-              position: 'relative',
-            }}
-          >
-            {settingsOpen && <FloatingSettingsWidget />}
-            <StepView step={step} />
-          </div>
-        </DataProvider>
-      </LinguisticsProvider>
-    </SettingsProvider>
+    <LinguisticsProvider>
+      <DataProvider>
+        <StepSelector toggleSettings={toggleSettings} />
+        <div
+          style={{
+            border: '1px solid #ccc',
+            padding: '1em',
+            borderRadius: '1em',
+            fontSize: '0.8em',
+            minWidth: '400px',
+            position: 'relative',
+          }}
+        >
+          {settingsOpen && <FloatingSettingsWidget />}
+          <StepView step={step} />
+        </div>
+      </DataProvider>
+    </LinguisticsProvider>
   );
 };
 

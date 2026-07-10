@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useDataContext } from '@data/DataContext';
 
-import { useSettings } from '@settings/Settings';
+import { getExampleDate } from '@settings/selectors/ExampleDateSelector';
 
 type ClimateDataPoint = {
   recordHigh: number;
@@ -32,7 +32,7 @@ const MockMonthsTemp: React.FC = () => {
   const months = [...Array(12)]
     .map((_, index) => findDataField({ field: 'M', instance: (index + 1).toString(), length: 'n' }))
     .filter((m) => m != null);
-  const { today } = useSettings();
+  const today = getExampleDate();
 
   return (
     <>
