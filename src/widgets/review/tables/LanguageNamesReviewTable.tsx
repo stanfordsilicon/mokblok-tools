@@ -2,15 +2,16 @@ import { useTranslation } from 'react-i18next';
 
 import { useDataContext } from '@data/DataContext';
 
-import { useSettings } from '@settings/Settings';
+import { getLanguageBCP } from '@settings/LanguageCodes';
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
+import { useURLParams } from '@settings/URLParams';
 
 import InputDataCell from '../InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function LanguageNamesReviewTable() {
   const { t } = useTranslation();
-  const { targetLanguageBCP } = useSettings();
+  const targetLanguageBCP = getLanguageBCP(useURLParams().targetLanguage);
   const { findDataFields } = useDataContext();
   const languageNameFields = findDataFields({ group: 'Language Names' });
   const secondaryLanguageNameFields = findDataFields({ group: 'Secondary Language Names' });

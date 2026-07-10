@@ -4,18 +4,11 @@ import { useTranslation } from 'react-i18next';
 import { CoverageLevel } from '@data/CoverageLevel';
 import { SourceLanguage } from '@data/DataTypes';
 
-import { useSettings } from './Settings';
+import { useURLParams } from './URLParams';
 
 const SettingsWidget: React.FC = () => {
   const { t } = useTranslation();
-  const {
-    coverageLevel,
-    setCoverageLevel,
-    setSourceLanguage,
-    setTargetLanguage,
-    sourceLanguage,
-    targetLanguage,
-  } = useSettings();
+  const { coverageLevel, sourceLanguage, targetLanguage, updateURLParams } = useURLParams();
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1em' }}>
@@ -25,7 +18,7 @@ const SettingsWidget: React.FC = () => {
           <button
             key={lang}
             className={lang === sourceLanguage ? 'selected' : ''}
-            onClick={() => setSourceLanguage(lang)}
+            onClick={() => updateURLParams({ sourceLanguage: lang })}
           >
             {t(`languageName.${lang}`, lang)}
           </button>
@@ -33,14 +26,17 @@ const SettingsWidget: React.FC = () => {
       </div>
       <div style={{ display: 'flex', gap: '1em', alignItems: 'center' }}>
         <strong>{t('settings.targetLanguageCode')}:</strong>{' '}
-        <input value={targetLanguage} onChange={(e) => setTargetLanguage(e.target.value)} />
+        <input
+          value={targetLanguage}
+          onChange={(e) => updateURLParams({ targetLanguage: e.target.value })}
+        />
       </div>
       <div style={{ display: 'flex', gap: '1em', alignItems: 'center', flexWrap: 'wrap' }}>
         <strong>{t('settings.coverageLevel')}:</strong>
         <select
           className="settings-select"
           value={coverageLevel}
-          onChange={(e) => setCoverageLevel(e.target.value as CoverageLevel)}
+          onChange={(e) => updateURLParams({ coverageLevel: e.target.value as CoverageLevel })}
         >
           {Object.entries(CoverageLevel).map(([key, value]) => (
             <option key={value} value={value}>

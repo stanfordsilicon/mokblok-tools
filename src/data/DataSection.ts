@@ -1,4 +1,5 @@
 export enum DataPage {
+  All = 'all',
   Core = 'core',
   DateAndTime = 'dateAndTime',
   Quantities = 'quantities',
@@ -8,6 +9,8 @@ export enum DataPage {
 
 // Order this by order of appearance
 export enum DataSection {
+  All = 'all',
+
   Alphabet = 'alphabet',
   Symbols = 'symbols',
   Quotes = 'quotes',
@@ -49,6 +52,10 @@ export enum DataSection {
 
 export function getSectionsForPage(page: DataPage): DataSection[] {
   switch (page) {
+    case DataPage.All:
+      return Object.values(DataSection).filter(
+        (section) => section !== DataSection.All && section !== DataSection.FullTable,
+      );
     case DataPage.Core:
       return [
         DataSection.Alphabet,

@@ -40,10 +40,10 @@ function CoordinatesReviewTable() {
         <tbody>
           {Object.values(CardinalDirection).map((direction) => (
             <tr key={direction}>
-              <SourceDataCell data={coordMatrix[direction]['long']} />
-              <SourceDataCell data={coordMatrix[direction]['narrow']} />
-              <InputDataCell data={coordMatrix[direction]['long']} inputWidth="10em" />
-              <InputDataCell data={coordMatrix[direction]['narrow']} inputWidth="10em" />
+              <SourceDataCell data={coordMatrix[direction]?.['long']} />
+              <SourceDataCell data={coordMatrix[direction]?.['narrow']} />
+              <InputDataCell data={coordMatrix[direction]?.['long']} inputWidth="10em" />
+              <InputDataCell data={coordMatrix[direction]?.['narrow']} inputWidth="10em" />
             </tr>
           ))}
         </tbody>

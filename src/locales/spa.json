@@ -116,12 +116,12 @@
     "languageName": {
         "abr": "Abron",
         "bho": "Bhojpuri",
-        "eng": "Inglés",
-        "eng_Latf": "Inglés (Fraktur)",
-        "fra": "Francés",
-        "mlg": "Malgache",
-        "spa": "Español",
-        "ita": "Italiano"
+        "en": "Inglés",
+        "en-Latf": "Inglés (Fraktur)",
+        "fr": "Francés",
+        "mg": "Malgache",
+        "es": "Español",
+        "it": "Italiano"
     },
     "common": {
         "emptyCell": "-"

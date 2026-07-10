@@ -1,24 +1,24 @@
 import { t } from 'i18next';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 import { DataPage, DataSection, getSectionsForPage } from '@data/DataSection';
 
 import { useSettings } from '@settings/Settings';
+import { useURLParams } from '@settings/URLParams';
 
 import DataTypeSelector from './DataTypeSelector';
 import DownloadAllDemos from './demo/DownloadAllDemos';
 import ReviewSection from './ReviewSection';
 
 const ReviewWidget: React.FC = () => {
-  const [page, setPage] = useState<DataPage | undefined>(DataPage.Core);
-  const [section, setSection] = useState<DataSection | undefined>(DataSection.Alphabet);
-  const sections = page ? getSectionsForPage(page) : Object.values(DataSection);
+  const { page, section, updateURLParams } = useURLParams();
+  const sections = getSectionsForPage(page);
   useEffect(() => {
-    const sectionsForPage = page ? getSectionsForPage(page) : [];
-    if (section && page && !sectionsForPage.includes(section)) {
-      setSection(sectionsForPage[0]);
+    const sectionsForPage = getSectionsForPage(page);
+    if (section != DataSection.All && page != DataPage.All && !sectionsForPage.includes(section)) {
+      updateURLParams({ section: sectionsForPage[0] });
     }
-  }, [page, section]);
+  }, [page, section, updateURLParams]);
 
   const { today, setToday } = useSettings();
   const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -49,13 +49,8 @@ const ReviewWidget: React.FC = () => {
         </div>
         <DownloadAllDemos />
       </div>
-      <DataTypeSelector
-        selectedPage={page}
-        setPage={setPage}
-        selectedSection={section}
-        setSection={setSection}
-      />
-      {section ? (
+      <DataTypeSelector />
+      {section !== DataSection.All ? (
         <ReviewSection dataSection={section} />
       ) : (
         sections.map((section) => <ReviewSection dataSection={section} key={section} />)

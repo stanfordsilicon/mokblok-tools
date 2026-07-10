@@ -1,12 +1,12 @@
 import { useTranslation } from 'react-i18next';
 
-import { useSettings } from '@settings/Settings';
+import { useURLParams } from '@settings/URLParams';
 
 import DemoID from './DemoID';
 import downloadSvgAsPng from './downloadSvgAsPng';
 
 const DownloadAllDemos: React.FC = () => {
-  const { targetLanguage } = useSettings();
+  const { targetLanguage } = useURLParams();
   const { t } = useTranslation();
   const onClick = () => {
     Object.values(DemoID).forEach((demoID) => {

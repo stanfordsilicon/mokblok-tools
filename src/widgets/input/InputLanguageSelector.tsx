@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-import { useSettings } from '@settings/Settings';
+import { useURLParams } from '@settings/URLParams';
 
 // These languages have pre-saved TSV data that can be loaded with a click.
 export enum LoadableLanguage {
@@ -17,7 +17,7 @@ type Props = {
 };
 
 const InputLanguageSelector = ({ onClickLanguage, clearInputText }: Props) => {
-  const { targetLanguage, setTargetLanguage } = useSettings();
+  const { targetLanguage, updateURLParams } = useURLParams();
   const { t } = useTranslation();
   return (
     <div>
@@ -28,7 +28,7 @@ const InputLanguageSelector = ({ onClickLanguage, clearInputText }: Props) => {
             key={lang}
             className={lang === targetLanguage ? 'selected' : ''}
             onClick={() => {
-              setTargetLanguage(lang);
+              updateURLParams({ targetLanguage: lang });
               onClickLanguage(lang);
             }}
           >
@@ -41,7 +41,7 @@ const InputLanguageSelector = ({ onClickLanguage, clearInputText }: Props) => {
         <div>{t('input.language.manual')}</div>
         <input
           value={targetLanguage}
-          onChange={(e) => setTargetLanguage(e.target.value)}
+          onChange={(e) => updateURLParams({ targetLanguage: e.target.value })}
           style={{
             borderRadius: '0.5em',
             lineHeight: '2em',
@@ -52,7 +52,7 @@ const InputLanguageSelector = ({ onClickLanguage, clearInputText }: Props) => {
         <button
           onClick={() => {
             clearInputText();
-            setTargetLanguage('');
+            updateURLParams({ targetLanguage: '' });
           }}
         >
           {t('input.language.ctaClear')}

@@ -4,10 +4,10 @@ import { useDataContext } from '@data/DataContext';
 import { SourceLanguage, type DataField } from '@data/DataTypes';
 import { DayKeys } from '@data/DayKeys';
 
-import { useSettings } from '@settings/Settings';
+import { useURLParams } from '@settings/URLParams';
 
 export function FormattedDateString({ entry }: { entry: DataField }) {
-  const { sourceLanguage } = useSettings();
+  const { sourceLanguage } = useURLParams();
 
   return (
     <DateString
@@ -28,7 +28,7 @@ type DateStringProps = {
   var2?: number;
 };
 
-// For example "1713855600000", "dd/MM/y – dd/MM/y" or "'week' w 'of' Y"
+// For example "1713855600000", "dd/MM/y – dd/MM/y" or "'week' w 'of' Y"
 // TODO support dateTimeFormats
 function DateString({ format, lang, var1, var2 }: DateStringProps) {
   const { findDataField, getTranslation } = useDataContext();

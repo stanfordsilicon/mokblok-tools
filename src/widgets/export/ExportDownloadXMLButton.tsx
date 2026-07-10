@@ -1,12 +1,12 @@
 import { useCallback } from 'react';
 
-import { useSettings } from '@settings/Settings';
+import { useURLParams } from '@settings/URLParams';
 
 const ExportDownloadXMLButton: React.FC<{ filename: string; xmlContent: string }> = ({
   filename,
   xmlContent,
 }) => {
-  const { targetLanguage } = useSettings();
+  const { targetLanguage } = useURLParams();
 
   const handleDownload = useCallback(() => {
     const blob = new Blob([xmlContent], { type: 'application/xml' });

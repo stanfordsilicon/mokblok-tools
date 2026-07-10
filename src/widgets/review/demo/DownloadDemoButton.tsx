@@ -1,4 +1,4 @@
-import { useSettings } from '@settings/Settings';
+import { useURLParams } from '@settings/URLParams';
 
 import downloadSvgAsPng from './downloadSvgAsPng';
 
@@ -7,7 +7,7 @@ import type DemoID from './DemoID';
 const DownloadDemoButton: React.FC<{
   demoID: DemoID;
 }> = ({ demoID }) => {
-  const { targetLanguage } = useSettings();
+  const { targetLanguage } = useURLParams();
   const onClick = () => {
     const svg = document.getElementById(demoID) as SVGSVGElement | null;
     if (!svg) {

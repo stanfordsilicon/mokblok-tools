@@ -55,6 +55,8 @@ function ReviewSection({ dataSection }: { dataSection: DataSection }) {
 
 function ReviewTable({ dataSection }: { dataSection: DataSection }) {
   switch (dataSection) {
+    case DataSection.All:
+      return null;
     case DataSection.Alphabet:
       return <AlphabetReview />;
     case DataSection.CLDRTicket:

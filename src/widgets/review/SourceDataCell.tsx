@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 
 import { SourceLanguage, type DataField } from '@data/DataTypes';
 
-import { useSettings } from '@settings/Settings';
+import { useURLParams } from '@settings/URLParams';
 
 import { getFraktur } from '@shared/stringUtils';
 
@@ -12,7 +12,7 @@ type Props = {
 };
 function SourceDataCell({ data, style }: Props) {
   const { t } = useTranslation();
-  const { sourceLanguage } = useSettings();
+  const { sourceLanguage } = useURLParams();
   if (!data) return <td>{t('common.emptyCell')}</td>;
 
   let sourceTranslation = data.english;

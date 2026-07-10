@@ -3,7 +3,8 @@ import { useTranslation } from 'react-i18next';
 
 import { useDataContext } from '@data/DataContext';
 
-import { useSettings } from '@settings/Settings';
+import { getLanguageBCP } from '@settings/LanguageCodes';
+import { useURLParams } from '@settings/URLParams';
 
 import ExportDownloadXMLButton from './ExportDownloadXMLButton';
 
@@ -22,7 +23,8 @@ const standardPunctuation = ['-‑,;:!?.…\'‘’"“”()[]§@/&#%′″'];
 
 const ExportCoreData: React.FC = () => {
   const { t } = useTranslation();
-  const { targetLanguage, targetLanguageBCP } = useSettings();
+  const { targetLanguage } = useURLParams();
+  const targetLanguageBCP = getLanguageBCP(targetLanguage);
   const { alphabet, findDataField, getTranslation } = useDataContext();
   const { charactersNumber, charactersAuxiliary, charactersBase, charactersPunctuation } =
     alphabet || {};

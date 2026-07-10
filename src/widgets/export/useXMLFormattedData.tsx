@@ -1,7 +1,8 @@
+
 import { isWithinCoverageLevel } from '@data/CoverageLevel';
 import { useDataContext } from '@data/DataContext';
 
-import { useSettings } from '@settings/Settings';
+import { useURLParams } from '@settings/URLParams';
 
 // type XMLObject = Record<string, XMLObject | string>;
 interface XMLObject {
@@ -10,7 +11,7 @@ interface XMLObject {
 
 const useXMLFormattedData = (): string => {
   const { findDataFields, getTranslation } = useDataContext();
-  const { coverageLevel } = useSettings();
+  const { coverageLevel } = useURLParams();
   const allFields = findDataFields({})
     // Only consider fields with an XPath and exampleNum of 0 (avoid exporting pattern examples, can only export patterns)
     .filter((f) => f.xpath && !parseInt(f.exampleNum));

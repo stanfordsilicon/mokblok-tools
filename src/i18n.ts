@@ -14,14 +14,18 @@ i18n
   .use(initReactI18next)
   .init({
     lng: 'en',
+    fallbackLng: 'en',
     postProcess: ['mf2'], // Apply MF2 to all translations
     resources: {
       // Reference the translation files
-      eng_Latf: { translation: eng_Latf },
-      eng: { translation: eng },
-      fra: { translation: fra },
-      ita: { translation: ita },
-      spa: { translation: spa },
+      en: { translation: eng },
+      'en-Latf': { translation: eng_Latf },
+      es: { translation: spa },
+      fr: { translation: fra },
+      it: { translation: ita },
+    },
+    interpolation: {
+      escapeValue: false,
     },
   });
 

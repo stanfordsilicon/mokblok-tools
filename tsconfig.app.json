@@ -27,19 +27,18 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
     /* Modules / Path aliases */
-    "baseUrl": ".",
     "paths": {
       "@data/*": [
-        "src/data/*"
+        "./src/data/*"
       ],
       "@settings/*": [
-        "src/settings/*"
+        "./src/settings/*"
       ],
       "@widgets/*": [
-        "src/widgets/*"
+        "./src/widgets/*"
       ],
       "@shared/*": [
-        "src/shared/*"
+        "./src/shared/*"
       ],
     }
   },

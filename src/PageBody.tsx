@@ -5,13 +5,13 @@ import { LinguisticsProvider } from '@data/LinguisticsContext';
 
 import { SettingsProvider } from '@settings/Settings';
 import SettingsWidget from '@settings/SettingsWidget';
-import StepName from '@settings/StepName';
 import StepSelector from '@settings/StepSelector';
+import { useURLParams } from '@settings/URLParams';
 
 import StepView from '@widgets/StepView';
 
 const PageBody: React.FC = () => {
-  const [step, setStep] = useState<StepName>(StepName.Input);
+  const { step } = useURLParams();
   const [settingsOpen, setSettingsOpen] = useState(false);
   const toggleSettings = () => setSettingsOpen(!settingsOpen);
 
@@ -19,7 +19,7 @@ const PageBody: React.FC = () => {
     <SettingsProvider>
       <LinguisticsProvider>
         <DataProvider>
-          <StepSelector step={step} setStep={setStep} toggleSettings={toggleSettings} />
+          <StepSelector toggleSettings={toggleSettings} />
           <div
             style={{
               border: '1px solid #ccc',

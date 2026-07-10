@@ -4,6 +4,7 @@ import Demo from './Demo';
 import DemoID from './DemoID';
 
 const demoIDsBySection: Record<DataSection, DemoID[]> = {
+  [DataSection.All]: [],
   [DataSection.Alphabet]: [],
   [DataSection.CLDRTicket]: [],
   [DataSection.Coordinates]: [DemoID.CoordinatesMap, DemoID.CoordinatesDirections],

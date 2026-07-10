@@ -51,10 +51,10 @@ const DayPeriodsReviewTable = () => {
             const row = amPMMatrix[dayPeriod];
             return (
               <tr key={dayPeriod}>
-                <SourceDataCell data={row['w']} />
-                <SourceDataCell data={row['n']} />
-                <InputDataCell data={row['w']} />
-                <InputDataCell data={row['n']} />
+                <SourceDataCell data={row?.['w']} />
+                <SourceDataCell data={row?.['n']} />
+                <InputDataCell data={row?.['w']} />
+                <InputDataCell data={row?.['n']} />
               </tr>
             );
           })}
@@ -84,12 +84,12 @@ const DayPeriodsReviewTable = () => {
             const row = naturalsMatrix[dayPeriod];
             return (
               <tr key={dayPeriod}>
-                <SourceDataCell data={row['s0']} />
-                <SourceDataCell data={row['f0']} />
-                <SourceDataCell data={row['f1']} />
-                <InputDataCell data={row['s0']} />
-                <InputDataCell data={row['f0']} inputWidth="10em" />
-                <InputDataCell data={row['f1']} inputWidth="10em" />
+                <SourceDataCell data={row?.['s0']} />
+                <SourceDataCell data={row?.['f0']} />
+                <SourceDataCell data={row?.['f1']} />
+                <InputDataCell data={row?.['s0']} />
+                <InputDataCell data={row?.['f0']} inputWidth="10em" />
+                <InputDataCell data={row?.['f1']} inputWidth="10em" />
               </tr>
             );
           })}

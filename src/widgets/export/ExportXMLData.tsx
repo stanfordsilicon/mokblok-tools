@@ -1,14 +1,16 @@
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { useSettings } from '@settings/Settings';
+import { getLanguageBCP } from '@settings/LanguageCodes';
+import { useURLParams } from '@settings/URLParams';
 
 import ExportDownloadXMLButton from './ExportDownloadXMLButton';
 import useXMLFormattedData from './useXMLFormattedData';
 
 const ExportXMLData: React.FC = () => {
   const { t } = useTranslation();
-  const { targetLanguageBCP, coverageLevel } = useSettings();
+  const { targetLanguage, coverageLevel } = useURLParams();
+  const targetLanguageBCP = getLanguageBCP(targetLanguage);
   const ldml = useXMLFormattedData();
 
   const fullXML = useMemo(() => {

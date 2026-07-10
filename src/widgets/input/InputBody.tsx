@@ -6,7 +6,7 @@ import { Doc, getDocFileSuffix, getDocFileType } from '@data/Doc';
 import { loadInputText, parseDoc1TSV } from '@data/LoadInputData';
 import { parseDoc2Part1, parseDoc2Part2, parseDoc2Part3 } from '@data/ParseDoc2';
 
-import { useSettings } from '@settings/Settings';
+import { useURLParams } from '@settings/URLParams';
 
 import InputCheck from './check/InputCheck';
 import InputDocSelector from './InputDocSelector';
@@ -16,7 +16,7 @@ import useDocTextBlobs from './useDocTextBlobs';
 
 const InputBody = () => {
   const { setRows, setExtraText } = useDataContext();
-  const { targetLanguage } = useSettings();
+  const { targetLanguage } = useURLParams();
   const texts = useDocTextBlobs();
   const [currentDoc, setCurrentDoc] = useState<Doc>(Doc.Doc1);
 
