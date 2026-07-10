@@ -64,6 +64,7 @@ function FullReviewTable() {
           </th>
           <th>{t('review.translated')}</th>
           <th>{t('settings.coverageLevel')}</th>
+          <th>{t('review.fromXML')}</th>
         </tr>
         <tr>
           <FilterCell value={subjectFilter} onChange={setSubjectFilter} />
@@ -78,6 +79,7 @@ function FullReviewTable() {
             coverageLevelFilter={coverageLevelFilter}
             setCoverageLevelFilter={setCoverageLevelFilter}
           />
+          <td />
         </tr>
       </thead>
       <tbody>
@@ -128,6 +130,7 @@ function FilterCoverageLevelCell({
 }
 
 function TranslationRow({ field }: { field: DataField }) {
+  const { getSourceData } = useDataContext();
   const { t } = useTranslation();
   return (
     <tr key={field.index} style={{ backgroundColor: getBackgroundColor(field) }}>
@@ -142,6 +145,7 @@ function TranslationRow({ field }: { field: DataField }) {
       <td style={{ overflow: 'hidden' }}>
         {t(`coverageLevelName.${getCoverageLevelKey(field.level)}`)}
       </td>
+      <td>{getSourceData(field)}</td>
     </tr>
   );
 }

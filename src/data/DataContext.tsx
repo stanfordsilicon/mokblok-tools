@@ -1,7 +1,10 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 
+import { useURLParams } from '@settings/URLParams';
+
 import { type AlphabetData, type DataField, type RowData } from './DataTypes';
 import extractAlphabetData from './ExtractAlphabet';
+import { loadCLDRXMLWithInheritance } from './loadCLDRXML';
 import { loadDatafields } from './LoadDataFields';
 
 export type FindDataField = (query: Partial<DataField>) => DataField | undefined;
@@ -16,6 +19,7 @@ export type DataContextType = {
   findDataFields(query: Partial<DataField>): DataField[];
   getTranslation(field: DataField | undefined, fallback?: boolean): string;
   setTranslation(index: number, newTranslation: string): void;
+  getSourceData(field: DataField | undefined): string | undefined;
 };
 
 export const DataContext = createContext<DataContextType | undefined>({
@@ -26,6 +30,7 @@ export const DataContext = createContext<DataContextType | undefined>({
   findDataFields: () => [],
   getTranslation: () => '',
   setTranslation: () => {},
+  getSourceData: () => '',
 });
 
 export const useDataContext = () => {
@@ -41,6 +46,8 @@ export const DataProvider: React.FC<{
   const [rows, setRows] = useState<RowData[]>([]);
   const [dataFields, setDataFields] = useState<DataField[]>([]);
   const [extraText, setExtraText] = useState<string>('');
+  const [sourceXMLData, setSourceXMLData] = useState<Record<string, string>>({});
+  const { sourceLanguage } = useURLParams();
 
   // Structured Data
   const [alphabetData, setAlphabetData] = useState<AlphabetData | undefined>(undefined);
@@ -99,12 +106,36 @@ export const DataProvider: React.FC<{
     },
     [dataFields.length, setTranslation],
   );
+  const getSourceData = useCallback(
+    (field: DataField | undefined): string | undefined => {
+      if (!field) return undefined;
+      return sourceXMLData[field.xpath];
+    },
+    [sourceXMLData],
+  );
 
   // When the inputted data changes, refresh the data
   useEffect(() => {
     setAlphabetData(extractAlphabetData(rows, extraText));
     fillTranslations(rowsByKey);
   }, [rowsByKey, rows, extraText]);
+  useEffect(() => {
+    const fetchXMLData = async () => {
+      if (dataFields.length === 0) return;
+      const allXMLdata = await loadCLDRXMLWithInheritance(sourceLanguage);
+      // Only save XPaths we are using
+      const applicableXML = dataFields.reduce(
+        (acc, row) => {
+          if (row.xpath == null || !allXMLdata[row.xpath]) return acc;
+          acc[row.xpath] = allXMLdata[row.xpath];
+          return acc;
+        },
+        {} as Record<string, string>,
+      );
+      setSourceXMLData(applicableXML);
+    };
+    fetchXMLData();
+  }, [sourceLanguage, dataFields]);
 
   const dataContext: DataContextType = {
     setRows,
@@ -114,6 +145,7 @@ export const DataProvider: React.FC<{
     findDataField,
     findDataFields,
     getTranslation,
+    getSourceData,
     setTranslation,
   };
   return <DataContext.Provider value={dataContext}>{children}</DataContext.Provider>;

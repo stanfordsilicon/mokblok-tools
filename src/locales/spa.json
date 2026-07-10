@@ -57,6 +57,7 @@
         "morning": "Mañana",
         "evening": "Tarde",
         "pattern": "Patrón",
+        "sourcePattern": "Patrón fuente",
         "alphabet": {
             "set": "Conjunto",
             "numberingSystem": "Sistema de numeración",

@@ -1,12 +1,12 @@
 import { useTranslation } from 'react-i18next';
 
 import { useDataContext } from '@data/DataContext';
+import getSourcePattern from '@data/getSourcePattern';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
 import { FormattedDateString } from '../DateString';
 import InputDataCell from '../InputDataCell';
-import SourceDataCell from '../SourceDataCell';
 
 function DateCombinationsReviewTable() {
   const { findDataFields } = useDataContext();
@@ -23,21 +23,22 @@ function DateCombinationsReviewTable() {
           <th>
             <SourceLanguageLabel />
           </th>
+          <th>{t('review.sourcePattern')}</th>
           <th>{t('review.translated')}</th>
         </tr>
       </thead>
       <tbody>
-        {availableFormats?.map((datum) => (
-          <tr key={datum.index}>
+        {availableFormats?.map((entry) => (
+          <tr key={entry.index}>
             <td>
-              {datum.instance} {datum.variant}
+              {entry.instance} {entry.variant}
             </td>
-            <SourceDataCell data={datum} />
+            {/* <SourceDataCell data={entry} /> */}
             <td>
-              <FormattedDateString entry={datum} />
+              <FormattedDateString entry={entry} />
             </td>
-            <td>{datum.englishPattern}</td>
-            <InputDataCell data={datum} inputWidth="20em" />
+            <td>{getSourcePattern(entry)}</td>
+            <InputDataCell data={entry} inputWidth="20em" />
           </tr>
         ))}
       </tbody>

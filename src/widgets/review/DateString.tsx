@@ -3,17 +3,18 @@ import { useCallback } from 'react';
 import { useDataContext } from '@data/DataContext';
 import { SourceLanguage, type DataField } from '@data/DataTypes';
 import { DayKeys } from '@data/DayKeys';
+import getSourcePattern from '@data/getSourcePattern';
 
 import { useURLParams } from '@settings/URLParams';
 
 export function FormattedDateString({ entry }: { entry: DataField }) {
   const { sourceLanguage } = useURLParams();
+  const sourcePattern = getSourcePattern(entry);
 
+  // Otherwise get it from the datafields.tsv
   return (
     <DateString
-      format={
-        sourceLanguage === SourceLanguage.English ? entry.englishPattern : entry.frenchPattern
-      }
+      format={sourcePattern}
       lang={sourceLanguage === SourceLanguage.English ? 'english' : 'french'}
       var1={entry.var1}
       var2={entry.var2}

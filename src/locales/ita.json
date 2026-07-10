@@ -57,6 +57,7 @@
         "morning": "Mattina",
         "evening": "Sera",
         "pattern": "Modello",
+        "sourcePattern": "Modello sorgente",
         "alphabet": {
             "set": "Set",
             "numberingSystem": "Sistema di numerazione",

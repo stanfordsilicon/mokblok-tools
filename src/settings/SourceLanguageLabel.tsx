@@ -8,7 +8,7 @@ function SourceLanguageLabel() {
   const { sourceLanguage } = useURLParams();
   const { t } = useTranslation();
   if ([SourceLanguage.Spanish, SourceLanguage.Italian].includes(sourceLanguage)) {
-    return <>{t(`languageName.eng`)}</>;
+    return <>{t(`languageName.en`)}</>;
   }
   return <>{t(`languageName.${sourceLanguage}`)}</>;
 }
