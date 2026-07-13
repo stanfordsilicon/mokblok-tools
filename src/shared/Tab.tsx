@@ -19,7 +19,9 @@ function Tab<T>({ label, option, selected, setSelected, style }: Props<T>) {
         borderLeft: border,
         borderRight: border,
         padding: '.5em 1em',
+        position: 'relative',
         ...style,
+        backgroundColor: 'transparent',
       }}
     >
       {label}

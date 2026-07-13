@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
 import { useDataContext } from '@data/DataContext';
+import { DataSection } from '@data/DataSection';
 import getSourcePattern from '@data/getSourcePattern';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
@@ -10,9 +11,10 @@ import InputDataCell from '../InputDataCell';
 
 function DateCombinationsReviewTable() {
   const { findDataEntries } = useDataContext();
-  const availableFormats = findDataEntries({ subject: 'dates', field: 'availableFormats' }).filter(
-    (f) => !f.instance.includes('G') && !f.instance.match(/^h/i),
-  );
+  const availableFormats = findDataEntries({
+    section: DataSection.Dates,
+    field: 'availableFormats',
+  }).filter((f) => !f.instance.includes('G') && !f.instance.match(/^h/i));
   const { t } = useTranslation();
 
   return (

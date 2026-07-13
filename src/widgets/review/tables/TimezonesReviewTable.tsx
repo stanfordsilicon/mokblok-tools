@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
 import { useDataContext } from '@data/DataContext';
+import { DataSection } from '@data/DataSection';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
@@ -12,7 +13,10 @@ import SourceDataCell from '../SourceDataCell';
 function TimezonesReviewTable() {
   const { t } = useTranslation();
   const { findDataEntries, getTranslation, findDataEntry } = useDataContext();
-  const timezonesByGroup = groupBy(findDataEntries({ subject: 'timezones' }), (f) => f.group);
+  const timezonesByGroup = groupBy(
+    findDataEntries({ section: DataSection.Timezones }),
+    (f) => f.group,
+  );
 
   return (
     <div>

@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
 import { useDataContext } from '@data/DataContext';
+import { DataSection } from '@data/DataSection';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
@@ -9,7 +10,7 @@ import SourceDataCell from '../SourceDataCell';
 
 function CLDRTicketReviewTable() {
   const { findDataEntries } = useDataContext();
-  const sentences = findDataEntries({ group: 'CLDR Ticket' });
+  const sentences = findDataEntries({ section: DataSection.CLDRTicket });
   const { t } = useTranslation();
 
   function getHeight(english: string) {

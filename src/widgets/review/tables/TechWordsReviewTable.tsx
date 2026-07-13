@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
 import { useDataContext } from '@data/DataContext';
+import { DataSection } from '@data/DataSection';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
@@ -10,7 +11,7 @@ import SourceDataCell from '../SourceDataCell';
 function TechWordsReviewTable() {
   const { t } = useTranslation();
   const { findDataEntries } = useDataContext();
-  const techWords = findDataEntries({ group: 'Tech Words' });
+  const techWords = findDataEntries({ section: DataSection.TechWords });
 
   return (
     <div>

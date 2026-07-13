@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
 import { useDataContext } from '@data/DataContext';
+import { DataSection } from '@data/DataSection';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
@@ -15,7 +16,7 @@ function MathsReviewTable() {
   const { t } = useTranslation();
   const { findDataEntries } = useDataContext();
   const maths = sortBy(
-    sortBy(findDataEntries({ group: 'Maths' }), (a) => a.length),
+    sortBy(findDataEntries({ section: DataSection.Maths }), (a) => a.length),
     (a) => symbols.indexOf(a.instance),
   );
   const mathsSymbols = maths.filter((f) => f.exampleNum === '0');

@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
 import { useDataContext } from '@data/DataContext';
+import { DataSection } from '@data/DataSection';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
@@ -10,7 +11,7 @@ import SourceDataCell from '../SourceDataCell';
 function SymbolsReviewTable() {
   const { t } = useTranslation();
   const { findDataEntries } = useDataContext();
-  const symbolsWithExamples = findDataEntries({ group: 'Symbols', field: 'symbols' });
+  const symbolsWithExamples = findDataEntries({ section: DataSection.Symbols });
   const symbols = symbolsWithExamples.filter((f) => f.exampleNum === '0');
   const symbolsExamples = symbolsWithExamples.filter((f) => f.exampleNum !== '0');
 

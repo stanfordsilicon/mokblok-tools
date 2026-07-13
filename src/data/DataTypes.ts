@@ -1,7 +1,9 @@
 import type { CoverageLevel } from './CoverageLevel';
+import type { DataPage, DataSection } from './DataSection';
 
 export type DataEntry = {
-  subject: string;
+  page: DataPage;
+  section: DataSection;
   group: string;
   field: string;
   instance: string;

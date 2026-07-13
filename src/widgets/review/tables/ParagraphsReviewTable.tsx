@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
 import { useDataContext } from '@data/DataContext';
+import { DataSection } from '@data/DataSection';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
@@ -12,7 +13,10 @@ import SourceDataCell from '../SourceDataCell';
 function ParagraphsReviewTable() {
   const { t } = useTranslation();
   const { findDataEntries } = useDataContext();
-  const paragraphsByGroup = groupBy(findDataEntries({ group: 'Paragraphs' }), (f) => f.field);
+  const paragraphsByGroup = groupBy(
+    findDataEntries({ section: DataSection.Paragraphs }),
+    (f) => f.field,
+  );
 
   function getHeight(english: string) {
     return Math.max(english.length / 50, 1.5) + 'em';

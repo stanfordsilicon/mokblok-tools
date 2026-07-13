@@ -74,7 +74,7 @@ button {
   font-family: inherit;
   background-color: var(--color-button-background);
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: border-color 1s;
 }
 
 button:hover {

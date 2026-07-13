@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
 import { useDataContext } from '@data/DataContext';
+import { DataSection } from '@data/DataSection';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
@@ -10,7 +11,7 @@ import SourceDataCell from '../SourceDataCell';
 function RegionsReviewTable() {
   const { t } = useTranslation();
   const { findDataEntries } = useDataContext();
-  const regions = findDataEntries({ group: 'Regions' });
+  const regions = findDataEntries({ section: DataSection.Regions });
 
   return (
     <div>

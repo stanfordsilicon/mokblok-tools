@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
 import { useDataContext } from '@data/DataContext';
+import { DataSection } from '@data/DataSection';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
@@ -10,7 +11,7 @@ import SourceDataCell from '../SourceDataCell';
 
 function EraDatesReviewTable() {
   const { findDataEntries } = useDataContext();
-  const allEraFields = findDataEntries({ subject: 'dates' }).filter((f) =>
+  const allEraFields = findDataEntries({ section: DataSection.EraDates }).filter((f) =>
     f.instance.includes('G'),
   );
   const availableEraDates = allEraFields.filter((f) => f.field === 'availableFormats');
@@ -33,7 +34,7 @@ function EraDatesReviewTable() {
         <tbody>
           <tr>
             <th colSpan={2} style={{ textAlign: 'center' }}>
-              Dates
+              {t('review.dates')}
             </th>
           </tr>
           {availableEraDates.map((entry) => (
@@ -44,7 +45,7 @@ function EraDatesReviewTable() {
           ))}
           <tr>
             <th colSpan={2} style={{ textAlign: 'center' }}>
-              Intervals
+              {t('review.intervals')}
             </th>
           </tr>
           {eraIntervals.map((entry) => (

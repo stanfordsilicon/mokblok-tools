@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { useDataContext } from '@data/DataContext';
+import { DataSection } from '@data/DataSection';
 import { useLinguisticsContext } from '@data/LinguisticsContext';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
@@ -16,7 +17,7 @@ const charSets = ['base', 'uppercase', 'auxiliary', 'numbers', 'punctuation'] as
 const AlphabetReview: React.FC = () => {
   const { findDataEntries, getTranslation } = useDataContext();
   const { numberingSystems } = useLinguisticsContext();
-  const alphabetFields = findDataEntries({ group: 'Alphabet' });
+  const alphabetFields = findDataEntries({ section: DataSection.Alphabet });
   const { t } = useTranslation();
 
   return (

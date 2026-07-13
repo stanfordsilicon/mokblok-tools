@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
 import { useDataContext } from '@data/DataContext';
+import { DataSection } from '@data/DataSection';
 
 import { getLanguageBCP } from '@settings/LanguageCodes';
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
@@ -13,8 +14,9 @@ function LanguageNamesReviewTable() {
   const { t } = useTranslation();
   const targetLanguageBCP = getLanguageBCP(useURLParams().targetLanguage);
   const { findDataEntries } = useDataContext();
-  const languageNameFields = findDataEntries({ group: 'Language Names' });
-  const secondaryLanguageNameFields = findDataEntries({ group: 'Secondary Language Names' });
+  const allLanguageNameFields = findDataEntries({ section: DataSection.LanguageNames });
+  const languageNameFields = allLanguageNameFields.filter((f) => f.group !== 'Secondary');
+  const secondaryLanguageNameFields = allLanguageNameFields.filter((f) => f.group === 'Secondary');
 
   // If the target language is in the secondaryLanguageNameField, move it to the main languageNameFields for review
   const ownLanguageFieldIndex = secondaryLanguageNameFields.findIndex(

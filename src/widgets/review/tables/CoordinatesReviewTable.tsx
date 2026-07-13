@@ -11,7 +11,7 @@ import InputDataCell from '../InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function CoordinatesReviewTable() {
-  const { findDataEntries } = useDataContext();
+  const { findDataEntry, findDataEntries } = useDataContext();
   const coordFields = findDataEntries({ field: 'coordinateUnitPattern' });
   const coordMatrix = matrixBy(
     coordFields,
@@ -19,9 +19,26 @@ function CoordinatesReviewTable() {
     (f) => f.length,
   );
   const { t } = useTranslation();
+  const cardinalDirection = findDataEntry({ field: 'coordinateUnit/displayName' });
 
   return (
     <div>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              <SourceLanguageLabel />
+            </th>
+            <th>{t('review.translated')}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <SourceDataCell entry={cardinalDirection} />
+            <InputDataCell entry={cardinalDirection} inputWidth="10em" />
+          </tr>
+        </tbody>
+      </table>
       <table>
         <thead style={{ textAlign: 'center' }}>
           <tr>

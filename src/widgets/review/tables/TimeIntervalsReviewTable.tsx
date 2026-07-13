@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
 import { useDataContext } from '@data/DataContext';
+import { DataSection } from '@data/DataSection';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
@@ -14,7 +15,7 @@ function TimeIntervalsReviewTable() {
   const { t } = useTranslation();
   const { findDataEntries } = useDataContext();
   const intervalFormats = uniqueBy(
-    sortBy(findDataEntries({ group: 'TimeIntervals' }), (f) => f.instance),
+    sortBy(findDataEntries({ section: DataSection.TimeIntervals }), (f) => f.instance),
     (f) => f.english,
   );
 

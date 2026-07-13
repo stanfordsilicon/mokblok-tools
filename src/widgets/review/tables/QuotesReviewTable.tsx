@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
 import { useDataContext } from '@data/DataContext';
+import { DataSection } from '@data/DataSection';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
@@ -13,7 +14,7 @@ import SourceDataCell from '../SourceDataCell';
 function QuotesReviewTable() {
   const { t } = useTranslation();
   const { findDataEntries } = useDataContext();
-  const quotes = sortBy(findDataEntries({ group: 'Quotes' }), (a) => a.length);
+  const quotes = sortBy(findDataEntries({ section: DataSection.Quotes }), (a) => a.length);
   const quotesMatrix = matrixBy(
     quotes.filter((f) => f.exampleNum === '0'),
     (f) => f.length,

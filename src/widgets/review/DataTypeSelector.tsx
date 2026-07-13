@@ -2,9 +2,13 @@ import { useTranslation } from 'react-i18next';
 
 import { DataPage, DataSection, getSectionsForPage } from '@data/DataSection';
 
+import { BackgroundStyle } from '@settings/BackgroundStyle';
 import { useURLParams } from '@settings/URLParams';
 
+import BackgroundProgressBar from '@shared/BackgroundProgressBar';
 import Tab from '@shared/Tab';
+
+import { getCompletionForSection } from './getDataEntriesForSection';
 
 const DataTypeSelector: React.FC = () => {
   const { section: selectedSection, page: selectedPage, updateURLParams } = useURLParams();
@@ -23,13 +27,15 @@ const DataTypeSelector: React.FC = () => {
         }}
       >
         {Object.values(DataPage).map((page) => (
-          <Tab
-            key={page}
-            label={t(`dataPage.${page}`)}
-            option={page}
-            selected={selectedPage}
-            setSelected={(newPage) => updateURLParams({ page: newPage })}
-          />
+          <MaybeProgressBar page={page} key={page}>
+            <Tab
+              key={page}
+              label={t(`dataPage.${page}`)}
+              option={page}
+              selected={selectedPage}
+              setSelected={(newPage) => updateURLParams({ page: newPage })}
+            />
+          </MaybeProgressBar>
         ))}
       </div>
 
@@ -43,26 +49,46 @@ const DataTypeSelector: React.FC = () => {
             marginBottom: '0.5em',
           }}
         >
-          <Tab
-            label={t('dataSection.allOf', {
-              section: t(`dataPage.${selectedPage}`),
-            })}
-            option={DataSection.All}
-            selected={selectedSection}
-            setSelected={(newSection) => updateURLParams({ section: newSection })}
-          />
-          {sections.map((dataType) => (
+          <MaybeProgressBar page={selectedPage}>
             <Tab
-              key={dataType}
-              label={t(`dataSection.${dataType}`)}
-              option={dataType}
+              label={t('dataSection.All', {
+                section: t(`dataPage.${selectedPage}`),
+              })}
+              option={DataSection.All}
               selected={selectedSection}
               setSelected={(newSection) => updateURLParams({ section: newSection })}
             />
+          </MaybeProgressBar>
+          {sections.map((section) => (
+            <MaybeProgressBar key={section} page={selectedPage} section={section}>
+              <Tab
+                label={t(`dataSection.${section}`)}
+                option={section}
+                selected={selectedSection}
+                setSelected={(newSection) => updateURLParams({ section: newSection })}
+                style={{ backgroundColor: 'transparent' }}
+              />
+            </MaybeProgressBar>
           ))}
         </div>
       )}
     </div>
+  );
+};
+
+type MaybeProgressBarProps = React.PropsWithChildren<{
+  page: DataPage;
+  section?: DataSection;
+}>;
+
+const MaybeProgressBar: React.FC<MaybeProgressBarProps> = ({ page, section, children }) => {
+  const { bgStyle } = useURLParams();
+  const completion = getCompletionForSection(page, section);
+  if (bgStyle !== BackgroundStyle.Missing) return <>{children}</>;
+  return (
+    <BackgroundProgressBar percentage={completion} style={{ borderRadius: '.5em .5em 0 0' }}>
+      {children}
+    </BackgroundProgressBar>
   );
 };
 

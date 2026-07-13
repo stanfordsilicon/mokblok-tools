@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
 import { useDataContext } from '@data/DataContext';
+import { DataSection } from '@data/DataSection';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
@@ -14,7 +15,7 @@ const dayPeriods = ['morning1', 'afternoon1', 'evening1', 'night1', 'midnight'];
 
 const DayPeriodsReviewTable = () => {
   const { findDataEntries } = useDataContext();
-  const dayPeriodFields = findDataEntries({ group: 'DayPeriods' });
+  const dayPeriodFields = findDataEntries({ section: DataSection.DayPeriods });
   const amPMMatrix = matrixBy(
     dayPeriodFields.filter((f) => ['am', 'pm'].includes(f.instance)),
     (f) => f.instance,

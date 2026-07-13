@@ -14,7 +14,9 @@ import SourceDataCell from '../SourceDataCell';
 function FullReviewTable() {
   const { findDataEntries } = useDataContext();
   const allEntries = findDataEntries({});
-  const [subjectFilter, setSubjectFilter] = React.useState('');
+  const [pageFilter, setPageFilter] = React.useState('');
+  const [sectionFilter, setSectionFilter] = React.useState('');
+  const [groupFilter, setGroupFilter] = React.useState('');
   const [fieldFilter, setFieldFilter] = React.useState('');
   const [instanceFilter, setInstanceFilter] = React.useState('');
   const [lengthFilter, setLengthFilter] = React.useState('');
@@ -29,7 +31,9 @@ function FullReviewTable() {
     () =>
       allEntries.filter(
         (f) =>
-          f.subject.includes(subjectFilter) &&
+          f.page.includes(pageFilter) &&
+          f.section.includes(sectionFilter) &&
+          f.group.includes(groupFilter) &&
           f.field.includes(fieldFilter) &&
           f.instance.includes(instanceFilter) &&
           f.length.includes(lengthFilter) &&
@@ -39,7 +43,9 @@ function FullReviewTable() {
       ),
     [
       allEntries,
-      subjectFilter,
+      pageFilter,
+      sectionFilter,
+      groupFilter,
       fieldFilter,
       instanceFilter,
       lengthFilter,
@@ -53,7 +59,9 @@ function FullReviewTable() {
     <table className="FullReviewTable">
       <thead>
         <tr>
-          <th>{t('review.subject')}</th>
+          <th>{t('review.page')}</th>
+          <th>{t('review.section')}</th>
+          <th>{t('review.group')}</th>
           <th>{t('review.field')}</th>
           <th>{t('review.instance')}</th>
           <th>{t('review.length')}</th>
@@ -67,7 +75,9 @@ function FullReviewTable() {
           <th>{t('review.fromXML')}</th>
         </tr>
         <tr>
-          <FilterCell value={subjectFilter} onChange={setSubjectFilter} />
+          <FilterCell value={pageFilter} onChange={setPageFilter} />
+          <FilterCell value={sectionFilter} onChange={setSectionFilter} />
+          <FilterCell value={groupFilter} onChange={setGroupFilter} />
           <FilterCell value={fieldFilter} onChange={setFieldFilter} />
           <FilterCell value={instanceFilter} onChange={setInstanceFilter} />
           <FilterCell value={lengthFilter} onChange={setLengthFilter} />
@@ -134,9 +144,11 @@ function TranslationRow({ entry }: { entry: DataEntry }) {
   const { t } = useTranslation();
   return (
     <tr key={entry.index} style={{ backgroundColor: getBackgroundColor(entry) }}>
-      <td>{entry.subject}</td>
-      <td>{entry.field}</td>
-      <td>{entry.instance}</td>
+      <td style={{ maxWidth: '5em' }}>{t(`dataPage.${entry.page}`)}</td>
+      <td style={{ maxWidth: '5em' }}>{t(`dataSection.${entry.section}`)}</td>
+      <td style={{ maxWidth: '5em' }}>{entry.group}</td>
+      <td style={{ maxWidth: '5em' }}>{entry.field}</td>
+      <td style={{ maxWidth: '5em' }}>{entry.instance}</td>
       <td>{entry.length}</td>
       <td>{entry.variant}</td>
       <td>{entry.exampleNum}</td>

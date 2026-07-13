@@ -1,53 +1,53 @@
 export enum DataPage {
-  All = 'all',
-  Core = 'core',
-  DateAndTime = 'dateAndTime',
-  Quantities = 'quantities',
-  Translations = 'translations',
-  FullTable = 'fullTable', // basic view of all data, for quick browsing and searching
+  All = 'All',
+  Core = 'Core',
+  DateAndTime = 'DateAndTime',
+  Quantities = 'Quantities',
+  Translations = 'Translations',
+  FullTable = 'FullTable', // basic view of all data, for quick browsing and searching
 }
 
 // Order this by order of appearance
 export enum DataSection {
-  All = 'all',
+  All = 'All',
 
-  Alphabet = 'alphabet',
-  Symbols = 'symbols',
-  Quotes = 'quotes',
-  Maths = 'maths',
-  Plurals = 'plurals',
+  Alphabet = 'Alphabet',
+  Symbols = 'Symbols',
+  Quotes = 'Quotes',
+  Maths = 'Maths',
+  Plurals = 'Plurals',
 
   // Date and time
-  DateFields = 'dateFields',
-  DayPeriods = 'dayPeriods',
-  DaysOfWeek = 'daysOfWeek',
-  Months = 'months',
-  Quarters = 'quarters',
-  Eras = 'eras',
+  DateFields = 'DateFields',
+  DayPeriods = 'DayPeriods',
+  DaysOfWeek = 'DaysOfWeek',
+  Months = 'Months',
+  Quarters = 'Quarters',
+  Eras = 'Eras',
 
-  RelativeTime = 'relativeTime',
-  TimeCombinations = 'timeCombinations',
-  TimeIntervals = 'timeIntervals',
-  DateCombinations = 'dateCombinations',
-  DateIntervals = 'dateIntervals',
-  DateTimeCombinations = 'dateTimeCombinations',
-  EraDateCombinations = 'eraDateCombinations',
+  RelativeTime = 'RelativeTime',
+  Times = 'Times',
+  TimeIntervals = 'TimeIntervals',
+  Dates = 'Dates',
+  DateIntervals = 'DateIntervals',
+  DateTimes = 'DateTimes',
+  EraDates = 'EraDates',
 
   // Quantities
-  Coordinates = 'coordinates',
-  DirectionExamples = 'directionExamples',
+  Coordinates = 'Coordinates',
+  DirectionExamples = 'DirectionExamples',
 
   // Translations
-  LanguageNames = 'languageNames',
-  Regions = 'regions',
-  Timezones = 'timezones',
-  Emojis = 'emojis',
-  TechWords = 'techWords',
-  Paragraphs = 'paragraphs',
-  CLDRTicket = 'cldrTicket',
+  LanguageNames = 'LanguageNames',
+  Regions = 'Regions',
+  Timezones = 'Timezones',
+  Emoji = 'Emoji',
+  TechWords = 'TechWords',
+  Paragraphs = 'Paragraphs',
+  CLDRTicket = 'CLDRTicket',
 
   // Full Table
-  FullTable = 'fullTable',
+  FullTable = 'FullTable',
 }
 
 export function getSectionsForPage(page: DataPage): DataSection[] {
@@ -73,12 +73,12 @@ export function getSectionsForPage(page: DataPage): DataSection[] {
         DataSection.Quarters,
         DataSection.Eras,
         DataSection.RelativeTime,
-        DataSection.TimeCombinations,
+        DataSection.Times,
         DataSection.TimeIntervals,
-        DataSection.DateCombinations,
+        DataSection.Dates,
         DataSection.DateIntervals,
-        DataSection.DateTimeCombinations,
-        DataSection.EraDateCombinations,
+        DataSection.DateTimes,
+        DataSection.EraDates,
       ];
     case DataPage.Quantities:
       return [DataSection.Coordinates, DataSection.DirectionExamples];
@@ -87,7 +87,7 @@ export function getSectionsForPage(page: DataPage): DataSection[] {
         DataSection.LanguageNames,
         DataSection.Regions,
         DataSection.Timezones,
-        DataSection.Emojis,
+        DataSection.Emoji,
         DataSection.TechWords,
         DataSection.Paragraphs,
         DataSection.CLDRTicket,

@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
 import { useDataContext } from '@data/DataContext';
+import { DataSection } from '@data/DataSection';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
@@ -9,9 +10,10 @@ import InputDataCell from '../InputDataCell';
 
 function DateIntervalsReviewTable() {
   const { findDataEntries } = useDataContext();
-  const intervalFormats = findDataEntries({ subject: 'dates', field: 'intervalFormats' }).filter(
-    (f) => !f.instance.includes('G') && !f.instance.match(/^h/i),
-  );
+  const intervalFormats = findDataEntries({
+    section: DataSection.DateIntervals,
+    field: 'intervalFormats',
+  }).filter((f) => !f.instance.includes('G') && !f.instance.match(/^h/i));
   const { t } = useTranslation();
 
   return (

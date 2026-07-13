@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
 import { useDataContext } from '@data/DataContext';
+import { DataSection } from '@data/DataSection';
 import { DateField } from '@data/DateField';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
@@ -12,7 +13,7 @@ import SourceDataCell from '../SourceDataCell';
 
 const DateFieldsReviewTable: React.FC = () => {
   const { findDataEntries } = useDataContext();
-  const dateFields = findDataEntries({ group: 'DateFields', exampleNum: '0' });
+  const dateFields = findDataEntries({ section: DataSection.DateFields, exampleNum: '0' });
   const dateFieldMatrix = matrixBy(
     dateFields,
     (f) => f.field,

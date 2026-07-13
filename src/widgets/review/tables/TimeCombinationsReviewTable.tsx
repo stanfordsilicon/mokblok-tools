@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
 import { useDataContext } from '@data/DataContext';
+import { DataSection } from '@data/DataSection';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
@@ -12,7 +13,7 @@ import SourceDataCell from '../SourceDataCell';
 function TimeCombinationsReviewTable() {
   const { t } = useTranslation();
   const { findDataEntries } = useDataContext();
-  const timesArray = findDataEntries({ group: 'Times' });
+  const timesArray = findDataEntries({ section: DataSection.Times });
   const timesMatrix = matrixBy(
     timesArray,
     (f) => f.instance,

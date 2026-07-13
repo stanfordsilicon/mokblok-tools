@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
 import { useDataContext } from '@data/DataContext';
+import { DataSection } from '@data/DataSection';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
@@ -14,7 +15,7 @@ function DateTimeCombinationsReviewTable() {
   const { findDataEntries } = useDataContext();
   const availableFormats = uniqueBy(
     sortBy(
-      findDataEntries({ group: 'DateTimes' }),
+      findDataEntries({ section: DataSection.DateTimes }),
       (entry) => entry.field + entry.variant + entry.length,
     ),
     (entry) => entry.field + entry.variant + entry.length,

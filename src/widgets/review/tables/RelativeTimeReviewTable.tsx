@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
 import { useDataContext } from '@data/DataContext';
+import { DataSection } from '@data/DataSection';
 import { DateField } from '@data/DateField';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
@@ -13,7 +14,7 @@ import SourceDataCell from '../SourceDataCell';
 function RelativeTimeReviewTable() {
   const { t } = useTranslation();
   const { findDataEntries } = useDataContext();
-  const relativeTimeFields = findDataEntries({ subject: 'dates' }).filter(
+  const relativeTimeFields = findDataEntries({ section: DataSection.RelativeTime }).filter(
     (f) => ['-1', '0', '1'].includes(f.instance) && f.length === '',
   );
   const relativeTimeMatrix = matrixBy(

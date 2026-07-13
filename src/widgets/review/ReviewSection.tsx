@@ -63,13 +63,13 @@ function ReviewTable({ dataSection }: { dataSection: DataSection }) {
       return <CLDRTicketReviewTable />;
     case DataSection.Coordinates:
       return <CoordinatesReviewTable />;
-    case DataSection.DateCombinations:
+    case DataSection.Dates:
       return <DateCombinationsReviewTable />;
     case DataSection.DateIntervals:
       return <DateIntervalsReviewTable />;
     case DataSection.DateFields:
       return <DateFieldsReviewTable />;
-    case DataSection.DateTimeCombinations:
+    case DataSection.DateTimes:
       return <DateTimeCombinationsReviewTable />;
     case DataSection.DayPeriods:
       return <DayPeriodsReviewTable />;
@@ -77,11 +77,11 @@ function ReviewTable({ dataSection }: { dataSection: DataSection }) {
       return <DaysOfWeekReviewTable />;
     case DataSection.DirectionExamples:
       return <DirectionsReviewTable />;
-    case DataSection.Emojis:
+    case DataSection.Emoji:
       return <EmojisReviewTable />;
     case DataSection.Eras:
       return <ErasReviewTable />;
-    case DataSection.EraDateCombinations:
+    case DataSection.EraDates:
       return <EraDatesReviewTable />;
     case DataSection.LanguageNames:
       return <LanguageNamesReviewTable />;
@@ -105,7 +105,7 @@ function ReviewTable({ dataSection }: { dataSection: DataSection }) {
       return <SymbolsReviewTable />;
     case DataSection.TechWords:
       return <TechWordsReviewTable />;
-    case DataSection.TimeCombinations:
+    case DataSection.Times:
       return <TimeCombinationsReviewTable />;
     case DataSection.TimeIntervals:
       return <TimeIntervalsReviewTable />;
