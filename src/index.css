@@ -37,9 +37,6 @@
 }
 
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
   text-align: left;
 }
 
@@ -146,31 +143,63 @@ table.FullReviewTable {
 
 .verticalGrow,
 .verticalShrink {
-  transition: transform 0.15s ease-in-out;
+  width: auto;
+  /* transition: all .5s ease; */
+  overflow: hidden;
+  min-height: 0;
+  /* height: auto; */
+  /* max-height: 100%; */
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* box-sizing: border-box; */
+  position: relative;
 }
 
+/* Note: The animation is failing to change the height right now */
 .verticalGrow {
-  animation: shrinkThenHide 0.25s reverse forwards;
+  /* animation: showThenGrow .25s forwards; */
+  display: flex;
 }
 
 .verticalShrink {
-  animation: shrinkThenHide 0.25s forwards;
+  /* animation: shrinkThenHide .25s forwards; */
+  display: none;
 }
 
-@keyframes shrinkThenHide {
+/* For some reason these keyframes cannot actually decrease the height */
+/* @keyframes showThenGrow {
   0% {
-    max-height: 100%;
+    display: none;
+    max-height: 0;
   }
 
-  99% {
+  1% {
+    display: flex;
     max-height: 1%;
   }
 
   100% {
-    display: none;
-    max-height: 0%;
+    display: flex;
+    max-height: 100%;
   }
 }
+
+@keyframes shrinkThenHide {
+  0% {
+    display: flex;
+    max-height: 100%;
+  }
+
+  99% {
+    display: flex;
+    max-height: 0;
+  }
+
+  100% {
+    display: none;
+    max-height: 0;
+  }
+} */
 
 @media (prefers-color-scheme: light) {
   :root {

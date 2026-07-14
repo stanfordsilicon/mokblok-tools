@@ -3,23 +3,24 @@ import { useTranslation } from 'react-i18next';
 import StepName from './StepName';
 import { useURLParams } from './URLParams';
 
-const StepSelector: React.FC<{
-  toggleSettings?: () => void;
-}> = ({ toggleSettings }) => {
+const StepSelector: React.FC = () => {
   const { admin } = useURLParams();
   const { t } = useTranslation();
+  if (!admin) return null;
+
   return (
-    <div style={{ display: 'flex', gap: '1em', marginLeft: '1em' }}>
-      {admin && (
-        <>
-          <StepButton label={t('input.title')} targetStep={StepName.Input} />
-          <StepButton label={t('review.title')} targetStep={StepName.Review} />
-          <StepButton label={t('export.title')} targetStep={StepName.Export} />
-        </>
-      )}
-      <button onClick={toggleSettings} style={{ marginLeft: 'auto', padding: '.5em 1em' }}>
-        {t('settings.title')} ⚙
-      </button>
+    <div
+      style={{
+        display: 'flex',
+        gap: '.5em',
+        fontSize: '1em',
+        borderBottom: '2px solid var(--color-text)',
+        justifyContent: 'center',
+      }}
+    >
+      <StepButton label={t('input.title')} targetStep={StepName.Input} />
+      <StepButton label={t('review.title')} targetStep={StepName.Review} />
+      <StepButton label={t('export.title')} targetStep={StepName.Export} />
     </div>
   );
 };
@@ -40,7 +41,7 @@ const StepButton: React.FC<{
         borderTop: border,
         borderLeft: border,
         borderRight: border,
-        padding: '.5em 1em',
+        padding: '.5em  ',
       }}
     >
       {label}

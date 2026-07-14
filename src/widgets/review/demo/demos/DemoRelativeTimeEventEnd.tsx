@@ -6,11 +6,11 @@ import { groupBy } from '@shared/setUtils';
 const DemoRelativeTimeEventEnd: React.FC = () => {
   const { findDataEntry, findDataEntries, getTranslation } = useDataContext();
   const nextTimes = groupBy(
-    findDataEntries({ section: DataSection.Dates, instance: '1', length: '' }),
+    findDataEntries({ section: DataSection.RelativeTime, instance: '1', length: '' }),
     (f) => f.field,
   );
   const todayField = findDataEntry({
-    section: DataSection.Dates,
+    section: DataSection.RelativeTime,
     field: 'd',
     instance: '0',
     length: '',
@@ -37,7 +37,7 @@ const DemoRelativeTimeEventEnd: React.FC = () => {
             {getTranslation(todayField)} ➔ {getTranslation(nextTimes[period]?.[0])}
           </text>
           <text x={0} y={20} textAnchor="start" fontSize="0.8em">
-            {getTranslation(findDataEntry({ variant: period.toLowerCase(), instance: 'yMd' })!)}
+            {getTranslation(findDataEntry({ variant: period, instance: 'yMd' })!)}
           </text>
         </g>
       ))}

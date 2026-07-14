@@ -4,7 +4,6 @@ import { DataPage, DataSection, getSectionsForPage } from '@data/DataSection';
 
 import { useURLParams } from '@settings/URLParams';
 
-import DataTypeSelector from './DataTypeSelector';
 import DownloadAllDemos from './demo/DownloadAllDemos';
 import ReviewSection from './ReviewSection';
 
@@ -31,7 +30,6 @@ const ReviewWidget: React.FC = () => {
       <div style={{ position: 'absolute', top: 0, right: 0 }}>
         <DownloadAllDemos />
       </div>
-      <DataTypeSelector />
       {section !== DataSection.All ? (
         <ReviewSection dataSection={section} />
       ) : (

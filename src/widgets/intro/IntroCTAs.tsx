@@ -1,21 +1,21 @@
 import { useTranslation } from 'react-i18next';
 
-import SourceLanguageSelector from '@settings/selectors/SourceLanguageSelector';
-import TargetLanguageSelector from '@settings/selectors/TargetLanguageSelector';
 import StepName from '@settings/StepName';
 import { useURLParams } from '@settings/URLParams';
 
-/**
- * A page that immediately asks the user to select the source language and target language.
- */
-const IntroBody: React.FC = () => {
+const IntroCTAs: React.FC = () => {
   const { updateURLParams, admin } = useURLParams();
   const { t } = useTranslation();
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'start', gap: '1rem' }}>
-      <div>{t('intro.description')}</div>
-      <SourceLanguageSelector />
-      <TargetLanguageSelector />
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'start',
+        gap: '1rem',
+        padding: '1em',
+      }}
+    >
       {admin && (
         <button onClick={() => updateURLParams({ step: StepName.Input })}>
           {t('intro.ctaInputStart')}
@@ -28,4 +28,4 @@ const IntroBody: React.FC = () => {
   );
 };
 
-export default IntroBody;
+export default IntroCTAs;

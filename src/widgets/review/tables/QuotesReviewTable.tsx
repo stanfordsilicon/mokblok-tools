@@ -63,10 +63,10 @@ function QuotesReviewTable() {
           {['', 'n']?.map((length) => (
             <tr key={length}>
               <td>{length === '' ? 'Regular' : 'Narrow'}</td>
-              <SourceDataCell entry={quotesMatrix[length]['start']} />
-              <SourceDataCell entry={quotesMatrix[length]['end']} />
-              <InputDataCell entry={quotesMatrix[length]['start']} inputWidth="2em" />
-              <InputDataCell entry={quotesMatrix[length]['end']} inputWidth="2em" />
+              <SourceDataCell entry={quotesMatrix[length]?.['start']} />
+              <SourceDataCell entry={quotesMatrix[length]?.['end']} />
+              <InputDataCell entry={quotesMatrix[length]?.['start']} inputWidth="2em" />
+              <InputDataCell entry={quotesMatrix[length]?.['end']} inputWidth="2em" />
             </tr>
           ))}
         </tbody>
