@@ -1,6 +1,12 @@
 {
     "title": "MokBlok Tools",
     "allRightsReserved": "All rights reserved.",
+    "intro": {
+        "welcomeHeader": "Welcome to Mokblok Tools",
+        "description": "This web application is used for vetters to evaluate the quality of translations submitted for each language. Please start by selecting your source language then your target language.",
+        "ctaInputStart": "Start inputting translations",
+        "ctaReviewStart": "Start reviewing translations"
+    },
     "input": {
         "title": "Input",
         "language": {
@@ -134,7 +140,8 @@
         "fr": "French",
         "mg": "Malagasy",
         "es": "Spanish",
-        "it": "Italian"
+        "it": "Italian",
+        "unknown": "Unknown"
     },
     "common": {
         "emptyCell": "-"

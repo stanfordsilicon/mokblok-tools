@@ -20,7 +20,7 @@ const PageBody: React.FC = () => {
         <StepSelector toggleSettings={toggleSettings} />
         <div
           style={{
-            border: '1px solid #ccc',
+            border: '1px solid var(--color-input-border)',
             padding: '1em',
             borderRadius: '1em',
             fontSize: '0.8em',
@@ -41,10 +41,10 @@ const FloatingSettingsWidget: React.FC = () => {
     <div
       style={{
         position: 'absolute',
-        top: '1em',
-        right: '1em',
-        backgroundColor: 'white',
-        border: '1px solid #ccc',
+        top: '.25em',
+        right: '.25em',
+        backgroundColor: 'var(--color-input-background)',
+        border: '1px solid var(--color-input-border)',
         borderRadius: '0.5em',
         maxWidth: '400px',
         padding: '1em',

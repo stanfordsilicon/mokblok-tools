@@ -5,6 +5,7 @@ import StepName from '@settings/StepName';
 
 import ExportWidget from './export/ExportWidget';
 import InputBody from './input/InputBody';
+import IntroBody from './intro/IntroBody';
 import ReviewWidget from './review/ReviewWidget';
 
 export type StepViewProps = {
@@ -14,6 +15,8 @@ export type StepViewProps = {
 const StepView: React.FC<StepViewProps> = ({ step }) => {
   const { t } = useTranslation();
   switch (step) {
+    case StepName.Intro:
+      return <IntroBody />;
     case StepName.Input:
       return <InputBody />;
     case StepName.Review:

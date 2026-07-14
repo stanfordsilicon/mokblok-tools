@@ -7,6 +7,7 @@ const TargetLanguageSelector: React.FC = () => {
   const { t } = useTranslation();
   const { targetLanguage, updateURLParams } = useURLParams();
   const [target, setTarget] = React.useState(targetLanguage);
+  const targetTranslationKey = 'languageName.' + target;
 
   return (
     <div style={{ display: 'flex', gap: '1em', alignItems: 'center' }}>
@@ -16,6 +17,9 @@ const TargetLanguageSelector: React.FC = () => {
         onBlur={() => updateURLParams({ targetLanguage: target })}
         onChange={(e) => setTarget(e.target.value)}
       />
+      {t(targetTranslationKey) === targetTranslationKey
+        ? t('languageName.unknown')
+        : t(targetTranslationKey)}
     </div>
   );
 };

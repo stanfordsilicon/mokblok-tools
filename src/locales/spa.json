@@ -1,6 +1,12 @@
 {
-    "title": "Herramientas MokBlok",
+    "title": "MokBlok Tools",
     "allRightsReserved": "Todos los derechos reservados.",
+    "intro": {
+        "welcomeHeader": "Bienvenido a Mokblok Tools",
+        "description": "Esta aplicación web se utiliza para que los evaluadores puedan evaluar la calidad de las traducciones enviadas para cada idioma. Por favor, comienza seleccionando tu idioma de origen y luego tu idioma de destino.",
+        "ctaInputStart": "Comenzar a ingresar traducciones",
+        "ctaReviewStart": "Comenzar a revisar traducciones"
+    },
     "input": {
         "title": "Entrada",
         "language": {
