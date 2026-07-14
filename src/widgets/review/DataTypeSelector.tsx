@@ -24,18 +24,16 @@ const DataTypeSelector: React.FC = () => {
           flexWrap: 'wrap',
           borderBottom: '2px solid #eee',
           marginBottom: '0.5em',
+          flexDirection: 'column',
         }}
       >
         {Object.values(DataPage).map((page) => (
-          <MaybeProgressBar page={page} key={page}>
-            <Tab
-              key={page}
-              label={t(`dataPage.${page}`)}
-              option={page}
-              selected={selectedPage}
-              setSelected={(newPage) => updateURLParams({ page: newPage })}
-            />
-          </MaybeProgressBar>
+          <PageButton
+            key={page}
+            page={page}
+            selected={selectedPage}
+            setSelected={(newPage) => updateURLParams({ page: newPage })}
+          />
         ))}
       </div>
 
@@ -72,6 +70,87 @@ const DataTypeSelector: React.FC = () => {
           ))}
         </div>
       )}
+    </div>
+  );
+};
+
+const PageButton: React.FC<{
+  page: DataPage;
+}> = ({ page }) => {
+  const { t } = useTranslation();
+  const { page: selectedPage, updateURLParams } = useURLParams();
+  // const [isExpanded, setIsExpanded] = useState(false);
+  const isExpanded = selectedPage === page || selectedPage === DataPage.All;
+  return (
+    <div>
+      <div>
+        <button
+          key={page}
+          onClick={() => updateURLParams({ page })}
+          style={{
+            backgroundColor: selectedPage === page ? 'var(--color-button-selected)' : 'transparent',
+            border: '1px solid #ccc',
+            padding: '0.5em 1em',
+            cursor: 'pointer',
+            width: '12em',
+          }}
+        >
+          {t(`dataPage.${page}`)}{' '}
+          <div
+            style={{
+              display: 'inline-block',
+              border: 'none',
+              transition: 'transform 0.5s',
+              cursor: 'pointer',
+              transform: isExpanded ? 'rotate(0deg)' : 'rotate(-90deg)',
+            }}
+          >
+            ▼
+          </div>
+        </button>
+      </div>
+      {page !== DataPage.All && (
+        <div className={isExpanded ? 'verticalGrow' : 'verticalShrink'}>
+          <PageSections page={page} />
+        </div>
+      )}
+    </div>
+  );
+};
+
+type PageSectionsProps = { page: DataPage };
+
+const PageSections: React.FC<PageSectionsProps> = ({ page }) => {
+  const { section: selectedSection, updateURLParams } = useURLParams();
+  const sections = getSectionsForPage(page);
+  const { t } = useTranslation();
+
+  return (
+    <div
+      style={{
+        display: 'flex',
+        gap: '0.25em 1em',
+        flexDirection: 'column',
+        width: '12em',
+        marginTop: '0.5em',
+        paddingLeft: '2em',
+      }}
+    >
+      {sections.map((section) => (
+        <button
+          key={section}
+          onClick={() => updateURLParams({ section, page })}
+          style={{
+            backgroundColor:
+              selectedSection === section ? 'var(--color-button-selected)' : 'transparent',
+            border: '1px solid #ccc',
+            padding: '0.5em 1em',
+            cursor: 'pointer',
+          }}
+        >
+          {t(`dataSection.${section}`)}
+        </button>
+      ))}
     </div>
   );
 };

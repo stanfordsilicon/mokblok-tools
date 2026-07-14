@@ -144,6 +144,34 @@ table.FullReviewTable {
   overflow: hidden;
 }
 
+.verticalGrow,
+.verticalShrink {
+  transition: transform 0.15s ease-in-out;
+}
+
+.verticalGrow {
+  animation: shrinkThenHide 0.25s reverse forwards;
+}
+
+.verticalShrink {
+  animation: shrinkThenHide 0.25s forwards;
+}
+
+@keyframes shrinkThenHide {
+  0% {
+    max-height: 100%;
+  }
+
+  99% {
+    max-height: 1%;
+  }
+
+  100% {
+    display: none;
+    max-height: 0%;
+  }
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     --color-text: #213547;
