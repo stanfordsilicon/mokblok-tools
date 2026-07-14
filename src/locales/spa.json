@@ -114,7 +114,9 @@
         "targetLanguageCode": "Código del idioma de destino",
         "coverageLevel": "Nivel de cobertura",
         "backgroundStyle": "Estilo de fondo",
-        "dateExample": "Ejemplo de fecha"
+        "dateExample": "Ejemplo de fecha",
+        "inAdminCTATurnOff": "En modo administrador, haz clic para desactivar el modo administrador",
+        "notAdminCTATurnOn": "En modo normal, haz clic para activar el modo administrador"
     },
     "coverageLevelName": {
         "Any": "Cualquiera",

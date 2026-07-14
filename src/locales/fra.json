@@ -114,7 +114,9 @@
         "targetLanguageCode": "Code de langue cible",
         "coverageLevel": "Niveau de couverture",
         "backgroundStyle": "Style d’arrière-plan",
-        "dateExample": "Exemple de date"
+        "dateExample": "Exemple de date",
+        "inAdminCTATurnOff": "En mode administrateur, cliquez pour désactiver le mode administrateur",
+        "notAdminCTATurnOn": "En mode normal, cliquez pour activer le mode administrateur"
     },
     "coverageLevelName": {
         "Any": "Tout",

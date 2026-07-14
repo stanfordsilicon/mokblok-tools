@@ -19,6 +19,7 @@ const GLOBAL_DEFAULTS: Readonly<URLParams> = {
   section: DataSection.DaysOfWeek,
   bgStyle: BackgroundStyle.Missing,
   dateExample: 0,
+  admin: false,
 };
 
 export type URLParams = {
@@ -30,6 +31,7 @@ export type URLParams = {
   section: DataSection;
   bgStyle: BackgroundStyle;
   dateExample: number; // DateTime in seconds for examples
+  admin: boolean;
 };
 
 type URLParamsContextState = URLParams & {
@@ -58,7 +60,7 @@ function buildNextURLSearchParams(
 
   // Clear parameters that match the defaults
   Object.entries(GLOBAL_DEFAULTS).forEach(([key, value]) => {
-    if (next.get(key) === value) next.delete(key);
+    if (next.get(key) === value.toString()) next.delete(key);
   });
 
   return next;
@@ -98,6 +100,9 @@ export function getParamsFromURL(urlParams: URLSearchParams): Partial<URLParams>
         break;
       case 'dateExample':
         if (!isNaN(Number(value))) params[key] = Number(value);
+        break;
+      case 'admin':
+        if (value === 'true' || value === 'false') params[key] = value === 'true';
         break;
       default:
         break;

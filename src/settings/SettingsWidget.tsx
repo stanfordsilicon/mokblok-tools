@@ -1,5 +1,6 @@
 import React from 'react';
 
+import AdminModeSelector from './selectors/AdminModeSelector';
 import BackgroundStyleSelector from './selectors/BackgroundStyleSelector';
 import CoverageLevelSelector from './selectors/CoverageLevelSelector';
 import ExampleDateSelector from './selectors/ExampleDateSelector';
@@ -14,6 +15,7 @@ const SettingsWidget: React.FC = () => {
       <CoverageLevelSelector />
       <BackgroundStyleSelector />
       <ExampleDateSelector />
+      <AdminModeSelector />
     </div>
   );
 };

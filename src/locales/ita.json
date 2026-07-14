@@ -114,7 +114,9 @@
         "targetLanguageCode": "Codice lingua di destinazione",
         "coverageLevel": "Livello di copertura",
         "backgroundStyle": "Stile di sfondo",
-        "dateExample": "Esempio di data"
+        "dateExample": "Esempio di data",
+        "inAdminCTATurnOff": "In modalità amministratore, fai clic per disattivare la modalità amministratore",
+        "notAdminCTATurnOn": "In modalità normale, fai clic per attivare la modalità amministratore"
     },
     "coverageLevelName": {
         "Any": "Qualsiasi",

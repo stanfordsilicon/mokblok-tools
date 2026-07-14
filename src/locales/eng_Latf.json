@@ -114,7 +114,9 @@
     "targetLanguageCode": "𝔗𝔞𝔯𝔤𝔢𝔱 𝔩𝔞𝔫𝔤𝔲𝔞𝔤𝔢 𝔠𝔬𝔡𝔢",
     "coverageLevel": "ℭ𝔬𝔳𝔢𝔯𝔞𝔤𝔢 𝔩𝔢𝔳𝔢𝔩",
     "backgroundStyle": "𝔅𝔞𝔠𝔨𝔤𝔯𝔬𝔲𝔫𝔡 𝔰𝔱𝔶𝔩𝔢",
-    "dateExample": "𝔈𝔵𝔞𝔪𝔭𝔩𝔢 𝔡𝔞𝔱𝔢"
+    "dateExample": "𝔈𝔵𝔞𝔪𝔭𝔩𝔢 𝔡𝔞𝔱𝔢",
+    "inAdminCTATurnOff": "ℑ𝔫 𝔞𝔡𝔪𝔦𝔫 𝔪𝔬𝔡𝔢, 𝔠𝔩𝔦𝔠𝔨 𝔱𝔬 𝔱𝔲𝔯𝔫 𝔬𝔣𝔣 𝔞𝔡𝔪𝔦𝔫 𝔪𝔬𝔡𝔢",
+    "notAdminCTATurnOn": "ℑ𝔫 𝔯𝔢𝔤𝔲𝔩𝔞𝔯 𝔪𝔬𝔡𝔢, 𝔠𝔩𝔦𝔠𝔨 𝔱𝔬 𝔱𝔲𝔯𝔫 𝔬𝔫 𝔞𝔡𝔪𝔦𝔫 𝔪𝔬𝔡𝔢"
   },
   "coverageLevelName": {
     "Any": "𝔄𝔫𝔶",

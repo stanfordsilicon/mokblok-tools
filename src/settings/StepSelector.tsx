@@ -6,11 +6,11 @@ import { useURLParams } from './URLParams';
 const StepSelector: React.FC<{
   toggleSettings?: () => void;
 }> = ({ toggleSettings }) => {
-  const { step } = useURLParams();
+  const { admin } = useURLParams();
   const { t } = useTranslation();
   return (
     <div style={{ display: 'flex', gap: '1em', marginLeft: '1em' }}>
-      {step !== StepName.Intro && (
+      {admin && (
         <>
           <StepButton label={t('input.title')} targetStep={StepName.Input} />
           <StepButton label={t('review.title')} targetStep={StepName.Review} />

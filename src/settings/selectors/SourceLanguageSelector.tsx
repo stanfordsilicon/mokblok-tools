@@ -7,19 +7,21 @@ import { useURLParams } from '@settings/URLParams';
 
 const SourceLanguageSelector: React.FC = () => {
   const { t } = useTranslation();
-  const { sourceLanguage, updateURLParams } = useURLParams();
+  const { sourceLanguage, updateURLParams, admin } = useURLParams();
   return (
     <div style={{ display: 'flex', gap: '1em', alignItems: 'center', flexWrap: 'wrap' }}>
       <strong>{t('settings.sourceLanguage')}:</strong>
-      {Object.values(SourceLanguage).map((lang) => (
-        <button
-          key={lang}
-          className={lang === sourceLanguage ? 'selected' : ''}
-          onClick={() => updateURLParams({ sourceLanguage: lang })}
-        >
-          {t(`languageName.${lang}`, lang)}
-        </button>
-      ))}
+      {Object.values(SourceLanguage)
+        .filter((lang) => admin || lang !== SourceLanguage.EnglishFraktur)
+        .map((lang) => (
+          <button
+            key={lang}
+            className={lang === sourceLanguage ? 'selected' : ''}
+            onClick={() => updateURLParams({ sourceLanguage: lang })}
+          >
+            {t(`languageName.${lang}`, lang)}
+          </button>
+        ))}
     </div>
   );
 };

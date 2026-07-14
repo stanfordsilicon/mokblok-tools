@@ -9,7 +9,7 @@ import { useURLParams } from '@settings/URLParams';
  * A page that immediately asks the user to select the source language and target language.
  */
 const IntroBody: React.FC = () => {
-  const { updateURLParams } = useURLParams();
+  const { updateURLParams, admin } = useURLParams();
   const { t } = useTranslation();
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'start', gap: '1rem' }}>
@@ -17,9 +17,11 @@ const IntroBody: React.FC = () => {
       <div>{t('intro.description')}</div>
       <SourceLanguageSelector />
       <TargetLanguageSelector />
-      <button onClick={() => updateURLParams({ step: StepName.Input })}>
-        {t('intro.ctaInputStart')}
-      </button>
+      {admin && (
+        <button onClick={() => updateURLParams({ step: StepName.Input })}>
+          {t('intro.ctaInputStart')}
+        </button>
+      )}
       <button onClick={() => updateURLParams({ step: StepName.Review })}>
         {t('intro.ctaReviewStart')}
       </button>
