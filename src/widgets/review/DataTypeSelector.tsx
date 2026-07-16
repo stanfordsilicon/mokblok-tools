@@ -48,7 +48,11 @@ const PageButton: React.FC<{
           key={page}
           onClick={() => updateURLParams({ page, section: DataSection.All })}
           style={{
-            backgroundColor: selectedPage === page ? 'var(--color-button-selected)' : 'transparent',
+            backgroundColor:
+              selectedPage === page ||
+              (selectedPage === DataPage.All && page !== DataPage.FullTable)
+                ? 'var(--color-button-selected)'
+                : 'transparent',
             border: '1px solid #ccc',
             padding: '0.5em 1em',
             cursor: 'pointer',
@@ -60,9 +64,7 @@ const PageButton: React.FC<{
             <div
               style={{
                 display: 'inline-block',
-                border: 'none',
                 transition: 'transform 0.5s',
-                cursor: 'pointer',
                 transform: isExpanded ? 'rotate(0deg)' : 'rotate(-90deg)',
               }}
             >
@@ -104,7 +106,9 @@ const PageSections: React.FC<PageSectionsProps> = ({ page }) => {
             onClick={() => updateURLParams({ section, page })}
             style={{
               backgroundColor:
-                selectedSection === section ? 'var(--color-button-selected)' : 'transparent',
+                selectedSection === section || selectedSection === DataSection.All
+                  ? 'var(--color-button-selected)'
+                  : 'transparent',
               border: '1px solid #ccc',
               padding: '0.5em 1em',
               cursor: 'pointer',

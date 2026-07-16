@@ -34,10 +34,10 @@ function MonthsReviewTable() {
         </tr>
         <tr>
           <th>{t('length.wide')}</th>
-          <th title={t('review.abbreviated')}>{t('review.abbr')}</th>
+          <th title={t('length.abbreviated')}>{t('length.abbr')}</th>
           <th>{t('length.narrow')}</th>
           <th>{t('length.wide')}</th>
-          <th title={t('review.abbreviated')}>{t('review.abbr')}</th>
+          <th title={t('length.abbreviated')}>{t('length.abbr')}</th>
           <th>{t('length.narrow')}</th>
         </tr>
       </thead>

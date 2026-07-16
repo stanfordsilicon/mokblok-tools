@@ -1,6 +1,6 @@
 import { useURLParams } from '@settings/URLParams';
 
-import StepView from '@widgets/StepView';
+import StepView from '../widgets/StepView';
 
 const PageBody: React.FC = () => {
   const { step } = useURLParams();

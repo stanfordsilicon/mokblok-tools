@@ -9,7 +9,7 @@ const SettingsButton: React.FC = () => {
   const toggleSettings = () => setSettingsOpen(!settingsOpen);
 
   return (
-    <div style={{ position: 'absolute', right: '.5em', top: '.5em' }}>
+    <div style={{ position: 'absolute', right: '0' }}>
       <button onClick={toggleSettings} style={{ padding: '.5em 1em' }}>
         {t('settings.title')} ⚙
       </button>

@@ -4,10 +4,10 @@ import StepName from '@settings/StepName';
 import StepSelector from '@settings/StepSelector';
 import { useURLParams } from '@settings/URLParams';
 
-import IntroCTAs from '@widgets/intro/IntroCTAs';
-import DataTypeSelector from '@widgets/review/DataTypeSelector';
-
 import enforceExhaustiveSwitch from '@shared/enforceExhaustiveSwitch';
+
+import IntroCTAs from '../widgets/intro/IntroCTAs';
+import DataTypeSelector from '../widgets/review/DataTypeSelector';
 
 const Sidebar: React.FC = () => {
   const { t } = useTranslation();
