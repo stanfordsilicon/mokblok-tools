@@ -18,7 +18,7 @@ function App() {
       <I18nextProvider i18n={i18n}>
         <LinguisticsProvider>
           <DataProvider>
-            <div style={{ display: 'flex', width: '100vw', overflow: 'hidden', height: '100vh' }}>
+            <div style={{ display: 'flex', width: '100vw', overflow: 'auto', height: '100vh' }}>
               <Sidebar />
               <div style={{ flex: 1, padding: '1em', display: 'flex', flexDirection: 'column' }}>
                 <PageTitle />

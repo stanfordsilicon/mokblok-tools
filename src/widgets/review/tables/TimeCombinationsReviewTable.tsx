@@ -4,6 +4,7 @@ import { useDataContext } from '@data/DataContext';
 import { DataSection } from '@data/DataSection';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
+import { useURLParams } from '@settings/URLParams';
 
 import { matrixBy } from '@shared/setUtils';
 
@@ -12,6 +13,7 @@ import SourceDataCell from '../SourceDataCell';
 
 function TimeCombinationsReviewTable() {
   const { t } = useTranslation();
+  const { admin } = useURLParams();
   const { findDataEntries } = useDataContext();
   const timesArray = findDataEntries({ section: DataSection.Times });
   const timesMatrix = matrixBy(
@@ -24,19 +26,19 @@ function TimeCombinationsReviewTable() {
     <table>
       <thead>
         <tr>
-          <th>{t('review.type')}</th>
-          <th colSpan={3} style={{ textAlign: 'center' }}>
+          {admin && <th>{t('review.type')}</th>}
+          <th colSpan={admin ? 3 : 2} style={{ textAlign: 'center' }}>
             <SourceLanguageLabel />
           </th>
-          <th colSpan={3} style={{ textAlign: 'center' }}>
+          <th colSpan={admin ? 3 : 2} style={{ textAlign: 'center' }}>
             {t('review.translated')}
           </th>
         </tr>
         <tr>
-          <th></th>
+          {admin && <th></th>}
           <th>{t('review.morning')}</th>
           <th>{t('review.evening')}</th>
-          <th>{t('review.pattern')}</th>
+          {admin && <th>{t('review.pattern')}</th>}
           <th>{t('review.morning')}</th>
           <th>{t('review.evening')}</th>
         </tr>
@@ -44,10 +46,10 @@ function TimeCombinationsReviewTable() {
       <tbody>
         {Object.entries(timesMatrix).map(([instance, row]) => (
           <tr key={instance}>
-            <td>{instance}</td>
+            {admin && <td>{instance}</td>}
             <SourceDataCell entry={row['1']} />
             <SourceDataCell entry={row['2']} />
-            <td>{row['1'].englishPattern}</td>
+            {admin && <SourceDataCell entry={row['1']} convertPatternToExample={false} />}
             <InputDataCell entry={row['1']} />
             <InputDataCell entry={row['2']} />
           </tr>

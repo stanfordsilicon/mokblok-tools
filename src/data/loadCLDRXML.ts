@@ -1,3 +1,5 @@
+import parseInheritance from './parseInheritance';
+
 /**
  * Loads and XML for the ground truth of the data for a locale.
  * 
@@ -53,6 +55,7 @@ function xmlToObject(xmlString: string): Record<string, string> {
        * //ldml/characterLabels/characterLabelPattern[@type="strokes"][@count="other"]: "{0} strokes"
        */
       Array.from(node.attributes).forEach((attr) => {
+        if (attr.name === 'draft') return; // Don't withhold translations based on the draft level, eg. 'provisional' or 'unconfirmed'.
         currentPath += `[@${attr.name}="${attr.value}"]`;
       });
     }
@@ -68,9 +71,7 @@ function xmlToObject(xmlString: string): Record<string, string> {
 }
 
 export async function loadCLDRXMLWithInheritance(locale: string): Promise<Record<string, string>> {
-  const localeXML = await loadCLDRXML(locale).then((data) =>
-    Object.fromEntries(Object.entries(data).filter(([, value]) => value !== '↑↑↑')),
-  );
+  const localeXML = await loadCLDRXML(locale).then(parseInheritance);
   const rootXML = await loadCLDRXML('root');
   return { ...rootXML, ...localeXML };
 }

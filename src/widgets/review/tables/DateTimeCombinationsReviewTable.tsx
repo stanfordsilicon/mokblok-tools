@@ -4,14 +4,15 @@ import { useDataContext } from '@data/DataContext';
 import { DataSection } from '@data/DataSection';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
+import { useURLParams } from '@settings/URLParams';
 
 import { sortBy, uniqueBy } from '@shared/setUtils';
 
-import { FormattedDateString } from '../DateString';
 import InputDataCell from '../InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function DateTimeCombinationsReviewTable() {
+  const { admin } = useURLParams();
   const { findDataEntries } = useDataContext();
   const availableFormats = uniqueBy(
     sortBy(
@@ -26,9 +27,9 @@ function DateTimeCombinationsReviewTable() {
     <table>
       <thead>
         <tr>
-          <th>{t('review.field')}</th>
-          <th>{t('review.variant')}</th>
-          <th>{t('review.length')}</th>
+          {admin && <th>{t('review.field')}</th>}
+          {admin && <th>{t('review.variant')}</th>}
+          {admin && <th>{t('review.length')}</th>}
           <th>
             <SourceLanguageLabel />
           </th>
@@ -38,13 +39,10 @@ function DateTimeCombinationsReviewTable() {
       <tbody>
         {availableFormats?.map((entry) => (
           <tr key={entry.index}>
-            <td>{entry.field}</td>
-            <td>{entry.variant}</td>
-            <td>{entry.length}</td>
+            {admin && <td>{entry.field}</td>}
+            {admin && <td>{entry.variant}</td>}
+            {admin && <td>{entry.length}</td>}
             <SourceDataCell entry={entry} />
-            <td>
-              <FormattedDateString entry={entry} />
-            </td>
             <InputDataCell
               entry={entry}
               inputWidth={entry.field === 'dateFormats' ? '10em' : '25em'}

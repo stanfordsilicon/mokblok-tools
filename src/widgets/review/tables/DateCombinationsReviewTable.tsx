@@ -2,44 +2,46 @@ import { useTranslation } from 'react-i18next';
 
 import { useDataContext } from '@data/DataContext';
 import { DataSection } from '@data/DataSection';
-import getSourcePattern from '@data/getSourcePattern';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
-import { FormattedDateString } from '../DateString';
+import { uniqueBy } from '@shared/setUtils';
+
+import { useURLParams } from '@settings/URLParams';
 import InputDataCell from '../InputDataCell';
+import SourceDataCell from '../SourceDataCell';
 
 function DateCombinationsReviewTable() {
-  const { findDataEntries } = useDataContext();
-  const availableFormats = findDataEntries({
-    section: DataSection.Dates,
-    field: 'availableFormats',
-  }).filter((f) => !f.instance.includes('G') && !f.instance.match(/^h/i));
   const { t } = useTranslation();
+  const { admin } = useURLParams();
+  const { findDataEntries } = useDataContext();
+  const availableFormats = uniqueBy(
+    findDataEntries({ section: DataSection.Dates }).filter(
+      (f) => !f.instance.includes('G') && !f.instance.match(/^h/i),
+    ),
+    (entry) => entry.xpath,
+  );
 
   return (
     <table>
       <thead>
         <tr>
-          <th>{t('review.components')}</th>
+          {admin && <th>{t('review.components')}</th>}
           <th>
             <SourceLanguageLabel />
           </th>
-          <th>{t('review.sourcePattern')}</th>
+          {admin && <th>{t('review.sourcePattern')}</th>}
           <th>{t('review.translated')}</th>
         </tr>
       </thead>
       <tbody>
         {availableFormats?.map((entry) => (
           <tr key={entry.index}>
-            <td>
+            {admin && <td>
               {entry.instance} {entry.variant}
-            </td>
-            {/* <SourceDataCell entry={entry} /> */}
-            <td>
-              <FormattedDateString entry={entry} />
-            </td>
-            <td>{getSourcePattern(entry)}</td>
+            </td>}
+            <SourceDataCell entry={entry} />
+            {admin && <SourceDataCell entry={entry} convertPatternToExample={false} />}
             <InputDataCell entry={entry} inputWidth="20em" />
           </tr>
         ))}

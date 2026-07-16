@@ -1,53 +1,21 @@
-import { useCallback } from 'react';
-
-import { useDataContext } from '@data/DataContext';
-import { SourceLanguage, type DataEntry } from '@data/DataTypes';
+import { type DataEntry } from '@data/DataTypes';
 import { DayKeys } from '@data/DayKeys';
-import getSourcePattern from '@data/getSourcePattern';
-
-import { useURLParams } from '@settings/URLParams';
-
-export function FormattedDateString({ entry }: { entry: DataEntry }) {
-  const { sourceLanguage } = useURLParams();
-  const sourcePattern = getSourcePattern(entry);
-
-  // Otherwise get it from the dataentries.tsv
-  return (
-    <DateString
-      format={sourcePattern}
-      lang={sourceLanguage === SourceLanguage.English ? 'english' : 'french'}
-      var1={entry.var1}
-      var2={entry.var2}
-    />
-  );
-}
 
 type DateStringProps = {
-  format: string;
-  lang: 'english' | 'french' | 'translation';
+  formatPattern: string;
+  getString: (query: Partial<DataEntry>) => string;
   var1?: number;
   var2?: number;
 };
 
 // For example "1713855600000", "dd/MM/y – dd/MM/y" or "'week' w 'of' Y"
-// TODO support dateTimeFormats
-function DateString({ format, lang, var1, var2 }: DateStringProps) {
-  const { findDataEntry, getTranslation } = useDataContext();
-  const getString = useCallback(
-    (query: Partial<DataEntry>): string => {
-      const dataEntry = findDataEntry(query);
-      if (!dataEntry) return '!!!';
-      if (lang === 'translation') return getTranslation(dataEntry);
-      return lang === 'english' ? dataEntry.english : dataEntry.french;
-    },
-    [findDataEntry, lang, getTranslation],
-  );
-
+// TODO support more dateTimeFormats
+export function getDateString({ formatPattern, getString, var1, var2 }: DateStringProps): string {
   const date1 = new Date(var1 || 0);
   const date2 = var2 ? new Date(var2) : date1;
 
   // First break out strings like "'week' and 'of'" -- they are literals and should be left as is
-  let formatCopy = format.slice(); // make a copy of the format string to modify
+  let formatCopy = formatPattern.slice(); // make a copy of the format string to modify
   const literalMatches = formatCopy.match(/'[^']*'/g);
   const literals: string[] = [];
   if (literalMatches) {
@@ -84,10 +52,12 @@ function getDateVariable(
 ) {
   switch (seq) {
     case 'G':
+    case 'GGGG':
+    case 'GGGGG':
       return getString({
         field: 'G',
         instance: date.getUTCFullYear() < 0 ? '0' : '1',
-        length: seq.length === 1 ? 'a' : 'w',
+        length: seq.length === 5 ? 'n' : seq.length === 1 ? 'a' : 'w',
         variant: '',
         exampleNum: '0',
       });
@@ -181,5 +151,3 @@ function getWeekNumber(d: Date) {
   // Calculate full weeks to nearest Thursday
   return Math.ceil(((d.getTime() - yearStart.getTime()) / 86400000 + 1) / 7);
 }
-
-export default DateString;

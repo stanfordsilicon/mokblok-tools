@@ -39,13 +39,21 @@ function ReviewSection({ dataSection }: { dataSection: DataSection }) {
   return (
     <div>
       <h2 style={{ margin: '.5em 0' }}>{t(`dataSection.${dataSection}`)}</h2>
-      <div style={{ display: 'flex', gap: '1em', flexDirection: 'row' }}>
+      <div style={{ display: 'flex', gap: '1em', flexDirection: 'row', flexWrap: 'wrap' }}>
         <div>
           <ErrorBoundary>
             <ReviewTable dataSection={dataSection} />
           </ErrorBoundary>
         </div>
-        <div style={{ display: 'flex', gap: '1em', flexWrap: 'wrap', placeContent: 'start' }}>
+        <div
+          style={{
+            display: 'flex',
+            gap: '1em',
+            flexWrap: 'wrap',
+            placeContent: 'start',
+            maxWidth: '950px',
+          }}
+        >
           <DemosForSection dataSection={dataSection} />
         </div>
       </div>

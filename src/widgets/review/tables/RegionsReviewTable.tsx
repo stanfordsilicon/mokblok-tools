@@ -26,7 +26,7 @@ function RegionsReviewTable() {
         </thead>
         <tbody>
           {regions.map((entry) => (
-            <tr key={entry.instance + entry.variant}>
+            <tr key={entry.instance + entry.length}>
               <SourceDataCell entry={entry} />
               <InputDataCell entry={entry} inputWidth="15em" />
             </tr>

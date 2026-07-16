@@ -207,10 +207,14 @@ DateAndTime	Eras		G	0	w	variant	0	//ldml/dates/calendars/calendar[@type="gregori
 DateAndTime	Eras		G	0	a	variant	0	//ldml/dates/calendars/calendar[@type="gregorian"]/eras/eraAbbr/era[@type="0"][@alt="variant"]	er-2_XXX	BCE	BCE	AEC	AEC	Moderate		
 DateAndTime	Eras		G	0	w		0	//ldml/dates/calendars/calendar[@type="gregorian"]/eras/eraNames/era[@type="0"]	er-3_XXX	Before Christ	Before Christ	avant Jésus-Christ	avant Jésus-Christ	Moderate		
 DateAndTime	Eras		G	0	a		0	//ldml/dates/calendars/calendar[@type="gregorian"]/eras/eraAbbr/era[@type="0"]	er-4_XXX	BC	BC	av. J.-C.	av. J.-C.	Moderate		
+DateAndTime	Eras		G	0	n	variant	0	//ldml/dates/calendars/calendar[@type="gregorian"]/eras/eraNarrow/era[@type="0"][@alt="variant"]		BCE	BCE	AEC	AEC	Comprehensive		
+DateAndTime	Eras		G	0	n		0	//ldml/dates/calendars/calendar[@type="gregorian"]/eras/eraNarrow/era[@type="0"]		B	B	av. J.-C.	av. J.-C.	Comprehensive		
 DateAndTime	Eras		G	1	w	variant	0	//ldml/dates/calendars/calendar[@type="gregorian"]/eras/eraNames/era[@type="1"][@alt="variant"]	er-5_XXX	Common Era	Common Era	de l’ère commune	de l’ère commune	Moderate		
 DateAndTime	Eras		G	1	a	variant	0	//ldml/dates/calendars/calendar[@type="gregorian"]/eras/eraAbbr/era[@type="1"][@alt="variant"]	er-6_XXX	CE	CE	EC	EC	Moderate		
 DateAndTime	Eras		G	1	w		0	//ldml/dates/calendars/calendar[@type="gregorian"]/eras/eraNames/era[@type="1"]	er-7_XXX	Anno Domini	Anno Domini	après Jésus-Christ	après Jésus-Christ	Moderate		
 DateAndTime	Eras		G	1	a		0	//ldml/dates/calendars/calendar[@type="gregorian"]/eras/eraAbbr/era[@type="1"]	er-8_XXX	AD	AD	ap. J.-C.	ap. J.-C.	Moderate		
+DateAndTime	Eras		G	1	n	variant	0	//ldml/dates/calendars/calendar[@type="gregorian"]/eras/eraNarrow/era[@type="1"][@alt="variant"]		CE	CE	EC	EC	Comprehensive		
+DateAndTime	Eras		G	1	n		0	//ldml/dates/calendars/calendar[@type="gregorian"]/eras/eraNarrow/era[@type="1"]		A	A	ap. J.-C.	ap. J.-C.	Comprehensive		
 DateAndTime	DateFields		h		w		0	//ldml/dates/fields/field[@type="hour"]/displayName	dw-16_XXX	hour	hour	heure	heure	Moderate		
 DateAndTime	DateFields		h		n		0	//ldml/dates/fields/field[@type="hour-narrow"]/displayName	dw-17_XXX	hr	hr	h	h	Moderate		
 DateAndTime	EraDates		intervalFormats	Gy		y	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Gy"]/greatestDifference[@id="y"]	dc-86_XXX	2024 – 2027 AD	y – y G	2024–2027 ap. J.-C.	y–y G	Moderate	1713855600000	1808463600000

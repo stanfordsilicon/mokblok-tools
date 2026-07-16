@@ -4,15 +4,16 @@ import { useDataContext } from '@data/DataContext';
 import { DataSection } from '@data/DataSection';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
+import { useURLParams } from '@settings/URLParams';
 
 import { sortBy, uniqueBy } from '@shared/setUtils';
 
-import { FormattedDateString } from '../DateString';
 import InputDataCell from '../InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function TimeIntervalsReviewTable() {
   const { t } = useTranslation();
+  const { admin } = useURLParams();
   const { findDataEntries } = useDataContext();
   const intervalFormats = uniqueBy(
     sortBy(findDataEntries({ section: DataSection.TimeIntervals }), (f) => f.instance),
@@ -23,8 +24,8 @@ function TimeIntervalsReviewTable() {
     <table>
       <thead>
         <tr>
-          <th>{t('review.components')}</th>
-          <th>{t('review.greatestDifference')}</th>
+          {admin && <th>{t('review.components')}</th>}
+          {admin && <th>{t('review.greatestDifference')}</th>}
           <th style={{ textAlign: 'center' }}>
             <SourceLanguageLabel />
           </th>
@@ -34,11 +35,8 @@ function TimeIntervalsReviewTable() {
       <tbody>
         {intervalFormats.map((entry) => (
           <tr key={entry.index}>
-            <td>{entry.instance}</td>
-            <td>{entry.variant}</td>
-            <td>
-              <FormattedDateString entry={entry} />
-            </td>
+            {admin && <td>{entry.instance}</td>}
+            {admin && <td>{entry.variant}</td>}
             <SourceDataCell entry={entry} />
             <InputDataCell entry={entry} inputWidth="15em" />
           </tr>

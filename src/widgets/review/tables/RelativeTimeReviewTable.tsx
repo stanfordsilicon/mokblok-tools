@@ -5,6 +5,7 @@ import { DataSection } from '@data/DataSection';
 import { DateField } from '@data/DateField';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
+import { useURLParams } from '@settings/URLParams';
 
 import { matrixBy } from '@shared/setUtils';
 
@@ -13,6 +14,7 @@ import SourceDataCell from '../SourceDataCell';
 
 function RelativeTimeReviewTable() {
   const { t } = useTranslation();
+  const { admin } = useURLParams();
   const { findDataEntries } = useDataContext();
   const relativeTimeFields = findDataEntries({ section: DataSection.RelativeTime }).filter(
     (f) => ['-1', '0', '1'].includes(f.instance) && f.length === '',
@@ -27,7 +29,7 @@ function RelativeTimeReviewTable() {
     <table>
       <thead>
         <tr>
-          <th>{t('review.field')}</th>
+          {admin && <th>{t('review.field')}</th>}
           <th colSpan={3} style={{ textAlign: 'center' }}>
             <SourceLanguageLabel />
           </th>
@@ -51,7 +53,7 @@ function RelativeTimeReviewTable() {
           if (!row) return null;
           return (
             <tr key={field}>
-              <td>{field}</td>
+              {admin && <td>{field}</td>}
               <SourceDataCell entry={row['-1']} />
               <SourceDataCell entry={row['0']} />
               <SourceDataCell entry={row['1']} />

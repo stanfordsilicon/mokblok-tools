@@ -4,24 +4,30 @@ import { useDataContext } from '@data/DataContext';
 import { DataSection } from '@data/DataSection';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
+import { useURLParams } from '@settings/URLParams';
 
-import { FormattedDateString } from '../DateString';
+import { uniqueBy } from '@shared/setUtils';
+
 import InputDataCell from '../InputDataCell';
+import SourceDataCell from '../SourceDataCell';
 
 function DateIntervalsReviewTable() {
-  const { findDataEntries } = useDataContext();
-  const intervalFormats = findDataEntries({
-    section: DataSection.DateIntervals,
-    field: 'intervalFormats',
-  }).filter((f) => !f.instance.includes('G') && !f.instance.match(/^h/i));
   const { t } = useTranslation();
+  const { admin } = useURLParams();
+  const { findDataEntries } = useDataContext();
+  const intervalFormats = uniqueBy(
+    findDataEntries({ section: DataSection.DateIntervals }).filter(
+      (f) => !f.instance.includes('G') && !f.instance.match(/^h/i),
+    ),
+    (entry) => entry.xpath,
+  );
 
   return (
     <table>
       <thead>
         <tr>
-          <th>{t('review.components')}</th>
-          <th style={{ maxWidth: '100px' }}>{t('review.greatestDifference')}</th>
+          {admin && <th>{t('review.components')}</th>}
+          {admin && <th style={{ maxWidth: '100px' }}>{t('review.greatestDifference')}</th>}
           <th>
             <SourceLanguageLabel />
           </th>
@@ -31,11 +37,9 @@ function DateIntervalsReviewTable() {
       <tbody>
         {intervalFormats?.map((entry) => (
           <tr key={entry.index}>
-            <td>{entry.instance}</td>
-            <td>{entry.variant}</td>
-            <td>
-              <FormattedDateString entry={entry} />
-            </td>
+            {admin && <td>{entry.instance}</td>}
+            {admin && <td>{entry.variant}</td>}
+            <SourceDataCell entry={entry} />
             <InputDataCell entry={entry} inputWidth="25em" />
           </tr>
         ))}

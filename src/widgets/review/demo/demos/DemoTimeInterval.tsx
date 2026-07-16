@@ -13,22 +13,22 @@ const DemoTimeInterval: React.FC<{ pattern: string }> = ({ pattern }) => {
     (f) => f.english,
   );
 
+  // TODO use formatting from the translations
   const indexToHour = (hour: number) => {
     if (pattern.includes('H')) return `${hour}:00`;
     return `${((hour + 11) % 12) + 1} ${hour < 12 ? 'AM' : 'PM'}`;
   };
-  const intervalToHourNums = (interval: DataEntry) => {
-    const parts = interval.english
-      .replace('PT', '')
-      .split(/–|-/)
-      .map((s) => s.trim())
-      .map((s) => (!s.match(/:[0-9]{2}/) ? s.replace(/^([0-9]+)([^:]|$)/, '$1:00$2') : s)); // Add ":00" to hour-only times for Date parsing
-    const parsed = parts
-      .map((s) => (parts[1].includes('PM') && !s.includes('M') ? `${s} PM` : s))
-      .map((s) => `1970-01-01 ${s}`)
-      .map((s) => new Date(s))
-      .map((d) => d.getHours() + d.getMinutes() / 60);
-    return parsed;
+  const getHourNums = (interval: DataEntry) => {
+    if (!interval.var1 || !interval.var2) {
+      console.log('interval', interval.english, 'missing var1 or var2');
+      return [0, 0];
+    }
+    const parsed = new Date(interval.var1);
+    const parsed2 = new Date(interval.var2);
+    return [
+      parsed.getHours() + parsed.getMinutes() / 60,
+      parsed2.getHours() + parsed2.getMinutes() / 60,
+    ];
   };
 
   return (
@@ -51,11 +51,14 @@ const DemoTimeInterval: React.FC<{ pattern: string }> = ({ pattern }) => {
       {intervals
         .sort(
           (a, b) =>
-            intervalToHourNums(a).reduce((sum, num) => sum + num, 0) / 2 -
-            intervalToHourNums(b).reduce((sum, num) => sum + num, 0) / 2,
+            getHourNums(a).reduce((sum, num) => sum + num, 0) / 2 -
+            getHourNums(b).reduce((sum, num) => sum + num, 0) / 2,
         )
         .map((int, index) => {
-          const hourNums = intervalToHourNums(int);
+          const hourNums = getHourNums(int);
+          if (hourNums[0] > hourNums[1]) {
+            console.log('interval', int.english, int.var1, int.var2, 'hourNums', hourNums);
+          }
           return (
             <g key={index} transform={`translate(${index * 50 + 60}, 50)`}>
               <rect
