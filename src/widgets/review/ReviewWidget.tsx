@@ -18,7 +18,15 @@ const ReviewWidget: React.FC = () => {
   }, [page, section, updateURLParams]);
 
   return (
-    <div style={{ display: 'flex', gap: '1em', flexDirection: 'column', position: 'relative' }}>
+    <div
+      style={{
+        display: 'flex',
+        gap: '1em',
+        flexDirection: 'column',
+        position: 'relative',
+        flex: 1,
+      }}
+    >
       <div style={{ position: 'absolute', top: 0, right: 0 }}>
         <DownloadAllDemos />
       </div>

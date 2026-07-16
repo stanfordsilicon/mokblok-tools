@@ -1,20 +1,19 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { useDataContext } from '@data/DataContext';
 import { Doc } from '@data/Doc';
-
-import type { UseStoredParamsReturn } from '@settings/useStoredParams';
 
 import CheckRow from './CheckRow';
 import Doc1Analysis from './Doc1Analysis';
 
 type Props = {
   doc: Doc;
-  texts: Record<Doc, UseStoredParamsReturn<string>>;
 };
-const InputCheck: React.FC<Props> = ({ doc, texts }) => {
+const InputCheck: React.FC<Props> = ({ doc }) => {
+  const { inputTSVs } = useDataContext();
   const { t } = useTranslation();
-  const lines = texts[doc].value
+  const lines = (inputTSVs?.[doc]?.value ?? '')
     .split('\n')
     .map((l) => l.trim())
     .filter(Boolean); // Exclude header row for counting

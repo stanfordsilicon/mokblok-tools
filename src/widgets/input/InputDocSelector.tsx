@@ -1,17 +1,17 @@
 import { useTranslation } from 'react-i18next';
 
+import { useDataContext } from '@data/DataContext';
 import { Doc } from '@data/Doc';
-
-import type { UseStoredParamsReturn } from '@settings/useStoredParams';
 
 import Tab from '@shared/Tab';
 
 const InputDocSelector: React.FC<{
   curDoc: Doc;
   setDoc: (doc: Doc) => void;
-  texts: Record<Doc, UseStoredParamsReturn<string>>;
-}> = ({ curDoc, setDoc, texts }) => {
+}> = ({ curDoc, setDoc }) => {
   const { t } = useTranslation();
+  const { inputTSVs } = useDataContext();
+
   return (
     <div
       style={{
@@ -30,7 +30,7 @@ const InputDocSelector: React.FC<{
           selected={curDoc}
           setSelected={setDoc}
           style={{
-            color: texts[doc].value.length === 0 ? 'var(--color-text-highlighted)' : undefined,
+            color: inputTSVs[doc]?.value.length === 0 ? 'var(--color-text-highlighted)' : undefined,
           }}
         />
       ))}

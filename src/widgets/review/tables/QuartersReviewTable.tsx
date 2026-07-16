@@ -40,8 +40,8 @@ function QuartersReviewTable() {
           .sort((a, b) => a[0].localeCompare(b[0]))
           .map(([length, row]) => (
             <tr key={length}>
-              <SourceDataCell entry={row['w']} />
-              <SourceDataCell entry={row['a']} />
+              <SourceDataCell entry={row['w']} convertPatternToExample={false} />
+              <SourceDataCell entry={row['a']} convertPatternToExample={false} />
               <InputDataCell entry={row['w']} inputWidth="15em" />
               <InputDataCell entry={row['a']} inputWidth="10em" />
             </tr>
