@@ -71,6 +71,7 @@ function xmlToObject(xmlString: string): Record<string, string> {
 }
 
 export async function loadCLDRXMLWithInheritance(locale: string): Promise<Record<string, string>> {
+  if (locale === 'en-Latf') return await loadCLDRXMLWithInheritance('en');
   const localeXML = await loadCLDRXML(locale).then(parseInheritance);
   const rootXML = await loadCLDRXML('root');
   return { ...rootXML, ...localeXML };

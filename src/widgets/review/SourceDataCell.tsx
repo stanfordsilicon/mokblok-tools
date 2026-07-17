@@ -3,12 +3,13 @@ import { useTranslation } from 'react-i18next';
 
 import { useDataContext } from '@data/DataContext';
 import { SourceLanguage, type DataEntry } from '@data/DataTypes';
+import getTranslationFromSourceLanguage from '@data/getTranslationFromSourceLanguage';
 
 import { useURLParams } from '@settings/URLParams';
 
 import { getFraktur } from '@shared/stringUtils';
 
-import { getDateString } from './DateString';
+import DebugHovercard from './DebugHovercard';
 
 type Props = {
   entry?: DataEntry;
@@ -19,64 +20,59 @@ function SourceDataCell({ entry, style, convertPatternToExample = true }: Props)
   const { t } = useTranslation();
   const { getSourceData, findDataEntry } = useDataContext();
   const { sourceLanguage } = useURLParams();
-  const sourceData = getSourceData(entry);
 
   // Make a helper to get source strings so we can convert syntax like "MMM" to "January", etc.
-  const getString = useCallback(
+  const getInnerString = useCallback(
     (query: Partial<DataEntry>): string => {
       const dataEntry = findDataEntry(query);
       if (!dataEntry) return '!!!';
-      return (
-        getSourceData(dataEntry) ||
-        (sourceLanguage === SourceLanguage.English ? dataEntry.english : dataEntry.french)
-      );
+      const sourceData = getSourceData(dataEntry);
+      if (sourceLanguage === SourceLanguage.EnglishFraktur && sourceData)
+        return getFraktur(sourceData);
+      if (sourceData) return sourceData;
+      if (sourceLanguage === SourceLanguage.EnglishFraktur) return getFraktur(dataEntry.english);
+      if (sourceLanguage === SourceLanguage.French) return dataEntry.french;
+      return dataEntry.english;
     },
     [findDataEntry, getSourceData, sourceLanguage],
   );
 
   if (!entry) return <td>{t('common.emptyCell')}</td>;
 
-  let sourceTranslation: string = entry.english;
-  if (sourceData) {
-    if (entry.exampleNum === '0' || !convertPatternToExample) {
-      // It's a direct translation
-      sourceTranslation = sourceData;
-    } else {
-      // It's a pattern, we need to parse it
-      const sourcePattern = sourceData;
-      sourceTranslation = getDateString({
-        formatPattern: sourcePattern,
-        getString,
-        var1: entry.var1,
-        var2: entry.var2,
-      });
-    }
-  }
-  // TODO only if sourceTranslation is empty
-  if (sourceLanguage === SourceLanguage.French && entry.french) {
-    sourceTranslation = entry.french;
-  } else if (sourceLanguage === SourceLanguage.EnglishFraktur) {
-    sourceTranslation = getFraktur(entry.english);
-  }
-
-  // Convert newline chars to new blocks
-  if (sourceTranslation.includes('\\n')) {
-    return (
-      <td>
-        <div style={style}>
-          {sourceTranslation.split('\\n').map((line, index) => (
-            <div key={index}>{line}</div>
-          ))}
-        </div>
-      </td>
-    );
-  }
+  const sourceTranslation = getTranslationFromSourceLanguage({
+    entry,
+    getSourceData,
+    getInnerString,
+    sourceLanguage,
+  });
 
   return (
-    <td>
-      <div style={style}>{sourceTranslation}</div>
+    <td className="Cell" tabIndex={0}>
+      <div className="Cell__content" style={style}>
+        <NewLineAwareRenderer>
+          {typeof sourceTranslation === 'string'
+            ? sourceTranslation
+            : sourceTranslation[convertPatternToExample ? '0' : '1']}
+        </NewLineAwareRenderer>
+      </div>
+
+      <DebugHovercard entry={entry} sourceTranslation={sourceTranslation} />
     </td>
   );
 }
+
+// Convert newline chars to new blocks
+const NewLineAwareRenderer: React.FC<React.PropsWithChildren> = ({ children }) => {
+  if (typeof children === 'string' && children.includes('\\n')) {
+    return (
+      <>
+        {children.split('\\n').map((line, index) => (
+          <div key={index}>{line}</div>
+        ))}
+      </>
+    );
+  }
+  return <>{children}</>;
+};
 
 export default SourceDataCell;

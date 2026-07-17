@@ -1,0 +1,91 @@
+.Cell {
+    position: relative;
+}
+
+.Cell__content {
+    min-height: 100%;
+}
+
+/*
+ * Keep the card mounted so moving the pointer from the cell into the card
+ * does not make it disappear. Visibility and pointer-events control access.
+ */
+.DebugHovercard {
+    position: absolute;
+    z-index: 100;
+    top: calc(100% + 0.25rem);
+    left: 0;
+
+    display: block;
+    width: max-content;
+    min-width: 20rem;
+    max-width: min(32rem, 80vw);
+    padding: 0.75rem;
+
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition:
+        opacity 100ms ease-out,
+        visibility 100ms ease-out;
+
+    color: var(--color-text);
+    background: var(--color-background);
+    border: 1px solid var(--color-input-border);
+    border-radius: 0.375rem;
+    box-shadow: 0 0.35rem 1rem rgb(0 0 0 / 18%);
+
+    font-size: 0.8rem;
+    line-height: 1.35;
+    text-align: left;
+    white-space: normal;
+}
+
+.Cell:hover .DebugHovercard,
+.Cell:focus-within .DebugHovercard {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.Cell:focus-within {
+    outline: 4px auto -webkit-focus-ring-color;
+}
+
+.DebugHovercard__title {
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.DebugHovercard__description {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.DebugHovercard dl {
+    display: grid;
+    grid-template-columns: max-content minmax(8rem, 1fr);
+    gap: 0.25rem 0.75rem;
+    margin: 0;
+}
+
+.DebugHovercard__row {
+    display: contents;
+}
+
+.DebugHovercard dt {
+    font-weight: 600;
+}
+
+.DebugHovercard dd {
+    min-width: 0;
+    margin: 0;
+    overflow-wrap: anywhere;
+    font-family: monospace;
+}
+
+.DebugHovercard em {
+    opacity: 0.65;
+    font-family: inherit;
+}

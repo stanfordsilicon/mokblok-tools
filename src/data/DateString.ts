@@ -3,14 +3,19 @@ import { DayKeys } from '@data/DayKeys';
 
 type DateStringProps = {
   formatPattern: string;
-  getString: (query: Partial<DataEntry>) => string;
+  getInnerString: (query: Partial<DataEntry>) => string;
   var1?: number;
   var2?: number;
 };
 
 // For example "1713855600000", "dd/MM/y – dd/MM/y" or "'week' w 'of' Y"
 // TODO support more dateTimeFormats
-export function getDateString({ formatPattern, getString, var1, var2 }: DateStringProps): string {
+export function getDateString({
+  formatPattern,
+  getInnerString,
+  var1,
+  var2,
+}: DateStringProps): string {
   const date1 = new Date(var1 || 0);
   const date2 = var2 ? new Date(var2) : date1;
 
@@ -32,7 +37,7 @@ export function getDateString({ formatPattern, getString, var1, var2 }: DateStri
     ?.map((seq) => {
       const date = alreadyMatched.has(seq) ? date2 : date1; // if we've already replaced this sequence, use the second date
       alreadyMatched.add(seq);
-      return getDateVariable(seq, date, getString);
+      return getDateVariable(seq, date, getInnerString);
     })
     .join('');
 
@@ -48,13 +53,13 @@ export function getDateString({ formatPattern, getString, var1, var2 }: DateStri
 function getDateVariable(
   seq: string,
   date: Date,
-  getString: (query: Partial<DataEntry>) => string,
+  getInnerString: (query: Partial<DataEntry>) => string,
 ) {
   switch (seq) {
     case 'G':
     case 'GGGG':
     case 'GGGGG':
-      return getString({
+      return getInnerString({
         field: 'G',
         instance: date.getUTCFullYear() < 0 ? '0' : '1',
         length: seq.length === 5 ? 'n' : seq.length === 1 ? 'a' : 'w',
@@ -71,7 +76,7 @@ function getDateVariable(
     case 'MM':
       return (date.getUTCMonth() + 1).toString().padStart(2, '0');
     case 'MMM':
-      return getString({
+      return getInnerString({
         field: seq[0],
         instance: (date.getUTCMonth() + 1).toString(),
         length: 'a',
@@ -79,7 +84,7 @@ function getDateVariable(
       });
     case 'L': // L is the stand-alone month
     case 'MMMM': // Formatted month
-      return getString({
+      return getInnerString({
         field: 'M',
         instance: (date.getUTCMonth() + 1).toString(),
         length: 'w',
@@ -90,14 +95,14 @@ function getDateVariable(
     case 'W': // Week in month
       return Math.ceil(date.getUTCDate() / 7).toLocaleString();
     case 'E':
-      return getString({
+      return getInnerString({
         field: seq[0],
         instance: DayKeys[date.getDay()],
         length: 'a',
         exampleNum: '0',
       });
     case 'EEEE':
-      return getString({
+      return getInnerString({
         field: seq[0],
         instance: DayKeys[date.getDay()],
         length: 'w',
@@ -108,7 +113,7 @@ function getDateVariable(
     case 'dd':
       return date.getUTCDate().toString().padStart(2, '0');
     case 'a':
-      return getString({
+      return getInnerString({
         field: 'a',
         instance: date.getHours() < 12 ? 'am' : 'pm',
         length: 'w',
@@ -132,9 +137,9 @@ function getDateVariable(
       return date.getSeconds().toString().padStart(2, '0');
     case 'v':
     case 'z':
-      return getString({ field: 'gmtZeroFormat' });
+      return getInnerString({ field: 'gmtZeroFormat' });
     case 'zzzz':
-      return getString({ field: 'metazone', instance: 'GMT', variant: 'daylight' });
+      return getInnerString({ field: 'metazone', instance: 'GMT', variant: 'daylight' });
     default:
       return seq;
   }
