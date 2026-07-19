@@ -20,7 +20,7 @@ function getTranslationFromSourceLanguage({
   const sourceData = getSourceData(entry);
 
   if (sourceData) {
-    if (entry.exampleNum === '0') {
+    if (!entry.exampleNum || entry.exampleNum === '0') {
       // It's a direct translation
       if (sourceLanguage === SourceLanguage.EnglishFraktur) return getFraktur(sourceData);
       return sourceData;

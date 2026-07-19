@@ -7,6 +7,7 @@ const PageBody: React.FC = () => {
 
   return (
     <div
+      data-testid="PageBody"
       style={{
         overflow: 'auto',
         padding: '1em',
