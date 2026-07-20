@@ -25,7 +25,9 @@ const Sidebar: React.FC = () => {
     >
       <header style={{ padding: '0.5em 1em', marginBottom: '1em' }}>
         <h1 style={{ margin: '.5em 0 0 0' }}>
-          <Link to="/">{t('title')}</Link>
+          <Link to="/" style={{ color: 'var(--color-text)' }}>
+            {t('title')}
+          </Link>
         </h1>
         <h3 style={{ margin: 0 }}>{t('bySILICON')}</h3>
       </header>
