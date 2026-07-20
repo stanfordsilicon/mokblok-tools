@@ -1,8 +1,9 @@
 {
-    "title": "MokBlok Tools",
+    "title": "Homescreen",
+    "bySILICON": "di Stanford SILICON",
     "allRightsReserved": "Tutti i diritti riservati.",
     "intro": {
-        "title": "Benvenuto in Mokblok Tools",
+        "title": "Benvenuto in Homescreen",
         "description": "Questa applicazione web viene utilizzata dai valutatori per valutare la qualità delle traduzioni inviate per ogni lingua. Inizia selezionando la tua lingua di origine e poi la lingua di destinazione.",
         "ctaInputStart": "Inizia a inserire le traduzioni",
         "ctaReviewStart": "Inizia a revisionare le traduzioni"

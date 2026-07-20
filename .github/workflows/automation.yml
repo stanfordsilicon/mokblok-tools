@@ -61,13 +61,13 @@ jobs:
         if: ${{ success() }}
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: '[automation] Auto-update screenshots'
+          commit_message: '[automation] Auto-update pull request'
           commit_user_name: 'SILICON Bot'
           commit_user_email: 'noreply@github.com'
           skip_dirty_check: false
           
       - name: Remove run-auto-updates label
-        if: ${{ github.event_name == 'pull_request' && success() }}
+        if: github.event_name == 'pull_request'
         run: gh pr edit ${{ github.event.pull_request.number }} --remove-label run-auto-updates
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

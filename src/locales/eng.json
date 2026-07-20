@@ -1,8 +1,9 @@
 {
-    "title": "MokBlok Tools",
+    "title": "Homescreen",
+    "bySILICON": "by Stanford SILICON",
     "allRightsReserved": "All rights reserved.",
     "intro": {
-        "title": "Welcome to Mokblok Tools",
+        "title": "Welcome to Homescreen",
         "description": "This web application is used for vetters to evaluate the quality of translations submitted for each language. Please start by selecting your source language then your target language.",
         "ctaInputStart": "Start inputting translations",
         "ctaReviewStart": "Start reviewing translations"

@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 import StepName from '@settings/StepName';
 import StepSelector from '@settings/StepSelector';
@@ -19,13 +20,14 @@ const Sidebar: React.FC = () => {
         flexDirection: 'column',
         gap: '1em',
         borderRight: '1px solid var(--color-input-border)',
-        width: '18em',
+        width: '20em',
       }}
     >
       <header style={{ padding: '0.5em 1em', marginBottom: '1em' }}>
-        <h1 style={{ margin: 0 }}>
-          <a href="/">{t('title')}</a>
+        <h1 style={{ margin: '.5em 0 0 0' }}>
+          <Link to="/">{t('title')}</Link>
         </h1>
+        <h3 style={{ margin: 0 }}>{t('bySILICON')}</h3>
       </header>
       <StepSelector />
       <div style={{ overflow: 'auto', flex: 1 }}>
