@@ -7,11 +7,11 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "lint-fix": "eslint . --fix",
+    "lint:fix": "eslint . --fix",
     "preview": "vite preview",
     "deploy": "gh-pages -d dist",
     "generate:eng-latf": "node scripts/generate-eng-latf.mjs",
-    "screenshots": "playwright test",
+    "screenshots:test": "playwright test",
     "screenshots:update": "playwright test --update-snapshots"
   },
   "dependencies": {

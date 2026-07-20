@@ -1,0 +1,74 @@
+name: Automatic updates
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, labeled]
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      run-auto-updates:
+        description: 'Automatically update lint style, Fraktur translations, and screenshots -- then commit the updates'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: automation-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  automatic-updates:
+    if: |
+      (github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'run-auto-updates')) ||
+      (github.event_name == 'workflow_dispatch' && inputs.run-auto-updates)
+    name: Automatic updates
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.head_ref }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Automatically fix style
+        run: npm run lint:fix
+
+      - name: Update Fraktur translations
+        run: npm run generate:eng-latf
+
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Run screenshot tests
+        run: npm run screenshots:update
+        # for now always updating snapshots, presuming the new screenshots are correct.
+
+      - name: Commit changes
+        if: ${{ success() }}
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: '[automation] Auto-update pull request'
+          commit_user_name: 'SILICON Bot'
+          commit_user_email: 'noreply@github.com'
+          skip_dirty_check: false
+          
+      - name: Remove run-auto-updates label
+        if: github.event_name == 'pull_request'
+        run: gh pr edit ${{ github.event.pull_request.number }} --remove-label run-auto-updates
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
