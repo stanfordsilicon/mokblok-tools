@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: screenshot-tests-${{ github.event.pull_request.number || github.ref }}

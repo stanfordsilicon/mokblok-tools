@@ -12,6 +12,8 @@ export default defineConfig({
     timezoneId: 'UTC',
     colorScheme: 'light',
   },
+  snapshotPathTemplate:
+    '{snapshotDir}/{testFileDir}/{testFileName}-snapshots/{platform}-{arg}{ext}',
 
   webServer: {
     command: 'npm run build && npm run preview',
