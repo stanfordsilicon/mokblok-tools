@@ -29,7 +29,7 @@ const Sidebar: React.FC = () => {
             {t('title')}
           </Link>
         </h1>
-        <h3 style={{ margin: 0 }}>{t('bySILICON')}</h3>
+        <h3 style={{ margin: 0, fontWeight: 300 }}>{t('bySILICON')}</h3>
       </header>
       <StepSelector />
       <div style={{ overflow: 'auto', flex: 1 }}>

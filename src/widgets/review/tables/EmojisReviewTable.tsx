@@ -25,7 +25,7 @@ function EmojisReviewTable() {
           <table>
             <thead>
               <tr>
-                <th>{t('dataSection.emojis')}</th>
+                <th>{t('dataSection.emoji')}</th>
                 <th>
                   <SourceLanguageLabel />
                 </th>
