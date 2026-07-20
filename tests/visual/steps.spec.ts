@@ -26,6 +26,24 @@ test('Review Step', async ({ page }) => {
   await performTest(page, 'admin=true&step=Review', 'review.png');
 });
 
+test('Review Step -- dark mode', async ({ page }) => {
+  page.emulateMedia({ colorScheme: 'dark' });
+  await performTest(page, 'admin=true&step=Review', 'review-dark.png');
+});
+
 test('Export Step', async ({ page }) => {
   await performTest(page, 'admin=true&step=Export', 'export.png');
+});
+
+test('Settings', async ({ page }) => {
+  await page.clock.install();
+  await page.clock.setFixedTime(new Date('2026-01-15T12:00:00Z'));
+  await page.goto(`/mokblok-tools/?admin=true`);
+  await page.waitForLoadState('networkidle');
+
+  // Click to open the settings
+  await page.click('text=Settings');
+  await expect(page).toHaveScreenshot('settings.png', {
+    fullPage: true,
+  });
 });

@@ -39,8 +39,7 @@ jobs:
         run: npx playwright install --with-deps chromium
 
       - name: Run screenshot tests
-        run: npm run screenshots:update
-        # for now always updating snapshots, presuming the new screenshots are correct.
+        run: npm run screenshots:test
 
       - name: Upload Playwright report
         if: ${{ !cancelled() }}
@@ -59,11 +58,4 @@ jobs:
           path: test-results/
           retention-days: 14
           if-no-files-found: ignore
-
-      - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: '[automation] Auto-update screenshots'
-          commit_user_name: 'SILICON Bot'
-          commit_user_email: 'noreply@github.com'
-          skip_dirty_check: false
+ 

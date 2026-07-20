@@ -4,10 +4,10 @@ import { useDataContext } from '@data/DataContext';
 import { DataSection } from '@data/DataSection';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
+import { useURLParams } from '@settings/URLParams';
 
 import { uniqueBy } from '@shared/setUtils';
 
-import { useURLParams } from '@settings/URLParams';
 import InputDataCell from '../InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
@@ -37,9 +37,11 @@ function DateCombinationsReviewTable() {
       <tbody>
         {availableFormats?.map((entry) => (
           <tr key={entry.index}>
-            {admin && <td>
-              {entry.instance} {entry.variant}
-            </td>}
+            {admin && (
+              <td>
+                {entry.instance} {entry.variant}
+              </td>
+            )}
             <SourceDataCell entry={entry} />
             {admin && <SourceDataCell entry={entry} convertPatternToExample={false} />}
             <InputDataCell entry={entry} inputWidth="20em" />
