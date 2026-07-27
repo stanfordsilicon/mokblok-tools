@@ -12,13 +12,13 @@ export enum LoadableLanguage {
 }
 
 type Props = {
-  onClickLanguage: (lang: LoadableLanguage) => void;
   clearInputText: () => void;
 };
 
-const InputLanguageSelector = ({ onClickLanguage, clearInputText }: Props) => {
-  const { targetLanguage, updateURLParams } = useURLParams();
+const InputLanguageSelector = ({ clearInputText }: Props) => {
   const { t } = useTranslation();
+  const { targetLanguage, updateURLParams } = useURLParams();
+
   return (
     <div>
       <div>{t('input.language.description')}</div>
@@ -27,10 +27,7 @@ const InputLanguageSelector = ({ onClickLanguage, clearInputText }: Props) => {
           <button
             key={lang}
             className={lang === targetLanguage ? 'selected' : ''}
-            onClick={() => {
-              updateURLParams({ targetLanguage: lang });
-              onClickLanguage(lang);
-            }}
+            onClick={() => updateURLParams({ targetLanguage: lang })}
           >
             {/* Convert ID to a readable name */}
             {t(`languageName.${lang}`, lang)}

@@ -10,8 +10,11 @@ import enforceExhaustiveSwitch from '@shared/enforceExhaustiveSwitch';
 import IntroCTAs from '../widgets/intro/IntroCTAs';
 import DataTypeSelector from '../widgets/review/DataTypeSelector';
 
+import LoadingStatus from './LoadingStatus';
+
 const Sidebar: React.FC = () => {
   const { t } = useTranslation();
+  const { admin } = useURLParams();
 
   return (
     <div
@@ -35,6 +38,11 @@ const Sidebar: React.FC = () => {
       <div style={{ overflow: 'auto', flex: 1 }}>
         <SidebarContents />
       </div>
+      {admin && (
+        <div style={{ padding: '0em 1em 1em 1em' }}>
+          <LoadingStatus />
+        </div>
+      )}
     </div>
   );
 };

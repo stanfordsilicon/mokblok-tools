@@ -1,18 +1,16 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { useDataContext } from '@data/DataContext';
 import { getDocFileType, type Doc } from '@data/Doc';
-
-import { type UseStoredParamsReturn } from '@settings/useStoredParams';
 
 type Props = {
   doc: Doc;
-  texts: Record<Doc, UseStoredParamsReturn<string>>;
 };
 
-const InputTextArea: React.FC<Props> = ({ doc, texts }) => {
-  const { value: inputText, setValue: setInputText } = texts[doc];
+const InputTextArea: React.FC<Props> = ({ doc }) => {
   const { t } = useTranslation();
+  const { inputTSVs } = useDataContext();
 
   return (
     <textarea
@@ -29,8 +27,8 @@ const InputTextArea: React.FC<Props> = ({ doc, texts }) => {
           ? t('input.files.placeholderTsv')
           : t('input.files.placeholderTxt')
       }
-      value={inputText}
-      onChange={(e) => setInputText(e.target.value)}
+      value={inputTSVs?.[doc]?.value ?? ''}
+      onChange={(e) => inputTSVs?.[doc]?.setValue(e.target.value)}
     />
   );
 };
