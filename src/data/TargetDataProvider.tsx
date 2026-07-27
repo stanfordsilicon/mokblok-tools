@@ -27,7 +27,7 @@ export type TargetDataContextType = {
   targetDataStatus: TargetDataStatus;
 };
 
-export const TargetDataContext = createContext<TargetDataContextType | undefined>({
+export const TargetDataContext = createContext<TargetDataContextType>({
   inputTSVs: {},
   alphabet: undefined,
   getTranslation: () => '',
@@ -37,7 +37,7 @@ export const TargetDataContext = createContext<TargetDataContextType | undefined
 
 export const useTargetDataContext = () => {
   const context = useContext(TargetDataContext);
-  if (!context) throw new Error('useTargetDataContext must be used within an TargetDataProvider');
+  if (!context) throw new Error('useTargetDataContext must be used within a TargetDataProvider');
   return context;
 };
 
@@ -136,6 +136,7 @@ const TargetDataProvider: React.FC<{
 
   // When the inputted data changes, refresh the data
   useEffect(() => {
+    if (tsvRows.length === 0) return;
     setTargetDataStatus(TargetDataStatus.InputTSVChanged);
     setAlphabetData(extractAlphabetData(tsvRows, extraText));
     fillTranslations(tsvRows);

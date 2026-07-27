@@ -17,7 +17,7 @@ export type DataContextType = {
   getSourceData(entry: DataEntry | undefined): string | undefined;
 };
 
-export const DataContext = createContext<DataContextType | undefined>({
+export const DataContext = createContext<DataContextType>({
   inputTSVs: {},
   alphabet: undefined,
   findDataEntry: () => undefined,
@@ -34,9 +34,8 @@ export const useDataContext = () => {
 };
 
 /**
- *
- * @param param0
- * @returns
+ * This provides accessors to useTargetDataContext and useSourceDataContext
+ * while we are in a transition period before we fully move to the providers
  */
 export const DataProvider: React.FC<{
   children: React.ReactNode;

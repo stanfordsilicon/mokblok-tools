@@ -27,7 +27,7 @@ const InputTextArea: React.FC<Props> = ({ doc }) => {
           ? t('input.files.placeholderTsv')
           : t('input.files.placeholderTxt')
       }
-      value={inputTSVs?.[doc]?.value}
+      value={inputTSVs?.[doc]?.value ?? ''}
       onChange={(e) => inputTSVs?.[doc]?.setValue(e.target.value)}
     />
   );

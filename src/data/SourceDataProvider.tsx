@@ -24,7 +24,7 @@ export type SourceDataContextType = {
   sourceDataStatus: SourceDataStatus;
 };
 
-export const SourceDataContext = createContext<SourceDataContextType | undefined>({
+export const SourceDataContext = createContext<SourceDataContextType>({
   findDataEntry: () => undefined,
   findDataEntries: () => [],
   getSourceData: () => '',
@@ -33,7 +33,7 @@ export const SourceDataContext = createContext<SourceDataContextType | undefined
 
 export const useSourceDataContext = () => {
   const context = useContext(SourceDataContext);
-  if (!context) throw new Error('useDataContext must be used within a DataProvider');
+  if (!context) throw new Error('useSourceDataContext must be used within a SourceDataProvider');
   return context;
 };
 
@@ -64,8 +64,8 @@ const SourceDataProvider: React.FC<{
   };
   const fetchXMLData = useCallback(
     async (sourceLanguage: SourceLanguage) => {
-      setSourceDataStatus(SourceDataStatus.LoadingSourceData);
       if (dataEntries.length === 0) return;
+      setSourceDataStatus(SourceDataStatus.LoadingSourceData);
       const allXMLdata = await loadCLDRXMLWithInheritance(sourceLanguage);
       // Only save XPaths we are using
       const applicableXML = dataEntries.reduce(
