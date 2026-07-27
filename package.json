@@ -11,8 +11,8 @@
     "preview": "vite preview",
     "deploy": "gh-pages -d dist",
     "generate:eng-latf": "node scripts/generate-eng-latf.mjs",
-    "screenshots:test": "playwright test",
-    "screenshots:update": "playwright test --update-snapshots"
+    "screenshots:test": "npx playwright test",
+    "screenshots:update": "npx playwright test --update-snapshots"
   },
   "dependencies": {
     "eslint-plugin-import": "^2.32.0",
