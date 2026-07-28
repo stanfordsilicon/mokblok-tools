@@ -40,12 +40,27 @@ export type RowData = {
   key: string;
 };
 
+export enum InterfaceLanguage {
+  English = 'en',
+  EnglishFraktur = 'en-Latf',
+  French = 'fr',
+  Italian = 'it',
+  Spanish = 'es',
+}
+
 export enum SourceLanguage {
   English = 'en',
   EnglishFraktur = 'en-Latf',
   French = 'fr',
-  Spanish = 'es',
+  Hausa = 'ha',
   Italian = 'it',
+  Malagasy = 'mg',
+  Morisien = 'mfe',
+  Obolo = 'ann',
+  Oromo = 'or',
+  Shona = 'sn',
+  Spanish = 'es',
+  Wolof = 'wo',
 }
 
 export enum FormatLength {

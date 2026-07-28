@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-import SourceLanguageSelector from '@settings/selectors/SourceLanguageSelector';
+import InterfaceLanguageSelector from '@settings/selectors/InterfaceLanguageSelector';
 import TargetLanguageSelector from '@settings/selectors/TargetLanguageSelector';
 import StepName from '@settings/StepName';
 import { useURLParams } from '@settings/URLParams';
@@ -14,7 +14,7 @@ const IntroBody: React.FC = () => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'start', gap: '1rem' }}>
       <div>{t('intro.description')}</div>
-      <SourceLanguageSelector />
+      <InterfaceLanguageSelector />
       <TargetLanguageSelector />
       {admin && (
         <button onClick={() => updateURLParams({ step: StepName.Input })}>

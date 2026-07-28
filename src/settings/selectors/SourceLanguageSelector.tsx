@@ -11,17 +11,20 @@ const SourceLanguageSelector: React.FC = () => {
   return (
     <div style={{ display: 'flex', gap: '1em', alignItems: 'center', flexWrap: 'wrap' }}>
       <strong>{t('settings.sourceLanguage')}:</strong>
-      {Object.values(SourceLanguage)
-        .filter((lang) => admin || lang !== SourceLanguage.EnglishFraktur)
-        .map((lang) => (
-          <button
-            key={lang}
-            className={lang === sourceLanguage ? 'selected' : ''}
-            onClick={() => updateURLParams({ sourceLanguage: lang })}
-          >
-            {t(`languageName.${lang}`, lang)}
-          </button>
-        ))}
+
+      <select
+        className="settings-select"
+        value={String(sourceLanguage)}
+        onChange={(e) => updateURLParams({ sourceLanguage: e.target.value as SourceLanguage })}
+      >
+        {Object.values(SourceLanguage)
+          .filter((value) => admin || value !== SourceLanguage.EnglishFraktur)
+          .map((value) => (
+            <option key={value} value={value}>
+              {t(`languageName.${value}`, value)}
+            </option>
+          ))}
+      </select>
     </div>
   );
 };
