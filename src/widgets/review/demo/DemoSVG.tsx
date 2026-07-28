@@ -25,6 +25,24 @@ const DemoSVG: React.FC<React.PropsWithChildren<Props>> = ({ id, width, height, 
       />
       {/* Move 1px diagonally so we can have a nice border without needing to worry about stroke width or clipping */}
       <g transform="translate(1,1)">{children}</g>
+
+      {/* Watermark text*/}
+      {/* <text x="10" y="30" fontSize="30px" style={{ color: 'var(--color-level-0)' }}> */}
+      <g
+        id="watermark"
+        transform={`translate(${width / 2}, ${height / 2}) rotate(-45) `}
+        fill="rgba(128, 128, 128, 0.1)"
+        style={{
+          textAnchor: 'middle',
+          fontFamily: 'sans-serif',
+          fontSize: 24,
+          fontWeight: 'bold',
+        }}
+      >
+        <text y={-30}>Stanford SILICON</text>
+        <text y={0}>DRAFT {new Date().toISOString().split('T')[0]}</text>
+        <text y={30}>DO NOT CIRCULATE</text>
+      </g>
     </svg>
   );
 };
