@@ -25,12 +25,20 @@
             "Doc 2 part 2": "Doc 2 partie 2 (Texte long)",
             "Doc 2 part 3": "Doc 2 partie 3 (Nombres, géographie, devises et émojis)",
             "Doc 3": "Doc 3 (Guide des émojis)",
-            "Doc 4": "Doc 4 (Langues numériquement défavorisées)"
+            "Doc 4": "Doc 4 (Langues numériquement défavorisées)",
+            "None": "Il n’y a rien à soumettre"
         },
         "check": {
             "Total rows": "Nombre total de lignes",
             "Total words": "Nombre total de mots",
             "Total characters": "Nombre total de caractères"
+        },
+        "inputSource": {
+            "title": "Source de saisie",
+            "label": "Comment soumettre les données ?",
+            "blank": "Feuille blanche",
+            "tsv": "Copier-coller des TSV",
+            "xml": "Charger XML depuis CLDR"
         }
     },
     "review": {
@@ -134,7 +142,8 @@
     "backgroundStyleName": {
         "None": "Aucun",
         "Missing": "Traductions manquantes",
-        "CoverageLevel": "Niveau de couverture"
+        "CoverageLevel": "Niveau de couverture",
+        "DifferentThanSource": "Différent de la source"
     },
     "languageName": {
         "abr": "Abron",

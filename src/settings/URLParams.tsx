@@ -5,6 +5,8 @@ import { CoverageLevel, parseCoverageLevel } from '@data/CoverageLevel';
 import { DataPage, DataSection } from '@data/DataSection';
 import { InterfaceLanguage, SourceLanguage } from '@data/DataTypes';
 
+import InputSource from '@widgets/input/InputSource';
+
 import enforceExhaustiveSwitch from '@shared/enforceExhaustiveSwitch';
 
 import i18n from '../i18n';
@@ -23,6 +25,7 @@ const GLOBAL_DEFAULTS: Readonly<URLParams> = {
   bgStyle: BackgroundStyle.Missing,
   dateExample: 0,
   admin: false,
+  inputSource: InputSource.TSV,
 };
 
 export type URLParams = {
@@ -36,6 +39,7 @@ export type URLParams = {
   bgStyle: BackgroundStyle;
   dateExample: number; // DateTime in seconds for examples
   admin: boolean;
+  inputSource: InputSource;
 };
 
 type URLParamsContextState = URLParams & {
@@ -111,6 +115,10 @@ export function getParamsFromURL(urlParams: URLSearchParams): Partial<URLParams>
         break;
       case 'admin':
         if (value === 'true' || value === 'false') params[key] = value === 'true';
+        break;
+      case 'inputSource':
+        if (Object.values(InputSource).includes(value as InputSource))
+          params[key] = value as InputSource;
         break;
       default:
         break;

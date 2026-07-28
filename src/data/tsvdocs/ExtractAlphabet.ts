@@ -1,10 +1,11 @@
-import type { AlphabetData, RowData } from './DataTypes';
+import type { AlphabetData } from '../DataTypes';
+import type { TSVRowData } from './TSVRowData';
 
 const IGNORED_TITLES = ['YOUR ANSWER', 'TRANSLATION IN YOUR LANGUAGE'];
 const IGNORED_WORDS = ['ไทย', '中文']; // From example text
 const IGNORED_CHARS = [' ', '\u00A0' /* non-breaking space */];
 
-function extractAlphabetData(rows: RowData[], extraText: string): AlphabetData {
+function extractAlphabetData(rows: TSVRowData[], extraText: string): AlphabetData {
   const characterHistogram = rows.reduce(
     (acc, row) => countCharacters(acc, row.translated || ''),
     {} as Record<string, number>,

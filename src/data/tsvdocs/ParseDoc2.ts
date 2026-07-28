@@ -1,12 +1,12 @@
-import type { RowData } from './DataTypes';
+import type { TSVRowData } from './TSVRowData';
 
 // id	ENGLISH	FRENCH	TRANSLATION IN YOUR LANGUAGE	NOTES BY TRANSLATOR (IF NECESSARY)
-export function parseDoc2Part1(tsv: string): RowData[] {
+export function parseDoc2Part1(tsv: string): TSVRowData[] {
   // Remove lines in comments by finding new lines in "" blocks
   const text = tsv.replace(/"([^"\t]|"")*"/g, (match) => match.replace(/\n/g, ' '));
   const lines = text.split('\n').slice(1); // Remove header
 
-  const rows: RowData[] = [];
+  const rows: TSVRowData[] = [];
 
   lines.forEach((line) => {
     const fields = line.split('\t');
@@ -22,15 +22,15 @@ export function parseDoc2Part1(tsv: string): RowData[] {
 }
 
 // id	ENGLISH	TRANSLATION IN YOUR LANGUAGE	NOTES BY TRANSLATOR (IF NECESSARY)
-export function parseDoc2Part2(tsv: string): RowData[] {
+export function parseDoc2Part2(tsv: string): TSVRowData[] {
   // Remove lines in comments by finding new lines in "" blocks
   const text = tsv.replace(/"([^"\t]|"")*"/g, (match) => match.replace(/\n/g, ' '));
   const lines = text.split('\n').slice(1); // Remove header
 
-  const rows: RowData[] = [];
+  const rows: TSVRowData[] = [];
 
   // Since these are long-form entries, sometimes they have newlines within them, which get split into multiple lines.
-  let currentRow: RowData | null = null;
+  let currentRow: TSVRowData | null = null;
   // let currentField = ''; // Track the current field (english, translated, notes)
 
   lines.forEach((line) => {
@@ -109,13 +109,13 @@ enum Section2_3 {
   Emoji = 'EMOJI',
 }
 
-export function parseDoc2Part3(tsv: string): RowData[] {
+export function parseDoc2Part3(tsv: string): TSVRowData[] {
   // Remove lines in comments by finding new lines in "" blocks
   const text = tsv.replace(/"([^"\t]|"")*"/g, (match) => match.replace(/\n/g, ' '));
   const lines = text.split('\n');
 
   let section: Section2_3 | '' = '';
-  const rows: RowData[] = [];
+  const rows: TSVRowData[] = [];
 
   lines.forEach((line) => {
     const fields = line.split('\t');

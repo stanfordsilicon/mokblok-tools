@@ -1,27 +1,29 @@
-import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import { createContext, useCallback, useContext, useEffect, useState } from 'react';
 
 import { useURLParams } from '@settings/URLParams';
-import type { UseStoredParamsReturn } from '@settings/useStoredParams';
-import useStoredParams from '@settings/useStoredParams';
 
-import { LoadableLanguage } from '@widgets/input/InputLanguageSelector';
+import InputSource from '@widgets/input/InputSource';
 
-import { type AlphabetData, type DataEntry, type RowData } from './DataTypes';
-import { Doc, getDocFileSuffix, getDocFileType } from './Doc';
-import extractAlphabetData from './ExtractAlphabet';
-import { loadInputText, parseDoc1TSV } from './LoadInputData';
-import { parseDoc2Part1, parseDoc2Part2, parseDoc2Part3 } from './ParseDoc2';
+import { type AlphabetData, type DataEntry } from './DataTypes';
+import { loadCLDRXML } from './loadCLDRXML';
+import parseInheritance from './parseInheritance';
 import { useSourceDataContext } from './SourceDataProvider';
+import { Doc } from './tsvdocs/Doc';
+import extractAlphabetData from './tsvdocs/ExtractAlphabet';
+import useInputTSVs from './tsvdocs/useInputTSVs';
+
+import type { TSVRowData } from './tsvdocs/TSVRowData';
+import type { UseTSVState } from './tsvdocs/useTSVState';
 
 export enum TargetDataStatus {
   Initial,
-  InputTSVChanged,
+  InputFileChanged,
   Ready,
 }
 
 export type TargetDataContextType = {
   alphabet?: AlphabetData;
-  inputTSVs: Partial<Record<Doc, UseStoredParamsReturn<string>>>;
+  inputTSVs: Partial<Record<Doc, UseTSVState>>;
   getTranslation(entry: DataEntry | undefined, fallback?: boolean): string;
   setTranslation(index: number, newTranslation: string): void;
   targetDataStatus: TargetDataStatus;
@@ -47,64 +49,24 @@ export const useTargetDataContext = () => {
 const TargetDataProvider: React.FC<{
   children: React.ReactNode;
 }> = ({ children }) => {
-  const { sourceDataStatus } = useSourceDataContext();
+  const { targetLanguage, inputSource } = useURLParams();
+  const { sourceDataStatus, findDataEntry } = useSourceDataContext();
   const [targetDataStatus, setTargetDataStatus] = useState<TargetDataStatus>(
     TargetDataStatus.Initial,
   );
-  const { findDataEntry } = useSourceDataContext();
-  const [extraText, setExtraText] = useState<string>('');
-  const { targetLanguage } = useURLParams();
-  const inputTSVs = {
-    [Doc.Doc1]: useStoredParams('inputText_1', ''),
-    [Doc.Doc2_1]: useStoredParams('inputText_2_1', ''),
-    [Doc.Doc2_2]: useStoredParams('inputText_2_2', ''),
-    [Doc.Doc2_3]: useStoredParams('inputText_2_3', ''),
-    [Doc.Doc3]: useStoredParams('inputText_3', ''),
-    [Doc.Doc4]: useStoredParams('inputText_4', ''),
-  };
+
+  const { extraText, tsvRows, inputTSVs } = useInputTSVs();
   const [alphabetData, setAlphabetData] = useState<AlphabetData | undefined>(undefined);
   const [translationsByIndex, setTranslationsByIndex] = useState<Record<number, string>>({});
+  const [targetXMLData, setTargetXMLData] = useState<Record<string, string>>({});
 
-  // TSV input files
-  const loadTSVData = useCallback(
-    (lang: string) => {
-      // Reload all docs
-      Object.values(Doc).map((doc) => {
-        const filename = `input_tsvs/${lang}_${getDocFileSuffix(doc)}.${getDocFileType(doc)}`;
-        loadInputText(filename)
-          .then((data) => {
-            if (data) inputTSVs[doc].setValue(data);
-            else inputTSVs[doc].clear();
-          })
-          .catch((e) => {
-            console.error(e);
-            inputTSVs[doc].clear();
-          });
-      });
-    },
-    [inputTSVs],
-  );
   useEffect(() => {
-    if (targetLanguage && Object.values(LoadableLanguage).find((l) => l === targetLanguage))
-      loadTSVData(targetLanguage);
-  }, [targetLanguage]);
-
-  // Automatically updates the TSV datasets when input changes
-  const tsvRows = useMemo(() => {
-    const doc1Rows = parseDoc1TSV(inputTSVs[Doc.Doc1]?.value ?? '');
-    const doc2_1Rows = parseDoc2Part1(inputTSVs[Doc.Doc2_1]?.value ?? '');
-    const doc2_2Rows = parseDoc2Part2(inputTSVs[Doc.Doc2_2]?.value ?? '');
-    const doc2_3Rows = parseDoc2Part3(inputTSVs[Doc.Doc2_3]?.value ?? '');
-    return [...doc1Rows, ...doc2_1Rows, ...doc2_2Rows, ...doc2_3Rows];
-  }, [
-    inputTSVs[Doc.Doc1]?.value,
-    inputTSVs[Doc.Doc2_1]?.value,
-    inputTSVs[Doc.Doc2_2]?.value,
-    inputTSVs[Doc.Doc2_3]?.value,
-  ]);
-  useEffect(() => {
-    setExtraText((inputTSVs[Doc.Doc3]?.value ?? '') + (inputTSVs[Doc.Doc4]?.value ?? ''));
-  }, [inputTSVs[Doc.Doc3]?.value, inputTSVs[Doc.Doc4]?.value, setExtraText]);
+    const loadData = async () => {
+      const data = await loadCLDRXML(targetLanguage).then(parseInheritance);
+      setTargetXMLData(data);
+    };
+    loadData();
+  }, []);
 
   const getTranslation = useCallback(
     (entry: DataEntry | undefined, fallback = true): string => {
@@ -116,8 +78,8 @@ const TargetDataProvider: React.FC<{
   const setTranslation = useCallback((index: number, newTranslation: string) => {
     setTranslationsByIndex((prev) => ({ ...prev, [index]: newTranslation }));
   }, []);
-  const fillTranslations = useCallback(
-    (rows: RowData[]) => {
+  const fillTranslationsFromTSV = useCallback(
+    (rows: TSVRowData[]) => {
       const newTranslationsByIndex = Object.fromEntries(
         rows
           .map((row) => {
@@ -133,14 +95,41 @@ const TargetDataProvider: React.FC<{
     },
     [setTranslation, sourceDataStatus],
   );
+  const fillTranslationsFromXML = useCallback(
+    (xmlData: Record<string, string>) => {
+      const newTranslationsByIndex = Object.fromEntries(
+        Object.entries(xmlData)
+          .map(([xpath, translated]) => {
+            const entry = findDataEntry({ xpath });
+            if (entry && translated) return [entry.index, translated];
+            return [];
+          })
+          .filter((v) => v.length > 0),
+      );
+      setTranslationsByIndex(newTranslationsByIndex);
+      setTargetDataStatus(TargetDataStatus.Ready);
+    },
+    [findDataEntry],
+  );
 
   // When the inputted data changes, refresh the data
   useEffect(() => {
-    if (tsvRows.length === 0) return;
-    setTargetDataStatus(TargetDataStatus.InputTSVChanged);
+    if (tsvRows.length === 0 || inputSource != InputSource.TSV) return;
+    setTargetDataStatus(TargetDataStatus.InputFileChanged);
     setAlphabetData(extractAlphabetData(tsvRows, extraText));
-    fillTranslations(tsvRows);
-  }, [tsvRows, extraText]);
+    fillTranslationsFromTSV(tsvRows);
+  }, [tsvRows, extraText, inputSource]);
+  useEffect(() => {
+    if (inputSource === InputSource.XML) {
+      setTargetDataStatus(TargetDataStatus.InputFileChanged);
+      fillTranslationsFromXML(targetXMLData);
+    }
+  }, [targetXMLData, inputSource]);
+  useEffect(() => {
+    if (inputSource === InputSource.Blank) {
+      fillTranslationsFromXML({});
+    }
+  }, [tsvRows, inputSource]);
 
   const dataContext: TargetDataContextType = {
     alphabet: alphabetData,

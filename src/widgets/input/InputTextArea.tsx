@@ -1,8 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { useDataContext } from '@data/DataContext';
-import { getDocFileType, type Doc } from '@data/Doc';
+import { useTargetDataContext } from '@data/TargetDataProvider';
+import { getDocFileType, type Doc } from '@data/tsvdocs/Doc';
 
 type Props = {
   doc: Doc;
@@ -10,11 +10,12 @@ type Props = {
 
 const InputTextArea: React.FC<Props> = ({ doc }) => {
   const { t } = useTranslation();
-  const { inputTSVs } = useDataContext();
+  const { inputTSVs } = useTargetDataContext();
 
   return (
     <textarea
       style={{
+        flexShrink: 0,
         width: '100%',
         height: '300px',
         marginTop: '1em',
@@ -27,8 +28,8 @@ const InputTextArea: React.FC<Props> = ({ doc }) => {
           ? t('input.files.placeholderTsv')
           : t('input.files.placeholderTxt')
       }
-      value={inputTSVs?.[doc]?.value ?? ''}
-      onChange={(e) => inputTSVs?.[doc]?.setValue(e.target.value)}
+      value={inputTSVs[doc]?.value ?? ''}
+      onChange={(e) => inputTSVs[doc]?.set(e.target.value)}
     />
   );
 };

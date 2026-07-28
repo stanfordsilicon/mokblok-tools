@@ -26,12 +26,20 @@
             "Doc 2 part 2": "Doc 2 parte 2 (Texto largo)",
             "Doc 2 part 3": "Doc 2 parte 3 (Números, geografía, moneda y emojis)",
             "Doc 3": "Doc 3 (Guía de emojis)",
-            "Doc 4": "Doc 4 (Idiomas digitalmente desfavorecidos)"
+            "Doc 4": "Doc 4 (Idiomas digitalmente desfavorecidos)",
+            "None": "No hay nada que enviar"
         },
         "check": {
             "Total rows": "Total de filas",
             "Total words": "Total de palabras",
             "Total characters": "Total de caracteres"
+        },
+        "inputSource": {
+            "title": "Fuente de entrada",
+            "label": "¿Cómo enviar los datos?",
+            "blank": "Hoja en blanco",
+            "tsv": "Copiar-pegar TSV",
+            "xml": "Cargar XML desde CLDR"
         }
     },
     "review": {
@@ -135,7 +143,8 @@
     "backgroundStyleName": {
         "None": "Ninguno",
         "Missing": "Traducciones faltantes",
-        "CoverageLevel": "Nivel de cobertura"
+        "CoverageLevel": "Nivel de cobertura",
+        "DifferentThanSource": "Diferente de la fuente"
     },
     "languageName": {
         "abr": "Abron",

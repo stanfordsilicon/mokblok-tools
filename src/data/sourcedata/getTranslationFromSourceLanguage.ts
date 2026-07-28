@@ -1,7 +1,7 @@
 import { getFraktur } from '@shared/stringUtils';
 
-import { SourceLanguage, type DataEntry } from './DataTypes';
-import { getDateString } from './DateString';
+import { SourceLanguage, type DataEntry } from '../DataTypes';
+import { getDateString } from '../DateString';
 
 type getTranslationFromSourceLanguageParams = {
   entry: DataEntry;

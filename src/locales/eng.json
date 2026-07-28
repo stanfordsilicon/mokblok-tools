@@ -25,12 +25,20 @@
             "Doc 2 part 2": "Doc 2 part 2 (Long Form Text)",
             "Doc 2 part 3": "Doc 2 part 3 (Numbers, Geography, Currency & Emojis)",
             "Doc 3": "Doc 3 (Emoji Guidance)",
-            "Doc 4": "Doc 4 (Digitally Disadvantaged Languages)"
+            "Doc 4": "Doc 4 (Digitally Disadvantaged Languages)",
+            "None": "There is nothing to submit"
         },
         "check": {
             "Total rows": "Total rows",
             "Total words": "Total words",
             "Total characters": "Total characters"
+        },
+        "inputSource": {
+            "title": "Input Source",
+            "label": "How to submit data?",
+            "blank": "Blank slate",
+            "tsv": "Copy-paste TSVs",
+            "xml": "Load XML from CLDR"
         }
     },
     "review": {
@@ -134,7 +142,8 @@
     "backgroundStyleName": {
         "None": "None",
         "Missing": "Missing translations",
-        "CoverageLevel": "Coverage level"
+        "CoverageLevel": "Coverage level",
+        "DifferentThanSource": "Different than source"
     },
     "languageName": {
         "abr": "Abron",

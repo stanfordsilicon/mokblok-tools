@@ -1,4 +1,6 @@
-import { SubmissionField, type RowData } from './DataTypes';
+import { SubmissionField } from '../DataTypes';
+
+import type { TSVRowData } from './TSVRowData';
 
 export async function loadInputText(filePath: string): Promise<string | void> {
   return await fetch(filePath)
@@ -18,7 +20,7 @@ export async function loadInputText(filePath: string): Promise<string | void> {
     .catch((err) => console.error('Error loading TSV:', err));
 }
 
-export function parseDoc1TSV(tsv: string): RowData[] {
+export function parseDoc1TSV(tsv: string): TSVRowData[] {
   // Remove lines in comments by finding new lines in "" blocks
   const text = tsv.replace(/"([^"\t]|"")*"/g, (match) => match.replace(/\n/g, ' '));
   const lines = text.split('\n');
