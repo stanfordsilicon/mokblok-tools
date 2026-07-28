@@ -3,7 +3,9 @@ import { useSearchParams } from 'react-router-dom';
 
 import { CoverageLevel, parseCoverageLevel } from '@data/CoverageLevel';
 import { DataPage, DataSection } from '@data/DataSection';
-import { SourceLanguage } from '@data/DataTypes';
+import { InterfaceLanguage, SourceLanguage } from '@data/DataTypes';
+
+import enforceExhaustiveSwitch from '@shared/enforceExhaustiveSwitch';
 
 import i18n from '../i18n';
 
@@ -11,6 +13,7 @@ import { BackgroundStyle } from './BackgroundStyle';
 import StepName from './StepName';
 
 const GLOBAL_DEFAULTS: Readonly<URLParams> = {
+  interfaceLanguage: InterfaceLanguage.English,
   sourceLanguage: SourceLanguage.English,
   targetLanguage: 'mg',
   coverageLevel: CoverageLevel.Moderate,
@@ -23,8 +26,9 @@ const GLOBAL_DEFAULTS: Readonly<URLParams> = {
 };
 
 export type URLParams = {
-  sourceLanguage: SourceLanguage; // eng, fra
-  targetLanguage: string; // mlg, fra
+  interfaceLanguage: InterfaceLanguage; // en, fr
+  sourceLanguage: SourceLanguage; // en, fr, mg, wo
+  targetLanguage: string; // mg, wo
   coverageLevel: CoverageLevel;
   step: StepName;
   page: DataPage;
@@ -74,6 +78,10 @@ export function getParamsFromURL(urlParams: URLSearchParams): Partial<URLParams>
   urlParams.forEach((value, keyUntyped) => {
     const key = keyUntyped as keyof URLParams;
     switch (key) {
+      case 'interfaceLanguage':
+        if (Object.values(InterfaceLanguage).includes(value as InterfaceLanguage))
+          params[key] = value as InterfaceLanguage;
+        break;
       case 'sourceLanguage':
         if (Object.values(SourceLanguage).includes(value as SourceLanguage))
           params[key] = value as SourceLanguage;
@@ -111,6 +119,32 @@ export function getParamsFromURL(urlParams: URLSearchParams): Partial<URLParams>
   return params;
 }
 
+function getInferredParams(instantiatedParams: Partial<URLParams>): Partial<URLParams> {
+  const inferredParams: Partial<URLParams> = {};
+  if (instantiatedParams.sourceLanguage == null && instantiatedParams.interfaceLanguage != null) {
+    switch (instantiatedParams.interfaceLanguage) {
+      case InterfaceLanguage.EnglishFraktur:
+        inferredParams.sourceLanguage = SourceLanguage.EnglishFraktur;
+        break;
+      case InterfaceLanguage.English:
+        inferredParams.sourceLanguage = SourceLanguage.English;
+        break;
+      case InterfaceLanguage.Spanish:
+        inferredParams.sourceLanguage = SourceLanguage.Spanish;
+        break;
+      case InterfaceLanguage.French:
+        inferredParams.sourceLanguage = SourceLanguage.French;
+        break;
+      case InterfaceLanguage.Italian:
+        inferredParams.sourceLanguage = SourceLanguage.Italian;
+        break;
+      default:
+        enforceExhaustiveSwitch(instantiatedParams.interfaceLanguage);
+    }
+  }
+  return inferredParams;
+}
+
 /**
  * These parameters are saved in the URL
  */
@@ -131,19 +165,21 @@ export const URLParamsProvider: React.FC<{ children: React.ReactNode }> = ({ chi
       const typedKey = key as keyof URLParams;
       if (instantiatedParams[typedKey] == null) delete instantiatedParams[typedKey];
     });
+    const inferredParams = getInferredParams(instantiatedParams);
     return {
       ...GLOBAL_DEFAULTS,
       ...instantiatedParams,
+      ...inferredParams,
       updateURLParams,
     };
   }, [urlPageParams, updateURLParams]);
 
   useEffect(() => {
     const changeLanguage = async () => {
-      await i18n.changeLanguage(providerValue.sourceLanguage);
+      await i18n.changeLanguage(providerValue.interfaceLanguage);
     };
     void changeLanguage();
-  }, [providerValue.sourceLanguage]);
+  }, [providerValue.interfaceLanguage]);
 
   return <URLParamsContext.Provider value={providerValue}>{children}</URLParamsContext.Provider>;
 };

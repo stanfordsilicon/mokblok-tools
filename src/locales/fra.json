@@ -111,6 +111,7 @@
     },
     "settings": {
         "title": "Paramètres",
+        "interfaceLanguage": "Langue de l’interface",
         "sourceLanguage": "Langue source",
         "targetLanguageCode": "Code de langue cible",
         "coverageLevel": "Niveau de couverture",
@@ -137,13 +138,20 @@
     },
     "languageName": {
         "abr": "Abron",
+        "ann": "Obolo",
         "bho": "Bhojpuri",
         "en": "Anglais",
         "en-Latf": "Anglais (Fraktur)",
-        "fr": "Français",
-        "mg": "Malgache",
         "es": "Espagnol",
-        "it": "Italien"
+        "fr": "Français",
+        "ha": "Haoussa",
+        "it": "Italien",
+        "mfe": "Créole mauricien",
+        "mg": "Malgache",
+        "or": "Oromo",
+        "sn": "Shona",
+        "unknown": "Inconnu",
+        "wo": "Wolof"
     },
     "common": {
         "emptyCell": "-"
