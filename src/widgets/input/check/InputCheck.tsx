@@ -1,29 +1,44 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { useTargetDataContext } from '@data/TargetDataProvider';
 import { Doc } from '@data/tsvdocs/Doc';
 
+import { useURLParams } from '@settings/URLParams';
+
+import InputSource from '../InputSource';
+
 import CheckRow from './CheckRow';
-import CheckSectionsForDoc from './CheckSectionsForDoc';
+import CheckSections from './CheckSections';
 
 type Props = {
-  doc: Doc;
+  doc?: Doc;
 };
+
 const InputCheck: React.FC<Props> = ({ doc }) => {
-  const { inputTSVs } = useTargetDataContext();
   const { t } = useTranslation();
-  const lines = (inputTSVs[doc]?.value ?? '')
-    .split('\n')
-    .map((l) => l.trim())
-    .filter(Boolean); // Exclude header row for counting
+  const { inputSource } = useURLParams();
+  const { inputTSVs, targetXMLData } = useTargetDataContext();
+
+  const lines = useMemo(() => {
+    if (inputSource === InputSource.TSV && doc) {
+      return (inputTSVs[doc]?.value ?? '')
+        .split('\n')
+        .map((l) => l.trim())
+        .filter(Boolean); // Exclude header row for counting
+    }
+    if (inputSource === InputSource.XML) {
+      return Object.values(targetXMLData);
+    }
+    return [];
+  }, [inputTSVs, doc, inputSource]);
   return (
     <table style={{ width: 'fit-content' }}>
       <tbody>
         <CheckRow
           title={t('input.check.Total rows')}
           count={lines.length}
-          denominator={getExpectedNumberOfLines(doc)}
+          denominator={doc ? getExpectedNumberOfLines(doc) : undefined}
         />
         <CheckRow
           title={t('input.check.Total words')}
@@ -33,7 +48,7 @@ const InputCheck: React.FC<Props> = ({ doc }) => {
           title={t('input.check.Total characters')}
           count={lines.reduce((sum, line) => sum + line.length, 0)}
         />
-        <CheckSectionsForDoc doc={doc} />
+        <CheckSections doc={doc} />
       </tbody>
     </table>
   );

@@ -9,7 +9,11 @@ import { getDataSectionsForTSV } from '../getDataSectionsForTSV';
 
 import CheckRow from './CheckRow';
 
-const CheckSectionsForDoc: React.FC<{ doc: Doc }> = ({ doc }) => {
+type Props = {
+  doc?: Doc;
+};
+
+const CheckSections: React.FC<Props> = ({ doc }) => {
   const { t } = useTranslation();
   const { findDataEntries, getTranslation } = useDataContext();
   const countTranslations = useCallback(
@@ -22,8 +26,11 @@ const CheckSectionsForDoc: React.FC<{ doc: Doc }> = ({ doc }) => {
     },
     [getTranslation, findDataEntries],
   );
+  const sections = doc
+    ? getDataSectionsForTSV(doc)
+    : Object.values(DataSection).filter((section) => SECTION_ROWS[section] > 0);
 
-  return getDataSectionsForTSV(doc).map((section) => (
+  return sections.map((section) => (
     <CheckRow
       key={section}
       title={t(`dataSection.${section}`)}
@@ -97,4 +104,4 @@ function getExplanation(section: DataSection): string | undefined {
   }
 }
 
-export default CheckSectionsForDoc;
+export default CheckSections;

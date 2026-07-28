@@ -39,7 +39,9 @@
             "blank": "Blank slate",
             "tsv": "Copy-paste TSVs",
             "xml": "Load XML from CLDR"
-        }
+        },
+        "asList": "as List",
+        "asXML": "as XML"
     },
     "review": {
         "title": "Review",
@@ -84,8 +86,8 @@
             "space": "[space]",
             "charactersByClass": "Characters by class",
             "writingSystem": "Writing System",
-            "baseAlphabet": "Base Alphabet",
-            "uppercaseIndex": "Uppercase (Index)",
+            "main": "Base Alphabet",
+            "uppercase": "Uppercase (Index)",
             "auxiliary": "Auxiliary",
             "numbers": "Numbers",
             "punctuation": "Punctuation",

@@ -39,7 +39,9 @@
             "blank": "Foglio bianco",
             "tsv": "Copia-incolla TSV",
             "xml": "Carica XML da CLDR"
-        }
+        },
+        "asList": "come lista",
+        "asXML": "come XML"
     },
     "review": {
         "title": "Revisione",
@@ -84,8 +86,8 @@
             "space": "[spazio]",
             "charactersByClass": "Caratteri per classe",
             "writingSystem": "Sistema di scrittura",
-            "baseAlphabet": "Alfabeto di base",
-            "uppercaseIndex": "Maiuscole (indice)",
+            "main": "Alfabeto di base",
+            "uppercase": "Maiuscole (indice)",
             "auxiliary": "Ausiliario",
             "numbers": "Numeri",
             "punctuation": "Punteggiatura",

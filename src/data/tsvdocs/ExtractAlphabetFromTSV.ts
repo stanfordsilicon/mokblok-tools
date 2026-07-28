@@ -5,7 +5,7 @@ const IGNORED_TITLES = ['YOUR ANSWER', 'TRANSLATION IN YOUR LANGUAGE'];
 const IGNORED_WORDS = ['ไทย', '中文']; // From example text
 const IGNORED_CHARS = [' ', '\u00A0' /* non-breaking space */];
 
-function extractAlphabetData(rows: TSVRowData[], extraText: string): AlphabetData {
+function extractAlphabetDataFromTSV(rows: TSVRowData[], extraText: string): AlphabetData {
   const characterHistogram = rows.reduce(
     (acc, row) => countCharacters(acc, row.translated || ''),
     {} as Record<string, number>,
@@ -118,4 +118,4 @@ function isOtherCharacter(char: string, writingSystem: string): boolean {
   //   return !/\p{L}/u.test(char) && !/\p{N}/u.test(char) && !/\p{P}/u.test(char) && char !== ' ';
 }
 
-export default extractAlphabetData;
+export default extractAlphabetDataFromTSV;
