@@ -1,13 +1,7 @@
-import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { useDataContext } from '@data/DataContext';
-import { SourceLanguage, type DataEntry } from '@data/DataTypes';
-import getTranslationFromSourceLanguage from '@data/getTranslationFromSourceLanguage';
-
-import { useURLParams } from '@settings/URLParams';
-
-import { getFraktur } from '@shared/stringUtils';
+import { type DataEntry } from '@data/DataTypes';
+import useTranslationFromSourceLanguage from '@data/sourcedata/useTranslationFromSourceLanguage';
 
 import DebugHovercard from './DebugHovercard';
 
@@ -18,33 +12,10 @@ type Props = {
 };
 function SourceDataCell({ entry, style, convertPatternToExample = true }: Props) {
   const { t } = useTranslation();
-  const { getSourceData, findDataEntry } = useDataContext();
-  const { sourceLanguage } = useURLParams();
-
-  // Make a helper to get source strings so we can convert syntax like "MMM" to "January", etc.
-  const getInnerString = useCallback(
-    (query: Partial<DataEntry>): string => {
-      const dataEntry = findDataEntry(query);
-      if (!dataEntry) return '!!!';
-      const sourceData = getSourceData(dataEntry);
-      if (sourceLanguage === SourceLanguage.EnglishFraktur && sourceData)
-        return getFraktur(sourceData);
-      if (sourceData) return sourceData;
-      if (sourceLanguage === SourceLanguage.EnglishFraktur) return getFraktur(dataEntry.english);
-      if (sourceLanguage === SourceLanguage.French) return dataEntry.french;
-      return dataEntry.english;
-    },
-    [findDataEntry, getSourceData, sourceLanguage],
-  );
+  const getSourceTranslation = useTranslationFromSourceLanguage();
 
   if (!entry) return <td>{t('common.emptyCell')}</td>;
-
-  const sourceTranslation = getTranslationFromSourceLanguage({
-    entry,
-    getSourceData,
-    getInnerString,
-    sourceLanguage,
-  });
+  const sourceTranslation = getSourceTranslation(entry);
 
   return (
     <td className="Cell" tabIndex={0}>
@@ -64,13 +35,7 @@ function SourceDataCell({ entry, style, convertPatternToExample = true }: Props)
 // Convert newline chars to new blocks
 const NewLineAwareRenderer: React.FC<React.PropsWithChildren> = ({ children }) => {
   if (typeof children === 'string' && children.includes('\\n')) {
-    return (
-      <>
-        {children.split('\\n').map((line, index) => (
-          <div key={index}>{line}</div>
-        ))}
-      </>
-    );
+    return children.split('\\n').map((line, index) => <div key={index}>{line}</div>);
   }
   return <>{children}</>;
 };

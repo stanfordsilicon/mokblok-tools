@@ -1,19 +1,19 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { useDataContext } from '@data/DataContext';
-import { Doc } from '@data/Doc';
+import { useTargetDataContext } from '@data/TargetDataProvider';
+import { Doc } from '@data/tsvdocs/Doc';
 
 import CheckRow from './CheckRow';
-import Doc1Analysis from './Doc1Analysis';
+import CheckSectionsForDoc from './CheckSectionsForDoc';
 
 type Props = {
   doc: Doc;
 };
 const InputCheck: React.FC<Props> = ({ doc }) => {
-  const { inputTSVs } = useDataContext();
+  const { inputTSVs } = useTargetDataContext();
   const { t } = useTranslation();
-  const lines = (inputTSVs?.[doc]?.value ?? '')
+  const lines = (inputTSVs[doc]?.value ?? '')
     .split('\n')
     .map((l) => l.trim())
     .filter(Boolean); // Exclude header row for counting
@@ -33,7 +33,7 @@ const InputCheck: React.FC<Props> = ({ doc }) => {
           title={t('input.check.Total characters')}
           count={lines.reduce((sum, line) => sum + line.length, 0)}
         />
-        {doc === Doc.Doc1 && <Doc1Analysis />}
+        <CheckSectionsForDoc doc={doc} />
       </tbody>
     </table>
   );

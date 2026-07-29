@@ -1,4 +1,4 @@
-import { Doc } from '@data/Doc';
+import { Doc } from '@data/tsvdocs/Doc';
 
 import useStoredParams, { type UseStoredParamsReturn } from '@settings/useStoredParams';
 

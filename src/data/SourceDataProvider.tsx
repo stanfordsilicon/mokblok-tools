@@ -84,11 +84,10 @@ const SourceDataProvider: React.FC<{
 
   // Data Entry accessors
   const findDataEntries = useCallback(
-    (query: Partial<DataEntry>): DataEntry[] => {
-      return dataEntries.filter((entry) =>
+    (query: Partial<DataEntry>): DataEntry[] =>
+      dataEntries.filter((entry) =>
         Object.entries(query).every(([key, value]) => entry[key as keyof DataEntry] === value),
-      );
-    },
+      ),
     [dataEntries],
   );
   const findDataEntry = useCallback(

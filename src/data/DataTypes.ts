@@ -31,15 +31,6 @@ export enum SubmissionField {
   ExtId = 'ext_id',
 }
 
-export type RowData = {
-  english: string;
-  french?: string;
-  translated: string;
-  notes: string;
-  xpath?: string;
-  key: string;
-};
-
 export enum InterfaceLanguage {
   English = 'en',
   EnglishFraktur = 'en-Latf',

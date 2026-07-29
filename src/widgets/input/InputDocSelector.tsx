@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
-import { useDataContext } from '@data/DataContext';
-import { Doc } from '@data/Doc';
+import { useTargetDataContext } from '@data/TargetDataProvider';
+import { Doc } from '@data/tsvdocs/Doc';
 
 import Tab from '@shared/Tab';
 
@@ -10,7 +10,7 @@ const InputDocSelector: React.FC<{
   setDoc: (doc: Doc) => void;
 }> = ({ curDoc, setDoc }) => {
   const { t } = useTranslation();
-  const { inputTSVs } = useDataContext();
+  const { inputTSVs } = useTargetDataContext();
 
   return (
     <div

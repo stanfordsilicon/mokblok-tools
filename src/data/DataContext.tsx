@@ -1,15 +1,11 @@
 import { createContext, useContext } from 'react';
 
-import type { UseStoredParamsReturn } from '@settings/useStoredParams';
-
 import { type AlphabetData, type DataEntry } from './DataTypes';
-import { Doc } from './Doc';
 import { useSourceDataContext } from './SourceDataProvider';
 import { useTargetDataContext } from './TargetDataProvider';
 
 export type DataContextType = {
   alphabet?: AlphabetData;
-  inputTSVs: Partial<Record<Doc, UseStoredParamsReturn<string>>>;
   findDataEntry(query: Partial<DataEntry>): DataEntry | undefined;
   findDataEntries(query: Partial<DataEntry>): DataEntry[];
   getTranslation(entry: DataEntry | undefined, fallback?: boolean): string;
@@ -18,7 +14,6 @@ export type DataContextType = {
 };
 
 export const DataContext = createContext<DataContextType>({
-  inputTSVs: {},
   alphabet: undefined,
   findDataEntry: () => undefined,
   findDataEntries: () => [],
@@ -40,12 +35,11 @@ export const useDataContext = () => {
 export const DataProvider: React.FC<{
   children: React.ReactNode;
 }> = ({ children }) => {
-  const { alphabet, inputTSVs, getTranslation, setTranslation } = useTargetDataContext();
+  const { alphabet, getTranslation, setTranslation } = useTargetDataContext();
   const { findDataEntry, findDataEntries, getSourceData } = useSourceDataContext();
 
   const dataContext: DataContextType = {
     alphabet,
-    inputTSVs,
     findDataEntry,
     findDataEntries,
     getTranslation,
