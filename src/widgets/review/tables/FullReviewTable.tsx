@@ -7,7 +7,7 @@ import type { DataEntry } from '@data/DataTypes';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
-import getBackgroundColor from '../getBackgroundColor';
+import useBackgroundColor from '../getBackgroundColor';
 import InputDataCell from '../InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
@@ -140,8 +140,9 @@ function FilterCoverageLevelCell({
 }
 
 function TranslationRow({ entry }: { entry: DataEntry }) {
-  const { getSourceData } = useDataContext();
   const { t } = useTranslation();
+  const { getSourceData } = useDataContext();
+  const getBackgroundColor = useBackgroundColor();
   return (
     <tr key={entry.index} style={{ backgroundColor: getBackgroundColor(entry) }}>
       <td style={{ maxWidth: '5em' }}>{t(`dataPage.${entry.page}`)}</td>

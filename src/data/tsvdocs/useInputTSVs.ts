@@ -27,8 +27,12 @@ function useInputTSVs() {
   // TSV input files
   const loadTSVData = useCallback(
     (lang: string) => {
-      if (inputSource !== InputSource.TSV) {
-        Object.values(Doc).map((doc) => inputTSVs[doc].clear());
+      if (
+        inputSource !== InputSource.TSV ||
+        !Object.values(LoadableLanguage).find((l) => l === targetLanguage) ||
+        !targetLanguage
+      ) {
+        Object.values(Doc).forEach((doc) => inputTSVs[doc].clear());
         return;
       }
 
@@ -48,10 +52,8 @@ function useInputTSVs() {
     },
     [inputTSVs, inputSource],
   );
-  useEffect(() => {
-    if (targetLanguage && Object.values(LoadableLanguage).find((l) => l === targetLanguage))
-      loadTSVData(targetLanguage);
-  }, [targetLanguage]);
+  // Trigger it when the target language changes
+  useEffect(() => loadTSVData(targetLanguage), [targetLanguage, loadTSVData]);
 
   // Automatically updates the TSV datasets when input changes
   const tsvRows = useMemo(() => {

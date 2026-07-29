@@ -16,7 +16,7 @@ const CheckSectionsForDoc: React.FC<{ doc: Doc }> = ({ doc }) => {
     (section: DataSection) => {
       const dataEntries = findDataEntries({ section });
       return dataEntries.reduce((count, entry) => {
-        const translation = getTranslation(entry).trim();
+        const translation = getTranslation(entry, false).trim();
         return count + (translation ? 1 : 0);
       }, 0);
     },
@@ -75,9 +75,9 @@ function getExplanation(section: DataSection): string | undefined {
     case DataSection.DaysOfWeek:
       return '7 days × 2 lengths × 2 (standalone, inSentence)';
     case DataSection.DateFields:
-      return '4 date fields × 3 (past, present, future)';
+      return '11 fields × 1-3 forms each';
     case DataSection.RelativeTime:
-      return '4 units × 3 lengths';
+      return '4 date fields × 3 (past, present, future)';
     case DataSection.Times:
       return '4 formats × 2 variants';
     case DataSection.Coordinates:

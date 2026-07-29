@@ -66,7 +66,7 @@ const TargetDataProvider: React.FC<{
       setTargetXMLData(data);
     };
     loadData();
-  }, []);
+  }, [targetLanguage]);
 
   const getTranslation = useCallback(
     (entry: DataEntry | undefined, fallback = true): string => {
@@ -93,7 +93,7 @@ const TargetDataProvider: React.FC<{
       setTranslationsByIndex(newTranslationsByIndex);
       setTargetDataStatus(TargetDataStatus.Ready);
     },
-    [setTranslation, sourceDataStatus],
+    [setTranslationsByIndex, setTargetDataStatus, sourceDataStatus],
   );
   const fillTranslationsFromXML = useCallback(
     (xmlData: Record<string, string>) => {
@@ -128,6 +128,8 @@ const TargetDataProvider: React.FC<{
   useEffect(() => {
     if (inputSource === InputSource.Blank) {
       fillTranslationsFromXML({});
+      setAlphabetData(undefined);
+      setTargetDataStatus(TargetDataStatus.Ready);
     }
   }, [tsvRows, inputSource]);
 

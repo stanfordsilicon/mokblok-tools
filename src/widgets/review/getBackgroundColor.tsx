@@ -5,26 +5,27 @@ import useTranslationFromSourceLanguage from '@data/sourcedata/useTranslationFro
 import { BackgroundStyle } from '@settings/BackgroundStyle';
 import { useURLParams } from '@settings/URLParams';
 
-function getBackgroundColor(data?: DataEntry) {
+function useBackgroundColor(): (data: DataEntry) => string {
   const { bgStyle } = useURLParams();
   const getSourceTranslation = useTranslationFromSourceLanguage();
   const { getTranslation } = useDataContext();
-  if (!data) return 'var(--color-input-background)';
 
   switch (bgStyle) {
     case BackgroundStyle.Missing:
-      return getTranslation(data, false)
-        ? 'var(--color-input-background)'
-        : 'var(--color-input-unfilled)';
+      return (data: DataEntry) =>
+        getTranslation(data, false)
+          ? 'var(--color-input-background)'
+          : 'var(--color-input-unfilled)';
     case BackgroundStyle.CoverageLevel:
-      return 'var(--color-level-' + data.level + ')';
+      return (data: DataEntry) => 'var(--color-level-' + data.level + ')';
     case BackgroundStyle.DifferentThanSource:
-      return getSourceTranslation(data) === getTranslation(data, true)
-        ? 'var(--color-input-unfilled)'
-        : 'var(--color-input-background)';
-    default:
-      return 'var(--color-input-background)';
+      return (data: DataEntry) =>
+        getSourceTranslation(data) === getTranslation(data, true)
+          ? 'var(--color-input-unfilled)'
+          : 'var(--color-input-background)';
+    default: // BackgroundStyle.None
+      return () => 'var(--color-input-background)';
   }
 }
 
-export default getBackgroundColor;
+export default useBackgroundColor;
