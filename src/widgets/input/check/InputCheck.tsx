@@ -25,13 +25,13 @@ const InputCheck: React.FC<Props> = ({ doc }) => {
       return (inputTSVs[doc]?.value ?? '')
         .split('\n')
         .map((l) => l.trim())
-        .filter(Boolean); // Exclude header row for counting
+        .filter(Boolean); // Exclude empty lines for counting
     }
     if (inputSource === InputSource.XML) {
       return Object.values(targetXMLData);
     }
     return [];
-  }, [inputTSVs, doc, inputSource]);
+  }, [inputTSVs, doc, inputSource, targetXMLData]);
   return (
     <table style={{ width: 'fit-content' }}>
       <tbody>
