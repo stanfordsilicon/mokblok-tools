@@ -4,7 +4,7 @@ import { DataPage, DataSection, getSectionsForPage } from '@data/DataSection';
 
 import { useURLParams } from '@settings/URLParams';
 
-import { getCompletionForSection } from './getDataEntriesForSection';
+import ProgressCircle from './ProgressCircle';
 
 const DataTypeSelector: React.FC = () => {
   return (
@@ -72,7 +72,7 @@ const PageButton: React.FC<{
             </div>
           )}
         </button>
-        <Progress page={page} />
+        <ProgressCircle page={page} />
       </div>
       {page !== DataPage.All && page !== DataPage.FullTable && (
         <div className={isExpanded ? 'verticalGrow' : 'verticalShrink'}>
@@ -117,36 +117,9 @@ const PageSections: React.FC<PageSectionsProps> = ({ page }) => {
           >
             {t(`dataSection.${section}`)}
           </button>
-          <Progress page={page} section={section} />
+          <ProgressCircle page={page} section={section} />
         </div>
       ))}
-    </div>
-  );
-};
-
-type ProgressProps = {
-  page: DataPage;
-  section?: DataSection;
-};
-
-const Progress: React.FC<ProgressProps> = ({ page, section }) => {
-  const completion = getCompletionForSection(page, section);
-  if (completion === undefined) return null;
-  return (
-    <div
-      style={{
-        backgroundColor: 'var(--color-button-background)',
-        opacity: 0.5,
-        width: '2.5em',
-        height: '2.5em',
-        borderRadius: '2em',
-        textAlign: 'center',
-        lineHeight: '2.5em',
-        fontWeight: 200,
-      }}
-    >
-      {completion.toFixed(0)}
-      <span style={{ fontSize: '0.5em' }}>%</span>
     </div>
   );
 };
