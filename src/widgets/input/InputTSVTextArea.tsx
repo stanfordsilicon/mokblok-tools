@@ -4,25 +4,19 @@ import { useTranslation } from 'react-i18next';
 import { useTargetDataContext } from '@data/TargetDataProvider';
 import { getDocFileType, type Doc } from '@data/tsvdocs/Doc';
 
+import './inputStyles.css';
+
 type Props = {
   doc: Doc;
 };
 
-const InputTextArea: React.FC<Props> = ({ doc }) => {
+const InputTSVTextArea: React.FC<Props> = ({ doc }) => {
   const { t } = useTranslation();
   const { inputTSVs } = useTargetDataContext();
 
   return (
     <textarea
-      style={{
-        flexShrink: 0,
-        width: '100%',
-        height: '300px',
-        marginTop: '1em',
-        fontSize: '8px',
-        tabSize: 16,
-        whiteSpace: 'nowrap',
-      }}
+      className="LargeTextArea"
       placeholder={
         getDocFileType(doc) === 'tsv'
           ? t('input.files.placeholderTsv')
@@ -34,4 +28,4 @@ const InputTextArea: React.FC<Props> = ({ doc }) => {
   );
 };
 
-export default InputTextArea;
+export default InputTSVTextArea;

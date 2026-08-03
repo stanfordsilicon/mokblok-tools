@@ -12,7 +12,7 @@ import { decodeHtmlEntities } from '@shared/stringUtils';
 import InputDataCell from '../InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
-const charSets = ['base', 'uppercase', 'auxiliary', 'numbers', 'punctuation'] as const;
+const charSets = ['main', 'uppercase', 'auxiliary', 'numbers', 'punctuation'] as const;
 
 const AlphabetReview: React.FC = () => {
   const { findDataEntries, getTranslation } = useDataContext();
@@ -39,7 +39,7 @@ const AlphabetReview: React.FC = () => {
             const row = alphabetFields.find((f) => f.instance === charSet);
             return (
               <tr key={charSet}>
-                <td>{charSet}</td>
+                <td>{t(`review.alphabet.${charSet}`)}</td>
                 <SourceDataCell entry={row} />
                 <InputDataCell entry={row} inputWidth="30em" />
               </tr>
@@ -91,20 +91,23 @@ const InferredCharacters: React.FC = () => {
     charactersOther,
     writingSystem,
   } = useDataContext().alphabet || {};
+  const hasHistogram = characterHistogram != null && Object.keys(characterHistogram).length > 0;
 
   return (
     <div>
-      <h3>{t('review.alphabet.charactersByFrequency')}</h3>
-      <div style={{ display: 'flex', gap: '.5em', flexWrap: 'wrap' }}>
-        {Object.entries(characterHistogram || {})
-          .sort(([, countA], [, countB]) => countB - countA)
-          .map(([char, count]) => (
-            <div key={char}>
-              {char === ' ' ? t('review.alphabet.space') : char}
-              <div style={{ fontWeight: 'lighter' }}>{count}</div>
-            </div>
-          ))}
-      </div>
+      {hasHistogram && <h3>{t('review.alphabet.charactersByFrequency')}</h3>}
+      {hasHistogram && (
+        <div style={{ display: 'flex', gap: '.5em', flexWrap: 'wrap' }}>
+          {Object.entries(characterHistogram)
+            .sort(([, countA], [, countB]) => countB - countA)
+            .map(([char, count]) => (
+              <div key={char}>
+                {char === ' ' ? t('review.alphabet.space') : char}
+                <div style={{ fontWeight: 'lighter' }}>{count}</div>
+              </div>
+            ))}
+        </div>
+      )}
       <h3>{t('review.alphabet.charactersByClass')}</h3>
       <table>
         <tbody>
@@ -113,11 +116,11 @@ const InferredCharacters: React.FC = () => {
             <td>{writingSystem}</td>
           </tr>
           <tr>
-            <th>{t('review.alphabet.baseAlphabet')}</th>
+            <th>{t('review.alphabet.main')}</th>
             <td>{charactersBase?.join(' ')}</td>
           </tr>
           <tr>
-            <th>{t('review.alphabet.uppercaseIndex')}</th>
+            <th>{t('review.alphabet.uppercase')}</th>
             <td>{charactersUppercase?.join(' ')}</td>
           </tr>
           <tr>
