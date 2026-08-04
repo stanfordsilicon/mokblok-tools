@@ -1,5 +1,5 @@
+import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
 
 import StepName from '@settings/StepName';
 import StepSelector from '@settings/StepSelector';
@@ -28,7 +28,7 @@ const Sidebar: React.FC = () => {
     >
       <header style={{ padding: '0.5em 1em', marginBottom: '1em' }}>
         <h1 style={{ margin: '.5em 0 0 0' }}>
-          <Link to="/" style={{ color: 'var(--color-text)' }}>
+          <Link href="/" style={{ color: 'var(--color-text)' }}>
             {t('title')}
           </Link>
         </h1>

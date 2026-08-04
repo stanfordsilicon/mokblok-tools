@@ -7,8 +7,6 @@ import { addValueToXML, toXMLString, type XMLObject } from '@widgets/export/form
 
 import InputCheck from './check/InputCheck';
 
-import './inputStyles.css';
-
 const InputXMLSection = () => {
   const { t } = useTranslation();
   const { targetXMLData } = useTargetDataContext();

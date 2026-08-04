@@ -1,5 +1,5 @@
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import React, { createContext, useCallback, useContext, useEffect, useMemo } from 'react';
-import { useSearchParams } from 'react-router-dom';
 
 import { CoverageLevel, parseCoverageLevel } from '@data/CoverageLevel';
 import { DataPage, DataSection } from '@data/DataSection';
@@ -157,17 +157,24 @@ function getInferredParams(instantiatedParams: Partial<URLParams>): Partial<URLP
  * These parameters are saved in the URL
  */
 export const URLParamsProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [urlPageParams, setURLPageParams] = useSearchParams({});
+  const pathname = usePathname();
+  const router = useRouter();
+  const searchParams = useSearchParams();
 
   const updateURLParams = useCallback(
     (newParams: Partial<URLParams>) => {
-      setURLPageParams((prev) => buildNextURLSearchParams(newParams, prev));
+      const nextSearchParams = buildNextURLSearchParams(
+        newParams,
+        new URLSearchParams(searchParams.toString()),
+      );
+      const nextSearch = nextSearchParams.toString();
+      router.replace(nextSearch ? `${pathname}?${nextSearch}` : pathname, { scroll: false });
     },
-    [setURLPageParams],
+    [pathname, router, searchParams],
   );
 
   const providerValue: URLParamsContextState = useMemo(() => {
-    const instantiatedParams = getParamsFromURL(urlPageParams);
+    const instantiatedParams = getParamsFromURL(new URLSearchParams(searchParams.toString()));
 
     Object.keys(instantiatedParams).forEach((key) => {
       const typedKey = key as keyof URLParams;
@@ -180,7 +187,7 @@ export const URLParamsProvider: React.FC<{ children: React.ReactNode }> = ({ chi
       ...inferredParams,
       updateURLParams,
     };
-  }, [urlPageParams, updateURLParams]);
+  }, [searchParams, updateURLParams]);
 
   useEffect(() => {
     const changeLanguage = async () => {

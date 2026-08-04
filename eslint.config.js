@@ -17,7 +17,7 @@ export default defineConfig([
     extends: [js.configs.recommended],
     languageOptions: { globals: globals.browser },
   },
-  globalIgnores(['dist']),
+  globalIgnores(['.next', 'dist', 'next-env.d.ts']),
   tseslint.configs.recommended,
 
   {

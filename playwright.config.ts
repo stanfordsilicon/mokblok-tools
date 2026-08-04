@@ -16,7 +16,7 @@ export default defineConfig({
     '{snapshotDir}/{testFileDir}/{testFileName}-snapshots/{platform}-{arg}{ext}',
 
   webServer: {
-    command: 'npm run build && npm run preview',
+    command: 'npm run build && npx next start --hostname 127.0.0.1 --port 4173',
     port: 4173,
   },
 

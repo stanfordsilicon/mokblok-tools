@@ -38,7 +38,7 @@ function useInputTSVs() {
 
       // Reload all docs
       Object.values(Doc).map((doc) => {
-        const filename = `input_tsvs/${lang}_${getDocFileSuffix(doc)}.${getDocFileType(doc)}`;
+        const filename = `/input_tsvs/${lang}_${getDocFileSuffix(doc)}.${getDocFileType(doc)}`;
         loadInputText(filename)
           .then((data) => {
             if (data) inputTSVs[doc].set(data);

@@ -6,7 +6,7 @@ import type { DataPage, DataSection } from './DataSection';
 import type { DataEntry } from './DataTypes';
 
 export async function loadDataEntries(): Promise<DataEntry[] | void> {
-  const filePath = 'dataentries.tsv';
+  const filePath = '/dataentries.tsv';
   return await fetch(filePath)
     .then((res) => {
       const contentType = res.headers.get('content-type');

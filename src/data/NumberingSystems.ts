@@ -8,7 +8,7 @@ export type NumberingSystem = {
 };
 
 export function loadNumberingSystems(): Promise<Record<string, NumberingSystem>> {
-  return fetch('numberingSystems.tsv')
+  return fetch('/numberingSystems.tsv')
     .then((response) => response.text())
     .then((text) => {
       const lines = text.trim().split('\n').slice(2); // Skip header lines
