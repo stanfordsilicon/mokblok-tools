@@ -15,17 +15,23 @@
     "screenshots:update": "npx playwright test --update-snapshots"
   },
   "dependencies": {
+    "@auth/mongodb-adapter": "^3.11.3",
+    "@tailwindcss/postcss": "^4.3.3",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-prettier": "^5.5.5",
     "eslint-plugin-react": "^7.37.5",
     "i18next": "^25.10.10",
     "mf2react": "^0.1.12",
     "next": "^15.5.2",
+    "next-auth": "^4.24.15",
     "playwright": "^1.61.1",
+    "postcss": "^8.5.25",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-error-boundary": "^6.1.0",
-    "react-i18next": "^16.6.6"
+    "react-i18next": "^16.6.6",
+    "tailwind": "^4.0.0",
+    "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.2",

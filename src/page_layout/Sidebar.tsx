@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 
+import AccountBadge from '@settings/auth/AccountBadge';
 import StepName from '@settings/StepName';
 import StepSelector from '@settings/StepSelector';
 import { useURLParams } from '@settings/URLParams';
@@ -34,6 +35,8 @@ const Sidebar: React.FC = () => {
         </h1>
         <h3 style={{ margin: 0, fontWeight: 300 }}>{t('bySILICON')}</h3>
       </header>
+      <AccountBadge />
+
       <StepSelector />
       <div style={{ overflow: 'auto', flex: 1 }}>
         <SidebarContents />
