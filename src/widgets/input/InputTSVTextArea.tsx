@@ -4,8 +4,6 @@ import { useTranslation } from 'react-i18next';
 import { useTargetDataContext } from '@data/TargetDataProvider';
 import { getDocFileType, type Doc } from '@data/tsvdocs/Doc';
 
-import './inputStyles.css';
-
 type Props = {
   doc: Doc;
 };

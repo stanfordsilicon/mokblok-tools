@@ -3,11 +3,11 @@ import React from 'react';
 import { useDataContext } from '@data/DataContext';
 import { DayKeys } from '@data/DayKeys';
 
-import { getExampleDate } from '@settings/selectors/ExampleDateSelector';
+import { useExampleDate } from '@settings/selectors/ExampleDateSelector';
 
 const DemoDaysOfWeekInMonth: React.FC = () => {
   const { findDataEntry, getTranslation } = useDataContext();
-  const today = getExampleDate();
+  const today = useExampleDate();
   const firstDayOfMonth = new Date(today.getFullYear(), today.getMonth(), 1).getDay(); // Get the day of the week for the first day of the month (0-6, where 0 is Sunday)
 
   return (

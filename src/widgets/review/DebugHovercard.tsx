@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import { SourceLanguage, type DataEntry } from '@data/DataTypes';
 
 import { useURLParams } from '@settings/URLParams';
-import './review_styles.css';
 
 type Props = {
   entry: DataEntry;

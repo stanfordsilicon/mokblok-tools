@@ -2,11 +2,11 @@ import React from 'react';
 
 import { useDataContext } from '@data/DataContext';
 
-import { getExampleDate } from '@settings/selectors/ExampleDateSelector';
+import { useExampleDate } from '@settings/selectors/ExampleDateSelector';
 
 const DemoQuartersCircle: React.FC = () => {
   const { findDataEntry, getTranslation } = useDataContext();
-  const today = getExampleDate();
+  const today = useExampleDate();
   const months = [...Array(12)]
     .map((_, index) => findDataEntry({ field: 'M', instance: (index + 1).toString(), length: 'a' }))
     .filter((m) => m != null);
