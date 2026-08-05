@@ -1,6 +1,6 @@
 import type { DataPage, DataSection } from '@data/DataSection';
 
-import { getCompletionForSection } from './getDataEntriesForSection';
+import { useCompletionForSection } from './getDataEntriesForSection';
 
 type Props = {
   page: DataPage;
@@ -8,26 +8,9 @@ type Props = {
 };
 
 const ProgressCircle: React.FC<Props> = ({ page, section }) => {
-  const completion = getCompletionForSection(page, section);
+  const completion = useCompletionForSection(page, section);
   if (completion === undefined) return null;
   return <CompletionPie label={`${completion.toFixed(0)}%`} progress={completion / 100} />;
-  //   return (
-  //     <div
-  //       style={{
-  //         backgroundColor: 'var(--color-button-background)',
-  //         opacity: 0.5,
-  //         width: '2.5em',
-  //         height: '2.5em',
-  //         borderRadius: '2em',
-  //         textAlign: 'center',
-  //         lineHeight: '2.5em',
-  //         fontWeight: 200,
-  //       }}
-  //     >
-  //       {completion.toFixed(0)}
-  //       <span style={{ fontSize: '0.5em' }}>%</span>
-  //     </div>
-  //   );
 };
 
 type CompletionPieProps = {

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 
 export type UseTSVState = {
   value: string;
@@ -8,8 +8,8 @@ export type UseTSVState = {
 
 function useTSVState(initialValue: string = ''): UseTSVState {
   const [value, setValue] = useState(initialValue);
-  const clear = () => setValue('');
-  return { value, set: setValue, clear };
+  const clear = useCallback(() => setValue(''), []);
+  return useMemo(() => ({ value, set: setValue, clear }), [clear, value]);
 }
 
 export default useTSVState;

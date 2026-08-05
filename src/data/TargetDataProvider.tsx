@@ -53,7 +53,7 @@ const TargetDataProvider: React.FC<{
   children: React.ReactNode;
 }> = ({ children }) => {
   const { targetLanguage, inputSource } = useURLParams();
-  const { sourceDataStatus, findDataEntry } = useSourceDataContext();
+  const { findDataEntry } = useSourceDataContext();
   const [targetDataStatus, setTargetDataStatus] = useState<TargetDataStatus>(
     TargetDataStatus.Initial,
   );
@@ -96,7 +96,7 @@ const TargetDataProvider: React.FC<{
       setTranslationsByIndex(newTranslationsByIndex);
       setTargetDataStatus(TargetDataStatus.Ready);
     },
-    [setTranslationsByIndex, setTargetDataStatus, sourceDataStatus],
+    [findDataEntry, setTranslationsByIndex, setTargetDataStatus],
   );
   const fillTranslationsFromXML = useCallback(
     (xmlData: Record<string, string>) => {
@@ -121,19 +121,19 @@ const TargetDataProvider: React.FC<{
     setTargetDataStatus(TargetDataStatus.InputFileChanged);
     setAlphabetData(extractAlphabetDataFromTSV(tsvRows, extraText));
     fillTranslationsFromTSV(tsvRows);
-  }, [tsvRows, extraText, inputSource]);
+  }, [extraText, fillTranslationsFromTSV, inputSource, tsvRows]);
   useEffect(() => {
     if (inputSource !== InputSource.XML) return;
     setTargetDataStatus(TargetDataStatus.InputFileChanged);
     setAlphabetData(extractAlphabetFromXML(targetXMLData));
     fillTranslationsFromXML(targetXMLData);
-  }, [targetXMLData, inputSource]);
+  }, [fillTranslationsFromXML, inputSource, targetXMLData]);
   useEffect(() => {
     if (inputSource !== InputSource.Blank) return;
     fillTranslationsFromXML({});
     setAlphabetData(undefined);
     setTargetDataStatus(TargetDataStatus.Ready);
-  }, [tsvRows, inputSource]);
+  }, [fillTranslationsFromXML, inputSource, tsvRows]);
 
   const dataContext: TargetDataContextType = {
     alphabet: alphabetData,

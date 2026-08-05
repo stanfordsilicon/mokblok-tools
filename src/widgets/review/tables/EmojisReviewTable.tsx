@@ -17,8 +17,8 @@ function EmojisReviewTable() {
 
   return (
     <div>
-      Write the name describing the emoji -- you don't necessarily need to stay true to the source
-      word, but explain what the emoji means.
+      Write the name describing the emoji -- you don&apos;t necessarily need to stay true to the
+      source word, but explain what the emoji means.
       {Object.entries(emojisByGroup).map(([group, emojis]) => (
         <div key={group}>
           <h3>{group}</h3>

@@ -7,7 +7,7 @@ import type { DataEntry } from '@data/DataTypes';
 /**
  * Returns the data entry partial for filtering out a section
  */
-export function getDataEntriesForSection(page?: DataPage, section?: DataSection): DataEntry[] {
+export function useDataEntriesForSection(page?: DataPage, section?: DataSection): DataEntry[] {
   const { findDataEntries } = useDataContext();
   const filter: Partial<DataEntry> = {};
   if (section != null && section !== DataSection.All && section !== DataSection.FullTable) {
@@ -19,12 +19,12 @@ export function getDataEntriesForSection(page?: DataPage, section?: DataSection)
   return findDataEntries(filter);
 }
 
-export function getCompletionForSection(
+export function useCompletionForSection(
   page?: DataPage,
   section?: DataSection,
 ): number | undefined {
   const { getTranslation } = useDataContext();
-  const entries = getDataEntriesForSection(page, section);
+  const entries = useDataEntriesForSection(page, section);
   const completedEntries = useMemo(
     () => entries.filter((entry) => getTranslation(entry, false)),
     [entries, getTranslation],

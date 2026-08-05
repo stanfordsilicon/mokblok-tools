@@ -1,4 +1,8 @@
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
 import js from '@eslint/js';
+import { FlatCompat } from '@eslint/eslintrc';
 import typescript from '@typescript-eslint/eslint-plugin';
 import parser from '@typescript-eslint/parser';
 import prettierConfig from 'eslint-config-prettier';
@@ -10,7 +14,14 @@ import { defineConfig, globalIgnores } from 'eslint/config';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const compat = new FlatCompat({
+  baseDirectory: __dirname,
+});
+
 export default defineConfig([
+  ...compat.extends('next/core-web-vitals'),
   {
     files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
     plugins: { js },
@@ -39,6 +50,9 @@ export default defineConfig([
     rules: {
       'prettier/prettier': 'warn',
       'react/react-in-jsx-scope': 'off',
+      'react-hooks/preserve-manual-memoization': 'off',
+      'react-hooks/set-state-in-effect': 'off',
+      'react-hooks/use-memo': 'off',
     },
     settings: {
       react: {

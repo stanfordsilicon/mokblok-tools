@@ -5,7 +5,7 @@ import '../src/widgets/input/inputStyles.css';
 import '../src/widgets/review/review_styles.css';
 
 export const metadata: Metadata = {
-  title: 'mokblok-tools',
+  title: 'homescreen-review',
   description: 'A web application that allows people to submit translations for languages',
 };
 

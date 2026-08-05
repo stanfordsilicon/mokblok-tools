@@ -35,7 +35,7 @@ const ExampleDateSelector: React.FC = () => {
   );
 };
 
-export const getExampleDate = () => {
+export const useExampleDate = () => {
   const { dateExample } = useURLParams();
   return dateExample ? new Date(dateExample) : new Date();
 };

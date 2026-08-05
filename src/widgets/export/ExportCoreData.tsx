@@ -77,7 +77,8 @@ const ExportCoreData: React.FC = () => {
     charactersBase,
     charactersNumber,
     formattedPunctuations,
-    targetLanguage,
+    endonym,
+    targetLanguageBCP,
   ]);
 
   return (
