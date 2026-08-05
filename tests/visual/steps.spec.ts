@@ -1,10 +1,10 @@
 import { expect, Page, test } from '@playwright/test';
 
+import { freezeDate, gotoApp } from './testUtils';
+
 async function performTest(page: Page, urlParams: string, screenshotName: string) {
-  await page.clock.install();
-  await page.clock.setFixedTime(new Date('2026-01-15T12:00:00Z'));
-  await page.goto(`/mokblok-tools/?${urlParams}`);
-  await page.waitForLoadState('networkidle');
+  await freezeDate(page);
+  await gotoApp(page, `/?${urlParams}`);
   await expect(page).toHaveScreenshot(screenshotName, {
     fullPage: true,
   });
@@ -36,10 +36,8 @@ test('Export Step', async ({ page }) => {
 });
 
 test('Settings', async ({ page }) => {
-  await page.clock.install();
-  await page.clock.setFixedTime(new Date('2026-01-15T12:00:00Z'));
-  await page.goto(`/mokblok-tools/?admin=true`);
-  await page.waitForLoadState('networkidle');
+  await freezeDate(page);
+  await gotoApp(page, '/?admin=true');
 
   // Click to open the settings
   await page.click('text=Settings');
