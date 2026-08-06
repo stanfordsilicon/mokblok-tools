@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   SILICON brand palette — single source of truth for every color in the app.
+   Components reference these via Tailwind v4 arbitrary values, e.g.
+   text-(--silicon-brown) / bg-(--silicon-beige), so a future palette swap
+   (pending Sandrine's UI review) is a change to this block only.
+
+   Contrast (WCAG AA, verified):
+     brown  on beige  9.28:1   brown  on white 11.39:1   brown on blue 6.95:1
+     purple on beige 10.01:1   purple on white 12.29:1   purple on blue 7.49:1
+     white  on brown 11.39:1   white  on purple 12.29:1
+     ink-soft on beige 5.38:1  green-ink on beige 6.36:1
+     white on orange is only 3.43:1 → orange is used for non-text fills
+     (progress bar) and never carries body text.
+--------------------------------------------------------------------------- */
+:root {
+    /* Core palette */
+    --silicon-purple: #561d57;
+    --silicon-orange: #fd4817;
+    --silicon-blue: #b5cafb;
+    --silicon-green: #968a31;
+    --silicon-brown: #4a3530;
+    --silicon-beige: #ede7e0;
+    --silicon-black: #000000;
+    --silicon-white: #ffffff;
+
+    /* Derived roles — computed from the palette, so they re-derive on a swap */
+    --silicon-ink: var(--silicon-brown);
+    /* primary text */
+    --silicon-ink-soft: color-mix(in srgb, var(--silicon-brown) 80%, var(--silicon-beige));
+    /* secondary text, 5.38:1 on beige */
+    --silicon-ink-faint: color-mix(in srgb, var(--silicon-brown) 45%, var(--silicon-beige));
+    /* disabled only (contrast-exempt) */
+    --silicon-line: color-mix(in srgb, var(--silicon-brown) 22%, var(--silicon-beige));
+    /* hairline borders */
+    --silicon-line-strong: color-mix(in srgb, var(--silicon-brown) 40%, var(--silicon-beige));
+    --silicon-panel: color-mix(in srgb, var(--silicon-brown) 5%, var(--silicon-beige));
+    /* sidebar surface */
+    --silicon-green-ink: color-mix(in srgb, var(--silicon-green) 60%, var(--silicon-black));
+    /* success text, 6.36:1 on beige */
+
+    --background: var(--silicon-beige);
+    --foreground: var(--silicon-ink);
+}
+
+@theme inline {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --font-sans: var(--font-geist-sans);
+    --font-mono: var(--font-geist-mono);
+}
+
+body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-geist-sans), sans-serif;
+}

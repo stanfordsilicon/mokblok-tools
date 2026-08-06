@@ -32,7 +32,7 @@ export default async function SignInPage({
           SILICON
         </p>
 
-        <h1 className="mt-3 text-3xl md:text-4xl font-black tracking-tight">Mokblok Tools</h1>
+        <h1 className="mt-3 text-3xl md:text-4xl font-black tracking-tight">Homescreen Review</h1>
 
         <p className="mt-4 text-(--silicon-ink-soft) leading-relaxed">
           Sign in with your approved Google account to use the translation and review tools.

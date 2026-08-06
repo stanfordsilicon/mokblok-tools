@@ -9,7 +9,8 @@ export default function AuthErrorPage() {
         </p>
         <h1 className="mt-3 text-3xl font-black tracking-tight">Sign-in Error</h1>
         <p className="mt-4 text-(--silicon-ink-soft) leading-relaxed">
-          Authentication did not complete. Try signing in again, or contact the SILICON team if the problem persists.
+          Authentication did not complete. Try signing in again, or contact the SILICON team if the
+          problem persists.
         </p>
         <Link
           href="/auth/signin"
