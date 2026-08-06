@@ -93,7 +93,7 @@ function FullReviewTable() {
         </tr>
       </thead>
       <tbody>
-        {filteredEntries.map((entry) => (
+        {filteredEntries.slice(0, 100).map((entry) => (
           <TranslationRow key={entry.index} entry={entry} />
         ))}
       </tbody>
@@ -104,7 +104,12 @@ function FullReviewTable() {
 function FilterCell({ value, onChange }: { value: string; onChange: (value: string) => void }) {
   return (
     <td>
-      <input value={value} onChange={(e) => onChange(e.target.value)} style={{ width: '2em' }} />
+      <input
+        className="border"
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        style={{ width: '2em' }}
+      />
     </td>
   );
 }

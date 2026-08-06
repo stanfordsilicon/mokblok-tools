@@ -8,6 +8,18 @@
         "ctaInputStart": "Start inputting translations",
         "ctaReviewStart": "Start reviewing translations"
     },
+    "auth": {
+        "signedInAs": "Signed in as",
+        "signInWithGoogle": "Sign in with Google",
+        "redirectingToGoogle": "Redirecting to Google…",
+        "signOut": "Sign out",
+        "signInToSaveProgress": "Sign in to save progress",
+        "roles": {
+            "user": "User",
+            "admin": "Admin",
+            "moderator": "Moderator"
+        }
+    },
     "input": {
         "title": "Input",
         "language": {

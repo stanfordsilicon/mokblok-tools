@@ -8,10 +8,12 @@
 
 import Link from 'next/link';
 import { signIn, signOut, useSession } from 'next-auth/react';
+import { useTranslation } from 'react-i18next';
 
 import { RoleBadge } from './RoleBadge';
 
 export default function AccountBadge() {
+  const { t } = useTranslation();
   const { data: session, status } = useSession();
 
   // Hold the space while the session resolves so the header doesn't jump.
@@ -29,7 +31,7 @@ export default function AccountBadge() {
       <div className="flex items-center gap-3 rounded-2xl border border-(--silicon-line) bg-white px-4 py-2.5 shadow-sm">
         <div className="min-w-0">
           <p className="flex items-center gap-2 text-[10px] uppercase tracking-wider font-semibold text-(--silicon-purple)">
-            Signed in as
+            {t('auth.signedInAs')}
             <RoleBadge role={role} />
           </p>
           <p className="truncate text-sm font-medium text-(--silicon-ink)">{session.user.email}</p>
@@ -38,7 +40,7 @@ export default function AccountBadge() {
               href="/admin"
               className="text-xs font-semibold text-(--silicon-purple) underline-offset-2 hover:underline"
             >
-              Admin
+              {t('auth.admin')}
             </Link>
           )}
         </div>
@@ -48,7 +50,7 @@ export default function AccountBadge() {
           onClick={() => signOut({ callbackUrl: '/' })}
           className="shrink-0 rounded-xl border border-(--silicon-line-strong) px-3 py-1.5 text-xs font-semibold text-(--silicon-ink) transition hover:border-(--silicon-purple) hover:text-(--silicon-purple)"
         >
-          Sign out
+          {t('auth.signOut')}
         </button>
       </div>
     );
@@ -60,7 +62,7 @@ export default function AccountBadge() {
       onClick={() => signIn('google')}
       className="rounded-xl bg-(--silicon-brown) px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-(--silicon-purple) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--silicon-purple)"
     >
-      Sign in to begin
+      {t('auth.signInToSaveProgress')}
     </button>
   );
 }

@@ -9,6 +9,18 @@
         "ctaInputStart": "Comenzar a ingresar traducciones",
         "ctaReviewStart": "Comenzar a revisar traducciones"
     },
+    "auth": {
+        "signedInAs": "Conectado como",
+        "signInWithGoogle": "Iniciar sesión con Google",
+        "redirectingToGoogle": "Redirigiendo a Google…",
+        "signOut": "Cerrar sesión",
+        "signInToSaveProgress": "Inicia sesión para guardar el progreso",
+        "roles": {
+            "user": "Usuario",
+            "admin": "Administrador",
+            "moderator": "Moderador"
+        }
+    },
     "input": {
         "title": "Entrada",
         "language": {
