@@ -115,8 +115,8 @@ const TargetDataProvider: React.FC<{
   const editTranslation = useCallback(
     (index: number, newTranslation: string) => {
       setTranslationInfoByIndex((prev) => {
-        const prevInfo = prev[index] ?? { fallback: '' };
-        return { ...prev, [index]: { ...prevInfo, edit: newTranslation } };
+        if (!prev[index]) return prev;
+        return { ...prev, [index]: { ...prev[index], edit: newTranslation } };
       });
     },
     [setTranslationInfoByIndex],
@@ -124,8 +124,8 @@ const TargetDataProvider: React.FC<{
   const voteOnTranslation = useCallback(
     (index: number, newVote: Vote) => {
       setTranslationInfoByIndex((prev) => {
-        const prevInfo = prev[index] ?? { fallback: '' };
-        return { ...prev, [index]: { ...prevInfo, vote: newVote } };
+        if (!prev[index]) return prev;
+        return { ...prev, [index]: { ...prev[index], vote: newVote } };
       });
     },
     [setTranslationInfoByIndex],
@@ -133,8 +133,8 @@ const TargetDataProvider: React.FC<{
   const editTranslationComment = useCallback(
     (index: number, comment: string) => {
       setTranslationInfoByIndex((prev) => {
-        const prevInfo = prev[index] ?? { fallback: '' };
-        return { ...prev, [index]: { ...prevInfo, comment } };
+        if (!prev[index]) return prev;
+        return { ...prev, [index]: { ...prev[index], comment } };
       });
     },
     [setTranslationInfoByIndex],

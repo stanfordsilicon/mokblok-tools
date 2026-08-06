@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import { DataEntry } from '@data/DataTypes';
 import { useTargetDataContext, Vote } from '@data/TargetDataProvider';
@@ -10,7 +10,7 @@ import InputEditText from './InputEditText';
  * a hovercard shows below the cell with a click to approve,
  * a click to reject, a box to edit the translation and a box to add comments
  */
-const InputVoteHoverable: React.FC<{
+const InputVote: React.FC<{
   entry: DataEntry;
   inputWidth?: string;
 }> = ({ entry, inputWidth }) => {
@@ -20,46 +20,17 @@ const InputVoteHoverable: React.FC<{
   if (vote === Vote.Accept) backgroundColor = 'var(--color-level-4)';
   if (vote === Vote.Reject) backgroundColor = 'var(--color-level-1)';
   const setVote = useCallback(
-    (vote: Vote) => voteOnTranslation(entry.index, vote),
-    [entry.index, voteOnTranslation],
+    (newVote: Vote) => voteOnTranslation(entry.index, vote === newVote ? Vote.Unknown : newVote),
+    [entry.index, voteOnTranslation, vote],
   );
   const [showComments, setShowComments] = useState(false);
   const [currentComment, setCurrentComment] = useState(comment ?? '');
+  useEffect(() => {
+    setCurrentComment(comment ?? '');
+  }, [comment]);
 
   return (
     <div>
-      {/* <div className="DebugHovercard">
-        <div className="flex flex-col gap-2">
-          <div className="flex gap-2">
-            <button
-              onClick={() => voteOnTranslation(entry.index, Vote.Accept)}
-              style={{
-                borderColor: 'var(--color-level-4)',
-                backgroundColor: vote === Vote.Accept ? 'var(--color-level-4)' : 'transparent',
-              }}
-            >
-              Approve
-            </button>
-            <button
-              onClick={() => voteOnTranslation(entry.index, Vote.Reject)}
-              style={{
-                borderColor: 'var(--color-level-1)',
-                backgroundColor: vote === Vote.Reject ? 'var(--color-level-1)' : 'transparent',
-              }}
-            >
-              Reject
-            </button>
-          </div>
-          <InputEditText entry={entry} inputWidth={inputWidth} disabled={vote !== Vote.Reject} />
-          <textarea
-            placeholder="Add comments"
-            onBlur={(e) => editTranslationComment(entry.index, e.target.value)}
-            className="border p-1 rounded w-full"
-            value={comment ?? ''}
-            style={{ width: inputWidth }}
-          />
-        </div>
-      </div> */}
       <div className="flex items-center justify-between">
         <div style={{ backgroundColor, width: inputWidth }}>
           {vote === Vote.Reject ? (
@@ -70,6 +41,7 @@ const InputVoteHoverable: React.FC<{
         </div>
         <div>
           <button
+            aria-label="Accept"
             onClick={() => setVote(Vote.Accept)}
             style={{
               padding: '0 0.25em',
@@ -80,6 +52,7 @@ const InputVoteHoverable: React.FC<{
             ✔️
           </button>
           <button
+            aria-label="Reject"
             onClick={() => setVote(Vote.Reject)}
             style={{
               padding: '0 0.25em',
@@ -90,6 +63,7 @@ const InputVoteHoverable: React.FC<{
             ✘
           </button>
           <button
+            aria-label="Comment"
             className={`${showComments ? 'selected' : ''}`}
             onClick={() => setShowComments((prev) => !prev)}
             style={{ padding: '0 0.25em', border: 'none' }}
@@ -112,4 +86,4 @@ const InputVoteHoverable: React.FC<{
   );
 };
 
-export default InputVoteHoverable;
+export default InputVote;

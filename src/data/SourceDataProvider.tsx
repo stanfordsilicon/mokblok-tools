@@ -106,10 +106,10 @@ const SourceDataProvider: React.FC<{
   // Triggers to load the data
   useEffect(() => {
     if (sourceDataStatus === SourceDataStatus.Initial) fetchDataEntries();
-  }, [sourceDataStatus, fetchDataEntries]);
+  }, [sourceDataStatus]);
   useEffect(() => {
     if (sourceDataStatus === SourceDataStatus.LoadedDataEntries) fetchXMLData(sourceLanguage);
-  }, [sourceDataStatus, sourceLanguage, fetchXMLData]);
+  }, [sourceDataStatus, sourceLanguage]);
   useEffect(() => {
     // If the source language changes, reload the data
     if (sourceDataStatus > SourceDataStatus.LoadedDataEntries)

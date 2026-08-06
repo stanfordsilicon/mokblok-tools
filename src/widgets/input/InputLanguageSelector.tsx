@@ -15,7 +15,7 @@ type Props = {
 const InputLanguageSelector = ({ clearInputText }: Props) => {
   const { t } = useTranslation();
   const { targetLanguage, updateURLParams, inputSource } = useURLParams();
-  const languageOptions = inputSource === 'tsv' ? TSVLanguages : XMLLanguages;
+  const languageOptions = inputSource === InputSource.TSV ? TSVLanguages : XMLLanguages;
 
   return (
     <div>

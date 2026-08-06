@@ -6,7 +6,7 @@ import StepName from '@settings/StepName';
 import { useURLParams } from '@settings/URLParams';
 
 import InputEditText from './InputEditText';
-import InputVoteHoverable from './InputVoteHoverable';
+import InputVote from './InputVote';
 
 type Props = {
   entry?: DataEntry;
@@ -23,7 +23,7 @@ function InputDataCell({ entry, inputWidth }: Props) {
       {step === StepName.Edit ? (
         <InputEditText entry={entry} inputWidth={inputWidth} />
       ) : (
-        <InputVoteHoverable entry={entry} inputWidth={inputWidth} />
+        <InputVote entry={entry} inputWidth={inputWidth} />
       )}
     </td>
   );
