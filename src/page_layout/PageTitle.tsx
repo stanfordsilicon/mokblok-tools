@@ -9,12 +9,14 @@ const PageTitle: React.FC = () => {
   const { page, step } = useURLParams();
 
   return (
-    <div style={{ position: 'relative' }}>
+    <div className="relative mb-4 rounded-[2rem] border border-(--silicon-line) bg-white/70 px-5 py-5 shadow-sm backdrop-blur-sm sm:px-6 relative z-20">
       <SettingsButton />
-      <div style={{ fontSize: '3em', fontWeight: 'bold', marginBottom: '0.5em', lineHeight: '1' }}>
+      <div className="text-3xl font-black leading-none tracking-tight sm:text-5xl">
         {t(`${step.toLowerCase()}.title`)}{' '}
         {step === StepName.Review && (
-          <span style={{ fontSize: '0.5em' }}>/ {t(`dataPage.${page}`)}</span>
+          <span className="mt-2 block text-base font-semibold tracking-normal text-(--silicon-ink-soft) sm:mt-0 sm:ml-2 sm:inline">
+            / {t(`dataPage.${page}`)}
+          </span>
         )}
       </div>
     </div>

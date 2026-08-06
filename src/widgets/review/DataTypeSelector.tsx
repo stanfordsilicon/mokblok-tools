@@ -9,13 +9,11 @@ import ProgressCircle from './ProgressCircle';
 const DataTypeSelector: React.FC = () => {
   return (
     <div
+      className="flex flex-col gap-2 "
       style={{
-        display: 'flex',
-        gap: '0.5em',
-        flexDirection: 'column',
         width: 'fit-content',
         padding: '0em 1em',
-        fontSize: '0.8em',
+        fontSize: '0.75rem',
       }}
     >
       {Object.values(DataPage).map((page) => (
@@ -31,6 +29,8 @@ const PageButton: React.FC<{
   const { t } = useTranslation();
   const { page: selectedPage, updateURLParams } = useURLParams();
   const isExpanded = selectedPage === page || selectedPage === DataPage.All;
+  const highlightBackground =
+    selectedPage === page || (selectedPage === DataPage.All && page !== DataPage.FullTable);
 
   return (
     <div>
@@ -46,18 +46,9 @@ const PageButton: React.FC<{
       >
         <button
           key={page}
+          className={'px-1 py-1 text-sm' + (highlightBackground ? ' selected' : '')}
           onClick={() => updateURLParams({ page, section: DataSection.All })}
-          style={{
-            backgroundColor:
-              selectedPage === page ||
-              (selectedPage === DataPage.All && page !== DataPage.FullTable)
-                ? 'var(--color-button-selected)'
-                : 'transparent',
-            border: '1px solid #ccc',
-            padding: '0.5em 1em',
-            cursor: 'pointer',
-            width: '12em',
-          }}
+          style={{ width: '12em' }}
         >
           {t(`dataPage.${page}`)}{' '}
           {page !== DataPage.All && page !== DataPage.FullTable && (
@@ -86,34 +77,23 @@ const PageButton: React.FC<{
 type PageSectionsProps = { page: DataPage };
 
 const PageSections: React.FC<PageSectionsProps> = ({ page }) => {
+  const { t } = useTranslation();
   const { section: selectedSection, updateURLParams } = useURLParams();
   const sections = getSectionsForPage(page);
-  const { t } = useTranslation();
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        gap: '0.25em 1em',
-        flexDirection: 'column',
-        marginTop: '0.5em',
-        paddingLeft: '2em',
-      }}
-    >
+    <div className="flex flex-col gap-1" style={{ marginTop: '0.5em', paddingLeft: '2em' }}>
       {sections.map((section) => (
         <div key={section} style={{ display: 'flex', gap: '0.5em', alignItems: 'center' }}>
           <button
+            className={
+              'px-0.5 py-0.5 text-sm' +
+              (selectedSection === section || selectedSection === DataSection.All
+                ? ' selected'
+                : '')
+            }
             onClick={() => updateURLParams({ section, page })}
-            style={{
-              backgroundColor:
-                selectedSection === section || selectedSection === DataSection.All
-                  ? 'var(--color-button-selected)'
-                  : 'transparent',
-              border: '1px solid #ccc',
-              padding: '0.5em 1em',
-              cursor: 'pointer',
-              width: '12em',
-            }}
+            style={{ width: '10.5em' }}
           >
             {t(`dataSection.${section}`)}
           </button>

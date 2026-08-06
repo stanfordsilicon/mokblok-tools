@@ -1,5 +1,5 @@
 {
-    "title": "Homescreen",
+    "title": "Homescreen Review",
     "bySILICON": "par Stanford SILICON",
     "allRightsReserved": "Tous droits réservés.",
     "intro": {
@@ -7,6 +7,18 @@
         "description": "Cette application web est utilisée par les évaluateurs pour évaluer la qualité des traductions soumises pour chaque langue. Veuillez commencer par sélectionner votre langue source puis votre langue cible.",
         "ctaInputStart": "Commencer à saisir des traductions",
         "ctaReviewStart": "Commencer à réviser les traductions"
+    },
+    "auth": {
+        "signedInAs": "Connecté en tant que",
+        "signInWithGoogle": "Se connecter avec Google",
+        "redirectingToGoogle": "Redirection vers Google…",
+        "signOut": "Se déconnecter",
+        "signInToSaveProgress": "Connectez-vous pour enregistrer la progression",
+        "roles": {
+            "user": "Utilisateur",
+            "admin": "Administrateur",
+            "moderator": "Modérateur"
+        }
     },
     "input": {
         "title": "Entrée",

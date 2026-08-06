@@ -9,10 +9,8 @@ const SettingsButton: React.FC = () => {
   const toggleSettings = () => setSettingsOpen(!settingsOpen);
 
   return (
-    <div style={{ position: 'absolute', right: '0' }}>
-      <button onClick={toggleSettings} style={{ padding: '.5em 1em' }}>
-        {t('settings.title')} ⚙
-      </button>
+    <div className="absolute top-5 right-5">
+      <button onClick={toggleSettings}>{t('settings.title')} ⚙</button>
       {settingsOpen && <FloatingSettingsWidget />}
     </div>
   );
@@ -20,20 +18,7 @@ const SettingsButton: React.FC = () => {
 
 const FloatingSettingsWidget: React.FC = () => {
   return (
-    <div
-      style={{
-        top: '3em',
-        backgroundColor: 'var(--color-input-background)',
-        border: '1px solid var(--color-input-border)',
-        borderRadius: '0.5em',
-        fontSize: '0.8em',
-        width: '400px',
-        position: 'absolute',
-        right: '.25em',
-        padding: '1em',
-        zIndex: 100,
-      }}
-    >
+    <div className="absolute top-14 right-0 z-50 w-[min(26rem,calc(100vw-3rem))] rounded-[1.5rem] border border-(--silicon-line-strong) bg-white p-4 text-sm">
       <SettingsWidget />
     </div>
   );

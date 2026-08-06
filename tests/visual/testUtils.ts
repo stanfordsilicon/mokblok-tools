@@ -1,6 +1,16 @@
 import { expect, type Page } from '@playwright/test';
 
 const FIXED_ISO_TIME = '2026-01-15T12:00:00Z';
+const DISABLE_MOTION_CSS = `
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    caret-color: transparent !important;
+    scroll-behavior: auto !important;
+  }
+`;
 
 export async function freezeDate(page: Page) {
   await page.addInitScript((fixedIsoTime) => {
@@ -36,7 +46,9 @@ export async function freezeDate(page: Page) {
 }
 
 export async function gotoApp(page: Page, path: string) {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto(path, { waitUntil: 'domcontentloaded' });
+  await page.addStyleTag({ content: DISABLE_MOTION_CSS });
   await expect(page.getByTestId('FullPage')).toBeVisible();
   await expect(page.getByTestId('PageBody')).toBeVisible();
 }

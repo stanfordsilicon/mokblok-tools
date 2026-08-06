@@ -9,15 +9,7 @@ const StepSelector: React.FC = () => {
   if (!admin) return null;
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        gap: '.5em',
-        fontSize: '1em',
-        borderBottom: '2px solid var(--color-text)',
-        justifyContent: 'center',
-      }}
-    >
+    <div className="flex flex-wrap gap-2 rounded-[1.5rem] border border-(--silicon-line) bg-white p-2 shadow-sm">
       <StepButton label={t('input.title')} targetStep={StepName.Input} />
       <StepButton label={t('review.title')} targetStep={StepName.Review} />
       <StepButton label={t('export.title')} targetStep={StepName.Export} />
@@ -31,18 +23,14 @@ const StepButton: React.FC<{
 }> = ({ label, targetStep }) => {
   const { step: currentStep, updateURLParams } = useURLParams();
   const isCurrent = currentStep === targetStep;
-  const border = isCurrent ? 'solid #ccc' : 'none';
   return (
     <button
       onClick={() => updateURLParams({ step: targetStep })}
-      className={isCurrent ? 'selected' : ''}
-      style={{
-        borderRadius: '.5em .5em 0 0',
-        borderTop: border,
-        borderLeft: border,
-        borderRight: border,
-        padding: '.5em  ',
-      }}
+      className={`rounded-full px-4 py-2 text-sm transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--silicon-purple) ${
+        isCurrent
+          ? 'selected shadow-sm'
+          : 'border-(--silicon-line-strong) bg-white text-(--silicon-ink) hover:border-(--silicon-purple)'
+      }`}
     >
       {label}
     </button>

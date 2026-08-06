@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
+import SignInButton from '@settings/auth/SignInButton';
 import InterfaceLanguageSelector from '@settings/selectors/InterfaceLanguageSelector';
 import TargetLanguageSelector from '@settings/selectors/TargetLanguageSelector';
 import StepName from '@settings/StepName';
@@ -24,6 +25,7 @@ const IntroBody: React.FC = () => {
       <button onClick={() => updateURLParams({ step: StepName.Review })}>
         {t('intro.ctaReviewStart')}
       </button>
+      <SignInButton />
     </div>
   );
 };

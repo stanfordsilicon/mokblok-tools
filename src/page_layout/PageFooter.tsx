@@ -5,11 +5,13 @@ function PageFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer>
+    <footer className="px-2 pt-4 pb-1 text-sm text-(--silicon-ink-soft)">
       <p>
         {t('footer.copyright', { year })}{' '}
-        <a href="https://silicon.stanford.edu/">{t('footer.organizationName')}</a>.{' '}
-        {t('allRightsReserved')}
+        <a href="https://silicon.stanford.edu/" className="font-semibold">
+          {t('footer.organizationName')}
+        </a>
+        . {t('allRightsReserved')}
       </p>
     </footer>
   );
