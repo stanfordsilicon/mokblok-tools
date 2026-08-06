@@ -7,8 +7,8 @@ import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
 import { matrixBy, sortBy } from '@shared/setUtils';
 
-import InputDataCell from '../InputDataCell';
-import InputTextareaCell from '../InputTextareaCell';
+import InputDataCell from '../input/InputDataCell';
+import InputTextareaCell from '../input/InputTextareaCell';
 import SourceDataCell from '../SourceDataCell';
 
 function QuotesReviewTable() {

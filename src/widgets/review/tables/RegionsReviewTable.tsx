@@ -5,7 +5,7 @@ import { DataSection } from '@data/DataSection';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
-import InputDataCell from '../InputDataCell';
+import InputDataCell from '../input/InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function RegionsReviewTable() {

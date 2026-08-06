@@ -7,7 +7,7 @@ import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
 import { groupBy } from '@shared/setUtils';
 
-import InputTextareaCell from '../InputTextareaCell';
+import InputTextareaCell from '../input/InputTextareaCell';
 import SourceDataCell from '../SourceDataCell';
 
 function ParagraphsReviewTable() {

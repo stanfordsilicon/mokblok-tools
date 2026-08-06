@@ -1,15 +1,14 @@
-import { useTranslation } from 'react-i18next';
-
 import { useDataContext } from '@data/DataContext';
-import type { DataEntry } from '@data/DataTypes';
+import { DataEntry } from '@data/DataTypes';
 import { useTargetDataContext } from '@data/TargetDataProvider';
 
 import useBackgroundColor from './getBackgroundColor';
 import HighlightInput from './HighlightInput';
 
 type Props = {
-  entry?: DataEntry;
+  entry: DataEntry;
   inputWidth?: string;
+  disabled?: boolean;
 };
 
 const WIDTHS_BY_LENGTH: Record<string, string> = {
@@ -23,29 +22,24 @@ const WIDTHS_BY_LENGTH: Record<string, string> = {
   narrow: '2em',
 };
 
-function InputDataCell({ entry, inputWidth }: Props) {
-  const { t } = useTranslation();
+const InputEditText: React.FC<Props> = ({ entry, inputWidth, disabled = false }) => {
   const { getTranslation } = useDataContext();
   const { editTranslation } = useTargetDataContext();
   const getBackgroundColor = useBackgroundColor();
-  if (!entry) return <td>{t('common.emptyCell')}</td>;
 
   const backgroundColor = getBackgroundColor(entry);
   let width = inputWidth;
-  if (!inputWidth) {
-    width = WIDTHS_BY_LENGTH[entry.length] ?? WIDTHS_BY_LENGTH['w'];
-  }
+  if (!inputWidth) width = WIDTHS_BY_LENGTH[entry.length] ?? WIDTHS_BY_LENGTH['w'];
 
   return (
-    <td>
-      <HighlightInput
-        highlight={/\d+/g}
-        value={getTranslation(entry) || ''}
-        onChange={(value) => editTranslation(entry.index, value)}
-        style={{ width, backgroundColor }}
-      />
-    </td>
+    <HighlightInput
+      highlight={/\d+/g}
+      value={getTranslation(entry) || ''}
+      onChange={(value) => editTranslation(entry.index, value)}
+      style={{ width, backgroundColor }}
+      disabled={disabled}
+    />
   );
-}
+};
 
-export default InputDataCell;
+export default InputEditText;

@@ -8,6 +8,7 @@ import { type AlphabetData, type DataEntry } from './DataTypes';
 import extractAlphabetFromXML from './extractAlphabetFromXML';
 import { loadCLDRXML } from './loadCLDRXML';
 import parseInheritance from './parseInheritance';
+import useTranslationFromSourceLanguage from './sourcedata/useTranslationFromSourceLanguage';
 import { useSourceDataContext } from './SourceDataProvider';
 import { Doc } from './tsvdocs/Doc';
 import extractAlphabetDataFromTSV from './tsvdocs/ExtractAlphabetFromTSV';
@@ -29,10 +30,11 @@ export enum Vote {
 }
 
 type TranslationInfo = {
-  fallback: string;
+  source: string;
   translation?: string;
   edit?: string;
   vote?: Vote;
+  comment?: string;
 };
 
 export type TargetDataContextType = {
@@ -42,6 +44,7 @@ export type TargetDataContextType = {
   getTranslationInfo(entry: DataEntry | undefined): TranslationInfo;
   editTranslation(index: number, newTranslation: string): void;
   voteOnTranslation(index: number, newVote: Vote): void;
+  editTranslationComment(index: number, comment: string): void;
   targetXMLData: Record<string, string>; // Xpath to raw translations
   targetDataStatus: TargetDataStatus;
 };
@@ -50,9 +53,10 @@ export const TargetDataContext = createContext<TargetDataContextType>({
   inputTSVs: {},
   alphabet: undefined,
   getTranslation: () => '',
-  getTranslationInfo: () => ({ fallback: '' }),
+  getTranslationInfo: () => ({ source: '' }),
   editTranslation: () => {},
   voteOnTranslation: () => {},
+  editTranslationComment: () => {},
   targetDataStatus: TargetDataStatus.Initial,
   targetXMLData: {},
 });
@@ -71,6 +75,7 @@ const TargetDataProvider: React.FC<{
 }> = ({ children }) => {
   const { targetLanguage, inputSource } = useURLParams();
   const { findDataEntry } = useSourceDataContext();
+  const getTranslationFromSourceLanguage = useTranslationFromSourceLanguage();
   const [targetDataStatus, setTargetDataStatus] = useState<TargetDataStatus>(
     TargetDataStatus.Initial,
   );
@@ -92,17 +97,18 @@ const TargetDataProvider: React.FC<{
 
   const getTranslationInfo = useCallback(
     (entry: DataEntry | undefined): TranslationInfo => {
-      if (!entry) return { fallback: '' };
+      if (!entry) return { source: '' };
       const info = translationInfoByIndex[entry.index];
-      if (!info) return { fallback: entry.english };
+      const source = getTranslationFromSourceLanguage(entry);
+      if (!info) return { source: Array.isArray(source) ? source[0] : source };
       return info;
     },
-    [translationInfoByIndex],
+    [translationInfoByIndex, getTranslationFromSourceLanguage],
   );
   const getTranslation = useCallback(
     (entry: DataEntry | undefined, fallback = true): string => {
       const info = getTranslationInfo(entry);
-      return info.edit ?? info.translation ?? (fallback ? info.fallback : '');
+      return info.edit ?? info.translation ?? (fallback ? info.source : '');
     },
     [getTranslationInfo],
   );
@@ -124,14 +130,30 @@ const TargetDataProvider: React.FC<{
     },
     [setTranslationInfoByIndex],
   );
+  const editTranslationComment = useCallback(
+    (index: number, comment: string) => {
+      setTranslationInfoByIndex((prev) => {
+        const prevInfo = prev[index] ?? { fallback: '' };
+        return { ...prev, [index]: { ...prevInfo, comment } };
+      });
+    },
+    [setTranslationInfoByIndex],
+  );
+
+  // Fill data
   const fillTranslationsFromTSV = useCallback(
     (rows: TSVRowData[]) => {
       const newTranslationsByIndex = rows.reduce(
         (acc, row) => {
           const key = row.key;
           const entry = findDataEntry({ ext_id: key }) ?? findDataEntry({ xpath: key });
-          if (entry && row.translated)
-            acc[entry.index] = { fallback: row.english, translation: row.translated };
+          if (entry && row.translated) {
+            const source = getTranslationFromSourceLanguage(entry);
+            acc[entry.index] = {
+              source: Array.isArray(source) ? source[0] : source,
+              translation: row.translated,
+            };
+          }
           return acc;
         },
         {} as Record<number, TranslationInfo>,
@@ -139,7 +161,12 @@ const TargetDataProvider: React.FC<{
       setTranslationInfoByIndex(newTranslationsByIndex);
       setTargetDataStatus(TargetDataStatus.Ready);
     },
-    [findDataEntry, setTranslationInfoByIndex, setTargetDataStatus],
+    [
+      findDataEntry,
+      setTranslationInfoByIndex,
+      setTargetDataStatus,
+      getTranslationFromSourceLanguage,
+    ],
   );
   const fillTranslationsFromXML = useCallback(
     (xmlData: Record<string, string>) => {
@@ -147,7 +174,7 @@ const TargetDataProvider: React.FC<{
         (acc, [xpath, translated]) => {
           const entry = findDataEntry({ xpath });
           if (entry && translated)
-            acc[entry.index] = { fallback: entry.english, translation: translated };
+            acc[entry.index] = { source: entry.english, translation: translated };
           return acc;
         },
         {} as Record<number, TranslationInfo>,
@@ -185,6 +212,7 @@ const TargetDataProvider: React.FC<{
     getTranslationInfo,
     editTranslation,
     voteOnTranslation,
+    editTranslationComment,
     targetDataStatus,
     targetXMLData,
   };
