@@ -9,8 +9,11 @@ const SettingsButton: React.FC = () => {
   const toggleSettings = () => setSettingsOpen(!settingsOpen);
 
   return (
-    <div style={{ position: 'absolute', right: '0' }}>
-      <button onClick={toggleSettings} style={{ padding: '.5em 1em' }}>
+    <div className="absolute top-5 right-5">
+      <button
+        onClick={toggleSettings}
+        className="rounded-xl border border-(--silicon-line-strong) bg-white px-4 py-2 text-sm font-semibold text-(--silicon-ink) shadow-sm transition hover:border-(--silicon-purple) hover:text-(--silicon-purple)"
+      >
         {t('settings.title')} ⚙
       </button>
       {settingsOpen && <FloatingSettingsWidget />}
@@ -20,20 +23,7 @@ const SettingsButton: React.FC = () => {
 
 const FloatingSettingsWidget: React.FC = () => {
   return (
-    <div
-      style={{
-        top: '3em',
-        backgroundColor: 'var(--color-input-background)',
-        border: '1px solid var(--color-input-border)',
-        borderRadius: '0.5em',
-        fontSize: '0.8em',
-        width: '400px',
-        position: 'absolute',
-        right: '.25em',
-        padding: '1em',
-        zIndex: 100,
-      }}
-    >
+    <div className="absolute top-14 right-0 z-100 w-[min(26rem,calc(100vw-3rem))] rounded-[1.5rem] border border-(--silicon-line-strong) bg-white p-4 text-sm shadow-[0_20px_50px_rgba(74,53,48,0.18)]">
       <SettingsWidget />
     </div>
   );

@@ -28,12 +28,10 @@ function App() {
                 <DataProvider>
                   <div
                     data-testid="FullPage"
-                    style={{ display: 'flex', width: '100vw', overflow: 'auto', height: '100vh' }}
+                    className="min-h-screen bg-(--silicon-beige) text-(--silicon-ink) lg:flex"
                   >
                     <Sidebar />
-                    <div
-                      style={{ flex: 1, padding: '1em', display: 'flex', flexDirection: 'column' }}
-                    >
+                    <div className="flex min-h-screen flex-1 flex-col px-4 py-4 sm:px-6 sm:py-5 lg:px-8">
                       <PageTitle />
                       <PageBody />
                       <PageFooter />

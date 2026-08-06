@@ -8,14 +8,7 @@ const PageBody: React.FC = () => {
   return (
     <div
       data-testid="PageBody"
-      style={{
-        overflow: 'auto',
-        padding: '1em',
-        display: 'flex',
-        flex: 1,
-        position: 'relative',
-        fontSize: '0.8em',
-      }}
+      className="relative flex-1 overflow-auto rounded-[2rem] border border-(--silicon-line) bg-white/85 p-4 text-[0.82rem] shadow-[0_18px_40px_rgba(74,53,48,0.08)] backdrop-blur-sm sm:p-6"
     >
       <StepView step={step} />
     </div>

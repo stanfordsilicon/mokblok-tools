@@ -18,35 +18,33 @@ const Sidebar: React.FC = () => {
   const { admin } = useURLParams();
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '1em',
-        borderRight: '1px solid var(--color-input-border)',
-        width: '20em',
-      }}
-    >
-      <header style={{ padding: '0.5em 1em', marginBottom: '1em' }}>
-        <h1 style={{ margin: '.5em 0 0 0' }}>
-          <Link href="/" style={{ color: 'var(--color-text)' }}>
+    <aside className="flex w-full shrink-0 flex-col gap-4 border-b border-(--silicon-line-strong) bg-(--silicon-panel) px-4 py-5 lg:min-h-screen lg:w-[22rem] lg:border-r lg:border-b-0 lg:px-5 lg:py-6">
+      <header className="rounded-[1.75rem] border border-(--silicon-line) bg-white px-5 py-4 shadow-sm">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.35em] text-(--silicon-purple)">
+          SILICON
+        </p>
+        <h1 className="mt-2 text-3xl font-black tracking-tight text-(--silicon-ink)">
+          <Link
+            href="/"
+            className="text-(--silicon-ink) no-underline hover:text-(--silicon-purple)"
+          >
             {t('title')}
           </Link>
         </h1>
-        <h3 style={{ margin: 0, fontWeight: 300 }}>{t('bySILICON')}</h3>
+        <p className="mt-2 text-sm text-(--silicon-ink-soft)">{t('bySILICON')}</p>
       </header>
       <AccountBadge />
 
       <StepSelector />
-      <div style={{ overflow: 'auto', flex: 1 }}>
+      <div className="flex-1 overflow-auto rounded-[1.75rem] border border-(--silicon-line) bg-white px-4 py-4 shadow-sm">
         <SidebarContents />
       </div>
       {admin && (
-        <div style={{ padding: '0em 1em 1em 1em' }}>
+        <div className="rounded-[1.5rem] border border-(--silicon-line) bg-white px-4 py-3 shadow-sm">
           <LoadingStatus />
         </div>
       )}
-    </div>
+    </aside>
   );
 };
 
