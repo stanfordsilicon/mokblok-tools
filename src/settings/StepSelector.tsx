@@ -4,13 +4,14 @@ import StepName from './StepName';
 import { useURLParams } from './URLParams';
 
 const StepSelector: React.FC = () => {
-  const { admin } = useURLParams();
   const { t } = useTranslation();
+  const { admin } = useURLParams();
   if (!admin) return null;
 
   return (
-    <div className="flex flex-wrap gap-2 rounded-[1.5rem] border border-(--silicon-line) bg-white p-2 shadow-sm">
+    <div className="flex flex-wrap gap-1 rounded-[1.5rem]  ">
       <StepButton label={t('input.title')} targetStep={StepName.Input} />
+      <StepButton label={t('edit.title')} targetStep={StepName.Edit} />
       <StepButton label={t('review.title')} targetStep={StepName.Review} />
       <StepButton label={t('export.title')} targetStep={StepName.Export} />
     </div>
@@ -26,11 +27,7 @@ const StepButton: React.FC<{
   return (
     <button
       onClick={() => updateURLParams({ step: targetStep })}
-      className={`rounded-full px-4 py-2 text-sm transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--silicon-purple) ${
-        isCurrent
-          ? 'selected shadow-sm'
-          : 'border-(--silicon-line-strong) bg-white text-(--silicon-ink) hover:border-(--silicon-purple)'
-      }`}
+      className={`StepButton text-sm flex-1 ${isCurrent ? 'selected' : ''}`}
     >
       {label}
     </button>

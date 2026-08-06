@@ -21,12 +21,14 @@
         }
     },
     "input": {
-        "title": "Input",
+        "title": "Import",
+        "instructions": "Please select a source language and a target language to load the saved data for that language. You can also paste your own TSV data below and enter the language code manually.",
         "language": {
-            "title": "Language",
-            "description": "Select a language to load its saved data",
-            "manual": "Or paste your own TSV data below and enter the language code manually",
-            "ctaClear": "Clear language & text"
+            "title": "Target Language",
+            "pickLanguage": "Pick a language to modify their translations.",
+            "hasPreloaded": "These options are preloaded with starting data for each language.",
+            "manual": "Use this option to input your own language code and then paste your own data below.",
+            "ctaClear": "Clear language & data"
         },
         "files": {
             "title": "Input Files",
@@ -54,6 +56,9 @@
         },
         "asList": "as List",
         "asXML": "as XML"
+    },
+    "edit": {
+        "title": "Edit"
     },
     "review": {
         "title": "Review",
@@ -124,6 +129,7 @@
     },
     "export": {
         "title": "Export",
+        "instructions": "Use this page to convert translations into XML format for submission to CLDR.",
         "download": "Download TSV",
         "coreLocaleDataTitle": "Core Locale Data",
         "coreLocaleInstructions": "In order to add the locale to the survey tool, submit this to a new datafile",

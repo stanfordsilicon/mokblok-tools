@@ -9,12 +9,8 @@ import ProgressCircle from './ProgressCircle';
 const DataTypeSelector: React.FC = () => {
   return (
     <div
-      className="flex flex-col gap-2 "
-      style={{
-        width: 'fit-content',
-        padding: '0em 1em',
-        fontSize: '0.75rem',
-      }}
+      className="flex flex-col gap-2"
+      style={{ width: 'fit-content', padding: '0em 1em', fontSize: '0.75rem' }}
     >
       {Object.values(DataPage).map((page) => (
         <PageButton key={page} page={page} />
@@ -35,14 +31,8 @@ const PageButton: React.FC<{
   return (
     <div>
       <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '0.5em',
-          justifyContent: 'space-between',
-          overflow: 'hidden',
-          height: '100%',
-        }}
+        className="flex gap-2 items-center justify-between"
+        style={{ overflow: 'hidden', height: '100%' }}
       >
         <button
           key={page}

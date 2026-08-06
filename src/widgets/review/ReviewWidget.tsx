@@ -10,6 +10,8 @@ import ReviewSection from './ReviewSection';
 const ReviewWidget: React.FC = () => {
   const { page, section, updateURLParams } = useURLParams();
   const sections = getSectionsForPage(page);
+
+  // When the page changes, if the current section is not valid for that page, update the section to the first section for that page.
   useEffect(() => {
     const sectionsForPage = getSectionsForPage(page);
     if (section != DataSection.All && page != DataPage.All && !sectionsForPage.includes(section)) {
@@ -18,15 +20,7 @@ const ReviewWidget: React.FC = () => {
   }, [page, section, updateURLParams]);
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        gap: '1em',
-        flexDirection: 'column',
-        position: 'relative',
-        flex: 1,
-      }}
-    >
+    <div className="flex flex-col gap-2 relative flex-1">
       <div style={{ position: 'absolute', top: 0, right: 0 }}>
         <DownloadAllDemos />
       </div>

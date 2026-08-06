@@ -48,12 +48,15 @@ const Sidebar: React.FC = () => {
 };
 
 const SidebarContents: React.FC = () => {
+  const { t } = useTranslation();
   const { step } = useURLParams();
 
   switch (step) {
     case StepName.Input:
+      return t('input.instructions');
     case StepName.Export:
-      return 'TODO: Add instructions';
+      return t('export.instructions');
+    case StepName.Edit:
     case StepName.Review:
       return <DataTypeSelector />;
     case StepName.Intro:

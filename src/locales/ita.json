@@ -21,12 +21,14 @@
         }
     },
     "input": {
-        "title": "Input",
+        "title": "Importa",
+        "instructions": "Seleziona una lingua di origine e una lingua di destinazione per caricare i dati salvati per quella lingua. Puoi anche incollare i tuoi dati TSV qui sotto e inserire manualmente il codice della lingua.",
         "language": {
-            "title": "Lingua",
-            "description": "Seleziona una lingua per caricare i dati salvati",
-            "manual": "Oppure incolla qui sotto i tuoi dati TSV e inserisci manualmente il codice della lingua",
-            "ctaClear": "Cancella lingua e testo"
+            "title": "Lingua di destinazione",
+            "pickLanguage": "Scegli una lingua per modificare le loro traduzioni.",
+            "hasPreloaded": "Queste opzioni sono precaricate con dati iniziali per ogni lingua.",
+            "manual": "Usa questa opzione per inserire il tuo codice lingua e poi incolla i tuoi dati qui sotto.",
+            "ctaClear": "Cancella lingua e dati"
         },
         "files": {
             "title": "File di input",
@@ -55,8 +57,11 @@
         "asList": "come lista",
         "asXML": "come XML"
     },
+    "edit": {
+        "title": "Modifica"
+    },
     "review": {
-        "title": "Revisione",
+        "title": "Revisiona",
         "downloadAllDemos": "Scarica tutte le demo",
         "translated": "Tradotto",
         "moreLanguages": "Più lingue",
@@ -124,6 +129,7 @@
     },
     "export": {
         "title": "Esporta",
+        "instructions": "Usa questa pagina per convertire le traduzioni in formato XML per l'invio a CLDR.",
         "download": "Scarica TSV",
         "coreLocaleDataTitle": "Dati locali principali",
         "coreLocaleInstructions": "Per aggiungere la locale al Survey Tool, invia questo a un nuovo file di dati",

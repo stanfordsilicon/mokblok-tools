@@ -2,14 +2,11 @@ import { useTranslation } from 'react-i18next';
 
 import { useURLParams } from '@settings/URLParams';
 
-// These languages have pre-saved TSV data that can be loaded with a click.
-export enum LoadableLanguage {
-  Abron = 'abr',
-  Bhojpuri = 'bho',
-  English = 'en',
-  French = 'fr',
-  Malagasy = 'mg',
-}
+import InputSource from './InputSource';
+
+// These languages have starting data that can be loaded with a click.
+export const TSVLanguages = ['abr', 'bho', 'en', 'fr', 'mg'];
+const XMLLanguages = ['ann', 'en', 'es', 'fr', 'ha', 'it', 'mfe', 'mg', 'or', 'sn', 'wo'];
 
 type Props = {
   clearInputText: () => void;
@@ -17,13 +14,17 @@ type Props = {
 
 const InputLanguageSelector = ({ clearInputText }: Props) => {
   const { t } = useTranslation();
-  const { targetLanguage, updateURLParams } = useURLParams();
+  const { targetLanguage, updateURLParams, inputSource } = useURLParams();
+  const languageOptions = inputSource === 'tsv' ? TSVLanguages : XMLLanguages;
 
   return (
     <div>
-      <div>{t('input.language.description')}</div>
-      <div style={{ display: 'flex', gap: '1em', alignItems: 'center' }}>
-        {Object.values(LoadableLanguage).map((lang: LoadableLanguage) => (
+      <div>
+        {t('input.language.pickLanguage')}{' '}
+        {inputSource !== InputSource.Blank && t('input.language.hasPreloaded')}
+      </div>
+      <div className="flex gap-1 items-center mt-1">
+        {languageOptions.map((lang) => (
           <button
             key={lang}
             className={lang === targetLanguage ? 'selected' : ''}
@@ -34,7 +35,7 @@ const InputLanguageSelector = ({ clearInputText }: Props) => {
           </button>
         ))}
       </div>
-      <div style={{ display: 'flex', gap: '1em', alignItems: 'center', marginTop: '1em' }}>
+      <div className="flex gap-1 items-center mt-1">
         <div>{t('input.language.manual')}</div>
         <input
           value={targetLanguage}

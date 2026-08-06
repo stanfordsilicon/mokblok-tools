@@ -19,6 +19,7 @@ const StepView: React.FC<StepViewProps> = ({ step }) => {
       return <IntroBody />;
     case StepName.Input:
       return <InputBody />;
+    case StepName.Edit:
     case StepName.Review:
       return <ReviewWidget />;
     case StepName.Export:
