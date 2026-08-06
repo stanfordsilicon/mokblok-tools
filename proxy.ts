@@ -1,11 +1,7 @@
-// Route protection (hardening req #2). Formerly middleware.ts — Next.js 16
-// renamed the convention to proxy.ts. Same matcher, same behaviour.
+// Route protection.
 //
-// Instantiates NextAuth with ONLY the edge-safe config (no MongoDB adapter).
-// Under proxy.ts that's no longer strictly required — proxy runs on the Node
-// runtime, where the driver would load fine — but it's still the right call:
-// it keeps the adapter (and a Mongo client) out of a path that runs on every
-// matched request, when all this needs is JWT verification.
+// Use the adapter-free config here so every matched request only does JWT
+// verification and never opens a MongoDB client.
 import { NextResponse } from 'next/server';
 import NextAuth from 'next-auth';
 
@@ -16,11 +12,8 @@ const { auth } = NextAuth(authConfig);
 export const proxy = auth((req) => {
   const { pathname, search, origin } = req.nextUrl;
 
-  // auth() runs this callback on EVERY matched request and hands us the
-  // session on req.auth (null when there's no valid JWT). Everything below
-  // depends on that distinction — without it a signed-in user gets bounced to
-  // the sign-in page exactly like a stranger, which reads as "sign in again"
-  // forever, and every API call 401s even with a good session.
+  // auth() runs on every matched request and puts the verified session on
+  // req.auth.
   const isSignedIn = Boolean(req.auth);
 
   // The sign-in page itself. Signed out, it has to render (bouncing it to
@@ -41,10 +34,7 @@ export const proxy = auth((req) => {
 
   // From here down the caller is NOT signed in.
 
-  // API callers get a machine-readable 401, never an HTML redirect — the
-  // survey client looks for exactly this status to show its "session expired"
-  // message. (The route handler ALSO checks the session itself; this is the
-  // outer fence, not the only one.)
+  // API callers get a machine-readable 401 instead of an HTML redirect.
   if (pathname.startsWith('/api/')) {
     return NextResponse.json({ success: false, error: 'Not signed in' }, { status: 401 });
   }
@@ -58,9 +48,8 @@ export const proxy = auth((req) => {
 });
 
 export const config = {
-  // Forces a sign in to access the survey. /auth/signin is matched too, so a
-  // signed-in visitor who lands there gets forwarded on instead of being
-  // asked to authenticate a second time.
+  // Match protected pages plus the sign-in page itself so signed-in visitors
+  // can be forwarded away from it.
   matcher: [
     '/',
     '/level/:path*',

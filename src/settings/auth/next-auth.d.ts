@@ -1,6 +1,4 @@
-// Auth.js's default Session type doesn't include user.id; we put the stable
-// internal id there in auth.config.ts's session callback, so declare it here
-// once instead of casting at every use site.
+// Add the stable internal user id and role to the Session type once here.
 import { DefaultSession } from 'next-auth';
 
 import type { Role } from './roles';
@@ -21,14 +19,8 @@ declare module 'next-auth' {
   }
 }
 
-// NOT `declare module "next-auth/jwt"`, despite that being the shape the
-// Auth.js docs show. next-auth/jwt is a bare `export * from "@auth/core/jwt"`
-// re-export with no JWT interface of its own, so augmenting it declares a
-// second, unrelated interface and the callback keeps seeing JWT's
-// `[key: string]: unknown` index signature — which makes `token.userId`
-// resolve to `{}` and fail to assign to `session.user.id` under strict.
-// Augmenting the module that actually declares the interface is what works.
-// (Same note, same fix, as idli-main/src/types/next-auth.d.ts.)
+// Augment `@auth/core/jwt` rather than `next-auth/jwt`; that's where the JWT
+// interface is actually declared.
 declare module '@auth/core/jwt' {
   interface JWT {
     /** Set on first sign-in by the jwt callback; absent until then. */

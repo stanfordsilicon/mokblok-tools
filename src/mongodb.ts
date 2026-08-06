@@ -15,15 +15,7 @@ export default function getMongoClient(): Promise<MongoClient> {
 }
 
 /**
- * The one database every SILICON app shares (users, accounts, sessions,
- * verification_tokens, plus this app's local databases).
- * Overridable per-deploy for a staging copy, but the default is the whole
- * point: one identity across projects.
- *
- * Deliberately identical to idli-main's lib/mongodb.ts — the two apps must
- * resolve to the SAME database name, or Auth.js creates a second users row
- * for the same person. Legacy note: this app used to hard-code "homescreen";
- * migrate-users.mjs at the repo root merged that database into "silicon".
+ * Shared database name for auth collections and this app's own data.
  */
 export function siliconDbName(): string {
   return process.env.SILICON_DB_NAME ?? 'silicon';

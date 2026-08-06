@@ -10,14 +10,14 @@
   --color-input-border: var(--silicon-line-strong);
   --color-input-unfilled: color-mix(in srgb, var(--silicon-orange) 22%, white);
 
-  --color-level-0: color-mix(in srgb, var(--silicon-brown) 30%, white);
-  --color-level-1: color-mix(in srgb, var(--silicon-orange) 72%, white);
-  --color-level-2: color-mix(in srgb, var(--silicon-brown) 60%, white);
-  --color-level-3: color-mix(in srgb, var(--silicon-green) 55%, white);
-  --color-level-4: color-mix(in srgb, var(--silicon-blue) 85%, white);
-  --color-level-5: color-mix(in srgb, var(--silicon-purple) 45%, white);
-  --color-level-6: color-mix(in srgb, var(--silicon-purple) 75%, white);
-  --color-level-7: color-mix(in srgb, var(--silicon-black) 65%, white);
+  --color-level-0: hsl(0, 0%, 60%);
+  --color-level-1: hsl(0, 50%, 60%);
+  --color-level-2: hsl(30, 50%, 60%);
+  --color-level-3: hsl(60, 50%, 60%);
+  --color-level-4: hsl(120, 50%, 60%);
+  --color-level-5: hsl(180, 50%, 60%);
+  --color-level-6: hsl(240, 50%, 60%);
+  --color-level-7: hsl(300, 50%, 60%);
 
   font-family: var(--font-geist-sans), sans-serif;
   line-height: 1.5;
@@ -59,11 +59,20 @@ h1 {
   margin: 0;
 }
 
+h2 { 
+  font-size: 1.5rem;
+}
+
+h3 { 
+  margin-top: 1rem;
+  font-size: 1.2rem;
+}
+
 button {
   border-radius: 999px;
   border: 1px solid var(--silicon-line-strong);
   padding: 0.7em 1.2em;
-  font-size: 0.95rem;
+  /* font-size: 0.95rem; */
   font-weight: 600;
   font-family: inherit;
   color: var(--silicon-ink);
@@ -79,6 +88,7 @@ button {
 button:hover {
   border-color: var(--silicon-purple);
   color: var(--silicon-purple);
+  background-color: var(--color-button-selected);
 }
 
 button:focus,
@@ -91,7 +101,7 @@ select.settings-select {
   border-radius: 0.75rem;
   border: 1px solid var(--color-input-border);
   padding: 0.7em 2.25em 0.7em 1em;
-  font-size: 0.95rem;
+  /* font-size: 0.95rem; */
   font-weight: 600;
   font-family: inherit;
   color: var(--silicon-ink);
@@ -127,8 +137,13 @@ table {
 th {
   position: sticky;
   top: 0;
-  background: var(--color-background);
+  /* background: var(--color-background); */
+  padding: 0.125em;
   z-index: 10;
+}
+
+td {
+  padding: 0 0.125em;
 }
 
 table.FullReviewTable {

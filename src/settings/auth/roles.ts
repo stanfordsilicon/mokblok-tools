@@ -1,25 +1,11 @@
-// Role-based privilege system for the SILICON apps.
+// Role-based privilege helpers.
 //
-// INTENTIONALLY DUPLICATED: this file exists byte-identically in
-// idli-main/src/lib/roles.ts and homescreen-webapp/lib/roles.ts. The two
-// repos are deployed as separate Vercel projects with no shared package yet,
-// and a copied 150-line module is a smaller cost than standing up a private
-// npm package (or a git submodule) for one file. Both repos resolve
-// "@/lib/mongodb" and "@/auth" to their own equivalents, which is what lets
-// the copies stay identical -- see the note in each tsconfig.json. When a
-// shared @silicon/* package does exist, this is the first thing to move into
-// it; until then, EDIT BOTH COPIES TOGETHER.
+// A role stored in the session/JWT is only a UI hint. Privileged actions
+// always re-read the live role from MongoDB so demotions take effect
+// immediately.
 //
-// THE RULE THIS MODULE ENFORCES: a role in a session/JWT is a UI
-// convenience and nothing else. Every privileged action re-reads the role
-// from the `users` collection through requireRole() below, so a demotion
-// takes effect on the demoted user's very next request instead of whenever
-// their token happens to expire.
-// SERVER ONLY. This module pulls in the MongoDB driver, so a "use client"
-// component may import `type Role` from it but must never import a value --
-// a value import would drag the driver into the client bundle. The
-// `server-only` package would enforce that mechanically, but neither repo
-// has that dependency and this work adds none.
+// Server only: importing values from this module into a client component would
+// pull the MongoDB driver into the client bundle.
 import { ObjectId, type Document, type Filter } from 'mongodb';
 import { NextResponse } from 'next/server';
 
@@ -31,9 +17,7 @@ export type Role = 'user' | 'moderator' | 'admin';
 export const ROLES: readonly Role[] = ['user', 'moderator', 'admin'] as const;
 
 /**
- * A users row with no `role` field IS a "user" -- there is deliberately no
- * migration backfilling this. Every read in both apps goes through asRole()
- * so a missing, null, or unrecognised value resolves here.
+ * A users row with no `role` field is treated as a regular user.
  */
 export const DEFAULT_ROLE: Role = 'user';
 
@@ -122,14 +106,10 @@ export type RoleCheck =
   | { ok: false; status: 401 | 403; role: Role; error: string };
 
 /**
- * THE single privileged-access gate for both apps: API routes, server
- * components, and route layouts all call this and nothing else.
+ * The single privileged-access gate for API routes and server-side UI.
  *
- * Resolves the session (for identity only), then reads the role straight
- * out of the database. The session's own `role` claim is never consulted
- * here -- that copy exists purely so the UI can render a badge without a
- * round trip, and trusting it would mean a demoted admin keeps their
- * powers until their JWT rolls over.
+ * Resolves the session for identity, then reads the role straight from the
+ * database. It never trusts the role claim stored in the session.
  *
  * `auth` is imported dynamically because auth.ts imports getUserRole() from
  * this module to enrich the session; a static import here would close that

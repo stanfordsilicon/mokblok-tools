@@ -46,10 +46,8 @@ function ReviewSection({ dataSection }: { dataSection: DataSection }) {
           </ErrorBoundary>
         </div>
         <div
+          className="flex flex-wrap gap-4"
           style={{
-            display: 'flex',
-            gap: '1em',
-            flexWrap: 'wrap',
             placeContent: 'start',
             maxWidth: '950px',
           }}

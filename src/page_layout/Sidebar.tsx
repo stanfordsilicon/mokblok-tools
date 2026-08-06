@@ -23,7 +23,7 @@ const Sidebar: React.FC = () => {
         <p className="text-[10px] font-semibold uppercase tracking-[0.35em] text-(--silicon-purple)">
           SILICON
         </p>
-        <h1 className="mt-2 text-3xl font-black tracking-tight text-(--silicon-ink)">
+        <h1 className="text-2xl font-black tracking-tight  ">
           <Link
             href="/"
             className="text-(--silicon-ink) no-underline hover:text-(--silicon-purple)"
@@ -31,7 +31,6 @@ const Sidebar: React.FC = () => {
             {t('title')}
           </Link>
         </h1>
-        <p className="mt-2 text-sm text-(--silicon-ink-soft)">{t('bySILICON')}</p>
       </header>
       <AccountBadge />
 
