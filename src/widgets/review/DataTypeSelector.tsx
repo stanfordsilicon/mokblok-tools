@@ -46,7 +46,7 @@ const PageButton: React.FC<{
       >
         <button
           key={page}
-          className={'px-1 py-1 text-base text-sm' + (highlightBackground ? ' selected' : '')}
+          className={'px-1 py-1 text-sm' + (highlightBackground ? ' selected' : '')}
           onClick={() => updateURLParams({ page, section: DataSection.All })}
           style={{ width: '12em' }}
         >
@@ -87,7 +87,7 @@ const PageSections: React.FC<PageSectionsProps> = ({ page }) => {
         <div key={section} style={{ display: 'flex', gap: '0.5em', alignItems: 'center' }}>
           <button
             className={
-              'px-1 py-1 text-sm' +
+              'px-0.5 py-0.5 text-sm' +
               (selectedSection === section || selectedSection === DataSection.All
                 ? ' selected'
                 : '')

@@ -18,7 +18,7 @@ const SettingsButton: React.FC = () => {
 
 const FloatingSettingsWidget: React.FC = () => {
   return (
-    <div className="absolute top-14 right-0 z-100 w-[min(26rem,calc(100vw-3rem))] rounded-[1.5rem] border border-(--silicon-line-strong) bg-white p-4 text-sm">
+    <div className="absolute top-14 right-0 z-50 w-[min(26rem,calc(100vw-3rem))] rounded-[1.5rem] border border-(--silicon-line-strong) bg-white p-4 text-sm">
       <SettingsWidget />
     </div>
   );
