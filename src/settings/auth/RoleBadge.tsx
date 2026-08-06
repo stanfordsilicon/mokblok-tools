@@ -1,4 +1,4 @@
-import type { Role } from '@/lib/roles';
+import type { Role } from './roles';
 
 // The labels are re-declared here rather than imported from @/lib/roles
 // because this component is rendered inside a client component

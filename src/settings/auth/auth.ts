@@ -7,6 +7,10 @@ import NextAuth from 'next-auth';
 import { authConfig } from '../../../auth.config';
 import getMongoClient, { siliconDbName } from '../../mongodb';
 
+import { getUserRole } from './roles';
+
+const ROLE_TTL_MS = 5 * 60 * 1000;
+
 // Comma-separated ALLOWED_EMAILS from the env, normalised once per boot.
 // Read lazily inside signIn (not at module top) so a missing env var fails a
 // sign-in attempt with a clear denial rather than crashing the build.
@@ -36,6 +40,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   adapter: MongoDBAdapter(getMongoClient, { databaseName: siliconDbName() }),
 
   callbacks: {
+    ...authConfig.callbacks,
+
     // ALLOWLIST (hardening req #2). Runs before the adapter creates a user, so
     // a rejected address never gets a users row at all. Returning false sends
     // the browser to /auth/error?error=AccessDenied (friendly page, no trace).
@@ -45,20 +51,22 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       return allowedEmails().has(email);
     },
 
-    // With adapter  JWT strategy, `user` (the adapter's users row) is only
-    // present on the sign-in invocation of this callback. Copy the STABLE
-    // internal id (users._id as a string) onto the token then, so every later
-    // request can read it without a DB lookup.
-    jwt({ token, user }) {
-      if (user?.id) token.userId = user.id;
-      return token;
-    },
+    async jwt(params) {
+      const token = (await authConfig.callbacks.jwt(params)) ?? params.token;
 
-    // Surface that internal id on the session object — this is the ONLY place
-    // app/api/responses/route.ts takes identity from (hardening req #1).
-    session({ session, token }) {
-      if (token.userId) session.user.id = token.userId as string;
-      return session;
+      const checkedAt = typeof token.roleCheckedAt === 'number' ? token.roleCheckedAt : 0;
+      const stale = Date.now() - checkedAt > ROLE_TTL_MS;
+
+      if (token.userId && (params.trigger === 'update' || token.role == null || stale)) {
+        try {
+          token.role = await getUserRole(token.userId);
+          token.roleCheckedAt = Date.now();
+        } catch (err) {
+          console.error('Role lookup failed while minting a token:', err);
+        }
+      }
+
+      return token;
     },
   },
 });

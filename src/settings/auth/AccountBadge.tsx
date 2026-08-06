@@ -6,8 +6,8 @@
 // still behaves correctly if the home page is ever made public again.
 'use client';
 
-import { signIn, signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
+import { signIn, signOut, useSession } from 'next-auth/react';
 
 import { RoleBadge } from './RoleBadge';
 

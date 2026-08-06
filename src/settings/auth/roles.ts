@@ -137,7 +137,7 @@ export type RoleCheck =
  * the module registry, so this costs nothing after the first call.
  */
 export async function requireRole(requiredRole: Role): Promise<RoleCheck> {
-  const { auth } = await import('@/auth');
+  const { auth } = await import('../../../auth');
   const session = await auth();
   const userId = session?.user?.id;
 

@@ -14,4 +14,19 @@ export const authConfig = {
     error: '/auth/error',
   },
   session: { strategy: 'jwt' },
+
+  // Keep the edge-safe JWT/session shaping here so proxy.ts sees the same
+  // session shape as the app without needing the Mongo adapter.
+  callbacks: {
+    jwt({ token, user }) {
+      if (user?.id) token.userId = user.id;
+      return token;
+    },
+
+    session({ session, token }) {
+      if (token.userId) session.user.id = token.userId;
+      session.user.role = token.role ?? 'user';
+      return session;
+    },
+  },
 } satisfies NextAuthConfig;
