@@ -7,7 +7,7 @@ import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
 import { groupBy } from '@shared/setUtils';
 
-import InputDataCell from '../InputDataCell';
+import InputDataCell from '../input/InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function EmojisReviewTable() {

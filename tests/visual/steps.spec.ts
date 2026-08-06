@@ -22,6 +22,10 @@ test('Input Step', async ({ page }) => {
   await performTest(page, 'admin=true&step=Input', 'input.png');
 });
 
+test('Edit Step', async ({ page }) => {
+  await performTest(page, 'admin=true&step=Edit', 'edit.png');
+});
+
 test('Review Step', async ({ page }) => {
   await performTest(page, 'admin=true&step=Review', 'review.png');
 });

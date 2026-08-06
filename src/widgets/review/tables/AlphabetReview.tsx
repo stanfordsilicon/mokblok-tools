@@ -9,7 +9,7 @@ import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
 import { decodeHtmlEntities } from '@shared/stringUtils';
 
-import InputDataCell from '../InputDataCell';
+import InputDataCell from '../input/InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 const charSets = ['main', 'uppercase', 'auxiliary', 'numbers', 'punctuation'] as const;

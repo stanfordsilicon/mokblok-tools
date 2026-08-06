@@ -69,10 +69,9 @@ h3 {
 }
 
 button {
-  border-radius: 999px;
+  border-radius: 1em;
   border: 1px solid var(--silicon-line-strong);
-  padding: 0.7em 1.2em;
-  /* font-size: 0.95rem; */
+  padding: 0.5em;
   font-weight: 600;
   font-family: inherit;
   color: var(--silicon-ink);
@@ -85,6 +84,13 @@ button {
     box-shadow 0.2s ease;
 }
 
+button.StepButton {
+  /* border-radius: 0.75rem; */
+  padding: 0.5em;
+  border-radius: 0.75rem;
+  font-size: 0.95rem;
+}
+
 button:hover {
   border-color: var(--silicon-purple);
   color: var(--silicon-purple);
@@ -94,7 +100,6 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 2px solid var(--silicon-purple);
-  outline-offset: 2px;
 }
 
 select.settings-select {

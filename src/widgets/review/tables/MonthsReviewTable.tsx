@@ -6,7 +6,7 @@ import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
 import { matrixBy } from '@shared/setUtils';
 
-import InputDataCell from '../InputDataCell';
+import InputDataCell from '../input/InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function MonthsReviewTable() {

@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 
 import { useURLParams } from '@settings/URLParams';
 
-import { LoadableLanguage } from '@widgets/input/InputLanguageSelector';
+import { TSVLanguages } from '@widgets/input/InputLanguageSelector';
 import InputSource from '@widgets/input/InputSource';
 
 import { Doc, getDocFileSuffix, getDocFileType } from './Doc';
@@ -26,7 +26,7 @@ function useInputTSVs() {
   useEffect(() => {
     if (
       inputSource !== InputSource.TSV ||
-      !Object.values(LoadableLanguage).find((l) => l === targetLanguage) ||
+      !TSVLanguages.find((l) => l === targetLanguage) ||
       !targetLanguage
     ) {
       doc1State.clear();

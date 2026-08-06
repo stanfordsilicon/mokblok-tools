@@ -9,7 +9,6 @@ export type DataContextType = {
   findDataEntry(query: Partial<DataEntry>): DataEntry | undefined;
   findDataEntries(query: Partial<DataEntry>): DataEntry[];
   getTranslation(entry: DataEntry | undefined, fallback?: boolean): string;
-  setTranslation(index: number, newTranslation: string): void;
   getSourceData(entry: DataEntry | undefined): string | undefined;
 };
 
@@ -18,7 +17,6 @@ export const DataContext = createContext<DataContextType>({
   findDataEntry: () => undefined,
   findDataEntries: () => [],
   getTranslation: () => '',
-  setTranslation: () => {},
   getSourceData: () => '',
 });
 
@@ -35,7 +33,7 @@ export const useDataContext = () => {
 export const DataProvider: React.FC<{
   children: React.ReactNode;
 }> = ({ children }) => {
-  const { alphabet, getTranslation, setTranslation } = useTargetDataContext();
+  const { alphabet, getTranslation } = useTargetDataContext();
   const { findDataEntry, findDataEntries, getSourceData } = useSourceDataContext();
 
   const dataContext: DataContextType = {
@@ -44,7 +42,6 @@ export const DataProvider: React.FC<{
     findDataEntries,
     getTranslation,
     getSourceData,
-    setTranslation,
   };
   return <DataContext.Provider value={dataContext}>{children}</DataContext.Provider>;
 };

@@ -7,8 +7,8 @@ import type { DataEntry } from '@data/DataTypes';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
-import useBackgroundColor from '../getBackgroundColor';
-import InputDataCell from '../InputDataCell';
+import useBackgroundColor from '../input/getBackgroundColor';
+import InputDataCell from '../input/InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function FullReviewTable() {

@@ -5,7 +5,7 @@ import { DataSection } from '@data/DataSection';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
-import InputTextareaCell from '../InputTextareaCell';
+import InputTextareaCell from '../input/InputTextareaCell';
 import SourceDataCell from '../SourceDataCell';
 
 function CLDRTicketReviewTable() {

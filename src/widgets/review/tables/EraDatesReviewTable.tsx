@@ -6,7 +6,7 @@ import { DataSection } from '@data/DataSection';
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 import { useURLParams } from '@settings/URLParams';
 
-import InputDataCell from '../InputDataCell';
+import InputDataCell from '../input/InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function EraDatesReviewTable() {

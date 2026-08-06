@@ -7,7 +7,7 @@ import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
 import { sortBy } from '@shared/setUtils';
 
-import InputDataCell from '../InputDataCell';
+import InputDataCell from '../input/InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 const symbols = ['decimal', 'percentSign', 'plusSign', 'minusSign', 'multiplication', 'division'];

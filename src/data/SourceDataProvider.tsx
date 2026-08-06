@@ -53,6 +53,7 @@ const SourceDataProvider: React.FC<{
 
   // Data fetchers
   const fetchDataEntries = useCallback(async () => {
+    if (sourceDataStatus !== SourceDataStatus.Initial) return;
     setSourceDataStatus(SourceDataStatus.LoadingDataEntries);
     const dataEntries = await loadDataEntries();
     if (dataEntries) {
@@ -105,13 +106,13 @@ const SourceDataProvider: React.FC<{
   // Triggers to load the data
   useEffect(() => {
     if (sourceDataStatus === SourceDataStatus.Initial) fetchDataEntries();
-  }, [sourceDataStatus, fetchDataEntries]);
+  }, [sourceDataStatus]);
   useEffect(() => {
     if (sourceDataStatus === SourceDataStatus.LoadedDataEntries) fetchXMLData(sourceLanguage);
-  }, [sourceDataStatus, sourceLanguage, fetchXMLData]);
+  }, [sourceDataStatus, sourceLanguage]);
   useEffect(() => {
     // If the source language changes, reload the data
-    if (sourceDataStatus >= SourceDataStatus.LoadedDataEntries)
+    if (sourceDataStatus > SourceDataStatus.LoadedDataEntries)
       setSourceDataStatus(SourceDataStatus.LoadedDataEntries);
   }, [sourceLanguage, sourceDataStatus]);
 

@@ -13,7 +13,7 @@ const PageTitle: React.FC = () => {
       <SettingsButton />
       <div className="text-3xl font-black leading-none tracking-tight sm:text-5xl">
         {t(`${step.toLowerCase()}.title`)}{' '}
-        {step === StepName.Review && (
+        {(step === StepName.Review || step === StepName.Edit) && (
           <span className="mt-2 block text-base font-semibold tracking-normal text-(--silicon-ink-soft) sm:mt-0 sm:ml-2 sm:inline">
             / {t(`dataPage.${page}`)}
           </span>
