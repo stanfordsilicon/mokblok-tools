@@ -30,7 +30,8 @@ const InputDocSelector: React.FC<{
           selected={curDoc}
           setSelected={setDoc}
           style={{
-            color: inputTSVs[doc]?.value.length === 0 ? 'var(--color-text-highlighted)' : undefined,
+            backgroundColor:
+              inputTSVs[doc]?.value.length === 0 ? 'var(--color-level-2)' : undefined,
           }}
         />
       ))}

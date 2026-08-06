@@ -22,11 +22,26 @@ export enum TargetDataStatus {
   Ready,
 }
 
+export enum Vote {
+  Unknown,
+  Reject,
+  Accept,
+}
+
+type TranslationInfo = {
+  fallback: string;
+  translation?: string;
+  edit?: string;
+  vote?: Vote;
+};
+
 export type TargetDataContextType = {
   alphabet?: AlphabetData;
   inputTSVs: Partial<Record<Doc, UseTSVState>>;
   getTranslation(entry: DataEntry | undefined, fallback?: boolean): string;
-  setTranslation(index: number, newTranslation: string): void;
+  getTranslationInfo(entry: DataEntry | undefined): TranslationInfo;
+  editTranslation(index: number, newTranslation: string): void;
+  voteOnTranslation(index: number, newVote: Vote): void;
   targetXMLData: Record<string, string>; // Xpath to raw translations
   targetDataStatus: TargetDataStatus;
 };
@@ -35,7 +50,9 @@ export const TargetDataContext = createContext<TargetDataContextType>({
   inputTSVs: {},
   alphabet: undefined,
   getTranslation: () => '',
-  setTranslation: () => {},
+  getTranslationInfo: () => ({ fallback: '' }),
+  editTranslation: () => {},
+  voteOnTranslation: () => {},
   targetDataStatus: TargetDataStatus.Initial,
   targetXMLData: {},
 });
@@ -60,7 +77,9 @@ const TargetDataProvider: React.FC<{
 
   const { extraText, tsvRows, inputTSVs } = useInputTSVs();
   const [alphabetData, setAlphabetData] = useState<AlphabetData | undefined>(undefined);
-  const [translationsByIndex, setTranslationsByIndex] = useState<Record<number, string>>({});
+  const [translationInfoByIndex, setTranslationInfoByIndex] = useState<
+    Record<number, TranslationInfo>
+  >({});
   const [targetXMLData, setTargetXMLData] = useState<Record<string, string>>({});
 
   useEffect(() => {
@@ -71,45 +90,69 @@ const TargetDataProvider: React.FC<{
     loadData();
   }, [targetLanguage]);
 
+  const getTranslationInfo = useCallback(
+    (entry: DataEntry | undefined): TranslationInfo => {
+      if (!entry) return { fallback: '' };
+      const info = translationInfoByIndex[entry.index];
+      if (!info) return { fallback: entry.english };
+      return info;
+    },
+    [translationInfoByIndex],
+  );
   const getTranslation = useCallback(
     (entry: DataEntry | undefined, fallback = true): string => {
-      if (!entry) return '';
-      return translationsByIndex[entry.index] ?? (fallback ? entry.english : '');
+      const info = getTranslationInfo(entry);
+      return info.edit ?? info.translation ?? (fallback ? info.fallback : '');
     },
-    [translationsByIndex],
+    [getTranslationInfo],
   );
-  const setTranslation = useCallback((index: number, newTranslation: string) => {
-    setTranslationsByIndex((prev) => ({ ...prev, [index]: newTranslation }));
-  }, []);
+  const editTranslation = useCallback(
+    (index: number, newTranslation: string) => {
+      setTranslationInfoByIndex((prev) => {
+        const prevInfo = prev[index] ?? { fallback: '' };
+        return { ...prev, [index]: { ...prevInfo, edit: newTranslation } };
+      });
+    },
+    [setTranslationInfoByIndex],
+  );
+  const voteOnTranslation = useCallback(
+    (index: number, newVote: Vote) => {
+      setTranslationInfoByIndex((prev) => {
+        const prevInfo = prev[index] ?? { fallback: '' };
+        return { ...prev, [index]: { ...prevInfo, vote: newVote } };
+      });
+    },
+    [setTranslationInfoByIndex],
+  );
   const fillTranslationsFromTSV = useCallback(
     (rows: TSVRowData[]) => {
-      const newTranslationsByIndex = Object.fromEntries(
-        rows
-          .map((row) => {
-            const key = row.key;
-            const entry = findDataEntry({ ext_id: key }) ?? findDataEntry({ xpath: key });
-            if (entry && row.translated) return [entry.index, row.translated];
-            return [];
-          })
-          .filter((v) => v.length > 0),
+      const newTranslationsByIndex = rows.reduce(
+        (acc, row) => {
+          const key = row.key;
+          const entry = findDataEntry({ ext_id: key }) ?? findDataEntry({ xpath: key });
+          if (entry && row.translated)
+            acc[entry.index] = { fallback: row.english, translation: row.translated };
+          return acc;
+        },
+        {} as Record<number, TranslationInfo>,
       );
-      setTranslationsByIndex(newTranslationsByIndex);
+      setTranslationInfoByIndex(newTranslationsByIndex);
       setTargetDataStatus(TargetDataStatus.Ready);
     },
-    [findDataEntry, setTranslationsByIndex, setTargetDataStatus],
+    [findDataEntry, setTranslationInfoByIndex, setTargetDataStatus],
   );
   const fillTranslationsFromXML = useCallback(
     (xmlData: Record<string, string>) => {
-      const newTranslationsByIndex = Object.fromEntries(
-        Object.entries(xmlData)
-          .map(([xpath, translated]) => {
-            const entry = findDataEntry({ xpath });
-            if (entry && translated) return [entry.index, translated];
-            return [];
-          })
-          .filter((v) => v.length > 0),
+      const newTranslationsByIndex = Object.entries(xmlData).reduce(
+        (acc, [xpath, translated]) => {
+          const entry = findDataEntry({ xpath });
+          if (entry && translated)
+            acc[entry.index] = { fallback: entry.english, translation: translated };
+          return acc;
+        },
+        {} as Record<number, TranslationInfo>,
       );
-      setTranslationsByIndex(newTranslationsByIndex);
+      setTranslationInfoByIndex(newTranslationsByIndex);
       setTargetDataStatus(TargetDataStatus.Ready);
     },
     [findDataEntry],
@@ -139,7 +182,9 @@ const TargetDataProvider: React.FC<{
     alphabet: alphabetData,
     inputTSVs,
     getTranslation,
-    setTranslation,
+    getTranslationInfo,
+    editTranslation,
+    voteOnTranslation,
     targetDataStatus,
     targetXMLData,
   };
