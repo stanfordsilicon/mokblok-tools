@@ -111,10 +111,21 @@ const SourceDataProvider: React.FC<{
     if (sourceDataStatus === SourceDataStatus.LoadedDataEntries) fetchXMLData(sourceLanguage);
   }, [sourceDataStatus, sourceLanguage]);
   useEffect(() => {
-    // If the source language changes, reload the data
+    // If the source language changes, reload the data.
+    //
+    // sourceDataStatus is deliberately NOT a dependency. This effect invalidates
+    // loaded data when the LANGUAGE changes; subscribing it to the status as
+    // well made it fight the loader above. The loader advances
+    // LoadedDataEntries -> LoadingSourceData, this effect then re-ran, saw a
+    // status past LoadedDataEntries and pulled it straight back, which
+    // re-triggered the loader: an infinite render loop ("Maximum update depth
+    // exceeded" at setSourceXMLData) that also fired a fresh CLDR fetch on every
+    // pass. Reading the status without subscribing to it is exactly the intent,
+    // so the exhaustive-deps warning is suppressed rather than satisfied.
     if (sourceDataStatus > SourceDataStatus.LoadedDataEntries)
       setSourceDataStatus(SourceDataStatus.LoadedDataEntries);
-  }, [sourceLanguage, sourceDataStatus]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sourceLanguage]);
 
   const dataContext: SourceDataContextType = {
     findDataEntry,
