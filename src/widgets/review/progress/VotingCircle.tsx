@@ -1,6 +1,5 @@
 import type { DataPage, DataSection } from '@data/DataSection';
 
-
 import { useVotingCompletionForSection } from '../getDataEntriesForSection';
 
 import PieChart from './PieChart';
