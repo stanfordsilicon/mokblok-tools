@@ -17,8 +17,15 @@ function isEmailAllowed(email: string): boolean {
       .map((e) => e.trim().toLowerCase())
       .filter(Boolean),
   );
+  const allowedEmailDomains = new Set(
+    (process.env.ALLOWED_EMAIL_DOMAINS ?? '')
+      .split(',')
+      .map((e) => e.trim().toLowerCase())
+      .filter(Boolean),
+  );
   return (
-    allowedEmails.has(email) || email.endsWith('@stanford.edu') || email.endsWith('@unicode.org')
+    allowedEmails.has(email) ||
+    Array.from(allowedEmailDomains).some((domain) => email.endsWith(domain))
   );
 }
 

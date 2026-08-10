@@ -26,7 +26,7 @@ test('Vetting', async ({ page }) => {
   await expect(pageBody).toHaveScreenshot(`5-open-comment.png`);
 
   // Enter comment
-  await page.getByTestId('comment-input').fill('This is a test comment.');
+  await page.getByTestId('comment-input').first().fill('This is a test comment.');
   await expect(pageBody).toHaveScreenshot(`6-write-comment.png`);
 
   // Close comment

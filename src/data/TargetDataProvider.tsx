@@ -101,9 +101,8 @@ const TargetDataProvider: React.FC<{
     (index: number, update: Partial<TranslationInfo>) => {
       setTranslations((prev) => {
         if (!prev[index]) return prev;
-        prev[index] = { ...prev[index], ...update };
         // return a new object? could be computationally expensive
-        return { ...prev };
+        return { ...prev, [index]: { ...prev[index], ...update } };
       });
     },
     [setTranslations],
