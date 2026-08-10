@@ -10,7 +10,7 @@ const PageTitle: React.FC = () => {
 
   return (
     <div className="mb-4 flex items-center justify-between gap-2">
-      <div className="text-3xl font-black leading-none   sm:text-5xl">
+      <div className="text-3xl font-black leading-none sm:text-5xl">
         {uitext(`${step.toLowerCase()}.title`)}{' '}
         {(step === StepName.Review || step === StepName.Edit) && (
           <span className="mt-2 block text-base font-semibold tracking-normal text-(--silicon-ink-soft) sm:mt-0 sm:ml-2 sm:inline">

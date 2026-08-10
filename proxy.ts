@@ -10,6 +10,8 @@ import i18nConfig from './i18n.config';
 
 const { auth } = NextAuth(authConfig);
 const locales = [...i18nConfig.supportedLngs].sort((a, b) => b.length - a.length);
+const skipAuthForScreenshotTests = process.env.SCREENSHOT_TEST_BYPASS_AUTH === '1';
+
 function getLocaleFromPathname(pathname: string) {
   return locales.find((locale) => pathname === `/${locale}` || pathname.startsWith(`/${locale}/`));
 }
@@ -31,6 +33,8 @@ function withLocale(pathname: string, locale?: string) {
 }
 
 export const proxy = auth((req) => {
+  if (skipAuthForScreenshotTests) return NextResponse.next();
+
   const { pathname, search, origin } = req.nextUrl;
   const locale = getLocaleFromPathname(pathname);
   const normalizedPathname = stripLocaleFromPathname(pathname);

@@ -4,7 +4,7 @@ import { freezeDate, gotoApp } from './testUtils';
 
 test('Vetting', async ({ page }) => {
   await freezeDate(page);
-  await gotoApp(page, `/?step=Review`);
+  await gotoApp(page, `/?step=Review&admin=true`);
   const pageBody = page.getByTestId('PageBody');
   await expect(pageBody).toHaveScreenshot(`1-start-vetting.png`);
 
@@ -17,7 +17,7 @@ test('Vetting', async ({ page }) => {
   await expect(pageBody).toHaveScreenshot(`3-reject.png`);
 
   // Edit second entry
-  await page.getByTestId('highlight-input').nth(1).fill('New');
+  await page.getByTestId('highlight-input').first().fill('New');
   await expect(pageBody).toHaveScreenshot(`4-edit.png`);
 
   // Click comment button for third entry

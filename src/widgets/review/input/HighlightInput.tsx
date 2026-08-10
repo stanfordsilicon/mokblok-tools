@@ -9,7 +9,6 @@ type HighlightInputProps = {
 function HighlightInput({ value, onChange, highlight, disabled, style }: HighlightInputProps) {
   return (
     <div
-      data-testid="highlight-input"
       style={{
         position: 'relative',
         display: 'inline-block',
@@ -33,6 +32,7 @@ function HighlightInput({ value, onChange, highlight, disabled, style }: Highlig
         </div>
       </div>
       <input
+        data-testid="highlight-input"
         style={{
           position: 'relative',
           zIndex: 1,
