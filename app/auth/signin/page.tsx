@@ -1,4 +1,6 @@
-import SignInButton from '../../../src/settings/auth/SignInButton';
+import { getTranslation } from 'react-i18next';
+
+import SignInButton from '@settings/auth/SignInButton';
 
 const ERROR_MESSAGES: Record<string, string> = {
   AccessDenied:
@@ -14,12 +16,23 @@ const ERROR_MESSAGES: Record<string, string> = {
   Verification: 'That sign-in link has expired or was already used.',
 };
 
-export default async function SignInPage({
+async function SignInPage({
   searchParams,
 }: {
   searchParams: Promise<{ callbackUrl?: string; error?: string }>;
 }) {
+  const t = await getTranslation();
+  // const [callbackUrl, setCallbackUrl] = useState<string | undefined>(undefined);
+  // const [error, setError] = useState<string | undefined>(undefined);
+
   const { callbackUrl, error } = await searchParams;
+
+  // useEffect(() => {
+  //   searchParams.then(({ callbackUrl, error }) => {
+  //     setCallbackUrl(callbackUrl);
+  //     setError(error);
+  //   });
+  // }, [searchParams]);
   const errorMessage = error
     ? (ERROR_MESSAGES[error] ??
       "Sign-in didn't complete. Please try again, or contact the SILICON team.")
@@ -34,9 +47,7 @@ export default async function SignInPage({
 
         <h1 className="mt-3 text-3xl md:text-4xl font-black tracking-tight">Homescreen Review</h1>
 
-        <p className="mt-4 text-(--silicon-ink-soft) leading-relaxed">
-          Sign in with your approved Google account to use the translation and review tools.
-        </p>
+        <p className="mt-4 text-(--silicon-ink-soft) leading-relaxed">{t('auth.signInWhy')}</p>
 
         <div className="mt-6 rounded-2xl border border-(--silicon-line) bg-white p-6 shadow-sm">
           {errorMessage && (
@@ -54,3 +65,5 @@ export default async function SignInPage({
     </main>
   );
 }
+
+export default SignInPage;

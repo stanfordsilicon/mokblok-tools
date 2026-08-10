@@ -19,11 +19,11 @@ const Sidebar: React.FC = () => {
 
   return (
     <aside className="flex w-full shrink-0 flex-col gap-4 border-b border-(--silicon-line-strong) bg-(--silicon-panel) px-4 py-5 lg:min-h-screen lg:w-[22rem] lg:border-r lg:border-b-0 lg:px-5 lg:py-6">
-      <header className="rounded-[1.75rem] border border-(--silicon-line) bg-white px-5 py-4 shadow-sm">
-        <p className="text-[10px] font-semibold uppercase tracking-[0.35em] text-(--silicon-purple)">
+      <header className="">
+        <p className="text-sm font-semibold uppercase tracking-[0.35em] text-(--silicon-purple)">
           SILICON
         </p>
-        <h1 className="text-2xl font-black tracking-tight  ">
+        <h1 className="text-3xl font-black tracking-tight  ">
           <Link
             href="/"
             className="text-(--silicon-ink) no-underline hover:text-(--silicon-purple)"

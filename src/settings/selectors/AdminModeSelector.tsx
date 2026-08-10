@@ -19,6 +19,8 @@ const AdminModeSelector: React.FC = () => {
     });
   }, [updateURLParams, admin, step]);
 
+  if (!admin) return null;
+
   return (
     <button onClick={updateAdminMode} className={admin ? 'selected' : ''}>
       {admin ? t('settings.inAdminCTATurnOff') : t('settings.notAdminCTATurnOn')}

@@ -53,7 +53,7 @@ export const TargetDataContext = createContext<TargetDataContextType>({
   inputTSVs: {},
   alphabet: undefined,
   getTranslation: () => '',
-  getTranslationInfo: () => ({ index: -1, source: '' }),
+  getTranslationInfo: () => ({ index: -1, source: '', vote: Vote.Unknown }),
   translations: {},
   editTranslation: () => {},
   targetDataStatus: TargetDataStatus.LoadingBaselineData,

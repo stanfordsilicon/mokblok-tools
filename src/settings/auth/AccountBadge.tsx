@@ -6,15 +6,21 @@
 // still behaves correctly if the home page is ever made public again.
 'use client';
 
-import Link from 'next/link';
 import { signIn, signOut, useSession } from 'next-auth/react';
+import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+
+import { useURLParams } from '@settings/URLParams';
 
 import { RoleBadge } from './RoleBadge';
 
 export default function AccountBadge() {
   const { t } = useTranslation();
   const { data: session, status } = useSession();
+  const { updateURLParams, admin, step } = useURLParams();
+  const updateAdminMode = useCallback(() => {
+    updateURLParams({ admin: !admin });
+  }, [updateURLParams, admin, step]);
 
   // Hold the space while the session resolves so the header doesn't jump.
   if (status === 'loading') {
@@ -36,12 +42,12 @@ export default function AccountBadge() {
           </p>
           <p className="truncate text-sm font-medium text-(--silicon-ink)">{session.user.email}</p>
           {role === 'admin' && (
-            <Link
-              href="/admin"
+            <button
+              onClick={updateAdminMode}
               className="text-xs font-semibold text-(--silicon-purple) underline-offset-2 hover:underline"
             >
-              {t('auth.admin')}
-            </Link>
+              {admin ? t('settings.viewingAsAdmin') : t('settings.viewingAsRegularUser')}
+            </button>
           )}
         </div>
 
