@@ -23,23 +23,23 @@ const InputBody = () => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '.5em' }}>
-      <h3 style={{ margin: 0 }}>{uitext('input.inputSource.title')}</h3>
+      <h3 style={{ margin: 0 }}>{uitext('import.inputSource.title')}</h3>
       <div style={{ display: 'flex', gap: '.5em', alignItems: 'center' }}>
-        {uitext('input.inputSource.label')}
+        {uitext('import.inputSource.label')}
         {Object.values(InputSource).map((source) => (
           <button
             key={source}
             className={inputSource === source ? 'selected' : ''}
             onClick={() => updateURLParams({ inputSource: source })}
           >
-            {uitext(`input.inputSource.${source}`)}
+            {uitext(`import.inputSource.${source}`)}
           </button>
         ))}
       </div>
-      <h3 style={{ margin: 0 }}>{uitext('input.language.title')}</h3>
+      <h3 style={{ margin: 0 }}>{uitext('import.language.title')}</h3>
       <InputLanguageSelector clearInputText={clearInputText} />
-      <h3 style={{ margin: 0 }}>{uitext('input.files.title')}</h3>
-      {inputSource === InputSource.Blank && <>{uitext('input.files.None')}</>}
+      <h3 style={{ margin: 0 }}>{uitext('import.files.title')}</h3>
+      {inputSource === InputSource.Blank && <>{uitext('import.files.None')}</>}
       {inputSource === InputSource.XML && <InputXMLSection />}
       {inputSource === InputSource.TSV && <InputTSVSection />}
     </div>

@@ -20,8 +20,8 @@ const InputLanguageSelector = ({ clearInputText }: Props) => {
   return (
     <div>
       <div>
-        {uitext('input.language.pickLanguage')}{' '}
-        {inputSource !== InputSource.Blank && uitext('input.language.hasPreloaded')}
+        {uitext('import.language.pickLanguage')}{' '}
+        {inputSource !== InputSource.Blank && uitext('import.language.hasPreloaded')}
       </div>
       <div className="flex gap-1 items-center mt-1">
         {languageOptions.map((lang) => (

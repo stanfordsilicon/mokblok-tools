@@ -5,8 +5,18 @@
     "intro": {
         "title": "Bienvenue dans Homescreen",
         "description": "Cette application web est utilisée par les évaluateurs pour évaluer la qualité des traductions soumises pour chaque langue. Veuillez commencer par sélectionner votre langue source puis votre langue cible.",
-        "ctaInputStart": "Commencer à saisir des traductions",
+        "ctaImportStart": "Commencer à saisir des traductions",
         "ctaReviewStart": "Commencer à réviser les traductions"
+    },
+    "nav": {
+        "intro": "Introduction",
+        "import": "Importer",
+        "edit": "Modifier",
+        "vote": "Voter",
+        "export": "Exporter",
+        "page/section": "Page / Section",
+        "translations": "Traductions",
+        "votes": "Votes"
     },
     "auth": {
         "signedInAs": "Connecté en tant que",

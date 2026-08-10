@@ -13,7 +13,7 @@ const InputSourceSelector: React.FC = () => {
 
   return (
     <div style={{ display: 'flex', gap: '1em', alignItems: 'center', flexWrap: 'wrap' }}>
-      <strong>{uitext('input.inputSource.label')}:</strong>
+      <strong>{uitext('import.inputSource.label')}:</strong>
 
       <select
         className="settings-select"
