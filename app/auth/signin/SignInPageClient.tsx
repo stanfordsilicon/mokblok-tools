@@ -1,14 +1,13 @@
 'use client';
 
 import { useSearchParams } from 'next/navigation';
-import { I18nextProvider } from 'react-i18next';
 
 import SignInButton from '@settings/auth/SignInButton';
 import { URLParamsProvider } from '@settings/URLParams';
 
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
-import i18n from '../../../src/i18n';
+import UITextProvider from '../../UITextProvider';
 
 function SignInPageContent() {
   const searchParams = useSearchParams();
@@ -50,9 +49,9 @@ function SignInPageContent() {
 export default function SignInPageClient() {
   return (
     <URLParamsProvider>
-      <I18nextProvider i18n={i18n}>
+      <UITextProvider>
         <SignInPageContent />
-      </I18nextProvider>
+      </UITextProvider>
     </URLParamsProvider>
   );
 }

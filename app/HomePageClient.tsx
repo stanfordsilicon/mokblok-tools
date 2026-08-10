@@ -1,7 +1,6 @@
 'use client';
 
 import { SessionProvider } from 'next-auth/react';
-import { I18nextProvider } from 'react-i18next';
 
 import { DataProvider } from '@data/DataContext';
 import { LinguisticsProvider } from '@data/LinguisticsContext';
@@ -10,18 +9,18 @@ import TargetDataProvider from '@data/TargetDataProvider';
 
 import { URLParamsProvider } from '@settings/URLParams';
 
-import i18n from '../i18n';
+import PageBody from '../src/page_layout/PageBody';
+import PageFooter from '../src/page_layout/PageFooter';
+import PageTitle from '../src/page_layout/PageTitle';
+import Sidebar from '../src/page_layout/Sidebar';
 
-import PageBody from './PageBody';
-import PageFooter from './PageFooter';
-import PageTitle from './PageTitle';
-import Sidebar from './Sidebar';
+import UITextProvider from './UITextProvider';
 
-function App() {
+export default function HomePageClient() {
   return (
     <SessionProvider>
       <URLParamsProvider>
-        <I18nextProvider i18n={i18n}>
+        <UITextProvider>
           <LinguisticsProvider>
             <SourceDataProvider>
               <TargetDataProvider>
@@ -41,10 +40,8 @@ function App() {
               </TargetDataProvider>
             </SourceDataProvider>
           </LinguisticsProvider>
-        </I18nextProvider>
+        </UITextProvider>
       </URLParamsProvider>
     </SessionProvider>
   );
 }
-
-export default App;

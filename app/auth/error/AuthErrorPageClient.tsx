@@ -1,13 +1,12 @@
 'use client';
 
 import Link from 'next/link';
-import { I18nextProvider } from 'react-i18next';
 
 import { URLParamsProvider } from '@settings/URLParams';
 
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
-import i18n from '../../../src/i18n';
+import UITextProvider from '../../UITextProvider';
 
 function AuthErrorPageContent() {
   const { uitext } = useInterfaceTranslation();
@@ -38,9 +37,9 @@ function AuthErrorPageContent() {
 export default function AuthErrorPageClient() {
   return (
     <URLParamsProvider>
-      <I18nextProvider i18n={i18n}>
+      <UITextProvider>
         <AuthErrorPageContent />
-      </I18nextProvider>
+      </UITextProvider>
     </URLParamsProvider>
   );
 }
