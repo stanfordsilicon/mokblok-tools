@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useEffect, useState } from 'react';
+import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 
 import { useURLParams } from '@settings/URLParams';
 
@@ -18,8 +18,8 @@ import type { TSVRowData } from './tsvdocs/TSVRowData';
 import type { UseTSVState } from './tsvdocs/useTSVState';
 
 export enum TargetDataStatus {
-  Initial,
-  InputFileChanged,
+  WaitingOnSourceData,
+  LoadingBaselineData,
   Ready,
 }
 
@@ -30,6 +30,7 @@ export enum Vote {
 }
 
 type TranslationInfo = {
+  index: number;
   source: string;
   translation?: string;
   edit?: string;
@@ -42,9 +43,8 @@ export type TargetDataContextType = {
   inputTSVs: Partial<Record<Doc, UseTSVState>>;
   getTranslation(entry: DataEntry | undefined, fallback?: boolean): string;
   getTranslationInfo(entry: DataEntry | undefined): TranslationInfo;
-  editTranslation(index: number, newTranslation: string): void;
-  voteOnTranslation(index: number, newVote: Vote): void;
-  editTranslationComment(index: number, comment: string): void;
+  translations: Record<number, TranslationInfo>;
+  editTranslation(index: number, update: Partial<TranslationInfo>): void;
   targetXMLData: Record<string, string>; // Xpath to raw translations
   targetDataStatus: TargetDataStatus;
 };
@@ -53,11 +53,10 @@ export const TargetDataContext = createContext<TargetDataContextType>({
   inputTSVs: {},
   alphabet: undefined,
   getTranslation: () => '',
-  getTranslationInfo: () => ({ source: '' }),
+  getTranslationInfo: () => ({ index: -1, source: '' }),
+  translations: {},
   editTranslation: () => {},
-  voteOnTranslation: () => {},
-  editTranslationComment: () => {},
-  targetDataStatus: TargetDataStatus.Initial,
+  targetDataStatus: TargetDataStatus.LoadingBaselineData,
   targetXMLData: {},
 });
 
@@ -74,136 +73,118 @@ const TargetDataProvider: React.FC<{
   children: React.ReactNode;
 }> = ({ children }) => {
   const { targetLanguage, inputSource } = useURLParams();
-  const { findDataEntry } = useSourceDataContext();
+  const { findDataEntry, dataEntries } = useSourceDataContext();
   const getTranslationFromSourceLanguage = useTranslationFromSourceLanguage();
-  const [targetDataStatus, setTargetDataStatus] = useState<TargetDataStatus>(
-    TargetDataStatus.Initial,
-  );
 
   const { extraText, tsvRows, inputTSVs } = useInputTSVs();
   const [alphabetData, setAlphabetData] = useState<AlphabetData | undefined>(undefined);
-  const [translationInfoByIndex, setTranslationInfoByIndex] = useState<
-    Record<number, TranslationInfo>
-  >({});
+  const [translations, setTranslations] = useState<Record<number, TranslationInfo>>({});
   const [targetXMLData, setTargetXMLData] = useState<Record<string, string>>({});
 
-  useEffect(() => {
-    const loadData = async () => {
-      const data = await loadCLDRXML(targetLanguage).then(parseInheritance);
-      setTargetXMLData(data);
-    };
-    loadData();
-  }, [targetLanguage]);
-
+  // Getters & setters of the data
   const getTranslationInfo = useCallback(
     (entry: DataEntry | undefined): TranslationInfo => {
-      if (!entry) return { source: '' };
-      const info = translationInfoByIndex[entry.index];
-      const source = getTranslationFromSourceLanguage(entry);
-      if (!info) return { source: Array.isArray(source) ? source[0] : source };
-      return info;
+      if (!entry) return { index: -1, source: '', vote: Vote.Unknown };
+      return translations[entry.index];
     },
-    [translationInfoByIndex, getTranslationFromSourceLanguage],
+    [translations],
   );
   const getTranslation = useCallback(
     (entry: DataEntry | undefined, fallback = true): string => {
       const info = getTranslationInfo(entry);
+      if (!info) return '';
       return info.edit ?? info.translation ?? (fallback ? info.source : '');
     },
     [getTranslationInfo],
   );
   const editTranslation = useCallback(
-    (index: number, newTranslation: string) => {
-      setTranslationInfoByIndex((prev) => {
+    (index: number, update: Partial<TranslationInfo>) => {
+      setTranslations((prev) => {
         if (!prev[index]) return prev;
-        return { ...prev, [index]: { ...prev[index], edit: newTranslation } };
+        prev[index] = { ...prev[index], ...update };
+        // return a new object? could be computationally expensive
+        return { ...prev };
       });
     },
-    [setTranslationInfoByIndex],
-  );
-  const voteOnTranslation = useCallback(
-    (index: number, newVote: Vote) => {
-      setTranslationInfoByIndex((prev) => {
-        if (!prev[index]) return prev;
-        return { ...prev, [index]: { ...prev[index], vote: newVote } };
-      });
-    },
-    [setTranslationInfoByIndex],
-  );
-  const editTranslationComment = useCallback(
-    (index: number, comment: string) => {
-      setTranslationInfoByIndex((prev) => {
-        if (!prev[index]) return prev;
-        return { ...prev, [index]: { ...prev[index], comment } };
-      });
-    },
-    [setTranslationInfoByIndex],
+    [setTranslations],
   );
 
   // Fill data
+  const makeBaselineTranslations = useCallback(() => {
+    if (dataEntries.length === 0) return {};
+    return dataEntries.reduce(
+      (acc, entry) => {
+        const source = getTranslationFromSourceLanguage(entry);
+        acc[entry.index] = {
+          index: entry.index,
+          source: Array.isArray(source) ? source[0] : source,
+          vote: Vote.Unknown,
+        };
+        return acc;
+      },
+      {} as Record<number, TranslationInfo>,
+    );
+  }, [dataEntries, getTranslationFromSourceLanguage]);
   const fillTranslationsFromTSV = useCallback(
     (rows: TSVRowData[]) => {
-      const newTranslationsByIndex = rows.reduce(
-        (acc, row) => {
-          const key = row.key;
-          const entry = findDataEntry({ ext_id: key }) ?? findDataEntry({ xpath: key });
-          if (entry && row.translated) {
-            const source = getTranslationFromSourceLanguage(entry);
-            acc[entry.index] = {
-              source: Array.isArray(source) ? source[0] : source,
-              translation: row.translated,
-            };
-          }
-          return acc;
-        },
-        {} as Record<number, TranslationInfo>,
-      );
-      setTranslationInfoByIndex(newTranslationsByIndex);
-      setTargetDataStatus(TargetDataStatus.Ready);
+      const translationsByIndex = makeBaselineTranslations();
+      if (!translationsByIndex) return;
+      // Add the translations from the TSV
+      const newTranslationsByIndex = rows.reduce((acc, row) => {
+        const entry = findDataEntry({ ext_id: row.key }) ?? findDataEntry({ xpath: row.key });
+        if (entry && row.translated) acc[entry.index].translation = row.translated;
+        return acc;
+      }, translationsByIndex);
+      setTranslations(newTranslationsByIndex);
     },
-    [
-      findDataEntry,
-      setTranslationInfoByIndex,
-      setTargetDataStatus,
-      getTranslationFromSourceLanguage,
-    ],
+    [makeBaselineTranslations, findDataEntry, setTranslations],
   );
   const fillTranslationsFromXML = useCallback(
     (xmlData: Record<string, string>) => {
-      const newTranslationsByIndex = Object.entries(xmlData).reduce(
-        (acc, [xpath, translated]) => {
-          const entry = findDataEntry({ xpath });
-          if (entry && translated)
-            acc[entry.index] = { source: entry.english, translation: translated };
-          return acc;
-        },
-        {} as Record<number, TranslationInfo>,
-      );
-      setTranslationInfoByIndex(newTranslationsByIndex);
-      setTargetDataStatus(TargetDataStatus.Ready);
+      const translationsByIndex = makeBaselineTranslations();
+      if (!translationsByIndex) return;
+      const newTranslationsByIndex = Object.entries(xmlData).reduce((acc, [xpath, translated]) => {
+        const entry = findDataEntry({ xpath });
+        if (entry && translated) acc[entry.index].translation = translated;
+        return acc;
+      }, translationsByIndex);
+      setTranslations(newTranslationsByIndex);
     },
-    [findDataEntry],
+    [findDataEntry, setTranslations, makeBaselineTranslations],
   );
+
+  // Always load the CLDR data, reload when the target language changes
+  useEffect(() => {
+    loadCLDRXML(targetLanguage)
+      .then(parseInheritance)
+      .then((data) => setTargetXMLData(data));
+  }, [targetLanguage]);
 
   // When the inputted data changes, refresh the data
   useEffect(() => {
     if (tsvRows.length === 0 || inputSource !== InputSource.TSV) return;
-    setTargetDataStatus(TargetDataStatus.InputFileChanged);
     setAlphabetData(extractAlphabetDataFromTSV(tsvRows, extraText));
     fillTranslationsFromTSV(tsvRows);
-  }, [extraText, fillTranslationsFromTSV, inputSource, tsvRows]);
+  }, [dataEntries.length, extraText, fillTranslationsFromTSV, inputSource, tsvRows]);
   useEffect(() => {
     if (inputSource !== InputSource.XML) return;
-    setTargetDataStatus(TargetDataStatus.InputFileChanged);
     setAlphabetData(extractAlphabetFromXML(targetXMLData));
     fillTranslationsFromXML(targetXMLData);
-  }, [fillTranslationsFromXML, inputSource, targetXMLData]);
+  }, [dataEntries.length, fillTranslationsFromXML, inputSource, targetXMLData]);
   useEffect(() => {
     if (inputSource !== InputSource.Blank) return;
     fillTranslationsFromXML({});
     setAlphabetData(undefined);
-    setTargetDataStatus(TargetDataStatus.Ready);
   }, [fillTranslationsFromXML, inputSource, tsvRows]);
+
+  const targetDataStatus = useMemo(() => {
+    if (dataEntries.length === 0) return TargetDataStatus.WaitingOnSourceData;
+    if (inputSource === InputSource.TSV && tsvRows.length === 0)
+      return TargetDataStatus.LoadingBaselineData;
+    if (inputSource === InputSource.XML && Object.keys(targetXMLData).length === 0)
+      return TargetDataStatus.LoadingBaselineData;
+    return TargetDataStatus.Ready;
+  }, [dataEntries.length, inputSource, tsvRows, targetXMLData]);
 
   const dataContext: TargetDataContextType = {
     alphabet: alphabetData,
@@ -211,8 +192,7 @@ const TargetDataProvider: React.FC<{
     getTranslation,
     getTranslationInfo,
     editTranslation,
-    voteOnTranslation,
-    editTranslationComment,
+    translations,
     targetDataStatus,
     targetXMLData,
   };

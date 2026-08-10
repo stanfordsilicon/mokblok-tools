@@ -30,13 +30,13 @@ ${ldml}
 
   return (
     <>
-      <div>
-        <strong>{t('export.fullXmlTitle')}</strong>
+      <h3>
+        {t('export.fullXmlTitle')}
         <ExportDownloadXMLButton
           filename={getCoverageLevelLabel(coverageLevel)}
           xmlContent={fullXML}
         />
-      </div>
+      </h3>
       <span>
         {t('export.cldrUploadPrefix')}{' '}
         <a href={t('export.cldrUploadUrl')}>{t('export.cldrUploadUrl')}</a>
