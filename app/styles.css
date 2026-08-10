@@ -39,6 +39,13 @@
     /* sidebar surface */
     --silicon-green-ink: color-mix(in srgb, var(--silicon-green) 60%, var(--silicon-black));
     /* success text, 6.36:1 on beige */
+    --silicon-blue-ink: color-mix(in srgb, var(--silicon-blue) 45%, var(--silicon-black));
+    /* --silicon-blue is a pale fill tint and carries no text at full strength
+       (1.36:1 on beige); darkened it is the moderator chip, 5.55:1 on beige
+       and 6.81:1 on white */
+    --silicon-orange-ink: color-mix(in srgb, var(--silicon-orange) 60%, var(--silicon-black));
+    /* same treatment for the orange noted above as fill-only: the metrics
+       editor chip, 6.37:1 on beige and 7.82:1 on white */
 
     --background: var(--silicon-beige);
     --foreground: var(--silicon-ink);

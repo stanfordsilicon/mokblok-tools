@@ -1,7 +1,9 @@
 // Add the stable internal user id and role to the Session type once here.
 import { DefaultSession } from 'next-auth';
 
-import type { Role } from './roles';
+// From './user-levels', not './roles': the two export the same type, but
+// roles.ts is server-only and this declaration is loaded everywhere.
+import type { Role } from './user-levels';
 
 declare module 'next-auth' {
   interface Session {

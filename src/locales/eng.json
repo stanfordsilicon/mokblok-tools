@@ -15,9 +15,11 @@
         "signOut": "Sign out",
         "signInToSaveProgress": "Sign in to save progress",
         "roles": {
-            "user": "User",
-            "admin": "Admin",
-            "moderator": "Moderator"
+            "user": "Public User",
+            "beta": "Beta Tester",
+            "metrics_editor": "Metrics Editor",
+            "moderator": "Moderator",
+            "admin": "Admin"
         }
     },
     "input": {

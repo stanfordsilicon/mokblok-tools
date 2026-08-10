@@ -1,54 +1,31 @@
-// Role-based privilege helpers.
+// Role-based privilege helpers -- the DATABASE-BACKED half. The pure half (the
+// level table itself) lives in ./user-levels, which imports nothing and is
+// therefore safe for client components; this file re-exports all of it, so a
+// server-side caller still has exactly one module to import.
 //
 // A role stored in the session/JWT is only a UI hint. Privileged actions
 // always re-read the live role from MongoDB so demotions take effect
 // immediately.
 //
 // Server only: importing values from this module into a client component would
-// pull the MongoDB driver into the client bundle.
+// pull the MongoDB driver into the client bundle. Since the levels split out
+// into ./user-levels there is no longer a reason to want to -- everything a
+// client component needs (the level list, the labels, hasLevel) is over there,
+// importable as a value.
 import { ObjectId, type Document, type Filter } from 'mongodb';
 import { NextResponse } from 'next/server';
 
 import getMongoClient, { siliconDbName } from '../../mongodb';
 
-export type Role = 'user' | 'moderator' | 'admin';
+import { asLevel, hasLevel, DEFAULT_LEVEL, LEVEL_LABELS, type UserLevel } from './user-levels';
 
-/** Ordered low -> high. The order of this array is the dropdown's order. */
-export const ROLES: readonly Role[] = ['user', 'moderator', 'admin'] as const;
-
-/**
- * A users row with no `role` field is treated as a regular user.
- */
-export const DEFAULT_ROLE: Role = 'user';
-
-/** The hierarchy. hasRole() is a >= comparison on these numbers, so granting
- * moderators a new capability later is a one-line change at the call site
- * (requireRole("admin") -> requireRole("moderator")) and nothing else. */
-export const ROLE_ORDER: Record<Role, number> = {
-  user: 0,
-  moderator: 1,
-  admin: 2,
-};
-
-export const ROLE_LABELS: Record<Role, string> = {
-  user: 'User',
-  moderator: 'Moderator',
-  admin: 'Admin',
-};
-
-export function isRole(raw: unknown): raw is Role {
-  return typeof raw === 'string' && (ROLES as readonly string[]).includes(raw);
-}
-
-/** Null-safe coercion: anything that isn't a known role is DEFAULT_ROLE. */
-export function asRole(raw: unknown): Role {
-  return isRole(raw) ? raw : DEFAULT_ROLE;
-}
-
-/** True when `userRole` sits at or above `requiredRole` in the hierarchy. */
-export function hasRole(userRole: Role | string | null | undefined, requiredRole: Role): boolean {
-  return ROLE_ORDER[asRole(userRole)] >= ROLE_ORDER[requiredRole];
-}
+// Everything pure, re-exported. Existing imports of Role, ROLES, ROLE_ORDER,
+// ROLE_LABELS, DEFAULT_ROLE, isRole, asRole and hasRole keep resolving from
+// './roles' exactly as they did before levels existed -- that is the whole
+// point of the aliases at the bottom of user-levels.ts. Server-side code may
+// keep importing from here; anything a client component pulls in must import
+// from './user-levels' directly.
+export * from './user-levels';
 
 // -- database reads -------------------------------------------------------
 
@@ -80,9 +57,9 @@ export function userFilter(identifier: string | null | undefined): Filter<Docume
  * The CURRENT role, read live from the shared `silicon` database. Never
  * consults a token. Missing user, missing field, unknown string -> "user".
  */
-export async function getUserRole(identifier: string | null | undefined): Promise<Role> {
+export async function getUserRole(identifier: string | null | undefined): Promise<UserLevel> {
   const filter = userFilter(identifier);
-  if (!filter) return DEFAULT_ROLE;
+  if (!filter) return DEFAULT_LEVEL;
 
   const client = await getMongoClient();
   const doc = await client
@@ -90,7 +67,7 @@ export async function getUserRole(identifier: string | null | undefined): Promis
     .collection('users')
     .findOne(filter, { projection: { role: 1 } });
 
-  return asRole(doc?.role);
+  return asLevel(doc?.role);
 }
 
 // -- the guard ------------------------------------------------------------
@@ -98,12 +75,15 @@ export async function getUserRole(identifier: string | null | undefined): Promis
 export type RoleCheck =
   | {
       ok: true;
-      role: Role;
+      role: UserLevel;
+      /** The same value as `role`, under the level vocabulary. New code should
+       * read this one; `role` stays for the existing call sites. */
+      level: UserLevel;
       userId: string;
       email: string | null;
       name: string | null;
     }
-  | { ok: false; status: 401 | 403; role: Role; error: string };
+  | { ok: false; status: 401 | 403; role: UserLevel; error: string };
 
 /**
  * The single privileged-access gate for API routes and server-side UI.
@@ -115,8 +95,13 @@ export type RoleCheck =
  * this module to enrich the session; a static import here would close that
  * cycle at module-evaluation time. The import is resolved once and cached by
  * the module registry, so this costs nothing after the first call.
+ *
+ * Unchanged for every existing caller: requireRole('admin') and
+ * requireRole('moderator') mean exactly what they meant before levels arrived,
+ * because both ids kept their labels and their relative order, and the two new
+ * intermediate levels sit below moderator.
  */
-export async function requireRole(requiredRole: Role): Promise<RoleCheck> {
+export async function requireRole(requiredRole: UserLevel): Promise<RoleCheck> {
   const { auth } = await import('../../../auth');
   const session = await auth();
   const userId = session?.user?.id;
@@ -125,24 +110,25 @@ export async function requireRole(requiredRole: Role): Promise<RoleCheck> {
     return {
       ok: false,
       status: 401,
-      role: DEFAULT_ROLE,
+      role: DEFAULT_LEVEL,
       error: 'Not signed in',
     };
   }
 
   const role = await getUserRole(userId);
-  if (!hasRole(role, requiredRole)) {
+  if (!hasLevel(role, requiredRole)) {
     return {
       ok: false,
       status: 403,
       role,
-      error: `Requires the ${ROLE_LABELS[requiredRole]} role`,
+      error: `Requires the ${LEVEL_LABELS[requiredRole]} role`,
     };
   }
 
   return {
     ok: true,
     role,
+    level: role,
     userId,
     email: session.user.email ?? null,
     name: session.user.name ?? null,
