@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useEffect, useState } from 'react';
+import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 
 import { useURLParams } from '@settings/URLParams';
 
@@ -11,13 +11,13 @@ export type FindDataEntries = (query: Partial<DataEntry>) => DataEntry[];
 export enum SourceDataStatus {
   Initial,
   LoadingDataEntries,
-  LoadedDataEntries,
   LoadingSourceData,
   Ready,
   Error,
 }
 
 export type SourceDataContextType = {
+  dataEntries: DataEntry[];
   findDataEntry(query: Partial<DataEntry>): DataEntry | undefined;
   findDataEntries(query: Partial<DataEntry>): DataEntry[];
   getSourceData(entry: DataEntry | undefined): string | undefined;
@@ -25,6 +25,7 @@ export type SourceDataContextType = {
 };
 
 export const SourceDataContext = createContext<SourceDataContextType>({
+  dataEntries: [],
   findDataEntry: () => undefined,
   findDataEntries: () => [],
   getSourceData: () => '',
@@ -47,26 +48,15 @@ const SourceDataProvider: React.FC<{
   const { sourceLanguage } = useURLParams();
   const [dataEntries, setDataEntries] = useState<DataEntry[]>([]);
   const [sourceXMLData, setSourceXMLData] = useState<Record<string, string>>({});
-  const [sourceDataStatus, setSourceDataStatus] = useState<SourceDataStatus>(
-    SourceDataStatus.Initial,
-  );
 
   // Data fetchers
   const fetchDataEntries = useCallback(async () => {
-    if (sourceDataStatus !== SourceDataStatus.Initial) return;
-    setSourceDataStatus(SourceDataStatus.LoadingDataEntries);
     const dataEntries = await loadDataEntries();
-    if (dataEntries) {
-      setDataEntries(dataEntries);
-      setSourceDataStatus(SourceDataStatus.LoadedDataEntries);
-    } else {
-      setSourceDataStatus(SourceDataStatus.Error);
-    }
-  }, []);
+    if (dataEntries) setDataEntries(dataEntries);
+  }, [setDataEntries]);
   const fetchXMLData = useCallback(
     async (sourceLanguage: SourceLanguage) => {
       if (dataEntries.length === 0) return;
-      setSourceDataStatus(SourceDataStatus.LoadingSourceData);
       const allXMLdata = await loadCLDRXMLWithInheritance(sourceLanguage);
       // Only save XPaths we are using
       const applicableXML = dataEntries.reduce(
@@ -78,7 +68,6 @@ const SourceDataProvider: React.FC<{
         {} as Record<string, string>,
       );
       setSourceXMLData(applicableXML);
-      setSourceDataStatus(SourceDataStatus.Ready);
     },
     [dataEntries],
   );
@@ -103,20 +92,29 @@ const SourceDataProvider: React.FC<{
     [sourceXMLData],
   );
 
-  // Triggers to load the data
+  //// Triggers to load the data
+  // 1. Initial data load
   useEffect(() => {
-    if (sourceDataStatus === SourceDataStatus.Initial) fetchDataEntries();
-  }, [sourceDataStatus]);
+    if (dataEntries.length === 0) fetchDataEntries();
+  }, [dataEntries, fetchDataEntries]);
+
+  // 2. Once it is loaded and/or if we change the source language, load the source XML data
   useEffect(() => {
-    if (sourceDataStatus === SourceDataStatus.LoadedDataEntries) fetchXMLData(sourceLanguage);
-  }, [sourceDataStatus, sourceLanguage]);
-  useEffect(() => {
-    // If the source language changes, reload the data
-    if (sourceDataStatus > SourceDataStatus.LoadedDataEntries)
-      setSourceDataStatus(SourceDataStatus.LoadedDataEntries);
-  }, [sourceLanguage, sourceDataStatus]);
+    // Only if the data entries are loaded
+    if (dataEntries.length === 0) return;
+
+    // Load the source XML data
+    fetchXMLData(sourceLanguage);
+  }, [sourceLanguage, dataEntries, fetchXMLData]);
+
+  const sourceDataStatus = useMemo(() => {
+    if (dataEntries.length === 0) return SourceDataStatus.LoadingDataEntries;
+    if (Object.keys(sourceXMLData).length === 0) return SourceDataStatus.LoadingSourceData;
+    return SourceDataStatus.Ready;
+  }, [dataEntries, sourceXMLData]);
 
   const dataContext: SourceDataContextType = {
+    dataEntries,
     findDataEntry,
     findDataEntries,
     getSourceData,

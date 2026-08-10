@@ -21,10 +21,7 @@ const ExportDownloadXMLButton: React.FC<{ filename: string; xmlContent: string }
   }, [filename, xmlContent, targetLanguage]);
 
   return (
-    <button
-      onClick={handleDownload}
-      style={{ marginLeft: '0.5em', padding: '0.2em 0.5em', cursor: 'pointer' }}
-    >
+    <button className="ml-2 text-sm" onClick={handleDownload}>
       ⬇
     </button>
   );

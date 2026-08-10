@@ -83,10 +83,10 @@ const ExportCoreData: React.FC = () => {
 
   return (
     <>
-      <div>
-        <strong>{t('export.coreLocaleDataTitle')} </strong>
+      <h3>
+        {t('export.coreLocaleDataTitle')}
         <ExportDownloadXMLButton filename="core" xmlContent={fullXML} />
-      </div>
+      </h3>
       <span>
         {t('export.coreLocaleInstructions')} <code>{targetLanguage}.xml</code>
       </span>
