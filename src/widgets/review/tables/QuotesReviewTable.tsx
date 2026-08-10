@@ -1,18 +1,17 @@
-import { useTranslation } from 'react-i18next';
-
 import { useDataContext } from '@data/DataContext';
 import { DataSection } from '@data/DataSection';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
 import { matrixBy, sortBy } from '@shared/setUtils';
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import InputDataCell from '../input/InputDataCell';
 import InputTextareaCell from '../input/InputTextareaCell';
 import SourceDataCell from '../SourceDataCell';
 
 function QuotesReviewTable() {
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
   const { findDataEntries } = useDataContext();
   const quotes = sortBy(findDataEntries({ section: DataSection.Quotes }), (a) => a.length);
   const quotesMatrix = matrixBy(
@@ -30,7 +29,7 @@ function QuotesReviewTable() {
             <th>
               <SourceLanguageLabel />
             </th>
-            <th>{t('review.translated')}</th>
+            <th>{uitext('review.translated')}</th>
           </tr>
         </thead>
         <tbody>
@@ -45,18 +44,18 @@ function QuotesReviewTable() {
       <table>
         <thead>
           <tr>
-            <th>{t('review.length')}</th>
+            <th>{uitext('review.length')}</th>
             <th colSpan={2}>
               <SourceLanguageLabel />
             </th>
-            <th colSpan={2}>{t('review.translated')}</th>
+            <th colSpan={2}>{uitext('review.translated')}</th>
           </tr>
           <tr>
             <th></th>
-            <th>{t('review.start')}</th>
-            <th>{t('review.end')}</th>
-            <th>{t('review.start')}</th>
-            <th>{t('review.end')}</th>
+            <th>{uitext('review.start')}</th>
+            <th>{uitext('review.end')}</th>
+            <th>{uitext('review.start')}</th>
+            <th>{uitext('review.end')}</th>
           </tr>
         </thead>
         <tbody>

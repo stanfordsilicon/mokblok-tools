@@ -1,5 +1,3 @@
-import { useTranslation } from 'react-i18next';
-
 import { useDataContext } from '@data/DataContext';
 import { DataSection } from '@data/DataSection';
 import { DateField } from '@data/DateField';
@@ -7,6 +5,7 @@ import { DateField } from '@data/DateField';
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
 import { matrixBy } from '@shared/setUtils';
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import InputDataCell from '../input/InputDataCell';
 import SourceDataCell from '../SourceDataCell';
@@ -19,7 +18,7 @@ const DateFieldsReviewTable: React.FC = () => {
     (f) => f.field,
     (f) => f.length,
   );
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
 
   return (
     <table>
@@ -29,16 +28,16 @@ const DateFieldsReviewTable: React.FC = () => {
             <SourceLanguageLabel />
           </th>
           <th colSpan={3} style={{ textAlign: 'center' }}>
-            {t('review.translated')}
+            {uitext('review.translated')}
           </th>
         </tr>
         <tr>
-          <th>{t('length.wide')}</th>
-          <th>{t('length.short')}</th>
-          <th>{t('length.narrow')}</th>
-          <th>{t('length.wide')}</th>
-          <th>{t('length.short')}</th>
-          <th>{t('length.narrow')}</th>
+          <th>{uitext('length.wide')}</th>
+          <th>{uitext('length.short')}</th>
+          <th>{uitext('length.narrow')}</th>
+          <th>{uitext('length.wide')}</th>
+          <th>{uitext('length.short')}</th>
+          <th>{uitext('length.narrow')}</th>
         </tr>
       </thead>
       <tbody>

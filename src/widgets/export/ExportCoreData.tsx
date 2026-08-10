@@ -1,10 +1,11 @@
 import { useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { useDataContext } from '@data/DataContext';
 
 import { getLanguageBCP } from '@settings/LanguageCodes';
 import { useURLParams } from '@settings/URLParams';
+
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import ExportDownloadXMLButton from './ExportDownloadXMLButton';
 
@@ -22,7 +23,7 @@ const punctuationTransforms: Record<string, string> = {
 const standardPunctuation = ['-‑,;:!?.…\'‘’"“”()[]§@/&#%′″'];
 
 const ExportCoreData: React.FC = () => {
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
   const { targetLanguage } = useURLParams();
   const targetLanguageBCP = getLanguageBCP(targetLanguage);
   const { alphabet, findDataEntry, getTranslation } = useDataContext();
@@ -84,11 +85,11 @@ const ExportCoreData: React.FC = () => {
   return (
     <>
       <h3>
-        {t('export.coreLocaleDataTitle')}
+        {uitext('export.coreLocaleDataTitle')}
         <ExportDownloadXMLButton filename="core" xmlContent={fullXML} />
       </h3>
       <span>
-        {t('export.coreLocaleInstructions')} <code>{targetLanguage}.xml</code>
+        {uitext('export.coreLocaleInstructions')} <code>{targetLanguage}.xml</code>
       </span>
       <textarea style={{ width: '40em', height: '10em' }} value={fullXML} readOnly />
     </>

@@ -8,19 +8,21 @@
 
 import { signIn, signOut, useSession } from 'next-auth/react';
 import { useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { useURLParams } from '@settings/URLParams';
+
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import { RoleBadge } from './RoleBadge';
 
 export default function AccountBadge() {
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
   const { data: session, status } = useSession();
-  const { updateURLParams, admin, step } = useURLParams();
-  const updateAdminMode = useCallback(() => {
-    updateURLParams({ admin: !admin });
-  }, [updateURLParams, admin, step]);
+  const { updateURLParams, admin } = useURLParams();
+  const updateAdminMode = useCallback(
+    () => updateURLParams({ admin: !admin }),
+    [updateURLParams, admin],
+  );
 
   // Hold the space while the session resolves so the header doesn't jump.
   if (status === 'loading') {
@@ -37,7 +39,7 @@ export default function AccountBadge() {
       <div className="flex items-center gap-3 rounded-2xl border border-(--silicon-line) bg-white px-4 py-2.5 shadow-sm">
         <div className="min-w-0">
           <p className="flex items-center gap-2 text-[10px] uppercase tracking-wider font-semibold text-(--silicon-purple)">
-            {t('auth.signedInAs')}
+            {uitext('auth.signedInAs')}
             <RoleBadge role={role} />
           </p>
           <p className="truncate text-sm font-medium text-(--silicon-ink)">{session.user.email}</p>
@@ -46,7 +48,7 @@ export default function AccountBadge() {
               onClick={updateAdminMode}
               className="text-xs font-semibold text-(--silicon-purple) underline-offset-2 hover:underline"
             >
-              {admin ? t('settings.viewingAsAdmin') : t('settings.viewingAsRegularUser')}
+              {admin ? uitext('settings.viewingAsAdmin') : uitext('settings.viewingAsRegularUser')}
             </button>
           )}
         </div>
@@ -56,7 +58,7 @@ export default function AccountBadge() {
           onClick={() => signOut({ callbackUrl: '/' })}
           className="shrink-0 rounded-xl border border-(--silicon-line-strong) px-3 py-1.5 text-xs font-semibold text-(--silicon-ink) transition hover:border-(--silicon-purple) hover:text-(--silicon-purple)"
         >
-          {t('auth.signOut')}
+          {uitext('auth.signOut')}
         </button>
       </div>
     );
@@ -68,7 +70,7 @@ export default function AccountBadge() {
       onClick={() => signIn('google')}
       className="rounded-xl bg-(--silicon-brown) px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-(--silicon-purple) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--silicon-purple)"
     >
-      {t('auth.signInToSaveProgress')}
+      {uitext('auth.signInToSaveProgress')}
     </button>
   );
 }

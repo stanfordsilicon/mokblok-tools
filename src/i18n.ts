@@ -2,11 +2,11 @@ import i18n from 'i18next';
 import { MF2PostProcessor, MF2ReactPreset } from 'mf2react';
 import { initReactI18next } from 'react-i18next';
 
-import eng from './locales/eng.json';
-import eng_Latf from './locales/eng_Latf.json';
-import fra from './locales/fra.json';
-import ita from './locales/ita.json';
-import spa from './locales/spa.json';
+import eng_Latf from '../public//locales/en-Latf/common.json';
+import spa from '../public//locales/es/common.json';
+import fra from '../public//locales/fr/common.json';
+import ita from '../public//locales/it/common.json';
+import eng from '../public/locales/en/common.json';
 
 i18n
   .use(MF2PostProcessor) // Enable the post-processor

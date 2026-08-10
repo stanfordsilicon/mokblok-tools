@@ -1,17 +1,16 @@
-import { useTranslation } from 'react-i18next';
-
 import { useDataContext } from '@data/DataContext';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 import { useURLParams } from '@settings/URLParams';
 
 import { matrixBy } from '@shared/setUtils';
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import InputDataCell from '../input/InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function ErasReviewTable() {
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
   const { admin } = useURLParams();
   const { findDataEntries } = useDataContext();
   const eraFields = findDataEntries({ field: 'G' });
@@ -28,15 +27,15 @@ function ErasReviewTable() {
           <th colSpan={admin ? 3 : 2}>
             <SourceLanguageLabel />
           </th>
-          <th colSpan={admin ? 3 : 2}>{t('review.translated')}</th>
+          <th colSpan={admin ? 3 : 2}>{uitext('review.translated')}</th>
         </tr>
         <tr>
-          <th>{t('length.wide')}</th>
-          <th>{t('length.abbr')}</th>
-          {admin && <th>{t('length.narrow')}</th>}
-          <th>{t('length.wide')}</th>
-          <th>{t('length.abbr')}</th>
-          {admin && <th>{t('length.narrow')}</th>}
+          <th>{uitext('length.wide')}</th>
+          <th>{uitext('length.abbr')}</th>
+          {admin && <th>{uitext('length.narrow')}</th>}
+          <th>{uitext('length.wide')}</th>
+          <th>{uitext('length.abbr')}</th>
+          {admin && <th>{uitext('length.narrow')}</th>}
         </tr>
       </thead>
       <tbody>

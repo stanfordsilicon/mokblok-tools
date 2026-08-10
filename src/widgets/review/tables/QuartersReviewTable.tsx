@@ -1,16 +1,15 @@
-import { useTranslation } from 'react-i18next';
-
 import { useDataContext } from '@data/DataContext';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
 import { matrixBy } from '@shared/setUtils';
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import InputDataCell from '../input/InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function QuartersReviewTable() {
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
   const { findDataEntries } = useDataContext();
   const quarterFields = findDataEntries({ field: 'q' }).filter((f) => f.instance !== '');
   const quarterMatrix = matrixBy(
@@ -26,13 +25,13 @@ function QuartersReviewTable() {
           <th colSpan={2}>
             <SourceLanguageLabel />
           </th>
-          <th colSpan={2}>{t('review.translated')}</th>
+          <th colSpan={2}>{uitext('review.translated')}</th>
         </tr>
         <tr>
-          <th>{t('length.wide')}</th>
-          <th title={t('length.abbreviated')}>{t('length.abbr')}</th>
-          <th>{t('length.wide')}</th>
-          <th title={t('length.abbreviated')}>{t('length.abbr')}</th>
+          <th>{uitext('length.wide')}</th>
+          <th title={uitext('length.abbreviated')}>{uitext('length.abbr')}</th>
+          <th>{uitext('length.wide')}</th>
+          <th title={uitext('length.abbreviated')}>{uitext('length.abbr')}</th>
         </tr>
       </thead>
       <tbody>

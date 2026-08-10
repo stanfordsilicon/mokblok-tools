@@ -1,7 +1,7 @@
-import { useTranslation } from 'react-i18next';
-
 import { type DataEntry } from '@data/DataTypes';
 import useTranslationFromSourceLanguage from '@data/sourcedata/useTranslationFromSourceLanguage';
+
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import DebugHovercard from './DebugHovercard';
 
@@ -11,10 +11,10 @@ type Props = {
   convertPatternToExample?: boolean;
 };
 function SourceDataCell({ entry, style, convertPatternToExample = true }: Props) {
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
   const getSourceTranslation = useTranslationFromSourceLanguage();
 
-  if (!entry) return <td>{t('common.emptyCell')}</td>;
+  if (!entry) return <td>{uitext('common.emptyCell')}</td>;
   const sourceTranslation = getSourceTranslation(entry);
 
   return (

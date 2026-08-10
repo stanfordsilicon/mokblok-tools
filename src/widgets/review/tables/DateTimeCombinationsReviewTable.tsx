@@ -1,5 +1,3 @@
-import { useTranslation } from 'react-i18next';
-
 import { useDataContext } from '@data/DataContext';
 import { DataSection } from '@data/DataSection';
 
@@ -7,6 +5,7 @@ import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 import { useURLParams } from '@settings/URLParams';
 
 import { sortBy, uniqueBy } from '@shared/setUtils';
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import InputDataCell from '../input/InputDataCell';
 import SourceDataCell from '../SourceDataCell';
@@ -21,19 +20,19 @@ function DateTimeCombinationsReviewTable() {
     ),
     (entry) => entry.field + entry.variant + entry.length,
   );
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
 
   return (
     <table>
       <thead>
         <tr>
-          {admin && <th>{t('review.field')}</th>}
-          {admin && <th>{t('review.variant')}</th>}
-          {admin && <th>{t('review.length')}</th>}
+          {admin && <th>{uitext('review.field')}</th>}
+          {admin && <th>{uitext('review.variant')}</th>}
+          {admin && <th>{uitext('review.length')}</th>}
           <th>
             <SourceLanguageLabel />
           </th>
-          <th>{t('review.translated')}</th>
+          <th>{uitext('review.translated')}</th>
         </tr>
       </thead>
       <tbody>

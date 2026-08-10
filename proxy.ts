@@ -2,16 +2,14 @@
 //
 // Use the adapter-free config here so every matched request only does JWT
 // verification and never opens a MongoDB client.
-import NextAuth from 'next-auth';
 import { NextResponse } from 'next/server';
+import NextAuth from 'next-auth';
 
 import { authConfig } from './auth.config';
 import i18nConfig from './i18n.config';
 
 const { auth } = NextAuth(authConfig);
 const locales = [...i18nConfig.supportedLngs].sort((a, b) => b.length - a.length);
-const localeMatcher = locales.join('|');
-
 function getLocaleFromPathname(pathname: string) {
   return locales.find((locale) => pathname === `/${locale}` || pathname.startsWith(`/${locale}/`));
 }
@@ -52,7 +50,7 @@ export const proxy = auth((req) => {
     // so a crafted ?callbackUrl= can't turn this into an open redirect.
     const target = new URL(requested, origin);
     return NextResponse.redirect(
-      target.origin === origin ? target : new URL(withLocale('/', locale), origin)
+      target.origin === origin ? target : new URL(withLocale('/', locale), origin),
     );
   }
 
@@ -79,14 +77,14 @@ export const config = {
   // can be forwarded away from it.
   matcher: [
     '/',
-    `/:locale(${localeMatcher})`,
+    '/:locale(en|en-Latf|es|fr|it)',
     '/level/:path*',
-    `/:locale(${localeMatcher})/level/:path*`,
+    '/:locale(en|en-Latf|es|fr|it)/level/:path*',
     '/api/responses',
     '/api/drafts',
     '/api/related-language/:path*',
     '/api/progress',
     '/auth/signin',
-    `/:locale(${localeMatcher})/auth/signin`,
+    '/:locale(en|en-Latf|es|fr|it)/auth/signin',
   ],
 };

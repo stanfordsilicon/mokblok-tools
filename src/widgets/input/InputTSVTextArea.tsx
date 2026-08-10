@@ -1,15 +1,16 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { useTargetDataContext } from '@data/TargetDataProvider';
 import { getDocFileType, type Doc } from '@data/tsvdocs/Doc';
+
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 type Props = {
   doc: Doc;
 };
 
 const InputTSVTextArea: React.FC<Props> = ({ doc }) => {
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
   const { inputTSVs } = useTargetDataContext();
 
   return (
@@ -17,8 +18,8 @@ const InputTSVTextArea: React.FC<Props> = ({ doc }) => {
       className="LargeTextArea"
       placeholder={
         getDocFileType(doc) === 'tsv'
-          ? t('input.files.placeholderTsv')
-          : t('input.files.placeholderTxt')
+          ? uitext('input.files.placeholderTsv')
+          : uitext('input.files.placeholderTxt')
       }
       value={inputTSVs[doc]?.value ?? ''}
       onChange={(e) => inputTSVs[doc]?.set(e.target.value)}

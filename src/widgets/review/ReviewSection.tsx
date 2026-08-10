@@ -1,8 +1,7 @@
-import { useTranslation } from 'react-i18next';
-
 import { DataSection } from '@data/DataSection';
 
 import ErrorBoundary from '@shared/ErrorBoundary';
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import DemosForSection from './demo/DemosForSection';
 import AlphabetReview from './tables/AlphabetReview';
@@ -35,10 +34,10 @@ import TimeIntervalsReviewTable from './tables/TimeIntervalsReviewTable';
 import TimezonesReviewTable from './tables/TimezonesReviewTable';
 
 function ReviewSection({ dataSection }: { dataSection: DataSection }) {
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
   return (
     <div>
-      <h2 style={{ margin: '.5em 0' }}>{t(`dataSection.${dataSection}`)}</h2>
+      <h2 style={{ margin: '.5em 0' }}>{uitext(`dataSection.${dataSection}`)}</h2>
       <div style={{ display: 'flex', gap: '1em', flexDirection: 'row', flexWrap: 'wrap' }}>
         <div>
           <ErrorBoundary>

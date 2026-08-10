@@ -1,8 +1,8 @@
-import { useTranslation } from 'react-i18next';
-
 import { DataPage, DataSection, getSectionsForPage } from '@data/DataSection';
 
 import { useURLParams } from '@settings/URLParams';
+
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import ProgressCircle from './ProgressCircle';
 
@@ -22,7 +22,7 @@ const DataTypeSelector: React.FC = () => {
 const PageButton: React.FC<{
   page: DataPage;
 }> = ({ page }) => {
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
   const { page: selectedPage, updateURLParams } = useURLParams();
   const isExpanded = selectedPage === page || selectedPage === DataPage.All;
   const highlightBackground =
@@ -40,7 +40,7 @@ const PageButton: React.FC<{
           onClick={() => updateURLParams({ page, section: DataSection.All })}
           style={{ width: '12em' }}
         >
-          {t(`dataPage.${page}`)}{' '}
+          {uitext(`dataPage.${page}`)}{' '}
           {page !== DataPage.All && page !== DataPage.FullTable && (
             <div
               style={{
@@ -67,7 +67,7 @@ const PageButton: React.FC<{
 type PageSectionsProps = { page: DataPage };
 
 const PageSections: React.FC<PageSectionsProps> = ({ page }) => {
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
   const { section: selectedSection, updateURLParams } = useURLParams();
   const sections = getSectionsForPage(page);
 
@@ -85,7 +85,7 @@ const PageSections: React.FC<PageSectionsProps> = ({ page }) => {
             onClick={() => updateURLParams({ section, page })}
             style={{ width: '10.5em' }}
           >
-            {t(`dataSection.${section}`)}
+            {uitext(`dataSection.${section}`)}
           </button>
           <ProgressCircle page={page} section={section} />
         </div>

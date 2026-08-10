@@ -1,16 +1,17 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { InterfaceLanguage } from '@data/DataTypes';
 
 import { useURLParams } from '@settings/URLParams';
 
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
+
 const InterfaceLanguageSelector: React.FC = () => {
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
   const { interfaceLanguage, updateURLParams, admin } = useURLParams();
   return (
     <div style={{ display: 'flex', gap: '1em', alignItems: 'center', flexWrap: 'wrap' }}>
-      <strong>{t('settings.interfaceLanguage')}:</strong>
+      <strong>{uitext('settings.interfaceLanguage')}:</strong>
       {Object.values(InterfaceLanguage)
         .filter((lang) => admin || lang !== InterfaceLanguage.EnglishFraktur)
         .map((lang) => (
@@ -19,7 +20,7 @@ const InterfaceLanguageSelector: React.FC = () => {
             className={lang === interfaceLanguage ? 'selected' : ''}
             onClick={() => updateURLParams({ interfaceLanguage: lang })}
           >
-            {t(`languageName.${lang}`, lang)}
+            {uitext(`languageName.${lang}`, lang)}
           </button>
         ))}
     </div>

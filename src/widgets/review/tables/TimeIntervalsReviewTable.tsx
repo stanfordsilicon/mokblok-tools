@@ -1,5 +1,3 @@
-import { useTranslation } from 'react-i18next';
-
 import { useDataContext } from '@data/DataContext';
 import { DataSection } from '@data/DataSection';
 
@@ -7,12 +5,13 @@ import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 import { useURLParams } from '@settings/URLParams';
 
 import { sortBy, uniqueBy } from '@shared/setUtils';
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import InputDataCell from '../input/InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function TimeIntervalsReviewTable() {
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
   const { admin } = useURLParams();
   const { findDataEntries } = useDataContext();
   const intervalFormats = uniqueBy(
@@ -24,12 +23,12 @@ function TimeIntervalsReviewTable() {
     <table>
       <thead>
         <tr>
-          {admin && <th>{t('review.components')}</th>}
-          {admin && <th>{t('review.greatestDifference')}</th>}
+          {admin && <th>{uitext('review.components')}</th>}
+          {admin && <th>{uitext('review.greatestDifference')}</th>}
           <th style={{ textAlign: 'center' }}>
             <SourceLanguageLabel />
           </th>
-          <th style={{ textAlign: 'center' }}>{t('review.translated')}</th>
+          <th style={{ textAlign: 'center' }}>{uitext('review.translated')}</th>
         </tr>
       </thead>
       <tbody>

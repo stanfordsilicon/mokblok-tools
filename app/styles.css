@@ -15,6 +15,9 @@
      (progress bar) and never carries body text.
 --------------------------------------------------------------------------- */
 :root {
+    --font-geist-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --font-geist-mono: "SFMono-Regular", "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+
     /* Core palette */
     --silicon-purple: #561d57;
     --silicon-orange: #fd4817;

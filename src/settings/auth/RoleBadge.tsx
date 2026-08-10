@@ -1,4 +1,4 @@
-import { useTranslation } from 'react-i18next';
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import type { Role } from './roles';
 
@@ -28,14 +28,14 @@ export function RoleBadge({
   showUser?: boolean;
   className?: string;
 }) {
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
   if (role === 'user' && !showUser) return null;
 
   return (
     <span
       className={`inline-flex items-center rounded-full border px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider ${STYLES[role]} ${className}`}
     >
-      {t(`auth.roles.${role}`)}
+      {uitext(`auth.roles.${role}`)}
     </span>
   );
 }

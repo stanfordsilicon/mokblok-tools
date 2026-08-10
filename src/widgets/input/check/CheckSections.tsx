@@ -1,9 +1,10 @@
 import React, { useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { useDataContext } from '@data/DataContext';
 import { DataSection } from '@data/DataSection';
 import { Doc } from '@data/tsvdocs/Doc';
+
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import { getDataSectionsForTSV } from '../getDataSectionsForTSV';
 
@@ -14,7 +15,7 @@ type Props = {
 };
 
 const CheckSections: React.FC<Props> = ({ doc }) => {
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
   const { findDataEntries, getTranslation } = useDataContext();
   const countTranslations = useCallback(
     (section: DataSection) => {
@@ -33,7 +34,7 @@ const CheckSections: React.FC<Props> = ({ doc }) => {
   return sections.map((section) => (
     <CheckRow
       key={section}
-      title={t(`dataSection.${section}`)}
+      title={uitext(`dataSection.${section}`)}
       count={countTranslations(section)}
       denominator={SECTION_ROWS[section]}
     >

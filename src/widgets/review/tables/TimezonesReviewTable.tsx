@@ -1,17 +1,16 @@
-import { useTranslation } from 'react-i18next';
-
 import { useDataContext } from '@data/DataContext';
 import { DataSection } from '@data/DataSection';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
 import { groupBy, matrixBy } from '@shared/setUtils';
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import InputDataCell from '../input/InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function TimezonesReviewTable() {
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
   const { findDataEntries, getTranslation, findDataEntry } = useDataContext();
   const timezonesByGroup = groupBy(
     findDataEntries({ section: DataSection.Timezones }),
@@ -40,13 +39,13 @@ function TimezonesReviewTable() {
                   <th>
                     <SourceLanguageLabel />
                   </th>
-                  <th colSpan={3}>{t('review.translated')}</th>
+                  <th colSpan={3}>{uitext('review.translated')}</th>
                 </tr>
                 <tr>
                   <th></th>
-                  <th>{t('review.timezone.generic')}</th>
-                  <th>{t('review.timezone.standard')}</th>
-                  <th>{t('review.timezone.daylight')}</th>
+                  <th>{uitext('review.timezone.generic')}</th>
+                  <th>{uitext('review.timezone.standard')}</th>
+                  <th>{uitext('review.timezone.daylight')}</th>
                 </tr>
               </thead>
               <tbody>

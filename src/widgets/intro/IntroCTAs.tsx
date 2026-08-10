@@ -1,11 +1,11 @@
-import { useTranslation } from 'react-i18next';
-
 import StepName from '@settings/StepName';
 import { useURLParams } from '@settings/URLParams';
 
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
+
 const IntroCTAs: React.FC = () => {
   const { updateURLParams, admin } = useURLParams();
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
   return (
     <div className="flex flex-col items-start gap-4 p-2">
       {admin && (
@@ -13,14 +13,14 @@ const IntroCTAs: React.FC = () => {
           onClick={() => updateURLParams({ step: StepName.Input })}
           className="rounded-full border border-(--silicon-line-strong) bg-white px-5 py-3 text-sm font-semibold text-(--silicon-ink) shadow-sm transition hover:border-(--silicon-purple) hover:text-(--silicon-purple)"
         >
-          {t('intro.ctaInputStart')}
+          {uitext('intro.ctaInputStart')}
         </button>
       )}
       <button
         onClick={() => updateURLParams({ step: StepName.Review })}
         className="rounded-full bg-(--silicon-brown) px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-(--silicon-purple)"
       >
-        {t('intro.ctaReviewStart')}
+        {uitext('intro.ctaReviewStart')}
       </button>
     </div>
   );

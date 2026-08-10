@@ -1,4 +1,4 @@
-import { getTranslation } from 'react-i18next';
+import { getT } from 'next-i18next/server';
 
 import SignInButton from '@settings/auth/SignInButton';
 
@@ -21,11 +21,11 @@ async function SignInPage({
 }: {
   searchParams: Promise<{ callbackUrl?: string; error?: string }>;
 }) {
-  const t = await getTranslation();
   // const [callbackUrl, setCallbackUrl] = useState<string | undefined>(undefined);
   // const [error, setError] = useState<string | undefined>(undefined);
 
   const { callbackUrl, error } = await searchParams;
+  const { t: uitext } = await getT('common');
 
   // useEffect(() => {
   //   searchParams.then(({ callbackUrl, error }) => {
@@ -47,7 +47,7 @@ async function SignInPage({
 
         <h1 className="mt-3 text-3xl md:text-4xl font-black tracking-tight">Homescreen Review</h1>
 
-        <p className="mt-4 text-(--silicon-ink-soft) leading-relaxed">{t('auth.signInWhy')}</p>
+        <p className="mt-4 text-(--silicon-ink-soft) leading-relaxed">{uitext('auth.signInWhy')}</p>
 
         <div className="mt-6 rounded-2xl border border-(--silicon-line) bg-white p-6 shadow-sm">
           {errorMessage && (

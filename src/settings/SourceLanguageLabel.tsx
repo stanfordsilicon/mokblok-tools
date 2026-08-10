@@ -1,11 +1,11 @@
-import { useTranslation } from 'react-i18next';
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import { useURLParams } from './URLParams';
 
 function SourceLanguageLabel() {
   const { sourceLanguage } = useURLParams();
-  const { t } = useTranslation();
-  return <>{t(`languageName.${sourceLanguage}`)}</>;
+  const { uitext } = useInterfaceTranslation();
+  return <>{uitext(`languageName.${sourceLanguage}`)}</>;
 }
 
 export default SourceLanguageLabel;

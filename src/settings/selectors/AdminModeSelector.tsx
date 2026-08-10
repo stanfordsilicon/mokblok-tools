@@ -1,8 +1,9 @@
 import React, { useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import StepName from '@settings/StepName';
 import { useURLParams } from '@settings/URLParams';
+
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 /**
  * Toggles admin mode on and off. When admin mode is off, the user can only access the intro
@@ -10,7 +11,7 @@ import { useURLParams } from '@settings/URLParams';
  * testing and debugging.
  */
 const AdminModeSelector: React.FC = () => {
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
   const { updateURLParams, admin, step } = useURLParams();
   const updateAdminMode = useCallback(() => {
     updateURLParams({
@@ -23,7 +24,7 @@ const AdminModeSelector: React.FC = () => {
 
   return (
     <button onClick={updateAdminMode} className={admin ? 'selected' : ''}>
-      {admin ? t('settings.inAdminCTATurnOff') : t('settings.notAdminCTATurnOn')}
+      {admin ? uitext('settings.inAdminCTATurnOff') : uitext('settings.notAdminCTATurnOn')}
     </button>
   );
 };

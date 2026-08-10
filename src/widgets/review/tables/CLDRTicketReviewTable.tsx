@@ -1,9 +1,9 @@
-import { useTranslation } from 'react-i18next';
-
 import { useDataContext } from '@data/DataContext';
 import { DataSection } from '@data/DataSection';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
+
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import InputTextareaCell from '../input/InputTextareaCell';
 import SourceDataCell from '../SourceDataCell';
@@ -11,7 +11,7 @@ import SourceDataCell from '../SourceDataCell';
 function CLDRTicketReviewTable() {
   const { findDataEntries } = useDataContext();
   const sentences = findDataEntries({ section: DataSection.CLDRTicket });
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
 
   function getHeight(english: string) {
     return Math.max(english.length / 50, 1.5) + 'em';
@@ -25,7 +25,7 @@ function CLDRTicketReviewTable() {
             <th>
               <SourceLanguageLabel />
             </th>
-            <th>{t('review.translated')}</th>
+            <th>{uitext('review.translated')}</th>
           </tr>
         </thead>
         <tbody>

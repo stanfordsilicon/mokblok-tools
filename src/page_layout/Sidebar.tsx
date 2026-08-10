@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { useTranslation } from 'react-i18next';
 
 import AccountBadge from '@settings/auth/AccountBadge';
 import StepName from '@settings/StepName';
@@ -7,6 +6,7 @@ import StepSelector from '@settings/StepSelector';
 import { useURLParams } from '@settings/URLParams';
 
 import enforceExhaustiveSwitch from '@shared/enforceExhaustiveSwitch';
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import IntroCTAs from '../widgets/intro/IntroCTAs';
 import DataTypeSelector from '../widgets/review/DataTypeSelector';
@@ -14,7 +14,7 @@ import DataTypeSelector from '../widgets/review/DataTypeSelector';
 import LoadingStatus from './LoadingStatus';
 
 const Sidebar: React.FC = () => {
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
   const { admin } = useURLParams();
 
   return (
@@ -28,7 +28,7 @@ const Sidebar: React.FC = () => {
             href="/"
             className="text-(--silicon-ink) no-underline hover:text-(--silicon-purple)"
           >
-            {t('title')}
+            {uitext('title')}
           </Link>
         </h1>
       </header>
@@ -48,14 +48,14 @@ const Sidebar: React.FC = () => {
 };
 
 const SidebarContents: React.FC = () => {
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
   const { step } = useURLParams();
 
   switch (step) {
     case StepName.Input:
-      return t('input.instructions');
+      return uitext('input.instructions');
     case StepName.Export:
-      return t('export.instructions');
+      return uitext('export.instructions');
     case StepName.Edit:
     case StepName.Review:
       return <DataTypeSelector />;

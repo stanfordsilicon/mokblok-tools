@@ -1,17 +1,17 @@
-import { useTranslation } from 'react-i18next';
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 function PageFooter() {
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
   const year = new Date().getFullYear();
 
   return (
     <footer className="px-2 pt-4 pb-1 text-sm text-(--silicon-ink-soft)">
       <p>
-        {t('footer.copyright', { year })}{' '}
+        {uitext('footer.copyright', { year })}{' '}
         <a href="https://silicon.stanford.edu/" className="font-semibold">
-          {t('footer.organizationName')}
+          {uitext('footer.organizationName')}
         </a>
-        . {t('allRightsReserved')}
+        . {uitext('allRightsReserved')}
       </p>
     </footer>
   );
