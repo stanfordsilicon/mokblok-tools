@@ -12,6 +12,22 @@
         "signedInAs": "Signed in as",
         "signInWithGoogle": "Sign in with Google",
         "redirectingToGoogle": "Redirecting to Google…",
+        "signInWhy": "Sign in with your approved Google account to use the translation and review tools.",
+        "signInDidNotCompleteTitle": "Sign-in didn't complete",
+        "signInDidNotCompleteFallback": "Sign-in didn't complete. Please try again, or contact the SILICON team.",
+        "signInErrorTitle": "Sign-in Error",
+        "signInErrorDescription": "Authentication did not complete. Try signing in again, or contact the SILICON team if the problem persists.",
+        "backToSignIn": "Back to sign in",
+        "errors": {
+            "AccessDenied": "That Google account isn't on the invited list for this tool. Contact the SILICON team to have it added.",
+            "Configuration": "The server's sign-in configuration is incomplete. This is our problem, not yours.",
+            "OAuthAccountNotLinked": "That email is already registered through a different sign-in method. Use the original method.",
+            "OAuthSignin": "Couldn't start the Google sign-in. Please try again.",
+            "OAuthCallback": "Google returned an unexpected response. Please try again.",
+            "OAuthCreateAccount": "Couldn't create your account record. Please try again.",
+            "Callback": "Something went wrong finishing sign-in. Please try again.",
+            "Verification": "That sign-in link has expired or was already used."
+        },
         "signOut": "Sign out",
         "signInToSaveProgress": "Sign in to save progress",
         "roles": {
