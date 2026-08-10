@@ -10,10 +10,10 @@ const StepSelector: React.FC = () => {
 
   return (
     <div className="flex flex-wrap gap-1 rounded-[1.5rem]  ">
-      <StepButton label={uitext('input.title')} targetStep={StepName.Input} />
-      <StepButton label={uitext('edit.title')} targetStep={StepName.Edit} />
-      <StepButton label={uitext('review.title')} targetStep={StepName.Review} />
-      <StepButton label={uitext('export.title')} targetStep={StepName.Export} />
+      <StepButton label={uitext('nav.import')} targetStep={StepName.Import} />
+      <StepButton label={uitext('nav.edit')} targetStep={StepName.Edit} />
+      <StepButton label={uitext('nav.vote')} targetStep={StepName.Vote} />
+      <StepButton label={uitext('nav.export')} targetStep={StepName.Export} />
     </div>
   );
 };

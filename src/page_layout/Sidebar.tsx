@@ -23,7 +23,7 @@ const Sidebar: React.FC = () => {
         <p className="text-sm font-semibold uppercase tracking-[0.35em] text-(--silicon-purple)">
           SILICON
         </p>
-        <h1 className="text-3xl font-black tracking-tight  ">
+        <h1 className="text-3xl font-black tracking-tight">
           <Link
             href="/"
             className="text-(--silicon-ink) no-underline hover:text-(--silicon-purple)"
@@ -52,12 +52,12 @@ const SidebarContents: React.FC = () => {
   const { step } = useURLParams();
 
   switch (step) {
-    case StepName.Input:
-      return uitext('input.instructions');
+    case StepName.Import:
+      return uitext('import.instructions');
     case StepName.Export:
       return uitext('export.instructions');
     case StepName.Edit:
-    case StepName.Review:
+    case StepName.Vote:
       return <DataTypeSelector />;
     case StepName.Intro:
       return <IntroCTAs />;

@@ -6,8 +6,18 @@
         "title": "Bienvenido a Homescreen",
         "by": "por",
         "description": "Esta aplicación web se utiliza para que los evaluadores puedan evaluar la calidad de las traducciones enviadas para cada idioma. Por favor, comienza seleccionando tu idioma de origen y luego tu idioma de destino.",
-        "ctaInputStart": "Comenzar a ingresar traducciones",
+        "ctaImportStart": "Comenzar a ingresar traducciones",
         "ctaReviewStart": "Comenzar a revisar traducciones"
+    },
+    "nav": {
+        "intro": "Introducción",
+        "import": "Importar",
+        "edit": "Editar",
+        "vote": "Votar",
+        "export": "Exportar",
+        "page/section": "Página / Sección",
+        "translations": "Traducciones",
+        "votes": "Votos"
     },
     "auth": {
         "signedInAs": "Conectado como",
@@ -38,10 +48,9 @@
         },
         "viewingAsAdmin": "Visualización como administrador",
         "viewingAsRegularUser": "Visualización como usuario normal"
-    },
-    "input": {
+    }, 
+    "import": {
         "title": "Importa",
-        "instructions": "Por favor, selecciona un idioma de origen y un idioma de destino para cargar los datos guardados para ese idioma. También puedes pegar tus propios datos TSV abajo e introducir manualmente el código del idioma.",
         "language": {
             "title": "Idioma de destino",
             "pickLanguage": "Elige un idioma para modificar sus traducciones.",

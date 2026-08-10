@@ -16,7 +16,7 @@ const AdminModeSelector: React.FC = () => {
   const updateAdminMode = useCallback(() => {
     updateURLParams({
       admin: !admin,
-      step: step === StepName.Review ? step : StepName.Intro,
+      step: step === StepName.Vote ? step : StepName.Intro,
     });
   }, [updateURLParams, admin, step]);
 

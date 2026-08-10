@@ -5,8 +5,18 @@
     "intro": {
         "title": "Welcome to Homescreen",
         "description": "This web application is used for vetters to evaluate the quality of translations submitted for each language. Please start by selecting your source language then your target language.",
-        "ctaInputStart": "Start inputting translations",
+        "ctaImportStart": "Import translation data",
         "ctaReviewStart": "Start reviewing translations"
+    },
+    "nav": {
+        "intro": "Intro",
+        "import": "Import",
+        "edit": "Edit",
+        "vote": "Vote",
+        "export": "Export",
+        "page/section": "Page / Section",
+        "translations": "Translations",
+        "votes": "Votes"
     },
     "auth": {
         "signedInAs": "Signed in as",
@@ -38,7 +48,7 @@
         "viewingAsAdmin": "Viewing as admin",
         "viewingAsRegularUser": "Viewing as regular user"
     },
-    "input": {
+    "import": {
         "title": "Import",
         "instructions": "Please select a source language and a target language to load the saved data for that language. You can also paste your own TSV data below and enter the language code manually.",
         "language": {
@@ -78,8 +88,10 @@
     "edit": {
         "title": "Edit"
     },
-    "review": {
-        "title": "Review",
+    "vote": {
+        "title": "Vote"
+    },
+    "review": { 
         "downloadAllDemos": "Download all demos",
         "translated": "Translated",
         "moreLanguages": "More languages",
@@ -203,8 +215,7 @@
     "common": {
         "emptyCell": "-"
     },
-    "errors": {
-        "unknownWidget": "Unknown widget",
+    "errors": { 
         "demoNotFound": "Demo not found",
         "unknownError": "An unknown error occurred",
         "somethingWentWrong": "Something went wrong.",

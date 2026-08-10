@@ -55,7 +55,7 @@ export default function AccountBadge() {
         {role === 'admin' && (
           <button
             onClick={updateAdminMode}
-            className="text-xs font-semibold text-(--silicon-purple) underline-offset-2 hover:underline"
+            className="text-xs font-semibold text-(--silicon-purple) underline-offset-2"
           >
             {admin ? uitext('auth.viewingAsAdmin') : uitext('auth.viewingAsRegularUser')}
           </button>

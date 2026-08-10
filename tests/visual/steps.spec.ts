@@ -27,12 +27,12 @@ test('Edit Step', async ({ page }) => {
 });
 
 test('Review Step', async ({ page }) => {
-  await performTest(page, 'admin=true&step=Review', 'review.png');
+  await performTest(page, 'admin=true&step=Vote', 'review.png');
 });
 
 test('Review Step -- dark mode', async ({ page }) => {
   page.emulateMedia({ colorScheme: 'dark' });
-  await performTest(page, 'admin=true&step=Review', 'review-dark.png');
+  await performTest(page, 'admin=true&step=Vote', 'review-dark.png');
 });
 
 test('Export Step', async ({ page }) => {
