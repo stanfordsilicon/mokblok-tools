@@ -34,7 +34,9 @@
             "user": "Utilisateur",
             "admin": "Administrateur",
             "moderator": "Modérateur"
-        }
+        },
+        "viewingAsAdmin": "Visualisation en tant qu’administrateur",
+        "viewingAsRegularUser": "Visualisation en tant qu’utilisateur normal"
     },
     "input": {
         "title": "Importe",

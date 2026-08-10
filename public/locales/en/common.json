@@ -34,7 +34,9 @@
             "user": "User",
             "admin": "Admin",
             "moderator": "Moderator"
-        }
+        },
+        "viewingAsAdmin": "Viewing as admin",
+        "viewingAsRegularUser": "Viewing as regular user"
     },
     "input": {
         "title": "Import",
@@ -161,8 +163,6 @@
         "coverageLevel": "Coverage level",
         "backgroundStyle": "Background style",
         "dateExample": "Example date",
-        "viewingAsAdmin": "Viewing as admin",
-        "viewingAsRegularUser": "Viewing as regular user",
         "inAdminCTATurnOff": "In admin mode, click to turn off admin mode",
         "notAdminCTATurnOn": "In regular mode, click to turn on admin mode",
         "signInWhy": "Sign in with your approved Google account to use the translation and review tools.",

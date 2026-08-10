@@ -36,30 +36,30 @@ export default function AccountBadge() {
     const role = session.user.role ?? 'user';
 
     return (
-      <div className="flex items-center gap-3 rounded-2xl border border-(--silicon-line) bg-white px-4 py-2.5 shadow-sm">
-        <div className="min-w-0">
-          <p className="flex items-center gap-2 text-[10px] uppercase tracking-wider font-semibold text-(--silicon-purple)">
-            {uitext('auth.signedInAs')}
-            <RoleBadge role={role} />
-          </p>
-          <p className="truncate text-sm font-medium text-(--silicon-ink)">{session.user.email}</p>
-          {role === 'admin' && (
-            <button
-              onClick={updateAdminMode}
-              className="text-xs font-semibold text-(--silicon-purple) underline-offset-2 hover:underline"
-            >
-              {admin ? uitext('settings.viewingAsAdmin') : uitext('settings.viewingAsRegularUser')}
-            </button>
-          )}
+      <div className="flex flex-col items-start gap-1 rounded-2xl border border-(--silicon-line) bg-white px-4 py-2.5 shadow-sm">
+        <div className="w-full flex items-center justify-between gap-2 text-sm uppercase font-semibold text-(--silicon-purple)">
+          {uitext('auth.signedInAs')}
+          <RoleBadge role={role} />
+        </div>
+        <div className="w-full flex flex-row justify-between gap-2 items-center">
+          <span className="truncate text-sm font-medium">{session.user.email}</span>{' '}
+          <button
+            type="button"
+            onClick={() => signOut({ callbackUrl: '/' })}
+            className="shrink-0 rounded-xl border border-(--silicon-line-strong) px-3 py-1.5 text-xs font-semibold text-(--silicon-ink) transition  "
+          >
+            {uitext('auth.signOut')}
+          </button>
         </div>
 
-        <button
-          type="button"
-          onClick={() => signOut({ callbackUrl: '/' })}
-          className="shrink-0 rounded-xl border border-(--silicon-line-strong) px-3 py-1.5 text-xs font-semibold text-(--silicon-ink) transition hover:border-(--silicon-purple) hover:text-(--silicon-purple)"
-        >
-          {uitext('auth.signOut')}
-        </button>
+        {role === 'admin' && (
+          <button
+            onClick={updateAdminMode}
+            className="text-xs font-semibold text-(--silicon-purple) underline-offset-2 hover:underline"
+          >
+            {admin ? uitext('auth.viewingAsAdmin') : uitext('auth.viewingAsRegularUser')}
+          </button>
+        )}
       </div>
     );
   }
