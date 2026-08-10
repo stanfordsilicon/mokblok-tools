@@ -164,10 +164,7 @@
     "backgroundStyle": "𝔅𝔞𝔠𝔨𝔤𝔯𝔬𝔲𝔫𝔡 𝔰𝔱𝔶𝔩𝔢",
     "dateExample": "𝔈𝔵𝔞𝔪𝔭𝔩𝔢 𝔡𝔞𝔱𝔢",
     "inAdminCTATurnOff": "ℑ𝔫 𝔞𝔡𝔪𝔦𝔫 𝔪𝔬𝔡𝔢, 𝔠𝔩𝔦𝔠𝔨 𝔱𝔬 𝔱𝔲𝔯𝔫 𝔬𝔣𝔣 𝔞𝔡𝔪𝔦𝔫 𝔪𝔬𝔡𝔢",
-    "notAdminCTATurnOn": "ℑ𝔫 𝔯𝔢𝔤𝔲𝔩𝔞𝔯 𝔪𝔬𝔡𝔢, 𝔠𝔩𝔦𝔠𝔨 𝔱𝔬 𝔱𝔲𝔯𝔫 𝔬𝔫 𝔞𝔡𝔪𝔦𝔫 𝔪𝔬𝔡𝔢",
-    "signInWhy": "𝔖𝔦𝔤𝔫 𝔦𝔫 𝔴𝔦𝔱𝔥 𝔶𝔬𝔲𝔯 𝔞𝔭𝔭𝔯𝔬𝔳𝔢𝔡 𝔊𝔬𝔬𝔤𝔩𝔢 𝔞𝔠𝔠𝔬𝔲𝔫𝔱 𝔱𝔬 𝔲𝔰𝔢 𝔱𝔥𝔢 𝔱𝔯𝔞𝔫𝔰𝔩𝔞𝔱𝔦𝔬𝔫 𝔞𝔫𝔡 𝔯𝔢𝔳𝔦𝔢𝔴 𝔱𝔬𝔬𝔩𝔰.",
-    "redirectingToGoogle": "ℜ𝔢𝔡𝔦𝔯𝔢𝔠𝔱𝔦𝔫𝔤 𝔱𝔬 𝔊𝔬𝔬𝔤𝔩𝔢…",
-    "signInWithGoogle": "𝔖𝔦𝔤𝔫 𝔦𝔫 𝔴𝔦𝔱𝔥 𝔊𝔬𝔬𝔤𝔩𝔢"
+    "notAdminCTATurnOn": "ℑ𝔫 𝔯𝔢𝔤𝔲𝔩𝔞𝔯 𝔪𝔬𝔡𝔢, 𝔠𝔩𝔦𝔠𝔨 𝔱𝔬 𝔱𝔲𝔯𝔫 𝔬𝔫 𝔞𝔡𝔪𝔦𝔫 𝔪𝔬𝔡𝔢"
   },
   "coverageLevelName": {
     "Any": "𝔄𝔫𝔶",

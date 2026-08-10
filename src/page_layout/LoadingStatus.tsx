@@ -23,7 +23,7 @@ const LoadingStatus = () => {
         <div
           className="h-full rounded-full bg-(--silicon-brown) transition-[width] duration-300"
           style={{
-            width: `${(overallStep * 100) / maxRegularStatus}%`,
+            width: `${Math.min((overallStep * 100) / maxRegularStatus, 100)}%`,
             backgroundColor:
               sourceDataStatus === SourceDataStatus.Error ? 'var(--silicon-orange)' : undefined,
           }}
