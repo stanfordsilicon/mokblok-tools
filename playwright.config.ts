@@ -22,6 +22,10 @@ export default defineConfig({
 
   webServer: {
     command: `npm run build && npm run start -- -H 127.0.0.1 -p ${PORT}`,
+    env: {
+      ...process.env,
+      SCREENSHOT_TEST_BYPASS_AUTH: '1',
+    },
     url: BASE_URL,
     timeout: 180_000,
     reuseExistingServer: !process.env.CI,

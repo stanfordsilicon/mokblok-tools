@@ -1,16 +1,16 @@
-import { useTranslation } from 'react-i18next';
-
 import { useDataContext } from '@data/DataContext';
 import { DataSection } from '@data/DataSection';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 import { useURLParams } from '@settings/URLParams';
 
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
+
 import InputDataCell from '../input/InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function EraDatesReviewTable() {
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
   const { admin } = useURLParams();
   const { findDataEntries } = useDataContext();
   const allEraFields = findDataEntries({ section: DataSection.EraDates }).filter((f) =>
@@ -29,14 +29,14 @@ function EraDatesReviewTable() {
             <th>
               <SourceLanguageLabel />
             </th>
-            {admin && <th>{t('review.sourcePattern')}</th>}
-            <th>{t('review.translated')}</th>
+            {admin && <th>{uitext('review.sourcePattern')}</th>}
+            <th>{uitext('review.translated')}</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <th colSpan={admin ? 3 : 2} style={{ textAlign: 'center' }}>
-              {t('review.dates')}
+              {uitext('review.dates')}
             </th>
           </tr>
           {availableEraDates.map((entry) => (
@@ -48,7 +48,7 @@ function EraDatesReviewTable() {
           ))}
           <tr>
             <th colSpan={admin ? 3 : 2} style={{ textAlign: 'center' }}>
-              {t('review.intervals')}
+              {uitext('review.intervals')}
             </th>
           </tr>
           {eraIntervals.map((entry) => (

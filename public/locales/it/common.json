@@ -12,13 +12,31 @@
         "signedInAs": "Connesso come",
         "signInWithGoogle": "Accedi con Google",
         "redirectingToGoogle": "Reindirizzamento a Google…",
+        "signInWhy": "Accedi con il tuo account Google approvato per usare gli strumenti di traduzione e revisione.",
+        "signInDidNotCompleteTitle": "Accesso non completato",
+        "signInDidNotCompleteFallback": "L’accesso non è stato completato. Riprova o contatta il team SILICON.",
+        "signInErrorTitle": "Errore di accesso",
+        "signInErrorDescription": "L’autenticazione non è stata completata. Prova ad accedere di nuovo o contatta il team SILICON se il problema persiste.",
+        "backToSignIn": "Torna all’accesso",
+        "errors": {
+            "AccessDenied": "Questo account Google non è nell’elenco approvato per questo strumento. Contatta il team SILICON per farlo aggiungere.",
+            "Configuration": "La configurazione di accesso del server è incompleta. Il problema è nostro, non tuo.",
+            "OAuthAccountNotLinked": "Questo indirizzo email è già registrato con un metodo di accesso diverso. Usa il metodo originale.",
+            "OAuthSignin": "Impossibile avviare l’accesso con Google. Riprova.",
+            "OAuthCallback": "Google ha restituito una risposta imprevista. Riprova.",
+            "OAuthCreateAccount": "Impossibile creare il tuo account. Riprova.",
+            "Callback": "Si è verificato un problema durante il completamento dell’accesso. Riprova.",
+            "Verification": "Quel link di accesso è scaduto oppure è già stato usato."
+        },
         "signOut": "Disconnetti",
         "signInToSaveProgress": "Accedi per salvare i progressi",
         "roles": {
             "user": "Utente",
             "admin": "Amministratore",
             "moderator": "Moderatore"
-        }
+        },
+        "viewingAsAdmin": "Visualizzazione come amministratore",
+        "viewingAsRegularUser": "Visualizzazione come utente normale"
     },
     "input": {
         "title": "Importa",

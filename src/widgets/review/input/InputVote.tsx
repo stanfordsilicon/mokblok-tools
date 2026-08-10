@@ -15,10 +15,8 @@ const InputVote: React.FC<{
   inputWidth?: string;
 }> = ({ entry, inputWidth }) => {
   const { getTranslationInfo, editTranslation } = useTargetDataContext();
-  const { vote, translation, source, comment } = getTranslationInfo(entry);
-  let backgroundColor = 'transparent';
-  if (vote === Vote.Accept) backgroundColor = 'var(--color-level-4)';
-  if (vote === Vote.Reject) backgroundColor = 'var(--color-level-1)';
+  const { vote, translation, source, comment } = getTranslationInfo(entry) ?? {};
+
   const setVote = useCallback(
     (newVote: Vote) =>
       editTranslation(entry.index, { vote: vote === newVote ? Vote.Unknown : newVote }),
@@ -33,7 +31,7 @@ const InputVote: React.FC<{
   return (
     <div>
       <div className="flex items-center justify-between">
-        <div style={{ backgroundColor, width: inputWidth }}>
+        <div style={{ width: inputWidth }}>
           {vote === Vote.Reject ? (
             <InputEditText entry={entry} inputWidth={inputWidth} disabled={vote !== Vote.Reject} />
           ) : (
@@ -82,7 +80,7 @@ const InputVote: React.FC<{
       </div>
       {showComments && (
         <textarea
-          data-testid="comment-box"
+          data-testid="comment-input"
           placeholder="Add comments"
           onBlur={() => editTranslation(entry.index, { comment: currentComment })}
           onChange={(e) => setCurrentComment(e.target.value)}

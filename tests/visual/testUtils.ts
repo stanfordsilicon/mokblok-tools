@@ -1,6 +1,15 @@
 import { expect, type Page } from '@playwright/test';
 
 const FIXED_ISO_TIME = '2026-01-15T12:00:00Z';
+const MOCK_SESSION = {
+  user: {
+    id: 'playwright-screenshot-user',
+    name: 'Screenshot Tester',
+    email: 'screenshots@example.com',
+    role: 'admin',
+  },
+  expires: '2099-01-01T00:00:00.000Z',
+};
 const DISABLE_MOTION_CSS = `
   *,
   *::before,
@@ -46,6 +55,12 @@ export async function freezeDate(page: Page) {
 }
 
 export async function gotoApp(page: Page, path: string) {
+  await page.route('**/api/auth/session', async (route) => {
+    await route.fulfill({
+      contentType: 'application/json',
+      body: JSON.stringify(MOCK_SESSION),
+    });
+  });
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto(path, { waitUntil: 'domcontentloaded' });
   await page.addStyleTag({ content: DISABLE_MOTION_CSS });

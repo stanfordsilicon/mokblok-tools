@@ -1,7 +1,8 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 
 import StepName from '@settings/StepName';
+
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import ExportWidget from './export/ExportWidget';
 import InputBody from './input/InputBody';
@@ -13,7 +14,7 @@ export type StepViewProps = {
 };
 
 const StepView: React.FC<StepViewProps> = ({ step }) => {
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
   switch (step) {
     case StepName.Intro:
       return <IntroBody />;
@@ -25,7 +26,7 @@ const StepView: React.FC<StepViewProps> = ({ step }) => {
     case StepName.Export:
       return <ExportWidget />;
     default:
-      return <div>{t('errors.unknownWidget')}</div>;
+      return <div>{uitext('errors.unknownWidget')}</div>;
   }
 };
 

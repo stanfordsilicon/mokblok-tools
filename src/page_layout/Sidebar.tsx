@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { useTranslation } from 'react-i18next';
 
 import AccountBadge from '@settings/auth/AccountBadge';
 import StepName from '@settings/StepName';
@@ -7,6 +6,7 @@ import StepSelector from '@settings/StepSelector';
 import { useURLParams } from '@settings/URLParams';
 
 import enforceExhaustiveSwitch from '@shared/enforceExhaustiveSwitch';
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import IntroCTAs from '../widgets/intro/IntroCTAs';
 import DataTypeSelector from '../widgets/review/DataTypeSelector';
@@ -14,21 +14,21 @@ import DataTypeSelector from '../widgets/review/DataTypeSelector';
 import LoadingStatus from './LoadingStatus';
 
 const Sidebar: React.FC = () => {
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
   const { admin } = useURLParams();
 
   return (
     <aside className="flex w-full shrink-0 flex-col gap-4 border-b border-(--silicon-line-strong) bg-(--silicon-panel) px-4 py-5 lg:min-h-screen lg:w-[22rem] lg:border-r lg:border-b-0 lg:px-5 lg:py-6">
-      <header className="rounded-[1.75rem] border border-(--silicon-line) bg-white px-5 py-4 shadow-sm">
-        <p className="text-[10px] font-semibold uppercase tracking-[0.35em] text-(--silicon-purple)">
+      <header className="">
+        <p className="text-sm font-semibold uppercase tracking-[0.35em] text-(--silicon-purple)">
           SILICON
         </p>
-        <h1 className="text-2xl font-black tracking-tight  ">
+        <h1 className="text-3xl font-black tracking-tight  ">
           <Link
             href="/"
             className="text-(--silicon-ink) no-underline hover:text-(--silicon-purple)"
           >
-            {t('title')}
+            {uitext('title')}
           </Link>
         </h1>
       </header>
@@ -48,14 +48,14 @@ const Sidebar: React.FC = () => {
 };
 
 const SidebarContents: React.FC = () => {
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
   const { step } = useURLParams();
 
   switch (step) {
     case StepName.Input:
-      return t('input.instructions');
+      return uitext('input.instructions');
     case StepName.Export:
-      return t('export.instructions');
+      return uitext('export.instructions');
     case StepName.Edit:
     case StepName.Review:
       return <DataTypeSelector />;

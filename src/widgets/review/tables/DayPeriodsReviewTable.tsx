@@ -1,11 +1,10 @@
-import { useTranslation } from 'react-i18next';
-
 import { useDataContext } from '@data/DataContext';
 import { DataSection } from '@data/DataSection';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
 import { matrixBy } from '@shared/setUtils';
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import InputDataCell from '../input/InputDataCell';
 import SourceDataCell from '../SourceDataCell';
@@ -26,7 +25,7 @@ const DayPeriodsReviewTable = () => {
     (f) => f.instance,
     (f) => f.variant + f.exampleNum,
   );
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
 
   return (
     <>
@@ -37,14 +36,14 @@ const DayPeriodsReviewTable = () => {
               <SourceLanguageLabel />
             </th>
             <th colSpan={2} style={{ textAlign: 'center' }}>
-              {t('review.translated')}
+              {uitext('review.translated')}
             </th>
           </tr>
           <tr>
-            <th>{t('length.wide')}</th>
-            <th>{t('length.narrow')}</th>
-            <th>{t('length.wide')}</th>
-            <th>{t('length.narrow')}</th>
+            <th>{uitext('length.wide')}</th>
+            <th>{uitext('length.narrow')}</th>
+            <th>{uitext('length.wide')}</th>
+            <th>{uitext('length.narrow')}</th>
           </tr>
         </thead>
         <tbody>
@@ -68,16 +67,16 @@ const DayPeriodsReviewTable = () => {
               <SourceLanguageLabel />
             </th>
             <th colSpan={3} style={{ textAlign: 'center' }}>
-              {t('review.translated')}
+              {uitext('review.translated')}
             </th>
           </tr>
           <tr>
-            <th>{t('review.standalone')}</th>
-            <th>{t('review.inSentence')}</th>
-            <th>{t('review.exampleSentence')}</th>
-            <th>{t('review.standalone')}</th>
-            <th>{t('review.inSentence')}</th>
-            <th>{t('review.exampleSentence')}</th>
+            <th>{uitext('review.standalone')}</th>
+            <th>{uitext('review.inSentence')}</th>
+            <th>{uitext('review.exampleSentence')}</th>
+            <th>{uitext('review.standalone')}</th>
+            <th>{uitext('review.inSentence')}</th>
+            <th>{uitext('review.exampleSentence')}</th>
           </tr>
         </thead>
         <tbody>

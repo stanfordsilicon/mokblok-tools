@@ -13,13 +13,31 @@
         "signedInAs": "Conectado como",
         "signInWithGoogle": "Iniciar sesión con Google",
         "redirectingToGoogle": "Redirigiendo a Google…",
+        "signInWhy": "Inicia sesión con tu cuenta de Google aprobada para usar las herramientas de traducción y revisión.",
+        "signInDidNotCompleteTitle": "No se completó el inicio de sesión",
+        "signInDidNotCompleteFallback": "No se completó el inicio de sesión. Inténtalo de nuevo o contacta al equipo SILICON.",
+        "signInErrorTitle": "Error de inicio de sesión",
+        "signInErrorDescription": "La autenticación no se completó. Intenta iniciar sesión de nuevo o contacta al equipo SILICON si el problema persiste.",
+        "backToSignIn": "Volver al inicio de sesión",
+        "errors": {
+            "AccessDenied": "Esa cuenta de Google no está en la lista aprobada para esta herramienta. Contacta al equipo SILICON para que la agreguen.",
+            "Configuration": "La configuración de inicio de sesión del servidor está incompleta. Este problema es nuestro, no tuyo.",
+            "OAuthAccountNotLinked": "Ese correo ya está registrado con un método de inicio de sesión diferente. Usa el método original.",
+            "OAuthSignin": "No se pudo iniciar el acceso con Google. Inténtalo de nuevo.",
+            "OAuthCallback": "Google devolvió una respuesta inesperada. Inténtalo de nuevo.",
+            "OAuthCreateAccount": "No se pudo crear tu cuenta. Inténtalo de nuevo.",
+            "Callback": "Algo salió mal al completar el inicio de sesión. Inténtalo de nuevo.",
+            "Verification": "Ese enlace de inicio de sesión ha caducado o ya se usó."
+        },
         "signOut": "Cerrar sesión",
         "signInToSaveProgress": "Inicia sesión para guardar el progreso",
         "roles": {
             "user": "Usuario",
             "admin": "Administrador",
             "moderator": "Moderador"
-        }
+        },
+        "viewingAsAdmin": "Visualización como administrador",
+        "viewingAsRegularUser": "Visualización como usuario normal"
     },
     "input": {
         "title": "Importa",

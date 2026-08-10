@@ -1,11 +1,10 @@
-import { useTranslation } from 'react-i18next';
-
 import { useDataContext } from '@data/DataContext';
 import PluralAmount from '@data/PluralAmount';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
 import { matrixBy } from '@shared/setUtils';
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import InputDataCell from '../input/InputDataCell';
 import SourceDataCell from '../SourceDataCell';
@@ -18,7 +17,7 @@ type PluralInstance = (typeof pluralInstances)[number];
 type VariantKey = (typeof pluralVariantOrder)[number];
 
 const PluralsReviewTable: React.FC = () => {
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
   const { findDataEntries } = useDataContext();
 
   const pluralFields = findDataEntries({ field: 'plurals' }).filter((entry) =>
@@ -37,15 +36,15 @@ const PluralsReviewTable: React.FC = () => {
         if (!entriesForInstance) return null;
         return (
           <div key={instance}>
-            <h3>{t(`review.plurals.instances.${instance}`)}</h3>
+            <h3>{uitext(`review.plurals.instances.${instance}`)}</h3>
             <table>
               <thead>
                 <tr>
-                  <th>{t('review.plurals.category')}</th>
+                  <th>{uitext('review.plurals.category')}</th>
                   <th>
                     <SourceLanguageLabel />
                   </th>
-                  <th>{t('review.translated')}</th>
+                  <th>{uitext('review.translated')}</th>
                 </tr>
               </thead>
               <tbody>
@@ -54,7 +53,7 @@ const PluralsReviewTable: React.FC = () => {
                   if (!entry) return null;
                   return (
                     <tr key={variantKey}>
-                      <td>{t(`review.plurals.categories.${variantKey}`, variantKey)}</td>
+                      <td>{uitext(`review.plurals.categories.${variantKey}`, variantKey)}</td>
                       <SourceDataCell entry={entry} />
                       <InputDataCell entry={entry} inputWidth="15em" />
                     </tr>

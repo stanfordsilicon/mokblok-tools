@@ -1,11 +1,10 @@
-import { useTranslation } from 'react-i18next';
-
 import { useDataContext } from '@data/DataContext';
 import { DataSection } from '@data/DataSection';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
 import { groupBy } from '@shared/setUtils';
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import InputDataCell from '../input/InputDataCell';
 import SourceDataCell from '../SourceDataCell';
@@ -13,7 +12,7 @@ import SourceDataCell from '../SourceDataCell';
 function EmojisReviewTable() {
   const { findDataEntries } = useDataContext();
   const emojisByGroup = groupBy(findDataEntries({ section: DataSection.Emoji }), (f) => f.group);
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
 
   return (
     <div>
@@ -25,11 +24,11 @@ function EmojisReviewTable() {
           <table>
             <thead>
               <tr>
-                <th>{t('dataSection.emoji')}</th>
+                <th>{uitext('dataSection.emoji')}</th>
                 <th>
                   <SourceLanguageLabel />
                 </th>
-                <th>{t('review.translated')}</th>
+                <th>{uitext('review.translated')}</th>
               </tr>
             </thead>
             <tbody>

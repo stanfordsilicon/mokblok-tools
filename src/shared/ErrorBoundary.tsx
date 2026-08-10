@@ -1,5 +1,6 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 interface ErrorBoundaryProps {
   children: React.ReactNode;
@@ -40,15 +41,15 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
 }
 
 const ErrorFallback: React.FC<{ message: string | null }> = ({ message }) => {
-  const { t } = useTranslation();
-  const fallbackMessage = message || t('errors.unknownError');
+  const { uitext } = useInterfaceTranslation();
+  const fallbackMessage = message || uitext('errors.unknownError');
   return (
     <div style={{ textAlign: 'center' }}>
-      <h2>{t('errors.somethingWentWrong')}</h2>
-      <p>{t('errors.refreshInstructions')}</p>
+      <h2>{uitext('errors.somethingWentWrong')}</h2>
+      <p>{uitext('errors.refreshInstructions')}</p>
       <p>{fallbackMessage}</p>
       <button onClick={() => window.location.reload()} style={{ padding: '0.5em 1em' }}>
-        {t('errors.refreshPage')}
+        {uitext('errors.refreshPage')}
       </button>
     </div>
   );

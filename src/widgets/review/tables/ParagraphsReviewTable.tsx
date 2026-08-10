@@ -1,17 +1,16 @@
-import { useTranslation } from 'react-i18next';
-
 import { useDataContext } from '@data/DataContext';
 import { DataSection } from '@data/DataSection';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
 import { groupBy } from '@shared/setUtils';
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import InputTextareaCell from '../input/InputTextareaCell';
 import SourceDataCell from '../SourceDataCell';
 
 function ParagraphsReviewTable() {
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
   const { findDataEntries } = useDataContext();
   const paragraphsByGroup = groupBy(
     findDataEntries({ section: DataSection.Paragraphs }),
@@ -33,7 +32,7 @@ function ParagraphsReviewTable() {
                 <th>
                   <SourceLanguageLabel />
                 </th>
-                <th>{t('review.translated')}</th>
+                <th>{uitext('review.translated')}</th>
               </tr>
             </thead>
             <tbody>

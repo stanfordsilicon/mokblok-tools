@@ -1,9 +1,9 @@
-import { useTranslation } from 'react-i18next';
-
 import { useURLParams } from '@settings/URLParams';
 
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
+
 const ExampleDateSelector: React.FC = () => {
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
   const { dateExample, updateURLParams } = useURLParams();
 
   const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -23,7 +23,7 @@ const ExampleDateSelector: React.FC = () => {
   const today = dateExample ? new Date(dateExample) : new Date();
   return (
     <div style={{ display: 'flex', gap: '1em', alignItems: 'center', flexWrap: 'wrap' }}>
-      <strong>{t('settings.dateExample')}:</strong>
+      <strong>{uitext('settings.dateExample')}:</strong>
       <input
         type="date"
         value={today.toISOString().split('T')[0]}

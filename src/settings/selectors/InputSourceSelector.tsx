@@ -1,18 +1,19 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { useURLParams } from '@settings/URLParams';
 
 import InputSource from '@widgets/input/InputSource';
 
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
+
 const InputSourceSelector: React.FC = () => {
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
   const { inputSource, updateURLParams, admin } = useURLParams();
   if (!admin) return null;
 
   return (
     <div style={{ display: 'flex', gap: '1em', alignItems: 'center', flexWrap: 'wrap' }}>
-      <strong>{t('input.inputSource.label')}:</strong>
+      <strong>{uitext('input.inputSource.label')}:</strong>
 
       <select
         className="settings-select"
@@ -21,7 +22,7 @@ const InputSourceSelector: React.FC = () => {
       >
         {Object.values(InputSource).map((value) => (
           <option key={value} value={value}>
-            {t(`input.inputSource.${value}`, value)}
+            {uitext(`input.inputSource.${value}`, value)}
           </option>
         ))}
       </select>

@@ -1,11 +1,12 @@
 import React, { useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { CoverageLevel, getCoverageLevelKey } from '@data/CoverageLevel';
 import { useDataContext } from '@data/DataContext';
 import type { DataEntry } from '@data/DataTypes';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
+
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import useBackgroundColor from '../input/getBackgroundColor';
 import InputDataCell from '../input/InputDataCell';
@@ -25,7 +26,7 @@ function FullReviewTable() {
   const [coverageLevelFilter, setCoverageLevelFilter] = React.useState<CoverageLevel | undefined>(
     undefined,
   );
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
 
   const filteredEntries = useMemo(
     () =>
@@ -59,20 +60,20 @@ function FullReviewTable() {
     <table className="FullReviewTable">
       <thead>
         <tr>
-          <th>{t('review.page')}</th>
-          <th>{t('review.section')}</th>
-          <th>{t('review.group')}</th>
-          <th>{t('review.field')}</th>
-          <th>{t('review.instance')}</th>
-          <th>{t('review.length')}</th>
-          <th>{t('review.variant')}</th>
-          <th>{t('review.exampleNumber')}</th>
+          <th>{uitext('review.page')}</th>
+          <th>{uitext('review.section')}</th>
+          <th>{uitext('review.group')}</th>
+          <th>{uitext('review.field')}</th>
+          <th>{uitext('review.instance')}</th>
+          <th>{uitext('review.length')}</th>
+          <th>{uitext('review.variant')}</th>
+          <th>{uitext('review.exampleNumber')}</th>
           <th>
             <SourceLanguageLabel />
           </th>
-          <th>{t('review.translated')}</th>
-          <th>{t('settings.coverageLevel')}</th>
-          <th>{t('review.fromXML')}</th>
+          <th>{uitext('review.translated')}</th>
+          <th>{uitext('settings.coverageLevel')}</th>
+          <th>{uitext('review.fromXML')}</th>
         </tr>
         <tr>
           <FilterCell value={pageFilter} onChange={setPageFilter} />
@@ -121,7 +122,7 @@ function FilterCoverageLevelCell({
   coverageLevelFilter: CoverageLevel | undefined;
   setCoverageLevelFilter: (value: CoverageLevel | undefined) => void;
 }) {
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
   return (
     <td>
       <select
@@ -131,12 +132,12 @@ function FilterCoverageLevelCell({
         }
         style={{ width: '5em' }}
       >
-        <option value="">{t('coverageLevelName.Any')}</option>
+        <option value="">{uitext('coverageLevelName.Any')}</option>
         {Object.values(CoverageLevel)
           .filter((level) => typeof level === 'number')
           .map((level) => (
             <option key={level} value={level}>
-              {t(`coverageLevelName.${getCoverageLevelKey(level)}`)}
+              {uitext(`coverageLevelName.${getCoverageLevelKey(level)}`)}
             </option>
           ))}
       </select>
@@ -145,13 +146,13 @@ function FilterCoverageLevelCell({
 }
 
 function TranslationRow({ entry }: { entry: DataEntry }) {
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
   const { getSourceData } = useDataContext();
   const getBackgroundColor = useBackgroundColor();
   return (
     <tr key={entry.index} style={{ backgroundColor: getBackgroundColor(entry) }}>
-      <td style={{ maxWidth: '5em' }}>{t(`dataPage.${entry.page}`)}</td>
-      <td style={{ maxWidth: '5em' }}>{t(`dataSection.${entry.section}`)}</td>
+      <td style={{ maxWidth: '5em' }}>{uitext(`dataPage.${entry.page}`)}</td>
+      <td style={{ maxWidth: '5em' }}>{uitext(`dataSection.${entry.section}`)}</td>
       <td style={{ maxWidth: '5em' }}>{entry.group}</td>
       <td style={{ maxWidth: '5em' }}>{entry.field}</td>
       <td style={{ maxWidth: '5em' }}>{entry.instance}</td>
@@ -161,7 +162,7 @@ function TranslationRow({ entry }: { entry: DataEntry }) {
       <SourceDataCell entry={entry} style={{ maxWidth: '15em' }} />
       <InputDataCell entry={entry} inputWidth="15em" />
       <td style={{ overflow: 'hidden' }}>
-        {t(`coverageLevelName.${getCoverageLevelKey(entry.level)}`)}
+        {uitext(`coverageLevelName.${getCoverageLevelKey(entry.level)}`)}
       </td>
       <td>{getSourceData(entry)}</td>
     </tr>

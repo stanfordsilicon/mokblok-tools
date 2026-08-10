@@ -2,10 +2,11 @@
 
 import { signIn } from 'next-auth/react';
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
+
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 export default function SignInButton({ callbackUrl }: { callbackUrl?: string }) {
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
   const [pending, setPending] = useState(false);
 
   return (
@@ -19,7 +20,7 @@ export default function SignInButton({ callbackUrl }: { callbackUrl?: string }) 
         signIn('google', { callbackUrl: callbackUrl ?? '/' });
       }}
     >
-      {pending ? t('auth.redirectingToGoogle') : t('auth.signInWithGoogle')}
+      {pending ? uitext('auth.redirectingToGoogle') : uitext('auth.signInWithGoogle')}
     </button>
   );
 }

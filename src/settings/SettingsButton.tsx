@@ -1,16 +1,17 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import SettingsWidget from '@settings/SettingsWidget';
 
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
+
 const SettingsButton: React.FC = () => {
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
   const [settingsOpen, setSettingsOpen] = useState(false);
   const toggleSettings = () => setSettingsOpen(!settingsOpen);
 
   return (
     <div className="absolute top-5 right-5">
-      <button onClick={toggleSettings}>{t('settings.title')} ⚙</button>
+      <button onClick={toggleSettings}>{uitext('settings.title')} ⚙</button>
       {settingsOpen && <FloatingSettingsWidget />}
     </div>
   );

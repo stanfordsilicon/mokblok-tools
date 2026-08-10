@@ -1,14 +1,15 @@
 import { useMemo, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { useTargetDataContext } from '@data/TargetDataProvider';
 
 import { addValueToXML, toXMLString, type XMLObject } from '@widgets/export/formatXML';
 
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
+
 import InputCheck from './check/InputCheck';
 
 const InputXMLSection = () => {
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
   const { targetXMLData } = useTargetDataContext();
   const [appearance, setAppearance] = useState<'xml' | 'list'>('xml');
 
@@ -33,13 +34,13 @@ const InputXMLSection = () => {
           style={{ background: appearance === 'list' ? 'var(--color-button-selected)' : undefined }}
           onClick={() => setAppearance('list')}
         >
-          {t('input.asList')}
+          {uitext('input.asList')}
         </button>
         <button
           style={{ background: appearance === 'xml' ? 'var(--color-button-selected)' : undefined }}
           onClick={() => setAppearance('xml')}
         >
-          {t('input.asXML')}
+          {uitext('input.asXML')}
         </button>
       </div>
       <textarea className="LargeTextArea" value={preview} readOnly />

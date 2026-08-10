@@ -1,6 +1,5 @@
-import { useTranslation } from 'react-i18next';
-
 import ErrorBoundary from '@shared/ErrorBoundary';
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import DemoID from './DemoID';
 import DemoLabel from './DemoLabel';
@@ -45,7 +44,7 @@ const Demo: React.FC<Props> = ({ demoID }) => {
 };
 
 const DemoImage: React.FC<{ demoID: DemoID }> = ({ demoID }) => {
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
   switch (demoID) {
     case DemoID.MonthsGrid:
       return <DemoMonthsGrid />;
@@ -98,7 +97,7 @@ const DemoImage: React.FC<{ demoID: DemoID }> = ({ demoID }) => {
     case DemoID.EmojiExplanations:
       return <DemoEmojiKeyboardSuggestions includeAnnotations={true} />;
     default:
-      return <div style={{ color: 'red' }}>{t('errors.demoNotFound')}</div>;
+      return <div style={{ color: 'red' }}>{uitext('errors.demoNotFound')}</div>;
   }
 };
 

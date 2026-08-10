@@ -18,6 +18,9 @@
     "jsx": "react-jsx",
     "incremental": true,
     "paths": {
+      "@i18n": [
+        "./i18n.ts"
+      ],
       "@data/*": [
         "./src/data/*"
       ],

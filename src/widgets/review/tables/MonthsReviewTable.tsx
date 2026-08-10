@@ -1,16 +1,15 @@
-import { useTranslation } from 'react-i18next';
-
 import { useDataContext } from '@data/DataContext';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
 import { matrixBy } from '@shared/setUtils';
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import InputDataCell from '../input/InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function MonthsReviewTable() {
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
   const { findDataEntries } = useDataContext();
   const monthFields = findDataEntries({ field: 'M' }).filter(
     (f) => f.length !== '' && f.instance !== '',
@@ -29,16 +28,16 @@ function MonthsReviewTable() {
             <SourceLanguageLabel />
           </th>
           <th colSpan={3} style={{ textAlign: 'center' }}>
-            {t('review.translated')}
+            {uitext('review.translated')}
           </th>
         </tr>
         <tr>
-          <th>{t('length.wide')}</th>
-          <th title={t('length.abbreviated')}>{t('length.abbr')}</th>
-          <th>{t('length.narrow')}</th>
-          <th>{t('length.wide')}</th>
-          <th title={t('length.abbreviated')}>{t('length.abbr')}</th>
-          <th>{t('length.narrow')}</th>
+          <th>{uitext('length.wide')}</th>
+          <th title={uitext('length.abbreviated')}>{uitext('length.abbr')}</th>
+          <th>{uitext('length.narrow')}</th>
+          <th>{uitext('length.wide')}</th>
+          <th title={uitext('length.abbreviated')}>{uitext('length.abbr')}</th>
+          <th>{uitext('length.narrow')}</th>
         </tr>
       </thead>
       <tbody>

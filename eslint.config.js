@@ -1,5 +1,4 @@
 import js from '@eslint/js';
-import { createRequire } from 'node:module';
 import nextCoreWebVitals from 'eslint-config-next/core-web-vitals';
 import prettierConfig from 'eslint-config-prettier';
 import importPlugin from 'eslint-plugin-import';
@@ -8,6 +7,7 @@ import reactPlugin from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import { defineConfig, globalIgnores } from 'eslint/config';
 import globals from 'globals';
+import { createRequire } from 'node:module';
 import tseslint from 'typescript-eslint';
 
 const require = createRequire(import.meta.url);
@@ -99,6 +99,7 @@ export default defineConfig([
             'type', // import type { X } ...
           ],
           pathGroups: [
+            { pattern: '@i18n', group: 'internal', position: 'after' },
             { pattern: '@data/**', group: 'internal', position: 'after' },
             { pattern: '@settings/**', group: 'internal', position: 'after' },
             { pattern: '@widgets/**', group: 'internal', position: 'after' },

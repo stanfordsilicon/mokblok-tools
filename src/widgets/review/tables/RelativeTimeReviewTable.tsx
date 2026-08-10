@@ -1,5 +1,3 @@
-import { useTranslation } from 'react-i18next';
-
 import { useDataContext } from '@data/DataContext';
 import { DataSection } from '@data/DataSection';
 import { DateField } from '@data/DateField';
@@ -8,12 +6,13 @@ import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 import { useURLParams } from '@settings/URLParams';
 
 import { matrixBy } from '@shared/setUtils';
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import InputDataCell from '../input/InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function RelativeTimeReviewTable() {
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
   const { admin } = useURLParams();
   const { findDataEntries } = useDataContext();
   const relativeTimeFields = findDataEntries({ section: DataSection.RelativeTime }).filter(
@@ -29,22 +28,22 @@ function RelativeTimeReviewTable() {
     <table>
       <thead>
         <tr>
-          {admin && <th>{t('review.field')}</th>}
+          {admin && <th>{uitext('review.field')}</th>}
           <th colSpan={3} style={{ textAlign: 'center' }}>
             <SourceLanguageLabel />
           </th>
           <th colSpan={3} style={{ textAlign: 'center' }}>
-            {t('review.translated')}
+            {uitext('review.translated')}
           </th>
         </tr>
         <tr>
           <th></th>
-          <th>{t('review.past')}</th>
-          <th>{t('review.present')}</th>
-          <th>{t('review.future')}</th>
-          <th>{t('review.past')}</th>
-          <th>{t('review.present')}</th>
-          <th>{t('review.future')}</th>
+          <th>{uitext('review.past')}</th>
+          <th>{uitext('review.present')}</th>
+          <th>{uitext('review.future')}</th>
+          <th>{uitext('review.past')}</th>
+          <th>{uitext('review.present')}</th>
+          <th>{uitext('review.future')}</th>
         </tr>
       </thead>
       <tbody>
