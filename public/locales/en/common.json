@@ -276,5 +276,14 @@
         "s": "Short",
         "narrow": "Narrow",
         "n": "Narrow"
+    },
+    "patternFormat": {
+        "patternFormat": "Pattern Format",
+        "any": "Any",
+        "none": "No format",
+        "datetime": "Date/Time",
+        "datetimecombo": "Date/Time Combo",
+        "sub": "Substitution",
+        "sentence": "Sentence"
     }
 }

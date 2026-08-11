@@ -275,5 +275,14 @@
         "s": "Court",
         "narrow": "Étroit",
         "n": "Étroit"
+    },
+    "patternFormat": {
+        "patternFormat": "Format du modèle",
+        "any": "Tout",
+        "none": "Aucun format",
+        "datetime": "Date/Heure",
+        "datetimecombo": "Combinaison Date/Heure",
+        "sub": "Substitution",
+        "sentence": "Phrase"
     }
 }

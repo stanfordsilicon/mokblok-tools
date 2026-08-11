@@ -13,6 +13,13 @@ const inheritanceSubstitutions: [string, string][] = [
   ['-narrow"]', '-short"]'], // eg. <field type="dayOfYear-narrow"> to <field type="dayOfYear-short">
   ['-short"]', '"]'], // eg.        <field type="dayOfYear-short">  to <field type="dayOfYear">
 
+  // Convert missing plural forms to other
+  ['[@count="zero"]', '[@count="other"]'],
+  ['[@count="one"]', '[@count="other"]'],
+  ['[@count="two"]', '[@count="other"]'],
+  ['[@count="few"]', '[@count="other"]'],
+  ['[@count="many"]', '[@count="other"]'],
+
   // Checking between standalone and format versions happens multiple times because
   // it can happen in either order
   ['[@type="stand-alone"]', '[@type="format"]'],
@@ -28,6 +35,7 @@ const inheritanceSubstitutions: [string, string][] = [
 
   ['[@type="abbreviated"]', '[@type="long"]'],
   ['[@type="long"]', '[@type="wide"]'],
+
   ['[@alt="variant"]', ''],
 ];
 

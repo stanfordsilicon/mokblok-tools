@@ -151,10 +151,6 @@ td {
   padding: 0 0.125em;
 }
 
-table.FullReviewTable {
-  border-collapse: collapse;
-}
-
 .FullReviewTable th {
   white-space: wrap;
 }

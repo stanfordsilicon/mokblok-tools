@@ -275,5 +275,14 @@
         "s": "Breve",
         "narrow": "Stretto",
         "n": "Stretto"
+    },
+    "patternFormat": { 
+        "patternFormat": "Formato del modello",
+        "any": "Qualsiasi",
+        "none": "Senza formato",
+        "datetime": "Data/Ora",
+        "datetimecombo": "Combinazione Data/Ora",
+        "sub": "Sostituzione",
+        "sentence": "Frase"
     }
 }
