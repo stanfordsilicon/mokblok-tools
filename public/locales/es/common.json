@@ -275,5 +275,14 @@
         "s": "Corto",
         "narrow": "Estrecho",
         "n": "Estrecho"
+    },
+    "patternFormat": {
+        "patternFormat": "Formato del patrón",
+        "any": "Cualquiera",
+        "none": "Sin formato",
+        "datetime": "Fecha/Hora",
+        "datetimecombo": "Combinación Fecha/Hora",
+        "sub": "Sustitución",
+        "sentence": "Oración"
     }
 }

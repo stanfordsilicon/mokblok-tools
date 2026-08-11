@@ -1,3 +1,5 @@
+import { PatternFormat } from '@data/PatternFormat';
+
 import { getFraktur } from '@shared/stringUtils';
 
 import { SourceLanguage, type DataEntry } from '../DataTypes';
@@ -27,13 +29,13 @@ function getTranslationFromSourceLanguage({
     } else {
       // It's a pattern, we need to parse it
       const sourcePattern = sourceData;
-      if (sourcePattern.includes('{0}')) {
+      if (entry.patternFormat === PatternFormat.Substitution) {
         // substitute tokens
         let value = sourcePattern.replace('{0}', entry.var1?.toLocaleString(sourceLanguage) || '');
         if (sourcePattern.includes('{1}'))
           value = value.replace('{1}', entry.var2?.toLocaleString(sourceLanguage) || '');
         return [value, sourcePattern];
-      } else {
+      } else if (entry.patternFormat === PatternFormat.DateTime) {
         // Attempt to parse a date format
         const formattedDateTime = getDateString({
           formatPattern: sourcePattern,
@@ -43,6 +45,7 @@ function getTranslationFromSourceLanguage({
         });
         return [formattedDateTime, sourcePattern];
       }
+      return [sourcePattern, sourcePattern];
     }
   }
 

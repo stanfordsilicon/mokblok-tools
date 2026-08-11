@@ -4,6 +4,7 @@ import ErrorBoundary from '@shared/ErrorBoundary';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import DemosForSection from './demo/DemosForSection';
+import AllReviewTable from './fulltable/FullReviewTable';
 import AlphabetReview from './tables/AlphabetReview';
 import CLDRTicketReviewTable from './tables/CLDRTicketReviewTable';
 import CoordinatesReviewTable from './tables/CoordinatesReviewTable';
@@ -17,7 +18,6 @@ import DirectionsReviewTable from './tables/DirectionsReviewTable';
 import EmojisReviewTable from './tables/EmojisReviewTable';
 import EraDatesReviewTable from './tables/EraDatesReviewTable';
 import ErasReviewTable from './tables/ErasReviewTable';
-import AllReviewTable from './tables/FullReviewTable';
 import LanguageNamesReviewTable from './tables/LanguageNamesReviewTable';
 import MathsReviewTable from './tables/MathsReviewTable';
 import MonthsReviewTable from './tables/MonthsReviewTable';
