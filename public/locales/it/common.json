@@ -41,9 +41,11 @@
         "signOut": "Disconnetti",
         "signInToSaveProgress": "Accedi per salvare i progressi",
         "roles": {
-            "user": "Utente",
-            "admin": "Amministratore",
-            "moderator": "Moderatore"
+            "user": "Utente pubblico",
+            "beta": "Beta tester",
+            "metrics_editor": "Editor di metriche",
+            "moderator": "Moderatore",
+            "admin": "Amministratore"
         },
         "viewingAsAdmin": "Visualizzazione come amministratore",
         "viewingAsRegularUser": "Visualizzazione come utente normale"

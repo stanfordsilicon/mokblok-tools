@@ -41,9 +41,11 @@
     "signOut": "𝔖𝔦𝔤𝔫 𝔬𝔲𝔱",
     "signInToSaveProgress": "𝔖𝔦𝔤𝔫 𝔦𝔫 𝔱𝔬 𝔰𝔞𝔳𝔢 𝔭𝔯𝔬𝔤𝔯𝔢𝔰𝔰",
     "roles": {
-      "user": "𝔘𝔰𝔢𝔯",
-      "admin": "𝔄𝔡𝔪𝔦𝔫",
-      "moderator": "𝔐𝔬𝔡𝔢𝔯𝔞𝔱𝔬𝔯"
+      "user": "𝔓𝔲𝔟𝔩𝔦𝔠 𝔘𝔰𝔢𝔯",
+      "beta": "𝔅𝔢𝔱𝔞 𝔗𝔢𝔰𝔱𝔢𝔯",
+      "metrics_editor": "𝔐𝔢𝔱𝔯𝔦𝔠𝔰 𝔈𝔡𝔦𝔱𝔬𝔯",
+      "moderator": "𝔐𝔬𝔡𝔢𝔯𝔞𝔱𝔬𝔯",
+      "admin": "𝔄𝔡𝔪𝔦𝔫"
     },
     "viewingAsAdmin": "𝔙𝔦𝔢𝔴𝔦𝔫𝔤 𝔞𝔰 𝔞𝔡𝔪𝔦𝔫",
     "viewingAsRegularUser": "𝔙𝔦𝔢𝔴𝔦𝔫𝔤 𝔞𝔰 𝔯𝔢𝔤𝔲𝔩𝔞𝔯 𝔲𝔰𝔢𝔯"

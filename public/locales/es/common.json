@@ -42,9 +42,11 @@
         "signOut": "Cerrar sesión",
         "signInToSaveProgress": "Inicia sesión para guardar el progreso",
         "roles": {
-            "user": "Usuario",
-            "admin": "Administrador",
-            "moderator": "Moderador"
+            "user": "Usuario público",
+            "beta": "Probador beta",
+            "metrics_editor": "Editor de métricas",
+            "moderator": "Moderador",
+            "admin": "Administrador"
         },
         "viewingAsAdmin": "Visualización como administrador",
         "viewingAsRegularUser": "Visualización como usuario normal"

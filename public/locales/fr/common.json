@@ -41,9 +41,11 @@
         "signOut": "Se déconnecter",
         "signInToSaveProgress": "Connectez-vous pour enregistrer la progression",
         "roles": {
-            "user": "Utilisateur",
-            "admin": "Administrateur",
-            "moderator": "Modérateur"
+            "user": "Utilisateur public",
+            "beta": "Testeur bêta",
+            "metrics_editor": "Éditeur de métriques",
+            "moderator": "Modérateur",
+            "admin": "Administrateur"
         },
         "viewingAsAdmin": "Visualisation en tant qu’administrateur",
         "viewingAsRegularUser": "Visualisation en tant qu’utilisateur normal"
