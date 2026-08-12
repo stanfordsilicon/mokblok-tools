@@ -1,24 +1,27 @@
-import { useURLParams } from '@settings/URLParams';
+import useLanguageName from '@data/useLanguageName';
 
-import useInterfaceTranslation from '@shared/useInterfaceTranslation';
+import { useURLParams } from '@settings/URLParams';
 
 import TargetLanguageOptions from './TargetLanguageOptions';
 
 const TargetLanguageButtons = () => {
-  const { uitext } = useInterfaceTranslation();
   const { targetLanguage, updateURLParams, inputSource } = useURLParams();
-  const languageOptions = TargetLanguageOptions[inputSource];
+  const { getLanguageName } = useLanguageName();
+  const languageOptions = TargetLanguageOptions[inputSource]
+    .map(getLanguageName)
+    .sort((a, b) => a.endonym.localeCompare(b.endonym));
 
   return (
     <div className="flex flex-wrap gap-1 items-center mt-1">
       {languageOptions.map((lang) => (
         <button
-          key={lang}
-          className={lang === targetLanguage ? 'selected' : ''}
-          onClick={() => updateURLParams({ targetLanguage: lang })}
+          key={lang.code}
+          className={lang.code === targetLanguage ? 'selected' : ''}
+          onClick={() => updateURLParams({ targetLanguage: lang.code })}
         >
-          {/* Convert ID to a readable name */}
-          {uitext(`languageName.${lang}`, lang)}
+          {lang.endonym}
+          <br />
+          <span className="font-light">{lang.localizedName}</span>
         </button>
       ))}
     </div>
