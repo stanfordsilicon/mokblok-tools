@@ -1,8 +1,7 @@
+import InputLanguageSelector from '@settings/selectors/TargetLanguageSelector';
 import { useURLParams } from '@settings/URLParams';
 
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
-
-import InputLanguageSelector from '../../settings/selectors/TargetLanguageSelector';
 
 import InputSource from './InputSource';
 import InputTSVSection from './InputTSVSection';

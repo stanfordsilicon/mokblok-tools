@@ -34,7 +34,11 @@ const TargetLanguageCodeInput: React.FC<Props> = ({ size }) => {
       {uitext(targetTranslationKey) === targetTranslationKey
         ? uitext('languageName.unknown')
         : uitext(targetTranslationKey)}
-      <button onClick={() => updateURLParams({ targetLanguage: '' })}>
+      <button
+        aria-label={uitext('import.language.ctaClear')}
+        title={uitext('import.language.ctaClear')}
+        onClick={() => updateURLParams({ targetLanguage: '' })}
+      >
         {size === 'wide' ? uitext('import.language.ctaClear') : '✘'}
       </button>
     </div>

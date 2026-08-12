@@ -8,10 +8,7 @@ export type LinguisticsContextType = {
   languageNames: Record<string, LanguageNameData>;
 };
 
-export const LinguisticsContext = createContext<LinguisticsContextType>({
-  numberingSystems: {},
-  languageNames: {},
-});
+export const LinguisticsContext = createContext<LinguisticsContextType | undefined>(undefined);
 
 export const useLinguisticsContext = () => {
   const context = useContext(LinguisticsContext);

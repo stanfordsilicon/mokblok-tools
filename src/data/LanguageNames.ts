@@ -5,11 +5,11 @@ export type LanguageNameData = {
   endonym: string;
 };
 
-export function loadLanguageNames(): Promise<Record<string, LanguageNameData>> {
+export async function loadLanguageNames(): Promise<Record<string, LanguageNameData>> {
   return fetch('/languageNames.tsv')
     .then((response) => response.text())
     .then((text) => {
-      const lines = text.trim().split('\n').slice(2); // Skip header lines
+      const lines = text.trim().split('\n').slice(1); // Skip header lines
       const result: Record<string, LanguageNameData> = {};
       lines.forEach((line) => {
         const fields = line.split('\t');

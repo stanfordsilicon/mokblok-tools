@@ -1,8 +1,8 @@
 import { useURLParams } from '@settings/URLParams';
 
-import useInterfaceTranslation from '@shared/useInterfaceTranslation';
+import InputSource from '@widgets/input/InputSource';
 
-import InputSource from '../../widgets/input/InputSource';
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import TargetLanguageButtons from './TargetLanguageButtons';
 import TargetLanguageCodeInput from './TargetLanguageCodeInput';
