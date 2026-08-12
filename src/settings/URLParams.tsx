@@ -59,7 +59,7 @@ function buildNextURLSearchParams(
   // Convert newParams to array for iterate
   Object.entries(newParams).forEach(([key, value]) => {
     // Add special processing for numeric parameters here when they are added
-    if (value == null || value === '') {
+    if (value == null || (value === '' && key !== 'targetLanguage')) {
       next.delete(key);
     } else {
       next.set(key, value.toString());

@@ -173,6 +173,7 @@
         "title": "Settings",
         "interfaceLanguage": "Interface language",
         "sourceLanguage": "Source language",
+        "targetLanguage": "Target language",
         "targetLanguageCode": "Target language code",
         "coverageLevel": "Coverage level",
         "backgroundStyle": "Background style",

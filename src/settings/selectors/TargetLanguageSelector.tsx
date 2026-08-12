@@ -1,26 +1,26 @@
-import React from 'react';
-
 import { useURLParams } from '@settings/URLParams';
 
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
-const TargetLanguageSelector: React.FC = () => {
+import InputSource from '../../widgets/input/InputSource';
+
+import TargetLanguageButtons from './TargetLanguageButtons';
+import TargetLanguageCodeInput from './TargetLanguageCodeInput';
+
+const TargetLanguageSelector = () => {
   const { uitext } = useInterfaceTranslation();
-  const { targetLanguage, updateURLParams } = useURLParams();
-  const [target, setTarget] = React.useState(targetLanguage);
-  const targetTranslationKey = 'languageName.' + target;
+  const { inputSource } = useURLParams();
 
   return (
-    <div style={{ display: 'flex', gap: '1em', alignItems: 'center' }}>
-      <strong>{uitext('settings.targetLanguageCode')}:</strong>{' '}
-      <input
-        value={target}
-        onBlur={() => updateURLParams({ targetLanguage: target })}
-        onChange={(e) => setTarget(e.target.value)}
-      />
-      {uitext(targetTranslationKey) === targetTranslationKey
-        ? uitext('languageName.unknown')
-        : uitext(targetTranslationKey)}
+    <div>
+      <div>
+        {uitext('import.language.pickLanguage')}{' '}
+        {inputSource !== InputSource.Blank && uitext('import.language.hasPreloaded')}
+      </div>
+      <TargetLanguageButtons />
+      <div className="flex gap-1 items-center mt-1">
+        <TargetLanguageCodeInput size="wide" />
+      </div>
     </div>
   );
 };

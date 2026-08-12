@@ -37,16 +37,16 @@ const InputCheck: React.FC<Props> = ({ doc }) => {
     <table style={{ width: 'fit-content' }}>
       <tbody>
         <CheckRow
-          title={uitext('input.check.Total rows')}
+          title={uitext('import.check.Total rows')}
           count={lines.length}
           denominator={doc ? getExpectedNumberOfLines(doc) : undefined}
         />
         <CheckRow
-          title={uitext('input.check.Total words')}
+          title={uitext('import.check.Total words')}
           count={lines.reduce((sum, line) => sum + line.split(/\s+/).length, 0)}
         />
         <CheckRow
-          title={uitext('input.check.Total characters')}
+          title={uitext('import.check.Total characters')}
           count={lines.reduce((sum, line) => sum + line.length, 0)}
         />
         <CheckSections doc={doc} />
