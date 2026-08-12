@@ -200,6 +200,7 @@
         "abr": "abron",
         "ann": "obolo",
         "bho": "bhojpuri",
+        "dag": "dagbani",
         "en-Latf": "inglés (Fraktur)",
         "en": "inglés",
         "es": "español",
@@ -211,7 +212,8 @@
         "mg": "malgache",
         "mos": "mossi",
         "nd": "ndebele del norte",
-        "or": "oromo",
+        "om": "oromo",
+        "or": "odia",
         "sn": "shona",
         "unknown": "desconocido",
         "wo": "wolof"
