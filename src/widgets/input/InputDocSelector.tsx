@@ -1,15 +1,14 @@
-import { useTranslation } from 'react-i18next';
-
 import { useTargetDataContext } from '@data/TargetDataProvider';
 import { Doc } from '@data/tsvdocs/Doc';
 
 import Tab from '@shared/Tab';
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 const InputDocSelector: React.FC<{
   curDoc: Doc;
   setDoc: (doc: Doc) => void;
 }> = ({ curDoc, setDoc }) => {
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
   const { inputTSVs } = useTargetDataContext();
 
   return (
@@ -25,7 +24,7 @@ const InputDocSelector: React.FC<{
       {Object.values(Doc).map((doc) => (
         <Tab
           key={doc}
-          label={t(`input.files.${doc}`)}
+          label={uitext(`input.files.${doc}`)}
           option={doc}
           selected={curDoc}
           setSelected={setDoc}

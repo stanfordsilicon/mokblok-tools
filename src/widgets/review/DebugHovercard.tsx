@@ -1,8 +1,8 @@
-import { useTranslation } from 'react-i18next';
-
 import { SourceLanguage, type DataEntry } from '@data/DataTypes';
 
 import { useURLParams } from '@settings/URLParams';
+
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 type Props = {
   entry: DataEntry;
@@ -10,7 +10,7 @@ type Props = {
 };
 
 function DebugHovercard({ entry, sourceTranslation }: Props) {
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
   const { admin, sourceLanguage } = useURLParams();
   const translationText =
     typeof sourceTranslation === 'string' ? sourceTranslation : sourceTranslation[0];
@@ -24,16 +24,19 @@ function DebugHovercard({ entry, sourceTranslation }: Props) {
 
       <dl>
         {/* Translations */}
-        <DebugRow label={t(`languageName.${sourceLanguage}`)} value={translationText} />
+        <DebugRow label={uitext(`languageName.${sourceLanguage}`)} value={translationText} />
         {pattern && <DebugRow label="Pattern value" value={pattern} indent={1} />}
         {sourceLanguage !== SourceLanguage.English && (
-          <DebugRow label={t(`languageName.${SourceLanguage.English}`)} value={entry.english} />
+          <DebugRow
+            label={uitext(`languageName.${SourceLanguage.English}`)}
+            value={entry.english}
+          />
         )}
         {pattern && sourceLanguage !== SourceLanguage.English && entry.englishPattern && (
           <DebugRow label="English pattern" value={entry.englishPattern} indent={1} />
         )}
         {sourceLanguage !== SourceLanguage.French && (
-          <DebugRow label={t(`languageName.${SourceLanguage.French}`)} value={entry.french} />
+          <DebugRow label={uitext(`languageName.${SourceLanguage.French}`)} value={entry.french} />
         )}
         {pattern && sourceLanguage !== SourceLanguage.French && entry.frenchPattern && (
           <DebugRow label="French pattern" value={entry.frenchPattern} indent={1} />

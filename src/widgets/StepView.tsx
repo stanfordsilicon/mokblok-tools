@@ -1,7 +1,8 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 
 import StepName from '@settings/StepName';
+
+import enforceExhaustiveSwitch from '@shared/enforceExhaustiveSwitch';
 
 import ExportWidget from './export/ExportWidget';
 import InputBody from './input/InputBody';
@@ -13,19 +14,18 @@ export type StepViewProps = {
 };
 
 const StepView: React.FC<StepViewProps> = ({ step }) => {
-  const { t } = useTranslation();
   switch (step) {
     case StepName.Intro:
       return <IntroBody />;
-    case StepName.Input:
+    case StepName.Import:
       return <InputBody />;
     case StepName.Edit:
-    case StepName.Review:
+    case StepName.Vote:
       return <ReviewWidget />;
     case StepName.Export:
       return <ExportWidget />;
     default:
-      return <div>{t('errors.unknownWidget')}</div>;
+      enforceExhaustiveSwitch(step);
   }
 };
 

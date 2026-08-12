@@ -1,10 +1,11 @@
 import React, { useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { useTargetDataContext } from '@data/TargetDataProvider';
 import { Doc } from '@data/tsvdocs/Doc';
 
 import { useURLParams } from '@settings/URLParams';
+
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import InputSource from '../InputSource';
 
@@ -16,7 +17,7 @@ type Props = {
 };
 
 const InputCheck: React.FC<Props> = ({ doc }) => {
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
   const { inputSource } = useURLParams();
   const { inputTSVs, targetXMLData } = useTargetDataContext();
 
@@ -36,16 +37,16 @@ const InputCheck: React.FC<Props> = ({ doc }) => {
     <table style={{ width: 'fit-content' }}>
       <tbody>
         <CheckRow
-          title={t('input.check.Total rows')}
+          title={uitext('input.check.Total rows')}
           count={lines.length}
           denominator={doc ? getExpectedNumberOfLines(doc) : undefined}
         />
         <CheckRow
-          title={t('input.check.Total words')}
+          title={uitext('input.check.Total words')}
           count={lines.reduce((sum, line) => sum + line.split(/\s+/).length, 0)}
         />
         <CheckRow
-          title={t('input.check.Total characters')}
+          title={uitext('input.check.Total characters')}
           count={lines.reduce((sum, line) => sum + line.length, 0)}
         />
         <CheckSections doc={doc} />

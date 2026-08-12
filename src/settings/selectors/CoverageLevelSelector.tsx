@@ -1,17 +1,18 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { CoverageLevel, parseCoverageLevel } from '@data/CoverageLevel';
 
 import { useURLParams } from '@settings/URLParams';
 
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
+
 const CoverageLevelSelector: React.FC = () => {
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
   const { coverageLevel, updateURLParams } = useURLParams();
 
   return (
     <div style={{ display: 'flex', gap: '1em', alignItems: 'center', flexWrap: 'wrap' }}>
-      <strong>{t('settings.coverageLevel')}:</strong>
+      <strong>{uitext('settings.coverageLevel')}:</strong>
       <select
         className="settings-select"
         value={String(coverageLevel)}
@@ -21,7 +22,7 @@ const CoverageLevelSelector: React.FC = () => {
           .filter(([, value]) => typeof value !== 'string')
           .map(([key, value]) => (
             <option key={key} value={value}>
-              {t(`coverageLevelName.${key}`, key)}
+              {uitext(`coverageLevelName.${key}`, key)}
             </option>
           ))}
       </select>

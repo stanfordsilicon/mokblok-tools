@@ -5,13 +5,39 @@
     "intro": {
         "title": "Bienvenue dans Homescreen",
         "description": "Cette application web est utilisée par les évaluateurs pour évaluer la qualité des traductions soumises pour chaque langue. Veuillez commencer par sélectionner votre langue source puis votre langue cible.",
-        "ctaInputStart": "Commencer à saisir des traductions",
+        "ctaImportStart": "Commencer à saisir des traductions",
         "ctaReviewStart": "Commencer à réviser les traductions"
+    },
+    "nav": {
+        "intro": "Introduction",
+        "import": "Importer",
+        "edit": "Modifier",
+        "vote": "Voter",
+        "export": "Exporter",
+        "page/section": "Page / Section",
+        "translations": "Traductions",
+        "votes": "Votes"
     },
     "auth": {
         "signedInAs": "Connecté en tant que",
         "signInWithGoogle": "Se connecter avec Google",
         "redirectingToGoogle": "Redirection vers Google…",
+        "signInWhy": "Connectez-vous avec votre compte Google approuvé pour utiliser les outils de traduction et de révision.",
+        "signInDidNotCompleteTitle": "La connexion n’a pas abouti",
+        "signInDidNotCompleteFallback": "La connexion n’a pas abouti. Réessayez ou contactez l’équipe SILICON.",
+        "signInErrorTitle": "Erreur de connexion",
+        "signInErrorDescription": "L’authentification n’a pas abouti. Essayez de vous reconnecter ou contactez l’équipe SILICON si le problème persiste.",
+        "backToSignIn": "Retour à la connexion",
+        "errors": {
+            "AccessDenied": "Ce compte Google ne figure pas dans la liste autorisée pour cet outil. Contactez l’équipe SILICON pour l’ajouter.",
+            "Configuration": "La configuration de connexion du serveur est incomplète. Le problème vient de nous, pas de vous.",
+            "OAuthAccountNotLinked": "Cette adresse e-mail est déjà enregistrée avec une autre méthode de connexion. Utilisez la méthode d’origine.",
+            "OAuthSignin": "Impossible de démarrer la connexion Google. Veuillez réessayer.",
+            "OAuthCallback": "Google a renvoyé une réponse inattendue. Veuillez réessayer.",
+            "OAuthCreateAccount": "Impossible de créer votre compte. Veuillez réessayer.",
+            "Callback": "Une erreur s’est produite lors de la finalisation de la connexion. Veuillez réessayer.",
+            "Verification": "Ce lien de connexion a expiré ou a déjà été utilisé."
+        },
         "signOut": "Se déconnecter",
         "signInToSaveProgress": "Connectez-vous pour enregistrer la progression",
         "roles": {
@@ -20,7 +46,9 @@
             "metrics_editor": "Éditeur de métriques",
             "moderator": "Modérateur",
             "admin": "Administrateur"
-        }
+        },
+        "viewingAsAdmin": "Visualisation en tant qu’administrateur",
+        "viewingAsRegularUser": "Visualisation en tant qu’utilisateur normal"
     },
     "input": {
         "title": "Importe",
@@ -249,5 +277,14 @@
         "s": "Court",
         "narrow": "Étroit",
         "n": "Étroit"
+    },
+    "patternFormat": {
+        "patternFormat": "Format du modèle",
+        "any": "Tout",
+        "none": "Aucun format",
+        "datetime": "Date/Heure",
+        "datetimecombo": "Combinaison Date/Heure",
+        "sub": "Substitution",
+        "sentence": "Phrase"
     }
 }

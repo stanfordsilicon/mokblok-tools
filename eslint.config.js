@@ -1,10 +1,5 @@
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-
 import js from '@eslint/js';
-import { FlatCompat } from '@eslint/eslintrc';
-import typescript from '@typescript-eslint/eslint-plugin';
-import parser from '@typescript-eslint/parser';
+import nextCoreWebVitals from 'eslint-config-next/core-web-vitals';
 import prettierConfig from 'eslint-config-prettier';
 import importPlugin from 'eslint-plugin-import';
 import prettierPlugin from 'eslint-plugin-prettier';
@@ -12,20 +7,37 @@ import reactPlugin from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import { defineConfig, globalIgnores } from 'eslint/config';
 import globals from 'globals';
+import { createRequire } from 'node:module';
 import tseslint from 'typescript-eslint';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
+const require = createRequire(import.meta.url);
+const typescriptImportResolver = require.resolve(
+  './node_modules/eslint-config-next/node_modules/eslint-import-resolver-typescript/lib/index.cjs',
+);
+const nextCoreWebVitalsWithoutImportResolver = nextCoreWebVitals.map((config) => {
+  if (!config.settings?.['import/resolver']) {
+    return config;
+  }
+
+  return {
+    ...config,
+    settings: {
+      ...config.settings,
+      'import/resolver': {
+        node: {
+          extensions: ['.js', '.jsx', '.ts', '.tsx'],
+        },
+      },
+    },
+  };
 });
 
 export default defineConfig([
-  ...compat.extends('next/core-web-vitals'),
+  ...nextCoreWebVitalsWithoutImportResolver,
+  js.configs.recommended,
   {
     files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
     plugins: { js },
-    extends: [js.configs.recommended],
     languageOptions: { globals: globals.browser },
   },
   globalIgnores(['.next', 'dist', 'next-env.d.ts']),
@@ -33,7 +45,7 @@ export default defineConfig([
 
   {
     languageOptions: {
-      parser,
+      parser: tseslint.parser,
       parserOptions: {
         ecmaVersion: 'latest',
         sourceType: 'module',
@@ -44,7 +56,7 @@ export default defineConfig([
     plugins: {
       react: reactPlugin,
       'react-hooks': reactHooks,
-      '@typescript-eslint': typescript,
+      '@typescript-eslint': tseslint.plugin,
       prettier: prettierPlugin,
     },
     rules: {
@@ -63,7 +75,14 @@ export default defineConfig([
   {
     files: ['**/*.{ts,tsx}'],
     plugins: {
-      import: importPlugin, 
+      import: importPlugin,
+    },
+    settings: {
+      'import/resolver': {
+        [typescriptImportResolver]: {
+          project: './tsconfig.json',
+        },
+      },
     },
     rules: {
       'import/order': [
@@ -80,6 +99,7 @@ export default defineConfig([
             'type', // import type { X } ...
           ],
           pathGroups: [
+            { pattern: '@i18n', group: 'internal', position: 'after' },
             { pattern: '@data/**', group: 'internal', position: 'after' },
             { pattern: '@settings/**', group: 'internal', position: 'after' },
             { pattern: '@widgets/**', group: 'internal', position: 'after' },

@@ -1,8 +1,8 @@
-import { useTranslation } from 'react-i18next';
-
 import { useDataContext } from '@data/DataContext';
 import type { DataEntry } from '@data/DataTypes';
 import { useTargetDataContext } from '@data/TargetDataProvider';
+
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import useBackgroundColor from './getBackgroundColor';
 
@@ -12,17 +12,17 @@ type Props = {
 };
 
 function InputTextareaCell({ entry, style }: Props) {
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
   const { getTranslation } = useDataContext();
   const { editTranslation } = useTargetDataContext();
   const getBackgroundColor = useBackgroundColor();
-  if (!entry) return <td>{t('common.emptyCell')}</td>;
+  if (!entry) return <td>{uitext('common.emptyCell')}</td>;
 
   return (
     <td>
       <textarea
         value={getTranslation(entry) || ''}
-        onChange={(e) => editTranslation(entry.index, e.target.value)}
+        onChange={(e) => editTranslation(entry.index, { edit: e.target.value })}
         style={{ width: '30em', ...style, backgroundColor: getBackgroundColor(entry) }}
       />
     </td>

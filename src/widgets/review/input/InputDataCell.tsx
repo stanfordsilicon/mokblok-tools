@@ -1,9 +1,9 @@
-import { useTranslation } from 'react-i18next';
-
 import type { DataEntry } from '@data/DataTypes';
 
 import StepName from '@settings/StepName';
 import { useURLParams } from '@settings/URLParams';
+
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import InputEditText from './InputEditText';
 import InputVote from './InputVote';
@@ -14,9 +14,9 @@ type Props = {
 };
 
 function InputDataCell({ entry, inputWidth }: Props) {
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
   const { step } = useURLParams();
-  if (!entry) return <td>{t('common.emptyCell')}</td>;
+  if (!entry) return <td>{uitext('common.emptyCell')}</td>;
 
   return (
     <td>

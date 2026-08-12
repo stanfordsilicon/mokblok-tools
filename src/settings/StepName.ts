@@ -1,8 +1,8 @@
 enum StepName {
   Intro = 'Intro',
-  Input = 'Input',
+  Import = 'Import',
   Edit = 'Edit',
-  Review = 'Review',
+  Vote = 'Vote',
   Export = 'Export',
 }
 

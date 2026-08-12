@@ -10,13 +10,22 @@ import { getUserRole } from './roles';
 
 const ROLE_TTL_MS = 5 * 60 * 1000;
 
-// Read lazily so a missing env var rejects sign-in instead of crashing startup.
-function allowedEmails(): Set<string> {
-  return new Set(
+function isEmailAllowed(email: string): boolean {
+  const allowedEmails = new Set(
     (process.env.ALLOWED_EMAILS ?? '')
       .split(',')
       .map((e) => e.trim().toLowerCase())
       .filter(Boolean),
+  );
+  const allowedEmailDomains = new Set(
+    (process.env.ALLOWED_EMAIL_DOMAINS ?? '')
+      .split(',')
+      .map((e) => e.trim().toLowerCase())
+      .filter(Boolean),
+  );
+  return (
+    allowedEmails.has(email) ||
+    Array.from(allowedEmailDomains).some((domain) => email.endsWith(domain))
   );
 }
 
@@ -34,7 +43,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     signIn({ user, profile }) {
       const email = (user.email ?? profile?.email ?? '').toLowerCase();
       if (!email) return false;
-      return allowedEmails().has(email);
+      return isEmailAllowed(email);
     },
 
     async jwt(params) {

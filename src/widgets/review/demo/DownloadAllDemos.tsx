@@ -1,13 +1,13 @@
-import { useTranslation } from 'react-i18next';
-
 import { useURLParams } from '@settings/URLParams';
+
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import DemoID from './DemoID';
 import downloadSvgAsPng from './downloadSvgAsPng';
 
 const DownloadAllDemos: React.FC = () => {
   const { targetLanguage } = useURLParams();
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
   const onClick = () => {
     Object.values(DemoID).forEach((demoID) => {
       const svg = document.getElementById(demoID) as SVGSVGElement | null;
@@ -26,7 +26,7 @@ const DownloadAllDemos: React.FC = () => {
       onClick={onClick}
       style={{ marginLeft: '0.5em', padding: '0.2em 0.5em', cursor: 'pointer' }}
     >
-      {t('review.downloadAllDemos')} ⬇
+      {uitext('review.downloadAllDemos')} ⬇
     </button>
   );
 };

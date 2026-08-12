@@ -32,6 +32,7 @@ function HighlightInput({ value, onChange, highlight, disabled, style }: Highlig
         </div>
       </div>
       <input
+        data-testid="highlight-input"
         style={{
           position: 'relative',
           zIndex: 1,

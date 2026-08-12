@@ -1,6 +1,6 @@
-import { useTranslation } from 'react-i18next';
-
 import { useURLParams } from '@settings/URLParams';
+
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import InputSource from './InputSource';
 
@@ -13,15 +13,15 @@ type Props = {
 };
 
 const InputLanguageSelector = ({ clearInputText }: Props) => {
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
   const { targetLanguage, updateURLParams, inputSource } = useURLParams();
   const languageOptions = inputSource === InputSource.TSV ? TSVLanguages : XMLLanguages;
 
   return (
     <div>
       <div>
-        {t('input.language.pickLanguage')}{' '}
-        {inputSource !== InputSource.Blank && t('input.language.hasPreloaded')}
+        {uitext('import.language.pickLanguage')}{' '}
+        {inputSource !== InputSource.Blank && uitext('import.language.hasPreloaded')}
       </div>
       <div className="flex gap-1 items-center mt-1">
         {languageOptions.map((lang) => (
@@ -31,12 +31,12 @@ const InputLanguageSelector = ({ clearInputText }: Props) => {
             onClick={() => updateURLParams({ targetLanguage: lang })}
           >
             {/* Convert ID to a readable name */}
-            {t(`languageName.${lang}`, lang)}
+            {uitext(`languageName.${lang}`, lang)}
           </button>
         ))}
       </div>
       <div className="flex gap-1 items-center mt-1">
-        <div>{t('input.language.manual')}</div>
+        <div>{uitext('input.language.manual')}</div>
         <input
           value={targetLanguage}
           onChange={(e) => updateURLParams({ targetLanguage: e.target.value })}
@@ -53,7 +53,7 @@ const InputLanguageSelector = ({ clearInputText }: Props) => {
             updateURLParams({ targetLanguage: '' });
           }}
         >
-          {t('input.language.ctaClear')}
+          {uitext('input.language.ctaClear')}
         </button>
       </div>
     </div>

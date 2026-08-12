@@ -1,15 +1,15 @@
-import { useTranslation } from 'react-i18next';
-
 import { useDataContext } from '@data/DataContext';
 import { DataSection } from '@data/DataSection';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
+
 import InputDataCell from '../input/InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function RegionsReviewTable() {
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
   const { findDataEntries } = useDataContext();
   const regions = findDataEntries({ section: DataSection.Regions });
 
@@ -21,7 +21,7 @@ function RegionsReviewTable() {
             <th>
               <SourceLanguageLabel />
             </th>
-            <th>{t('review.translated')}</th>
+            <th>{uitext('review.translated')}</th>
           </tr>
         </thead>
         <tbody>

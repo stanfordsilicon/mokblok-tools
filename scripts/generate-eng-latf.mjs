@@ -5,9 +5,9 @@ import { fileURLToPath } from 'node:url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const localesDir = path.resolve(__dirname, '../src/locales');
-const sourcePath = path.join(localesDir, 'eng.json');
-const targetPath = path.join(localesDir, 'eng_Latf.json');
+const localesDir = path.resolve(__dirname, '../public/locales');
+const sourcePath = path.join(localesDir, 'en/common.json');
+const targetPath = path.join(localesDir, 'en-Latf/common.json');
 
 const frakturMap = new Map([
   ['A', '𝔄'],

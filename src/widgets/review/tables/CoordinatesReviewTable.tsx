@@ -1,11 +1,10 @@
-import { useTranslation } from 'react-i18next';
-
 import { useDataContext } from '@data/DataContext';
 import { CardinalDirection } from '@data/DataTypes';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
 import { matrixBy } from '@shared/setUtils';
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import InputDataCell from '../input/InputDataCell';
 import SourceDataCell from '../SourceDataCell';
@@ -18,7 +17,7 @@ function CoordinatesReviewTable() {
     (f) => f.instance,
     (f) => f.length,
   );
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
   const cardinalDirection = findDataEntry({ field: 'coordinateUnit/displayName' });
 
   return (
@@ -29,7 +28,7 @@ function CoordinatesReviewTable() {
             <th>
               <SourceLanguageLabel />
             </th>
-            <th>{t('review.translated')}</th>
+            <th>{uitext('review.translated')}</th>
           </tr>
         </thead>
         <tbody>
@@ -45,13 +44,13 @@ function CoordinatesReviewTable() {
             <th colSpan={2}>
               <SourceLanguageLabel />
             </th>
-            <th colSpan={2}>{t('review.translated')}</th>
+            <th colSpan={2}>{uitext('review.translated')}</th>
           </tr>
           <tr>
-            <th>{t('length.long')}</th>
-            <th>{t('length.narrow')}</th>
-            <th>{t('length.long')}</th>
-            <th>{t('length.narrow')}</th>
+            <th>{uitext('length.long')}</th>
+            <th>{uitext('length.narrow')}</th>
+            <th>{uitext('length.long')}</th>
+            <th>{uitext('length.narrow')}</th>
           </tr>
         </thead>
         <tbody>

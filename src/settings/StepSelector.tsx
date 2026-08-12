@@ -1,19 +1,19 @@
-import { useTranslation } from 'react-i18next';
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import StepName from './StepName';
 import { useURLParams } from './URLParams';
 
 const StepSelector: React.FC = () => {
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
   const { admin } = useURLParams();
   if (!admin) return null;
 
   return (
     <div className="flex flex-wrap gap-1 rounded-[1.5rem]  ">
-      <StepButton label={t('input.title')} targetStep={StepName.Input} />
-      <StepButton label={t('edit.title')} targetStep={StepName.Edit} />
-      <StepButton label={t('review.title')} targetStep={StepName.Review} />
-      <StepButton label={t('export.title')} targetStep={StepName.Export} />
+      <StepButton label={uitext('nav.import')} targetStep={StepName.Import} />
+      <StepButton label={uitext('nav.edit')} targetStep={StepName.Edit} />
+      <StepButton label={uitext('nav.vote')} targetStep={StepName.Vote} />
+      <StepButton label={uitext('nav.export')} targetStep={StepName.Export} />
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import type { CoverageLevel } from './CoverageLevel';
 import type { DataPage, DataSection } from './DataSection';
+import type { PatternFormat } from './PatternFormat';
 
 export type DataEntry = {
   page: DataPage;
@@ -19,6 +20,7 @@ export type DataEntry = {
   level: CoverageLevel;
   var1?: number;
   var2?: number;
+  patternFormat: PatternFormat;
   index: number;
 };
 

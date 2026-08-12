@@ -6,13 +6,39 @@
         "title": "Bienvenido a Homescreen",
         "by": "por",
         "description": "Esta aplicación web se utiliza para que los evaluadores puedan evaluar la calidad de las traducciones enviadas para cada idioma. Por favor, comienza seleccionando tu idioma de origen y luego tu idioma de destino.",
-        "ctaInputStart": "Comenzar a ingresar traducciones",
+        "ctaImportStart": "Comenzar a ingresar traducciones",
         "ctaReviewStart": "Comenzar a revisar traducciones"
+    },
+    "nav": {
+        "intro": "Introducción",
+        "import": "Importar",
+        "edit": "Editar",
+        "vote": "Votar",
+        "export": "Exportar",
+        "page/section": "Página / Sección",
+        "translations": "Traducciones",
+        "votes": "Votos"
     },
     "auth": {
         "signedInAs": "Conectado como",
         "signInWithGoogle": "Iniciar sesión con Google",
         "redirectingToGoogle": "Redirigiendo a Google…",
+        "signInWhy": "Inicia sesión con tu cuenta de Google aprobada para usar las herramientas de traducción y revisión.",
+        "signInDidNotCompleteTitle": "No se completó el inicio de sesión",
+        "signInDidNotCompleteFallback": "No se completó el inicio de sesión. Inténtalo de nuevo o contacta al equipo SILICON.",
+        "signInErrorTitle": "Error de inicio de sesión",
+        "signInErrorDescription": "La autenticación no se completó. Intenta iniciar sesión de nuevo o contacta al equipo SILICON si el problema persiste.",
+        "backToSignIn": "Volver al inicio de sesión",
+        "errors": {
+            "AccessDenied": "Esa cuenta de Google no está en la lista aprobada para esta herramienta. Contacta al equipo SILICON para que la agreguen.",
+            "Configuration": "La configuración de inicio de sesión del servidor está incompleta. Este problema es nuestro, no tuyo.",
+            "OAuthAccountNotLinked": "Ese correo ya está registrado con un método de inicio de sesión diferente. Usa el método original.",
+            "OAuthSignin": "No se pudo iniciar el acceso con Google. Inténtalo de nuevo.",
+            "OAuthCallback": "Google devolvió una respuesta inesperada. Inténtalo de nuevo.",
+            "OAuthCreateAccount": "No se pudo crear tu cuenta. Inténtalo de nuevo.",
+            "Callback": "Algo salió mal al completar el inicio de sesión. Inténtalo de nuevo.",
+            "Verification": "Ese enlace de inicio de sesión ha caducado o ya se usó."
+        },
         "signOut": "Cerrar sesión",
         "signInToSaveProgress": "Inicia sesión para guardar el progreso",
         "roles": {
@@ -21,11 +47,12 @@
             "metrics_editor": "Editor de métricas",
             "moderator": "Moderador",
             "admin": "Administrador"
-        }
-    },
-    "input": {
+        },
+        "viewingAsAdmin": "Visualización como administrador",
+        "viewingAsRegularUser": "Visualización como usuario normal"
+    }, 
+    "import": {
         "title": "Importa",
-        "instructions": "Por favor, selecciona un idioma de origen y un idioma de destino para cargar los datos guardados para ese idioma. También puedes pegar tus propios datos TSV abajo e introducir manualmente el código del idioma.",
         "language": {
             "title": "Idioma de destino",
             "pickLanguage": "Elige un idioma para modificar sus traducciones.",
@@ -250,5 +277,14 @@
         "s": "Corto",
         "narrow": "Estrecho",
         "n": "Estrecho"
+    },
+    "patternFormat": {
+        "patternFormat": "Formato del patrón",
+        "any": "Cualquiera",
+        "none": "Sin formato",
+        "datetime": "Fecha/Hora",
+        "datetimecombo": "Combinación Fecha/Hora",
+        "sub": "Sustitución",
+        "sentence": "Oración"
     }
 }

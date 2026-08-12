@@ -5,13 +5,39 @@
     "intro": {
         "title": "Welcome to Homescreen",
         "description": "This web application is used for vetters to evaluate the quality of translations submitted for each language. Please start by selecting your source language then your target language.",
-        "ctaInputStart": "Start inputting translations",
+        "ctaImportStart": "Import translation data",
         "ctaReviewStart": "Start reviewing translations"
+    },
+    "nav": {
+        "intro": "Intro",
+        "import": "Import",
+        "edit": "Edit",
+        "vote": "Vote",
+        "export": "Export",
+        "page/section": "Page / Section",
+        "translations": "Translations",
+        "votes": "Votes"
     },
     "auth": {
         "signedInAs": "Signed in as",
         "signInWithGoogle": "Sign in with Google",
         "redirectingToGoogle": "Redirecting to Google…",
+        "signInWhy": "Sign in with your approved Google account to use the translation and review tools.",
+        "signInDidNotCompleteTitle": "Sign-in didn't complete",
+        "signInDidNotCompleteFallback": "Sign-in didn't complete. Please try again, or contact the SILICON team.",
+        "signInErrorTitle": "Sign-in Error",
+        "signInErrorDescription": "Authentication did not complete. Try signing in again, or contact the SILICON team if the problem persists.",
+        "backToSignIn": "Back to sign in",
+        "errors": {
+            "AccessDenied": "That Google account isn't on the invited list for this tool. Contact the SILICON team to have it added.",
+            "Configuration": "The server's sign-in configuration is incomplete. This is our problem, not yours.",
+            "OAuthAccountNotLinked": "That email is already registered through a different sign-in method. Use the original method.",
+            "OAuthSignin": "Couldn't start the Google sign-in. Please try again.",
+            "OAuthCallback": "Google returned an unexpected response. Please try again.",
+            "OAuthCreateAccount": "Couldn't create your account record. Please try again.",
+            "Callback": "Something went wrong finishing sign-in. Please try again.",
+            "Verification": "That sign-in link has expired or was already used."
+        },
         "signOut": "Sign out",
         "signInToSaveProgress": "Sign in to save progress",
         "roles": {
@@ -20,9 +46,11 @@
             "metrics_editor": "Metrics Editor",
             "moderator": "Moderator",
             "admin": "Admin"
-        }
+        },
+        "viewingAsAdmin": "Viewing as admin",
+        "viewingAsRegularUser": "Viewing as regular user"
     },
-    "input": {
+    "import": {
         "title": "Import",
         "instructions": "Please select a source language and a target language to load the saved data for that language. You can also paste your own TSV data below and enter the language code manually.",
         "language": {
@@ -62,8 +90,10 @@
     "edit": {
         "title": "Edit"
     },
-    "review": {
-        "title": "Review",
+    "vote": {
+        "title": "Vote"
+    },
+    "review": { 
         "downloadAllDemos": "Download all demos",
         "translated": "Translated",
         "moreLanguages": "More languages",
@@ -187,8 +217,7 @@
     "common": {
         "emptyCell": "-"
     },
-    "errors": {
-        "unknownWidget": "Unknown widget",
+    "errors": { 
         "demoNotFound": "Demo not found",
         "unknownError": "An unknown error occurred",
         "somethingWentWrong": "Something went wrong.",
@@ -249,5 +278,14 @@
         "s": "Short",
         "narrow": "Narrow",
         "n": "Narrow"
+    },
+    "patternFormat": {
+        "patternFormat": "Pattern Format",
+        "any": "Any",
+        "none": "No format",
+        "datetime": "Date/Time",
+        "datetimecombo": "Date/Time Combo",
+        "sub": "Substitution",
+        "sentence": "Sentence"
     }
 }

@@ -14,14 +14,13 @@ const InputVote: React.FC<{
   entry: DataEntry;
   inputWidth?: string;
 }> = ({ entry, inputWidth }) => {
-  const { getTranslationInfo, voteOnTranslation, editTranslationComment } = useTargetDataContext();
-  const { vote, translation, source, comment } = getTranslationInfo(entry);
-  let backgroundColor = 'transparent';
-  if (vote === Vote.Accept) backgroundColor = 'var(--color-level-4)';
-  if (vote === Vote.Reject) backgroundColor = 'var(--color-level-1)';
+  const { getTranslationInfo, editTranslation } = useTargetDataContext();
+  const { vote, translation, source, comment } = getTranslationInfo(entry) ?? {};
+
   const setVote = useCallback(
-    (newVote: Vote) => voteOnTranslation(entry.index, vote === newVote ? Vote.Unknown : newVote),
-    [entry.index, voteOnTranslation, vote],
+    (newVote: Vote) =>
+      editTranslation(entry.index, { vote: vote === newVote ? Vote.Unknown : newVote }),
+    [entry.index, editTranslation, vote],
   );
   const [showComments, setShowComments] = useState(false);
   const [currentComment, setCurrentComment] = useState(comment ?? '');
@@ -32,7 +31,7 @@ const InputVote: React.FC<{
   return (
     <div>
       <div className="flex items-center justify-between">
-        <div style={{ backgroundColor, width: inputWidth }}>
+        <div style={{ width: inputWidth }}>
           {vote === Vote.Reject ? (
             <InputEditText entry={entry} inputWidth={inputWidth} disabled={vote !== Vote.Reject} />
           ) : (
@@ -41,6 +40,7 @@ const InputVote: React.FC<{
         </div>
         <div>
           <button
+            data-testid="accept-button"
             aria-label="Accept"
             onClick={() => setVote(Vote.Accept)}
             style={{
@@ -52,6 +52,7 @@ const InputVote: React.FC<{
             ✔️
           </button>
           <button
+            data-testid="reject-button"
             aria-label="Reject"
             onClick={() => setVote(Vote.Reject)}
             style={{
@@ -63,10 +64,15 @@ const InputVote: React.FC<{
             ✘
           </button>
           <button
+            data-testid="comment-button"
             aria-label="Comment"
             className={`${showComments ? 'selected' : ''}`}
             onClick={() => setShowComments((prev) => !prev)}
-            style={{ padding: '0 0.25em', border: 'none' }}
+            style={{
+              padding: '0 0.25em',
+              border: 'none',
+              backgroundColor: !showComments && currentComment ? 'var(--color-level-5)' : undefined,
+            }}
           >
             💬
           </button>
@@ -74,8 +80,9 @@ const InputVote: React.FC<{
       </div>
       {showComments && (
         <textarea
+          data-testid="comment-input"
           placeholder="Add comments"
-          onBlur={() => editTranslationComment(entry.index, currentComment)}
+          onBlur={() => editTranslation(entry.index, { comment: currentComment })}
           onChange={(e) => setCurrentComment(e.target.value)}
           className="border p-1 rounded w-full"
           value={currentComment}

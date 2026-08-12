@@ -1,6 +1,8 @@
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import React, { createContext, useCallback, useContext, useEffect, useMemo } from 'react';
 
+import i18n from '@i18n';
+
 import { CoverageLevel, parseCoverageLevel } from '@data/CoverageLevel';
 import { DataPage, DataSection } from '@data/DataSection';
 import { InterfaceLanguage, SourceLanguage } from '@data/DataTypes';
@@ -8,8 +10,6 @@ import { InterfaceLanguage, SourceLanguage } from '@data/DataTypes';
 import InputSource from '@widgets/input/InputSource';
 
 import enforceExhaustiveSwitch from '@shared/enforceExhaustiveSwitch';
-
-import i18n from '../i18n';
 
 import { BackgroundStyle } from './BackgroundStyle';
 import StepName from './StepName';

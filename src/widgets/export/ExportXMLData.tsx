@@ -1,16 +1,17 @@
 import { useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { getCoverageLevelLabel } from '@data/CoverageLevel';
 
 import { getLanguageBCP } from '@settings/LanguageCodes';
 import { useURLParams } from '@settings/URLParams';
 
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
+
 import ExportDownloadXMLButton from './ExportDownloadXMLButton';
 import useXMLFormattedData from './useXMLFormattedData';
 
 const ExportXMLData: React.FC = () => {
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
   const { targetLanguage, coverageLevel } = useURLParams();
   const targetLanguageBCP = getLanguageBCP(targetLanguage);
   const ldml = useXMLFormattedData();
@@ -30,16 +31,16 @@ ${ldml}
 
   return (
     <>
-      <div>
-        <strong>{t('export.fullXmlTitle')}</strong>
+      <h3>
+        {uitext('export.fullXmlTitle')}
         <ExportDownloadXMLButton
           filename={getCoverageLevelLabel(coverageLevel)}
           xmlContent={fullXML}
         />
-      </div>
+      </h3>
       <span>
-        {t('export.cldrUploadPrefix')}{' '}
-        <a href={t('export.cldrUploadUrl')}>{t('export.cldrUploadUrl')}</a>
+        {uitext('export.cldrUploadPrefix')}{' '}
+        <a href={uitext('export.cldrUploadUrl')}>{uitext('export.cldrUploadUrl')}</a>
       </span>
       <textarea style={{ width: '40em', height: '30em' }} value={fullXML} readOnly />
     </>

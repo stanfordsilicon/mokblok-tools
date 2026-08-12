@@ -1,6 +1,7 @@
 // Columns: Subject	Field	Instance	Length	Context	Example#	XPath	ExtID	English	English (pattern)	French	Level
 
 import { parseCoverageLevel } from './CoverageLevel';
+import { parsePatternFormat } from './PatternFormat';
 
 import type { DataPage, DataSection } from './DataSection';
 import type { DataEntry } from './DataTypes';
@@ -39,6 +40,7 @@ export async function loadDataEntries(): Promise<DataEntry[] | void> {
           level: parseCoverageLevel(cells[14]),
           var1: Number(cells[15].replaceAll(',', '')) || undefined,
           var2: Number(cells[16].replaceAll(',', '')) || undefined,
+          patternFormat: parsePatternFormat(cells[17]),
           index,
         } as DataEntry;
       });

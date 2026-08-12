@@ -1,18 +1,19 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { CoverageLevel } from '@data/CoverageLevel';
+
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import { BackgroundStyle, parseBackgroundStyle } from '../BackgroundStyle';
 import { useURLParams } from '../URLParams';
 
 const BackgroundStyleSelector: React.FC = () => {
-  const { t } = useTranslation();
+  const { uitext } = useInterfaceTranslation();
   const { bgStyle, updateURLParams } = useURLParams();
 
   return (
     <div style={{ display: 'flex', gap: '1em', alignItems: 'center', flexWrap: 'wrap' }}>
-      <strong>{t('settings.backgroundStyle')}:</strong>
+      <strong>{uitext('settings.backgroundStyle')}:</strong>
       <select
         className="settings-select"
         value={String(bgStyle)}
@@ -22,7 +23,7 @@ const BackgroundStyleSelector: React.FC = () => {
           .filter(([, value]) => typeof value !== 'string')
           .map(([key, value]) => (
             <option key={key} value={value}>
-              {t(`backgroundStyleName.${key}`, key)}
+              {uitext(`backgroundStyleName.${key}`, key)}
             </option>
           ))}
       </select>
@@ -39,7 +40,7 @@ const BackgroundStyleSelector: React.FC = () => {
                   borderRadius: '.5em',
                 }}
               >
-                {t(`coverageLevelName.${key}`, key)}
+                {uitext(`coverageLevelName.${key}`, key)}
               </div>
             ))}
       </div>
