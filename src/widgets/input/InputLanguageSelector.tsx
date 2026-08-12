@@ -5,8 +5,39 @@ import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 import InputSource from './InputSource';
 
 // These languages have starting data that can be loaded with a click.
-export const TSVLanguages = ['abr', 'bho', 'en', 'fr', 'mg'];
-const XMLLanguages = ['ann', 'en', 'es', 'fr', 'ha', 'it', 'mfe', 'mg', 'or', 'sn', 'wo'];
+export const TSVLanguages = [
+  'abr',
+  'ann',
+  'bho',
+  'dag',
+  'en',
+  'fr',
+  'gaa',
+  'ha',
+  'mfe',
+  'mg',
+  'mos',
+  'nd',
+  'om',
+  'sn',
+  'wo',
+];
+const XMLLanguages = [
+  'ann',
+  'en',
+  'es',
+  'fr',
+  'ha',
+  'it',
+  'mfe',
+  'mg',
+  'mos',
+  'nd',
+  'om',
+  'or',
+  'sn',
+  'wo',
+];
 
 type Props = {
   clearInputText: () => void;
