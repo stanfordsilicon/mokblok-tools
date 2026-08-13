@@ -5,7 +5,7 @@ import StepName from '@settings/StepName';
 import enforceExhaustiveSwitch from '@shared/enforceExhaustiveSwitch';
 
 import ExportWidget from './export/ExportWidget';
-import InputBody from './input/InputBody';
+import ImportBody from './import/ImportBody';
 import IntroBody from './intro/IntroBody';
 import ReviewWidget from './review/ReviewWidget';
 
@@ -18,7 +18,7 @@ const StepView: React.FC<StepViewProps> = ({ step }) => {
     case StepName.Intro:
       return <IntroBody />;
     case StepName.Import:
-      return <InputBody />;
+      return <ImportBody />;
     case StepName.Edit:
     case StepName.Vote:
       return <ReviewWidget />;

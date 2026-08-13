@@ -28,7 +28,7 @@ const TargetLanguageCodeInput: React.FC<Props> = ({ size }) => {
         value={targetLanguage}
         onChange={(e) => updateURLParams({ targetLanguage: e.target.value })}
         style={{
-          background: targetLanguage.length < 2 ? 'lightcoral' : 'var(--color-background)',
+          background: targetLanguage.length < 2 ? 'var(--silicon-orange)' : 'var(--silicon-white)',
         }}
       />
       {uitext(targetTranslationKey) === targetTranslationKey

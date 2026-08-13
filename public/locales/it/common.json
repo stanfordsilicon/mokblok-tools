@@ -50,7 +50,7 @@
         "viewingAsAdmin": "Visualizzazione come amministratore",
         "viewingAsRegularUser": "Visualizzazione come utente normale"
     },
-    "input": {
+    "import": {
         "title": "Importa",
         "instructions": "Seleziona una lingua di origine e una lingua di destinazione per caricare i dati salvati per quella lingua. Puoi anche incollare i tuoi dati TSV qui sotto e inserire manualmente il codice della lingua.",
         "language": {
@@ -61,7 +61,7 @@
             "ctaClear": "Cancella lingua e dati"
         },
         "files": {
-            "title": "File di input",
+            "title": "File di dati",
             "placeholderTsv": "Incolla qui i tuoi dati TSV",
             "placeholderTxt": "Incolla qui i tuoi dati TXT",
             "Doc 1": "Doc 1 (Dati principali, formati di data e ora)",
@@ -77,9 +77,9 @@
             "Total words": "Parole totali",
             "Total characters": "Caratteri totali"
         },
-        "inputSource": {
+        "importSource": {
             "title": "Fonte di input",
-            "label": "Come inviare i dati?",
+            "label": "Precarica i dati da",
             "blank": "Foglio bianco",
             "tsv": "Copia-incolla TSV",
             "xml": "Carica XML da CLDR"
@@ -89,6 +89,9 @@
     },
     "edit": {
         "title": "Modifica"
+    },
+    "vote": {
+        "title": "Vota"
     },
     "review": {
         "title": "Revisiona",
@@ -222,7 +225,6 @@
         "emptyCell": "-"
     },
     "errors": {
-        "unknownWidget": "Widget sconosciuto",
         "demoNotFound": "Demo non trovata",
         "unknownError": "Si è verificato un errore sconosciuto",
         "somethingWentWrong": "Si è verificato un problema.",

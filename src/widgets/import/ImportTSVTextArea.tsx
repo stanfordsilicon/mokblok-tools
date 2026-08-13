@@ -9,7 +9,7 @@ type Props = {
   doc: Doc;
 };
 
-const InputTSVTextArea: React.FC<Props> = ({ doc }) => {
+const ImportTSVTextArea: React.FC<Props> = ({ doc }) => {
   const { uitext } = useInterfaceTranslation();
   const { inputTSVs } = useTargetDataContext();
 
@@ -27,4 +27,4 @@ const InputTSVTextArea: React.FC<Props> = ({ doc }) => {
   );
 };
 
-export default InputTSVTextArea;
+export default ImportTSVTextArea;

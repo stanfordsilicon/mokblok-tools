@@ -1,4 +1,4 @@
-import InputSource from '@widgets/input/InputSource';
+import ImportSource from '@widgets/import/ImportSource';
 
 // These languages have starting data that can be loaded with a click.
 const TSVLanguages = [
@@ -35,10 +35,10 @@ const XMLLanguages = [
   'wo',
 ];
 
-const TargetLanguageOptions: Record<InputSource, string[]> = {
-  [InputSource.TSV]: TSVLanguages,
-  [InputSource.XML]: XMLLanguages,
-  [InputSource.Blank]: [...new Set([...TSVLanguages, ...XMLLanguages])],
+const TargetLanguageOptions: Record<ImportSource, string[]> = {
+  [ImportSource.TSV]: TSVLanguages,
+  [ImportSource.XML]: XMLLanguages,
+  [ImportSource.Blank]: [...new Set([...TSVLanguages, ...XMLLanguages])],
 };
 
 export default TargetLanguageOptions;

@@ -50,7 +50,7 @@
         "viewingAsAdmin": "Visualisation en tant qu’administrateur",
         "viewingAsRegularUser": "Visualisation en tant qu’utilisateur normal"
     },
-    "input": {
+    "import": {
         "title": "Importe",
         "instructions": "Veuillez sélectionner une langue source et une langue cible pour charger les données enregistrées pour cette langue. Vous pouvez également coller vos propres données TSV ci-dessous et saisir manuellement le code de langue.",
         "language": {
@@ -61,7 +61,7 @@
             "ctaClear": "Effacer la langue et les données"
         },
         "files": {
-            "title": "Fichiers d’entrée",
+            "title": "Fichiers de données",
             "placeholderTsv": "Collez vos données TSV ici",
             "placeholderTxt": "Collez vos données TXT ici",
             "Doc 1": "Doc 1 (Données de base, formats de date et d’heure)",
@@ -77,9 +77,9 @@
             "Total words": "Nombre total de mots",
             "Total characters": "Nombre total de caractères"
         },
-        "inputSource": {
-            "title": "Source de saisie",
-            "label": "Comment soumettre les données ?",
+        "importSource": {
+            "title": "Source de saisie", 
+            "label": "Précarica les données depuis",    
             "blank": "Feuille blanche",
             "tsv": "Copier-coller des TSV",
             "xml": "Charger XML depuis CLDR"
@@ -89,6 +89,9 @@
     },
     "edit": {
         "title": "Modifie"
+    },
+    "vote": {
+        "title": "Voter"
     },
     "review": {
         "title": "Examine",
@@ -221,8 +224,7 @@
     "common": {
         "emptyCell": "-"
     },
-    "errors": {
-        "unknownWidget": "Widget inconnu",
+    "errors": { 
         "demoNotFound": "Démo introuvable",
         "unknownError": "Une erreur inconnue est survenue",
         "somethingWentWrong": "Quelque chose s’est mal passé.",

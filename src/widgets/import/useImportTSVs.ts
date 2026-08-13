@@ -3,17 +3,17 @@ import { useEffect, useMemo, useState } from 'react';
 import TargetLanguageOptions from '@settings/selectors/TargetLanguageOptions';
 import { useURLParams } from '@settings/URLParams';
 
-import InputSource from '@widgets/input/InputSource';
+import ImportSource from '@widgets/import/ImportSource';
 
-import { Doc, getDocFileSuffix, getDocFileType } from './Doc';
-import { loadInputText, parseDoc1TSV } from './LoadInputData';
-import { parseDoc2Part1, parseDoc2Part2, parseDoc2Part3 } from './ParseDoc2';
-import useTSVState from './useTSVState';
+import { Doc, getDocFileSuffix, getDocFileType } from '../../data/tsvdocs/Doc';
+import { loadInputText, parseDoc1TSV } from '../../data/tsvdocs/LoadInputData';
+import { parseDoc2Part1, parseDoc2Part2, parseDoc2Part3 } from '../../data/tsvdocs/ParseDoc2';
+import useTSVState from '../../data/tsvdocs/useTSVState';
 
-import type { UseTSVState } from './useTSVState';
+import type { UseTSVState } from '../../data/tsvdocs/useTSVState';
 
-function useInputTSVs() {
-  const { targetLanguage, inputSource } = useURLParams();
+function useImportTSVs() {
+  const { targetLanguage, importSource } = useURLParams();
   const [extraText, setExtraText] = useState<string>('');
   const doc1State = useTSVState();
   const doc2Part1State = useTSVState('');
@@ -25,8 +25,8 @@ function useInputTSVs() {
   // Trigger TSV reloads when the input mode or target language changes.
   useEffect(() => {
     if (
-      inputSource !== InputSource.TSV ||
-      !TargetLanguageOptions[InputSource.TSV].includes(targetLanguage) ||
+      importSource !== ImportSource.TSV ||
+      !TargetLanguageOptions[ImportSource.TSV].includes(targetLanguage) ||
       !targetLanguage
     ) {
       doc1State.clear();
@@ -66,7 +66,7 @@ function useInputTSVs() {
     doc2Part3State,
     doc3State,
     doc4State,
-    inputSource,
+    importSource,
     targetLanguage,
   ]);
 
@@ -103,4 +103,4 @@ function useInputTSVs() {
   return { inputTSVs, tsvRows, extraText };
 }
 
-export default useInputTSVs;
+export default useImportTSVs;

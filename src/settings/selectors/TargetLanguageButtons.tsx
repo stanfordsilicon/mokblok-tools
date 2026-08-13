@@ -5,9 +5,9 @@ import { useURLParams } from '@settings/URLParams';
 import TargetLanguageOptions from './TargetLanguageOptions';
 
 const TargetLanguageButtons = () => {
-  const { targetLanguage, updateURLParams, inputSource } = useURLParams();
+  const { targetLanguage, updateURLParams, importSource } = useURLParams();
   const { getLanguageName } = useLanguageName();
-  const languageOptions = TargetLanguageOptions[inputSource]
+  const languageOptions = TargetLanguageOptions[importSource]
     .map(getLanguageName)
     .sort((a, b) => a.endonym.localeCompare(b.endonym));
 

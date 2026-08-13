@@ -1,7 +1,7 @@
-enum InputSource {
+enum ImportSource {
   Blank = 'blank',
   TSV = 'tsv',
   XML = 'xml',
 }
 
-export default InputSource;
+export default ImportSource;
