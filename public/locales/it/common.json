@@ -81,8 +81,8 @@
             "title": "Fonte di input",
             "label": "Precarica i dati da",
             "blank": "Foglio bianco",
-            "tsv": "Copia-incolla TSV",
-            "xml": "Carica XML da CLDR"
+            "tsv": "File TSV di Survey",
+            "xml": "File XML di CLDR"
         },
         "asList": "come lista",
         "asXML": "come XML"

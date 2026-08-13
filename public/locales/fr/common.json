@@ -81,8 +81,8 @@
             "title": "Source de saisie", 
             "label": "Précarica les données depuis",    
             "blank": "Feuille blanche",
-            "tsv": "Copier-coller des TSV",
-            "xml": "Charger XML depuis CLDR"
+            "tsv": "Fichiers TSV de Survey",
+            "xml": "Fichiers XML de CLDR"
         },
         "asList": "en liste",
         "asXML": "en XML"

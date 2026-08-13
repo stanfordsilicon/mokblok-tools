@@ -16,8 +16,8 @@ import { useURLParams } from './URLParams';
 const SettingsWidget: React.FC = () => {
   const { importSource } = useURLParams();
   return (
-    <div className="flex flex-col gap-4">
-      <InterfaceLanguageSelector />
+    <div className="flex flex-col gap-2">
+      <InterfaceLanguageSelector display="dropdown" />
       <SourceLanguageSelector />
       {importSource !== ImportSource.Blank ? (
         <TargetLanguageDropdown />

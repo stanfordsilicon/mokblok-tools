@@ -11,8 +11,8 @@ const CoverageLevelSelector: React.FC = () => {
   const { coverageLevel, updateURLParams } = useURLParams();
 
   return (
-    <div style={{ display: 'flex', gap: '1em', alignItems: 'center', flexWrap: 'wrap' }}>
-      <strong>{uitext('settings.coverageLevel')}:</strong>
+    <div className="flex items-center gap-2 justify-between">
+      <strong>{uitext('settings.coverageLevel')}</strong>
       <select
         className="settings-select"
         value={String(coverageLevel)}

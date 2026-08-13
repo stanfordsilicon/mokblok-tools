@@ -42,7 +42,7 @@ const InputVote: React.FC<{
             (translation ?? source)
           )}
         </div>
-        <div>
+        <div className="mr-4">
           <button
             data-testid="accept-button"
             aria-label="Accept"

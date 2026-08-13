@@ -4,12 +4,13 @@ import ImportSource from '@widgets/import/ImportSource';
 
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
-import TargetLanguageButtons from './TargetLanguageButtons';
+import LanguageButtons from './LanguageButtons';
 import TargetLanguageCodeInput from './TargetLanguageCodeInput';
+import TargetLanguageOptions from './TargetLanguageOptions';
 
 const TargetLanguageSelector = () => {
   const { uitext } = useInterfaceTranslation();
-  const { importSource } = useURLParams();
+  const { targetLanguage, updateURLParams, importSource } = useURLParams();
 
   return (
     <div>
@@ -17,7 +18,12 @@ const TargetLanguageSelector = () => {
         {uitext('import.language.pickLanguage')}{' '}
         {importSource !== ImportSource.Blank && uitext('import.language.hasPreloaded')}
       </div>
-      <TargetLanguageButtons />
+
+      <LanguageButtons
+        current={targetLanguage}
+        onChange={(newLanguage) => updateURLParams({ targetLanguage: newLanguage })}
+        options={TargetLanguageOptions[importSource]}
+      />
       <div className="flex gap-1 items-center mt-1">
         <TargetLanguageCodeInput size="wide" />
       </div>

@@ -81,8 +81,8 @@
             "title": "Import Source",
             "label": "Preload data from",
             "blank": "Blank slate",
-            "tsv": "Copy-paste TSVs",
-            "xml": "Load XML from CLDR"
+            "tsv": "Survey TSV Files",
+            "xml": "CLDR XML Files"
         },
         "asList": "as List",
         "asXML": "as XML"

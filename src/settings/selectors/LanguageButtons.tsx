@@ -1,13 +1,14 @@
 import useLanguageName from '@data/useLanguageName';
 
-import { useURLParams } from '@settings/URLParams';
+type Props = {
+  current: string;
+  onChange: (newLanguage: string) => void;
+  options: string[];
+};
 
-import TargetLanguageOptions from './TargetLanguageOptions';
-
-const TargetLanguageButtons = () => {
-  const { targetLanguage, updateURLParams, importSource } = useURLParams();
+const LanguageButtons: React.FC<Props> = ({ current, onChange, options }) => {
   const { getLanguageName } = useLanguageName();
-  const languageOptions = TargetLanguageOptions[importSource]
+  const languageOptions = options
     .map(getLanguageName)
     .sort((a, b) => a.endonym.localeCompare(b.endonym));
 
@@ -16,8 +17,8 @@ const TargetLanguageButtons = () => {
       {languageOptions.map((lang) => (
         <button
           key={lang.code}
-          className={lang.code === targetLanguage ? 'selected' : ''}
-          onClick={() => updateURLParams({ targetLanguage: lang.code })}
+          className={lang.code === current ? 'selected' : ''}
+          onClick={() => onChange(lang.code)}
         >
           {lang.endonym}
           <br />
@@ -28,4 +29,4 @@ const TargetLanguageButtons = () => {
   );
 };
 
-export default TargetLanguageButtons;
+export default LanguageButtons;

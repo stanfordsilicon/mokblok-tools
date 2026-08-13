@@ -16,7 +16,11 @@ const ImportSourceSelector: React.FC<Props> = ({ display }) => {
   if (!admin) return null;
 
   return (
-    <div className={'flex flex-wrap  items-center' + (display === 'buttons' ? ' gap-2' : ' gap-4')}>
+    <div
+      className={
+        'flex items-center' + (display === 'buttons' ? ' gap-2' : ' gap-4 justify-between')
+      }
+    >
       <span className={display === 'dropdown' ? 'font-bold' : ''}>
         {uitext('import.importSource.label')}:
       </span>
