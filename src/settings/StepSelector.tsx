@@ -5,8 +5,6 @@ import { useURLParams } from './URLParams';
 
 const StepSelector: React.FC = () => {
   const { uitext } = useInterfaceTranslation();
-  const { admin } = useURLParams();
-  if (!admin) return null;
 
   return (
     <div className="flex flex-wrap gap-1 rounded-[1.5rem]  ">

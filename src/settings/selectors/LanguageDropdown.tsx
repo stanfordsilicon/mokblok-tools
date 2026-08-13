@@ -25,7 +25,7 @@ const LanguageDropdown: React.FC<Props> = ({ label, current, onChange, options }
       >
         {languageOptions.map((lang) => (
           <option key={lang.code} value={lang.code}>
-            {lang.endonym}
+            {lang.endonym} <em>{lang.localizedName}</em>
           </option>
         ))}
       </select>

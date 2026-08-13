@@ -15,7 +15,7 @@ const DataTypeSelector: React.FC = () => {
   const { step } = useURLParams();
   // Return a 3 column grid of buttons for each DataPage
   return (
-    <table className="w-fit table-auto text-xs">
+    <table className="w-full h-fit table-auto text-xs">
       <thead>
         <tr>
           <th>{uitext('nav.page/section')}</th>
@@ -46,7 +46,7 @@ const PageButtons: React.FC<{
       <tr>
         <td>
           <button
-            className={'px-1 py-1 text-xs' + (highlightBackground ? ' selected' : '')}
+            className={'p-1 text-xs' + (highlightBackground ? ' selected' : '')}
             onClick={() => updateURLParams({ page, section: DataSection.All })}
             style={{ width: '12em' }}
           >
