@@ -61,7 +61,7 @@
             "ctaClear": "Clear language & data"
         },
         "files": {
-            "title": "Input Files",
+            "title": "Import Files",
             "placeholderTsv": "Paste your TSV data here",
             "placeholderTxt": "Paste your TXT data here",
             "Doc 1": "Doc 1 (Core Data, Date/Time Patterns)",
@@ -77,12 +77,12 @@
             "Total words": "Total words",
             "Total characters": "Total characters"
         },
-        "inputSource": {
-            "title": "Input Source",
-            "label": "How to submit data?",
+        "importSource": {
+            "title": "Import Source",
+            "label": "Preload data from",
             "blank": "Blank slate",
-            "tsv": "Copy-paste TSVs",
-            "xml": "Load XML from CLDR"
+            "tsv": "Survey TSV Files",
+            "xml": "CLDR XML Files"
         },
         "asList": "as List",
         "asXML": "as XML"

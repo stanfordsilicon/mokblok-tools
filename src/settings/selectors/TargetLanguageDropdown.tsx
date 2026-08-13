@@ -9,14 +9,14 @@ import TargetLanguageOptions from './TargetLanguageOptions';
 
 const TargetLanguageDropdown: React.FC = () => {
   const { uitext } = useInterfaceTranslation();
-  const { inputSource, targetLanguage, updateURLParams } = useURLParams();
+  const { importSource, targetLanguage, updateURLParams } = useURLParams();
 
   return (
     <LanguageDropdown
       label={uitext('settings.targetLanguage')}
       current={targetLanguage}
       onChange={(newLanguage) => updateURLParams({ targetLanguage: newLanguage })}
-      options={TargetLanguageOptions[inputSource]}
+      options={TargetLanguageOptions[importSource]}
     />
   );
 };

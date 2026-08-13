@@ -6,9 +6,9 @@ import { addValueToXML, toXMLString, type XMLObject } from '@widgets/export/form
 
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
-import InputCheck from './check/InputCheck';
+import ImportCheck from './check/ImportCheck';
 
-const InputXMLSection = () => {
+const ImportXMLSection = () => {
   const { uitext } = useInterfaceTranslation();
   const { targetXMLData } = useTargetDataContext();
   const [appearance, setAppearance] = useState<'xml' | 'list'>('xml');
@@ -48,9 +48,9 @@ const InputXMLSection = () => {
         value={preview}
         readOnly
       />
-      <InputCheck />
+      <ImportCheck />
     </>
   );
 };
 
-export default InputXMLSection;
+export default ImportXMLSection;

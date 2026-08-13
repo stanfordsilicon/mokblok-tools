@@ -7,7 +7,7 @@ import { useURLParams } from '@settings/URLParams';
 
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
-import InputSource from '../InputSource';
+import ImportSource from '../ImportSource';
 
 import CheckRow from './CheckRow';
 import CheckSections from './CheckSections';
@@ -18,21 +18,21 @@ type Props = {
 
 const InputCheck: React.FC<Props> = ({ doc }) => {
   const { uitext } = useInterfaceTranslation();
-  const { inputSource } = useURLParams();
+  const { importSource } = useURLParams();
   const { inputTSVs, targetXMLData } = useTargetDataContext();
 
   const lines = useMemo(() => {
-    if (inputSource === InputSource.TSV && doc) {
+    if (importSource === ImportSource.TSV && doc) {
       return (inputTSVs[doc]?.value ?? '')
         .split('\n')
         .map((l) => l.trim())
         .filter(Boolean); // Exclude empty lines for counting
     }
-    if (inputSource === InputSource.XML) {
+    if (importSource === ImportSource.XML) {
       return Object.values(targetXMLData);
     }
     return [];
-  }, [inputTSVs, doc, inputSource, targetXMLData]);
+  }, [inputTSVs, doc, importSource, targetXMLData]);
   return (
     <table style={{ width: 'fit-content' }}>
       <tbody>

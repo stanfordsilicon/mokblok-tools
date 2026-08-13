@@ -12,24 +12,26 @@ const BackgroundStyleSelector: React.FC = () => {
   const { bgStyle, updateURLParams } = useURLParams();
 
   return (
-    <div style={{ display: 'flex', gap: '1em', alignItems: 'center', flexWrap: 'wrap' }}>
-      <strong>{uitext('settings.backgroundStyle')}:</strong>
-      <select
-        className="settings-select"
-        value={String(bgStyle)}
-        onChange={(e) => updateURLParams({ bgStyle: parseBackgroundStyle(e.target.value) })}
-      >
-        {Object.entries(BackgroundStyle)
-          .filter(([, value]) => typeof value !== 'string')
-          .map(([key, value]) => (
-            <option key={key} value={value}>
-              {uitext(`backgroundStyleName.${key}`, key)}
-            </option>
-          ))}
-      </select>
-      <div style={{ display: 'flex', gap: '0.5em', flexWrap: 'wrap' }}>
-        {bgStyle === BackgroundStyle.CoverageLevel &&
-          Object.entries(CoverageLevel)
+    <div className="flex flex-col gap-2">
+      <div className="flex items-center gap-2 justify-between">
+        <strong>{uitext('settings.backgroundStyle')}</strong>
+        <select
+          className="settings-select"
+          value={String(bgStyle)}
+          onChange={(e) => updateURLParams({ bgStyle: parseBackgroundStyle(e.target.value) })}
+        >
+          {Object.entries(BackgroundStyle)
+            .filter(([, value]) => typeof value !== 'string')
+            .map(([key, value]) => (
+              <option key={key} value={value}>
+                {uitext(`backgroundStyleName.${key}`, key)}
+              </option>
+            ))}
+        </select>
+      </div>
+      {bgStyle === BackgroundStyle.CoverageLevel && (
+        <div className="flex gap-1 flex-wrap">
+          {Object.entries(CoverageLevel)
             .filter(([, value]) => typeof value !== 'string')
             .map(([key, value]) => (
               <div
@@ -43,7 +45,8 @@ const BackgroundStyleSelector: React.FC = () => {
                 {uitext(`coverageLevelName.${key}`, key)}
               </div>
             ))}
-      </div>
+        </div>
+      )}
     </div>
   );
 };

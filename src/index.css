@@ -102,20 +102,17 @@ button:focus-visible {
   outline: 2px solid var(--silicon-purple);
 }
 
+select, ::picker(select) {
+  appearance: base-select;
+}
+
 select.settings-select {
   border-radius: 0.75rem;
   border: 1px solid var(--color-input-border);
-  padding: 0.7em 2.25em 0.7em 1em;
-  /* font-size: 0.95rem; */
-  font-weight: 600;
-  font-family: inherit;
+  padding: 0.5em 1em;  
   color: var(--silicon-ink);
   background-color: white;
-  cursor: pointer;
-  transition:
-    border-color 0.2s ease,
-    color 0.2s ease,
-    box-shadow 0.2s ease;
+  cursor: pointer; 
 }
 
 select.settings-select:hover {
@@ -125,7 +122,15 @@ select.settings-select:hover {
 select.settings-select:focus,
 select.settings-select:focus-visible {
   outline: 2px solid var(--silicon-purple);
-  outline-offset: 2px;
+}
+
+::picker(select) {
+  border-radius: 0.75rem;
+  border: 1px solid var(--color-input-border);
+  padding: 0.5em;
+  color: var(--silicon-ink);
+  background-color: white;
+  /* cursor: pointer;  */
 }
 
 .selected {
@@ -166,28 +171,4 @@ td {
 .FullReviewTable td {
   overflow: hidden;
 }
-
-.verticalGrow,
-.verticalShrink {
-  width: auto;
-  /* transition: all .5s ease; */
-  overflow: hidden;
-  min-height: 0;
-  /* height: auto; */
-  /* max-height: 100%; */
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* box-sizing: border-box; */
-  position: relative;
-}
-
-/* Note: The animation is failing to change the height right now */
-.verticalGrow {
-  /* animation: showThenGrow .25s forwards; */
-  display: flex;
-}
-
-.verticalShrink {
-  /* animation: shrinkThenHide .25s forwards; */
-  display: none;
-}
+ 

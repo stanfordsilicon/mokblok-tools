@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { useState } from 'react';
 
 import AccountBadge from '@settings/auth/AccountBadge';
 import StepName from '@settings/StepName';
@@ -16,9 +17,10 @@ import LoadingStatus from './LoadingStatus';
 const Sidebar: React.FC = () => {
   const { uitext } = useInterfaceTranslation();
   const { admin } = useURLParams();
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <aside className="flex w-full shrink-0 flex-col gap-4 border-b border-(--silicon-line-strong) bg-(--silicon-panel) px-4 py-5 lg:min-h-screen lg:w-[22rem] lg:border-r lg:border-b-0 lg:px-5 lg:py-6">
+    <aside className="flex w-full shrink-0 flex-col gap-4 border-b border-(--silicon-line-strong) bg-(--silicon-panel) p-4 lg:min-h-screen lg:w-[22rem] lg:border-r lg:border-b-0 lg:p-6">
       <header className="">
         <p className="text-sm font-semibold uppercase tracking-[0.35em] text-(--silicon-purple)">
           SILICON
@@ -32,17 +34,36 @@ const Sidebar: React.FC = () => {
           </Link>
         </h1>
       </header>
-      <AccountBadge />
 
-      <StepSelector />
-      <div className="flex-1 overflow-auto rounded-[1.75rem] border border-(--silicon-line) bg-white px-4 py-4 shadow-sm">
+      <button
+        className={`${isOpen ? 'bg-(--silicon-line)' : ''} lg:hidden`}
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        ☰
+      </button>
+
+      <div className={`${isOpen ? 'block' : 'hidden'} lg:block`}>
+        <AccountBadge />
+      </div>
+
+      {admin && (
+        <div className={`${isOpen ? 'block' : 'hidden'} lg:block`}>
+          <StepSelector />
+        </div>
+      )}
+      <div
+        className={`${isOpen ? 'block' : 'hidden'} lg:flex lg:flex-1 overflow-auto rounded-xl lg:rounded-3xl border border-(--silicon-line) bg-white p-4 shadow-sm h-min`}
+      >
         <SidebarContents />
       </div>
       {admin && (
-        <div className="rounded-[1.5rem] border border-(--silicon-line) bg-white px-4 py-3 shadow-sm">
+        <div
+          className={`${isOpen ? 'block' : 'hidden'} lg:block rounded-[1.5rem] border border-(--silicon-line) bg-white px-4 py-3 shadow-sm`}
+        >
           <LoadingStatus />
         </div>
       )}
+      {/* On a small display, the sidebar is hidden by default. Click the ☰ button in the top left to show it. */}
     </aside>
   );
 };

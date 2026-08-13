@@ -53,6 +53,7 @@
     }, 
     "import": {
         "title": "Importa",
+        "instructions": "Selecciona un idioma de origen y un idioma de destino para cargar los datos guardados de ese idioma. También puedes pegar tus propios datos TSV abajo e introducir manualmente el código del idioma.",
         "language": {
             "title": "Idioma de destino",
             "pickLanguage": "Elige un idioma para modificar sus traducciones.",
@@ -61,7 +62,7 @@
             "ctaClear": "Borrar idioma y datos"
         },
         "files": {
-            "title": "Archivos de entrada",
+            "title": "Archivos de datos",
             "placeholderTsv": "Pega aquí tus datos TSV",
             "placeholderTxt": "Pega aquí tus datos TXT",
             "Doc 1": "Doc 1 (Datos principales, formatos de fecha y hora)",
@@ -77,18 +78,21 @@
             "Total words": "Total de palabras",
             "Total characters": "Total de caracteres"
         },
-        "inputSource": {
+        "importSource": {
             "title": "Fuente de entrada",
-            "label": "¿Cómo enviar los datos?",
+            "label": "Precargar datos desde",
             "blank": "Hoja en blanco",
-            "tsv": "Copiar-pegar TSV",
-            "xml": "Cargar XML desde CLDR"
+            "tsv": "Archivos TSV de Survey",
+            "xml": "Archivos XML de CLDR"
         },
         "asList": "como lista",
         "asXML": "como XML"
     },
     "edit": {
         "title": "Edita"
+    },
+    "vote": {
+        "title": "Vota"
     },
     "review": {
         "title": "Revisa",
@@ -222,7 +226,6 @@
         "emptyCell": "-"
     },
     "errors": {
-        "unknownWidget": "Widget desconocido",
         "demoNotFound": "Demo no encontrada",
         "unknownError": "Se produjo un error desconocido",
         "somethingWentWrong": "Algo salió mal.",

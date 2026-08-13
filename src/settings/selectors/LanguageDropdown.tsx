@@ -16,8 +16,8 @@ const LanguageDropdown: React.FC<Props> = ({ label, current, onChange, options }
     .sort((a, b) => a.endonym.localeCompare(b.endonym));
 
   return (
-    <div style={{ display: 'flex', gap: '1em', alignItems: 'center' }}>
-      <strong>{label}:</strong>{' '}
+    <div className="flex items-center gap-2 justify-between">
+      <strong>{label}</strong>
       <select
         className="settings-select"
         value={current}
@@ -25,7 +25,7 @@ const LanguageDropdown: React.FC<Props> = ({ label, current, onChange, options }
       >
         {languageOptions.map((lang) => (
           <option key={lang.code} value={lang.code}>
-            {lang.endonym}
+            {lang.endonym} <em>{lang.localizedName}</em>
           </option>
         ))}
       </select>

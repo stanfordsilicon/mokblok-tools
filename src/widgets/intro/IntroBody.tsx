@@ -14,7 +14,7 @@ const IntroBody: React.FC = () => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'start', gap: '1rem' }}>
       <div>{uitext('intro.description')}</div>
-      <InterfaceLanguageSelector />
+      <InterfaceLanguageSelector display="buttons" />
       <TargetLanguageSelector />
       <IntroCTAs />
       <SignInButton />

@@ -4,7 +4,7 @@ import { Doc } from '@data/tsvdocs/Doc';
 import Tab from '@shared/Tab';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
-const InputDocSelector: React.FC<{
+const ImportTSVDocSelector: React.FC<{
   curDoc: Doc;
   setDoc: (doc: Doc) => void;
 }> = ({ curDoc, setDoc }) => {
@@ -12,15 +12,7 @@ const InputDocSelector: React.FC<{
   const { inputTSVs } = useTargetDataContext();
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        gap: '0.25em 1em',
-        flexWrap: 'wrap',
-        borderBottom: '2px solid #eee',
-        marginBottom: '0.5em',
-      }}
-    >
+    <div className="flex gap-1 flex-wrap border-b-2 border-gray-200 mb-2">
       {Object.values(Doc).map((doc) => (
         <Tab
           key={doc}
@@ -38,4 +30,4 @@ const InputDocSelector: React.FC<{
   );
 };
 
-export default InputDocSelector;
+export default ImportTSVDocSelector;

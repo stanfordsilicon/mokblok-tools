@@ -12,6 +12,8 @@ const SourceLanguageSelector: React.FC = () => {
   const { uitext } = useInterfaceTranslation();
   const { sourceLanguage, updateURLParams, admin } = useURLParams();
 
+  if (!admin) return null;
+
   return (
     <LanguageDropdown
       label={uitext('settings.sourceLanguage')}

@@ -2,7 +2,9 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useState } 
 
 import { useURLParams } from '@settings/URLParams';
 
-import InputSource from '@widgets/input/InputSource';
+import ImportSource from '@widgets/import/ImportSource';
+
+import useInputTSVs from '../widgets/import/useImportTSVs';
 
 import { type AlphabetData, type DataEntry } from './DataTypes';
 import extractAlphabetFromXML from './extractAlphabetFromXML';
@@ -12,7 +14,6 @@ import useTranslationFromSourceLanguage from './sourcedata/useTranslationFromSou
 import { useSourceDataContext } from './SourceDataProvider';
 import { Doc } from './tsvdocs/Doc';
 import extractAlphabetDataFromTSV from './tsvdocs/ExtractAlphabetFromTSV';
-import useInputTSVs from './tsvdocs/useInputTSVs';
 
 import type { TSVRowData } from './tsvdocs/TSVRowData';
 import type { UseTSVState } from './tsvdocs/useTSVState';
@@ -72,7 +73,7 @@ export const useTargetDataContext = () => {
 const TargetDataProvider: React.FC<{
   children: React.ReactNode;
 }> = ({ children }) => {
-  const { targetLanguage, inputSource } = useURLParams();
+  const { targetLanguage, importSource } = useURLParams();
   const { findDataEntry, dataEntries } = useSourceDataContext();
   const getTranslationFromSourceLanguage = useTranslationFromSourceLanguage();
 
@@ -161,29 +162,29 @@ const TargetDataProvider: React.FC<{
 
   // When the inputted data changes, refresh the data
   useEffect(() => {
-    if (tsvRows.length === 0 || inputSource !== InputSource.TSV) return;
+    if (tsvRows.length === 0 || importSource !== ImportSource.TSV) return;
     setAlphabetData(extractAlphabetDataFromTSV(tsvRows, extraText));
     fillTranslationsFromTSV(tsvRows);
-  }, [dataEntries.length, extraText, fillTranslationsFromTSV, inputSource, tsvRows]);
+  }, [dataEntries.length, extraText, fillTranslationsFromTSV, importSource, tsvRows]);
   useEffect(() => {
-    if (inputSource !== InputSource.XML) return;
+    if (importSource !== ImportSource.XML) return;
     setAlphabetData(extractAlphabetFromXML(targetXMLData));
     fillTranslationsFromXML(targetXMLData);
-  }, [dataEntries.length, fillTranslationsFromXML, inputSource, targetXMLData]);
+  }, [dataEntries.length, fillTranslationsFromXML, importSource, targetXMLData]);
   useEffect(() => {
-    if (inputSource !== InputSource.Blank) return;
+    if (importSource !== ImportSource.Blank) return;
     fillTranslationsFromXML({});
     setAlphabetData(undefined);
-  }, [fillTranslationsFromXML, inputSource, tsvRows]);
+  }, [fillTranslationsFromXML, importSource, tsvRows]);
 
   const targetDataStatus = useMemo(() => {
     if (dataEntries.length === 0) return TargetDataStatus.WaitingOnSourceData;
-    if (inputSource === InputSource.TSV && tsvRows.length === 0)
+    if (importSource === ImportSource.TSV && tsvRows.length === 0)
       return TargetDataStatus.LoadingBaselineData;
-    if (inputSource === InputSource.XML && Object.keys(targetXMLData).length === 0)
+    if (importSource === ImportSource.XML && Object.keys(targetXMLData).length === 0)
       return TargetDataStatus.LoadingBaselineData;
     return TargetDataStatus.Ready;
-  }, [dataEntries.length, inputSource, tsvRows, targetXMLData]);
+  }, [dataEntries.length, importSource, tsvRows, targetXMLData]);
 
   const dataContext: TargetDataContextType = {
     alphabet: alphabetData,
