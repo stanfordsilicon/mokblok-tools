@@ -22,7 +22,7 @@ const InputSourceSelector: React.FC = () => {
       >
         {Object.values(InputSource).map((value) => (
           <option key={value} value={value}>
-            {uitext(`input.inputSource.${value}`, value)}
+            {uitext(`import.inputSource.${value}`, value)}
           </option>
         ))}
       </select>

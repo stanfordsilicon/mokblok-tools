@@ -1,13 +1,8 @@
-import { useCallback } from 'react';
-
-import { useTargetDataContext } from '@data/TargetDataProvider';
-import { Doc } from '@data/tsvdocs/Doc';
-
+import InputLanguageSelector from '@settings/selectors/TargetLanguageSelector';
 import { useURLParams } from '@settings/URLParams';
 
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
-import InputLanguageSelector from './InputLanguageSelector';
 import InputSource from './InputSource';
 import InputTSVSection from './InputTSVSection';
 import InputXMLSection from './InputXMLSection';
@@ -15,11 +10,6 @@ import InputXMLSection from './InputXMLSection';
 const InputBody = () => {
   const { uitext } = useInterfaceTranslation();
   const { inputSource, updateURLParams } = useURLParams();
-  const { inputTSVs } = useTargetDataContext();
-
-  const clearInputText = useCallback(() => {
-    Object.values(Doc).forEach((doc) => inputTSVs[doc]?.clear());
-  }, [inputTSVs]);
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '.5em' }}>
@@ -37,7 +27,7 @@ const InputBody = () => {
         ))}
       </div>
       <h3 style={{ margin: 0 }}>{uitext('import.language.title')}</h3>
-      <InputLanguageSelector clearInputText={clearInputText} />
+      <InputLanguageSelector />
       <h3 style={{ margin: 0 }}>{uitext('import.files.title')}</h3>
       {inputSource === InputSource.Blank && <>{uitext('import.files.None')}</>}
       {inputSource === InputSource.XML && <InputXMLSection />}

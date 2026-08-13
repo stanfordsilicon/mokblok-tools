@@ -31,7 +31,11 @@ const InputVote: React.FC<{
   return (
     <div>
       <div className="flex items-center justify-between">
-        <div style={{ width: inputWidth }}>
+        <div
+          className="truncate text-ellipsis"
+          title={translation ?? source}
+          style={{ width: inputWidth }}
+        >
           {vote === Vote.Reject ? (
             <InputEditText entry={entry} inputWidth={inputWidth} disabled={vote !== Vote.Reject} />
           ) : (

@@ -34,16 +34,20 @@ const InputXMLSection = () => {
           style={{ background: appearance === 'list' ? 'var(--color-button-selected)' : undefined }}
           onClick={() => setAppearance('list')}
         >
-          {uitext('input.asList')}
+          {uitext('import.asList')}
         </button>
         <button
           style={{ background: appearance === 'xml' ? 'var(--color-button-selected)' : undefined }}
           onClick={() => setAppearance('xml')}
         >
-          {uitext('input.asXML')}
+          {uitext('import.asXML')}
         </button>
       </div>
-      <textarea className="LargeTextArea" value={preview} readOnly />
+      <textarea
+        className="border w-full h-72 mt-1 text-xs p-2 tab-16 rounded-lg whitespace-nowrap"
+        value={preview}
+        readOnly
+      />
       <InputCheck />
     </>
   );

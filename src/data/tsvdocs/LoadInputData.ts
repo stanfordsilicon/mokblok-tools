@@ -66,7 +66,8 @@ function getColumnIndices(lines: string[]): Record<SubmissionField, number> | nu
       else if (cell.startsWith('translated') || cell.startsWith('translation'))
         indices[SubmissionField.Translated] ??= index;
       else if (cell.startsWith('french')) indices[SubmissionField.French] ??= index;
-      else if (cell.startsWith('notes')) indices[SubmissionField.Notes] ??= index;
+      else if (cell.startsWith('notes') || cell.startsWith('comment'))
+        indices[SubmissionField.Notes] ??= index;
     });
   });
   const undefinedFields = Object.values(SubmissionField).filter(

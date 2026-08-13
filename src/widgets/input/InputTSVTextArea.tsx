@@ -15,11 +15,11 @@ const InputTSVTextArea: React.FC<Props> = ({ doc }) => {
 
   return (
     <textarea
-      className="LargeTextArea"
+      className="border w-full h-72 mt-1 text-xs p-2 tab-16 rounded-lg whitespace-nowrap"
       placeholder={
         getDocFileType(doc) === 'tsv'
-          ? uitext('input.files.placeholderTsv')
-          : uitext('input.files.placeholderTxt')
+          ? uitext('import.files.placeholderTsv')
+          : uitext('import.files.placeholderTxt')
       }
       value={inputTSVs[doc]?.value ?? ''}
       onChange={(e) => inputTSVs[doc]?.set(e.target.value)}

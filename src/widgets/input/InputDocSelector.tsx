@@ -24,7 +24,7 @@ const InputDocSelector: React.FC<{
       {Object.values(Doc).map((doc) => (
         <Tab
           key={doc}
-          label={uitext(`input.files.${doc}`)}
+          label={uitext(`import.files.${doc}`)}
           option={doc}
           selected={curDoc}
           setSelected={setDoc}

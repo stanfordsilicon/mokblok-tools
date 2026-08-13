@@ -7,7 +7,7 @@ export type NumberingSystem = {
   rulesReference: string;
 };
 
-export function loadNumberingSystems(): Promise<Record<string, NumberingSystem>> {
+export async function loadNumberingSystems(): Promise<Record<string, NumberingSystem>> {
   return fetch('/numberingSystems.tsv')
     .then((response) => response.text())
     .then((text) => {
