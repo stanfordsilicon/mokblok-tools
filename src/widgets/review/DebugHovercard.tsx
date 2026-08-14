@@ -60,6 +60,7 @@ function DebugHovercard({ entry, sourceTranslation }: Props) {
         <DebugRow label="XPath" value={entry.xpath} />
         <DebugRow label="External ID" value={entry.ext_id} indent={1} />
         <DebugRow label="Index" value={entry.index} indent={1} />
+        <DebugRow label="Worksheet" value={entry.worksheet ?? 'Not in worksheets'} indent={1} />
       </dl>
     </aside>
   );

@@ -1,8 +1,11 @@
-import { CoverageLevel } from '@data/CoverageLevel';
+import { isEntryInCoverageLevel } from '@data/CoverageLevel';
 import { DataPage, DataSection } from '@data/DataSection';
 import type { DataEntry } from '@data/DataTypes';
 import { useSourceDataContext } from '@data/SourceDataProvider';
 import { useTargetDataContext, Vote } from '@data/TargetDataProvider';
+import { isEntryInWorksheetScope } from '@data/worksheets/Worksheets';
+
+import { useURLParams } from '@settings/URLParams';
 
 type GetDataEntriesForSection = (page?: DataPage, section?: DataSection) => DataEntry[];
 /**
@@ -26,13 +29,15 @@ export function useDataEntriesForSection(): GetDataEntriesForSection {
 export function useCompletionForSection(
   page?: DataPage,
   section?: DataSection,
-  coverageLevel?: CoverageLevel,
 ): { percent: number | undefined; overall: number; inCoverage: number; completed: number } {
+  const { coverageLevel, worksheets } = useURLParams();
   const { getTranslation } = useTargetDataContext();
   const getDataEntriesForSection = useDataEntriesForSection();
+
   const entries = getDataEntriesForSection(page, section);
   const entriesInCoverage = entries.filter(
-    (entry) => coverageLevel == null || (entry.level && entry.level <= coverageLevel),
+    (entry) =>
+      isEntryInCoverageLevel(entry, coverageLevel) && isEntryInWorksheetScope(entry, worksheets),
   );
   const completedEntries = entriesInCoverage.filter((entry) => getTranslation(entry, false));
 

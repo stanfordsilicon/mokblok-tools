@@ -10,7 +10,7 @@ export enum Worksheets {
   Any = 'any', // including items not covered by the original worksheets, which are marked as "5" in the input data
 }
 
-export function isEntryInScope(entry: DataEntry, scope: Worksheets): boolean {
+export function isEntryInWorksheetScope(entry: DataEntry, scope: Worksheets): boolean {
   if (scope === Worksheets.Any) return true;
   const availableWorksheets = getAvailableWorksheets(scope);
   return entry.worksheet != null && availableWorksheets.includes(entry.worksheet);

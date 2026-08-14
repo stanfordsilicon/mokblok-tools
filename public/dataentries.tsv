@@ -1,6 +1,6 @@
 Page	Section	Group	Field	Instance	Length	Variant	Example#	XPath	ExtID	English	English (pattern)	French	French (pattern)	Level	Var 1	Var 2	Pattern Format	Worksheet
 Core	Alphabet		characters	auxiliary			0	//ldml/characters/exemplarCharacters[@type="auxiliary"]		[áàăâåäãā æ ç éèĕêëē íìĭîïī ñ óòŏôöøō œ úùŭûüū ÿ]		[áåäãā ć ē íìī ĳ ñ óòöõø ř šſ ß úǔ]		Basic				5
-Core	Alphabet		characters	main			0	//ldml/characters/exemplarCharacters		[a b c d e f g h i j k l m n o p q r s t u v w x y z]		[aàâ æ b cç d eéèêë f g h iîï j k l m n oô œ p q r s t uùûü v w x yÿ z]		Basic				5
+Core	Alphabet		characters	main			0	//ldml/characters/exemplarCharacters		[a b c d e f g h i j k l m n o p q r s t u v w x y z]		[aàâ æ b cç d eéèêë f g h iîï j k l m n oô œ p q r s t uùûü v w x yÿ z]		Basic				1
 Core	Alphabet		characters	numbers			0	//ldml/characters/exemplarCharacters[@type="numbers"]		[\- ‑ , . % ‰ + 0 1 2 3 4 5 6 7 8 9]		[  \- ‑ , . % ‰ + − 0 1 2² 3³ 4 5 6 7 8 9 ᵈ ᵉ ʳ ˢ]		Basic				5
 Core	Alphabet		characters	punctuation			0	//ldml/characters/exemplarCharacters[@type="punctuation"]		[\- ‐‑ – — , ; \: ! ? . … '‘’ &quot;“” ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]		[\- ‐‑ – — , ; \: ! ? . … ’ "“” « » ( ) \[ \] § @ * / \& # † ‡]		Basic				5
 Core	Alphabet		characters	uppercase			0	//ldml/characters/exemplarCharacters[@type="index"]		[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z]		[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z]		Moderate				5
@@ -135,7 +135,7 @@ DateAndTime	Times		availableFormats	hm			1	//ldml/dates/calendars/calendar[@type
 DateAndTime	Times		availableFormats	Hms			2	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Hms"]	hr-5_XXX	16:14:24	HH:mm:ss	16:14:24	HH:mm:ss	Basic	1713914064000		datetime	1
 DateAndTime	Times		availableFormats	Hms			1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Hms"]	hr-6_XXX	8:04:41	HH:mm:ss	8:04:41	HH:mm:ss	Basic	1713884681000		datetime	1
 DateAndTime	Times		availableFormats	hmv			2	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="hmv"]	hr-7_XXX	11:30  PM GMT	h:mm a v	23:30 GMT	h:mm a v	Moderate	1713940200000		datetime	1
-DateAndTime	Times		availableFormats	hmv			1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="hmv"]		6:45 AM GMT	h:mm a v	6:45 AM GMT	h:mm a v	Moderate	1713879900000		datetime	1
+DateAndTime	Times		availableFormats	hmv			1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="hmv"]		6:45 AM GMT	h:mm a v	6:45 AM GMT	h:mm a v	Moderate	1713879900000		datetime	5
 DateAndTime	Dates		availableFormats	M			1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="M"]	dc-58_XXX	April	L	avril	L	Moderate	1713855600000		datetime	1
 DateAndTime	Dates		availableFormats	M			2	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="M"]	dc-59_XXX	April	L	avril	L	Moderate	1713855600000		datetime	1
 DateAndTime	Dates		availableFormats	Md			1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="Md"]	dc-62_XXX	4/23	M/d	23/04	dd/MM	Moderate	1713855600000		datetime	1
@@ -148,7 +148,7 @@ DateAndTime	Dates		availableFormats	y			1	//ldml/dates/calendars/calendar[@type=
 DateAndTime	Dates		availableFormats	yM			1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yM"]	dc-6_XXX	4/2024	M/y	4/2024	MM/y	Moderate	1713855600000		datetime	1
 DateAndTime	Dates		availableFormats	yMd			1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yMd"]	dc-9_XXX	4/23/2024	M/d/y	23/04/2024	dd/MM/y	Basic	1713855600000		datetime	1
 DateAndTime	Dates		availableFormats	yMd			2	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yMd"]	dc-68_XXX	4/23/2024	M/d/y	23/04/2024	dd/MM/y	Basic	1713855600000		datetime	1
-DateAndTime	Dates		availableFormats	yMM			1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yMM"]	dc-5_XXX	04/2024	MM/y	04/2024	MM/y		1713855600000		datetime	1
+DateAndTime	Dates		availableFormats	yMM			1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yMM"]	dc-5_XXX	04/2024	MM/y	04/2024	MM/y	Comprehensive	1713855600000		datetime	1
 DateAndTime	Dates		availableFormats	yMMM			1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yMMM"]	dc-4_XXX	Apr 2024	MMM y	avr. 2024	MMM y	Moderate	1713855600000		datetime	1
 DateAndTime	Dates		availableFormats	yMMMd			1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yMMMd"]	dc-8_XXX	Apr 23, 2024	MMM d, y	23 avr. 2024	d MMM y	Basic	1713855600000		datetime	1
 DateAndTime	Dates		availableFormats	yMMMEd			1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yMMMEd"]	dc-7_XXX	Tue, Apr 23, 2024	E, MMM d, y	mar. 23 avr. 2024	E d MMM y	Moderate	1713855600000		datetime	1
@@ -207,14 +207,14 @@ DateAndTime	Eras		G	0	w	variant	0	//ldml/dates/calendars/calendar[@type="gregori
 DateAndTime	Eras		G	0	a	variant	0	//ldml/dates/calendars/calendar[@type="gregorian"]/eras/eraAbbr/era[@type="0"][@alt="variant"]	er-2_XXX	BCE	BCE	AEC	AEC	Moderate				1
 DateAndTime	Eras		G	0	w		0	//ldml/dates/calendars/calendar[@type="gregorian"]/eras/eraNames/era[@type="0"]	er-3_XXX	Before Christ	Before Christ	avant Jésus-Christ	avant Jésus-Christ	Moderate				1
 DateAndTime	Eras		G	0	a		0	//ldml/dates/calendars/calendar[@type="gregorian"]/eras/eraAbbr/era[@type="0"]	er-4_XXX	BC	BC	av. J.-C.	av. J.-C.	Moderate				1
-DateAndTime	Eras		G	0	n	variant	0	//ldml/dates/calendars/calendar[@type="gregorian"]/eras/eraNarrow/era[@type="0"][@alt="variant"]		BCE	BCE	AEC	AEC	Comprehensive				1
-DateAndTime	Eras		G	0	n		0	//ldml/dates/calendars/calendar[@type="gregorian"]/eras/eraNarrow/era[@type="0"]		B	B	av. J.-C.	av. J.-C.	Comprehensive				1
+DateAndTime	Eras		G	0	n	variant	0	//ldml/dates/calendars/calendar[@type="gregorian"]/eras/eraNarrow/era[@type="0"][@alt="variant"]		BCE	BCE	AEC	AEC	Comprehensive				5
+DateAndTime	Eras		G	0	n		0	//ldml/dates/calendars/calendar[@type="gregorian"]/eras/eraNarrow/era[@type="0"]		B	B	av. J.-C.	av. J.-C.	Comprehensive				5
 DateAndTime	Eras		G	1	w	variant	0	//ldml/dates/calendars/calendar[@type="gregorian"]/eras/eraNames/era[@type="1"][@alt="variant"]	er-5_XXX	Common Era	Common Era	de l’ère commune	de l’ère commune	Moderate				1
 DateAndTime	Eras		G	1	a	variant	0	//ldml/dates/calendars/calendar[@type="gregorian"]/eras/eraAbbr/era[@type="1"][@alt="variant"]	er-6_XXX	CE	CE	EC	EC	Moderate				1
 DateAndTime	Eras		G	1	w		0	//ldml/dates/calendars/calendar[@type="gregorian"]/eras/eraNames/era[@type="1"]	er-7_XXX	Anno Domini	Anno Domini	après Jésus-Christ	après Jésus-Christ	Moderate				1
 DateAndTime	Eras		G	1	a		0	//ldml/dates/calendars/calendar[@type="gregorian"]/eras/eraAbbr/era[@type="1"]	er-8_XXX	AD	AD	ap. J.-C.	ap. J.-C.	Moderate				1
-DateAndTime	Eras		G	1	n	variant	0	//ldml/dates/calendars/calendar[@type="gregorian"]/eras/eraNarrow/era[@type="1"][@alt="variant"]		CE	CE	EC	EC	Comprehensive				1
-DateAndTime	Eras		G	1	n		0	//ldml/dates/calendars/calendar[@type="gregorian"]/eras/eraNarrow/era[@type="1"]		A	A	ap. J.-C.	ap. J.-C.	Comprehensive				1
+DateAndTime	Eras		G	1	n	variant	0	//ldml/dates/calendars/calendar[@type="gregorian"]/eras/eraNarrow/era[@type="1"][@alt="variant"]		CE	CE	EC	EC	Comprehensive				5
+DateAndTime	Eras		G	1	n		0	//ldml/dates/calendars/calendar[@type="gregorian"]/eras/eraNarrow/era[@type="1"]		A	A	ap. J.-C.	ap. J.-C.	Comprehensive				5
 DateAndTime	DateFields		h		w		0	//ldml/dates/fields/field[@type="hour"]/displayName	dw-16_XXX	hour	hour	heure	heure	Moderate				1
 DateAndTime	DateFields		h		n		0	//ldml/dates/fields/field[@type="hour-narrow"]/displayName	dw-17_XXX	hr	hr	h	h	Moderate				1
 DateAndTime	EraDates		intervalFormats	Gy		y	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Gy"]/greatestDifference[@id="y"]	dc-86_XXX	2024 – 2027 AD	y – y G	2024–2027 ap. J.-C.	y–y G	Moderate	1713855600000	1808463600000	datetime	1
@@ -748,7 +748,7 @@ Translations	NumberSystems		numbers	tibt			0	//ldml/localeDisplayNames/types/typ
 Translations	NumberSystems		numbers	vaii			0	//ldml/localeDisplayNames/types/type[@key="numbers"][@type="vaii"]		Vai Digits	Vai Digits	chiffres en vaï	chiffres en vaï	Moderate if Local				5
 Quantities	DirectionExamples		ordinalMinimalPairs	few			1	//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal="few"]	co3-3_XXX	Take the 3rd right		Prenez la 3e à droite.		Moderate	3		sub	1
 Quantities	DirectionExamples		ordinalMinimalPairs	one			1	//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal="one"]	co3-1_XXX	Take the 1st right	Take the {0}st right.	Prenez la 1re à droite.	Prenez la {0}re à droite.	Moderate	1		sub	1
-Quantities	DirectionExamples		ordinalMinimalPairs	other			1	//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal="other"]		Take the 10th right		Prenez la 10e à droite.	Prenez la {0}e à droite.	Moderate	10		sub	1
+Quantities	DirectionExamples		ordinalMinimalPairs	other			1	//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal="other"]		Take the 10th right		Prenez la 10e à droite.	Prenez la {0}e à droite.	Moderate	10		sub	5
 Quantities	DirectionExamples		ordinalMinimalPairs	two			1	//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal="two"]	co3-2_XXX	Take the 2nd right		Prenez la 2e à droite.		Moderate	2		sub	1
 Translations	Regions		territory	001			0	//ldml/localeDisplayNames/territories/territory[@type="001"]		world	world	Monde	Monde	Moderate				2_3
 Translations	Regions		territory	002			0	//ldml/localeDisplayNames/territories/territory[@type="002"]		Africa	Africa	Afrique	Afrique	Moderate				2_3

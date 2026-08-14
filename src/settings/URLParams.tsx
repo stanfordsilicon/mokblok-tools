@@ -19,7 +19,7 @@ const GLOBAL_DEFAULTS: Readonly<URLParams> = {
   interfaceLanguage: InterfaceLanguage.English,
   sourceLanguage: SourceLanguage.English,
   targetLanguage: 'mg',
-  coverageLevel: CoverageLevel.Moderate,
+  coverageLevel: CoverageLevel.Comprehensive,
   step: StepName.Intro,
   page: DataPage.DateAndTime,
   section: DataSection.DaysOfWeek,

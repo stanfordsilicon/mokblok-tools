@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
+import { isEntryInCoverageLevel } from '@data/CoverageLevel';
 import { DataPage, DataSection, getSectionsForPage } from '@data/DataSection';
+import { isEntryInWorksheetScope } from '@data/worksheets/Worksheets';
 
 import StepName from '@settings/StepName';
 import { useURLParams } from '@settings/URLParams';
@@ -45,7 +47,7 @@ const PageSectionSelector: React.FC = () => {
 const PageButtons: React.FC<{
   page: DataPage;
 }> = ({ page }) => {
-  const { page: selectedPage, coverageLevel } = useURLParams();
+  const { page: selectedPage, coverageLevel, worksheets } = useURLParams();
   const isExpanded = selectedPage === page || selectedPage === DataPage.All;
   const sections =
     page !== DataPage.All && page !== DataPage.FullTable ? getSectionsForPage(page) : [];
@@ -55,7 +57,8 @@ const PageButtons: React.FC<{
   const pendingSections = sections.filter((section) => {
     const dataEntries = getDataEntriesForSection(page, section);
     const coveredDataEntries = dataEntries.filter(
-      (entry) => entry.level && entry.level <= coverageLevel,
+      (entry) =>
+        isEntryInCoverageLevel(entry, coverageLevel) && isEntryInWorksheetScope(entry, worksheets),
     );
     return coveredDataEntries.length > 0;
   });
