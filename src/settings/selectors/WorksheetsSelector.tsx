@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Worksheets } from '@data/tsvdocs/Worksheets';
+import { Worksheets } from '@data/worksheets/Worksheets';
 
 import { useURLParams } from '@settings/URLParams';
 

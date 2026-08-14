@@ -64,12 +64,12 @@
             "title": "Import Files",
             "placeholderTsv": "Paste your TSV data here",
             "placeholderTxt": "Paste your TXT data here",
-            "Doc 1": "Doc 1 (Core Data, Date/Time Patterns)",
-            "Doc 2 part 1": "Doc 2 part 1 (Translations, Math)",
-            "Doc 2 part 2": "Doc 2 part 2 (Long Form Text)",
-            "Doc 2 part 3": "Doc 2 part 3 (Numbers, Geography, Currency & Emojis)",
-            "Doc 3": "Doc 3 (Emoji Guidance)",
-            "Doc 4": "Doc 4 (Digitally Disadvantaged Languages)",
+            "Worksheet 1": "Worksheet 1 (Core Data, Date/Time Patterns)",
+            "Worksheet 2 part 1": "Worksheet 2 part 1 (Translations, Math)",
+            "Worksheet 2 part 2": "Worksheet 2 part 2 (Long Form Text)",
+            "Worksheet 2 part 3": "Worksheet 2 part 3 (Numbers, Geography, Currency & Emojis)",
+            "Worksheet 3": "Worksheet 3 (Emoji Guidance)",
+            "Worksheet 4": "Worksheet 4 (Digitally Disadvantaged Languages)",
             "None": "There is nothing to submit"
         },
         "check": {

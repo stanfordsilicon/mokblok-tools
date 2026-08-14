@@ -64,12 +64,12 @@
             "title": "File di dati",
             "placeholderTsv": "Incolla qui i tuoi dati TSV",
             "placeholderTxt": "Incolla qui i tuoi dati TXT",
-            "Doc 1": "Doc 1 (Dati principali, formati di data e ora)",
-            "Doc 2 part 1": "Doc 2 parte 1 (Traduzioni, matematica)",
-            "Doc 2 part 2": "Doc 2 parte 2 (Testo lungo)",
-            "Doc 2 part 3": "Doc 2 parte 3 (Numeri, geografia, valute ed emoji)",
-            "Doc 3": "Doc 3 (Guida alle emoji)",
-            "Doc 4": "Doc 4 (Lingue digitalmente svantaggiate)",
+            "Worksheet 1": "Foglio 1 (Dati principali, formati di data e ora)",
+            "Worksheet 2 part 1": "Foglio 2 parte 1 (Traduzioni, matematica)",
+            "Worksheet 2 part 2": "Foglio 2 parte 2 (Testo lungo)",
+            "Worksheet 2 part 3": "Foglio 2 parte 3 (Numeri, geografia, valute ed emoji)",
+            "Worksheet 3": "Foglio 3 (Guida alle emoji)",
+            "Worksheet 4": "Foglio 4 (Lingue digitalmente svantaggiate)",
             "None": "Non c'è nulla da inviare"
         },
         "check": {

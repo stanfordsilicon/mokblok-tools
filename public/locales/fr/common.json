@@ -64,12 +64,12 @@
             "title": "Fichiers de données",
             "placeholderTsv": "Collez vos données TSV ici",
             "placeholderTxt": "Collez vos données TXT ici",
-            "Doc 1": "Doc 1 (Données de base, formats de date et d’heure)",
-            "Doc 2 part 1": "Doc 2 partie 1 (Traductions, mathématiques)",
-            "Doc 2 part 2": "Doc 2 partie 2 (Texte long)",
-            "Doc 2 part 3": "Doc 2 partie 3 (Nombres, géographie, devises et émojis)",
-            "Doc 3": "Doc 3 (Guide des émojis)",
-            "Doc 4": "Doc 4 (Langues numériquement défavorisées)",
+            "Worksheet 1": "Feuille 1 (Données de base, formats de date et d’heure)",
+            "Worksheet 2 part 1": "Feuille 2 partie 1 (Traductions, mathématiques)",
+            "Worksheet 2 part 2": "Feuille 2 partie 2 (Texte long)",
+            "Worksheet 2 part 3": "Feuille 2 partie 3 (Nombres, géographie, devises et émojis)",
+            "Worksheet 3": "Feuille 3 (Guide des émojis)",
+            "Worksheet 4": "Feuille 4 (Langues numériquement défavorisées)",
             "None": "Il n’y a rien à soumettre"
         },
         "check": {
@@ -79,7 +79,7 @@
         },
         "importSource": {
             "title": "Source de saisie", 
-            "label": "Précarica les données depuis",    
+            "label": "Préchargez les données depuis",
             "blank": "Feuille blanche",
             "tsv": "Fichiers TSV de Survey",
             "xml": "Fichiers XML de CLDR"

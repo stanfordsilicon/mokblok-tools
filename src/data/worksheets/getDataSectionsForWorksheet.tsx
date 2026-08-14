@@ -1,9 +1,10 @@
-import { DataSection } from '@data/DataSection';
-import { Doc } from '@data/tsvdocs/Doc';
-
 import enforceExhaustiveSwitch from '@shared/enforceExhaustiveSwitch';
 
-export function getTSVForDataSection(section: DataSection) {
+import { DataSection } from '../DataSection';
+
+import { Worksheet } from './Worksheet';
+
+export function getWorksheetForSection(section: DataSection) {
   switch (section) {
     case DataSection.DateFields:
     case DataSection.DayPeriods:
@@ -20,7 +21,7 @@ export function getTSVForDataSection(section: DataSection) {
     case DataSection.DirectionExamples:
     case DataSection.Quarters:
     case DataSection.Eras:
-      return Doc.Doc1;
+      return Worksheet.W1;
     // case DataSection.Countries:
     case DataSection.Plurals:
     case DataSection.LanguageNames:
@@ -28,16 +29,16 @@ export function getTSVForDataSection(section: DataSection) {
     case DataSection.Symbols:
     case DataSection.TechWords:
     case DataSection.Quotes:
-      return Doc.Doc2_1;
+      return Worksheet.W2_1;
     case DataSection.Paragraphs:
     case DataSection.CLDRTicket:
-      return Doc.Doc2_2;
+      return Worksheet.W2_2;
     // case DataSection.NumbersCompactLong:
     // case DataSection.Currencies:
     case DataSection.Emoji:
     case DataSection.Regions:
     case DataSection.Timezones:
-      return Doc.Doc2_3;
+      return Worksheet.W2_3;
     case DataSection.All:
     case DataSection.Alphabet:
     case DataSection.FullTable:
@@ -47,6 +48,6 @@ export function getTSVForDataSection(section: DataSection) {
   }
 }
 
-export function getDataSectionsForTSV(tsv: Doc) {
-  return Object.values(DataSection).filter((section) => getTSVForDataSection(section) === tsv);
+export function getDataSectionsForWorksheet(tsv: Worksheet) {
+  return Object.values(DataSection).filter((section) => getWorksheetForSection(section) === tsv);
 }

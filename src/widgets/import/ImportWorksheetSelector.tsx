@@ -1,19 +1,19 @@
 import { useTargetDataContext } from '@data/TargetDataProvider';
-import { Doc } from '@data/tsvdocs/Doc';
-import { getAvailableWorksheets } from '@data/tsvdocs/Worksheets';
+import { Worksheet } from '@data/worksheets/Worksheet';
+import { getAvailableWorksheets } from '@data/worksheets/Worksheets';
 
 import { useURLParams } from '@settings/URLParams';
 
 import Tab from '@shared/Tab';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
-const ImportTSVDocSelector: React.FC<{
-  curWorksheet: Doc;
-  setWorksheet: (doc: Doc) => void;
+const ImportWorksheetSelector: React.FC<{
+  curWorksheet: Worksheet;
+  setWorksheet: (doc: Worksheet) => void;
 }> = ({ curWorksheet, setWorksheet }) => {
   const { uitext } = useInterfaceTranslation();
   const { worksheets } = useURLParams();
-  const { inputTSVs } = useTargetDataContext();
+  const { importedWorksheets } = useTargetDataContext();
   const availableWorksheets = getAvailableWorksheets(worksheets);
 
   return (
@@ -27,7 +27,9 @@ const ImportTSVDocSelector: React.FC<{
           setSelected={setWorksheet}
           style={{
             backgroundColor:
-              inputTSVs[worksheet]?.value.length === 0 ? 'var(--color-level-2)' : undefined,
+              importedWorksheets[worksheet]?.value.length === 0
+                ? 'var(--color-level-2)'
+                : undefined,
           }}
         />
       ))}
@@ -35,4 +37,4 @@ const ImportTSVDocSelector: React.FC<{
   );
 };
 
-export default ImportTSVDocSelector;
+export default ImportWorksheetSelector;
