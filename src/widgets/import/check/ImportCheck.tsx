@@ -1,13 +1,12 @@
 import React, { useMemo } from 'react';
 
+import ImportSource from '@data/ImportSource';
 import { useTargetDataContext } from '@data/TargetDataProvider';
 import { Worksheet } from '@data/worksheets/Worksheet';
 
 import { useURLParams } from '@settings/URLParams';
 
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
-
-import ImportSource from '../ImportSource';
 
 import CheckRow from './CheckRow';
 import CheckSections from './CheckSections';

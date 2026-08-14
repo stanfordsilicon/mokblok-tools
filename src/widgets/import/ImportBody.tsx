@@ -1,10 +1,11 @@
+import ImportSource from '@data/ImportSource';
+
 import ImportSourceSelector from '@settings/selectors/ImportSourceSelector';
 import TargetLanguageSelector from '@settings/selectors/TargetLanguageSelector';
 import { useURLParams } from '@settings/URLParams';
 
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
-import ImportSource from './ImportSource';
 import ImportTSVSection from './ImportTSVSection';
 import ImportXMLSection from './ImportXMLSection';
 

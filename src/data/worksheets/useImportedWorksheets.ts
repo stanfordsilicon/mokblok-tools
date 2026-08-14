@@ -1,9 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
 
+import ImportSource from '@data/ImportSource';
+
 import TargetLanguageOptions from '@settings/selectors/TargetLanguageOptions';
 import { useURLParams } from '@settings/URLParams';
-
-import ImportSource from '@widgets/import/ImportSource';
 
 import { loadInputText, parseWorksheet1 } from './LoadInputData';
 import {
@@ -14,7 +14,7 @@ import {
 import useWorksheetState, { UseWorksheetState } from './useWorksheetState';
 import { Worksheet, getWorksheetFileSuffix, getWorksheetFileType } from './Worksheet';
 
-function useImportWorksheets() {
+function useImportedWorksheets() {
   const { targetLanguage, importSource } = useURLParams();
   const [extraText, setExtraText] = useState<string>('');
   const doc1State = useWorksheetState();
@@ -105,4 +105,4 @@ function useImportWorksheets() {
   return { importedWorksheets, tsvRows, extraText };
 }
 
-export default useImportWorksheets;
+export default useImportedWorksheets;

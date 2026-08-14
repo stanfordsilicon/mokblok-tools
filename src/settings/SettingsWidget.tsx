@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ImportSource from '@widgets/import/ImportSource';
+import ImportSource from '@data/ImportSource';
 
 import AdminModeSelector from './selectors/AdminModeSelector';
 import BackgroundStyleSelector from './selectors/BackgroundStyleSelector';

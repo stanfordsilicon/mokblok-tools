@@ -2,16 +2,15 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useState } 
 
 import { useURLParams } from '@settings/URLParams';
 
-import ImportSource from '@widgets/import/ImportSource';
-
 import { type AlphabetData, type DataEntry } from './DataTypes';
 import extractAlphabetFromXML from './extractAlphabetFromXML';
+import ImportSource from './ImportSource';
 import { loadCLDRXML } from './loadCLDRXML';
 import parseInheritance from './parseInheritance';
 import useTranslationFromSourceLanguage from './sourcedata/useTranslationFromSourceLanguage';
 import { useSourceDataContext } from './SourceDataProvider';
 import extractAlphabetDataFromTSV from './worksheets/ExtractAlphabetFromTSV';
-import useImportWorksheets from './worksheets/useImportWorksheets';
+import useImportedWorksheets from './worksheets/useImportedWorksheets';
 import { Worksheet } from './worksheets/Worksheet';
 
 import type { UseWorksheetState } from './worksheets/useWorksheetState';
@@ -76,7 +75,7 @@ const TargetDataProvider: React.FC<{
   const { findDataEntry, dataEntries } = useSourceDataContext();
   const getTranslationFromSourceLanguage = useTranslationFromSourceLanguage();
 
-  const { extraText, tsvRows, importedWorksheets } = useImportWorksheets();
+  const { extraText, tsvRows, importedWorksheets } = useImportedWorksheets();
   const [alphabetData, setAlphabetData] = useState<AlphabetData | undefined>(undefined);
   const [translations, setTranslations] = useState<Record<number, TranslationInfo>>({});
   const [targetXMLData, setTargetXMLData] = useState<Record<string, string>>({});

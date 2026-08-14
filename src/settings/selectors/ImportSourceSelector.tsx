@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { useURLParams } from '@settings/URLParams';
+import ImportSource from '@data/ImportSource';
 
-import ImportSource from '@widgets/import/ImportSource';
+import { useURLParams } from '@settings/URLParams';
 
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 

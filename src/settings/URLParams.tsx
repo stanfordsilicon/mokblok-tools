@@ -6,9 +6,8 @@ import i18n from '@i18n';
 import { CoverageLevel, parseCoverageLevel } from '@data/CoverageLevel';
 import { DataPage, DataSection } from '@data/DataSection';
 import { InterfaceLanguage, SourceLanguage } from '@data/DataTypes';
+import ImportSource from '@data/ImportSource';
 import { Worksheets } from '@data/worksheets/Worksheets';
-
-import ImportSource from '@widgets/import/ImportSource';
 
 import enforceExhaustiveSwitch from '@shared/enforceExhaustiveSwitch';
 
