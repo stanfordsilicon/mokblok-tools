@@ -7,7 +7,7 @@ type CompletionPieProps = {
 
   // Fraction can be a single number (0-1) that will show a slice colored by the hue of the fraction (0 = red, 1 = green)
   //
-  // Alternatively, you can specific multiple slices by passing an array of numbers.
+  // Alternatively, you can specify multiple slices by passing an array of numbers.
   // 2 numbers will show 2 slices that are colored red & green
   // 3+ numbers will show evenly colored hues from red to green
   // 5+ numbers will use the --color-level-* colors for the slices (red, orange, yellow, green, cyan, blue, purple)

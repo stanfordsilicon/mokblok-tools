@@ -99,7 +99,7 @@ const SectionRow: React.FC<SectionRowProps> = ({ page, section, isVisible = true
     : selectedPage === page || (selectedPage === DataPage.All && page !== DataPage.FullTable);
   const contentClassName =
     (section ? 'overflow-hidden transition-all duration-300 ease-in-out' : '') +
-    (section && (isVisible ? ' max-h-20 opacity-100' : ' max-h-0 opacity-0'));
+    (section ? (isVisible ? ' max-h-20 opacity-100' : ' max-h-0 opacity-0') : '');
 
   return (
     <tr key={section}>
@@ -118,6 +118,8 @@ const SectionRow: React.FC<SectionRowProps> = ({ page, section, isVisible = true
               (isSelected ? ' bg-(--silicon-white)' : ' bg-(--silicon-white)/50') +
               (section ? ' ml-12' : '')
             }
+            role="button"
+            tabIndex={0}
             onClick={() => updateURLParams({ page, section: section ?? DataSection.All })}
           >
             <PageSectionLabel page={page} section={section} isExpanded={isSelected} />

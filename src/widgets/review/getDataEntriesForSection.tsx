@@ -40,9 +40,9 @@ export function useCompletionForSection(
     overall: entries.length,
     inCoverage: entriesInCoverage.length,
     completed: completedEntries.length,
-    percent: !entries.length
+    percent: !entriesInCoverage.length
       ? undefined
-      : (completedEntries.length * 100.0) / (entriesInCoverage.length || 1),
+      : (completedEntries.length * 100.0) / entriesInCoverage.length,
   };
 }
 

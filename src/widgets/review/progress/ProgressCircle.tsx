@@ -17,7 +17,7 @@ const ProgressCircle: React.FC<Props> = ({ page, section }) => {
   const { uitext } = useInterfaceTranslation();
   const { coverageLevel } = useURLParams();
   const completion = useCompletionForSection(page, section, coverageLevel);
-  if (completion.overall === undefined) return <div />;
+  if (completion.overall === 0) return <div />;
   const ratioComplete = uitext('review.progress.ratioComplete', {
     completed: completion.completed,
     inCoverage: completion.inCoverage,
