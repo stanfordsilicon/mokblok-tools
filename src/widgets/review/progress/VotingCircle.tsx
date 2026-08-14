@@ -12,12 +12,11 @@ type Props = {
 const VotingCircle: React.FC<Props> = ({ page, section }) => {
   const voteCounts = useVotingCompletionForSection(page, section);
 
-  if (voteCounts.total == 0) return <div />;
+  if (voteCounts.total === 0) return <div />;
   return (
     <PieChart
       label={`${((voteCounts.accepted / voteCounts.total) * 100).toFixed(0)}%`}
-      primaryFraction={voteCounts.accepted / voteCounts.total}
-      warningFraction={voteCounts.rejected / voteCounts.total}
+      fraction={[voteCounts.accepted / voteCounts.total, voteCounts.rejected / voteCounts.total]}
     />
   );
 };

@@ -12,7 +12,7 @@ type Props = {
 const ProgressCircle: React.FC<Props> = ({ page, section }) => {
   const completion = useCompletionForSection(page, section);
   if (completion === undefined) return <div />;
-  return <PieChart label={`${completion.toFixed(0)}%`} primaryFraction={completion / 100} />;
+  return <PieChart label={`${completion.toFixed(0)}%`} fraction={completion / 100} />;
 };
 
 export default ProgressCircle;

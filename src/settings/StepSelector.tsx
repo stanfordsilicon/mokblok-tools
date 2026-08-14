@@ -5,13 +5,14 @@ import { useURLParams } from './URLParams';
 
 const StepSelector: React.FC = () => {
   const { uitext } = useInterfaceTranslation();
+  const { admin } = useURLParams();
 
   return (
-    <div className="flex flex-wrap gap-1 rounded-[1.5rem]  ">
-      <StepButton label={uitext('nav.import')} targetStep={StepName.Import} />
+    <div className={`flex flex-wrap ${admin ? 'gap-1' : 'gap-4'} rounded-[1.5rem]`}>
+      {admin && <StepButton label={uitext('nav.import')} targetStep={StepName.Import} />}
       <StepButton label={uitext('nav.edit')} targetStep={StepName.Edit} />
       <StepButton label={uitext('nav.vote')} targetStep={StepName.Vote} />
-      <StepButton label={uitext('nav.export')} targetStep={StepName.Export} />
+      {admin && <StepButton label={uitext('nav.export')} targetStep={StepName.Export} />}
     </div>
   );
 };

@@ -46,16 +46,16 @@ const Sidebar: React.FC = () => {
         <AccountBadge />
       </div>
 
-      {admin && (
-        <div className={`${isOpen ? 'block' : 'hidden'} lg:block`}>
-          <StepSelector />
-        </div>
-      )}
+      <div className={`${isOpen ? 'block' : 'hidden'} lg:block`}>
+        <StepSelector />
+      </div>
+
       <div
         className={`${isOpen ? 'block' : 'hidden'} lg:flex lg:flex-1 overflow-auto rounded-xl lg:rounded-3xl border border-(--silicon-line) bg-white p-4 shadow-sm h-min`}
       >
         <SidebarContents />
       </div>
+
       {admin && (
         <div
           className={`${isOpen ? 'block' : 'hidden'} lg:block rounded-[1.5rem] border border-(--silicon-line) bg-white px-4 py-3 shadow-sm`}
