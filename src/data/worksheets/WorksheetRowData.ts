@@ -1,4 +1,4 @@
-export type TSVRowData = {
+export type WorksheetRowData = {
   english: string;
   french?: string;
   translated: string;

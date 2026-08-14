@@ -1,29 +1,28 @@
 import React, { useMemo } from 'react';
 
+import ImportSource from '@data/ImportSource';
 import { useTargetDataContext } from '@data/TargetDataProvider';
-import { Doc } from '@data/tsvdocs/Doc';
+import { Worksheet } from '@data/worksheets/Worksheet';
 
 import { useURLParams } from '@settings/URLParams';
 
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
-import ImportSource from '../ImportSource';
-
 import CheckRow from './CheckRow';
 import CheckSections from './CheckSections';
 
 type Props = {
-  doc?: Doc;
+  worksheet?: Worksheet;
 };
 
-const InputCheck: React.FC<Props> = ({ doc }) => {
+const InputCheck: React.FC<Props> = ({ worksheet }) => {
   const { uitext } = useInterfaceTranslation();
   const { importSource } = useURLParams();
-  const { inputTSVs, targetXMLData } = useTargetDataContext();
+  const { importedWorksheets, targetXMLData } = useTargetDataContext();
 
   const lines = useMemo(() => {
-    if (importSource === ImportSource.TSV && doc) {
-      return (inputTSVs[doc]?.value ?? '')
+    if (importSource === ImportSource.TSV && worksheet) {
+      return (importedWorksheets[worksheet]?.value ?? '')
         .split('\n')
         .map((l) => l.trim())
         .filter(Boolean); // Exclude empty lines for counting
@@ -32,14 +31,14 @@ const InputCheck: React.FC<Props> = ({ doc }) => {
       return Object.values(targetXMLData);
     }
     return [];
-  }, [inputTSVs, doc, importSource, targetXMLData]);
+  }, [importedWorksheets, worksheet, importSource, targetXMLData]);
   return (
     <table style={{ width: 'fit-content' }}>
       <tbody>
         <CheckRow
           title={uitext('import.check.Total rows')}
           count={lines.length}
-          denominator={doc ? getExpectedNumberOfLines(doc) : undefined}
+          denominator={worksheet ? getExpectedNumberOfLines(worksheet) : undefined}
         />
         <CheckRow
           title={uitext('import.check.Total words')}
@@ -49,25 +48,25 @@ const InputCheck: React.FC<Props> = ({ doc }) => {
           title={uitext('import.check.Total characters')}
           count={lines.reduce((sum, line) => sum + line.length, 0)}
         />
-        <CheckSections doc={doc} />
+        <CheckSections worksheet={worksheet} />
       </tbody>
     </table>
   );
 };
 
-function getExpectedNumberOfLines(doc: Doc): number {
+function getExpectedNumberOfLines(doc: Worksheet): number {
   switch (doc) {
-    case Doc.Doc1:
+    case Worksheet.W1:
       return 352;
-    case Doc.Doc2_1:
+    case Worksheet.W2_1:
       return 226;
-    case Doc.Doc2_2:
+    case Worksheet.W2_2:
       return 82;
-    case Doc.Doc2_3:
+    case Worksheet.W2_3:
       return 858;
-    case Doc.Doc3:
+    case Worksheet.W3:
       return 65;
-    case Doc.Doc4:
+    case Worksheet.W4:
       return 11;
   }
 }

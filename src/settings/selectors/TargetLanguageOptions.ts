@@ -1,4 +1,4 @@
-import ImportSource from '@widgets/import/ImportSource';
+import ImportSource from '@data/ImportSource';
 
 // These languages have starting data that can be loaded with a click.
 const TSVLanguages = [

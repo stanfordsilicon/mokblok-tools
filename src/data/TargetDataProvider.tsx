@@ -2,21 +2,19 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useState } 
 
 import { useURLParams } from '@settings/URLParams';
 
-import ImportSource from '@widgets/import/ImportSource';
-
-import useInputTSVs from '../widgets/import/useImportTSVs';
-
 import { type AlphabetData, type DataEntry } from './DataTypes';
 import extractAlphabetFromXML from './extractAlphabetFromXML';
+import ImportSource from './ImportSource';
 import { loadCLDRXML } from './loadCLDRXML';
 import parseInheritance from './parseInheritance';
 import useTranslationFromSourceLanguage from './sourcedata/useTranslationFromSourceLanguage';
 import { useSourceDataContext } from './SourceDataProvider';
-import { Doc } from './tsvdocs/Doc';
-import extractAlphabetDataFromTSV from './tsvdocs/ExtractAlphabetFromTSV';
+import extractAlphabetDataFromTSV from './worksheets/ExtractAlphabetFromTSV';
+import useImportedWorksheets from './worksheets/useImportedWorksheets';
+import { Worksheet } from './worksheets/Worksheet';
 
-import type { TSVRowData } from './tsvdocs/TSVRowData';
-import type { UseTSVState } from './tsvdocs/useTSVState';
+import type { UseWorksheetState } from './worksheets/useWorksheetState';
+import type { WorksheetRowData } from './worksheets/WorksheetRowData';
 
 export enum TargetDataStatus {
   WaitingOnSourceData,
@@ -41,7 +39,7 @@ type TranslationInfo = {
 
 export type TargetDataContextType = {
   alphabet?: AlphabetData;
-  inputTSVs: Partial<Record<Doc, UseTSVState>>;
+  importedWorksheets: Partial<Record<Worksheet, UseWorksheetState>>;
   getTranslation(entry: DataEntry | undefined, fallback?: boolean): string;
   getTranslationInfo(entry: DataEntry | undefined): TranslationInfo;
   translations: Record<number, TranslationInfo>;
@@ -51,7 +49,7 @@ export type TargetDataContextType = {
 };
 
 export const TargetDataContext = createContext<TargetDataContextType>({
-  inputTSVs: {},
+  importedWorksheets: {},
   alphabet: undefined,
   getTranslation: () => '',
   getTranslationInfo: () => ({ index: -1, source: '', vote: Vote.Unknown }),
@@ -77,7 +75,7 @@ const TargetDataProvider: React.FC<{
   const { findDataEntry, dataEntries } = useSourceDataContext();
   const getTranslationFromSourceLanguage = useTranslationFromSourceLanguage();
 
-  const { extraText, tsvRows, inputTSVs } = useInputTSVs();
+  const { extraText, tsvRows, importedWorksheets } = useImportedWorksheets();
   const [alphabetData, setAlphabetData] = useState<AlphabetData | undefined>(undefined);
   const [translations, setTranslations] = useState<Record<number, TranslationInfo>>({});
   const [targetXMLData, setTargetXMLData] = useState<Record<string, string>>({});
@@ -126,7 +124,7 @@ const TargetDataProvider: React.FC<{
     );
   }, [dataEntries, getTranslationFromSourceLanguage]);
   const fillTranslationsFromTSV = useCallback(
-    (rows: TSVRowData[]) => {
+    (rows: WorksheetRowData[]) => {
       const translationsByIndex = makeBaselineTranslations();
       if (!translationsByIndex) return;
       // Add the translations from the TSV
@@ -188,7 +186,7 @@ const TargetDataProvider: React.FC<{
 
   const dataContext: TargetDataContextType = {
     alphabet: alphabetData,
-    inputTSVs,
+    importedWorksheets,
     getTranslation,
     getTranslationInfo,
     editTranslation,

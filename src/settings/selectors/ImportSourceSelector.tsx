@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { useURLParams } from '@settings/URLParams';
+import ImportSource from '@data/ImportSource';
 
-import ImportSource from '@widgets/import/ImportSource';
+import { useURLParams } from '@settings/URLParams';
 
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
@@ -22,7 +22,7 @@ const ImportSourceSelector: React.FC<Props> = ({ display }) => {
       }
     >
       <span className={display === 'dropdown' ? 'font-bold' : ''}>
-        {uitext('import.importSource.label')}:
+        {uitext('import.importSource.label')}
       </span>
 
       {display === 'buttons' &&

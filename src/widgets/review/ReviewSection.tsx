@@ -1,7 +1,5 @@
 import { DataPage, DataSection } from '@data/DataSection';
 
-import { useURLParams } from '@settings/URLParams';
-
 import ErrorBoundary from '@shared/ErrorBoundary';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
@@ -38,8 +36,8 @@ import TimezonesReviewTable from './tables/TimezonesReviewTable';
 
 function ReviewSection({ dataSection }: { dataSection: DataSection }) {
   const { uitext } = useInterfaceTranslation();
-  const { coverageLevel } = useURLParams();
-  const completion = useCompletionForSection(DataPage.All, dataSection, coverageLevel);
+  const completion = useCompletionForSection(DataPage.All, dataSection);
+
   const ratioComplete = uitext('review.progress.ratioComplete', {
     completed: completion.completed,
     inCoverage: completion.inCoverage,

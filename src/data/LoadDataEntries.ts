@@ -2,6 +2,7 @@
 
 import { parseCoverageLevel } from './CoverageLevel';
 import { parsePatternFormat } from './PatternFormat';
+import { parseWorksheetName } from './worksheets/Worksheet';
 
 import type { DataPage, DataSection } from './DataSection';
 import type { DataEntry } from './DataTypes';
@@ -42,6 +43,7 @@ export async function loadDataEntries(): Promise<DataEntry[] | void> {
           var2: Number(cells[16].replaceAll(',', '')) || undefined,
           patternFormat: parsePatternFormat(cells[17]),
           index,
+          worksheet: parseWorksheetName(cells[18]),
         } as DataEntry;
       });
     })

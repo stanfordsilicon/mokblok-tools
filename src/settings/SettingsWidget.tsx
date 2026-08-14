@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ImportSource from '@widgets/import/ImportSource';
+import ImportSource from '@data/ImportSource';
 
 import AdminModeSelector from './selectors/AdminModeSelector';
 import BackgroundStyleSelector from './selectors/BackgroundStyleSelector';
@@ -11,6 +11,7 @@ import InterfaceLanguageSelector from './selectors/InterfaceLanguageSelector';
 import SourceLanguageSelector from './selectors/SourceLanguageSelector';
 import TargetLanguageCodeInput from './selectors/TargetLanguageCodeInput';
 import TargetLanguageDropdown from './selectors/TargetLanguageDropdown';
+import WorksheetsSelector from './selectors/WorksheetsSelector';
 import { useURLParams } from './URLParams';
 
 const SettingsWidget: React.FC = () => {
@@ -25,6 +26,7 @@ const SettingsWidget: React.FC = () => {
         <TargetLanguageCodeInput size="short" />
       )}
       <ImportSourceSelector display="dropdown" />
+      <WorksheetsSelector />
       <CoverageLevelSelector />
       <BackgroundStyleSelector />
       <ExampleDateSelector />

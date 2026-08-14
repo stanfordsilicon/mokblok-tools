@@ -1,3 +1,5 @@
+import { DataEntry } from './DataTypes';
+
 export enum CoverageLevel {
   Unknown = 0,
   Core = 1,
@@ -79,4 +81,15 @@ export function parseCoverageLevel(level: string): CoverageLevel {
     default:
       return CoverageLevel.Unknown;
   }
+}
+
+export function isEntryInCoverageLevel(entry: DataEntry, coverageLevel: CoverageLevel): boolean {
+  // Comprehensive includes all levels
+  if (coverageLevel === CoverageLevel.Comprehensive) return true;
+
+  // If the entry has no level, only show if the coverage level filter is comprehensive or explicitly unknown
+  if (entry.level === CoverageLevel.Unknown) return coverageLevel === CoverageLevel.Unknown;
+
+  // Otherwise the entry need to be at or below the selected coverage level
+  return entry.level <= coverageLevel;
 }

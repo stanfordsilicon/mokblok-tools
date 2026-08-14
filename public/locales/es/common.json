@@ -65,12 +65,12 @@
             "title": "Archivos de datos",
             "placeholderTsv": "Pega aquí tus datos TSV",
             "placeholderTxt": "Pega aquí tus datos TXT",
-            "Doc 1": "Doc 1 (Datos principales, formatos de fecha y hora)",
-            "Doc 2 part 1": "Doc 2 parte 1 (Traducciones, matemáticas)",
-            "Doc 2 part 2": "Doc 2 parte 2 (Texto largo)",
-            "Doc 2 part 3": "Doc 2 parte 3 (Números, geografía, moneda y emojis)",
-            "Doc 3": "Doc 3 (Guía de emojis)",
-            "Doc 4": "Doc 4 (Idiomas digitalmente desfavorecidos)",
+            "Worksheet 1": "Hoja 1 (Datos principales, formatos de fecha y hora)",
+            "Worksheet 2 part 1": "Hoja 2 parte 1 (Traducciones, matemáticas)",
+            "Worksheet 2 part 2": "Hoja 2 parte 2 (Texto largo)",
+            "Worksheet 2 part 3": "Hoja 2 parte 3 (Números, geografía, moneda y emojis)",
+            "Worksheet 3": "Hoja 3 (Guía de emojis)",
+            "Worksheet 4": "Hoja 4 (Idiomas digitalmente desfavorecidos)",
             "None": "No hay nada que enviar"
         },
         "check": {

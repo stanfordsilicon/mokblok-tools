@@ -1,34 +1,38 @@
 import React, { useCallback } from 'react';
 
-import { useDataContext } from '@data/DataContext';
 import { DataSection } from '@data/DataSection';
-import { Doc } from '@data/tsvdocs/Doc';
+import { DataEntry } from '@data/DataTypes';
+import { useSourceDataContext } from '@data/SourceDataProvider';
+import { useTargetDataContext } from '@data/TargetDataProvider';
+import { getDataSectionsForWorksheet } from '@data/worksheets/getDataSectionsForWorksheet';
+import { Worksheet } from '@data/worksheets/Worksheet';
 
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
-
-import { getDataSectionsForTSV } from '../getDataSectionsForTSV';
 
 import CheckRow from './CheckRow';
 
 type Props = {
-  doc?: Doc;
+  worksheet?: Worksheet;
 };
 
-const CheckSections: React.FC<Props> = ({ doc }) => {
+const CheckSections: React.FC<Props> = ({ worksheet }) => {
   const { uitext } = useInterfaceTranslation();
-  const { findDataEntries, getTranslation } = useDataContext();
+  const { findDataEntries } = useSourceDataContext();
+  const { getTranslation } = useTargetDataContext();
   const countTranslations = useCallback(
     (section: DataSection) => {
-      const dataEntries = findDataEntries({ section });
+      const filter: Partial<DataEntry> = { section };
+      if (worksheet) filter.worksheet = worksheet;
+      const dataEntries = findDataEntries(filter);
       return dataEntries.reduce((count, entry) => {
         const translation = getTranslation(entry, false).trim();
         return count + (translation ? 1 : 0);
       }, 0);
     },
-    [getTranslation, findDataEntries],
+    [getTranslation, findDataEntries, worksheet],
   );
-  const sections = doc
-    ? getDataSectionsForTSV(doc)
+  const sections = worksheet
+    ? getDataSectionsForWorksheet(worksheet)
     : Object.values(DataSection).filter((section) => SECTION_ROWS[section] > 0);
 
   return sections.map((section) => (

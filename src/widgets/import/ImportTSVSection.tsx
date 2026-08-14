@@ -1,19 +1,24 @@
 import { useState } from 'react';
 
-import { Doc } from '@data/tsvdocs/Doc';
+import { Worksheet } from '@data/worksheets/Worksheet';
+
+import WorksheetsSelector from '@settings/selectors/WorksheetsSelector';
 
 import ImportCheck from './check/ImportCheck';
-import ImportTSVDocSelector from './ImportTSVDocSelector';
 import InputTSVTextArea from './ImportTSVTextArea';
+import ImportWorksheetSelector from './ImportWorksheetSelector';
 
 const ImportTSVSection = () => {
-  const [currentDoc, setCurrentDoc] = useState<Doc>(Doc.Doc1);
+  const [currentWorksheet, setCurrentWorksheet] = useState<Worksheet>(Worksheet.W1);
 
   return (
     <>
-      <ImportTSVDocSelector curDoc={currentDoc} setDoc={setCurrentDoc} />
-      <InputTSVTextArea doc={currentDoc} />
-      <ImportCheck doc={currentDoc} />
+      <div className="w-fit">
+        <WorksheetsSelector />
+      </div>
+      <ImportWorksheetSelector curWorksheet={currentWorksheet} setWorksheet={setCurrentWorksheet} />
+      <InputTSVTextArea worksheet={currentWorksheet} />
+      <ImportCheck worksheet={currentWorksheet} />
     </>
   );
 };
