@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { DataPage, DataSection, getSectionsForPage } from '@data/DataSection';
 
@@ -47,7 +47,8 @@ const PageButtons: React.FC<{
 }> = ({ page }) => {
   const { page: selectedPage, coverageLevel } = useURLParams();
   const isExpanded = selectedPage === page || selectedPage === DataPage.All;
-  const sections = getSectionsForPage(page);
+  const sections =
+    page !== DataPage.All && page !== DataPage.FullTable ? getSectionsForPage(page) : [];
 
   // Confirm the sections that have data to be submitted at the current coverage level.
   const getDataEntriesForSection = useDataEntriesForSection();
@@ -59,49 +60,88 @@ const PageButtons: React.FC<{
     return coveredDataEntries.length > 0;
   });
 
-  if (pendingSections.length === 0) return null;
+  if (page !== DataPage.All && page !== DataPage.FullTable && pendingSections.length === 0)
+    return null;
 
   return (
     <>
       <SectionRow page={page} />
       {page !== DataPage.All &&
         page !== DataPage.FullTable &&
-        isExpanded &&
-        pendingSections.map((section) => (
-          <SectionRow key={section} page={page} section={section} />
+        sections.map((section) => (
+          <SectionRow
+            key={section}
+            page={page}
+            section={section}
+            isVisible={isExpanded && pendingSections.includes(section)}
+          />
         ))}
     </>
   );
 };
 
-type SectionRowProps = { page: DataPage; section?: DataSection };
+type SectionRowProps = {
+  page: DataPage;
+  section?: DataSection;
+  isVisible?: boolean;
+};
 
-const SectionRow: React.FC<SectionRowProps> = ({ page, section }) => {
+const SectionRow: React.FC<SectionRowProps> = ({ page, section, isVisible = true }) => {
   const { section: selectedSection, page: selectedPage, updateURLParams, step } = useURLParams();
+  const [isRendered, setIsRendered] = useState(isVisible);
+
+  useEffect(() => {
+    if (isVisible) setIsRendered(true);
+  }, [isVisible]);
+
   const isSelected = section
     ? selectedSection === section || selectedSection === DataSection.All
     : selectedPage === page || (selectedPage === DataPage.All && page !== DataPage.FullTable);
+  const contentClassName =
+    (section ? 'overflow-hidden transition-all duration-300 ease-in-out' : '') +
+    (section && (isVisible ? ' max-h-20 opacity-100' : ' max-h-0 opacity-0'));
 
   return (
     <tr key={section}>
       <td>
         <div
-          className={
-            'px-4 py-2 my-1 text-sm text-wrap border-none rounded-lg hover:bg-(--silicon-line) cursor-pointer' +
-            (isSelected ? ' bg-(--silicon-white)' : '') +
-            (section ? ' ml-12' : '')
-          }
-          onClick={() => updateURLParams({ page, section: section ?? DataSection.All })}
+          className={contentClassName}
+          hidden={section ? !isRendered : undefined}
+          aria-hidden={section ? !isRendered : undefined}
+          onTransitionEnd={() => {
+            if (section && !isVisible) setIsRendered(false);
+          }}
         >
-          <PageSectionLabel page={page} section={section} isExpanded={isSelected} />
+          <div
+            className={
+              'px-4 py-2 my-1 text-sm h-min text-wrap rounded-lg hover:bg-(--silicon-line) border border-(--silicon-line) cursor-pointer' +
+              (isSelected ? ' bg-(--silicon-white)' : ' bg-(--silicon-white)/50') +
+              (section ? ' ml-12' : '')
+            }
+            onClick={() => updateURLParams({ page, section: section ?? DataSection.All })}
+          >
+            <PageSectionLabel page={page} section={section} isExpanded={isSelected} />
+          </div>
         </div>
       </td>
       <td>
-        <ProgressCircle page={page} section={section} />
+        <div
+          className={contentClassName}
+          hidden={section ? !isRendered : undefined}
+          aria-hidden={section ? !isRendered : undefined}
+        >
+          <ProgressCircle page={page} section={section} />
+        </div>
       </td>
       {step === StepName.Vote && (
         <td>
-          <VotingCircle page={page} section={section} />
+          <div
+            className={contentClassName}
+            hidden={section ? !isRendered : undefined}
+            aria-hidden={section ? !isRendered : undefined}
+          >
+            <VotingCircle page={page} section={section} />
+          </div>
         </td>
       )}
     </tr>
