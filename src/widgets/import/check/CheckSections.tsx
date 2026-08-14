@@ -1,7 +1,9 @@
 import React, { useCallback } from 'react';
 
-import { useDataContext } from '@data/DataContext';
 import { DataSection } from '@data/DataSection';
+import { DataEntry } from '@data/DataTypes';
+import { useSourceDataContext } from '@data/SourceDataProvider';
+import { useTargetDataContext } from '@data/TargetDataProvider';
 import { Doc } from '@data/tsvdocs/Doc';
 
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
@@ -16,16 +18,19 @@ type Props = {
 
 const CheckSections: React.FC<Props> = ({ doc }) => {
   const { uitext } = useInterfaceTranslation();
-  const { findDataEntries, getTranslation } = useDataContext();
+  const { findDataEntries } = useSourceDataContext();
+  const { getTranslation } = useTargetDataContext();
   const countTranslations = useCallback(
     (section: DataSection) => {
-      const dataEntries = findDataEntries({ section });
+      const filter: Partial<DataEntry> = { section };
+      if (doc) filter.doc = doc;
+      const dataEntries = findDataEntries(filter);
       return dataEntries.reduce((count, entry) => {
         const translation = getTranslation(entry, false).trim();
         return count + (translation ? 1 : 0);
       }, 0);
     },
-    [getTranslation, findDataEntries],
+    [getTranslation, findDataEntries, doc],
   );
   const sections = doc
     ? getDataSectionsForTSV(doc)

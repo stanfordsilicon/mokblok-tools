@@ -1,6 +1,7 @@
 import type { CoverageLevel } from './CoverageLevel';
 import type { DataPage, DataSection } from './DataSection';
 import type { PatternFormat } from './PatternFormat';
+import type { Doc } from './tsvdocs/Doc';
 
 export type DataEntry = {
   page: DataPage;
@@ -22,6 +23,7 @@ export type DataEntry = {
   var2?: number;
   patternFormat: PatternFormat;
   index: number;
+  doc?: Doc;
 };
 
 export enum SubmissionField {

@@ -85,7 +85,15 @@
             "xml": "CLDR XML Files"
         },
         "asList": "as List",
-        "asXML": "as XML"
+        "asXML": "as XML",
+        "worksheets":{
+            "title": "Worksheets",
+            "label": "From worksheets",
+            "w1only": "Only worksheet 1",
+            "w1and2": "Worksheet 1 + worksheet 2 (parts 1-3)",
+            "w1to4": "All standard worksheets (1-4)",
+            "any": "All worksheets (1-4) + any extra translations"
+        }
     },
     "edit": {
         "title": "Edit"

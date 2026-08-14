@@ -6,6 +6,7 @@ import i18n from '@i18n';
 import { CoverageLevel, parseCoverageLevel } from '@data/CoverageLevel';
 import { DataPage, DataSection } from '@data/DataSection';
 import { InterfaceLanguage, SourceLanguage } from '@data/DataTypes';
+import { Worksheets } from '@data/tsvdocs/Worksheets';
 
 import ImportSource from '@widgets/import/ImportSource';
 
@@ -26,6 +27,7 @@ const GLOBAL_DEFAULTS: Readonly<URLParams> = {
   dateExample: 0,
   admin: false,
   importSource: ImportSource.TSV,
+  worksheets: Worksheets.W1only,
 };
 
 export type URLParams = {
@@ -40,6 +42,7 @@ export type URLParams = {
   dateExample: number; // DateTime in seconds for examples
   admin: boolean;
   importSource: ImportSource;
+  worksheets: Worksheets;
 };
 
 type URLParamsContextState = URLParams & {
@@ -119,6 +122,10 @@ export function getParamsFromURL(urlParams: URLSearchParams): Partial<URLParams>
       case 'importSource':
         if (Object.values(ImportSource).includes(value as ImportSource))
           params[key] = value as ImportSource;
+        break;
+      case 'worksheets':
+        if (Object.values(Worksheets).includes(value as Worksheets))
+          params[key] = value as Worksheets;
         break;
       default:
         break;

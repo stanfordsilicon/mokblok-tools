@@ -22,7 +22,7 @@ const ImportSourceSelector: React.FC<Props> = ({ display }) => {
       }
     >
       <span className={display === 'dropdown' ? 'font-bold' : ''}>
-        {uitext('import.importSource.label')}:
+        {uitext('import.importSource.label')}
       </span>
 
       {display === 'buttons' &&

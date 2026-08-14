@@ -11,6 +11,7 @@ import InterfaceLanguageSelector from './selectors/InterfaceLanguageSelector';
 import SourceLanguageSelector from './selectors/SourceLanguageSelector';
 import TargetLanguageCodeInput from './selectors/TargetLanguageCodeInput';
 import TargetLanguageDropdown from './selectors/TargetLanguageDropdown';
+import DocScopeSelector from './selectors/WorksheetsSelector';
 import { useURLParams } from './URLParams';
 
 const SettingsWidget: React.FC = () => {
@@ -25,6 +26,7 @@ const SettingsWidget: React.FC = () => {
         <TargetLanguageCodeInput size="short" />
       )}
       <ImportSourceSelector display="dropdown" />
+      <DocScopeSelector />
       <CoverageLevelSelector />
       <BackgroundStyleSelector />
       <ExampleDateSelector />

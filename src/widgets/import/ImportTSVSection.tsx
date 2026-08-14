@@ -2,6 +2,8 @@ import { useState } from 'react';
 
 import { Doc } from '@data/tsvdocs/Doc';
 
+import WorksheetsSelector from '@settings/selectors/WorksheetsSelector';
+
 import ImportCheck from './check/ImportCheck';
 import ImportTSVDocSelector from './ImportTSVDocSelector';
 import InputTSVTextArea from './ImportTSVTextArea';
@@ -11,7 +13,10 @@ const ImportTSVSection = () => {
 
   return (
     <>
-      <ImportTSVDocSelector curDoc={currentDoc} setDoc={setCurrentDoc} />
+      <div className="w-fit">
+        <WorksheetsSelector />
+      </div>
+      <ImportTSVDocSelector curWorksheet={currentDoc} setWorksheet={setCurrentDoc} />
       <InputTSVTextArea doc={currentDoc} />
       <ImportCheck doc={currentDoc} />
     </>
