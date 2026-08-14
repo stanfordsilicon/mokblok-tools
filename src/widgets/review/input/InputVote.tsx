@@ -18,11 +18,6 @@ const InputVote: React.FC<{
   const { beginVoteGesture, dragVoteTo, consumeSuppressedClick } = useVoteDragContext();
   const { vote, translation, source, comment } = getTranslationInfo(entry) ?? {};
 
-  const setVote = useCallback(
-    (newVote: Vote) =>
-      editTranslation(entry.index, { vote: vote === newVote ? Vote.Unknown : newVote }),
-    [entry.index, editTranslation, vote],
-  );
   const applyVote = useCallback(
     (newVote: Vote) => editTranslation(entry.index, { vote: newVote }),
     [editTranslation, entry.index],
@@ -32,60 +27,87 @@ const InputVote: React.FC<{
   useEffect(() => {
     setCurrentComment(comment ?? '');
   }, [comment]);
-
-  // Voting interactions
-  const nextVote = vote === Vote.Accept ? Vote.Reject : Vote.Accept;
-  const handleVotePointerDown = useCallback(() => {
-    beginVoteGesture(nextVote, () => applyVote(nextVote));
-  }, [applyVote, beginVoteGesture, nextVote]);
-  const handleVoteClick = useCallback(() => {
-    if (consumeSuppressedClick()) return;
-    setVote(nextVote);
-  }, [consumeSuppressedClick, setVote, nextVote]);
   const handleVotePointerEnter = useCallback(() => {
     dragVoteTo((dragVote) => applyVote(dragVote));
   }, [applyVote, dragVoteTo]);
-  const handleVotePointerDownEvent = useCallback(
-    (event: PointerEvent<HTMLDivElement>) => {
+  const handleVotePointerDown = useCallback(
+    (newVote: Vote) => (event: PointerEvent<HTMLButtonElement>) => {
       event.preventDefault();
-      handleVotePointerDown();
+      beginVoteGesture(newVote, () => applyVote(newVote));
     },
-    [handleVotePointerDown],
+    [applyVote, beginVoteGesture],
   );
+  const handleVoteClick = useCallback(
+    (newVote: Vote) => () => {
+      if (consumeSuppressedClick()) return;
+      applyVote(newVote);
+    },
+    [applyVote, consumeSuppressedClick],
+  );
+
+  // If the input width is too small, we'll expand it
+  if (inputWidth == null) inputWidth = '100%';
+  else if (inputWidth.includes('em')) {
+    const widthValue = parseFloat(inputWidth.split('em')[0]);
+    if (widthValue < 8) inputWidth = '8em';
+  }
 
   return (
     <div>
       <div className="flex items-center justify-between">
         <div
           className={
-            'truncate text-ellipsis cursor-pointer rounded-sm px-1 select-none' +
+            'InputVoteSurface relative truncate text-ellipsis rounded-sm px-1 select-none overflow-hidden' +
             (vote === Vote.Accept ? ' bg-[var(--color-level-4)]/50' : '') +
             (vote === Vote.Reject ? ' bg-[var(--color-level-1)]/50' : '') +
-            (vote === Vote.Unknown ? ' bg-hashed' : '') +
-            (nextVote === Vote.Accept ? ' cursorVoteApprove' : ' cursorVoteReject')
+            (vote === Vote.Unknown ? ' bg-hashed' : '')
           }
           title={translation ?? source}
-          style={{ width: inputWidth ?? '100%' }}
-          role="button"
-          onClick={handleVoteClick}
-          onPointerDown={handleVotePointerDownEvent}
+          style={{ width: inputWidth }}
           onPointerEnter={handleVotePointerEnter}
         >
           {translation ?? source}
+          <div className="InputVoteOverlay " aria-hidden="true">
+            <button
+              type="button"
+              data-testid="accept-button"
+              className="InputVoteHalf InputVoteHalfAccept cursor-drag  -cursorVoteApprove bg-[var(--color-level-4)] bg-hashed"
+              aria-label="Accept"
+              onClick={handleVoteClick(Vote.Accept)}
+              onPointerDown={handleVotePointerDown(Vote.Accept)}
+              onPointerEnter={handleVotePointerEnter}
+            >
+              ✔️
+            </button>
+            <button
+              type="button"
+              data-testid="reject-button"
+              className="InputVoteHalf InputVoteHalfReject cursor-drag -cursorVoteReject bg-[var(--color-level-1)] bg-hashed"
+              aria-label="Reject"
+              onClick={handleVoteClick(Vote.Reject)}
+              onPointerDown={handleVotePointerDown(Vote.Reject)}
+              onPointerEnter={handleVotePointerEnter}
+            >
+              ✘
+            </button>
+            <button
+              data-testid="comment-button"
+              aria-label="Comment"
+              className={'InputVoteHalf ' + `${showComments ? ' selected' : ''}`}
+              onClick={() => setShowComments((prev) => !prev)}
+              style={
+                {
+                  // padding: '0 0.25em',
+                  // border: 'none',
+                  // backgroundColor:
+                  //   !showComments && currentComment ? 'var(--color-level-5)' : undefined,
+                }
+              }
+            >
+              💬
+            </button>
+          </div>
         </div>
-        <button
-          data-testid="comment-button"
-          aria-label="Comment"
-          className={'mr-4' + `${showComments ? ' selected' : ''}`}
-          onClick={() => setShowComments((prev) => !prev)}
-          style={{
-            padding: '0 0.25em',
-            border: 'none',
-            backgroundColor: !showComments && currentComment ? 'var(--color-level-5)' : undefined,
-          }}
-        >
-          💬
-        </button>
       </div>
       {showComments && (
         <textarea
