@@ -2,34 +2,34 @@ import React from 'react';
 
 import { DataPage, DataSection, getSectionsForPage } from '@data/DataSection';
 
-import { BackgroundStyle } from '@settings/BackgroundStyle';
 import StepName from '@settings/StepName';
 import { useURLParams } from '@settings/URLParams';
 
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import { useDataEntriesForSection } from './getDataEntriesForSection';
-import CoverageCircle from './progress/CoverageCircle';
 import ProgressCircle from './progress/ProgressCircle';
 import VotingCircle from './progress/VotingCircle';
 
-const DataTypeSelector: React.FC = () => {
+const PageSectionSelector: React.FC = () => {
   const { uitext } = useInterfaceTranslation();
-  const { step, bgStyle } = useURLParams();
+  const { step } = useURLParams();
   // Return a 3 column grid of buttons for each DataPage
   return (
     <table className="w-full h-fit table-auto text-xs">
+      <colgroup>
+        <col />
+        <col className="truncate w-10" />
+        {step === StepName.Vote && <col className="w-10" />}
+      </colgroup>
       <thead>
         <tr>
-          <th>{uitext('nav.page/section')}</th>
-          <th className="truncate max-w-5">{uitext('nav.translations')}</th>
+          <th className="">{uitext('nav.page/section')}</th>
+          <th className="truncate">{uitext('nav.translations')}</th>
           {step === StepName.Vote && (
-            <th className="truncate max-w-5" title={uitext('nav.votes')}>
+            <th className="truncate" title={uitext('nav.votes')}>
               {uitext('nav.votes')}
             </th>
-          )}
-          {bgStyle === BackgroundStyle.CoverageLevel && (
-            <th className="truncate max-w-5">Coverage</th>
           )}
         </tr>
       </thead>
@@ -77,27 +77,24 @@ const PageButtons: React.FC<{
 type SectionRowProps = { page: DataPage; section?: DataSection };
 
 const SectionRow: React.FC<SectionRowProps> = ({ page, section }) => {
-  const {
-    section: selectedSection,
-    page: selectedPage,
-    updateURLParams,
-    step,
-    bgStyle,
-  } = useURLParams();
+  const { section: selectedSection, page: selectedPage, updateURLParams, step } = useURLParams();
   const isSelected = section
     ? selectedSection === section || selectedSection === DataSection.All
     : selectedPage === page || (selectedPage === DataPage.All && page !== DataPage.FullTable);
 
   return (
     <tr key={section}>
-      <td className="max-w-[12em] text-right">
-        <button
-          className={'px-1 text-xs text-wrap' + (isSelected ? ' selected' : '')}
+      <td>
+        <div
+          className={
+            'px-4 py-2 my-1 text-sm text-wrap border-none rounded-lg hover:bg-(--silicon-line) cursor-pointer' +
+            (isSelected ? ' bg-(--silicon-white)' : '') +
+            (section ? ' ml-12' : '')
+          }
           onClick={() => updateURLParams({ page, section: section ?? DataSection.All })}
-          style={{ width: section ? '10.5em' : '12em' }}
         >
           <PageSectionLabel page={page} section={section} isExpanded={isSelected} />
-        </button>
+        </div>
       </td>
       <td>
         <ProgressCircle page={page} section={section} />
@@ -105,11 +102,6 @@ const SectionRow: React.FC<SectionRowProps> = ({ page, section }) => {
       {step === StepName.Vote && (
         <td>
           <VotingCircle page={page} section={section} />
-        </td>
-      )}
-      {bgStyle === BackgroundStyle.CoverageLevel && (
-        <td>
-          <CoverageCircle page={page} section={section} />
         </td>
       )}
     </tr>
@@ -124,11 +116,10 @@ const PageSectionLabel: React.FC<{
   const { uitext } = useInterfaceTranslation();
   if (section) return uitext(`dataSection.${section}`);
   return (
-    <>
+    <div className="flex items-center justify-between">
       {uitext(`dataPage.${page}`)}{' '}
       {page !== DataPage.All && page !== DataPage.FullTable && (
         <div
-          className="inline-block"
           style={{
             transition: 'transform 0.5s',
             transform: isExpanded ? 'rotate(0deg)' : 'rotate(-90deg)',
@@ -137,8 +128,8 @@ const PageSectionLabel: React.FC<{
           ▼
         </div>
       )}
-    </>
+    </div>
   );
 };
 
-export default DataTypeSelector;
+export default PageSectionSelector;

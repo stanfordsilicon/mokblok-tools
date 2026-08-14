@@ -36,7 +36,7 @@ export default function AccountBadge() {
     const role = session.user.role ?? 'user';
 
     return (
-      <div className="flex flex-col items-start gap-1 rounded-2xl border border-(--silicon-line) bg-white px-4 py-2.5 shadow-sm">
+      <div className="flex flex-col items-start gap-1 rounded-2xl border border-(--silicon-line) bg-(--silicon-beige) px-4 py-2.5 shadow-sm">
         <div className="w-full flex items-center justify-between gap-2 text-sm uppercase font-semibold text-(--silicon-purple)">
           {uitext('auth.signedInAs')}
           <RoleBadge role={role} />

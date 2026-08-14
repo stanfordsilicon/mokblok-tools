@@ -10,7 +10,7 @@ import enforceExhaustiveSwitch from '@shared/enforceExhaustiveSwitch';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import IntroCTAs from '../widgets/intro/IntroCTAs';
-import DataTypeSelector from '../widgets/review/DataTypeSelector';
+import PageSectionSelector from '../widgets/review/PageSectionSelector';
 
 import LoadingStatus from './LoadingStatus';
 
@@ -50,9 +50,7 @@ const Sidebar: React.FC = () => {
         <StepSelector />
       </div>
 
-      <div
-        className={`${isOpen ? 'block' : 'hidden'} lg:flex lg:flex-1 overflow-auto rounded-xl lg:rounded-3xl border border-(--silicon-line) bg-white p-4 shadow-sm h-min`}
-      >
+      <div className={`${isOpen ? 'block' : 'hidden'} lg:flex lg:flex-1 overflow-auto  h-min`}>
         <SidebarContents />
       </div>
 
@@ -79,7 +77,7 @@ const SidebarContents: React.FC = () => {
       return uitext('export.instructions');
     case StepName.Edit:
     case StepName.Vote:
-      return <DataTypeSelector />;
+      return <PageSectionSelector />;
     case StepName.Intro:
       return <IntroCTAs />;
     default:
