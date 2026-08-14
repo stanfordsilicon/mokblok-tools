@@ -199,38 +199,59 @@ td {
   inset: 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  /* min-width: 10em; */
   width: 100%;
   opacity: 0;
   pointer-events: none;
   transition: opacity 120ms ease-out;
 }
 
-.InputVoteSurface:hover .InputVoteOverlay,
-.InputVoteSurface:focus-within .InputVoteOverlay {
+.InputVoteSurface:hover .InputVoteOverlay {
   opacity: 0.75;
   pointer-events: auto;
 }
 
-.InputVoteHalf {
+.InputVoteSurfaceHoverSuppressed:hover .InputVoteOverlay {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.InputVoteButton {
   border: 0;
   border-radius: 0;
-  /* width: 33.3333%; */
   padding: 0.25rem 0.5rem; 
   backdrop-filter: blur(2px);
   font-size: 0.8rem;
   line-height: 1; 
 }
- 
-/* .InputVoteOverlay {
-  background-color: var(--color-level-0);
-} */
 
-.InputVoteOverlay .InputVoteHalfAccept {
+.InputVoteOverlay .InputVoteButtonAccept {
   background-color: var(--color-level-4);
 }
  
-.InputVoteOverlay .InputVoteHalfReject {
+.InputVoteOverlay .InputVoteButtonReject {
   background-color: var(--color-level-1);
 }
 
+.InputVoteOverlay .InputVoteButton.InputVoteButtonCommented {
+  background-color: var(--color-level-1);
+}
+
+.InputVoteButton:hover {
+  filter: brightness(1.1);
+
+}
+
+.InputVoteCommentMarker {
+  position: absolute;
+  top: 0.1rem;
+  right: 0.2rem;
+  z-index: 1;
+  font-size: 0.8rem;
+  line-height: 1;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+.InputVoteSurface:hover .InputVoteCommentMarker {
+  opacity: 0;
+}

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState, type PointerEvent } from 'react';
+import { useCallback, useEffect, useState, type KeyboardEvent, type PointerEvent } from 'react';
 
 import { DataEntry } from '@data/DataTypes';
 import { useTargetDataContext, Vote } from '@data/TargetDataProvider';
@@ -24,6 +24,8 @@ const InputVote: React.FC<{
   );
   const [showComments, setShowComments] = useState(false);
   const [currentComment, setCurrentComment] = useState(comment ?? '');
+  const [suppressHover, setSuppressHover] = useState(false);
+  const hasComment = currentComment.trim().length > 0 || (comment ?? '').trim().length > 0;
   useEffect(() => {
     setCurrentComment(comment ?? '');
   }, [comment]);
@@ -44,6 +46,21 @@ const InputVote: React.FC<{
     },
     [applyVote, consumeSuppressedClick],
   );
+  const saveComment = useCallback(() => {
+    editTranslation(entry.index, { comment: currentComment });
+  }, [currentComment, editTranslation, entry.index]);
+  const saveAndCloseComment = useCallback(() => {
+    saveComment();
+    setShowComments(false);
+  }, [saveComment]);
+  const handleCommentKeyDown = useCallback(
+    (event: KeyboardEvent<HTMLTextAreaElement>) => {
+      if (event.key !== 'Enter' || event.shiftKey) return;
+      event.preventDefault();
+      saveAndCloseComment();
+    },
+    [saveAndCloseComment],
+  );
 
   // If the input width is too small, we'll expand it
   if (inputWidth == null) inputWidth = '100%';
@@ -58,6 +75,7 @@ const InputVote: React.FC<{
         <div
           className={
             'InputVoteSurface relative truncate text-ellipsis rounded-sm px-1 select-none overflow-hidden' +
+            (suppressHover ? ' InputVoteSurfaceHoverSuppressed' : '') +
             (vote === Vote.Accept ? ' bg-[var(--color-level-4)]/50' : '') +
             (vote === Vote.Reject ? ' bg-[var(--color-level-1)]/50' : '') +
             (vote === Vote.Unknown ? ' bg-hashed' : '')
@@ -65,13 +83,16 @@ const InputVote: React.FC<{
           title={translation ?? source}
           style={{ width: inputWidth }}
           onPointerEnter={handleVotePointerEnter}
+          onPointerLeave={() => setSuppressHover(false)}
+          onPointerUpCapture={() => setSuppressHover(true)}
         >
           {translation ?? source}
+          {hasComment && !showComments && <span className="InputVoteCommentMarker">💬</span>}
           <div className="InputVoteOverlay " aria-hidden="true">
             <button
               type="button"
               data-testid="accept-button"
-              className="InputVoteHalf InputVoteHalfAccept cursor-drag  -cursorVoteApprove bg-[var(--color-level-4)] bg-hashed"
+              className="InputVoteButton InputVoteButtonAccept cursor-drag  -cursorVoteApprove bg-[var(--color-level-4)] bg-hashed"
               aria-label="Accept"
               onClick={handleVoteClick(Vote.Accept)}
               onPointerDown={handleVotePointerDown(Vote.Accept)}
@@ -82,7 +103,7 @@ const InputVote: React.FC<{
             <button
               type="button"
               data-testid="reject-button"
-              className="InputVoteHalf InputVoteHalfReject cursor-drag -cursorVoteReject bg-[var(--color-level-1)] bg-hashed"
+              className="InputVoteButton InputVoteButtonReject cursor-drag -cursorVoteReject bg-[var(--color-level-1)] bg-hashed"
               aria-label="Reject"
               onClick={handleVoteClick(Vote.Reject)}
               onPointerDown={handleVotePointerDown(Vote.Reject)}
@@ -93,16 +114,12 @@ const InputVote: React.FC<{
             <button
               data-testid="comment-button"
               aria-label="Comment"
-              className={'InputVoteHalf ' + `${showComments ? ' selected' : ''}`}
-              onClick={() => setShowComments((prev) => !prev)}
-              style={
-                {
-                  // padding: '0 0.25em',
-                  // border: 'none',
-                  // backgroundColor:
-                  //   !showComments && currentComment ? 'var(--color-level-5)' : undefined,
-                }
+              className={
+                'InputVoteButton bg-hashed' +
+                `${showComments ? ' selected' : ''}` +
+                (comment ? ' InputVoteButtonHasComment' : '')
               }
+              onClick={() => setShowComments((prev) => !prev)}
             >
               💬
             </button>
@@ -113,8 +130,9 @@ const InputVote: React.FC<{
         <textarea
           data-testid="comment-input"
           placeholder="Add comments"
-          onBlur={() => editTranslation(entry.index, { comment: currentComment })}
+          onBlur={saveComment}
           onChange={(e) => setCurrentComment(e.target.value)}
+          onKeyDown={handleCommentKeyDown}
           className="border p-1 rounded w-full"
           value={currentComment}
           style={{ width: '100%' }}
