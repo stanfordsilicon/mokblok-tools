@@ -5,6 +5,7 @@ import { DataPage, DataSection, getSectionsForPage } from '@data/DataSection';
 import { useURLParams } from '@settings/URLParams';
 
 import DownloadAllDemos from './demo/DownloadAllDemos';
+import { VoteDragProvider } from './input/VoteDragContext';
 import ReviewSection from './ReviewSection';
 
 const ReviewWidget: React.FC = () => {
@@ -20,16 +21,18 @@ const ReviewWidget: React.FC = () => {
   }, [page, section, updateURLParams]);
 
   return (
-    <div className="flex flex-col gap-2 relative flex-1">
-      <div style={{ position: 'absolute', top: 0, right: 0 }}>
-        <DownloadAllDemos />
+    <VoteDragProvider>
+      <div className="flex flex-col gap-2 relative flex-1">
+        <div style={{ position: 'absolute', top: 0, right: 0 }}>
+          <DownloadAllDemos />
+        </div>
+        {section !== DataSection.All ? (
+          <ReviewSection dataSection={section} />
+        ) : (
+          sections.map((section) => <ReviewSection dataSection={section} key={section} />)
+        )}
       </div>
-      {section !== DataSection.All ? (
-        <ReviewSection dataSection={section} />
-      ) : (
-        sections.map((section) => <ReviewSection dataSection={section} key={section} />)
-      )}
-    </div>
+    </VoteDragProvider>
   );
 };
 

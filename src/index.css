@@ -172,3 +172,19 @@ td {
   overflow: hidden;
 }
  
+.cursorVoteApprove {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewport="0 0 100 100" style="font-size:16px;"><text y="50%" x="50%" dominant-baseline="middle" text-anchor="middle">✔️</text></svg>') 16 16, auto !important;
+}
+.cursorVoteReject {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewport="0 0 100 100" style="font-size:16px;"><text y="50%" x="50%" dominant-baseline="middle" text-anchor="middle">✘</text></svg>') 16 16, auto !important;
+}
+
+.bg-hashed {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    #ddd7 10px,
+    #ddd7 20px
+  );
+}
