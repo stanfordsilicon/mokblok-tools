@@ -1,5 +1,4 @@
-import { useMemo } from 'react';
-
+import { CoverageLevel } from '@data/CoverageLevel';
 import { DataPage, DataSection } from '@data/DataSection';
 import type { DataEntry } from '@data/DataTypes';
 import { useSourceDataContext } from '@data/SourceDataProvider';
@@ -27,15 +26,24 @@ export function useDataEntriesForSection(): GetDataEntriesForSection {
 export function useCompletionForSection(
   page?: DataPage,
   section?: DataSection,
-): number | undefined {
+  coverageLevel?: CoverageLevel,
+): { percent: number | undefined; overall: number; inCoverage: number; completed: number } {
   const { getTranslation } = useTargetDataContext();
-  const entries = useDataEntriesForSection()(page, section);
-  const completedEntries = useMemo(
-    () => entries.filter((entry) => getTranslation(entry, false)),
-    [entries, getTranslation],
+  const getDataEntriesForSection = useDataEntriesForSection();
+  const entries = getDataEntriesForSection(page, section);
+  const entriesInCoverage = entries.filter(
+    (entry) => coverageLevel == null || (entry.level && entry.level <= coverageLevel),
   );
-  if (entries.length === 0) return undefined;
-  return (completedEntries.length * 100.0) / entries.length;
+  const completedEntries = entriesInCoverage.filter((entry) => getTranslation(entry, false));
+
+  return {
+    overall: entries.length,
+    inCoverage: entriesInCoverage.length,
+    completed: completedEntries.length,
+    percent: !entries.length
+      ? undefined
+      : (completedEntries.length * 100.0) / (entriesInCoverage.length || 1),
+  };
 }
 
 export function useVotingCompletionForSection(

@@ -1,4 +1,4 @@
-import { DataSection } from '@data/DataSection';
+import { DataPage, DataSection } from '@data/DataSection';
 
 import { useURLParams } from '@settings/URLParams';
 
@@ -7,7 +7,7 @@ import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import DemosForSection from './demo/DemosForSection';
 import AllReviewTable from './fulltable/FullReviewTable';
-import { useDataEntriesForSection } from './getDataEntriesForSection';
+import { useCompletionForSection } from './getDataEntriesForSection';
 import AlphabetReview from './tables/AlphabetReview';
 import CLDRTicketReviewTable from './tables/CLDRTicketReviewTable';
 import CoordinatesReviewTable from './tables/CoordinatesReviewTable';
@@ -39,13 +39,16 @@ import TimezonesReviewTable from './tables/TimezonesReviewTable';
 function ReviewSection({ dataSection }: { dataSection: DataSection }) {
   const { uitext } = useInterfaceTranslation();
   const { coverageLevel } = useURLParams();
-  const dataEntries = useDataEntriesForSection()(undefined, dataSection);
-  const coveredDataEntries = dataEntries.filter((entry) => entry.level <= coverageLevel);
+  const completion = useCompletionForSection(DataPage.All, dataSection, coverageLevel);
+  const ratioComplete = uitext('review.progress.ratioComplete', {
+    completed: completion.completed,
+    inCoverage: completion.inCoverage,
+  });
 
   return (
     <div>
       <h2 style={{ margin: '.5em 0' }}>
-        {uitext(`dataSection.${dataSection}`)} {coveredDataEntries.length} / {dataEntries.length}
+        {uitext(`dataSection.${dataSection}`)} <span className="text-sm">{ratioComplete}</span>
       </h2>
       <div style={{ display: 'flex', gap: '1em', flexDirection: 'row', flexWrap: 'wrap' }}>
         <div>
