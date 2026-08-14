@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 
+import { CoverageLevel } from '../../src/data/CoverageLevel';
 import { DataPage, getSectionsForPage } from '../../src/data/DataSection';
 
 import { freezeDate, gotoApp } from './testUtils';
@@ -11,7 +12,10 @@ Object.values(DataPage)
     for (const section of getSectionsForPage(pageName)) {
       test(`Test ${pageName} - ${section}`, async ({ page: playwrightPage }) => {
         await freezeDate(playwrightPage);
-        await gotoApp(playwrightPage, `/?step=Edit&page=${pageName}&section=${section}`);
+        await gotoApp(
+          playwrightPage,
+          `/?step=Edit&page=${pageName}&section=${section}&coverageLevel=${CoverageLevel.Comprehensive}`,
+        );
         const pageBody = playwrightPage.getByTestId('PageBody');
         await expect(pageBody).toHaveScreenshot(`${pageName}-${section}.png`);
       });

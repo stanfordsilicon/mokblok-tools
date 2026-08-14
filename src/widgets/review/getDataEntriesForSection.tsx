@@ -1,37 +1,49 @@
-import { useMemo } from 'react';
-
+import { CoverageLevel } from '@data/CoverageLevel';
 import { DataPage, DataSection } from '@data/DataSection';
 import type { DataEntry } from '@data/DataTypes';
 import { useSourceDataContext } from '@data/SourceDataProvider';
 import { useTargetDataContext, Vote } from '@data/TargetDataProvider';
 
+type GetDataEntriesForSection = (page?: DataPage, section?: DataSection) => DataEntry[];
 /**
  * Returns the data entry partial for filtering out a section
  */
-export function useDataEntriesForSection(page?: DataPage, section?: DataSection): DataEntry[] {
+export function useDataEntriesForSection(): GetDataEntriesForSection {
   const { findDataEntries } = useSourceDataContext();
-  const filter: Partial<DataEntry> = {};
-  if (section != null && section !== DataSection.All && section !== DataSection.FullTable) {
-    filter.section = section;
-  }
-  if (page != null && page !== DataPage.All && page !== DataPage.FullTable) {
-    filter.page = page;
-  }
-  return findDataEntries(filter);
+
+  return (page?: DataPage, section?: DataSection) => {
+    const filter: Partial<DataEntry> = {};
+    if (section != null && section !== DataSection.All && section !== DataSection.FullTable) {
+      filter.section = section;
+    }
+    if (page != null && page !== DataPage.All && page !== DataPage.FullTable) {
+      filter.page = page;
+    }
+    return findDataEntries(filter);
+  };
 }
 
 export function useCompletionForSection(
   page?: DataPage,
   section?: DataSection,
-): number | undefined {
+  coverageLevel?: CoverageLevel,
+): { percent: number | undefined; overall: number; inCoverage: number; completed: number } {
   const { getTranslation } = useTargetDataContext();
-  const entries = useDataEntriesForSection(page, section);
-  const completedEntries = useMemo(
-    () => entries.filter((entry) => getTranslation(entry, false)),
-    [entries, getTranslation],
+  const getDataEntriesForSection = useDataEntriesForSection();
+  const entries = getDataEntriesForSection(page, section);
+  const entriesInCoverage = entries.filter(
+    (entry) => coverageLevel == null || (entry.level && entry.level <= coverageLevel),
   );
-  if (entries.length === 0) return undefined;
-  return (completedEntries.length * 100.0) / entries.length;
+  const completedEntries = entriesInCoverage.filter((entry) => getTranslation(entry, false));
+
+  return {
+    overall: entries.length,
+    inCoverage: entriesInCoverage.length,
+    completed: completedEntries.length,
+    percent: !entriesInCoverage.length
+      ? undefined
+      : (completedEntries.length * 100.0) / entriesInCoverage.length,
+  };
 }
 
 export function useVotingCompletionForSection(
@@ -39,7 +51,7 @@ export function useVotingCompletionForSection(
   section?: DataSection,
 ): { accepted: number; rejected: number; total: number } {
   const { getTranslationInfo } = useTargetDataContext();
-  const entries = useDataEntriesForSection(page, section);
+  const entries = useDataEntriesForSection()(page, section);
   return entries.reduce(
     (acc, entry) => {
       const vote = getTranslationInfo(entry)?.vote;

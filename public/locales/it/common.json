@@ -158,6 +158,10 @@
                 "many": "Molti",
                 "other": "Altro"
             }
+        },
+        "progress": {
+            "ratioComplete": "{{completed}} / {{inCoverage}} completate",
+            "outOfCoverage": "{{count}} in più fuori copertura"
         }
     },
     "export": {

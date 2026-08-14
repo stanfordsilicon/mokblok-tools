@@ -158,6 +158,10 @@
                 "many": "Beaucoup",
                 "other": "Autre"
             }
+        },
+        "progress": {
+            "ratioComplete": "{{completed}} / {{inCoverage}} terminés",
+            "outOfCoverage": "{{count}} de plus hors couverture"
         }
     },
     "export": {
