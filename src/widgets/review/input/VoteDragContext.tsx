@@ -1,17 +1,31 @@
-import { createContext, useCallback, useContext, useEffect, useMemo, useRef } from 'react';
+import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 
-import { Vote } from '@data/TargetDataProvider';
+import { useTargetDataContext, Vote } from '@data/TargetDataProvider';
 
 type VoteDragContextType = {
-  beginVoteGesture(vote: Vote, applyOriginVote: () => void): void;
-  dragVoteTo(applyVote: (vote: Vote) => void): void;
-  consumeSuppressedClick(): boolean;
+  beginVoteGesture(vote: Vote, entryIndex: number, queueOriginVote: (vote: Vote) => void): void;
+  isVoteGestureActive: boolean;
+  vote: Vote;
+
+  queue: {
+    add(entryIndex: number): void;
+    has(entryIndex: number): boolean;
+    clear(): void;
+    list: number[];
+  };
 };
 
 const VoteDragContext = createContext<VoteDragContextType>({
   beginVoteGesture: () => {},
-  dragVoteTo: () => {},
-  consumeSuppressedClick: () => false,
+  isVoteGestureActive: false,
+  vote: Vote.Unknown,
+
+  queue: {
+    add: () => {},
+    has: () => false,
+    clear: () => {},
+    list: [],
+  },
 });
 
 export function useVoteDragContext() {
@@ -21,17 +35,31 @@ export function useVoteDragContext() {
 export const VoteDragProvider: React.FC<{
   children: React.ReactNode;
 }> = ({ children }) => {
-  const activeVoteRef = useRef<Vote | null>(null);
-  const originApplyRef = useRef<(() => void) | null>(null);
-  const isDraggingRef = useRef(false);
-  const suppressNextClickRef = useRef(false);
+  const { editTranslations } = useTargetDataContext();
+
+  const [isVoteGestureActive, setIsVoteGestureActive] = useState(false);
+  const [currentVote, setCurrentVote] = useState<Vote>(Vote.Unknown);
+
+  const [queue, setQueue] = useState(new Set<number>());
+  const addToQueue = useCallback(
+    (entryIndex: number) => {
+      if (currentVote !== Vote.Unknown) setQueue((prevQueue) => new Set(prevQueue).add(entryIndex));
+    },
+    [currentVote],
+  );
+  const hasInQueue = useCallback((entryIndex: number) => queue.has(entryIndex), [queue]);
+  const clearQueue = useCallback(() => {
+    setQueue(new Set());
+    setCurrentVote(Vote.Unknown);
+  }, []);
 
   const endVoteGesture = useCallback(() => {
-    activeVoteRef.current = null;
-    originApplyRef.current = null;
-    isDraggingRef.current = false;
-    document.body.classList.remove('VoteDragActive');
-  }, []);
+    setIsVoteGestureActive(false);
+
+    editTranslations(Array.from(queue), { vote: currentVote });
+    clearQueue();
+    setCurrentVote(Vote.Unknown);
+  }, [queue, clearQueue, editTranslations, currentVote]);
 
   useEffect(() => {
     window.addEventListener('pointerup', endVoteGesture);
@@ -44,38 +72,27 @@ export const VoteDragProvider: React.FC<{
     };
   }, [endVoteGesture]);
 
-  const beginVoteGesture = useCallback((vote: Vote, applyOriginVote: () => void) => {
-    activeVoteRef.current = vote;
-    originApplyRef.current = applyOriginVote;
-    isDraggingRef.current = false;
-    document.body.classList.add('VoteDragActive');
-  }, []);
+  const beginVoteGesture = useCallback((vote: Vote, entryIndex: number) => {
+    setIsVoteGestureActive(true);
 
-  const dragVoteTo = useCallback((applyVote: (vote: Vote) => void) => {
-    const activeVote = activeVoteRef.current;
-    if (activeVote === null) return;
-    if (!isDraggingRef.current) {
-      isDraggingRef.current = true;
-      suppressNextClickRef.current = true;
-      originApplyRef.current?.();
-      originApplyRef.current = null;
-    }
-    applyVote(activeVote);
-  }, []);
-
-  const consumeSuppressedClick = useCallback(() => {
-    if (!suppressNextClickRef.current) return false;
-    suppressNextClickRef.current = false;
-    return true;
+    setCurrentVote(vote);
+    setQueue(new Set([entryIndex]));
   }, []);
 
   const value = useMemo(
     () => ({
       beginVoteGesture,
-      dragVoteTo,
-      consumeSuppressedClick,
+      isVoteGestureActive,
+      vote: currentVote,
+
+      queue: {
+        add: addToQueue,
+        has: hasInQueue,
+        clear: clearQueue,
+        list: Array.from(queue),
+      },
     }),
-    [beginVoteGesture, consumeSuppressedClick, dragVoteTo],
+    [beginVoteGesture, isVoteGestureActive, addToQueue, hasInQueue, clearQueue, currentVote, queue],
   );
 
   return <VoteDragContext.Provider value={value}>{children}</VoteDragContext.Provider>;

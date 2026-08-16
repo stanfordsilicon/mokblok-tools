@@ -1,4 +1,11 @@
-import { useCallback, useEffect, useState, type KeyboardEvent, type PointerEvent } from 'react';
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+  type KeyboardEvent,
+  type PointerEvent,
+} from 'react';
 
 import { DataEntry } from '@data/DataTypes';
 import { useTargetDataContext, Vote } from '@data/TargetDataProvider';
@@ -15,7 +22,7 @@ const InputVote: React.FC<{
   inputWidth?: string;
 }> = ({ entry, inputWidth }) => {
   const { getTranslationInfo, editTranslation } = useTargetDataContext();
-  const { beginVoteGesture, dragVoteTo, consumeSuppressedClick } = useVoteDragContext();
+  const { beginVoteGesture, isVoteGestureActive, queue, vote: dragVote } = useVoteDragContext();
   const { vote, translation, source, comment } = getTranslationInfo(entry) ?? {};
 
   const applyVote = useCallback(
@@ -24,28 +31,21 @@ const InputVote: React.FC<{
   );
   const [showComments, setShowComments] = useState(false);
   const [currentComment, setCurrentComment] = useState(comment ?? '');
-  const [suppressHover, setSuppressHover] = useState(false);
   const hasComment = currentComment.trim().length > 0 || (comment ?? '').trim().length > 0;
   useEffect(() => {
     setCurrentComment(comment ?? '');
   }, [comment]);
-  const handleVotePointerEnter = useCallback(() => {
-    dragVoteTo((dragVote) => applyVote(dragVote));
-  }, [applyVote, dragVoteTo]);
+
+  const handleVotePointerEnter = useCallback(() => queue.add(entry.index), [queue, entry.index]);
   const handleVotePointerDown = useCallback(
     (newVote: Vote) => (event: PointerEvent<HTMLButtonElement>) => {
       event.preventDefault();
-      beginVoteGesture(newVote, () => applyVote(newVote));
+      beginVoteGesture(newVote, entry.index, (queuedVote) => applyVote(queuedVote));
     },
-    [applyVote, beginVoteGesture],
+    [applyVote, beginVoteGesture, entry.index],
   );
-  const handleVoteClick = useCallback(
-    (newVote: Vote) => () => {
-      if (consumeSuppressedClick()) return;
-      applyVote(newVote);
-    },
-    [applyVote, consumeSuppressedClick],
-  );
+  const handleVoteClick = useCallback((newVote: Vote) => () => applyVote(newVote), [applyVote]);
+
   const saveComment = useCallback(() => {
     editTranslation(entry.index, { comment: currentComment });
   }, [currentComment, editTranslation, entry.index]);
@@ -69,22 +69,33 @@ const InputVote: React.FC<{
     if (widthValue < 8) inputWidth = '8em';
   }
 
+  const inputVoteSurfaceClasses = useMemo(() => {
+    let classes =
+      'InputVoteSurface relative truncate text-ellipsis rounded-sm px-1 select-none overflow-hidden';
+    if (isVoteGestureActive && queue.has(entry.index))
+      classes += ' InputVoteSurfaceHoverSuppressed';
+
+    if (queue.has(entry.index)) {
+      classes += ' bg-hashed';
+      if (dragVote === Vote.Accept) classes += ' bg-hashed-green cursorVoteApprove';
+      else if (dragVote === Vote.Reject) classes += ' bg-hashed-red cursorVoteReject';
+    }
+
+    if (vote === Vote.Accept) classes += ' bg-[var(--color-level-4)]/50';
+    else if (vote === Vote.Reject) classes += ' bg-[var(--color-level-1)]/50';
+    else if (vote === Vote.Unknown) classes += ' bg-hashed';
+
+    return classes;
+  }, [isVoteGestureActive, vote, queue, entry.index, dragVote]);
+
   return (
     <div>
       <div className="flex items-center justify-between">
         <div
-          className={
-            'InputVoteSurface relative truncate text-ellipsis rounded-sm px-1 select-none overflow-hidden' +
-            (suppressHover ? ' InputVoteSurfaceHoverSuppressed' : '') +
-            (vote === Vote.Accept ? ' bg-[var(--color-level-4)]/50' : '') +
-            (vote === Vote.Reject ? ' bg-[var(--color-level-1)]/50' : '') +
-            (vote === Vote.Unknown ? ' bg-hashed' : '')
-          }
+          className={inputVoteSurfaceClasses}
           title={translation ?? source}
           style={{ width: inputWidth }}
           onPointerEnter={handleVotePointerEnter}
-          onPointerLeave={() => setSuppressHover(false)}
-          onPointerUpCapture={() => setSuppressHover(true)}
         >
           {translation ?? source}
           {hasComment && !showComments && <span className="InputVoteCommentMarker">💬</span>}
@@ -92,7 +103,10 @@ const InputVote: React.FC<{
             <button
               type="button"
               data-testid="accept-button"
-              className="InputVoteButton InputVoteButtonAccept cursor-drag  -cursorVoteApprove bg-[var(--color-level-4)] bg-hashed"
+              className={
+                'InputVoteButton  bg-hashed bg-hashed-green' +
+                (vote !== Vote.Reject ? ' InputVoteButtonAccept' : '')
+              }
               aria-label="Accept"
               onClick={handleVoteClick(Vote.Accept)}
               onPointerDown={handleVotePointerDown(Vote.Accept)}
@@ -103,7 +117,10 @@ const InputVote: React.FC<{
             <button
               type="button"
               data-testid="reject-button"
-              className="InputVoteButton InputVoteButtonReject cursor-drag -cursorVoteReject bg-[var(--color-level-1)] bg-hashed"
+              className={
+                'InputVoteButton bg-hashed-red' +
+                (vote !== Vote.Accept ? ' InputVoteButtonReject' : '')
+              }
               aria-label="Reject"
               onClick={handleVoteClick(Vote.Reject)}
               onPointerDown={handleVotePointerDown(Vote.Reject)}

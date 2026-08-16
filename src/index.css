@@ -188,6 +188,24 @@ td {
     #ddd7 20px
   );
 }
+.bg-hashed-red {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    #d007 10px,
+    #d007 30px
+  );
+}
+.bg-hashed-green {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    #0d07 10px,
+    #0d07 30px
+  );
+}
 
 .InputVoteSurface {
   min-height: 1.5rem;
@@ -205,7 +223,8 @@ td {
   transition: opacity 120ms ease-out;
 }
 
-.InputVoteSurface:hover .InputVoteOverlay {
+.InputVoteSurface:hover .InputVoteOverlay,
+.InputVoteSurface:focus-within .InputVoteOverlay {
   opacity: 0.75;
   pointer-events: auto;
 }
