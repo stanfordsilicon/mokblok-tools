@@ -8,58 +8,60 @@ test('Vetting', async ({ page }) => {
   const pageBody = page.getByTestId('PageBody');
   await expect(pageBody).toHaveScreenshot(`1-start-vetting.png`);
 
-  // Click accept button for first entry
+  // Hover over the first item to show the voting interface
+  await page.getByTestId('voting-surface').first().hover();
+  await expect(pageBody).toHaveScreenshot(`2a-start-accept.png`);
+
+  // Accept it
   await page.getByTestId('accept-button').first().click();
-  await expect(pageBody).toHaveScreenshot(`2-accept.png`);
+  await expect(pageBody).toHaveScreenshot(`2b-click-accept.png`);
 
-  // Click reject button for second entry
-  await page.getByTestId('reject-button').nth(1).click();
-  await expect(pageBody).toHaveScreenshot(`3-reject.png`);
+  // Move to the next element and hover over it to show the voting interface
+  await page.getByTestId('voting-surface').nth(1).hover();
+  await expect(pageBody).toHaveScreenshot(`3a-start-reject.png`);
 
-  // Edit second entry
-  await page.getByTestId('highlight-input').first().fill('New');
-  await expect(pageBody).toHaveScreenshot(`4-edit.png`);
+  // Hover over the reject button (should highlight button)
+  const rejectButton = page.getByTestId('reject-button').nth(1);
+  const box = await rejectButton.boundingBox();
+  if (!box) throw new Error('Could not locate vote button for drag test');
+  await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
+  await expect(pageBody).toHaveScreenshot(`3b-mousehover-reject.png`);
+
+  // Click & hold the reject button (should change background, start a rejecting)
+  await page.mouse.down();
+  await expect(pageBody).toHaveScreenshot(`3c-mousedown-reject.png`);
+
+  // Drag the cursor down 60px to reject other items
+  await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2 + 20);
+  await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2 + 40);
+  await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2 + 60);
+  await expect(pageBody).toHaveScreenshot(`3d-drag-reject.png`);
+
+  // Release the cursor to commit the votes
+  await page.mouse.up();
+  await expect(pageBody).toHaveScreenshot(`3e-finish-reject.png`);
+
+  // Hover over the third item since we are going to comment on it
+  await page.getByTestId('voting-surface').nth(2).hover();
+  const commentButton = page.getByTestId('comment-button').nth(2);
+  await commentButton.hover();
+  await expect(pageBody).toHaveScreenshot(`4a-start-comment.png`);
 
   // Click comment button for third entry
-  const commentButton = page.getByTestId('comment-button').nth(2);
   await commentButton.click();
-  await expect(pageBody).toHaveScreenshot(`5-open-comment.png`);
+  await expect(pageBody).toHaveScreenshot(`4b-open-comment.png`);
 
-  // Enter comment
-  await page.getByTestId('comment-input').first().fill('This is a test comment.');
-  await expect(pageBody).toHaveScreenshot(`6-write-comment.png`);
+  // Click the comment box to start typing (the previous hover should disappear)
+  const commentInput = page.getByTestId('comment-input').first();
+  await commentInput.click();
+  await expect(pageBody).toHaveScreenshot(`4c-click-to-write-comment.png`);
+
+  // Type in comment
+  await commentInput.fill('This is a test comment.');
+  await expect(pageBody).toHaveScreenshot(`4d-write-comment.png`);
 
   // Close comment
+  await page.getByTestId('voting-surface').nth(2).hover();
   await commentButton.click();
-  await expect(pageBody).toHaveScreenshot(`7-close-comment.png`);
-});
-
-test('Drag voting', async ({ page }) => {
-  await freezeDate(page);
-  await gotoApp(page, `/?step=Vote&admin=true`);
-
-  const firstAccept = page.getByTestId('accept-button').first();
-  const thirdAccept = page.getByTestId('accept-button').nth(2);
-  const thirdReject = page.getByTestId('reject-button').nth(2);
-
-  const start = await firstAccept.boundingBox();
-  const middle = await thirdAccept.boundingBox();
-  const end = await thirdReject.boundingBox();
-
-  if (!start || !middle || !end) throw new Error('Could not locate vote buttons for drag test');
-
-  await page.mouse.move(start.x + start.width / 2, start.y + start.height / 2);
-  await page.mouse.down();
-  await page.mouse.move(middle.x + middle.width / 2, middle.y + middle.height / 2, { steps: 8 });
-  await page.mouse.up();
-
-  await expect(firstAccept).toHaveCSS('background-color', 'rgb(197, 244, 184)');
-  await expect(thirdAccept).toHaveCSS('background-color', 'rgb(197, 244, 184)');
-
-  await page.mouse.move(middle.x + middle.width / 2, middle.y + middle.height / 2);
-  await page.mouse.down();
-  await page.mouse.move(end.x + end.width / 2, end.y + end.height / 2, { steps: 4 });
-  await page.mouse.up();
-
-  await expect(thirdReject).toHaveCSS('background-color', 'rgb(248, 196, 186)');
+  await expect(pageBody).toHaveScreenshot(`4e-close-comment.png`);
 });

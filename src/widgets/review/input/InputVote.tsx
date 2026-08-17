@@ -90,6 +90,7 @@ const InputVote: React.FC<{
     <div>
       <div className="flex items-center justify-between">
         <div
+          data-testid="voting-surface"
           className={inputVoteSurfaceClasses}
           title={translation ?? source}
           style={{ width: inputWidth }}
@@ -97,7 +98,7 @@ const InputVote: React.FC<{
         >
           {translation ?? source}
           {hasComment && !showComments && <span className="InputVoteCommentMarker">💬</span>}
-          <div className="InputVoteOverlay " aria-hidden="true">
+          <div className="InputVoteOverlay" aria-hidden="true">
             <button
               data-testid="accept-button"
               aria-label={uitext('vote.accept')}
