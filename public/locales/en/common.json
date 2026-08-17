@@ -107,8 +107,8 @@
         "accept": "Accept",
         "reject": "Reject",
         "comment": "Comment",
-        "addComments": "Add comments",
-
+        "writeCommentHere": "Write comment here",
+        
         "status": "Status",
         "accepted": "Accepted",
         "rejected": "Rejected",

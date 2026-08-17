@@ -212,7 +212,8 @@ td {
   min-width: 8em;
 }
 
-.InputVoteOverlay {
+.InputVoteOverlay,
+.InputVoteSurfaceHoverSuppressed:hover .InputVoteOverlay {
   opacity: 0;
   pointer-events: none; 
 }
@@ -221,9 +222,4 @@ td {
 .InputVoteSurface:focus-within .InputVoteOverlay {
   opacity: 0.9;
   pointer-events: auto;
-}
-
-.InputVoteSurfaceHoverSuppressed:hover .InputVoteOverlay {
-  opacity: 0;
-  pointer-events: none;
-}
+} 

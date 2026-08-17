@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState, type KeyboardEvent } from 'react';
 
-import { DataEntry } from '@data/DataTypes';
+import type { DataEntry } from '@data/DataTypes';
 import { useTargetDataContext } from '@data/TargetDataProvider';
 
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
@@ -40,7 +40,7 @@ const CommentBox: React.FC<Props> = ({ entry, onCommentFinish }) => {
   return (
     <textarea
       data-testid="comment-input"
-      placeholder={uitext('addComments')}
+      placeholder={uitext('vote.writeCommentHere')}
       onBlur={saveComment}
       onChange={(e) => setCurrentComment(e.target.value)}
       onKeyDown={handleCommentKeyDown}

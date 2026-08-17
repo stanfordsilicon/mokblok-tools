@@ -5,7 +5,7 @@ const VoteExplanation: React.FC = () => {
   return (
     <div>
       {uitext('vote.howToVote')}
-      <div className="grid grid-cols-4 w-fit gap-1">
+      <div className="grid grid-cols-4 w-fit gap-1 p-1 items-center">
         <div>{uitext('vote.actions')}:</div>
         <div className="p-0.5 rounded-sm bg-hashed-green">✔️ {uitext('vote.accept')}</div>
         <div className="p-0.5 rounded-sm bg-hashed-red">✘ {uitext('vote.reject')}</div>

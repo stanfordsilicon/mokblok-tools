@@ -103,10 +103,13 @@
         "title": "Vota",
         "howToVote": "Pasa el cursor sobre una traducción para votar por ella. Haz clic en la opción por la que quieres votar. Puedes hacer clic y arrastrar para votar por varias opciones.",
         "otherReviewActivities": "Haz clic en el cuadro de comentarios (💬) para dejar un comentario. Para editar una traducción, vuelve al modo de edición.",
+
         "actions": "Acciones",
         "accept": "Aceptar",
         "reject": "Rechazar",
         "comment": "Comentar",
+        "writeCommentHere": "Escribe tu comentario aquí",
+        
         "status": "Estado",
         "accepted": "Aceptado",
         "rejected": "Rechazado",

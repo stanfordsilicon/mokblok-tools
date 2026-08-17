@@ -1,4 +1,4 @@
-import { PointerEvent, useCallback } from 'react';
+import { type PointerEvent, useCallback } from 'react';
 
 import type { DataEntry } from '@data/DataTypes';
 import { Vote } from '@data/TargetDataProvider';

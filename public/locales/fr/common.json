@@ -102,10 +102,13 @@
         "title": "Voter",
         "howToVote": "Survolez une traduction pour voter dessus. Cliquez sur l’option pour laquelle vous voulez voter. Vous pouvez cliquer et faire glisser pour voter sur plusieurs options.",
         "otherReviewActivities": "Cliquez sur la boîte de commentaire (💬) pour laisser un commentaire. Pour modifier une traduction, revenez au mode édition.",
+        
         "actions": "Actions",
         "accept": "Accepter",
         "reject": "Rejeter",
         "comment": "Commentaire",
+        "writeCommentHere": "Écrivez votre commentaire ici",
+
         "status": "Statut",
         "accepted": "Accepté",
         "rejected": "Rejeté",
