@@ -241,6 +241,7 @@ td {
   backdrop-filter: blur(2px);
   font-size: 0.8rem;
   line-height: 1; 
+  outline: none;
 }
 
 .InputVoteOverlay .InputVoteButtonAccept {
@@ -252,7 +253,7 @@ td {
 }
 
 .InputVoteOverlay .InputVoteButton.InputVoteButtonCommented {
-  background-color: var(--color-level-1);
+  background-color: var(--color-level-6);
 }
 
 .InputVoteButton:hover {
@@ -269,8 +270,4 @@ td {
   line-height: 1;
   pointer-events: none;
   opacity: 0.9;
-}
-
-.InputVoteSurface:hover .InputVoteCommentMarker {
-  opacity: 0;
 }

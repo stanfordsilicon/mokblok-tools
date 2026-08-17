@@ -3,7 +3,7 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useState } 
 import { useTargetDataContext, Vote } from '@data/TargetDataProvider';
 
 type VoteDragContextType = {
-  beginVoteGesture(vote: Vote, entryIndex: number, queueOriginVote: (vote: Vote) => void): void;
+  beginVoteGesture(vote: Vote, entryIndex: number): void;
   isVoteGestureActive: boolean;
   vote: Vote;
 
@@ -11,7 +11,6 @@ type VoteDragContextType = {
     add(entryIndex: number): void;
     has(entryIndex: number): boolean;
     clear(): void;
-    list: number[];
   };
 };
 
@@ -24,7 +23,6 @@ const VoteDragContext = createContext<VoteDragContextType>({
     add: () => {},
     has: () => false,
     clear: () => {},
-    list: [],
   },
 });
 
@@ -89,10 +87,9 @@ export const VoteDragProvider: React.FC<{
         add: addToQueue,
         has: hasInQueue,
         clear: clearQueue,
-        list: Array.from(queue),
       },
     }),
-    [beginVoteGesture, isVoteGestureActive, addToQueue, hasInQueue, clearQueue, currentVote, queue],
+    [beginVoteGesture, isVoteGestureActive, addToQueue, hasInQueue, clearQueue, currentVote],
   );
 
   return <VoteDragContext.Provider value={value}>{children}</VoteDragContext.Provider>;

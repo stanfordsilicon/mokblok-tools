@@ -99,7 +99,17 @@
         "title": "Edit"
     },
     "vote": {
-        "title": "Vote"
+        "title": "Vote",
+        "howToVote": "Hover over a translation to vote on it. Click the option you want to vote for. You can click & drag to vote for multiple options.",
+        "otherReviewActivities": "Click the comment box (💬) to leave a comment. To edit a translation, switch back to the edit mode.",
+        "actions": "Actions",
+        "accept": "Accept",
+        "reject": "Reject",
+        "comment": "Comment",
+        "status": "Status",
+        "accepted": "Accepted",
+        "rejected": "Rejected",
+        "notVotedOn": "Not voted on"
     },
     "review": { 
         "downloadAllDemos": "Download all demos",
@@ -208,7 +218,8 @@
         "None": "None",
         "Missing": "Missing translations",
         "CoverageLevel": "Coverage level",
-        "DifferentThanSource": "Different than source"
+        "DifferentThanSource": "Different than source",
+        "Vote": "Vote"
     },
     "languageName": {
         "abr": "Abron",

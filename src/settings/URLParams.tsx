@@ -68,6 +68,10 @@ function buildNextURLSearchParams(
     }
   });
 
+  // Modify undeclared parameters that have contextual defaults
+  if (!next.has('bgStyle') && newParams.step === StepName.Vote)
+    next.set('bgStyle', BackgroundStyle.Vote.toString());
+
   // Clear parameters that match the defaults
   Object.entries(GLOBAL_DEFAULTS).forEach(([key, value]) => {
     if (next.get(key) === value.toString()) next.delete(key);
