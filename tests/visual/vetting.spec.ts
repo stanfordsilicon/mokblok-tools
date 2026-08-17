@@ -33,13 +33,14 @@ test('Vetting', async ({ page }) => {
 
   // Drag the cursor down 60px to reject other items
   await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2 + 20);
+  await expect(pageBody).toHaveScreenshot(`3d-drag-reject1.png`);
   await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2 + 40);
   await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2 + 60);
-  await expect(pageBody).toHaveScreenshot(`3d-drag-reject.png`);
+  await expect(pageBody).toHaveScreenshot(`3e-drag-reject.png`);
 
   // Release the cursor to commit the votes
   await page.mouse.up();
-  await expect(pageBody).toHaveScreenshot(`3e-finish-reject.png`);
+  await expect(pageBody).toHaveScreenshot(`3f-finish-reject.png`);
 
   // Hover over the third item since we are going to comment on it
   await page.getByTestId('voting-surface').nth(2).hover();

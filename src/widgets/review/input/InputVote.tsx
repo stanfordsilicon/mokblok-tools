@@ -1,17 +1,11 @@
-import {
-  useCallback,
-  useEffect,
-  useMemo,
-  useState,
-  type KeyboardEvent,
-  type PointerEvent,
-} from 'react';
+import { useCallback, useMemo, useState } from 'react';
 
 import { DataEntry } from '@data/DataTypes';
 import { useTargetDataContext, Vote } from '@data/TargetDataProvider';
 
-import useInterfaceTranslation from '@shared/useInterfaceTranslation';
-
+import CommentBox from './CommentBox';
+import CommentMarker from './CommentMarker';
+import InputVotingOverlay from './InputVotingOverlay';
 import { useVoteDragContext } from './VoteDragContext';
 
 /**
@@ -23,42 +17,13 @@ const InputVote: React.FC<{
   entry: DataEntry;
   inputWidth?: string;
 }> = ({ entry, inputWidth }) => {
-  const { uitext } = useInterfaceTranslation();
-  const { getTranslationInfo, editTranslation } = useTargetDataContext();
-  const { beginVoteGesture, isVoteGestureActive, queue, vote: dragVote } = useVoteDragContext();
+  const { getTranslationInfo } = useTargetDataContext();
+  const { isVoteGestureActive, queue, vote: dragVote } = useVoteDragContext();
   const { vote, translation, source, comment } = getTranslationInfo(entry) ?? {};
 
-  const [showComments, setShowComments] = useState(false);
-  const [currentComment, setCurrentComment] = useState(comment ?? '');
-  const hasComment = currentComment.trim().length > 0 || (comment ?? '').trim().length > 0;
-  useEffect(() => {
-    setCurrentComment(comment ?? '');
-  }, [comment]);
-
   const addToQueue = useCallback(() => queue.add(entry.index), [queue, entry.index]);
-  const startVoting = useCallback(
-    (newVote: Vote) => (event: PointerEvent<HTMLButtonElement>) => {
-      event.preventDefault();
-      beginVoteGesture(newVote, entry.index);
-    },
-    [beginVoteGesture, entry.index],
-  );
-
-  const saveComment = useCallback(() => {
-    editTranslation(entry.index, { comment: currentComment });
-  }, [currentComment, editTranslation, entry.index]);
-  const saveAndCloseComment = useCallback(() => {
-    saveComment();
-    setShowComments(false);
-  }, [saveComment]);
-  const handleCommentKeyDown = useCallback(
-    (event: KeyboardEvent<HTMLTextAreaElement>) => {
-      if (event.key !== 'Enter' || event.shiftKey) return;
-      event.preventDefault();
-      saveAndCloseComment();
-    },
-    [saveAndCloseComment],
-  );
+  const [showComment, setShowComment] = useState(false);
+  const hasComment = (comment ?? '').trim().length > 0;
 
   // If the input width is too small, we'll expand it
   if (inputWidth == null) inputWidth = '100%';
@@ -97,62 +62,19 @@ const InputVote: React.FC<{
           onPointerEnter={addToQueue}
         >
           {translation ?? source}
-          {hasComment && !showComments && <span className="InputVoteCommentMarker">💬</span>}
-          <div className="InputVoteOverlay" aria-hidden="true">
-            <button
-              data-testid="accept-button"
-              aria-label={uitext('vote.accept')}
-              title={uitext('vote.accept')}
-              className={
-                'InputVoteButton  bg-hashed bg-hashed-green outline-none' +
-                (vote !== Vote.Reject ? ' InputVoteButtonAccept' : '')
-              }
-              onPointerDown={startVoting(Vote.Accept)}
-              onPointerEnter={addToQueue}
-            >
-              ✔️
-            </button>
-            <button
-              data-testid="reject-button"
-              aria-label={uitext('vote.reject')}
-              title={uitext('vote.reject')}
-              className={
-                'InputVoteButton bg-hashed-red' +
-                (vote !== Vote.Accept ? ' InputVoteButtonReject' : '')
-              }
-              onPointerDown={startVoting(Vote.Reject)}
-              onPointerEnter={addToQueue}
-            >
-              ✘
-            </button>
-            <button
-              data-testid="comment-button"
-              aria-label={uitext('vote.comment')}
-              title={uitext('vote.comment')}
-              className={
-                'InputVoteButton bg-hashed' +
-                `${showComments ? ' selected' : ''}` +
-                (comment ? ' InputVoteButtonHasComment' : '')
-              }
-              onClick={() => setShowComments((prev) => !prev)}
-            >
-              💬
-            </button>
-          </div>
+          {hasComment && <CommentMarker />}
+          <InputVotingOverlay
+            entry={entry}
+            addToQueue={addToQueue}
+            currentVote={vote}
+
+            hasComment={hasComment}
+            showComment={showComment}
+            setShowComment={setShowComment}
+          />
         </div>
       </div>
-      {showComments && (
-        <textarea
-          data-testid="comment-input"
-          placeholder="Add comments"
-          onBlur={saveComment}
-          onChange={(e) => setCurrentComment(e.target.value)}
-          onKeyDown={handleCommentKeyDown}
-          className="border p-1 rounded w-full"
-          value={currentComment}
-          style={{ width: '100%' }}
-        />
-      )}
+      {showComment && <CommentBox entry={entry} onCommentFinish={() => setShowComment(false)} />}
     </div>
   );
 };
