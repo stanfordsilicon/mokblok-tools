@@ -16,7 +16,7 @@ const VotingCircle: React.FC<Props> = ({ page, section }) => {
   return (
     <PieChart
       label={`${((voteCounts.accepted / voteCounts.total) * 100).toFixed(0)}%`}
-      fraction={[voteCounts.accepted / voteCounts.total, voteCounts.rejected / voteCounts.total]}
+      fraction={[voteCounts.rejected / voteCounts.total, voteCounts.accepted / voteCounts.total]}
     />
   );
 };

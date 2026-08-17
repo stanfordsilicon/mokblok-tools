@@ -172,3 +172,102 @@ td {
   overflow: hidden;
 }
  
+.cursorVoteApprove {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewport="0 0 100 100" style="font-size:16px;"><text y="50%" x="50%" dominant-baseline="middle" text-anchor="middle">✔️</text></svg>') 16 16, auto !important;
+}
+.cursorVoteReject {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewport="0 0 100 100" style="font-size:16px;"><text y="50%" x="50%" dominant-baseline="middle" text-anchor="middle">✘</text></svg>') 16 16, auto !important;
+}
+
+.bg-hashed {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    #ddd7 10px,
+    #ddd7 20px
+  );
+}
+.bg-hashed-red {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    #d007 10px,
+    #d007 30px
+  );
+}
+.bg-hashed-green {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    #0d07 10px,
+    #0d07 30px
+  );
+}
+
+.InputVoteSurface {
+  min-height: 1.5rem;
+  min-width: 8em;
+}
+
+.InputVoteOverlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 120ms ease-out;
+}
+
+.InputVoteSurface:hover .InputVoteOverlay,
+.InputVoteSurface:focus-within .InputVoteOverlay {
+  opacity: 0.75;
+  pointer-events: auto;
+}
+
+.InputVoteSurfaceHoverSuppressed:hover .InputVoteOverlay {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.InputVoteButton {
+  border: 0;
+  border-radius: 0;
+  padding: 0.25rem 0.5rem; 
+  backdrop-filter: blur(2px);
+  font-size: 0.8rem;
+  line-height: 1; 
+  outline: none;
+}
+
+.InputVoteOverlay .InputVoteButtonAccept {
+  background-color: var(--color-level-4);
+}
+ 
+.InputVoteOverlay .InputVoteButtonReject {
+  background-color: var(--color-level-1);
+}
+
+.InputVoteOverlay .InputVoteButton.InputVoteButtonCommented {
+  background-color: var(--color-level-6);
+}
+
+.InputVoteButton:hover {
+  filter: brightness(1.1);
+
+}
+
+.InputVoteCommentMarker {
+  position: absolute;
+  top: 0.1rem;
+  right: 0.2rem;
+  z-index: 1;
+  font-size: 0.8rem;
+  line-height: 1;
+  pointer-events: none;
+  opacity: 0.9;
+}

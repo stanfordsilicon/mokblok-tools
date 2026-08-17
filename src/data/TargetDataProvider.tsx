@@ -44,6 +44,7 @@ export type TargetDataContextType = {
   getTranslationInfo(entry: DataEntry | undefined): TranslationInfo;
   translations: Record<number, TranslationInfo>;
   editTranslation(index: number, update: Partial<TranslationInfo>): void;
+  editTranslations(indices: number[], update: Partial<TranslationInfo>): void;
   targetXMLData: Record<string, string>; // Xpath to raw translations
   targetDataStatus: TargetDataStatus;
 };
@@ -55,6 +56,7 @@ export const TargetDataContext = createContext<TargetDataContextType>({
   getTranslationInfo: () => ({ index: -1, source: '', vote: Vote.Unknown }),
   translations: {},
   editTranslation: () => {},
+  editTranslations: () => {},
   targetDataStatus: TargetDataStatus.LoadingBaselineData,
   targetXMLData: {},
 });
@@ -102,6 +104,19 @@ const TargetDataProvider: React.FC<{
         if (!prev[index]) return prev;
         // return a new object? could be computationally expensive
         return { ...prev, [index]: { ...prev[index], ...update } };
+      });
+    },
+    [setTranslations],
+  );
+  const editTranslations = useCallback(
+    (indices: number[], update: Partial<TranslationInfo>) => {
+      setTranslations((prev) => {
+        const newTranslations = { ...prev };
+        for (const index of indices) {
+          if (!newTranslations[index]) continue;
+          newTranslations[index] = { ...newTranslations[index], ...update };
+        }
+        return newTranslations;
       });
     },
     [setTranslations],
@@ -190,6 +205,7 @@ const TargetDataProvider: React.FC<{
     getTranslation,
     getTranslationInfo,
     editTranslation,
+    editTranslations,
     translations,
     targetDataStatus,
     targetXMLData,

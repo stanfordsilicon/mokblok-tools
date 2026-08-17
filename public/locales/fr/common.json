@@ -85,13 +85,31 @@
             "xml": "Fichiers XML de CLDR"
         },
         "asList": "en liste",
-        "asXML": "en XML"
+        "asXML": "en XML",
+        "worksheets": {
+            "title": "Feuilles de travail",
+            "label": "À partir des feuilles de travail",
+            "w1only": "Feuille 1 uniquement",
+            "w1and2": "Feuille 1 + feuille 2 (parties 1-3)",
+            "w1to4": "Toutes les feuilles standard (1-4)",
+            "any": "Toutes les feuilles (1-4) + toute traduction supplémentaire"
+        }
     },
     "edit": {
         "title": "Modifie"
     },
     "vote": {
-        "title": "Voter"
+        "title": "Voter",
+        "howToVote": "Survolez une traduction pour voter dessus. Cliquez sur l’option pour laquelle vous voulez voter. Vous pouvez cliquer et faire glisser pour voter sur plusieurs options.",
+        "otherReviewActivities": "Cliquez sur la boîte de commentaire (💬) pour laisser un commentaire. Pour modifier une traduction, revenez au mode édition.",
+        "actions": "Actions",
+        "accept": "Accepter",
+        "reject": "Rejeter",
+        "comment": "Commentaire",
+        "status": "Statut",
+        "accepted": "Accepté",
+        "rejected": "Rejeté",
+        "notVotedOn": "Pas encore voté"
     },
     "review": {
         "title": "Examine",
@@ -201,7 +219,8 @@
         "None": "Aucun",
         "Missing": "Traductions manquantes",
         "CoverageLevel": "Niveau de couverture",
-        "DifferentThanSource": "Différent de la source"
+        "DifferentThanSource": "Différent de la source",
+        "Vote": "Vote"
     },
     "languageName": {
         "abr": "abron",
