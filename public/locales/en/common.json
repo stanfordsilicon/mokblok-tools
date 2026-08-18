@@ -102,14 +102,18 @@
         "title": "Vote",
         "howToVote": "Hover over a translation to vote on it. Click the option you want to vote for. You can click & drag to vote for multiple options.",
         "otherReviewActivities": "Click the comment box (💬) to leave a comment. To edit a translation, switch back to the edit mode.",
+
         "actions": "Actions",
         "accept": "Accept",
         "reject": "Reject",
         "comment": "Comment",
+        "writeCommentHere": "Write comment here",
+        
         "status": "Status",
         "accepted": "Accepted",
         "rejected": "Rejected",
         "notVotedOn": "Not voted on"
+
     },
     "review": { 
         "downloadAllDemos": "Download all demos",
