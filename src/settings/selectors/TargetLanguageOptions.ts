@@ -1,7 +1,7 @@
 import ImportSource from '@data/ImportSource';
 
 // These languages have starting data that can be loaded with a click.
-const PreloadableTSVLanguages = [
+export const PreloadableTSVLanguages = [
   'abr',
   'ann',
   'bho',
@@ -17,9 +17,8 @@ const PreloadableTSVLanguages = [
   'om',
   'sn',
   'wo',
-  '',
 ];
-const PreloadableXMLLanguages = [
+export const PreloadableXMLLanguages = [
   'ann',
   'en',
   'es',
@@ -34,7 +33,6 @@ const PreloadableXMLLanguages = [
   'or',
   'sn',
   'wo',
-  '',
 ];
 
 const TargetLanguageOptions: Record<ImportSource, string[]> = {
@@ -45,7 +43,7 @@ const TargetLanguageOptions: Record<ImportSource, string[]> = {
 
 /** Only use this for the full list, really we should follow user settings */
 export function getPotentialTargetLanguageOptions(importSource: ImportSource): string[] {
-  return TargetLanguageOptions[importSource];
+  return [...TargetLanguageOptions[importSource], ''];
 }
 
 export function getPreferredImportSourceForTargetLanguage(targetLanguage: string): ImportSource {
@@ -59,7 +57,7 @@ export function supportsTargetLanguage(
   importSource: ImportSource,
   targetLanguage: string | null | undefined,
 ): boolean {
-  if (!targetLanguage) return false;
+  if (targetLanguage == null) return false;
   if (importSource === ImportSource.Blank) return true;
   return TargetLanguageOptions[importSource].includes(targetLanguage);
 }

@@ -2,10 +2,10 @@ import { useEffect, useMemo, useState } from 'react';
 
 import ImportSource from '@data/ImportSource';
 
-import TargetLanguageOptions from '@settings/selectors/TargetLanguageOptions';
+import { PreloadableTSVLanguages } from '@settings/selectors/TargetLanguageOptions';
 import { useURLParams } from '@settings/URLParams';
 
-import { loadInputText, parseWorksheet1 } from './LoadInputData';
+import { loadWorksheet, parseWorksheet1 } from './loadWorksheets';
 import {
   parseWorksheet2Part1,
   parseWorksheet2Part2,
@@ -17,60 +17,49 @@ import { Worksheet, getWorksheetFileSuffix, getWorksheetFileType } from './Works
 function useImportedWorksheets() {
   const { targetLanguage, importSource } = useURLParams();
   const [extraText, setExtraText] = useState<string>('');
+
   const doc1State = useWorksheetState();
   const doc2Part1State = useWorksheetState('');
   const doc2Part2State = useWorksheetState('');
   const doc2Part3State = useWorksheetState('');
   const doc3State = useWorksheetState('');
   const doc4State = useWorksheetState('');
+  const importedWorksheets: Record<Worksheet, UseWorksheetState> = useMemo(
+    () => ({
+      [Worksheet.W1]: doc1State,
+      [Worksheet.W2_1]: doc2Part1State,
+      [Worksheet.W2_2]: doc2Part2State,
+      [Worksheet.W2_3]: doc2Part3State,
+      [Worksheet.W3]: doc3State,
+      [Worksheet.W4]: doc4State,
+    }),
+    [doc1State, doc2Part1State, doc2Part2State, doc2Part3State, doc3State, doc4State],
+  );
 
   // Trigger TSV reloads when the input mode or target language changes.
   useEffect(() => {
     if (
       importSource !== ImportSource.TSV ||
-      !TargetLanguageOptions[ImportSource.TSV].includes(targetLanguage) ||
+      !PreloadableTSVLanguages.includes(targetLanguage) ||
       !targetLanguage
     ) {
-      doc1State.clear();
-      doc2Part1State.clear();
-      doc2Part2State.clear();
-      doc2Part3State.clear();
-      doc3State.clear();
-      doc4State.clear();
+      Object.values(importedWorksheets).forEach((state) => state.clear());
       return;
     }
 
-    const docStates: Array<[Worksheet, UseWorksheetState]> = [
-      [Worksheet.W1, doc1State],
-      [Worksheet.W2_1, doc2Part1State],
-      [Worksheet.W2_2, doc2Part2State],
-      [Worksheet.W2_3, doc2Part3State],
-      [Worksheet.W3, doc3State],
-      [Worksheet.W4, doc4State],
-    ];
-
-    docStates.forEach(([doc, state]) => {
-      const filename = `/input_tsvs/${targetLanguage}_${getWorksheetFileSuffix(doc)}.${getWorksheetFileType(doc)}`;
-      loadInputText(filename)
+    Object.entries(importedWorksheets).forEach(([doc, state]) => {
+      const filename = `/input_tsvs/${targetLanguage}_${getWorksheetFileSuffix(doc as Worksheet)}.${getWorksheetFileType(doc as Worksheet)}`;
+      loadWorksheet(filename)
         .then((data) => {
           if (data) state.set(data);
           else state.clear();
         })
         .catch((e) => {
           console.error(e);
-          state.set('');
+          state.clear();
         });
     });
-  }, [
-    doc1State,
-    doc2Part1State,
-    doc2Part2State,
-    doc2Part3State,
-    doc3State,
-    doc4State,
-    importSource,
-    targetLanguage,
-  ]);
+  }, [importedWorksheets, importSource, targetLanguage]);
 
   // Automatically updates the TSV datasets when input changes
   const w1Value = doc1State.value ?? '';
@@ -89,18 +78,6 @@ function useImportedWorksheets() {
   useEffect(() => {
     setExtraText(doc3Value + doc4Value);
   }, [doc3Value, doc4Value]);
-
-  const importedWorksheets: Record<Worksheet, UseWorksheetState> = useMemo(
-    () => ({
-      [Worksheet.W1]: doc1State,
-      [Worksheet.W2_1]: doc2Part1State,
-      [Worksheet.W2_2]: doc2Part2State,
-      [Worksheet.W2_3]: doc2Part3State,
-      [Worksheet.W3]: doc3State,
-      [Worksheet.W4]: doc4State,
-    }),
-    [doc1State, doc2Part1State, doc2Part2State, doc2Part3State, doc3State, doc4State],
-  );
 
   return { importedWorksheets, tsvRows, extraText };
 }

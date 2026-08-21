@@ -120,7 +120,7 @@ export default function LanguageRequestPanel() {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="mt-2 text-sm font-semibold text-(--silicon-purple) underline-offset-2 hover:underline"
+        className="text-sm font-semibold text-(--silicon-purple) underline-offset-2 hover:underline"
       >
         {uitext('languageRequests.trigger')}
       </button>

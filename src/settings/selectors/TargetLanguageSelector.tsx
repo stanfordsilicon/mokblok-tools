@@ -11,7 +11,7 @@ import TargetLanguageCodeInput from './TargetLanguageCodeInput';
 
 const TargetLanguageSelector = () => {
   const { uitext } = useInterfaceTranslation();
-  const { targetLanguage, updateURLParams, importSource } = useURLParams();
+  const { targetLanguage, updateURLParams, importSource, admin } = useURLParams();
   const languages = useAllowedTargetLanguages();
 
   return (
@@ -19,6 +19,7 @@ const TargetLanguageSelector = () => {
       <div>
         {uitext('import.language.pickLanguage')}{' '}
         {importSource !== ImportSource.Blank && uitext('import.language.hasPreloaded')}
+        {!admin && <LanguageRequestPanel />}
       </div>
 
       <LanguageButtons
@@ -29,7 +30,6 @@ const TargetLanguageSelector = () => {
       <div className="flex gap-1 items-center mt-1">
         <TargetLanguageCodeInput size="wide" />
       </div>
-      <LanguageRequestPanel />
     </div>
   );
 };

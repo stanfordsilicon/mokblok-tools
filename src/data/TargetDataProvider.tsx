@@ -85,7 +85,8 @@ const TargetDataProvider: React.FC<{
   // Getters & setters of the data
   const getTranslationInfo = useCallback(
     (entry: DataEntry | undefined): TranslationInfo => {
-      if (!entry) return { index: -1, source: '', vote: Vote.Unknown };
+      if (!entry || !translations[entry.index])
+        return { index: -1, source: '', vote: Vote.Unknown };
       return translations[entry.index];
     },
     [translations],
