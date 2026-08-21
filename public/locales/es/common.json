@@ -7,7 +7,8 @@
         "by": "por",
         "description": "Esta aplicación web se utiliza para que los evaluadores puedan evaluar la calidad de las traducciones enviadas para cada idioma. Por favor, comienza seleccionando tu idioma de origen y luego tu idioma de destino.",
         "ctaImportStart": "Comenzar a ingresar traducciones",
-        "ctaReviewStart": "Comenzar a revisar traducciones"
+        "ctaReviewStart": "Comenzar a revisar traducciones",
+        "instructions": "Haz clic en una opción de arriba para empezar a ver las traducciones."
     },
     "nav": {
         "intro": "Introducción",
@@ -21,6 +22,7 @@
     },
     "auth": {
         "signedInAs": "Conectado como",
+        "updatingSession": "Actualizando sesión…",
         "signInWithGoogle": "Iniciar sesión con Google",
         "redirectingToGoogle": "Redirigiendo a Google…",
         "signInWhy": "Inicia sesión con tu cuenta de Google aprobada para usar las herramientas de traducción y revisión.",
@@ -271,6 +273,7 @@
         "nd": "ndebele del norte",
         "om": "oromo",
         "or": "odia",
+        "pt": "portugués",
         "sn": "shona",
         "unknown": "desconocido",
         "wo": "wolof"

@@ -40,6 +40,7 @@ export enum InterfaceLanguage {
   EnglishFraktur = 'en-Latf',
   French = 'fr',
   Italian = 'it',
+  Portuguese = 'pt',
   Spanish = 'es',
 }
 

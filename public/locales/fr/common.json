@@ -6,7 +6,8 @@
         "title": "Bienvenue dans Homescreen",
         "description": "Cette application web est utilisée par les évaluateurs pour évaluer la qualité des traductions soumises pour chaque langue. Veuillez commencer par sélectionner votre langue source puis votre langue cible.",
         "ctaImportStart": "Commencer à saisir des traductions",
-        "ctaReviewStart": "Commencer à réviser les traductions"
+        "ctaReviewStart": "Commencer à réviser les traductions",
+        "instructions": "Cliquez sur une option ci-dessus pour commencer à consulter les traductions."
     },
     "nav": {
         "intro": "Introduction",
@@ -20,6 +21,7 @@
     },
     "auth": {
         "signedInAs": "Connecté en tant que",
+        "updatingSession": "Mise à jour de la session…",
         "signInWithGoogle": "Se connecter avec Google",
         "redirectingToGoogle": "Redirection vers Google…",
         "signInWhy": "Connectez-vous avec votre compte Google approuvé pour utiliser les outils de traduction et de révision.",
@@ -270,6 +272,7 @@
         "nd": "ndebele du nord",
         "om": "oromo",
         "or": "oriya",
+        "pt": "portugais",
         "sn": "shona",
         "unknown": "inconnu",
         "wo": "wolof"

@@ -1,0 +1,350 @@
+{
+  "title": "Homescreen Review",
+  "bySILICON": "por Stanford SILICON",
+  "allRightsReserved": "Todos os direitos reservados.",
+  "intro": {
+    "title": "Bem-vindo ao Homescreen",
+    "description": "Este aplicativo web é usado por revisores para avaliar a qualidade das traduções enviadas para cada idioma. Comece selecionando o idioma de origem e depois o idioma de destino.",
+    "ctaImportStart": "Importar dados de tradução",
+    "ctaReviewStart": "Começar a revisar traduções",
+    "instructions": "Clique em uma opção acima para começar a ver as traduções."
+  },
+  "nav": {
+    "intro": "Introdução",
+    "import": "Importar",
+    "edit": "Editar",
+    "vote": "Votar",
+    "export": "Exportar",
+    "page/section": "Página / Seção",
+    "translations": "Traduções",
+    "votes": "Votos"
+  },
+  "auth": {
+    "signedInAs": "Conectado como",
+    "updatingSession": "Atualizando sessão…",
+    "signInWithGoogle": "Entrar com Google",
+    "redirectingToGoogle": "Redirecionando para o Google…",
+    "signInWhy": "Entre com sua conta Google aprovada para acessar mais dados de tradução e salvar seu progresso.",
+    "signInDidNotCompleteTitle": "O login não foi concluído",
+    "signInDidNotCompleteFallback": "O login não foi concluído. Tente novamente ou entre em contato com a equipe SILICON.",
+    "signInErrorTitle": "Erro de login",
+    "signInErrorDescription": "A autenticação não foi concluída. Tente entrar novamente ou contate a equipe SILICON se o problema persistir.",
+    "backToSignIn": "Voltar para entrar",
+    "errors": {
+      "AccessDenied": "Essa conta do Google não está na lista aprovada para esta ferramenta. Entre em contato com a equipe SILICON para adicioná-la.",
+      "Configuration": "A configuração de login do servidor está incompleta. Esse problema é nosso, não seu.",
+      "OAuthAccountNotLinked": "Esse e-mail já está registrado com um método de login diferente. Use o método original.",
+      "OAuthSignin": "Não foi possível iniciar o login com o Google. Tente novamente.",
+      "OAuthCallback": "O Google retornou uma resposta inesperada. Tente novamente.",
+      "OAuthCreateAccount": "Não foi possível criar o registro da sua conta. Tente novamente.",
+      "Callback": "Algo deu errado ao concluir o login. Tente novamente.",
+      "Verification": "Esse link de login expirou ou já foi usado."
+    },
+    "signOut": "Sair",
+    "roles": {
+      "user": "Usuário público",
+      "beta": "Testador beta",
+      "metrics_editor": "Editor de métricas",
+      "moderator": "Moderador",
+      "admin": "Admin"
+    },
+    "viewingAsAdmin": "Visualizando como admin",
+    "viewingAsRegularUser": "Visualizando como usuário comum"
+  },
+  "import": {
+    "title": "Importar",
+    "instructions": "Selecione um idioma de origem e um idioma de destino para carregar os dados salvos desse idioma. Você também pode colar seus próprios dados TSV abaixo e inserir manualmente o código do idioma.",
+    "language": {
+      "title": "Idioma de destino",
+      "pickLanguage": "Escolha um idioma para modificar as traduções.",
+      "hasPreloaded": "Estas opções já vêm com dados iniciais para cada idioma.",
+      "manual": "Use esta opção para inserir seu próprio código de idioma e depois colar seus próprios dados abaixo.",
+      "ctaClear": "Limpar idioma e dados"
+    },
+    "files": {
+      "title": "Importar arquivos",
+      "placeholderTsv": "Cole seus dados TSV aqui",
+      "placeholderTxt": "Cole seus dados TXT aqui",
+      "Worksheet 1": "Planilha 1 (Dados principais, padrões de data/hora)",
+      "Worksheet 2 part 1": "Planilha 2 parte 1 (Traduções, matemática)",
+      "Worksheet 2 part 2": "Planilha 2 parte 2 (Texto longo)",
+      "Worksheet 2 part 3": "Planilha 2 parte 3 (Números, geografia, moeda e emojis)",
+      "Worksheet 3": "Planilha 3 (Orientação sobre emojis)",
+      "Worksheet 4": "Planilha 4 (Idiomas digitalmente desfavorecidos)",
+      "None": "Não há nada para enviar"
+    },
+    "check": {
+      "Total rows": "Total de linhas",
+      "Total words": "Total de palavras",
+      "Total characters": "Total de caracteres"
+    },
+    "importSource": {
+      "title": "Fonte de importação",
+      "label": "Pré-carregar dados de",
+      "blank": "Em branco",
+      "tsv": "Arquivos TSV da pesquisa",
+      "xml": "Arquivos XML do CLDR"
+    },
+    "asList": "como lista",
+    "asXML": "como XML",
+    "worksheets": {
+      "title": "Planilhas",
+      "label": "Das planilhas",
+      "w1only": "Somente a planilha 1",
+      "w1and2": "Planilha 1 + planilha 2 (partes 1-3)",
+      "w1to4": "Todas as planilhas padrão (1-4)",
+      "any": "Todas as planilhas (1-4) + quaisquer traduções extras"
+    }
+  },
+  "edit": {
+    "title": "Editar"
+  },
+  "vote": {
+    "title": "Votar",
+    "howToVote": "Passe o mouse sobre uma tradução para votar nela. Clique na opção em que deseja votar. Você também pode clicar e arrastar para votar em várias opções.",
+    "otherReviewActivities": "Clique na caixa de comentário (💬) para deixar um comentário. Para editar uma tradução, volte ao modo de edição.",
+    "actions": "Ações",
+    "accept": "Aceitar",
+    "reject": "Rejeitar",
+    "comment": "Comentar",
+    "writeCommentHere": "Escreva um comentário aqui",
+    "status": "Status",
+    "accepted": "Aceito",
+    "rejected": "Rejeitado",
+    "notVotedOn": "Sem voto"
+  },
+  "review": {
+    "downloadAllDemos": "Baixar todas as demonstrações",
+    "translated": "Traduzido",
+    "moreLanguages": "Mais idiomas",
+    "page": "Página",
+    "section": "Seção",
+    "group": "Grupo",
+    "field": "Campo",
+    "type": "Tipo",
+    "instance": "Instância",
+    "length": "Comprimento",
+    "variant": "Variante",
+    "exampleNumber": "Exemplo nº",
+    "timezone": {
+      "generic": "Genérico, nome da cidade",
+      "standard": "padrão",
+      "daylight": "horário de verão"
+    },
+    "components": "Componentes",
+    "greatestDifference": "Maior diferença",
+    "start": "Início",
+    "end": "Fim",
+    "standalone": "Isolado",
+    "inSentence": "Na frase",
+    "exampleSentence": "Frase de exemplo",
+    "past": "Passado",
+    "present": "Presente",
+    "future": "Futuro",
+    "morning": "Manhã",
+    "evening": "Noite",
+    "sourcePattern": "Padrão de origem",
+    "pattern": "Padrão",
+    "dates": "Datas",
+    "intervals": "Intervalos",
+    "alphabet": {
+      "set": "Conjunto",
+      "numberingSystem": "Sistema de numeração",
+      "digits": "Dígitos",
+      "charactersByFrequency": "Caracteres por frequência",
+      "space": "[espaço]",
+      "charactersByClass": "Caracteres por classe",
+      "writingSystem": "Sistema de escrita",
+      "main": "Alfabeto base",
+      "uppercase": "Maiúsculas (índice)",
+      "auxiliary": "Auxiliar",
+      "numbers": "Números",
+      "punctuation": "Pontuação",
+      "other": "Outros"
+    },
+    "plurals": {
+      "category": "Categoria de plural",
+      "instances": {
+        "book": "Livro",
+        "song": "Canção"
+      },
+      "categories": {
+        "base": "Base",
+        "zero": "Zero",
+        "one": "Um",
+        "two": "Dois",
+        "few": "Poucos",
+        "many": "Muitos",
+        "other": "Outro"
+      }
+    },
+    "progress": {
+      "ratioComplete": "{{completed}} / {{inCoverage}} concluído",
+      "outOfCoverage": "{{count}} a mais fora da cobertura"
+    }
+  },
+  "export": {
+    "title": "Exportar",
+    "instructions": "Use esta página para converter traduções em formato XML para envio ao CLDR.",
+    "download": "Baixar TSV",
+    "coreLocaleDataTitle": "Dados principais da localidade",
+    "coreLocaleInstructions": "Para adicionar a localidade à ferramenta de pesquisa, envie isto como um novo arquivo de dados",
+    "fullXmlTitle": "XML completo",
+    "cldrUploadPrefix": "Contribua com estes dados para o CLDR na ferramenta de envio em massa do Survey Tool",
+    "cldrUploadUrl": "https://st.unicode.org/cldr-apps/v#upload///"
+  },
+  "settings": {
+    "title": "Configurações",
+    "interfaceLanguage": "Idioma da interface",
+    "sourceLanguage": "Idioma de origem",
+    "targetLanguage": "Idioma de destino",
+    "targetLanguageCode": "Código do idioma de destino",
+    "assignedLanguagesOnly": "Os idiomas atribuídos a você são gerenciados pela equipe SILICON.",
+    "coverageLevel": "Nível de cobertura",
+    "backgroundStyle": "Estilo de fundo",
+    "dateExample": "Data de exemplo",
+    "inAdminCTATurnOff": "No modo admin, clique para desativar o modo admin",
+    "notAdminCTATurnOn": "No modo normal, clique para ativar o modo admin"
+  },
+  "languageRequests": {
+    "title": "Solicitar outro idioma",
+    "description": "Se o seu idioma estiver faltando, peça aqui à equipe SILICON para adicioná-lo ou aprová-lo.",
+    "request": "Solicitar um idioma",
+    "close": "Fechar",
+    "inputLabel": "Nome do idioma",
+    "placeholder": "ex.: Wolof",
+    "help": "Esta primeira versão aceita solicitações em texto livre. Um administrador da SILICON irá revisá-las.",
+    "send": "Enviar solicitação",
+    "sending": "Enviando…",
+    "pendingTitle": "Solicitações abertas",
+    "loading": "Carregando suas solicitações…",
+    "empty": "Você não tem solicitações de idioma pendentes ou negadas.",
+    "withdraw": "Retirar",
+    "dismiss": "Dispensar",
+    "deniedReason": "Motivo:",
+    "status": {
+      "pending": "Aguardando revisão",
+      "denied": "Negada"
+    },
+    "errors": {
+      "load": "Não foi possível carregar suas solicitações de idioma.",
+      "save": "Não foi possível salvar essa solicitação de idioma.",
+      "remove": "Não foi possível remover essa solicitação de idioma."
+    }
+  },
+  "coverageLevelName": {
+    "Any": "Qualquer",
+    "Unknown": "Desconhecido",
+    "Core": "Essencial",
+    "Basic": "Básico",
+    "BasicIfLocal": "Básico (se local)",
+    "Moderate": "Moderado",
+    "ModerateIfLocal": "Moderado (se local)",
+    "Modern": "Moderno",
+    "Comprehensive": "Abrangente"
+  },
+  "backgroundStyleName": {
+    "None": "Nenhum",
+    "Missing": "Traduções ausentes",
+    "CoverageLevel": "Nível de cobertura",
+    "DifferentThanSource": "Diferente da origem",
+    "Vote": "Voto"
+  },
+  "languageName": {
+    "abr": "Abron",
+    "ann": "Obolo",
+    "bho": "Bhojpuri",
+    "dag": "Dagbani",
+    "en-Latf": "Inglês (Fraktur)",
+    "en": "Inglês",
+    "es": "Espanhol",
+    "fr": "Francês",
+    "gaa": "Ga",
+    "ha": "Hauçá",
+    "it": "Italiano",
+    "mfe": "Crioulo mauriciano",
+    "mg": "Malgaxe",
+    "mos": "Mooré",
+    "nd": "Ndebele do Norte",
+    "om": "Oromo",
+    "or": "Odia",
+    "pt": "Português",
+    "sn": "Shona",
+    "unknown": "Desconhecido",
+    "wo": "Wolof"
+  },
+  "common": {
+    "emptyCell": "-"
+  },
+  "errors": {
+    "demoNotFound": "Demonstração não encontrada",
+    "unknownError": "Ocorreu um erro desconhecido",
+    "somethingWentWrong": "Algo deu errado.",
+    "refreshInstructions": "Tente atualizar a página ou entre em contato com o suporte se o problema persistir.",
+    "refreshPage": "Atualizar página"
+  },
+  "footer": {
+    "copyright": "© {{year}}",
+    "organizationName": "Stanford SILICON"
+  },
+  "dataPage": {
+    "All": "Todas as páginas",
+    "Core": "Essencial",
+    "DateAndTime": "Data e hora",
+    "FullTable": "Tabela completa",
+    "Quantities": "Quantidades",
+    "Translations": "Traduções"
+  },
+  "dataSection": {
+    "All": "Todas as {{section}}",
+    "Alphabet": "Alfabeto",
+    "Symbols": "Símbolos",
+    "Quotes": "Aspas",
+    "Maths": "Matemática",
+    "Plurals": "Categorias de plural",
+    "DateFields": "Campos de data",
+    "DayPeriods": "Períodos do dia",
+    "DaysOfWeek": "Dias da semana",
+    "Months": "Meses",
+    "Quarters": "Trimestres",
+    "Eras": "Eras",
+    "RelativeTime": "Tempo relativo",
+    "Times": "Combinações de hora",
+    "TimeIntervals": "Intervalos de tempo",
+    "Dates": "Combinações de data",
+    "DateIntervals": "Intervalos de data",
+    "DateTimes": "Combinações de data e hora",
+    "EraDates": "Combinações de era e data",
+    "Coordinates": "Coordenadas",
+    "DirectionExamples": "Exemplos de direção",
+    "LanguageNames": "Nomes de idiomas",
+    "Regions": "Regiões",
+    "Timezones": "Fusos horários",
+    "Emoji": "Emoji",
+    "TechWords": "Termos técnicos",
+    "Paragraphs": "Parágrafos",
+    "CLDRTicket": "Ticket do CLDR",
+    "FullTable": "Tabela completa"
+  },
+  "length": {
+    "wide": "Longo",
+    "w": "Longo",
+    "long": "Longo",
+    "abbreviated": "Abreviado",
+    "abbr": "Abrev.",
+    "a": "Abrev.",
+    "short": "Curto",
+    "s": "Curto",
+    "narrow": "Estreito",
+    "n": "Estreito"
+  },
+  "patternFormat": {
+    "patternFormat": "Formato de padrão",
+    "any": "Qualquer",
+    "none": "Sem formato",
+    "datetime": "Data/hora",
+    "datetimecombo": "Combinação de data/hora",
+    "sub": "Substituição",
+    "sentence": "Frase"
+  }
+}

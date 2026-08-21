@@ -7,6 +7,7 @@ import engLatf from './public/locales/en-Latf/common.json';
 import spa from './public/locales/es/common.json';
 import fra from './public/locales/fr/common.json';
 import ita from './public/locales/it/common.json';
+import por from './public/locales/pt/common.json';
 
 i18n
   .use(MF2PostProcessor)
@@ -22,6 +23,7 @@ i18n
       es: { translation: spa },
       fr: { translation: fra },
       it: { translation: ita },
+      pt: { translation: por },
     },
     interpolation: {
       escapeValue: false,
