@@ -15,14 +15,12 @@ const TargetLanguageDropdown: React.FC = () => {
 
   return (
     <>
-      {allowedLanguages.length > 1 && (
-        <LanguageDropdown
-          label={uitext('settings.targetLanguage')}
-          current={targetLanguage}
-          onChange={(newLanguage) => updateURLParams({ targetLanguage: newLanguage })}
-          options={allowedLanguages}
-        />
-      )}
+      <LanguageDropdown
+        label={uitext('settings.targetLanguage')}
+        current={targetLanguage}
+        onChange={(newLanguage) => updateURLParams({ targetLanguage: newLanguage })}
+        options={allowedLanguages}
+      />
       <LanguageRequestPanel />
     </>
   );
