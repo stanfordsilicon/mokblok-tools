@@ -17,6 +17,8 @@ declare module 'next-auth' {
        * lib/roles.ts, which re-reads the live value.
        */
       role: Role;
+      /** Target languages this contributor is explicitly assigned in this app. */
+      languages: string[];
     } & DefaultSession['user'];
   }
 }
@@ -29,6 +31,8 @@ declare module '@auth/core/jwt' {
     userId?: string;
     /** Live role at the time the claim was last refreshed. See auth.ts. */
     role?: Role;
+    /** Target languages this contributor is explicitly assigned in this app. */
+    languages?: string[];
     /** Date.now() of that refresh, so the TTL can be checked without a
      * second cookie or a database read. */
     roleCheckedAt?: number;

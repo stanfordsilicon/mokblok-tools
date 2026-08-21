@@ -4,9 +4,10 @@ type Props = {
   current: string;
   onChange: (newLanguage: string) => void;
   options: string[];
+  disabled?: boolean;
 };
 
-const LanguageButtons: React.FC<Props> = ({ current, onChange, options }) => {
+const LanguageButtons: React.FC<Props> = ({ current, onChange, options, disabled = false }) => {
   const { getLanguageName } = useLanguageName();
   const languageOptions = options
     .map(getLanguageName)
@@ -18,6 +19,7 @@ const LanguageButtons: React.FC<Props> = ({ current, onChange, options }) => {
         <button
           key={lang.code}
           className={lang.code === current ? 'selected' : ''}
+          disabled={disabled}
           onClick={() => onChange(lang.code)}
         >
           {lang.endonym}

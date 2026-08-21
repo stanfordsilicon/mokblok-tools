@@ -6,6 +6,7 @@ import NextAuth from 'next-auth';
 import { authConfig } from '../../../auth.config';
 import getMongoClient, { siliconDbName } from '../../mongodb';
 
+import { getUserLanguageCodes } from './languages';
 import { getUserRole } from './roles';
 
 const ROLE_TTL_MS = 5 * 60 * 1000;
@@ -52,12 +53,20 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       const checkedAt = typeof token.roleCheckedAt === 'number' ? token.roleCheckedAt : 0;
       const stale = Date.now() - checkedAt > ROLE_TTL_MS;
 
-      if (token.userId && (params.trigger === 'update' || token.role == null || stale)) {
+      if (
+        token.userId &&
+        (params.trigger === 'update' || token.role == null || token.languages == null || stale)
+      ) {
         try {
-          token.role = await getUserRole(token.userId);
+          const [role, languages] = await Promise.all([
+            getUserRole(token.userId),
+            getUserLanguageCodes(token.userId),
+          ]);
+          token.role = role;
+          token.languages = languages;
           token.roleCheckedAt = Date.now();
         } catch (err) {
-          console.error('Role lookup failed while minting a token:', err);
+          console.error('Access lookup failed while minting a token:', err);
         }
       }
 

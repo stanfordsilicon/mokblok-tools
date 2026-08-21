@@ -7,9 +7,16 @@ type Props = {
   current: string;
   onChange: (newLanguage: string) => void;
   options: string[];
+  disabled?: boolean;
 };
 
-const LanguageDropdown: React.FC<Props> = ({ label, current, onChange, options }) => {
+const LanguageDropdown: React.FC<Props> = ({
+  label,
+  current,
+  onChange,
+  options,
+  disabled = false,
+}) => {
   const { getLanguageName } = useLanguageName();
   const languageOptions = options
     .map(getLanguageName)
@@ -20,6 +27,7 @@ const LanguageDropdown: React.FC<Props> = ({ label, current, onChange, options }
       <strong>{label}</strong>
       <select
         className="settings-select"
+        disabled={disabled}
         value={current}
         onChange={(e) => onChange(e.target.value)}
       >

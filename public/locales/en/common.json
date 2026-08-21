@@ -202,6 +202,7 @@
         "sourceLanguage": "Source language",
         "targetLanguage": "Target language",
         "targetLanguageCode": "Target language code",
+        "assignedLanguagesOnly": "Your assigned languages are managed by the SILICON team.",
         "coverageLevel": "Coverage level",
         "backgroundStyle": "Background style",
         "dateExample": "Example date",

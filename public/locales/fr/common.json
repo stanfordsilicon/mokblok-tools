@@ -201,6 +201,7 @@
         "sourceLanguage": "Langue source",
         "targetLanguage": "Langue cible",
         "targetLanguageCode": "Code de langue cible",
+        "assignedLanguagesOnly": "L’équipe SILICON gère les langues qui vous sont attribuées.",
         "coverageLevel": "Niveau de couverture",
         "backgroundStyle": "Style d’arrière-plan",
         "dateExample": "Exemple de date",
