@@ -206,6 +206,7 @@
     "notAdminCTATurnOn": "No modo normal, clique para ativar o modo admin"
   },
   "languageRequests": {
+    "trigger": "Falta algum idioma?",
     "title": "Solicitar outro idioma",
     "description": "Se o seu idioma estiver faltando, peça aqui à equipe SILICON para adicioná-lo ou aprová-lo.",
     "request": "Solicitar um idioma",

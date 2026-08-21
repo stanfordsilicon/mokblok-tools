@@ -209,6 +209,7 @@
         "notAdminCTATurnOn": "In regular mode, click to turn on admin mode"
     },
     "languageRequests": {
+        "trigger": "Language missing?",
         "title": "Request another language",
         "description": "If your language is missing, ask the SILICON team to add or approve it here.",
         "request": "Request a language",

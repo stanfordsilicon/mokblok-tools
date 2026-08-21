@@ -116,107 +116,131 @@ export default function LanguageRequestPanel() {
   if (!canUse) return null;
 
   return (
-    <div className="flex w-full max-w-xl flex-col gap-3 rounded-[1.5rem] border border-(--silicon-line) bg-white/70 px-4 py-3 shadow-sm">
-      <div className="flex items-start justify-between gap-3">
-        <div>
-          <p className="text-sm font-semibold text-(--silicon-ink)">
-            {uitext('languageRequests.title')}
-          </p>
-          <p className="text-sm text-(--silicon-ink-soft)">
-            {uitext('languageRequests.description')}
-          </p>
-        </div>
-        <button
-          type="button"
-          onClick={() => setOpen((value) => !value)}
-          className="rounded-xl border border-(--silicon-line-strong) px-3 py-1.5 text-sm font-semibold text-(--silicon-ink) transition hover:border-(--silicon-purple) hover:text-(--silicon-purple)"
-        >
-          {open ? uitext('languageRequests.close') : uitext('languageRequests.request')}
-        </button>
-      </div>
+    <>
+      <button
+        type="button"
+        onClick={() => setOpen(true)}
+        className="mt-2 text-sm font-semibold text-(--silicon-purple) underline-offset-2 hover:underline"
+      >
+        {uitext('languageRequests.trigger')}
+      </button>
 
       {open && (
-        <div className="flex flex-col gap-2 border-t border-(--silicon-line) pt-3">
-          <label className="text-xs font-semibold uppercase tracking-wider text-(--silicon-ink-soft)">
-            {uitext('languageRequests.inputLabel')}
-          </label>
-          <div className="flex flex-col gap-2 sm:flex-row">
-            <input
-              type="text"
-              maxLength={120}
-              value={draft}
-              disabled={busy}
-              onChange={(event) => setDraft(event.target.value)}
-              className="min-w-0 flex-1 rounded-xl border border-(--silicon-line) bg-white px-3 py-2 text-sm outline-none focus:border-(--silicon-purple)"
-              placeholder={uitext('languageRequests.placeholder')}
-            />
-            <button
-              type="button"
-              disabled={busy || draft.trim().length === 0}
-              onClick={() => void submitRequest()}
-              className="rounded-xl bg-(--silicon-brown) px-4 py-2 text-sm font-semibold text-white transition hover:bg-(--silicon-purple) disabled:cursor-not-allowed disabled:opacity-40"
-            >
-              {busy ? uitext('languageRequests.sending') : uitext('languageRequests.send')}
-            </button>
-          </div>
-          <p className="text-xs text-(--silicon-ink-soft)">{uitext('languageRequests.help')}</p>
-        </div>
-      )}
-
-      {error && (
-        <p
-          role="alert"
-          className="rounded-xl border border-dashed border-(--silicon-purple) bg-(--silicon-panel) p-3 text-sm text-(--silicon-purple)"
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="language-request-title"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4"
         >
-          {error}
-        </p>
-      )}
+          <div className="flex w-full max-w-xl flex-col gap-3 rounded-[1.5rem] border border-(--silicon-line) bg-white px-4 py-4 shadow-lg">
+            <div className="flex items-start justify-between gap-3">
+              <div>
+                <p
+                  id="language-request-title"
+                  className="text-sm font-semibold text-(--silicon-ink)"
+                >
+                  {uitext('languageRequests.title')}
+                </p>
+                <p className="text-sm text-(--silicon-ink-soft)">
+                  {uitext('languageRequests.description')}
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={() => setOpen(false)}
+                className="rounded-xl border border-(--silicon-line-strong) px-3 py-1.5 text-sm font-semibold text-(--silicon-ink) transition hover:border-(--silicon-purple) hover:text-(--silicon-purple)"
+              >
+                {uitext('languageRequests.close')}
+              </button>
+            </div>
 
-      <div className="flex flex-col gap-2">
-        <p className="text-xs font-semibold uppercase tracking-wider text-(--silicon-ink-soft)">
-          {uitext('languageRequests.pendingTitle')}
-        </p>
-        {loading ? (
-          <p className="text-sm text-(--silicon-ink-soft)">{uitext('languageRequests.loading')}</p>
-        ) : visibleRequests.length === 0 ? (
-          <p className="text-sm text-(--silicon-ink-soft)">{uitext('languageRequests.empty')}</p>
-        ) : (
-          visibleRequests.map((language) => (
-            <div
-              key={language.id}
-              className="flex flex-col gap-2 rounded-xl border border-(--silicon-line) bg-(--silicon-beige) px-3 py-2"
-            >
-              <div className="flex items-start justify-between gap-3">
-                <div>
-                  <p className="text-sm font-semibold text-(--silicon-ink)">
-                    {language.displayName}
-                  </p>
-                  <p className="text-xs uppercase tracking-wider text-(--silicon-ink-soft)">
-                    {language.status === 'pending'
-                      ? uitext('languageRequests.status.pending')
-                      : uitext('languageRequests.status.denied')}
-                  </p>
-                </div>
+            <div className="flex flex-col gap-2 border-t border-(--silicon-line) pt-3">
+              <label className="text-xs font-semibold uppercase tracking-wider text-(--silicon-ink-soft)">
+                {uitext('languageRequests.inputLabel')}
+              </label>
+              <div className="flex flex-col gap-2 sm:flex-row">
+                <input
+                  type="text"
+                  maxLength={120}
+                  value={draft}
+                  disabled={busy}
+                  onChange={(event) => setDraft(event.target.value)}
+                  className="min-w-0 flex-1 rounded-xl border border-(--silicon-line) bg-white px-3 py-2 text-sm outline-none focus:border-(--silicon-purple)"
+                  placeholder={uitext('languageRequests.placeholder')}
+                />
                 <button
                   type="button"
-                  disabled={busy}
-                  onClick={() => void withdrawRequest(language.id)}
-                  className="shrink-0 rounded-lg border border-(--silicon-line-strong) px-2.5 py-1 text-xs font-semibold text-(--silicon-ink) transition hover:border-(--silicon-purple) hover:text-(--silicon-purple)"
+                  disabled={busy || draft.trim().length === 0}
+                  onClick={() => void submitRequest()}
+                  className="rounded-xl bg-(--silicon-brown) px-4 py-2 text-sm font-semibold text-white transition hover:bg-(--silicon-purple) disabled:cursor-not-allowed disabled:opacity-40"
                 >
-                  {language.status === 'pending'
-                    ? uitext('languageRequests.withdraw')
-                    : uitext('languageRequests.dismiss')}
+                  {busy ? uitext('languageRequests.sending') : uitext('languageRequests.send')}
                 </button>
               </div>
-              {language.deniedReason && (
-                <p className="text-xs text-(--silicon-ink-soft)">
-                  {uitext('languageRequests.deniedReason')} {language.deniedReason}
+              <p className="text-xs text-(--silicon-ink-soft)">{uitext('languageRequests.help')}</p>
+            </div>
+
+            {error && (
+              <p
+                role="alert"
+                className="rounded-xl border border-dashed border-(--silicon-purple) bg-(--silicon-panel) p-3 text-sm text-(--silicon-purple)"
+              >
+                {error}
+              </p>
+            )}
+
+            <div className="flex flex-col gap-2">
+              <p className="text-xs font-semibold uppercase tracking-wider text-(--silicon-ink-soft)">
+                {uitext('languageRequests.pendingTitle')}
+              </p>
+              {loading ? (
+                <p className="text-sm text-(--silicon-ink-soft)">
+                  {uitext('languageRequests.loading')}
                 </p>
+              ) : visibleRequests.length === 0 ? (
+                <p className="text-sm text-(--silicon-ink-soft)">
+                  {uitext('languageRequests.empty')}
+                </p>
+              ) : (
+                visibleRequests.map((language) => (
+                  <div
+                    key={language.id}
+                    className="flex flex-col gap-2 rounded-xl border border-(--silicon-line) bg-(--silicon-beige) px-3 py-2"
+                  >
+                    <div className="flex items-start justify-between gap-3">
+                      <div>
+                        <p className="text-sm font-semibold text-(--silicon-ink)">
+                          {language.displayName}
+                        </p>
+                        <p className="text-xs uppercase tracking-wider text-(--silicon-ink-soft)">
+                          {language.status === 'pending'
+                            ? uitext('languageRequests.status.pending')
+                            : uitext('languageRequests.status.denied')}
+                        </p>
+                      </div>
+                      <button
+                        type="button"
+                        disabled={busy}
+                        onClick={() => void withdrawRequest(language.id)}
+                        className="shrink-0 rounded-lg border border-(--silicon-line-strong) px-2.5 py-1 text-xs font-semibold text-(--silicon-ink) transition hover:border-(--silicon-purple) hover:text-(--silicon-purple)"
+                      >
+                        {language.status === 'pending'
+                          ? uitext('languageRequests.withdraw')
+                          : uitext('languageRequests.dismiss')}
+                      </button>
+                    </div>
+                    {language.deniedReason && (
+                      <p className="text-xs text-(--silicon-ink-soft)">
+                        {uitext('languageRequests.deniedReason')} {language.deniedReason}
+                      </p>
+                    )}
+                  </div>
+                ))
               )}
             </div>
-          ))
-        )}
-      </div>
-    </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 }

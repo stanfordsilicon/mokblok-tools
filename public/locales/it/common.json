@@ -210,6 +210,7 @@
         "notAdminCTATurnOn": "In modalità normale, fai clic per attivare la modalità amministratore"
     },
     "languageRequests": {
+        "trigger": "Manca una lingua?",
         "title": "Richiedi un'altra lingua",
         "description": "Se la tua lingua manca, chiedi qui al team SILICON di aggiungerla o approvarla.",
         "request": "Richiedi una lingua",
