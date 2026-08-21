@@ -1,3 +1,5 @@
+import { PreloadableXMLLanguages } from '../settings/selectors/TargetLanguageOptions';
+
 import parseInheritance from './parseInheritance';
 
 /**
@@ -26,6 +28,8 @@ import parseInheritance from './parseInheritance';
     * "/ldml/layout/orientation/lineOrder": "top-to-bottom" }
  */
 export async function loadCLDRXML(locale: string): Promise<Record<string, string>> {
+  if (!PreloadableXMLLanguages.includes(locale)) return {};
+
   return fetch(`/cldr_xml/${locale}.xml`)
     .catch((error) => {
       console.error(`Error fetching XML for locale ${locale}:`, error);

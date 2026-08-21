@@ -1,12 +1,23 @@
 import { expect, type Page } from '@playwright/test';
 
 const FIXED_ISO_TIME = '2026-01-15T12:00:00Z';
-const MOCK_SESSION = {
+const ADMIN_SESSION = {
+  user: {
+    id: 'playwright-screenshot-admin',
+    name: 'Screenshot Admin',
+    email: 'admin-screenshots@example.com',
+    role: 'admin',
+    languages: [],
+  },
+  expires: '2099-01-01T00:00:00.000Z',
+};
+const USER_SESSION = {
   user: {
     id: 'playwright-screenshot-user',
-    name: 'Screenshot Tester',
+    name: 'Screenshot User',
     email: 'screenshots@example.com',
-    role: 'admin',
+    role: 'user',
+    languages: ['mg', 'wo'],
   },
   expires: '2099-01-01T00:00:00.000Z',
 };
@@ -54,15 +65,30 @@ export async function freezeDate(page: Page) {
   }, FIXED_ISO_TIME);
 }
 
-export async function gotoApp(page: Page, path: string) {
+export type ScreenshotViewer = 'admin' | 'user' | 'signed-out';
+
+function sessionBodyFor(viewer: ScreenshotViewer) {
+  switch (viewer) {
+    case 'admin':
+      return ADMIN_SESSION;
+    case 'user':
+      return USER_SESSION;
+    case 'signed-out':
+      return null;
+  }
+}
+
+export async function gotoApp(page: Page, path: string, viewer: ScreenshotViewer = 'admin') {
+  const pathMaybeAdmin = path + (viewer === 'admin' ? '&admin=true' : '');
+
   await page.route('**/api/auth/session', async (route) => {
     await route.fulfill({
       contentType: 'application/json',
-      body: JSON.stringify(MOCK_SESSION),
+      body: JSON.stringify(sessionBodyFor(viewer)),
     });
   });
   await page.emulateMedia({ reducedMotion: 'reduce' });
-  await page.goto(path, { waitUntil: 'domcontentloaded' });
+  await page.goto(pathMaybeAdmin, { waitUntil: 'domcontentloaded' });
   await page.addStyleTag({ content: DISABLE_MOTION_CSS });
   await expect(page.getByTestId('FullPage')).toBeVisible();
   await expect(page.getByTestId('PageBody')).toBeVisible();

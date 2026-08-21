@@ -7,7 +7,8 @@
         "by": "por",
         "description": "Esta aplicación web se utiliza para que los evaluadores puedan evaluar la calidad de las traducciones enviadas para cada idioma. Por favor, comienza seleccionando tu idioma de origen y luego tu idioma de destino.",
         "ctaImportStart": "Comenzar a ingresar traducciones",
-        "ctaReviewStart": "Comenzar a revisar traducciones"
+        "ctaReviewStart": "Comenzar a revisar traducciones",
+        "instructions": "Haz clic en una opción de arriba para empezar a ver las traducciones."
     },
     "nav": {
         "intro": "Introducción",
@@ -21,6 +22,7 @@
     },
     "auth": {
         "signedInAs": "Conectado como",
+        "updatingSession": "Actualizando sesión…",
         "signInWithGoogle": "Iniciar sesión con Google",
         "redirectingToGoogle": "Redirigiendo a Google…",
         "signInWhy": "Inicia sesión con tu cuenta de Google aprobada para usar las herramientas de traducción y revisión.",
@@ -58,8 +60,7 @@
             "title": "Idioma de destino",
             "pickLanguage": "Elige un idioma para modificar sus traducciones.",
             "hasPreloaded": "Estas opciones están precargadas con datos iniciales para cada idioma.",
-            "manual": "Usa esta opción para introducir tu propio código de idioma y luego pega tus propios datos abajo.",
-            "ctaClear": "Borrar idioma y datos"
+            "manual": "Usa esta opción para introducir tu propio código de idioma y luego pega tus propios datos abajo."
         },
         "files": {
             "title": "Archivos de datos",
@@ -202,11 +203,39 @@
         "sourceLanguage": "Idioma de origen",
         "targetLanguage": "Idioma de destino",
         "targetLanguageCode": "Código del idioma de destino",
+        "assignedLanguagesOnly": "El equipo de SILICON gestiona tus idiomas asignados.",
         "coverageLevel": "Nivel de cobertura",
         "backgroundStyle": "Estilo de fondo",
         "dateExample": "Ejemplo de fecha",
         "inAdminCTATurnOff": "En modo administrador, haz clic para desactivar el modo administrador",
         "notAdminCTATurnOn": "En modo normal, haz clic para activar el modo administrador"
+    },
+    "languageRequests": {
+        "trigger": "¿Falta un idioma?",
+        "title": "Solicitar otro idioma",
+        "description": "Si falta tu idioma, pide aquí al equipo de SILICON que lo añada o lo apruebe.",
+        "request": "Solicitar un idioma",
+        "close": "Cerrar",
+        "inputLabel": "Nombre del idioma",
+        "placeholder": "p. ej. wolof",
+        "help": "Esta primera versión acepta solicitudes en texto libre. Un administrador de SILICON las revisará.",
+        "send": "Enviar solicitud",
+        "sending": "Enviando…",
+        "pendingTitle": "Solicitudes abiertas",
+        "loading": "Cargando tus solicitudes…",
+        "empty": "No tienes solicitudes de idioma pendientes ni rechazadas.",
+        "withdraw": "Retirar",
+        "dismiss": "Descartar",
+        "deniedReason": "Motivo:",
+        "status": {
+            "pending": "Pendiente de revisión",
+            "denied": "Rechazada"
+        },
+        "errors": {
+            "load": "No se pudieron cargar tus solicitudes de idioma.",
+            "save": "No se pudo guardar esa solicitud de idioma.",
+            "remove": "No se pudo eliminar esa solicitud de idioma."
+        }
     },
     "coverageLevelName": {
         "Any": "Cualquiera",
@@ -227,6 +256,7 @@
         "Vote": "Voto"
     },
     "languageName": {
+        "": "ninguno",
         "abr": "abron",
         "ann": "obolo",
         "bho": "bhojpuri",
@@ -244,6 +274,7 @@
         "nd": "ndebele del norte",
         "om": "oromo",
         "or": "odia",
+        "pt": "portugués",
         "sn": "shona",
         "unknown": "desconocido",
         "wo": "wolof"

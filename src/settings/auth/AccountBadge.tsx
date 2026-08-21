@@ -26,7 +26,11 @@ export default function AccountBadge() {
 
   // Hold the space while the session resolves so the header doesn't jump.
   if (status === 'loading') {
-    return <div className="h-12 w-52 rounded-2xl bg-(--silicon-panel) animate-pulse" />;
+    return (
+      <div className="h-12 w-52 rounded-2xl bg-(--silicon-panel) animate-pulse">
+        {uitext('auth.updatingSession')}
+      </div>
+    );
   }
 
   if (session?.user) {
@@ -70,7 +74,7 @@ export default function AccountBadge() {
       onClick={() => signIn('google')}
       className="rounded-xl bg-(--silicon-brown) px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-(--silicon-purple) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--silicon-purple)"
     >
-      {uitext('auth.signInToSaveProgress')}
+      {uitext('auth.signInWhy')}
     </button>
   );
 }

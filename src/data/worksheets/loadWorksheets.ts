@@ -2,7 +2,7 @@ import { SubmissionField } from '../DataTypes';
 
 import type { WorksheetRowData } from './WorksheetRowData';
 
-export async function loadInputText(filePath: string): Promise<string | void> {
+export async function loadWorksheet(filePath: string): Promise<string | void> {
   return await fetch(filePath)
     .then((res) => {
       const contentType = res.headers.get('content-type');
@@ -21,6 +21,8 @@ export async function loadInputText(filePath: string): Promise<string | void> {
 }
 
 export function parseWorksheet1(tsv: string): WorksheetRowData[] {
+  if (!tsv) return [];
+
   // Remove lines in comments by finding new lines in "" blocks
   const text = tsv.replace(/"([^"\t]|"")*"/g, (match) => match.replace(/\n/g, ' '));
   const lines = text.split('\n');

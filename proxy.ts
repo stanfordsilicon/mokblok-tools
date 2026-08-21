@@ -35,7 +35,7 @@ function withLocale(pathname: string, locale?: string) {
 export const proxy = auth((req) => {
   if (skipAuthForScreenshotTests) return NextResponse.next();
 
-  const { pathname, search, origin } = req.nextUrl;
+  const { pathname, origin } = req.nextUrl;
   const locale = getLocaleFromPathname(pathname);
   const normalizedPathname = stripLocaleFromPathname(pathname);
 
@@ -68,17 +68,14 @@ export const proxy = auth((req) => {
     return NextResponse.json({ success: false, error: 'Not signed in' }, { status: 401 });
   }
 
-  // Page visits bounce to the Auth.js sign-in screen and come back to the
-  // level they wanted after Google finishes. Same-origin path only (not
-  // nextUrl.href) — it's what Auth.js expects and it keeps the URL readable.
-  const signInUrl = new URL(withLocale('/auth/signin', locale), origin);
-  signInUrl.searchParams.set('callbackUrl', pathname + search);
-  return NextResponse.redirect(signInUrl);
+  // Unauthenticated page visits are public. Leave the sign-in screen reachable
+  // but do not force visitors through it before they can use the app.
+  return NextResponse.next();
 });
 
 export const config = {
-  // Match protected pages plus the sign-in page itself so signed-in visitors
-  // can be forwarded away from it.
+  // Match app pages plus the sign-in page itself so signed-in visitors can be
+  // forwarded away from it. API routes stay protected above.
   matcher: [
     '/',
     '/:locale(en|en-Latf|es|fr|it)',

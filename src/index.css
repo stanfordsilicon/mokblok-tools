@@ -1,7 +1,7 @@
 :root {
   --color-text: var(--silicon-ink);
   --color-background: var(--silicon-beige);
-  --color-text-highlighted: var(--silicon-purple);
+  --color-text-highlighted: var(--silicon-orange);
   --color-link: var(--silicon-purple);
   --color-link-hover: var(--silicon-brown);
   --color-button-background: var(--silicon-brown);

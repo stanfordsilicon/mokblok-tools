@@ -10,8 +10,10 @@ type Props = {
 
 const TargetLanguageCodeInput: React.FC<Props> = ({ size }) => {
   const { uitext } = useInterfaceTranslation();
-  const { targetLanguage, updateURLParams } = useURLParams();
+  const { admin, targetLanguage, updateURLParams } = useURLParams();
   const targetTranslationKey = 'languageName.' + targetLanguage;
+
+  if (!admin) return null;
 
   return (
     <div className="flex gap-4 items-center w-fit">
@@ -25,22 +27,13 @@ const TargetLanguageCodeInput: React.FC<Props> = ({ size }) => {
       </span>
       <input
         className="border rounded-lg p-1 text-center w-12"
+        title={!admin ? uitext('settings.assignedLanguagesOnly') : undefined}
         value={targetLanguage}
         onChange={(e) => updateURLParams({ targetLanguage: e.target.value })}
-        style={{
-          background: targetLanguage.length < 2 ? 'var(--silicon-orange)' : 'var(--silicon-white)',
-        }}
       />
       {uitext(targetTranslationKey) === targetTranslationKey
         ? uitext('languageName.unknown')
         : uitext(targetTranslationKey)}
-      <button
-        aria-label={uitext('import.language.ctaClear')}
-        title={uitext('import.language.ctaClear')}
-        onClick={() => updateURLParams({ targetLanguage: '' })}
-      >
-        {size === 'wide' ? uitext('import.language.ctaClear') : '✘'}
-      </button>
     </div>
   );
 };

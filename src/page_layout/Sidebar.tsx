@@ -9,7 +9,6 @@ import { useURLParams } from '@settings/URLParams';
 import enforceExhaustiveSwitch from '@shared/enforceExhaustiveSwitch';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
-import IntroCTAs from '../widgets/intro/IntroCTAs';
 import PageSectionSelector from '../widgets/review/PageSectionSelector';
 
 import LoadingStatus from './LoadingStatus';
@@ -79,7 +78,7 @@ const SidebarContents: React.FC = () => {
     case StepName.Vote:
       return <PageSectionSelector />;
     case StepName.Intro:
-      return <IntroCTAs />;
+      return uitext('intro.instructions');
     default:
       enforceExhaustiveSwitch(step);
   }

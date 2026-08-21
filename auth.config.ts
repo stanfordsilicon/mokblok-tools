@@ -26,6 +26,7 @@ export const authConfig = {
     session({ session, token }) {
       if (token.userId) session.user.id = token.userId;
       session.user.role = token.role ?? 'user';
+      session.user.languages = Array.isArray(token.languages) ? token.languages : [];
       return session;
     },
   },

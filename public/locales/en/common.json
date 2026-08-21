@@ -6,7 +6,8 @@
         "title": "Welcome to Homescreen",
         "description": "This web application is used for vetters to evaluate the quality of translations submitted for each language. Please start by selecting your source language then your target language.",
         "ctaImportStart": "Import translation data",
-        "ctaReviewStart": "Start reviewing translations"
+        "ctaReviewStart": "Start reviewing translations",
+        "instructions": "Click an option above to start viewing translations."
     },
     "nav": {
         "intro": "Intro",
@@ -19,10 +20,11 @@
         "votes": "Votes"
     },
     "auth": {
-        "signedInAs": "Signed in as",
+        "signedInAs": "Signed in as", 
+        "updatingSession": "Updating session…", 
         "signInWithGoogle": "Sign in with Google",
         "redirectingToGoogle": "Redirecting to Google…",
-        "signInWhy": "Sign in with your approved Google account to use the translation and review tools.",
+        "signInWhy": "Sign in with your approved Google account to access more translation data and to save your progress.",
         "signInDidNotCompleteTitle": "Sign-in didn't complete",
         "signInDidNotCompleteFallback": "Sign-in didn't complete. Please try again, or contact the SILICON team.",
         "signInErrorTitle": "Sign-in Error",
@@ -39,7 +41,6 @@
             "Verification": "That sign-in link has expired or was already used."
         },
         "signOut": "Sign out",
-        "signInToSaveProgress": "Sign in to save progress",
         "roles": {
             "user": "Public User",
             "beta": "Beta Tester",
@@ -57,8 +58,7 @@
             "title": "Target Language",
             "pickLanguage": "Pick a language to modify their translations.",
             "hasPreloaded": "These options are preloaded with starting data for each language.",
-            "manual": "Use this option to input your own language code and then paste your own data below.",
-            "ctaClear": "Clear language & data"
+            "manual": "Use this option to input your own language code and then paste your own data below." 
         },
         "files": {
             "title": "Import Files",
@@ -201,11 +201,39 @@
         "sourceLanguage": "Source language",
         "targetLanguage": "Target language",
         "targetLanguageCode": "Target language code",
+        "assignedLanguagesOnly": "Your assigned languages are managed by the SILICON team.",
         "coverageLevel": "Coverage level",
         "backgroundStyle": "Background style",
         "dateExample": "Example date",
         "inAdminCTATurnOff": "In admin mode, click to turn off admin mode",
         "notAdminCTATurnOn": "In regular mode, click to turn on admin mode"
+    },
+    "languageRequests": {
+        "trigger": "Language missing?",
+        "title": "Request another language",
+        "description": "If your language is missing, ask the SILICON team to add or approve it here.",
+        "request": "Request a language",
+        "close": "Close",
+        "inputLabel": "Language name",
+        "placeholder": "e.g. Wolof",
+        "help": "This first pass accepts free-text requests. A SILICON administrator will review them.",
+        "send": "Send request",
+        "sending": "Sending…",
+        "pendingTitle": "Open requests",
+        "loading": "Loading your requests…",
+        "empty": "You have no pending or denied language requests.",
+        "withdraw": "Withdraw",
+        "dismiss": "Dismiss",
+        "deniedReason": "Reason:",
+        "status": {
+            "pending": "Pending review",
+            "denied": "Denied"
+        },
+        "errors": {
+            "load": "Couldn't load your language requests.",
+            "save": "Couldn't save that language request.",
+            "remove": "Couldn't remove that language request."
+        }
     },
     "coverageLevelName": {
         "Any": "Any",
@@ -226,6 +254,7 @@
         "Vote": "Vote"
     },
     "languageName": {
+        "": "None",
         "abr": "Abron",
         "ann": "Obolo",
         "bho": "Bhojpuri",
@@ -243,6 +272,7 @@
         "nd": "North Ndebele",
         "om": "Oromo",
         "or": "Odia",
+        "pt": "Portuguese",
         "sn": "Shona",
         "unknown": "Unknown",
         "wo": "Wolof"

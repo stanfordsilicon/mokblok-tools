@@ -1,3 +1,5 @@
+import { useDeferredValue } from 'react';
+
 import { isEntryInCoverageLevel } from '@data/CoverageLevel';
 import { DataPage, DataSection } from '@data/DataSection';
 import type { DataEntry } from '@data/DataTypes';
@@ -31,7 +33,8 @@ export function useCompletionForSection(
   section?: DataSection,
 ): { percent: number | undefined; overall: number; inCoverage: number; completed: number } {
   const { coverageLevel, worksheets } = useURLParams();
-  const { getTranslation } = useTargetDataContext();
+  const { translations } = useTargetDataContext();
+  const deferredTranslations = useDeferredValue(translations);
   const getDataEntriesForSection = useDataEntriesForSection();
 
   const entries = getDataEntriesForSection(page, section);
@@ -39,7 +42,10 @@ export function useCompletionForSection(
     (entry) =>
       isEntryInCoverageLevel(entry, coverageLevel) && isEntryInWorksheetScope(entry, worksheets),
   );
-  const completedEntries = entriesInCoverage.filter((entry) => getTranslation(entry, false));
+  const completedEntries = entriesInCoverage.filter((entry) => {
+    const info = deferredTranslations[entry.index];
+    return Boolean(info?.edit ?? info?.translation);
+  });
 
   return {
     overall: entries.length,

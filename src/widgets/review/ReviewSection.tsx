@@ -1,4 +1,10 @@
+import { useCallback, useDeferredValue, useMemo } from 'react';
+
+import { DataContext } from '@data/DataContext';
 import { DataPage, DataSection } from '@data/DataSection';
+import type { DataEntry } from '@data/DataTypes';
+import { useSourceDataContext } from '@data/SourceDataProvider';
+import { useTargetDataContext } from '@data/TargetDataProvider';
 
 import ErrorBoundary from '@shared/ErrorBoundary';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
@@ -61,11 +67,42 @@ function ReviewSection({ dataSection }: { dataSection: DataSection }) {
             maxWidth: '950px',
           }}
         >
-          <DemosForSection dataSection={dataSection} />
+          <DeferredDemoDataProvider>
+            <DemosForSection dataSection={dataSection} />
+          </DeferredDemoDataProvider>
         </div>
       </div>
     </div>
   );
+}
+
+function DeferredDemoDataProvider({ children }: { children: React.ReactNode }) {
+  const { alphabet, translations } = useTargetDataContext();
+  const { findDataEntries, findDataEntry, getSourceData } = useSourceDataContext();
+  const deferredTranslations = useDeferredValue(translations);
+
+  const getDeferredTranslation = useCallback(
+    (entry: DataEntry | undefined, fallback = true): string => {
+      if (!entry) return '';
+      const info = deferredTranslations[entry.index];
+      if (!info) return '';
+      return info.edit ?? info.translation ?? (fallback ? info.source : '');
+    },
+    [deferredTranslations],
+  );
+
+  const dataContext = useMemo(
+    () => ({
+      alphabet,
+      findDataEntry,
+      findDataEntries,
+      getSourceData,
+      getTranslation: getDeferredTranslation,
+    }),
+    [alphabet, findDataEntry, findDataEntries, getDeferredTranslation, getSourceData],
+  );
+
+  return <DataContext.Provider value={dataContext}>{children}</DataContext.Provider>;
 }
 
 function ReviewTable({ dataSection }: { dataSection: DataSection }) {

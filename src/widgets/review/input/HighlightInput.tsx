@@ -1,3 +1,5 @@
+'use client';
+
 type HighlightInputProps = {
   value: string;
   onChange: (value: string) => void;
@@ -34,6 +36,7 @@ function HighlightInput({ value, onChange, highlight, disabled, style }: Highlig
       <input
         data-testid="highlight-input"
         style={{
+          padding: '0px 3px 0px 3px',
           position: 'relative',
           zIndex: 1,
           boxSizing: 'border-box',

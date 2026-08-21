@@ -6,7 +6,8 @@
         "title": "Bienvenue dans Homescreen",
         "description": "Cette application web est utilisée par les évaluateurs pour évaluer la qualité des traductions soumises pour chaque langue. Veuillez commencer par sélectionner votre langue source puis votre langue cible.",
         "ctaImportStart": "Commencer à saisir des traductions",
-        "ctaReviewStart": "Commencer à réviser les traductions"
+        "ctaReviewStart": "Commencer à réviser les traductions",
+        "instructions": "Cliquez sur une option ci-dessus pour commencer à consulter les traductions."
     },
     "nav": {
         "intro": "Introduction",
@@ -20,6 +21,7 @@
     },
     "auth": {
         "signedInAs": "Connecté en tant que",
+        "updatingSession": "Mise à jour de la session…",
         "signInWithGoogle": "Se connecter avec Google",
         "redirectingToGoogle": "Redirection vers Google…",
         "signInWhy": "Connectez-vous avec votre compte Google approuvé pour utiliser les outils de traduction et de révision.",
@@ -57,8 +59,7 @@
             "title": "Langue cible",
             "pickLanguage": "Choisissez une langue pour modifier leurs traductions.",
             "hasPreloaded": "Ces options sont préchargées avec des données de départ pour chaque langue.",
-            "manual": "Utilisez cette option pour saisir votre propre code de langue, puis collez vos propres données ci-dessous.",
-            "ctaClear": "Effacer la langue et les données"
+            "manual": "Utilisez cette option pour saisir votre propre code de langue, puis collez vos propres données ci-dessous." 
         },
         "files": {
             "title": "Fichiers de données",
@@ -201,11 +202,39 @@
         "sourceLanguage": "Langue source",
         "targetLanguage": "Langue cible",
         "targetLanguageCode": "Code de langue cible",
+        "assignedLanguagesOnly": "L’équipe SILICON gère les langues qui vous sont attribuées.",
         "coverageLevel": "Niveau de couverture",
         "backgroundStyle": "Style d’arrière-plan",
         "dateExample": "Exemple de date",
         "inAdminCTATurnOff": "En mode administrateur, cliquez pour désactiver le mode administrateur",
         "notAdminCTATurnOn": "En mode normal, cliquez pour activer le mode administrateur"
+    },
+    "languageRequests": {
+        "trigger": "Une langue manque ?",
+        "title": "Demander une autre langue",
+        "description": "Si votre langue manque, demandez ici à l’équipe SILICON de l’ajouter ou de l’approuver.",
+        "request": "Demander une langue",
+        "close": "Fermer",
+        "inputLabel": "Nom de la langue",
+        "placeholder": "par ex. wolof",
+        "help": "Cette première version accepte les demandes en texte libre. Un administrateur SILICON les examinera.",
+        "send": "Envoyer la demande",
+        "sending": "Envoi…",
+        "pendingTitle": "Demandes en cours",
+        "loading": "Chargement de vos demandes…",
+        "empty": "Vous n’avez aucune demande de langue en attente ou refusée.",
+        "withdraw": "Retirer",
+        "dismiss": "Ignorer",
+        "deniedReason": "Motif :",
+        "status": {
+            "pending": "En attente d’examen",
+            "denied": "Refusée"
+        },
+        "errors": {
+            "load": "Impossible de charger vos demandes de langue.",
+            "save": "Impossible d’enregistrer cette demande de langue.",
+            "remove": "Impossible de supprimer cette demande de langue."
+        }
     },
     "coverageLevelName": {
         "Any": "Tout",
@@ -226,6 +255,7 @@
         "Vote": "Vote"
     },
     "languageName": {
+        "": "aucun",
         "abr": "abron",
         "ann": "obolo",
         "bho": "bhojpuri",
@@ -243,6 +273,7 @@
         "nd": "ndebele du nord",
         "om": "oromo",
         "or": "oriya",
+        "pt": "portugais",
         "sn": "shona",
         "unknown": "inconnu",
         "wo": "wolof"
