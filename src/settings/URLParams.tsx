@@ -1,3 +1,4 @@
+import { useSession } from 'next-auth/react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import React, { createContext, useCallback, useContext, useEffect, useMemo } from 'react';
 
@@ -137,7 +138,10 @@ export function getParamsFromURL(urlParams: URLSearchParams): Partial<URLParams>
   return params;
 }
 
-function getInferredParams(instantiatedParams: Partial<URLParams>): Partial<URLParams> {
+function getInferredParams(
+  instantiatedParams: Partial<URLParams>,
+  role?: string,
+): Partial<URLParams> {
   const inferredParams: Partial<URLParams> = {};
   if (instantiatedParams.sourceLanguage == null && instantiatedParams.interfaceLanguage != null) {
     switch (instantiatedParams.interfaceLanguage) {
@@ -160,6 +164,11 @@ function getInferredParams(instantiatedParams: Partial<URLParams>): Partial<URLP
         enforceExhaustiveSwitch(instantiatedParams.interfaceLanguage);
     }
   }
+
+  // Restrictions based on sign-in role.
+  if (role !== 'admin') inferredParams.admin = false;
+  if (!role) inferredParams.importSource = ImportSource.Blank;
+
   return inferredParams;
 }
 
@@ -170,6 +179,7 @@ export const URLParamsProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   const pathname = usePathname();
   const router = useRouter();
   const searchParams = useSearchParams();
+  const { role } = useSession().data?.user ?? {};
 
   const updateURLParams = useCallback(
     (newParams: Partial<URLParams>) => {
@@ -190,7 +200,7 @@ export const URLParamsProvider: React.FC<{ children: React.ReactNode }> = ({ chi
       const typedKey = key as keyof URLParams;
       if (instantiatedParams[typedKey] == null) delete instantiatedParams[typedKey];
     });
-    const inferredParams = getInferredParams(instantiatedParams);
+    const inferredParams = getInferredParams(instantiatedParams, role);
     return {
       ...GLOBAL_DEFAULTS,
       ...instantiatedParams,

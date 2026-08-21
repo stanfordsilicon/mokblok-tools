@@ -1,4 +1,3 @@
-import SignInButton from '@settings/auth/SignInButton';
 import InterfaceLanguageSelector from '@settings/selectors/InterfaceLanguageSelector';
 import TargetLanguageSelector from '@settings/selectors/TargetLanguageSelector';
 
@@ -17,7 +16,6 @@ const IntroBody: React.FC = () => {
       <InterfaceLanguageSelector display="buttons" />
       <TargetLanguageSelector />
       <IntroCTAs />
-      <SignInButton />
     </div>
   );
 };

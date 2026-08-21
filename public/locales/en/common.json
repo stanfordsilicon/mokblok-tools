@@ -6,7 +6,8 @@
         "title": "Welcome to Homescreen",
         "description": "This web application is used for vetters to evaluate the quality of translations submitted for each language. Please start by selecting your source language then your target language.",
         "ctaImportStart": "Import translation data",
-        "ctaReviewStart": "Start reviewing translations"
+        "ctaReviewStart": "Start reviewing translations",
+        "instructions": "Click an option above to start viewing translations."
     },
     "nav": {
         "intro": "Intro",
@@ -19,10 +20,11 @@
         "votes": "Votes"
     },
     "auth": {
-        "signedInAs": "Signed in as",
+        "signedInAs": "Signed in as", 
+        "updatingSession": "Updating session…", 
         "signInWithGoogle": "Sign in with Google",
         "redirectingToGoogle": "Redirecting to Google…",
-        "signInWhy": "Sign in with your approved Google account to use the translation and review tools.",
+        "signInWhy": "Sign in with your approved Google account to access more translation data and to save your progress.",
         "signInDidNotCompleteTitle": "Sign-in didn't complete",
         "signInDidNotCompleteFallback": "Sign-in didn't complete. Please try again, or contact the SILICON team.",
         "signInErrorTitle": "Sign-in Error",
@@ -39,7 +41,6 @@
             "Verification": "That sign-in link has expired or was already used."
         },
         "signOut": "Sign out",
-        "signInToSaveProgress": "Sign in to save progress",
         "roles": {
             "user": "Public User",
             "beta": "Beta Tester",
