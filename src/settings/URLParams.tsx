@@ -165,7 +165,7 @@ function getInferredParams(
         inferredParams.sourceLanguage = SourceLanguage.Italian;
         break;
       case InterfaceLanguage.Portuguese:
-        inferredParams.sourceLanguage = SourceLanguage.English;
+        inferredParams.sourceLanguage = SourceLanguage.Portuguese;
         break;
       default:
         enforceExhaustiveSwitch(instantiatedParams.interfaceLanguage);

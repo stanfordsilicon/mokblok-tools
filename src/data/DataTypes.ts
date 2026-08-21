@@ -54,6 +54,7 @@ export enum SourceLanguage {
   Morisien = 'mfe',
   Obolo = 'ann',
   Oromo = 'or',
+  Portuguese = 'pt',
   Shona = 'sn',
   Spanish = 'es',
   Wolof = 'wo',

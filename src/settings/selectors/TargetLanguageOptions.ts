@@ -31,6 +31,7 @@ export const PreloadableXMLLanguages = [
   'nd',
   'om',
   'or',
+  'pt',
   'sn',
   'wo',
 ];
