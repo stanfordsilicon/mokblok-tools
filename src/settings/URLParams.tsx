@@ -1,5 +1,5 @@
-import { useSession } from 'next-auth/react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { useSession } from 'next-auth/react';
 import React, { createContext, useCallback, useContext, useEffect, useMemo } from 'react';
 
 import i18n from '@i18n';
@@ -185,9 +185,14 @@ function getInferredParams(
 
   // Find the best import source for the target language if it is not specified
   if (!instantiatedParams.importSource) {
-    inferredParams.importSource = getPreferredImportSourceForTargetLanguage(
-      instantiatedOrDefault.targetLanguage ?? GLOBAL_DEFAULTS.targetLanguage,
-    );
+    const effectiveTargetLanguage =
+      inferredParams.targetLanguage ?? instantiatedOrDefault.targetLanguage ?? '';
+    if (inferredParams.importSource === ImportSource.Blank || !effectiveTargetLanguage) {
+      inferredParams.importSource = ImportSource.Blank;
+      return inferredParams;
+    }
+    inferredParams.importSource =
+      getPreferredImportSourceForTargetLanguage(effectiveTargetLanguage);
   }
 
   return inferredParams;
