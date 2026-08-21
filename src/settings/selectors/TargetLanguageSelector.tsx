@@ -2,6 +2,7 @@ import { useSession } from 'next-auth/react';
 
 import ImportSource from '@data/ImportSource';
 
+import LanguageRequestPanel from '@settings/auth/LanguageRequestPanel';
 import { getScopedTargetLanguages } from '@settings/target-language-scope';
 import { useURLParams } from '@settings/URLParams';
 
@@ -33,6 +34,7 @@ const TargetLanguageSelector = () => {
       <div className="flex gap-1 items-center mt-1">
         <TargetLanguageCodeInput size="wide" />
       </div>
+      <LanguageRequestPanel />
     </div>
   );
 };

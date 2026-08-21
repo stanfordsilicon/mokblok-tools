@@ -209,6 +209,32 @@
         "inAdminCTATurnOff": "In admin mode, click to turn off admin mode",
         "notAdminCTATurnOn": "In regular mode, click to turn on admin mode"
     },
+    "languageRequests": {
+        "title": "Request another language",
+        "description": "If your language is missing, ask the SILICON team to add or approve it here.",
+        "request": "Request a language",
+        "close": "Close",
+        "inputLabel": "Language name",
+        "placeholder": "e.g. Wolof",
+        "help": "This first pass accepts free-text requests. A SILICON administrator will review them.",
+        "send": "Send request",
+        "sending": "Sending…",
+        "pendingTitle": "Open requests",
+        "loading": "Loading your requests…",
+        "empty": "You have no pending or denied language requests.",
+        "withdraw": "Withdraw",
+        "dismiss": "Dismiss",
+        "deniedReason": "Reason:",
+        "status": {
+            "pending": "Pending review",
+            "denied": "Denied"
+        },
+        "errors": {
+            "load": "Couldn't load your language requests.",
+            "save": "Couldn't save that language request.",
+            "remove": "Couldn't remove that language request."
+        }
+    },
     "coverageLevelName": {
         "Any": "Any",
         "Unknown": "Unknown",

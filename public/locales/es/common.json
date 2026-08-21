@@ -209,6 +209,32 @@
         "inAdminCTATurnOff": "En modo administrador, haz clic para desactivar el modo administrador",
         "notAdminCTATurnOn": "En modo normal, haz clic para activar el modo administrador"
     },
+    "languageRequests": {
+        "title": "Solicitar otro idioma",
+        "description": "Si falta tu idioma, pide aquí al equipo de SILICON que lo añada o lo apruebe.",
+        "request": "Solicitar un idioma",
+        "close": "Cerrar",
+        "inputLabel": "Nombre del idioma",
+        "placeholder": "p. ej. wolof",
+        "help": "Esta primera versión acepta solicitudes en texto libre. Un administrador de SILICON las revisará.",
+        "send": "Enviar solicitud",
+        "sending": "Enviando…",
+        "pendingTitle": "Solicitudes abiertas",
+        "loading": "Cargando tus solicitudes…",
+        "empty": "No tienes solicitudes de idioma pendientes ni rechazadas.",
+        "withdraw": "Retirar",
+        "dismiss": "Descartar",
+        "deniedReason": "Motivo:",
+        "status": {
+            "pending": "Pendiente de revisión",
+            "denied": "Rechazada"
+        },
+        "errors": {
+            "load": "No se pudieron cargar tus solicitudes de idioma.",
+            "save": "No se pudo guardar esa solicitud de idioma.",
+            "remove": "No se pudo eliminar esa solicitud de idioma."
+        }
+    },
     "coverageLevelName": {
         "Any": "Cualquiera",
         "Unknown": "Desconocido",

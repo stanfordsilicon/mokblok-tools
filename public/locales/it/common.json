@@ -208,6 +208,32 @@
         "inAdminCTATurnOff": "In modalità amministratore, fai clic per disattivare la modalità amministratore",
         "notAdminCTATurnOn": "In modalità normale, fai clic per attivare la modalità amministratore"
     },
+    "languageRequests": {
+        "title": "Richiedi un'altra lingua",
+        "description": "Se la tua lingua manca, chiedi qui al team SILICON di aggiungerla o approvarla.",
+        "request": "Richiedi una lingua",
+        "close": "Chiudi",
+        "inputLabel": "Nome della lingua",
+        "placeholder": "es. wolof",
+        "help": "Questa prima versione accetta richieste in testo libero. Un amministratore SILICON le esaminerà.",
+        "send": "Invia richiesta",
+        "sending": "Invio…",
+        "pendingTitle": "Richieste aperte",
+        "loading": "Caricamento delle tue richieste…",
+        "empty": "Non hai richieste di lingua in sospeso o respinte.",
+        "withdraw": "Ritira",
+        "dismiss": "Ignora",
+        "deniedReason": "Motivo:",
+        "status": {
+            "pending": "In attesa di revisione",
+            "denied": "Respinta"
+        },
+        "errors": {
+            "load": "Impossibile caricare le tue richieste di lingua.",
+            "save": "Impossibile salvare questa richiesta di lingua.",
+            "remove": "Impossibile rimuovere questa richiesta di lingua."
+        }
+    },
     "coverageLevelName": {
         "Any": "Qualsiasi",
         "Unknown": "Sconosciuto",

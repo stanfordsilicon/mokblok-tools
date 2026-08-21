@@ -1,6 +1,7 @@
 import { useSession } from 'next-auth/react';
 import React from 'react';
 
+import LanguageRequestPanel from '@settings/auth/LanguageRequestPanel';
 import { getScopedTargetLanguages } from '@settings/target-language-scope';
 import { useURLParams } from '@settings/URLParams';
 
@@ -16,12 +17,15 @@ const TargetLanguageDropdown: React.FC = () => {
   const scopedLanguages = getScopedTargetLanguages(session?.user?.role, session?.user?.languages);
 
   return (
-    <LanguageDropdown
-      label={uitext('settings.targetLanguage')}
-      current={targetLanguage}
-      onChange={(newLanguage) => updateURLParams({ targetLanguage: newLanguage })}
-      options={getTargetLanguageOptions(importSource, scopedLanguages)}
-    />
+    <>
+      <LanguageDropdown
+        label={uitext('settings.targetLanguage')}
+        current={targetLanguage}
+        onChange={(newLanguage) => updateURLParams({ targetLanguage: newLanguage })}
+        options={getTargetLanguageOptions(importSource, scopedLanguages)}
+      />
+      <LanguageRequestPanel />
+    </>
   );
 };
 
