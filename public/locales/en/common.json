@@ -58,8 +58,7 @@
             "title": "Target Language",
             "pickLanguage": "Pick a language to modify their translations.",
             "hasPreloaded": "These options are preloaded with starting data for each language.",
-            "manual": "Use this option to input your own language code and then paste your own data below.",
-            "ctaClear": "Clear language & data"
+            "manual": "Use this option to input your own language code and then paste your own data below." 
         },
         "files": {
             "title": "Import Files",
@@ -254,6 +253,7 @@
         "Vote": "Vote"
     },
     "languageName": {
+        "": "None",
         "abr": "Abron",
         "ann": "Obolo",
         "bho": "Bhojpuri",

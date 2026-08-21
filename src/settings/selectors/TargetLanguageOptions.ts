@@ -1,7 +1,7 @@
 import ImportSource from '@data/ImportSource';
 
 // These languages have starting data that can be loaded with a click.
-const TSVLanguages = [
+const PreloadableTSVLanguages = [
   'abr',
   'ann',
   'bho',
@@ -17,8 +17,9 @@ const TSVLanguages = [
   'om',
   'sn',
   'wo',
+  '',
 ];
-const XMLLanguages = [
+const PreloadableXMLLanguages = [
   'ann',
   'en',
   'es',
@@ -33,25 +34,24 @@ const XMLLanguages = [
   'or',
   'sn',
   'wo',
+  '',
 ];
 
 const TargetLanguageOptions: Record<ImportSource, string[]> = {
-  [ImportSource.TSV]: TSVLanguages,
-  [ImportSource.XML]: XMLLanguages,
-  [ImportSource.Blank]: [...new Set([...TSVLanguages, ...XMLLanguages])],
+  [ImportSource.TSV]: PreloadableTSVLanguages,
+  [ImportSource.XML]: PreloadableXMLLanguages,
+  [ImportSource.Blank]: [...new Set([...PreloadableTSVLanguages, ...PreloadableXMLLanguages])],
 };
 
-export function getTargetLanguageOptions(
-  importSource: ImportSource,
-  scopedLanguages?: readonly string[] | null,
-): string[] {
-  if (!scopedLanguages || scopedLanguages.length === 0) return TargetLanguageOptions[importSource];
-  return TargetLanguageOptions[importSource].filter((code) => scopedLanguages.includes(code));
+/** Only use this for the full list, really we should follow user settings */
+export function getPotentialTargetLanguageOptions(importSource: ImportSource): string[] {
+  return TargetLanguageOptions[importSource];
 }
 
-export function preferredImportSourceForTargetLanguage(targetLanguage: string): ImportSource {
-  if (TSVLanguages.includes(targetLanguage)) return ImportSource.TSV;
-  if (XMLLanguages.includes(targetLanguage)) return ImportSource.XML;
+export function getPreferredImportSourceForTargetLanguage(targetLanguage: string): ImportSource {
+  if (!targetLanguage) return ImportSource.Blank;
+  if (PreloadableTSVLanguages.includes(targetLanguage)) return ImportSource.TSV;
+  if (PreloadableXMLLanguages.includes(targetLanguage)) return ImportSource.XML;
   return ImportSource.Blank;
 }
 

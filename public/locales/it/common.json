@@ -59,8 +59,7 @@
             "title": "Lingua di destinazione",
             "pickLanguage": "Scegli una lingua per modificare le loro traduzioni.",
             "hasPreloaded": "Queste opzioni sono precaricate con dati iniziali per ogni lingua.",
-            "manual": "Usa questa opzione per inserire il tuo codice lingua e poi incolla i tuoi dati qui sotto.",
-            "ctaClear": "Cancella lingua e dati"
+            "manual": "Usa questa opzione per inserire il tuo codice lingua e poi incolla i tuoi dati qui sotto."
         },
         "files": {
             "title": "File di dati",
@@ -255,6 +254,7 @@
         "Vote": "Voto"
     },
     "languageName": {
+        "": "nessuno",
         "abr": "abron",
         "ann": "obolo",
         "bho": "bhojpuri",

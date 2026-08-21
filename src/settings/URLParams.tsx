@@ -1,5 +1,5 @@
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useSession } from 'next-auth/react';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import React, { createContext, useCallback, useContext, useEffect, useMemo } from 'react';
 
 import i18n from '@i18n';
@@ -13,12 +13,8 @@ import { Worksheets } from '@data/worksheets/Worksheets';
 import enforceExhaustiveSwitch from '@shared/enforceExhaustiveSwitch';
 
 import { BackgroundStyle } from './BackgroundStyle';
-import {
-  preferredImportSourceForTargetLanguage,
-  supportsTargetLanguage,
-} from './selectors/TargetLanguageOptions';
+import { getPreferredImportSourceForTargetLanguage } from './selectors/TargetLanguageOptions';
 import StepName from './StepName';
-import { getScopedTargetLanguages } from './target-language-scope';
 
 const GLOBAL_DEFAULTS: Readonly<URLParams> = {
   interfaceLanguage: InterfaceLanguage.English,
@@ -145,10 +141,12 @@ export function getParamsFromURL(urlParams: URLSearchParams): Partial<URLParams>
 
 function getInferredParams(
   instantiatedParams: Partial<URLParams>,
-  role?: string,
-  languages?: string[],
+  userSettings?: { role: string | null; languages: readonly string[] | null | undefined },
 ): Partial<URLParams> {
+  const instantiatedOrDefault = { ...GLOBAL_DEFAULTS, ...instantiatedParams };
   const inferredParams: Partial<URLParams> = {};
+
+  // Match the source language to the interface language
   if (instantiatedParams.sourceLanguage == null && instantiatedParams.interfaceLanguage != null) {
     switch (instantiatedParams.interfaceLanguage) {
       case InterfaceLanguage.EnglishFraktur:
@@ -175,27 +173,21 @@ function getInferredParams(
   }
 
   // Restrictions based on sign-in role.
-  if (role !== 'admin') inferredParams.admin = false;
-  if (!role) inferredParams.importSource = ImportSource.Blank;
+  if (userSettings?.role !== 'admin') inferredParams.admin = false;
 
-  const scopedLanguages = getScopedTargetLanguages(role, languages);
-  if (scopedLanguages.length > 0) {
-    const currentTargetLanguage = instantiatedParams.targetLanguage;
-    const targetLanguage =
-      currentTargetLanguage && scopedLanguages.includes(currentTargetLanguage)
-        ? currentTargetLanguage
-        : scopedLanguages[0];
+  if (!(inferredParams.admin ?? instantiatedOrDefault.admin)) {
+    // Remove target language if its not in the user's allowed languages
+    const allowedLanguages = userSettings?.languages ?? [];
+    if (!allowedLanguages.includes(instantiatedOrDefault.targetLanguage))
+      inferredParams.targetLanguage = allowedLanguages[0] ?? ''; // None
+  }
+  if (!userSettings?.role) inferredParams.importSource = ImportSource.Blank;
 
-    inferredParams.targetLanguage = targetLanguage;
-
-    const currentImportSource =
-      instantiatedParams.importSource ??
-      inferredParams.importSource ??
-      GLOBAL_DEFAULTS.importSource;
-
-    if (role !== 'admin' && !supportsTargetLanguage(currentImportSource, targetLanguage)) {
-      inferredParams.importSource = preferredImportSourceForTargetLanguage(targetLanguage);
-    }
+  // Find the best import source for the target language if it is not specified
+  if (!instantiatedParams.importSource) {
+    inferredParams.importSource = getPreferredImportSourceForTargetLanguage(
+      instantiatedOrDefault.targetLanguage ?? GLOBAL_DEFAULTS.targetLanguage,
+    );
   }
 
   return inferredParams;
@@ -208,7 +200,7 @@ export const URLParamsProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   const pathname = usePathname();
   const router = useRouter();
   const searchParams = useSearchParams();
-  const { role, languages } = useSession().data?.user ?? {};
+  const userSettings = useSession().data?.user;
 
   const updateURLParams = useCallback(
     (newParams: Partial<URLParams>) => {
@@ -229,14 +221,14 @@ export const URLParamsProvider: React.FC<{ children: React.ReactNode }> = ({ chi
       const typedKey = key as keyof URLParams;
       if (instantiatedParams[typedKey] == null) delete instantiatedParams[typedKey];
     });
-    const inferredParams = getInferredParams(instantiatedParams, role, languages);
+    const inferredParams = getInferredParams(instantiatedParams, userSettings);
     return {
       ...GLOBAL_DEFAULTS,
       ...instantiatedParams,
       ...inferredParams,
       updateURLParams,
     };
-  }, [languages, role, searchParams, updateURLParams]);
+  }, [userSettings, searchParams, updateURLParams]);
 
   useEffect(() => {
     const changeLanguage = async () => {
