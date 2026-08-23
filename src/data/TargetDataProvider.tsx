@@ -1,4 +1,13 @@
-import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import { useSession } from 'next-auth/react';
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 
 import { useURLParams } from '@settings/URLParams';
 
@@ -35,6 +44,13 @@ type TranslationInfo = {
   edit?: string;
   vote?: Vote;
   comment?: string;
+};
+
+type PersistedTranslationInfo = Pick<TranslationInfo, 'index' | 'edit' | 'vote' | 'comment'>;
+
+type ReviewDraftResponse = {
+  success?: boolean;
+  entries?: PersistedTranslationInfo[];
 };
 
 export type TargetDataContextType = {
@@ -74,6 +90,7 @@ const TargetDataProvider: React.FC<{
   children: React.ReactNode;
 }> = ({ children }) => {
   const { targetLanguage, importSource } = useURLParams();
+  const { status: sessionStatus } = useSession();
   const { findDataEntry, dataEntries } = useSourceDataContext();
   const getTranslationFromSourceLanguage = useTranslationFromSourceLanguage();
 
@@ -81,6 +98,9 @@ const TargetDataProvider: React.FC<{
   const [alphabetData, setAlphabetData] = useState<AlphabetData | undefined>(undefined);
   const [translations, setTranslations] = useState<Record<number, TranslationInfo>>({});
   const [targetXMLData, setTargetXMLData] = useState<Record<string, string>>({});
+  const [persistedEntries, setPersistedEntries] = useState<PersistedTranslationInfo[]>([]);
+  const [isDraftLoaded, setIsDraftLoaded] = useState(false);
+  const saveTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Getters & setters of the data
   const getTranslationInfo = useCallback(
@@ -123,6 +143,28 @@ const TargetDataProvider: React.FC<{
     [setTranslations],
   );
 
+  const applyPersistedEntries = useCallback(
+    (
+      baseTranslations: Record<number, TranslationInfo>,
+      draftEntries: PersistedTranslationInfo[],
+    ): Record<number, TranslationInfo> => {
+      if (draftEntries.length === 0) return baseTranslations;
+
+      const nextTranslations = { ...baseTranslations };
+      for (const entry of draftEntries) {
+        if (!nextTranslations[entry.index]) continue;
+        nextTranslations[entry.index] = {
+          ...nextTranslations[entry.index],
+          ...(entry.edit !== undefined ? { edit: entry.edit } : {}),
+          ...(entry.vote !== undefined ? { vote: entry.vote } : {}),
+          ...(entry.comment !== undefined ? { comment: entry.comment } : {}),
+        };
+      }
+      return nextTranslations;
+    },
+    [],
+  );
+
   // Fill data
   const makeBaselineTranslations = useCallback(() => {
     if (dataEntries.length === 0) return {};
@@ -149,9 +191,15 @@ const TargetDataProvider: React.FC<{
         if (entry && row.translated) acc[entry.index].translation = row.translated;
         return acc;
       }, translationsByIndex);
-      setTranslations(newTranslationsByIndex);
+      setTranslations(applyPersistedEntries(newTranslationsByIndex, persistedEntries));
     },
-    [makeBaselineTranslations, findDataEntry, setTranslations],
+    [
+      applyPersistedEntries,
+      makeBaselineTranslations,
+      findDataEntry,
+      persistedEntries,
+      setTranslations,
+    ],
   );
   const fillTranslationsFromXML = useCallback(
     (xmlData: Record<string, string>) => {
@@ -162,9 +210,15 @@ const TargetDataProvider: React.FC<{
         if (entry && translated) acc[entry.index].translation = translated;
         return acc;
       }, translationsByIndex);
-      setTranslations(newTranslationsByIndex);
+      setTranslations(applyPersistedEntries(newTranslationsByIndex, persistedEntries));
     },
-    [findDataEntry, setTranslations, makeBaselineTranslations],
+    [
+      applyPersistedEntries,
+      findDataEntry,
+      persistedEntries,
+      setTranslations,
+      makeBaselineTranslations,
+    ],
   );
 
   // Always load the CLDR data, reload when the target language changes
@@ -173,6 +227,35 @@ const TargetDataProvider: React.FC<{
       .then(parseInheritance)
       .then((data) => setTargetXMLData(data));
   }, [targetLanguage]);
+
+  useEffect(() => {
+    if (sessionStatus !== 'authenticated' || !targetLanguage) {
+      setPersistedEntries([]);
+      setIsDraftLoaded(sessionStatus !== 'loading');
+      return;
+    }
+
+    let cancelled = false;
+    setPersistedEntries([]);
+    setIsDraftLoaded(false);
+
+    void fetch(`/api/review-drafts/${encodeURIComponent(targetLanguage)}`)
+      .then(async (response) => {
+        const body = (await response.json().catch(() => null)) as ReviewDraftResponse | null;
+        if (!response.ok || !body?.success) return [];
+        return Array.isArray(body.entries) ? body.entries : [];
+      })
+      .catch(() => [])
+      .then((entries) => {
+        if (cancelled) return;
+        setPersistedEntries(entries);
+        setIsDraftLoaded(true);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [sessionStatus, targetLanguage]);
 
   // When the inputted data changes, refresh the data
   useEffect(() => {
@@ -191,6 +274,11 @@ const TargetDataProvider: React.FC<{
     setAlphabetData(undefined);
   }, [fillTranslationsFromXML, importSource, tsvRows]);
 
+  useEffect(() => {
+    if (!isDraftLoaded) return;
+    setTranslations((prev) => applyPersistedEntries(prev, persistedEntries));
+  }, [applyPersistedEntries, isDraftLoaded, persistedEntries]);
+
   const targetDataStatus = useMemo(() => {
     if (dataEntries.length === 0) return TargetDataStatus.WaitingOnSourceData;
     if (importSource === ImportSource.TSV && tsvRows.length === 0)
@@ -199,6 +287,49 @@ const TargetDataProvider: React.FC<{
       return TargetDataStatus.LoadingBaselineData;
     return TargetDataStatus.Ready;
   }, [dataEntries.length, importSource, tsvRows, targetXMLData]);
+
+  const changedEntries = useMemo(
+    () =>
+      Object.values(translations)
+        .filter(
+          (entry) =>
+            entry.edit !== undefined ||
+            entry.comment !== undefined ||
+            (entry.vote ?? Vote.Unknown) !== Vote.Unknown,
+        )
+        .map((entry) => ({
+          index: entry.index,
+          ...(entry.edit !== undefined ? { edit: entry.edit } : {}),
+          ...(entry.comment !== undefined ? { comment: entry.comment } : {}),
+          ...((entry.vote ?? Vote.Unknown) !== Vote.Unknown ? { vote: entry.vote } : {}),
+        })),
+    [translations],
+  );
+
+  useEffect(() => {
+    if (saveTimeoutRef.current) clearTimeout(saveTimeoutRef.current);
+
+    if (
+      sessionStatus !== 'authenticated' ||
+      !targetLanguage ||
+      !isDraftLoaded ||
+      targetDataStatus !== TargetDataStatus.Ready
+    ) {
+      return;
+    }
+
+    saveTimeoutRef.current = setTimeout(() => {
+      void fetch(`/api/review-drafts/${encodeURIComponent(targetLanguage)}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ entries: changedEntries }),
+      }).catch(() => {});
+    }, 800);
+
+    return () => {
+      if (saveTimeoutRef.current) clearTimeout(saveTimeoutRef.current);
+    };
+  }, [changedEntries, isDraftLoaded, sessionStatus, targetDataStatus, targetLanguage]);
 
   const dataContext: TargetDataContextType = {
     alphabet: alphabetData,
