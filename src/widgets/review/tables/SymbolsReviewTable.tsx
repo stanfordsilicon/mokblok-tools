@@ -28,7 +28,7 @@ function SymbolsReviewTable() {
         </thead>
         <tbody>
           {symbolsExamples?.map((entry) => (
-            <tr key={entry.index}>
+            <tr key={entry.id}>
               <SourceDataCell entry={entry} />
               <InputDataCell entry={entry} inputWidth="15em" />
             </tr>
@@ -47,7 +47,7 @@ function SymbolsReviewTable() {
         </thead>
         <tbody>
           {symbols?.map((entry) => (
-            <tr key={entry.index}>
+            <tr key={entry.id}>
               <td>
                 {entry.instance} {entry.length}
               </td>

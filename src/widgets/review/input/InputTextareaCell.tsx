@@ -22,7 +22,7 @@ function InputTextareaCell({ entry, style }: Props) {
     <td>
       <textarea
         value={getTranslation(entry) || ''}
-        onChange={(e) => editTranslation(entry.index, { edit: e.target.value })}
+        onChange={(e) => editTranslation(entry.id, { edit: e.target.value })}
         style={{ width: '30em', ...style, backgroundColor: getBackgroundColor(entry) }}
       />
     </td>

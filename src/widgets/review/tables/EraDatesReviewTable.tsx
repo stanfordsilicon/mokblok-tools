@@ -40,7 +40,7 @@ function EraDatesReviewTable() {
             </th>
           </tr>
           {availableEraDates.map((entry) => (
-            <tr key={entry.index}>
+            <tr key={entry.id}>
               <SourceDataCell entry={entry} />
               {admin && <SourceDataCell entry={entry} convertPatternToExample={false} />}
               <InputDataCell entry={entry} inputWidth="10em" />
@@ -52,7 +52,7 @@ function EraDatesReviewTable() {
             </th>
           </tr>
           {eraIntervals.map((entry) => (
-            <tr key={entry.index}>
+            <tr key={entry.id}>
               <SourceDataCell entry={entry} />
               {admin && <SourceDataCell entry={entry} convertPatternToExample={false} />}
               <InputDataCell entry={entry} inputWidth="25em" />

@@ -8,7 +8,7 @@ import { getUserRole, hasLevel } from '../../../../src/settings/auth/roles';
 const REVIEW_DRAFTS_COLLECTION = 'homescreen_review_edits';
 
 type PersistedTranslationInfo = {
-  index: number;
+  id: string; // xpath + examplenum
   edit?: string;
   vote?: 0 | 1 | 2;
   comment?: string;
@@ -33,8 +33,8 @@ function cleanEntries(value: unknown): PersistedTranslationInfo[] {
   const cleaned = value
     .map((entry) => {
       if (!entry || typeof entry !== 'object') return null;
-      const rawIndex = (entry as { index?: unknown }).index;
-      if (!Number.isInteger(rawIndex) || typeof rawIndex !== 'number' || rawIndex < 0) return null;
+      const rawId = (entry as { id?: unknown }).id;
+      if (typeof rawId !== 'string' || !rawId) return null;
 
       const edit = cleanDraftText((entry as { edit?: unknown }).edit, 500);
       const comment = cleanDraftText((entry as { comment?: unknown }).comment, 2000);
@@ -43,7 +43,7 @@ function cleanEntries(value: unknown): PersistedTranslationInfo[] {
       if (edit === undefined && comment === undefined && vote === undefined) return null;
 
       return {
-        index: rawIndex,
+        id: rawId,
         ...(edit !== undefined ? { edit } : {}),
         ...(comment !== undefined ? { comment } : {}),
         ...(vote !== undefined ? { vote } : {}),
@@ -51,7 +51,7 @@ function cleanEntries(value: unknown): PersistedTranslationInfo[] {
     })
     .filter((entry): entry is PersistedTranslationInfo => entry != null);
 
-  cleaned.sort((a, b) => a.index - b.index);
+  cleaned.sort((a, b) => a.id.localeCompare(b.id));
   return cleaned;
 }
 

@@ -37,7 +37,7 @@ function DateTimeCombinationsReviewTable() {
       </thead>
       <tbody>
         {availableFormats?.map((entry) => (
-          <tr key={entry.index}>
+          <tr key={entry.id}>
             {admin && <td>{entry.field}</td>}
             {admin && <td>{entry.variant}</td>}
             {admin && <td>{entry.length}</td>}

@@ -35,7 +35,7 @@ export default function useTargetBaselineData({
   const [alphabetData, setAlphabetData] = useState<AlphabetData | undefined>(undefined);
   const [targetXMLData, setTargetXMLData] = useState<Record<string, string>>({});
   const [translationBaselines, setTranslationBaseslines] = useState<
-    Record<number, TranslationBaseline>
+    Record<string, TranslationBaseline>
   >({});
 
   const makeBaselineTranslations = useCallback(() => {
@@ -43,25 +43,25 @@ export default function useTargetBaselineData({
     return dataEntries.reduce(
       (acc, entry) => {
         const source = getTranslationFromSourceLanguage(entry);
-        acc[entry.index] = {
-          index: entry.index,
+        acc[entry.id] = {
+          id: entry.id,
           source: Array.isArray(source) ? source[0] : source,
         };
         return acc;
       },
-      {} as Record<number, TranslationBaseline>,
+      {} as Record<string, TranslationBaseline>,
     );
   }, [dataEntries, getTranslationFromSourceLanguage]);
 
   const fillTranslationsFromTSV = useCallback(
     (rows: WorksheetRowData[]) => {
       const translationsByIndex = makeBaselineTranslations();
-      const newTranslationsByIndex = rows.reduce((acc, row) => {
+      const newTranslationsById = rows.reduce((acc, row) => {
         const entry = findDataEntry({ ext_id: row.key }) ?? findDataEntry({ xpath: row.key });
-        if (entry && row.translated) acc[entry.index].translation = row.translated;
+        if (entry && row.translated) acc[entry.id].translation = row.translated;
         return acc;
       }, translationsByIndex);
-      setTranslationBaseslines(newTranslationsByIndex);
+      setTranslationBaseslines(newTranslationsById);
     },
     // don't refill if persistedEntries changes, because that creates a circular update
     [findDataEntry, makeBaselineTranslations],
@@ -72,7 +72,7 @@ export default function useTargetBaselineData({
       const translationsByIndex = makeBaselineTranslations();
       const newTranslationsByIndex = Object.entries(xmlData).reduce((acc, [xpath, translated]) => {
         const entry = findDataEntry({ xpath });
-        if (entry && translated) acc[entry.index].translation = translated;
+        if (entry && translated) acc[entry.id].translation = translated;
         return acc;
       }, translationsByIndex);
       // don't refill if persistedEntries changes, because that creates a circular update

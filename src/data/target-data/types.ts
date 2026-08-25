@@ -15,13 +15,13 @@ export enum Vote {
 }
 
 export type TranslationBaseline = {
-  index: number;
+  id: string;
   source: string;
   translation?: string;
 };
 
 export type TranslationEdit = {
-  index: number;
+  id: string;
   edit?: string;
   vote?: Vote;
   comment?: string;
@@ -29,7 +29,7 @@ export type TranslationEdit = {
 
 export type TranslationInfo = TranslationBaseline & TranslationEdit;
 
-export type PersistedTranslationInfo = Pick<TranslationInfo, 'index' | 'edit' | 'vote' | 'comment'>;
+export type PersistedTranslationInfo = Pick<TranslationInfo, 'id' | 'edit' | 'vote' | 'comment'>;
 
 export type ReviewDraftResponse = {
   success?: boolean;
@@ -38,8 +38,8 @@ export type ReviewDraftResponse = {
 
 export type TargetDataContextType = {
   alphabet?: AlphabetData;
-  editTranslation(index: number, update: Partial<TranslationInfo>): void;
-  editTranslations(indices: number[], update: Partial<TranslationInfo>): void;
+  editTranslation(id: string, update: Partial<TranslationInfo>): void;
+  editTranslations(ids: string[], update: Partial<TranslationInfo>): void;
   getTranslation(entry: DataEntry | undefined, fallback?: boolean): string;
   getTranslationInfo(entry: DataEntry | undefined): TranslationInfo;
   getTranslations(entries?: DataEntry[]): TranslationInfo[];

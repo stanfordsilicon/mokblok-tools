@@ -14,7 +14,7 @@ const ChangesSummary: React.FC = () => {
           info.comment != null,
       )
       .map((info) => (
-        <div key={info.index}>
+        <div key={info.id}>
           {info.translation ?? info.source}
           {info.edit != null && <span> -&gt; {info.edit}</span>}
           {info.vote === Vote.Accept && <span> (Accepted)</span>}

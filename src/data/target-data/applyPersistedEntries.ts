@@ -1,16 +1,16 @@
 import type { PersistedTranslationInfo, TranslationEdit } from './types';
 
 export function applyPersistedEntries(
-  baseEdits: Record<number, TranslationEdit>,
+  baseEdits: Record<string, TranslationEdit>,
   draftEntries: PersistedTranslationInfo[],
-): Record<number, TranslationEdit> {
+): Record<string, TranslationEdit> {
   if (draftEntries.length === 0) return baseEdits;
 
   const nextEdits = { ...baseEdits };
   for (const entry of draftEntries) {
-    nextEdits[entry.index] = {
-      index: entry.index,
-      ...nextEdits[entry.index],
+    nextEdits[entry.id] = {
+      ...nextEdits[entry.id],
+      id: entry.id,
       ...(entry.edit !== undefined ? { edit: entry.edit } : {}),
       ...(entry.vote !== undefined ? { vote: entry.vote } : {}),
       ...(entry.comment !== undefined ? { comment: entry.comment } : {}),

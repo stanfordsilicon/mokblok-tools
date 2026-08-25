@@ -21,7 +21,7 @@ const InputVote: React.FC<{
   const { isVoteGestureActive, queue, vote: dragVote } = useVoteDragContext();
   const { vote, translation, source, comment } = getTranslationInfo(entry) ?? {};
 
-  const addToQueue = useCallback(() => queue.add(entry.index), [queue, entry.index]);
+  const addToQueue = useCallback(() => queue.add(entry.id), [queue, entry.id]);
   const [showComment, setShowComment] = useState(false);
   const hasComment = (comment ?? '').trim().length > 0;
 
@@ -35,10 +35,9 @@ const InputVote: React.FC<{
   const inputVoteSurfaceClasses = useMemo(() => {
     let classes =
       'InputVoteSurface relative truncate text-ellipsis rounded-sm px-1 select-none overflow-hidden';
-    if (isVoteGestureActive && queue.has(entry.index))
-      classes += ' InputVoteSurfaceHoverSuppressed';
+    if (isVoteGestureActive && queue.has(entry.id)) classes += ' InputVoteSurfaceHoverSuppressed';
 
-    if (queue.has(entry.index)) {
+    if (queue.has(entry.id)) {
       classes += ' bg-hashed';
       if (dragVote === Vote.Accept) classes += ' bg-hashed-green cursorVoteApprove';
       else if (dragVote === Vote.Reject) classes += ' bg-hashed-red cursorVoteReject';
@@ -49,7 +48,7 @@ const InputVote: React.FC<{
     else if (vote === Vote.Unknown) classes += ' bg-hashed';
 
     return classes;
-  }, [isVoteGestureActive, vote, queue, entry.index, dragVote]);
+  }, [isVoteGestureActive, vote, queue, entry.id, dragVote]);
 
   return (
     <div>

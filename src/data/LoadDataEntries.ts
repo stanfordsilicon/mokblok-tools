@@ -21,7 +21,7 @@ export async function loadDataEntries(): Promise<DataEntry[] | void> {
     })
     .then((tsv) => {
       const lines = tsv.split('\n');
-      return lines.slice(1).map((line, index) => {
+      return lines.slice(1).map((line) => {
         const cells = line.split('\t').map((c) => c.trim());
         return {
           page: cells[0] as DataPage,
@@ -42,7 +42,7 @@ export async function loadDataEntries(): Promise<DataEntry[] | void> {
           var1: Number(cells[15].replaceAll(',', '')) || undefined,
           var2: Number(cells[16].replaceAll(',', '')) || undefined,
           patternFormat: parsePatternFormat(cells[17]),
-          index,
+          id: cells[8] + '-' + cells[7], // xpath + example number
           worksheet: parseWorksheetName(cells[18]),
         } as DataEntry;
       });

@@ -33,9 +33,9 @@ const InputVotingOverlay: React.FC<Props> = ({
   const startVoting = useCallback(
     (newVote: Vote) => (event: PointerEvent<HTMLElement>) => {
       event.preventDefault();
-      beginVoteGesture(newVote, entry.index);
+      beginVoteGesture(newVote, entry.id);
     },
-    [beginVoteGesture, entry.index],
+    [beginVoteGesture, entry.id],
   );
 
   return (

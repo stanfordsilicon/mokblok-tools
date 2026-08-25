@@ -22,7 +22,7 @@ export type DataEntry = {
   var1?: number;
   var2?: number;
   patternFormat: PatternFormat;
-  index: number;
+  id: string;
   worksheet?: Worksheet;
 };
 

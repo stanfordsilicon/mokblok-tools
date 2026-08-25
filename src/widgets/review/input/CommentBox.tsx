@@ -22,8 +22,8 @@ const CommentBox: React.FC<Props> = ({ entry, onCommentFinish }) => {
   }, [comment]);
 
   const saveComment = useCallback(() => {
-    editTranslation(entry.index, { comment: currentComment });
-  }, [currentComment, editTranslation, entry.index]);
+    editTranslation(entry.id, { comment: currentComment });
+  }, [currentComment, editTranslation, entry.id]);
   const saveAndCloseComment = useCallback(() => {
     saveComment();
     onCommentFinish();

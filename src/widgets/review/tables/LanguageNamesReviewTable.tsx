@@ -40,7 +40,7 @@ function LanguageNamesReviewTable() {
         </thead>
         <tbody>
           {languageNameFields.map((entry) => (
-            <tr key={entry.index}>
+            <tr key={entry.id}>
               <SourceDataCell
                 entry={entry}
                 style={{
@@ -59,7 +59,7 @@ function LanguageNamesReviewTable() {
             </th>
           </tr>
           {secondaryLanguageNameFields.map((entry) => (
-            <tr key={entry.index}>
+            <tr key={entry.id}>
               <SourceDataCell
                 entry={entry}
                 style={{

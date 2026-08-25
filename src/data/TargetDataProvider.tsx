@@ -24,7 +24,7 @@ export { TargetDataStatus, Vote };
 export const TargetDataContext = createContext<TargetDataContextType>({
   importedWorksheets: {},
   getTranslation: () => '',
-  getTranslationInfo: () => ({ index: -1, source: '', vote: Vote.Unknown }),
+  getTranslationInfo: () => ({ id: '', source: '', vote: Vote.Unknown }),
   getTranslations: () => [],
   editTranslation: () => {},
   editTranslations: () => {},
@@ -45,7 +45,7 @@ const TargetDataProvider: React.FC<{
   const { findDataEntry, dataEntries } = useSourceDataContext();
   const getTranslationFromSourceLanguage = useTranslationFromSourceLanguage();
   const { extraText, tsvRows, importedWorksheets } = useImportedWorksheets();
-  const [translationEdits, setTranslationEdits] = useState<Record<number, TranslationEdit>>({});
+  const [translationEdits, setTranslationEdits] = useState<Record<string, TranslationEdit>>({});
 
   const { alphabetData, targetDataStatus, targetXMLData, translationBaselines } =
     useTargetBaselineData({
@@ -67,10 +67,10 @@ const TargetDataProvider: React.FC<{
 
   const getTranslationInfo = useCallback(
     (entry: DataEntry | undefined): TranslationInfo => {
-      if (!entry) return { index: -1, source: '', vote: Vote.Unknown };
-      const baseline = translationBaselines[entry.index];
-      if (!baseline) return { index: entry.index, source: '', vote: Vote.Unknown };
-      const edit = translationEdits[entry.index];
+      if (!entry) return { id: '', source: '', vote: Vote.Unknown };
+      const baseline = translationBaselines[entry.id];
+      if (!baseline) return { id: entry.id, source: '', vote: Vote.Unknown };
+      const edit = translationEdits[entry.id];
       if (!edit) return { ...baseline, vote: Vote.Unknown };
       return { ...baseline, ...edit };
     },
@@ -86,14 +86,12 @@ const TargetDataProvider: React.FC<{
   );
 
   const editTranslation = useCallback(
-    (index: number, update: Partial<TranslationEdit>) => {
+    (id: string, update: Partial<TranslationEdit>) => {
       setTranslationEdits((prev) => {
-        const updatedTranslation = prev[index]
-          ? { ...prev[index], ...update }
-          : { index, ...update };
+        const updatedTranslation = prev[id] ? { ...prev[id], ...update } : { id, ...update };
         return {
           ...prev,
-          [index]: updatedTranslation,
+          [id]: updatedTranslation,
         };
       });
     },
@@ -101,14 +99,14 @@ const TargetDataProvider: React.FC<{
   );
 
   const editTranslations = useCallback(
-    (indices: number[], update: Partial<TranslationEdit>) => {
+    (ids: string[], update: Partial<TranslationEdit>) => {
       setTranslationEdits((prev) => {
         const nextTranslations = { ...prev };
-        for (const index of indices) {
-          const updatedTranslation = nextTranslations[index]
-            ? { ...nextTranslations[index], ...update }
-            : { index, ...update };
-          nextTranslations[index] = updatedTranslation;
+        for (const id of ids) {
+          const updatedTranslation = nextTranslations[id]
+            ? { ...nextTranslations[id], ...update }
+            : { id, ...update };
+          nextTranslations[id] = updatedTranslation;
         }
         return nextTranslations;
       });
@@ -118,11 +116,11 @@ const TargetDataProvider: React.FC<{
 
   const getTranslations = useCallback(
     (entries?: DataEntry[]): TranslationInfo[] => {
-      const indexSet = new Set(entries?.map((entry) => entry.index));
+      const idSet = new Set(entries?.map((entry) => entry.id));
       return Object.values(translationEdits)
-        .filter((edit) => !entries || indexSet.has(edit.index))
+        .filter((edit) => !entries || idSet.has(edit.id))
         .map((edit) => {
-          const baseline = translationBaselines[edit.index];
+          const baseline = translationBaselines[edit.id];
           return { ...baseline, ...edit };
         });
     },

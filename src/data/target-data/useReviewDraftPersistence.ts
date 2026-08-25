@@ -60,7 +60,7 @@ export default function useReviewDraftPersistence({
             (entry.vote ?? Vote.Unknown) !== Vote.Unknown,
         )
         .map((entry) => ({
-          index: entry.index,
+          id: entry.id,
           ...(entry.edit !== undefined ? { edit: entry.edit } : {}),
           ...(entry.comment !== undefined ? { comment: entry.comment } : {}),
           ...((entry.vote ?? Vote.Unknown) !== Vote.Unknown ? { vote: entry.vote } : {}),
