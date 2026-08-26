@@ -46,6 +46,7 @@ const TargetDataProvider: React.FC<{
   const getTranslationFromSourceLanguage = useTranslationFromSourceLanguage();
   const { extraText, tsvRows, importedWorksheets } = useImportedWorksheets();
   const [translationEdits, setTranslationEdits] = useState<Record<string, TranslationEdit>>({});
+  const [hasUserChanges, setHasUserChanges] = useState(false);
 
   const { alphabetData, targetDataStatus, targetXMLData, translationBaselines } =
     useTargetBaselineData({
@@ -60,6 +61,7 @@ const TargetDataProvider: React.FC<{
     });
 
   const { isDraftLoaded, persistedEntries } = useReviewDraftPersistence({
+    hasUserChanges,
     targetLanguage,
     targetDataStatus,
     translationEdits,
@@ -87,6 +89,7 @@ const TargetDataProvider: React.FC<{
 
   const editTranslation = useCallback(
     (id: string, update: Partial<TranslationEdit>) => {
+      setHasUserChanges(true);
       setTranslationEdits((prev) => {
         const updatedTranslation = prev[id] ? { ...prev[id], ...update } : { id, ...update };
         return {
@@ -100,6 +103,7 @@ const TargetDataProvider: React.FC<{
 
   const editTranslations = useCallback(
     (ids: string[], update: Partial<TranslationEdit>) => {
+      setHasUserChanges(true);
       setTranslationEdits((prev) => {
         const nextTranslations = { ...prev };
         for (const id of ids) {
@@ -129,8 +133,14 @@ const TargetDataProvider: React.FC<{
 
   useEffect(() => {
     if (!isDraftLoaded) return;
-    setTranslationEdits((prev) => applyPersistedEntries(prev, persistedEntries));
-  }, [isDraftLoaded, persistedEntries, setTranslationEdits]);
+    setTranslationEdits(applyPersistedEntries({}, persistedEntries));
+    setHasUserChanges(false);
+  }, [isDraftLoaded, persistedEntries]);
+
+  useEffect(() => {
+    setTranslationEdits({});
+    setHasUserChanges(false);
+  }, [targetLanguage]);
 
   const dataContext: TargetDataContextType = {
     alphabet: alphabetData,

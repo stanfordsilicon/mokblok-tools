@@ -6,12 +6,14 @@ import { TargetDataStatus, Vote } from './types';
 import type { PersistedTranslationInfo, ReviewDraftResponse, TranslationEdit } from './types';
 
 type Props = {
+  hasUserChanges: boolean;
   targetLanguage: string;
   targetDataStatus: TargetDataStatus;
-  translationEdits: Record<number, TranslationEdit>;
+  translationEdits: Record<string, TranslationEdit>;
 };
 
 export default function useReviewDraftPersistence({
+  hasUserChanges,
   targetLanguage,
   targetDataStatus,
   translationEdits,
@@ -72,6 +74,7 @@ export default function useReviewDraftPersistence({
     if (saveTimeoutRef.current) clearTimeout(saveTimeoutRef.current);
 
     if (
+      !hasUserChanges ||
       sessionStatus !== 'authenticated' ||
       !targetLanguage ||
       !isDraftLoaded ||
@@ -91,7 +94,14 @@ export default function useReviewDraftPersistence({
     return () => {
       if (saveTimeoutRef.current) clearTimeout(saveTimeoutRef.current);
     };
-  }, [changedEntries, isDraftLoaded, sessionStatus, targetDataStatus, targetLanguage]);
+  }, [
+    changedEntries,
+    hasUserChanges,
+    isDraftLoaded,
+    sessionStatus,
+    targetDataStatus,
+    targetLanguage,
+  ]);
 
   return {
     isDraftLoaded,
