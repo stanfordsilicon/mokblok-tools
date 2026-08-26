@@ -34,7 +34,7 @@ function QuotesReviewTable() {
         </thead>
         <tbody>
           {quotesExamples?.map((example) => (
-            <tr key={example.index}>
+            <tr key={example.id}>
               <SourceDataCell entry={example} style={{ width: '30em', textWrap: 'auto' }} />
               <InputTextareaCell entry={example} />
             </tr>

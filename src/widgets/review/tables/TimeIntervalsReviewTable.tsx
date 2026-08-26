@@ -33,7 +33,7 @@ function TimeIntervalsReviewTable() {
       </thead>
       <tbody>
         {intervalFormats.map((entry) => (
-          <tr key={entry.index}>
+          <tr key={entry.id}>
             {admin && <td>{entry.instance}</td>}
             {admin && <td>{entry.variant}</td>}
             <SourceDataCell entry={entry} />

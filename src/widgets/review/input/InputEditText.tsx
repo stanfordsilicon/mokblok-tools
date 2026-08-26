@@ -35,7 +35,7 @@ const InputEditText: React.FC<Props> = ({ entry, inputWidth, disabled = false })
     <HighlightInput
       highlight={/\d+/g}
       value={getTranslation(entry) || ''}
-      onChange={(value) => editTranslation(entry.index, { edit: value })}
+      onChange={(value) => editTranslation(entry.id, { edit: value })}
       style={{ width, backgroundColor }}
       disabled={disabled}
     />

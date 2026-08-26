@@ -3,9 +3,9 @@ import React, { useMemo } from 'react';
 import { useTargetDataContext, Vote } from '@data/TargetDataProvider';
 
 const ChangesSummary: React.FC = () => {
-  const { translations } = useTargetDataContext();
+  const { getTranslations } = useTargetDataContext();
   const editedTranslations = useMemo(() => {
-    return Object.values(translations)
+    return getTranslations()
       .filter(
         (info) =>
           info.edit != null ||
@@ -14,7 +14,7 @@ const ChangesSummary: React.FC = () => {
           info.comment != null,
       )
       .map((info) => (
-        <div key={info.index}>
+        <div key={info.id}>
           {info.translation ?? info.source}
           {info.edit != null && <span> -&gt; {info.edit}</span>}
           {info.vote === Vote.Accept && <span> (Accepted)</span>}
@@ -22,10 +22,10 @@ const ChangesSummary: React.FC = () => {
           {info.comment != null && <span> (Comment: {info.comment})</span>}
         </div>
       ));
-  }, [translations]);
+  }, [getTranslations]);
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '1em' }}>
+    <div className="flex flex-col gap-2">
       <h3>Changes Summary</h3>
       {editedTranslations.length > 0 ? (
         <div>{editedTranslations}</div>

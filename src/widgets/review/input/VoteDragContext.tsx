@@ -3,13 +3,13 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useState } 
 import { useTargetDataContext, Vote } from '@data/TargetDataProvider';
 
 type VoteDragContextType = {
-  beginVoteGesture(vote: Vote, entryIndex: number): void;
+  beginVoteGesture(vote: Vote, id: string): void;
   isVoteGestureActive: boolean;
-  vote: Vote;
+  vote: Vote | undefined;
 
   queue: {
-    add(entryIndex: number): void;
-    has(entryIndex: number): boolean;
+    add(id: string): void;
+    has(id: string): boolean;
     clear(): void;
   };
 };
@@ -17,7 +17,7 @@ type VoteDragContextType = {
 const VoteDragContext = createContext<VoteDragContextType>({
   beginVoteGesture: () => {},
   isVoteGestureActive: false,
-  vote: Vote.Unknown,
+  vote: undefined,
 
   queue: {
     add: () => {},
@@ -36,19 +36,19 @@ export const VoteDragProvider: React.FC<{
   const { editTranslations } = useTargetDataContext();
 
   const [isVoteGestureActive, setIsVoteGestureActive] = useState(false);
-  const [currentVote, setCurrentVote] = useState<Vote>(Vote.Unknown);
+  const [currentVote, setCurrentVote] = useState<Vote | undefined>(undefined);
 
-  const [queue, setQueue] = useState(new Set<number>());
+  const [queue, setQueue] = useState(new Set<string>());
   const addToQueue = useCallback(
-    (entryIndex: number) => {
-      if (currentVote !== Vote.Unknown) setQueue((prevQueue) => new Set(prevQueue).add(entryIndex));
+    (id: string) => {
+      if (currentVote !== undefined) setQueue((prevQueue) => new Set(prevQueue).add(id));
     },
     [currentVote],
   );
-  const hasInQueue = useCallback((entryIndex: number) => queue.has(entryIndex), [queue]);
+  const hasInQueue = useCallback((id: string) => queue.has(id), [queue]);
   const clearQueue = useCallback(() => {
     setQueue(new Set());
-    setCurrentVote(Vote.Unknown);
+    setCurrentVote(undefined);
   }, []);
 
   const endVoteGesture = useCallback(() => {
@@ -56,7 +56,7 @@ export const VoteDragProvider: React.FC<{
 
     editTranslations(Array.from(queue), { vote: currentVote });
     clearQueue();
-    setCurrentVote(Vote.Unknown);
+    setCurrentVote(undefined);
   }, [queue, clearQueue, editTranslations, currentVote]);
 
   useEffect(() => {
@@ -70,11 +70,11 @@ export const VoteDragProvider: React.FC<{
     };
   }, [endVoteGesture]);
 
-  const beginVoteGesture = useCallback((vote: Vote, entryIndex: number) => {
+  const beginVoteGesture = useCallback((vote: Vote, id: string) => {
     setIsVoteGestureActive(true);
 
     setCurrentVote(vote);
-    setQueue(new Set([entryIndex]));
+    setQueue(new Set([id]));
   }, []);
 
   const value = useMemo(

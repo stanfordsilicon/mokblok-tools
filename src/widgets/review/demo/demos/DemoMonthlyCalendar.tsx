@@ -1,15 +1,17 @@
 import React from 'react';
 
-import { useDataContext } from '@data/DataContext';
 import type { DataEntry } from '@data/DataTypes';
 import { DayKeys } from '@data/DayKeys';
+import { useSourceDataContext } from '@data/SourceDataProvider';
+import { useTargetDataContext } from '@data/TargetDataProvider';
 
 type Props = {
   query: Partial<DataEntry>;
 };
 
 const DemoMonthlyCalendar: React.FC<Props> = ({ query }) => {
-  const { findDataEntry, getTranslation } = useDataContext();
+  const { findDataEntry } = useSourceDataContext();
+  const { getTranslation } = useTargetDataContext();
   const entry = findDataEntry(query)!;
   const firstDate = new Date(entry?.var1 ?? 0);
   const endDate = entry?.var2 ? new Date(entry.var2) : new Date(firstDate);

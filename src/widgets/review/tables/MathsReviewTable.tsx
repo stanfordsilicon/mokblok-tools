@@ -34,7 +34,7 @@ function MathsReviewTable() {
         </thead>
         <tbody>
           {mathsExamples?.map((example) => (
-            <tr key={example.index}>
+            <tr key={example.id}>
               <SourceDataCell entry={example} />
               <InputDataCell entry={example} inputWidth="15em" />
             </tr>
@@ -53,7 +53,7 @@ function MathsReviewTable() {
         </thead>
         <tbody>
           {mathsSymbols?.map((entry) => (
-            <tr key={entry.index}>
+            <tr key={entry.id}>
               <td>
                 {entry.instance} {entry.length}
               </td>

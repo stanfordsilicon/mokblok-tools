@@ -113,7 +113,7 @@ function FullReviewTable() {
         </thead>
         <tbody>
           {filteredEntries.slice(0, 100).map((entry) => (
-            <FullReviewRow key={entry.index} entry={entry} />
+            <FullReviewRow key={entry.id} entry={entry} />
           ))}
         </tbody>
       </table>

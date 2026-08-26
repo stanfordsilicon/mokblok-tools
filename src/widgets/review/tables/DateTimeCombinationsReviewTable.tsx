@@ -37,14 +37,16 @@ function DateTimeCombinationsReviewTable() {
       </thead>
       <tbody>
         {availableFormats?.map((entry) => (
-          <tr key={entry.index}>
+          <tr key={entry.id}>
             {admin && <td>{entry.field}</td>}
             {admin && <td>{entry.variant}</td>}
             {admin && <td>{entry.length}</td>}
             <SourceDataCell entry={entry} />
             <InputDataCell
               entry={entry}
-              inputWidth={entry.field === 'dateFormats' ? '10em' : '25em'}
+              inputWidth={
+                entry.field === 'dateFormats' ? (entry.length === 'full' ? '15em' : '10em') : '25em'
+              }
             />
           </tr>
         ))}

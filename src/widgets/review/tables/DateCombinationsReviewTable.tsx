@@ -35,7 +35,7 @@ function DateCombinationsReviewTable() {
       </thead>
       <tbody>
         {availableFormats?.map((entry) => (
-          <tr key={entry.index}>
+          <tr key={entry.id}>
             {admin && (
               <td>
                 {entry.instance} {entry.variant}
