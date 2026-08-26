@@ -19,7 +19,7 @@ const InputVote: React.FC<{
 }> = ({ entry, inputWidth }) => {
   const { getTranslationInfo } = useTargetDataContext();
   const { isVoteGestureActive, queue, vote: dragVote } = useVoteDragContext();
-  const { vote, translation, source, comment } = getTranslationInfo(entry) ?? {};
+  const { vote, edit, translation, source, comment } = getTranslationInfo(entry) ?? {};
 
   const addToQueue = useCallback(() => queue.add(entry.id), [queue, entry.id]);
   const [showComment, setShowComment] = useState(false);
@@ -34,13 +34,14 @@ const InputVote: React.FC<{
 
   const inputVoteSurfaceClasses = useMemo(() => {
     let classes =
-      'InputVoteSurface relative truncate text-ellipsis rounded-sm px-1 select-none overflow-hidden';
+      'InputVoteSurface relative truncate text-ellipsis rounded-sm px-1 select-none overflow-hidden cursor-grab';
     if (isVoteGestureActive && queue.has(entry.id)) classes += ' InputVoteSurfaceHoverSuppressed';
 
     if (queue.has(entry.id)) {
       classes += ' bg-hashed';
-      if (dragVote === Vote.Accept) classes += ' bg-hashed-green cursorVoteApprove';
-      else if (dragVote === Vote.Reject) classes += ' bg-hashed-red cursorVoteReject';
+      if (dragVote === Vote.Accept) classes += ' bg-hashed-approve cursor-vote-approve ';
+      else if (dragVote === Vote.Reject) classes += ' bg-hashed-reject cursor-vote-reject ';
+      else if (dragVote === Vote.Unknown) classes += ' bg-hashed-clear cursor-vote-clear ';
     }
 
     if (vote === Vote.Accept) classes += ' bg-[var(--color-level-4)]/50';
@@ -56,11 +57,16 @@ const InputVote: React.FC<{
         <div
           data-testid="voting-surface"
           className={inputVoteSurfaceClasses}
-          title={translation ?? source}
+          title={edit ?? translation ?? source}
           style={{ width: inputWidth }}
           onPointerEnter={addToQueue}
         >
-          {translation ?? source}
+          <div className="inline-block text-xs align-bottom w-4">
+            {vote === Vote.Accept && '✔️'}
+            {vote === Vote.Reject && '✘'}
+            {vote === Vote.Unknown && ' '}
+          </div>
+          {edit ?? translation ?? source}
           {hasComment && <CommentMarker />}
           <InputVotingOverlay
             entry={entry}

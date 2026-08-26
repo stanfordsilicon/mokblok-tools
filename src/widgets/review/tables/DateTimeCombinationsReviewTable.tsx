@@ -44,7 +44,9 @@ function DateTimeCombinationsReviewTable() {
             <SourceDataCell entry={entry} />
             <InputDataCell
               entry={entry}
-              inputWidth={entry.field === 'dateFormats' ? '10em' : '25em'}
+              inputWidth={
+                entry.field === 'dateFormats' ? (entry.length === 'full' ? '15em' : '10em') : '25em'
+              }
             />
           </tr>
         ))}

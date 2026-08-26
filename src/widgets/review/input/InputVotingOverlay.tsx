@@ -33,14 +33,14 @@ const InputVotingOverlay: React.FC<Props> = ({
   const startVoting = useCallback(
     (newVote: Vote) => (event: PointerEvent<HTMLElement>) => {
       event.preventDefault();
-      beginVoteGesture(newVote, entry.id);
+      beginVoteGesture(currentVote === newVote ? Vote.Unknown : newVote, entry.id);
     },
-    [beginVoteGesture, entry.id],
+    [beginVoteGesture, entry.id, currentVote],
   );
 
   return (
     <div
-      className="InputVoteOverlay grid grid-cols-3 inset-0 absolute w-full transition-opacity cursor-grab"
+      className="InputVoteOverlay grid grid-cols-3 inset-0 absolute w-full transition-opacity -cursor-vote-grab"
       aria-hidden="true"
     >
       <div
@@ -77,7 +77,7 @@ const InputVotingOverlay: React.FC<Props> = ({
           `${showComment ? ' bg-[var(--color-level-6)]/50' : ''}` +
           (hasComment ? ' bg-[var(--color-level-6)]' : '')
         }
-        onClick={() => setShowComment((prev) => !prev)}
+        onPointerDown={() => setShowComment((prev) => !prev)}
       >
         💬
       </div>
