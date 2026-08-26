@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 
+import { TranslationInfo } from '@data/target-data/types';
 import { useTargetDataContext, Vote } from '@data/TargetDataProvider';
 
 const ChangesSummary: React.FC = () => {
@@ -13,12 +14,16 @@ const ChangesSummary: React.FC = () => {
           info.vote === Vote.Reject ||
           info.comment != null,
       )
+      .sort((a, b) => a.id.localeCompare(b.id))
+      .sort((a, b) => getResultRank(b) - getResultRank(a))
       .map((info) => (
         <div key={info.id}>
+          <div className="inline-block w-4">
+            {info.vote === Vote.Accept && '✔️'}
+            {info.vote === Vote.Reject && '✘'}
+          </div>
           {info.translation ?? info.source}
           {info.edit != null && <span> -&gt; {info.edit}</span>}
-          {info.vote === Vote.Accept && <span> (Accepted)</span>}
-          {info.vote === Vote.Reject && <span> (Rejected)</span>}
           {info.comment != null && <span> (Comment: {info.comment})</span>}
         </div>
       ));
@@ -35,5 +40,12 @@ const ChangesSummary: React.FC = () => {
     </div>
   );
 };
+
+function getResultRank(edit: TranslationInfo) {
+  if (edit.edit != null) return 3;
+  if (edit.vote === Vote.Reject) return 2;
+  if (edit.vote === Vote.Accept) return 1;
+  return 0;
+}
 
 export default ChangesSummary;

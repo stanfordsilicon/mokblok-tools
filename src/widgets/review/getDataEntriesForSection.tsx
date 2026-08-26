@@ -43,7 +43,9 @@ export function useCompletionForSection(
   );
   const completedEntries = useMemo(
     () =>
-      getTranslations(entriesInCoverage).filter((info) => Boolean(info?.edit ?? info?.translation)),
+      getTranslations(entriesInCoverage, 'all').filter((info) =>
+        Boolean(info?.edit ?? info?.translation),
+      ),
     [entriesInCoverage, getTranslations],
   );
 

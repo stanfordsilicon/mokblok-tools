@@ -119,12 +119,20 @@ const TargetDataProvider: React.FC<{
   );
 
   const getTranslations = useCallback(
-    (entries?: DataEntry[]): TranslationInfo[] => {
+    (entries?: DataEntry[], scope: 'edited' | 'all' = 'edited'): TranslationInfo[] => {
       const idSet = new Set(entries?.map((entry) => entry.id));
-      return Object.values(translationEdits)
+      if (scope === 'edited') {
+        return Object.values(translationEdits)
+          .filter((edit) => !entries || idSet.has(edit.id))
+          .map((edit) => {
+            const baseline = translationBaselines[edit.id];
+            return { ...baseline, ...edit };
+          });
+      }
+      return Object.values(translationBaselines)
         .filter((edit) => !entries || idSet.has(edit.id))
         .map((edit) => {
-          const baseline = translationBaselines[edit.id];
+          const baseline = translationEdits[edit.id];
           return { ...baseline, ...edit };
         });
     },
