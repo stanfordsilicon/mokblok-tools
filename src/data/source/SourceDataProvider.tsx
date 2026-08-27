@@ -2,7 +2,7 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useState } 
 
 import { useURLParams } from '@settings/URLParams';
 
-import { SourceLanguage, type DataEntry } from '../DataTypes';
+import { type DataEntry } from '../DataTypes';
 import { loadCLDRXMLWithInheritance } from '../loadCLDRXML';
 import { loadDataEntries } from '../LoadDataEntries';
 
@@ -55,7 +55,7 @@ const SourceDataProvider: React.FC<{
     if (dataEntries) setDataEntries(dataEntries);
   }, [setDataEntries]);
   const fetchXMLData = useCallback(
-    async (sourceLanguage: SourceLanguage) => {
+    async (sourceLanguage: string) => {
       if (dataEntries.length === 0) return;
       const allXMLdata = await loadCLDRXMLWithInheritance(sourceLanguage);
       // Only save XPaths we are using

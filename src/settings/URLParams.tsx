@@ -1,12 +1,12 @@
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useSession } from 'next-auth/react';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import React, { createContext, useCallback, useContext, useEffect, useMemo } from 'react';
 
 import i18n from '@i18n';
 
 import { CoverageLevel, parseCoverageLevel } from '@data/CoverageLevel';
 import { DataPage, DataSection } from '@data/DataSection';
-import { InterfaceLanguage, SourceLanguage } from '@data/DataTypes';
+import { InterfaceLanguage } from '@data/DataTypes';
 import ImportSource from '@data/ImportSource';
 import { Worksheets } from '@data/worksheets/Worksheets';
 
@@ -18,7 +18,7 @@ import StepName from './StepName';
 
 const GLOBAL_DEFAULTS: Readonly<URLParams> = {
   interfaceLanguage: InterfaceLanguage.English,
-  sourceLanguage: SourceLanguage.English,
+  sourceLanguage: 'en',
   targetLanguage: 'mg',
   coverageLevel: CoverageLevel.Comprehensive,
   step: StepName.Intro,
@@ -33,7 +33,7 @@ const GLOBAL_DEFAULTS: Readonly<URLParams> = {
 
 export type URLParams = {
   interfaceLanguage: InterfaceLanguage; // en, fr
-  sourceLanguage: SourceLanguage; // en, fr, mg, wo
+  sourceLanguage: string; // en, fr, mg, wo
   targetLanguage: string; // mg, wo
   coverageLevel: CoverageLevel;
   step: StepName;
@@ -94,10 +94,6 @@ export function getParamsFromURL(urlParams: URLSearchParams): Partial<URLParams>
         if (Object.values(InterfaceLanguage).includes(value as InterfaceLanguage))
           params[key] = value as InterfaceLanguage;
         break;
-      case 'sourceLanguage':
-        if (Object.values(SourceLanguage).includes(value as SourceLanguage))
-          params[key] = value as SourceLanguage;
-        break;
       case 'coverageLevel':
         params[key] = parseCoverageLevel(value);
         break;
@@ -111,6 +107,7 @@ export function getParamsFromURL(urlParams: URLSearchParams): Partial<URLParams>
         if (Object.values(DataSection).includes(value as DataSection))
           params[key] = value as DataSection;
         break;
+      case 'sourceLanguage':
       case 'targetLanguage':
         params[key] = value;
         break;
@@ -150,22 +147,12 @@ function getInferredParams(
   if (instantiatedParams.sourceLanguage == null && instantiatedParams.interfaceLanguage != null) {
     switch (instantiatedParams.interfaceLanguage) {
       case InterfaceLanguage.EnglishFraktur:
-        inferredParams.sourceLanguage = SourceLanguage.EnglishFraktur;
-        break;
       case InterfaceLanguage.English:
-        inferredParams.sourceLanguage = SourceLanguage.English;
-        break;
       case InterfaceLanguage.Spanish:
-        inferredParams.sourceLanguage = SourceLanguage.Spanish;
-        break;
       case InterfaceLanguage.French:
-        inferredParams.sourceLanguage = SourceLanguage.French;
-        break;
       case InterfaceLanguage.Italian:
-        inferredParams.sourceLanguage = SourceLanguage.Italian;
-        break;
       case InterfaceLanguage.Portuguese:
-        inferredParams.sourceLanguage = SourceLanguage.Portuguese;
+        inferredParams.sourceLanguage = instantiatedParams.interfaceLanguage;
         break;
       default:
         enforceExhaustiveSwitch(instantiatedParams.interfaceLanguage);

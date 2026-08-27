@@ -44,22 +44,6 @@ export enum InterfaceLanguage {
   Spanish = 'es',
 }
 
-export enum SourceLanguage {
-  English = 'en',
-  EnglishFraktur = 'en-Latf',
-  French = 'fr',
-  Hausa = 'ha',
-  Italian = 'it',
-  Malagasy = 'mg',
-  Morisien = 'mfe',
-  Obolo = 'ann',
-  Oromo = 'or',
-  Portuguese = 'pt',
-  Shona = 'sn',
-  Spanish = 'es',
-  Wolof = 'wo',
-}
-
 export enum FormatLength {
   Wide = 'wide',
   Abbreviated = 'abbreviated',

@@ -2,14 +2,14 @@ import { PatternFormat } from '@data/PatternFormat';
 
 import { getFraktur } from '@shared/stringUtils';
 
-import { SourceLanguage, type DataEntry } from '../DataTypes';
+import { type DataEntry } from '../DataTypes';
 import { getDateString } from '../DateString';
 
 type getTranslationFromSourceLanguageParams = {
   entry: DataEntry;
   getSourceData: (entry: DataEntry | undefined) => string | undefined;
   getInnerString: (query: Partial<DataEntry>) => string;
-  sourceLanguage: SourceLanguage;
+  sourceLanguage: string;
 };
 
 // Returns a string or a tuple if it comes from a pattern
@@ -24,7 +24,7 @@ function getTranslationFromSourceLanguage({
   if (sourceData) {
     if (!entry.exampleNum || entry.exampleNum === '0') {
       // It's a direct translation
-      if (sourceLanguage === SourceLanguage.EnglishFraktur) return getFraktur(sourceData);
+      if (sourceLanguage === 'en-Latf') return getFraktur(sourceData);
       return sourceData;
     } else {
       // It's a pattern, we need to parse it
@@ -50,9 +50,9 @@ function getTranslationFromSourceLanguage({
   }
 
   // Fallback to the old values checking the entry
-  if (sourceLanguage === SourceLanguage.French && entry.french) {
+  if (sourceLanguage === 'fr' && entry.french) {
     return entry.french;
-  } else if (sourceLanguage === SourceLanguage.EnglishFraktur) {
+  } else if (sourceLanguage === 'en-Latf') {
     return getFraktur(entry.english);
   }
   return entry.english;

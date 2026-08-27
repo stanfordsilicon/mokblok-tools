@@ -1,4 +1,4 @@
-import { SourceLanguage, type DataEntry } from '@data/DataTypes';
+import { type DataEntry } from '@data/DataTypes';
 
 import { useURLParams } from '@settings/URLParams';
 
@@ -26,19 +26,16 @@ function DebugHovercard({ entry, sourceTranslation }: Props) {
         {/* Translations */}
         <DebugRow label={uitext(`languageName.${sourceLanguage}`)} value={translationText} />
         {pattern && <DebugRow label="Pattern value" value={pattern} indent={1} />}
-        {sourceLanguage !== SourceLanguage.English && (
-          <DebugRow
-            label={uitext(`languageName.${SourceLanguage.English}`)}
-            value={entry.english}
-          />
+        {sourceLanguage !== 'en' && (
+          <DebugRow label={uitext(`languageName.en`)} value={entry.english} />
         )}
-        {pattern && sourceLanguage !== SourceLanguage.English && entry.englishPattern && (
+        {pattern && sourceLanguage !== 'en' && entry.englishPattern && (
           <DebugRow label="English pattern" value={entry.englishPattern} indent={1} />
         )}
-        {sourceLanguage !== SourceLanguage.French && (
-          <DebugRow label={uitext(`languageName.${SourceLanguage.French}`)} value={entry.french} />
+        {sourceLanguage !== 'fr' && (
+          <DebugRow label={uitext(`languageName.fr`)} value={entry.french} />
         )}
-        {pattern && sourceLanguage !== SourceLanguage.French && entry.frenchPattern && (
+        {pattern && sourceLanguage !== 'fr' && entry.frenchPattern && (
           <DebugRow label="French pattern" value={entry.frenchPattern} indent={1} />
         )}
 
