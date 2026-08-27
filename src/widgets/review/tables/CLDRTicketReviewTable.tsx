@@ -1,17 +1,17 @@
-import { useDataContext } from '@data/DataContext';
 import { DataSection } from '@data/DataSection';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
+import { useFindDataEntriesInScope } from '../getDataEntriesForSection';
 import InputTextareaCell from '../input/InputTextareaCell';
 import SourceDataCell from '../SourceDataCell';
 
 function CLDRTicketReviewTable() {
-  const { findDataEntries } = useDataContext();
-  const sentences = findDataEntries({ section: DataSection.CLDRTicket });
   const { uitext } = useInterfaceTranslation();
+  const findDataEntries = useFindDataEntriesInScope();
+  const sentences = findDataEntries({ section: DataSection.CLDRTicket });
 
   function getHeight(english: string) {
     return Math.max(english.length / 50, 1.5) + 'em';

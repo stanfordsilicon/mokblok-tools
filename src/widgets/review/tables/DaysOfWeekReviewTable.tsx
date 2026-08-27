@@ -1,10 +1,9 @@
-import { useDataContext } from '@data/DataContext';
-
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
 import { matrixBy } from '@shared/setUtils';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
+import { useFindDataEntriesInScope } from '../getDataEntriesForSection';
 import InputDataCell from '../input/InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
@@ -12,7 +11,7 @@ import SourceDataCell from '../SourceDataCell';
 const dayOfWeekOrdered = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
 
 function DaysOfWeekReviewTable() {
-  const { findDataEntries } = useDataContext();
+  const findDataEntries = useFindDataEntriesInScope();
   const daysOfTheWeekFields = findDataEntries({ field: 'E' }).filter(
     (f) => f.length !== '' && f.instance !== '',
   );

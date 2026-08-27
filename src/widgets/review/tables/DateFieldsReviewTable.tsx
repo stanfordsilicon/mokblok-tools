@@ -1,4 +1,3 @@
-import { useDataContext } from '@data/DataContext';
 import { DataSection } from '@data/DataSection';
 import { DateField } from '@data/DateField';
 
@@ -7,11 +6,12 @@ import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 import { matrixBy } from '@shared/setUtils';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
+import { useFindDataEntriesInScope } from '../getDataEntriesForSection';
 import InputDataCell from '../input/InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 const DateFieldsReviewTable: React.FC = () => {
-  const { findDataEntries } = useDataContext();
+  const findDataEntries = useFindDataEntriesInScope();
   const dateFields = findDataEntries({ section: DataSection.DateFields, exampleNum: '0' });
   const dateFieldMatrix = matrixBy(
     dateFields,

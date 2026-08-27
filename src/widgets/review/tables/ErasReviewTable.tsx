@@ -1,18 +1,17 @@
-import { useDataContext } from '@data/DataContext';
-
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 import { useURLParams } from '@settings/URLParams';
 
 import { matrixBy } from '@shared/setUtils';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
+import { useFindDataEntriesInScope } from '../getDataEntriesForSection';
 import InputDataCell from '../input/InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function ErasReviewTable() {
   const { uitext } = useInterfaceTranslation();
   const { admin } = useURLParams();
-  const { findDataEntries } = useDataContext();
+  const findDataEntries = useFindDataEntriesInScope();
   const eraFields = findDataEntries({ field: 'G' });
   const eraMatrix = matrixBy(
     eraFields,

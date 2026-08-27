@@ -1,4 +1,3 @@
-import { useDataContext } from '@data/DataContext';
 import { CardinalDirection } from '@data/DataTypes';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
@@ -6,11 +5,12 @@ import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 import { matrixBy } from '@shared/setUtils';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
+import { useFindDataEntriesInScope } from '../getDataEntriesForSection';
 import InputDataCell from '../input/InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function CoordinatesReviewTable() {
-  const { findDataEntry, findDataEntries } = useDataContext();
+  const findDataEntries = useFindDataEntriesInScope();
   const coordFields = findDataEntries({ field: 'coordinateUnitPattern' });
   const coordMatrix = matrixBy(
     coordFields,
@@ -18,7 +18,7 @@ function CoordinatesReviewTable() {
     (f) => f.length,
   );
   const { uitext } = useInterfaceTranslation();
-  const cardinalDirection = findDataEntry({ field: 'coordinateUnit/displayName' });
+  const cardinalDirection = findDataEntries({ field: 'coordinateUnit/displayName' })[0];
 
   return (
     <div>

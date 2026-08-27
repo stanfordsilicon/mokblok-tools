@@ -1,4 +1,3 @@
-import { useDataContext } from '@data/DataContext';
 import PluralAmount from '@data/PluralAmount';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
@@ -6,6 +5,7 @@ import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 import { matrixBy } from '@shared/setUtils';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
+import { useFindDataEntriesInScope } from '../getDataEntriesForSection';
 import InputDataCell from '../input/InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
@@ -18,7 +18,7 @@ type VariantKey = (typeof pluralVariantOrder)[number];
 
 const PluralsReviewTable: React.FC = () => {
   const { uitext } = useInterfaceTranslation();
-  const { findDataEntries } = useDataContext();
+  const findDataEntries = useFindDataEntriesInScope();
 
   const pluralFields = findDataEntries({ field: 'plurals' }).filter((entry) =>
     pluralInstances.includes(entry.instance as PluralInstance),

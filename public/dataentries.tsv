@@ -157,6 +157,7 @@ DateAndTime	Dates		availableFormats	yw		other	1	//ldml/dates/calendars/calendar[
 DateAndTime	Dates		availableFormats	yw		one	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yw"][@count="one"]	dc-2_XXX	week 1 of 2024	'week' w 'of' Y	semaine 1 de 2024	'semaine' w 'de' Y	Moderate	1704096000000		datetime	1
 DateAndTime	DateFields		d		w		0	//ldml/dates/fields/field[@type="day"]/displayName	dw-14_XXX	day	day	jour	jour	Moderate				1
 DateAndTime	DateFields		d		s		0	//ldml/dates/fields/field[@type="day-short"]/displayName	dw-15_XXX	d	day	j	j	Moderate				1
+DateAndTime	DateFields		d		n		0	//ldml/dates/fields/field[@type="day-narrow"]/displayName		d	day	j	j	Moderate				5
 DateAndTime	RelativeTime		d	-1			0	//ldml/dates/fields/field[@type="day"]/relative[@type="-1"]	rt-3_XXX	yesterday	yesterday	hier	hier	Moderate				1
 DateAndTime	RelativeTime		d	0			0	//ldml/dates/fields/field[@type="day"]/relative[@type="0"]	rt-7_XXX	today	today	aujourd’hui	aujourd’hui	Moderate				1
 DateAndTime	RelativeTime		d	1			0	//ldml/dates/fields/field[@type="day"]/relative[@type="1"]	rt-9_XXX	tomorrow	tomorrow	demain	demain	Moderate				1
@@ -174,6 +175,8 @@ DateAndTime	DateTimes		dateTimeFormats		long	standard	1	//ldml/dates/calendars/c
 DateAndTime	DateTimes		dateTimeFormats		medium	standard	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/dateTimeFormatLength[@type="medium"]/dateTimeFormat[@type="standard"]/pattern[@type="standard"]	dc-39_XXX	Apr 23, 2024 at 3:30 PM	{1}, {0}	avr. 23, 2024, 15:30	{1}, {0}	Moderate	hm	yMMMd	datetimecombo	1
 DateAndTime	DateTimes		dateTimeFormats		medium	atTime	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/dateTimeFormatLength[@type="medium"]/dateTimeFormat[@type="atTime"]/pattern[@type="standard"]	dc-40_XXX	Apr 23 at 3:30 PM	{1}, {0}	avr. 23, 15:30	{1}, {0}	Moderate	hm	MMMd	datetimecombo	1
 DateAndTime	DateFields		E		w		0	//ldml/dates/fields/field[@type="weekday"]/displayName	dw-23_XXX	day of the week	day of the week	jour de la semaine	jour de la semaine	Moderate				5
+DateAndTime	DateFields		E		s		0	//ldml/dates/fields/field[@type="weekday-short"]/displayName	dw-23_XXX	day of wk.	day of wk.	j (sem.)	j (sem.)	Modern				5
+DateAndTime	DateFields		E		n		0	//ldml/dates/fields/field[@type="weekday-narrow"]/displayName	dw-23_XXX	day of wk.	day of wk.	j (sem.)	j (sem.)	Modern				5
 DateAndTime	DaysOfWeek		E	fri	w		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="format"]/dayWidth[@type="wide"]/day[@type="fri"]	wk-6_XXX	Friday	Friday	vendredi	vendredi	Basic				1
 DateAndTime	DaysOfWeek		E	fri	a		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="abbreviated"]/day[@type="fri"]	wk-13_XXX	Fri	Fri	ven.	ven.	Moderate				1
 DateAndTime	DaysOfWeek		E	fri	s		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="short"]/day[@type="fri"]	wk-20_XXX	Fr	Fr	ve	ve	Moderate				1
@@ -203,6 +206,8 @@ DateAndTime	DaysOfWeek		E	wed	a		0	//ldml/dates/calendars/calendar[@type="gregor
 DateAndTime	DaysOfWeek		E	wed	s		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="short"]/day[@type="wed"]	wk-18_XXX	We	We	me	me	Moderate				1
 DateAndTime	DaysOfWeek		E	wed	n		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="narrow"]/day[@type="wed"]	wk-25_XXX	W	W	M	M	Moderate				1
 DateAndTime	DateFields		G		w		0	//ldml/dates/fields/field[@type="era"]/displayName	dw-1_XXX	era	era	ère	ère	Moderate				1
+DateAndTime	DateFields		G		s		0	//ldml/dates/fields/field[@type="era-short"]/displayName		era	era	ère	ère	Modern				5
+DateAndTime	DateFields		G		n		0	//ldml/dates/fields/field[@type="era-narrow"]/displayName		era	era	ère	ère	Modern				5
 DateAndTime	Eras		G	0	w	variant	0	//ldml/dates/calendars/calendar[@type="gregorian"]/eras/eraNames/era[@type="0"][@alt="variant"]	er-1_XXX	Before Common Era	Before Common Era	avant l’ère commune	avant l’ère commune	Moderate				1
 DateAndTime	Eras		G	0	a	variant	0	//ldml/dates/calendars/calendar[@type="gregorian"]/eras/eraAbbr/era[@type="0"][@alt="variant"]	er-2_XXX	BCE	BCE	AEC	AEC	Moderate				1
 DateAndTime	Eras		G	0	w		0	//ldml/dates/calendars/calendar[@type="gregorian"]/eras/eraNames/era[@type="0"]	er-3_XXX	Before Christ	Before Christ	avant Jésus-Christ	avant Jésus-Christ	Moderate				1
@@ -216,7 +221,8 @@ DateAndTime	Eras		G	1	a		0	//ldml/dates/calendars/calendar[@type="gregorian"]/er
 DateAndTime	Eras		G	1	n	variant	0	//ldml/dates/calendars/calendar[@type="gregorian"]/eras/eraNarrow/era[@type="1"][@alt="variant"]		CE	CE	EC	EC	Comprehensive				5
 DateAndTime	Eras		G	1	n		0	//ldml/dates/calendars/calendar[@type="gregorian"]/eras/eraNarrow/era[@type="1"]		A	A	ap. J.-C.	ap. J.-C.	Comprehensive				5
 DateAndTime	DateFields		h		w		0	//ldml/dates/fields/field[@type="hour"]/displayName	dw-16_XXX	hour	hour	heure	heure	Moderate				1
-DateAndTime	DateFields		h		n		0	//ldml/dates/fields/field[@type="hour-narrow"]/displayName	dw-17_XXX	hr	hr	h	h	Moderate				1
+DateAndTime	DateFields		h		s		0	//ldml/dates/fields/field[@type="hour-short"]/displayName	dw-17_XXX	hr.	hr.	h	h	Moderate				1
+DateAndTime	DateFields		h		n		0	//ldml/dates/fields/field[@type="hour-narrow"]/displayName		hr	hr	h	h	Moderate				5
 DateAndTime	EraDates		intervalFormats	Gy		y	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Gy"]/greatestDifference[@id="y"]	dc-86_XXX	2024 – 2027 AD	y – y G	2024–2027 ap. J.-C.	y–y G	Moderate	1713855600000	1808463600000	datetime	1
 DateAndTime	EraDates		intervalFormats	Gy		G	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Gy"]/greatestDifference[@id="G"]	dc-88_XXX	107 BC – 2024 AD	y G – y G	107 av. J.-C. à 2024 ap. J.-C.	y G 'à' y G	Moderate	-65534026022000	1713855600000	datetime	1
 DateAndTime	EraDates		intervalFormats	GyM		M	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyM"]/greatestDifference[@id="M"]	dc-70_XXX	4/2024 – 5/2024 AD	M/y – M/y G	04–05/2024 ap. J.-C.	MM–MM/y G	Moderate	1713855600000	1716447600000	datetime	1
@@ -308,6 +314,7 @@ DateAndTime	DateFields		M		w		0	//ldml/dates/fields/field[@type="month"]/display
 DateAndTime	DateFields		M		s		0	//ldml/dates/fields/field[@type="month-short"]/displayName	dw-9_XXX	mo.	mo.	m.	m.	Moderate				1
 DateAndTime	DateFields		M		n		0	//ldml/dates/fields/field[@type="month-narrow"]/displayName	dw-10_XXX	mo	mo	m.	m.	Moderate				1
 DateAndTime	DateFields		m		w		0	//ldml/dates/fields/field[@type="minute"]/displayName	dw-18_XXX	minute	minute	minute	minute	Moderate				1
+DateAndTime	DateFields		m		s		0	//ldml/dates/fields/field[@type="minute-short"]/displayName	dw-18_XXX	min.	min.	min	min	Moderate				5
 DateAndTime	DateFields		m		n		0	//ldml/dates/fields/field[@type="minute-narrow"]/displayName	dw-19_XXX	min	min	min	min	Moderate				1
 DateAndTime	RelativeTime		M	-1			0	//ldml/dates/fields/field[@type="month"]/relative[@type="-1"]	rt-1_XXX	last month	last month	le mois dernier	le mois dernier	Moderate				1
 DateAndTime	RelativeTime		M	0			0	//ldml/dates/fields/field[@type="month"]/relative[@type="0"]	rt-5_XXX	this month	this month	ce mois-ci	ce mois-ci	Moderate				1
@@ -395,6 +402,8 @@ DateAndTime	DateTimes		timeFormats		medium		1	//ldml/dates/calendars/calendar[@t
 DateAndTime	DateTimes		timeFormats		long		1	//ldml/dates/calendars/calendar[@type="gregorian"]/timeFormats/timeFormatLength[@type="long"]/timeFormat[@type="standard"]/pattern[@type="standard"]	dc-56_XXX	3:30:45 PM GMT	h:mm:ss a z	15:30:45 UTC	HH:mm:ss z	Moderate	1713911445000		datetime	1
 DateAndTime	DateTimes		timeFormats		full		1	//ldml/dates/calendars/calendar[@type="gregorian"]/timeFormats/timeFormatLength[@type="full"]/timeFormat[@type="standard"]/pattern[@type="standard"]	dc-57_XXX	3:30:45 PM Greenwich Mean Time	h:mm:ss a zzzz	15:30:45 heure moyenne de Greenwich	HH:mm:ss zzzz	Moderate	1713911445000		datetime	1
 DateAndTime	DateFields		v		w		0	//ldml/dates/fields/field[@type="zone"]/displayName		time zone	time zone	fuseau horaire	fuseau horaire	Moderate				2_3
+DateAndTime	DateFields		v		s		0	//ldml/dates/fields/field[@type="zone-short"]/displayName		zone	zone	fuseau horaire	fuseau horaire	Modern				5
+DateAndTime	DateFields		v		n		0	//ldml/dates/fields/field[@type="zone-narrow"]/displayName		zone	zone	fuseau horaire	fuseau horaire	Modern				5
 DateAndTime	DateFields		w		w		0	//ldml/dates/fields/field[@type="week"]/displayName	dw-11_XXX	week	week	semaine	semaine	Moderate				1
 DateAndTime	DateFields		w		s		0	//ldml/dates/fields/field[@type="week-short"]/displayName	dw-12_XXX	wk.	wk.	sem.	sem.	Moderate				1
 DateAndTime	DateFields		w		n		0	//ldml/dates/fields/field[@type="week-narrow"]/displayName	dw-13_XXX	wk	wk	sem.	sem.	Moderate				1

@@ -1,4 +1,3 @@
-import { useDataContext } from '@data/DataContext';
 import { DataSection } from '@data/DataSection';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
@@ -6,16 +5,15 @@ import { useURLParams } from '@settings/URLParams';
 
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
+import { useFindDataEntriesInScope } from '../getDataEntriesForSection';
 import InputDataCell from '../input/InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function EraDatesReviewTable() {
   const { uitext } = useInterfaceTranslation();
   const { admin } = useURLParams();
-  const { findDataEntries } = useDataContext();
-  const allEraFields = findDataEntries({ section: DataSection.EraDates }).filter((f) =>
-    f.instance.includes('G'),
-  );
+  const findDataEntries = useFindDataEntriesInScope();
+  const allEraFields = findDataEntries({ section: DataSection.EraDates });
   const availableEraDates = allEraFields.filter((f) => f.field === 'availableFormats');
   const eraIntervals = allEraFields.filter((f) => f.field === 'intervalFormats');
 

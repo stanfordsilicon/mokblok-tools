@@ -4,6 +4,7 @@ export enum BackgroundStyle {
   CoverageLevel,
   DifferentThanSource,
   Vote,
+  Worksheet,
 }
 
 export function parseBackgroundStyle(style: string): BackgroundStyle {
@@ -20,6 +21,9 @@ export function parseBackgroundStyle(style: string): BackgroundStyle {
     case 'vote':
     case '4':
       return BackgroundStyle.Vote;
+    case 'worksheet':
+    case '5':
+      return BackgroundStyle.Worksheet;
     case 'none':
     case '0':
     default:

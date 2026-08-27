@@ -3,22 +3,25 @@ import React from 'react';
 import { useDataContext } from '@data/DataContext';
 import { DataSection } from '@data/DataSection';
 import { useLinguisticsContext } from '@data/LinguisticsContext';
+import { useTargetDataContext } from '@data/target-data/TargetDataProvider';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
 import { decodeHtmlEntities } from '@shared/stringUtils';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
+import { useFindDataEntriesInScope } from '../getDataEntriesForSection';
 import InputDataCell from '../input/InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 const charSets = ['main', 'uppercase', 'auxiliary', 'numbers', 'punctuation'] as const;
 
 const AlphabetReview: React.FC = () => {
-  const { findDataEntries, getTranslation } = useDataContext();
+  const { uitext } = useInterfaceTranslation();
+  const findDataEntries = useFindDataEntriesInScope();
+  const { getTranslation } = useTargetDataContext();
   const { numberingSystems } = useLinguisticsContext();
   const alphabetFields = findDataEntries({ section: DataSection.Alphabet });
-  const { uitext } = useInterfaceTranslation();
 
   return (
     <div>

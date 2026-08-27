@@ -1,4 +1,3 @@
-import { useDataContext } from '@data/DataContext';
 import { DataSection } from '@data/DataSection';
 
 import { getLanguageBCP } from '@settings/LanguageCodes';
@@ -7,13 +6,14 @@ import { useURLParams } from '@settings/URLParams';
 
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
+import { useFindDataEntriesInScope } from '../getDataEntriesForSection';
 import InputDataCell from '../input/InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function LanguageNamesReviewTable() {
   const { uitext } = useInterfaceTranslation();
   const targetLanguageBCP = getLanguageBCP(useURLParams().targetLanguage);
-  const { findDataEntries } = useDataContext();
+  const findDataEntries = useFindDataEntriesInScope();
   const allLanguageNameFields = findDataEntries({ section: DataSection.LanguageNames });
   const languageNameFields = allLanguageNameFields.filter((f) => f.group !== 'Secondary');
   const secondaryLanguageNameFields = allLanguageNameFields.filter((f) => f.group === 'Secondary');

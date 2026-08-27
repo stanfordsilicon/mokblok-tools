@@ -1,4 +1,3 @@
-import { useDataContext } from '@data/DataContext';
 import { DataSection } from '@data/DataSection';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
@@ -6,12 +5,13 @@ import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 import { groupBy } from '@shared/setUtils';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
+import { useFindDataEntriesInScope } from '../getDataEntriesForSection';
 import InputTextareaCell from '../input/InputTextareaCell';
 import SourceDataCell from '../SourceDataCell';
 
 function ParagraphsReviewTable() {
   const { uitext } = useInterfaceTranslation();
-  const { findDataEntries } = useDataContext();
+  const findDataEntries = useFindDataEntriesInScope();
   const paragraphsByGroup = groupBy(
     findDataEntries({ section: DataSection.Paragraphs }),
     (f) => f.field,

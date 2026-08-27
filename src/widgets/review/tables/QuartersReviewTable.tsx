@@ -1,16 +1,15 @@
-import { useDataContext } from '@data/DataContext';
-
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
 import { matrixBy } from '@shared/setUtils';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
+import { useFindDataEntriesInScope } from '../getDataEntriesForSection';
 import InputDataCell from '../input/InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function QuartersReviewTable() {
   const { uitext } = useInterfaceTranslation();
-  const { findDataEntries } = useDataContext();
+  const findDataEntries = useFindDataEntriesInScope();
   const quarterFields = findDataEntries({ field: 'q' }).filter((f) => f.instance !== '');
   const quarterMatrix = matrixBy(
     quarterFields,

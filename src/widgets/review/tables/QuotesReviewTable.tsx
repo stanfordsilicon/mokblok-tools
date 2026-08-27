@@ -1,4 +1,3 @@
-import { useDataContext } from '@data/DataContext';
 import { DataSection } from '@data/DataSection';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
@@ -6,13 +5,14 @@ import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 import { matrixBy, sortBy } from '@shared/setUtils';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
+import { useFindDataEntriesInScope } from '../getDataEntriesForSection';
 import InputDataCell from '../input/InputDataCell';
 import InputTextareaCell from '../input/InputTextareaCell';
 import SourceDataCell from '../SourceDataCell';
 
 function QuotesReviewTable() {
   const { uitext } = useInterfaceTranslation();
-  const { findDataEntries } = useDataContext();
+  const findDataEntries = useFindDataEntriesInScope();
   const quotes = sortBy(findDataEntries({ section: DataSection.Quotes }), (a) => a.length);
   const quotesMatrix = matrixBy(
     quotes.filter((f) => f.exampleNum === '0'),

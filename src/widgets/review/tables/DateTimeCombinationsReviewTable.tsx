@@ -1,4 +1,3 @@
-import { useDataContext } from '@data/DataContext';
 import { DataSection } from '@data/DataSection';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
@@ -7,12 +6,13 @@ import { useURLParams } from '@settings/URLParams';
 import { sortBy, uniqueBy } from '@shared/setUtils';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
+import { useFindDataEntriesInScope } from '../getDataEntriesForSection';
 import InputDataCell from '../input/InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function DateTimeCombinationsReviewTable() {
   const { admin } = useURLParams();
-  const { findDataEntries } = useDataContext();
+  const findDataEntries = useFindDataEntriesInScope();
   const availableFormats = uniqueBy(
     sortBy(
       findDataEntries({ section: DataSection.DateTimes }),
