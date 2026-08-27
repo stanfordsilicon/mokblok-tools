@@ -1,8 +1,8 @@
 import { createContext, useContext } from 'react';
 
 import { type AlphabetData, type DataEntry } from './DataTypes';
-import { useSourceDataContext } from './SourceDataProvider';
-import { useTargetDataContext } from './TargetDataProvider';
+import { useSourceDataContext } from './sourcedata/SourceDataProvider';
+import { useTargetDataContext } from './target-data/TargetDataProvider';
 
 export type DataContextType = {
   alphabet?: AlphabetData;

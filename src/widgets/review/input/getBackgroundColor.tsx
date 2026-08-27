@@ -1,6 +1,6 @@
 import type { DataEntry } from '@data/DataTypes';
 import useTranslationFromSourceLanguage from '@data/sourcedata/useTranslationFromSourceLanguage';
-import { useTargetDataContext, Vote } from '@data/TargetDataProvider';
+import { useTargetDataContext, Vote } from '@data/target-data/TargetDataProvider';
 
 import { BackgroundStyle } from '@settings/BackgroundStyle';
 import { useURLParams } from '@settings/URLParams';

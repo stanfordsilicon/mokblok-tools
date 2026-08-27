@@ -1,6 +1,6 @@
 import { useDataContext } from '@data/DataContext';
 import { DataEntry } from '@data/DataTypes';
-import { useTargetDataContext } from '@data/TargetDataProvider';
+import { useTargetDataContext } from '@data/target-data/TargetDataProvider';
 
 import useBackgroundColor from './getBackgroundColor';
 import HighlightInput from './HighlightInput';

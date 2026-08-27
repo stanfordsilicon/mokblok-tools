@@ -2,9 +2,9 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useState } 
 
 import { useURLParams } from '@settings/URLParams';
 
-import { SourceLanguage, type DataEntry } from './DataTypes';
-import { loadCLDRXMLWithInheritance } from './loadCLDRXML';
-import { loadDataEntries } from './LoadDataEntries';
+import { SourceLanguage, type DataEntry } from '../DataTypes';
+import { loadCLDRXMLWithInheritance } from '../loadCLDRXML';
+import { loadDataEntries } from '../LoadDataEntries';
 
 export type FindDataEntry = (query: Partial<DataEntry>) => DataEntry | undefined;
 export type FindDataEntries = (query: Partial<DataEntry>) => DataEntry[];

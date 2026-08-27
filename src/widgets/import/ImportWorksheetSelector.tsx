@@ -1,4 +1,4 @@
-import { useTargetDataContext } from '@data/TargetDataProvider';
+import { useTargetDataContext } from '@data/target-data/TargetDataProvider';
 import { Worksheet } from '@data/worksheets/Worksheet';
 import { getAvailableWorksheets } from '@data/worksheets/Worksheets';
 

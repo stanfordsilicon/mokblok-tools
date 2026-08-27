@@ -2,8 +2,8 @@ import React from 'react';
 
 import type { DataEntry } from '@data/DataTypes';
 import { DayKeys } from '@data/DayKeys';
-import { useSourceDataContext } from '@data/SourceDataProvider';
-import { useTargetDataContext } from '@data/TargetDataProvider';
+import { useSourceDataContext } from '@data/sourcedata/SourceDataProvider';
+import { useTargetDataContext } from '@data/target-data/TargetDataProvider';
 
 type Props = {
   query: Partial<DataEntry>;

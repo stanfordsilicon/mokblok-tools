@@ -70,14 +70,14 @@ export function getSectionsForPage(page: DataPage): DataSection[] {
         DataSection.DayPeriods,
         DataSection.DaysOfWeek,
         DataSection.Months,
-        DataSection.Quarters,
-        DataSection.Eras,
         DataSection.RelativeTime,
         DataSection.Times,
         DataSection.TimeIntervals,
         DataSection.Dates,
         DataSection.DateIntervals,
         DataSection.DateTimes,
+        DataSection.Quarters,
+        DataSection.Eras,
         DataSection.EraDates,
       ];
     case DataPage.Quantities:

@@ -47,7 +47,7 @@ const PageSectionSelector: React.FC = () => {
 const PageButtons: React.FC<{
   page: DataPage;
 }> = ({ page }) => {
-  const { page: selectedPage, coverageLevel, worksheets } = useURLParams();
+  const { page: selectedPage, coverageLevel, worksheets, admin } = useURLParams();
   const isExpanded = selectedPage === page || selectedPage === DataPage.All;
   const sections =
     page !== DataPage.All && page !== DataPage.FullTable ? getSectionsForPage(page) : [];
@@ -63,8 +63,12 @@ const PageButtons: React.FC<{
     return coveredDataEntries.length > 0;
   });
 
-  if (page !== DataPage.All && page !== DataPage.FullTable && pendingSections.length === 0)
+  // Don't show buttons in a few cases
+  if (page === DataPage.FullTable) {
+    if (!admin) return null;
+  } else if (page !== DataPage.All && pendingSections.length === 0) {
     return null;
+  }
 
   return (
     <>

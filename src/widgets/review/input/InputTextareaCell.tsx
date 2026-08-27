@@ -1,6 +1,6 @@
 import { useDataContext } from '@data/DataContext';
 import type { DataEntry } from '@data/DataTypes';
-import { useTargetDataContext } from '@data/TargetDataProvider';
+import { useTargetDataContext } from '@data/target-data/TargetDataProvider';
 
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 

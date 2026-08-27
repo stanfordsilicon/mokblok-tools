@@ -2,23 +2,24 @@ import { createContext, useCallback, useContext, useEffect, useState } from 'rea
 
 import { useURLParams } from '@settings/URLParams';
 
-import useTranslationFromSourceLanguage from './sourcedata/useTranslationFromSourceLanguage';
-import { useSourceDataContext } from './SourceDataProvider';
-import { applyPersistedEntries } from './target-data/applyPersistedEntries';
+import { useSourceDataContext } from '../sourcedata/SourceDataProvider';
+import useTranslationFromSourceLanguage from '../sourcedata/useTranslationFromSourceLanguage';
+import useImportedWorksheets from '../worksheets/useImportedWorksheets';
+
+import { applyPersistedEntries } from './applyPersistedEntries';
 import {
   type TargetDataContextType,
   TargetDataStatus,
   TranslationEdit,
   type TranslationInfo,
   Vote,
-} from './target-data/types';
-import useReviewDraftPersistence from './target-data/useReviewDraftPersistence';
-import useTargetBaselineData from './target-data/useTargetBaselineData';
-import useImportedWorksheets from './worksheets/useImportedWorksheets';
+} from './types';
+import useReviewDraftPersistence from './useReviewDraftPersistence';
+import useTargetBaselineData from './useTargetBaselineData';
 
-import type { DataEntry } from './DataTypes';
+import type { DataEntry } from '../DataTypes';
 
-export type { TargetDataContextType } from './target-data/types';
+export type { TargetDataContextType } from './types';
 export { TargetDataStatus, Vote };
 
 export const TargetDataContext = createContext<TargetDataContextType>({

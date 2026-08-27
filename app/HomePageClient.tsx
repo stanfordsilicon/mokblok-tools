@@ -4,8 +4,8 @@ import { SessionProvider } from 'next-auth/react';
 
 import { DataProvider } from '@data/DataContext';
 import { LinguisticsProvider } from '@data/LinguisticsContext';
-import SourceDataProvider from '@data/SourceDataProvider';
-import TargetDataProvider from '@data/TargetDataProvider';
+import SourceDataProvider from '@data/sourcedata/SourceDataProvider';
+import TargetDataProvider from '@data/target-data/TargetDataProvider';
 
 import { URLParamsProvider } from '@settings/URLParams';
 

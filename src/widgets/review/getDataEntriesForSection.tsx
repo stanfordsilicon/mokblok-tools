@@ -3,8 +3,8 @@ import { useMemo } from 'react';
 import { isEntryInCoverageLevel } from '@data/CoverageLevel';
 import { DataPage, DataSection } from '@data/DataSection';
 import type { DataEntry } from '@data/DataTypes';
-import { useSourceDataContext } from '@data/SourceDataProvider';
-import { useTargetDataContext, Vote } from '@data/TargetDataProvider';
+import { useSourceDataContext } from '@data/sourcedata/SourceDataProvider';
+import { useTargetDataContext, Vote } from '@data/target-data/TargetDataProvider';
 import { isEntryInWorksheetScope } from '@data/worksheets/Worksheets';
 
 import { useURLParams } from '@settings/URLParams';
