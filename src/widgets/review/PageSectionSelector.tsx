@@ -89,7 +89,6 @@ const PageButtons: React.FC<{
             page={page}
             section={section}
             isVisible={isExpanded && pendingSections.includes(section)}
-            setIsExpanded={setIsExpanded}
           />
         ))}
     </>

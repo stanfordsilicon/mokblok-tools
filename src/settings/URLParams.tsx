@@ -1,5 +1,5 @@
-import { useSession } from 'next-auth/react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { useSession } from 'next-auth/react';
 import React, { createContext, useCallback, useContext, useEffect, useMemo } from 'react';
 
 import i18n from '@i18n';

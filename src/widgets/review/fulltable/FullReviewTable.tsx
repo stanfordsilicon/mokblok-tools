@@ -40,7 +40,7 @@ function FullReviewTable() {
     () =>
       allEntries.filter(
         (f) =>
-          (worksheetFilter === undefined || f.worksheet?.includes(worksheetFilter)) &&
+          (worksheetFilter === undefined || f.worksheet === worksheetFilter) &&
           f.page.includes(pageFilter) &&
           f.section.includes(sectionFilter) &&
           f.group.includes(groupFilter) &&
