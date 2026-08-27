@@ -16,6 +16,7 @@ function FullReviewRow({ entry }: { entry: DataEntry }) {
 
   return (
     <tr key={entry.id} style={{ backgroundColor: getBackgroundColor(entry) }}>
+      <td style={{ maxWidth: '5em' }}>{entry.worksheet}</td>
       <td style={{ maxWidth: '5em' }}>{uitext(`dataPage.${entry.page}`)}</td>
       <td style={{ maxWidth: '5em' }}>{uitext(`dataSection.${entry.section}`)}</td>
       <td style={{ maxWidth: '5em' }}>{entry.group}</td>

@@ -1,6 +1,6 @@
 Page	Section	Group	Field	Instance	Length	Variant	Example#	XPath	ExtID	English	English (pattern)	French	French (pattern)	Level	Var 1	Var 2	Pattern Format	Worksheet
 Core	Alphabet		characters	auxiliary			0	//ldml/characters/exemplarCharacters[@type="auxiliary"]		[áàăâåäãā æ ç éèĕêëē íìĭîïī ñ óòŏôöøō œ úùŭûüū ÿ]		[áåäãā ć ē íìī ĳ ñ óòöõø ř šſ ß úǔ]		Basic				5
-Core	Alphabet		characters	main			0	//ldml/characters/exemplarCharacters		[a b c d e f g h i j k l m n o p q r s t u v w x y z]		[aàâ æ b cç d eéèêë f g h iîï j k l m n oô œ p q r s t uùûü v w x yÿ z]		Basic				1
+Core	Alphabet		characters	main			0	//ldml/characters/exemplarCharacters		[a b c d e f g h i j k l m n o p q r s t u v w x y z]		[aàâ æ b cç d eéèêë f g h iîï j k l m n oô œ p q r s t uùûü v w x yÿ z]		Basic				5
 Core	Alphabet		characters	numbers			0	//ldml/characters/exemplarCharacters[@type="numbers"]		[\- ‑ , . % ‰ + 0 1 2 3 4 5 6 7 8 9]		[  \- ‑ , . % ‰ + − 0 1 2² 3³ 4 5 6 7 8 9 ᵈ ᵉ ʳ ˢ]		Basic				5
 Core	Alphabet		characters	punctuation			0	//ldml/characters/exemplarCharacters[@type="punctuation"]		[\- ‐‑ – — , ; \: ! ? . … '‘’ &quot;“” ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]		[\- ‐‑ – — , ; \: ! ? . … ’ "“” « » ( ) \[ \] § @ * / \& # † ‡]		Basic				5
 Core	Alphabet		characters	uppercase			0	//ldml/characters/exemplarCharacters[@type="index"]		[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z]		[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z]		Moderate				5

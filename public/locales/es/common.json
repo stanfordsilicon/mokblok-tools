@@ -66,6 +66,7 @@
             "title": "Archivos de datos",
             "placeholderTsv": "Pega aquí tus datos TSV",
             "placeholderTxt": "Pega aquí tus datos TXT",
+            "Worksheet": "Hoja",
             "Worksheet 1": "Hoja 1 (Datos principales, formatos de fecha y hora)",
             "Worksheet 2 part 1": "Hoja 2 parte 1 (Traducciones, matemáticas)",
             "Worksheet 2 part 2": "Hoja 2 parte 2 (Texto largo)",
@@ -181,10 +182,6 @@
                 "many": "Muchos",
                 "other": "Otro"
             }
-        },
-        "progress": {
-            "ratioComplete": "{{completed}} / {{inCoverage}} completas",
-            "outOfCoverage": "{{count}} más fuera de cobertura"
         }
     },
     "export": {

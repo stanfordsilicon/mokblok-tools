@@ -65,6 +65,7 @@
             "title": "File di dati",
             "placeholderTsv": "Incolla qui i tuoi dati TSV",
             "placeholderTxt": "Incolla qui i tuoi dati TXT",
+            "Worksheet": "Foglio",
             "Worksheet 1": "Foglio 1 (Dati principali, formati di data e ora)",
             "Worksheet 2 part 1": "Foglio 2 parte 1 (Traduzioni, matematica)",
             "Worksheet 2 part 2": "Foglio 2 parte 2 (Testo lungo)",
@@ -180,10 +181,6 @@
                 "many": "Molti",
                 "other": "Altro"
             }
-        },
-        "progress": {
-            "ratioComplete": "{{completed}} / {{inCoverage}} completate",
-            "outOfCoverage": "{{count}} in più fuori copertura"
         }
     },
     "export": {
