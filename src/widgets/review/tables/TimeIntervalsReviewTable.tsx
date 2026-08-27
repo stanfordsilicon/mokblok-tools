@@ -1,7 +1,7 @@
 import { DataSection } from '@data/DataSection';
 
-import SourceLanguageLabel from '@settings/SourceLanguageLabel';
-import TargetLanguageLabel from '@settings/TargetLanguageLabel';
+import { SourceLanguageHeader } from '@settings/SourceLanguageLabel';
+import { TargetLanguageHeader } from '@settings/TargetLanguageLabel';
 import { useURLParams } from '@settings/URLParams';
 
 import { sortBy, uniqueBy } from '@shared/setUtils';
@@ -26,12 +26,9 @@ function TimeIntervalsReviewTable() {
         <tr>
           {admin && <th>{uitext('review.components')}</th>}
           {admin && <th>{uitext('review.greatestDifference')}</th>}
-          <th style={{ textAlign: 'center' }}>
-            <SourceLanguageLabel />
-          </th>
-          <th style={{ textAlign: 'center' }}>
-            <TargetLanguageLabel />
-          </th>
+
+          <SourceLanguageHeader className="text-center" />
+          <TargetLanguageHeader className="text-center" />
         </tr>
       </thead>
       <tbody>

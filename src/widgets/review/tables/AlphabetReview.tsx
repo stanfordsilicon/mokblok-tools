@@ -4,8 +4,8 @@ import { DataSection } from '@data/DataSection';
 import { useLinguisticsContext } from '@data/LinguisticsContext';
 import { useTargetDataContext } from '@data/target/TargetDataProvider';
 
-import SourceLanguageLabel from '@settings/SourceLanguageLabel';
-import TargetLanguageLabel from '@settings/TargetLanguageLabel';
+import { SourceLanguageHeader } from '@settings/SourceLanguageLabel';
+import TargetLanguageLabel, { TargetLanguageHeader } from '@settings/TargetLanguageLabel';
 
 import { decodeHtmlEntities } from '@shared/stringUtils';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
@@ -33,12 +33,8 @@ const AlphabetReview: React.FC = () => {
         <thead>
           <tr>
             <th>{uitext('review.alphabet.set')}</th>
-            <th>
-              <SourceLanguageLabel />
-            </th>
-            <th>
-              <TargetLanguageLabel />
-            </th>
+            <SourceLanguageHeader />
+            <TargetLanguageHeader />
           </tr>
         </thead>
         <tbody>
@@ -59,12 +55,8 @@ const AlphabetReview: React.FC = () => {
         <thead>
           <tr>
             <th>{uitext('review.type')}</th>
-            <th>
-              <SourceLanguageLabel />
-            </th>
-            <th>
-              <TargetLanguageLabel />
-            </th>
+            <SourceLanguageHeader />
+            <TargetLanguageHeader />
             <th>{uitext('review.alphabet.digits')}</th>
           </tr>
         </thead>

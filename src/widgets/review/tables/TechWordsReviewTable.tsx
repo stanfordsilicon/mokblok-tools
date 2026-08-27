@@ -1,7 +1,7 @@
 import { DataSection } from '@data/DataSection';
 
-import SourceLanguageLabel from '@settings/SourceLanguageLabel';
-import TargetLanguageLabel from '@settings/TargetLanguageLabel';
+import { SourceLanguageHeader } from '@settings/SourceLanguageLabel';
+import { TargetLanguageHeader } from '@settings/TargetLanguageLabel';
 
 import { useFindDataEntriesInScope } from '../getDataEntriesForSection';
 import InputDataCell from '../input/InputDataCell';
@@ -16,12 +16,8 @@ function TechWordsReviewTable() {
       <table>
         <thead>
           <tr>
-            <th>
-              <SourceLanguageLabel />
-            </th>
-            <th>
-              <TargetLanguageLabel />
-            </th>
+            <SourceLanguageHeader />
+            <TargetLanguageHeader />
           </tr>
         </thead>
         <tbody>

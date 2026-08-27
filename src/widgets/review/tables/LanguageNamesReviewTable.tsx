@@ -1,8 +1,8 @@
 import { DataSection } from '@data/DataSection';
 
 import { getLanguageBCP } from '@settings/LanguageCodes';
-import SourceLanguageLabel from '@settings/SourceLanguageLabel';
-import TargetLanguageLabel from '@settings/TargetLanguageLabel';
+import { SourceLanguageHeader } from '@settings/SourceLanguageLabel';
+import { TargetLanguageHeader } from '@settings/TargetLanguageLabel';
 import { useURLParams } from '@settings/URLParams';
 
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
@@ -33,12 +33,8 @@ function LanguageNamesReviewTable() {
       <table>
         <thead>
           <tr>
-            <th>
-              <SourceLanguageLabel />
-            </th>
-            <th>
-              <TargetLanguageLabel />
-            </th>
+            <SourceLanguageHeader />
+            <TargetLanguageHeader />
           </tr>
         </thead>
         <tbody>

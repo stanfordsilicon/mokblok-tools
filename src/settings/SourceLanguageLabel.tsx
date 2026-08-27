@@ -1,11 +1,26 @@
-import useInterfaceTranslation from '@shared/useInterfaceTranslation';
+import useLanguageName from '@data/useLanguageName';
 
 import { useURLParams } from './URLParams';
 
 function SourceLanguageLabel() {
   const { sourceLanguage } = useURLParams();
-  const { uitext } = useInterfaceTranslation();
-  return <>{uitext(`languageName.${sourceLanguage}`)}</>;
+  const { getLanguageName } = useLanguageName();
+  const langNames = getLanguageName(sourceLanguage);
+  return langNames.endonym ?? langNames.localizedName ?? langNames.code;
+}
+
+export function SourceLanguageHeader({
+  className,
+  colSpan,
+}: {
+  className?: string;
+  colSpan?: number;
+}) {
+  return (
+    <th className={className} colSpan={colSpan}>
+      <SourceLanguageLabel />
+    </th>
+  );
 }
 
 export default SourceLanguageLabel;

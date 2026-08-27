@@ -1,7 +1,7 @@
 import PluralAmount from '@data/PluralAmount';
 
-import SourceLanguageLabel from '@settings/SourceLanguageLabel';
-import TargetLanguageLabel from '@settings/TargetLanguageLabel';
+import { SourceLanguageHeader } from '@settings/SourceLanguageLabel';
+import { TargetLanguageHeader } from '@settings/TargetLanguageLabel';
 
 import { groupBy } from '@shared/setUtils';
 
@@ -21,12 +21,8 @@ function DirectionsReviewTable() {
       <table>
         <thead>
           <tr>
-            <th>
-              <SourceLanguageLabel />
-            </th>
-            <th>
-              <TargetLanguageLabel />
-            </th>
+            <SourceLanguageHeader />
+            <TargetLanguageHeader />
           </tr>
         </thead>
         <tbody>

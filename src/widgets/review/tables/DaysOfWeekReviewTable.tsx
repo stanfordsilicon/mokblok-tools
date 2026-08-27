@@ -1,5 +1,5 @@
-import SourceLanguageLabel from '@settings/SourceLanguageLabel';
-import TargetLanguageLabel from '@settings/TargetLanguageLabel';
+import { SourceLanguageHeader } from '@settings/SourceLanguageLabel';
+import { TargetLanguageHeader } from '@settings/TargetLanguageLabel';
 
 import { matrixBy } from '@shared/setUtils';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
@@ -27,12 +27,8 @@ function DaysOfWeekReviewTable() {
     <table style={{ height: 'fit-content' }}>
       <thead>
         <tr>
-          <th colSpan={4} style={{ textAlign: 'center' }}>
-            <SourceLanguageLabel />
-          </th>
-          <th colSpan={4} style={{ textAlign: 'center' }}>
-            <TargetLanguageLabel />
-          </th>
+          <SourceLanguageHeader colSpan={4} className="text-center" />
+          <TargetLanguageHeader colSpan={4} className="text-center" />
         </tr>
         <tr>
           <th>{uitext('length.wide')}</th>

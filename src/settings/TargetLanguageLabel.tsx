@@ -9,4 +9,18 @@ function TargetLanguageLabel() {
   return langNames.endonym ?? langNames.localizedName ?? langNames.code;
 }
 
+export function TargetLanguageHeader({
+  className,
+  colSpan,
+}: {
+  className?: string;
+  colSpan?: number;
+}) {
+  return (
+    <th className={className} colSpan={colSpan}>
+      <TargetLanguageLabel />
+    </th>
+  );
+}
+
 export default TargetLanguageLabel;

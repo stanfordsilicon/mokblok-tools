@@ -1,7 +1,7 @@
 import { DataSection } from '@data/DataSection';
 
-import SourceLanguageLabel from '@settings/SourceLanguageLabel';
-import TargetLanguageLabel from '@settings/TargetLanguageLabel';
+import { SourceLanguageHeader } from '@settings/SourceLanguageLabel';
+import { TargetLanguageHeader } from '@settings/TargetLanguageLabel';
 
 import { groupBy } from '@shared/setUtils';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
@@ -26,12 +26,8 @@ function EmojisReviewTable() {
             <thead>
               <tr>
                 <th>{uitext('dataSection.emoji')}</th>
-                <th>
-                  <SourceLanguageLabel />
-                </th>
-                <th>
-                  <TargetLanguageLabel />
-                </th>
+                <SourceLanguageHeader />
+                <TargetLanguageHeader />
               </tr>
             </thead>
             <tbody>

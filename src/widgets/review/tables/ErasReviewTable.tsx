@@ -1,5 +1,5 @@
-import SourceLanguageLabel from '@settings/SourceLanguageLabel';
-import TargetLanguageLabel from '@settings/TargetLanguageLabel';
+import { SourceLanguageHeader } from '@settings/SourceLanguageLabel';
+import { TargetLanguageHeader } from '@settings/TargetLanguageLabel';
 import { useURLParams } from '@settings/URLParams';
 
 import { matrixBy } from '@shared/setUtils';
@@ -24,12 +24,8 @@ function ErasReviewTable() {
     <table>
       <thead style={{ textAlign: 'center' }}>
         <tr>
-          <th colSpan={admin ? 3 : 2}>
-            <SourceLanguageLabel />
-          </th>
-          <th colSpan={admin ? 3 : 2}>
-            <TargetLanguageLabel />
-          </th>
+          <SourceLanguageHeader colSpan={admin ? 3 : 2} />
+          <TargetLanguageHeader colSpan={admin ? 3 : 2} />
         </tr>
         <tr>
           <th>{uitext('length.wide')}</th>

@@ -1,7 +1,7 @@
 import { DataSection } from '@data/DataSection';
 
-import SourceLanguageLabel from '@settings/SourceLanguageLabel';
-import TargetLanguageLabel from '@settings/TargetLanguageLabel';
+import { SourceLanguageHeader } from '@settings/SourceLanguageLabel';
+import { TargetLanguageHeader } from '@settings/TargetLanguageLabel';
 
 import { matrixBy } from '@shared/setUtils';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
@@ -33,12 +33,8 @@ const DayPeriodsReviewTable = () => {
       <table style={{ height: 'fit-content' }}>
         <thead>
           <tr>
-            <th colSpan={2} style={{ textAlign: 'center' }}>
-              <SourceLanguageLabel />
-            </th>
-            <th colSpan={2} style={{ textAlign: 'center' }}>
-              <TargetLanguageLabel />
-            </th>
+            <SourceLanguageHeader colSpan={2} className="text-center" />
+            <TargetLanguageHeader colSpan={2} className="text-center" />
           </tr>
           <tr>
             <th>{uitext('length.wide')}</th>
@@ -64,12 +60,8 @@ const DayPeriodsReviewTable = () => {
       <table style={{ height: 'fit-content' }}>
         <thead>
           <tr>
-            <th colSpan={3} style={{ textAlign: 'center' }}>
-              <SourceLanguageLabel />
-            </th>
-            <th colSpan={3} style={{ textAlign: 'center' }}>
-              <TargetLanguageLabel />
-            </th>
+            <SourceLanguageHeader colSpan={3} className="text-center" />
+            <TargetLanguageHeader colSpan={3} className="text-center" />
           </tr>
           <tr>
             <th>{uitext('review.standalone')}</th>

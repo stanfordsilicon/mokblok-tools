@@ -5,8 +5,8 @@ import { PatternFormat } from '@data/PatternFormat';
 import { useSourceDataContext } from '@data/source/SourceDataProvider';
 import { Worksheet } from '@data/worksheets/Worksheet';
 
-import SourceLanguageLabel from '@settings/SourceLanguageLabel';
-import TargetLanguageLabel from '@settings/TargetLanguageLabel';
+import { SourceLanguageHeader } from '@settings/SourceLanguageLabel';
+import { TargetLanguageHeader } from '@settings/TargetLanguageLabel';
 
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
@@ -84,12 +84,8 @@ function FullReviewTable() {
             <th>{uitext('review.length')}</th>
             <th>{uitext('review.variant')}</th>
             <th>{uitext('review.exampleNumber')}</th>
-            <th>
-              <SourceLanguageLabel />
-            </th>
-            <th>
-              <TargetLanguageLabel />
-            </th>
+            <SourceLanguageHeader />
+            <TargetLanguageHeader />
             <th>{uitext('settings.coverageLevel')}</th>
             <th>Formatted, from XML</th>
             <th>Pattern, from XML</th>

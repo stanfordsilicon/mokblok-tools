@@ -1,8 +1,8 @@
 import { DataSection } from '@data/DataSection';
 import { useTargetDataContext } from '@data/target/TargetDataProvider';
 
-import SourceLanguageLabel from '@settings/SourceLanguageLabel';
-import TargetLanguageLabel from '@settings/TargetLanguageLabel';
+import { SourceLanguageHeader } from '@settings/SourceLanguageLabel';
+import { TargetLanguageHeader } from '@settings/TargetLanguageLabel';
 
 import { groupBy, matrixBy } from '@shared/setUtils';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
@@ -39,12 +39,8 @@ function TimezonesReviewTable() {
             <table>
               <thead>
                 <tr>
-                  <th>
-                    <SourceLanguageLabel />
-                  </th>
-                  <th colSpan={3}>
-                    <TargetLanguageLabel />
-                  </th>
+                  <SourceLanguageHeader />
+                  <TargetLanguageHeader colSpan={3} className="text-center" />
                 </tr>
                 <tr>
                   <th></th>

@@ -1,7 +1,7 @@
 import { DataSection } from '@data/DataSection';
 
-import SourceLanguageLabel from '@settings/SourceLanguageLabel';
-import TargetLanguageLabel from '@settings/TargetLanguageLabel';
+import { SourceLanguageHeader } from '@settings/SourceLanguageLabel';
+import { TargetLanguageHeader } from '@settings/TargetLanguageLabel';
 import { useURLParams } from '@settings/URLParams';
 
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
@@ -25,13 +25,9 @@ function EraDatesReviewTable() {
       <table>
         <thead>
           <tr>
-            <th>
-              <SourceLanguageLabel />
-            </th>
+            <SourceLanguageHeader />
             {admin && <th>{uitext('review.sourcePattern')}</th>}
-            <th>
-              <TargetLanguageLabel />
-            </th>
+            <TargetLanguageHeader />
           </tr>
         </thead>
         <tbody>

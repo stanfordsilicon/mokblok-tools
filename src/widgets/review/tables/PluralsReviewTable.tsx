@@ -1,7 +1,7 @@
 import PluralAmount from '@data/PluralAmount';
 
-import SourceLanguageLabel from '@settings/SourceLanguageLabel';
-import TargetLanguageLabel from '@settings/TargetLanguageLabel';
+import { SourceLanguageHeader } from '@settings/SourceLanguageLabel';
+import { TargetLanguageHeader } from '@settings/TargetLanguageLabel';
 
 import { matrixBy } from '@shared/setUtils';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
@@ -42,12 +42,8 @@ const PluralsReviewTable: React.FC = () => {
               <thead>
                 <tr>
                   <th>{uitext('review.plurals.category')}</th>
-                  <th>
-                    <SourceLanguageLabel />
-                  </th>
-                  <th>
-                    <TargetLanguageLabel />
-                  </th>
+                  <SourceLanguageHeader />
+                  <TargetLanguageHeader />
                 </tr>
               </thead>
               <tbody>
