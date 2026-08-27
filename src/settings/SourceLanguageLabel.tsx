@@ -6,7 +6,7 @@ function SourceLanguageLabel() {
   const { sourceLanguage } = useURLParams();
   const { getLanguageName } = useLanguageName();
   const langNames = getLanguageName(sourceLanguage);
-  return langNames.endonym ?? langNames.localizedName ?? langNames.code;
+  return langNames.endonym;
 }
 
 export function SourceLanguageHeader({

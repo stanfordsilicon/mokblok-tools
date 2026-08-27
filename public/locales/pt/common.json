@@ -247,30 +247,6 @@
     "DifferentThanSource": "Diferente da origem",
     "Vote": "Voto"
   },
-  "languageName": {
-        "": "nenhum",
-    "abr": "abron",
-    "ann": "obolo",
-    "bho": "bhojpuri",
-    "dag": "dagbani",
-    "en-Latf": "inglês (fraktur)",
-    "en": "inglês",
-    "es": "espanhol",
-    "fr": "francês",
-    "gaa": "ga",
-    "ha": "hauçá",
-    "it": "italiano",
-    "mfe": "crioulo mauriciano",
-    "mg": "malgaxe",
-    "mos": "mooré",
-    "nd": "ndebele do norte",
-    "om": "oromo",
-    "or": "odia",
-    "pt": "português",
-    "sn": "shona",
-    "unknown": "desconhecido",
-    "wo": "wolof"
-  },
   "common": {
     "emptyCell": "-"
   },

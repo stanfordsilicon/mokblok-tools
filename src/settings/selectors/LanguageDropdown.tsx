@@ -34,10 +34,7 @@ const LanguageDropdown: React.FC<Props> = ({
         {languageOptions.map((lang) => (
           <option key={lang.code} value={lang.code}>
             {lang.endonym}{' '}
-            <em>
-              {lang.localizedName?.toLowerCase() != lang.endonym.toLowerCase() &&
-                lang.localizedName}
-            </em>
+            <em>{lang.localized?.toLowerCase() != lang.endonym.toLowerCase() && lang.localized}</em>
           </option>
         ))}
       </select>

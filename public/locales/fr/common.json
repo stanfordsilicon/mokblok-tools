@@ -251,30 +251,6 @@
         "DifferentThanSource": "Différent de la source",
         "Vote": "Vote"
     },
-    "languageName": {
-        "": "aucun",
-        "abr": "abron",
-        "ann": "obolo",
-        "bho": "bhojpuri",
-        "dag": "dagbani",
-        "en": "anglais",
-        "en-Latf": "anglais (Fraktur)",
-        "es": "espagnol",
-        "fr": "français",
-        "gaa": "ga",
-        "ha": "haoussa",
-        "it": "italien",
-        "mfe": "créole mauricien",
-        "mg": "malgache",
-        "mos": "mossi",
-        "nd": "ndebele du nord",
-        "om": "oromo",
-        "or": "oriya",
-        "pt": "portugais",
-        "sn": "shona",
-        "unknown": "inconnu",
-        "wo": "wolof"
-    },
     "common": {
         "emptyCell": "-"
     },
