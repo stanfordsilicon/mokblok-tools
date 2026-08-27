@@ -2,10 +2,9 @@
 
 import { SessionProvider } from 'next-auth/react';
 
-import { DataProvider } from '@data/DataContext';
 import { LinguisticsProvider } from '@data/LinguisticsContext';
-import SourceDataProvider from '@data/sourcedata/SourceDataProvider';
-import TargetDataProvider from '@data/target-data/TargetDataProvider';
+import SourceDataProvider from '@data/source/SourceDataProvider';
+import TargetDataProvider from '@data/target/TargetDataProvider';
 
 import { URLParamsProvider } from '@settings/URLParams';
 
@@ -24,19 +23,17 @@ export default function HomePageClient() {
           <LinguisticsProvider>
             <SourceDataProvider>
               <TargetDataProvider>
-                <DataProvider>
-                  <div
-                    data-testid="FullPage"
-                    className="min-h-screen bg-(--silicon-beige) text-(--silicon-ink) lg:flex"
-                  >
-                    <Sidebar />
-                    <div className="flex min-h-screen flex-1 flex-col px-4 py-4 sm:px-6 sm:py-5 lg:px-8">
-                      <PageTitle />
-                      <PageBody />
-                      <PageFooter />
-                    </div>
+                <div
+                  data-testid="FullPage"
+                  className="min-h-screen bg-(--silicon-beige) text-(--silicon-ink) lg:flex"
+                >
+                  <Sidebar />
+                  <div className="flex min-h-screen flex-1 flex-col px-4 py-4 sm:px-6 sm:py-5 lg:px-8">
+                    <PageTitle />
+                    <PageBody />
+                    <PageFooter />
                   </div>
-                </DataProvider>
+                </div>
               </TargetDataProvider>
             </SourceDataProvider>
           </LinguisticsProvider>

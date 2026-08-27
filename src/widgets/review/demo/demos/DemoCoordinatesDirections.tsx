@@ -1,10 +1,13 @@
 import React from 'react';
 
-import { useDataContext } from '@data/DataContext';
 import { CardinalDirection } from '@data/DataTypes';
+import { useSourceDataContext } from '@data/source/SourceDataProvider';
+import { useTargetDataContext } from '@data/target/TargetDataProvider';
 
 const DemoCoordinatesDirections: React.FC = () => {
-  const { findDataEntry, getTranslation } = useDataContext();
+  const { findDataEntry } = useSourceDataContext();
+  const { getTranslation } = useTargetDataContext();
+
   const south = findDataEntry({
     field: 'coordinateUnitPattern',
     instance: CardinalDirection.South,

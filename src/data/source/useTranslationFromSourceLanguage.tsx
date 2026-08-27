@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 
-import { useSourceDataContext } from '@data/sourcedata/SourceDataProvider';
+import { useSourceDataContext } from '@data/source/SourceDataProvider';
 
 import { useURLParams } from '@settings/URLParams';
 

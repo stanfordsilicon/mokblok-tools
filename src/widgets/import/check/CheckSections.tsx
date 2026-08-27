@@ -2,8 +2,8 @@ import React, { useCallback } from 'react';
 
 import { DataSection } from '@data/DataSection';
 import { DataEntry } from '@data/DataTypes';
-import { useSourceDataContext } from '@data/sourcedata/SourceDataProvider';
-import { useTargetDataContext } from '@data/target-data/TargetDataProvider';
+import { useSourceDataContext } from '@data/source/SourceDataProvider';
+import { useTargetDataContext } from '@data/target/TargetDataProvider';
 import { getDataSectionsForWorksheet } from '@data/worksheets/getDataSectionsForWorksheet';
 import { Worksheet } from '@data/worksheets/Worksheet';
 

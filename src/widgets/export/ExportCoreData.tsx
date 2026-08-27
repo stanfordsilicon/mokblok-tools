@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 
-import { useDataContext } from '@data/DataContext';
+import { useSourceDataContext } from '@data/source/SourceDataProvider';
+import { useTargetDataContext } from '@data/target/TargetDataProvider';
 
 import { getLanguageBCP } from '@settings/LanguageCodes';
 import { useURLParams } from '@settings/URLParams';
@@ -26,7 +27,8 @@ const ExportCoreData: React.FC = () => {
   const { uitext } = useInterfaceTranslation();
   const { targetLanguage } = useURLParams();
   const targetLanguageBCP = getLanguageBCP(targetLanguage);
-  const { alphabet, findDataEntry, getTranslation } = useDataContext();
+  const { findDataEntry } = useSourceDataContext();
+  const { alphabet, getTranslation } = useTargetDataContext();
   const { charactersNumber, charactersAuxiliary, charactersBase, charactersPunctuation } =
     alphabet || {};
   const endonym = getTranslation(

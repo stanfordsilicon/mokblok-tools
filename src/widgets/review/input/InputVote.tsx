@@ -1,7 +1,7 @@
 import { useCallback, useMemo, useState } from 'react';
 
 import type { DataEntry } from '@data/DataTypes';
-import { useTargetDataContext, Vote } from '@data/target-data/TargetDataProvider';
+import { useTargetDataContext, Vote } from '@data/target/TargetDataProvider';
 
 import CommentBox from './CommentBox';
 import CommentMarker from './CommentMarker';

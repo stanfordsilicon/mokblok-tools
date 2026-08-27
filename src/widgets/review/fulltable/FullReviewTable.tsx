@@ -1,8 +1,8 @@
 import React, { useMemo } from 'react';
 
 import { CoverageLevel } from '@data/CoverageLevel';
-import { useDataContext } from '@data/DataContext';
 import { PatternFormat } from '@data/PatternFormat';
+import { useSourceDataContext } from '@data/source/SourceDataProvider';
 import { Worksheet } from '@data/worksheets/Worksheet';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
@@ -15,7 +15,7 @@ import FilterWorksheetCell from './FilterWorksheetCell';
 import FullReviewRow from './FullReviewRow';
 
 function FullReviewTable() {
-  const { findDataEntries } = useDataContext();
+  const { findDataEntries } = useSourceDataContext();
   const allEntries = findDataEntries({});
   const [worksheetFilter, setWorksheetFilter] = React.useState<Worksheet | undefined>(undefined);
   const [pageFilter, setPageFilter] = React.useState('');

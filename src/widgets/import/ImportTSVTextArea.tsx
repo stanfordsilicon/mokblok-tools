@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useTargetDataContext } from '@data/target-data/TargetDataProvider';
+import { useTargetDataContext } from '@data/target/TargetDataProvider';
 import { getWorksheetFileType, Worksheet } from '@data/worksheets/Worksheet';
 
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';

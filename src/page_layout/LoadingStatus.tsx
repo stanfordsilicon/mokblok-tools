@@ -1,5 +1,5 @@
-import { SourceDataStatus, useSourceDataContext } from '@data/sourcedata/SourceDataProvider';
-import { TargetDataStatus, useTargetDataContext } from '@data/target-data/TargetDataProvider';
+import { SourceDataStatus, useSourceDataContext } from '@data/source/SourceDataProvider';
+import { TargetDataStatus, useTargetDataContext } from '@data/target/TargetDataProvider';
 
 const LoadingStatus = () => {
   const { sourceDataStatus } = useSourceDataContext();

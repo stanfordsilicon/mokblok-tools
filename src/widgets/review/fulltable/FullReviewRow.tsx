@@ -1,6 +1,6 @@
 import { getCoverageLevelKey } from '@data/CoverageLevel';
 import { DataEntry } from '@data/DataTypes';
-import useTranslationFromSourceLanguage from '@data/sourcedata/useTranslationFromSourceLanguage';
+import useTranslationFromSourceLanguage from '@data/source/useTranslationFromSourceLanguage';
 
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 

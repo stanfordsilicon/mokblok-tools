@@ -1,17 +1,19 @@
-import { useDataContext } from '@data/DataContext';
 import { DataSection } from '@data/DataSection';
+import { useTargetDataContext } from '@data/target/TargetDataProvider';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
 import { groupBy, matrixBy } from '@shared/setUtils';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
+import { useFindDataEntriesInScope } from '../getDataEntriesForSection';
 import InputDataCell from '../input/InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function TimezonesReviewTable() {
   const { uitext } = useInterfaceTranslation();
-  const { findDataEntries, getTranslation, findDataEntry } = useDataContext();
+  const findDataEntries = useFindDataEntriesInScope();
+  const { getTranslation } = useTargetDataContext();
   const timezonesByGroup = groupBy(
     findDataEntries({ section: DataSection.Timezones }),
     (f) => f.group,
@@ -25,7 +27,7 @@ function TimezonesReviewTable() {
           (f) => f.instance,
           (f) => f.variant,
         );
-        const groupNameTranslated = getTranslation(findDataEntry({ english: group }));
+        const groupNameTranslated = getTranslation(findDataEntries({ english: group })[0]);
         return (
           <div key={group}>
             <h3>

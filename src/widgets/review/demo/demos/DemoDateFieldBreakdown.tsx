@@ -1,8 +1,9 @@
 import React, { useCallback } from 'react';
 
-import { useDataContext } from '@data/DataContext';
 import { DateField } from '@data/DateField';
 import { DayKeys } from '@data/DayKeys';
+import { useSourceDataContext } from '@data/source/SourceDataProvider';
+import { useTargetDataContext } from '@data/target/TargetDataProvider';
 
 import { useExampleDate } from '@settings/selectors/ExampleDateSelector';
 
@@ -21,7 +22,8 @@ const ShownDateFields: DateField[] = [
 
 const DemoDateFieldBreakdown: React.FC = () => {
   const today = useExampleDate();
-  const { getTranslation, findDataEntry } = useDataContext();
+  const { findDataEntry } = useSourceDataContext();
+  const { getTranslation } = useTargetDataContext();
 
   const getTodayFieldValue = useCallback(
     (fieldKey: DateField): string | number => {

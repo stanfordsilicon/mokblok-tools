@@ -1,9 +1,8 @@
 import React from 'react';
 
-import { useDataContext } from '@data/DataContext';
 import { DataSection } from '@data/DataSection';
 import { useLinguisticsContext } from '@data/LinguisticsContext';
-import { useTargetDataContext } from '@data/target-data/TargetDataProvider';
+import { useTargetDataContext } from '@data/target/TargetDataProvider';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
 
@@ -93,7 +92,7 @@ const InferredCharacters: React.FC = () => {
     charactersUppercase,
     charactersOther,
     writingSystem,
-  } = useDataContext().alphabet || {};
+  } = useTargetDataContext().alphabet || {};
   const hasHistogram = characterHistogram != null && Object.keys(characterHistogram).length > 0;
 
   return (

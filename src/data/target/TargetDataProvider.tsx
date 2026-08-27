@@ -2,17 +2,17 @@ import { createContext, useCallback, useContext, useEffect, useState } from 'rea
 
 import { useURLParams } from '@settings/URLParams';
 
-import { useSourceDataContext } from '../sourcedata/SourceDataProvider';
-import useTranslationFromSourceLanguage from '../sourcedata/useTranslationFromSourceLanguage';
+import { useSourceDataContext } from '../source/SourceDataProvider';
+import useTranslationFromSourceLanguage from '../source/useTranslationFromSourceLanguage';
 import useImportedWorksheets from '../worksheets/useImportedWorksheets';
 
 import { applyPersistedEntries } from './applyPersistedEntries';
 import {
-  type TargetDataContextType,
-  TargetDataStatus,
-  TranslationEdit,
-  type TranslationInfo,
-  Vote,
+    type TargetDataContextType,
+    TargetDataStatus,
+    TranslationEdit,
+    type TranslationInfo,
+    Vote,
 } from './types';
 import useReviewDraftPersistence from './useReviewDraftPersistence';
 import useTargetBaselineData from './useTargetBaselineData';

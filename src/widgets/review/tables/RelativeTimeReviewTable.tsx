@@ -1,4 +1,3 @@
-import { useDataContext } from '@data/DataContext';
 import { DataSection } from '@data/DataSection';
 import { DateField } from '@data/DateField';
 
@@ -8,13 +7,14 @@ import { useURLParams } from '@settings/URLParams';
 import { matrixBy } from '@shared/setUtils';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
+import { useFindDataEntriesInScope } from '../getDataEntriesForSection';
 import InputDataCell from '../input/InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function RelativeTimeReviewTable() {
   const { uitext } = useInterfaceTranslation();
   const { admin } = useURLParams();
-  const { findDataEntries } = useDataContext();
+  const findDataEntries = useFindDataEntriesInScope();
   const relativeTimeFields = findDataEntries({ section: DataSection.RelativeTime }).filter(
     (f) => ['-1', '0', '1'].includes(f.instance) && f.length === '',
   );

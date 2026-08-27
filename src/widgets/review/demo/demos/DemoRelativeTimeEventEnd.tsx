@@ -1,10 +1,12 @@
-import { useDataContext } from '@data/DataContext';
 import { DataSection } from '@data/DataSection';
+import { useSourceDataContext } from '@data/source/SourceDataProvider';
+import { useTargetDataContext } from '@data/target/TargetDataProvider';
 
 import { groupBy } from '@shared/setUtils';
 
 const DemoRelativeTimeEventEnd: React.FC = () => {
-  const { findDataEntry, findDataEntries, getTranslation } = useDataContext();
+  const { findDataEntry, findDataEntries } = useSourceDataContext();
+  const { getTranslation } = useTargetDataContext();
   const nextTimes = groupBy(
     findDataEntries({ section: DataSection.RelativeTime, instance: '1', length: '' }),
     (f) => f.field,
