@@ -5,6 +5,7 @@ import { useLinguisticsContext } from '@data/LinguisticsContext';
 import { useTargetDataContext } from '@data/target/TargetDataProvider';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
+import TargetLanguageLabel from '@settings/TargetLanguageLabel';
 
 import { decodeHtmlEntities } from '@shared/stringUtils';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
@@ -25,7 +26,9 @@ const AlphabetReview: React.FC = () => {
   return (
     <div>
       <InferredCharacters />
-      <h3>{uitext('review.translated')}</h3>
+      <h3>
+        <TargetLanguageLabel />
+      </h3>
       <table>
         <thead>
           <tr>
@@ -33,7 +36,9 @@ const AlphabetReview: React.FC = () => {
             <th>
               <SourceLanguageLabel />
             </th>
-            <th>{uitext('review.translated')}</th>
+            <th>
+              <TargetLanguageLabel />
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -57,7 +62,9 @@ const AlphabetReview: React.FC = () => {
             <th>
               <SourceLanguageLabel />
             </th>
-            <th>{uitext('review.translated')}</th>
+            <th>
+              <TargetLanguageLabel />
+            </th>
             <th>{uitext('review.alphabet.digits')}</th>
           </tr>
         </thead>

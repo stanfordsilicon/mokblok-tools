@@ -8,11 +8,11 @@ import useImportedWorksheets from '../worksheets/useImportedWorksheets';
 
 import { applyPersistedEntries } from './applyPersistedEntries';
 import {
-    type TargetDataContextType,
-    TargetDataStatus,
-    TranslationEdit,
-    type TranslationInfo,
-    Vote,
+  type TargetDataContextType,
+  TargetDataStatus,
+  TranslationEdit,
+  type TranslationInfo,
+  Vote,
 } from './types';
 import useReviewDraftPersistence from './useReviewDraftPersistence';
 import useTargetBaselineData from './useTargetBaselineData';

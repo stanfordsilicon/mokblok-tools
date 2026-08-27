@@ -1,6 +1,7 @@
 import { DataSection } from '@data/DataSection';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
+import TargetLanguageLabel from '@settings/TargetLanguageLabel';
 
 import { matrixBy, sortBy } from '@shared/setUtils';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
@@ -29,7 +30,9 @@ function QuotesReviewTable() {
             <th>
               <SourceLanguageLabel />
             </th>
-            <th>{uitext('review.translated')}</th>
+            <th>
+              <TargetLanguageLabel />
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -48,7 +51,9 @@ function QuotesReviewTable() {
             <th colSpan={2}>
               <SourceLanguageLabel />
             </th>
-            <th colSpan={2}>{uitext('review.translated')}</th>
+            <th colSpan={2}>
+              <TargetLanguageLabel />
+            </th>
           </tr>
           <tr>
             <th></th>

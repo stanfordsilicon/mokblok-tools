@@ -2,6 +2,7 @@ import { DataSection } from '@data/DataSection';
 import { DateField } from '@data/DateField';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
+import TargetLanguageLabel from '@settings/TargetLanguageLabel';
 import { useURLParams } from '@settings/URLParams';
 
 import { matrixBy } from '@shared/setUtils';
@@ -33,7 +34,7 @@ function RelativeTimeReviewTable() {
             <SourceLanguageLabel />
           </th>
           <th colSpan={3} style={{ textAlign: 'center' }}>
-            {uitext('review.translated')}
+            <TargetLanguageLabel />
           </th>
         </tr>
         <tr>

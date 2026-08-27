@@ -1,6 +1,7 @@
 import PluralAmount from '@data/PluralAmount';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
+import TargetLanguageLabel from '@settings/TargetLanguageLabel';
 
 import { matrixBy } from '@shared/setUtils';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
@@ -44,7 +45,9 @@ const PluralsReviewTable: React.FC = () => {
                   <th>
                     <SourceLanguageLabel />
                   </th>
-                  <th>{uitext('review.translated')}</th>
+                  <th>
+                    <TargetLanguageLabel />
+                  </th>
                 </tr>
               </thead>
               <tbody>

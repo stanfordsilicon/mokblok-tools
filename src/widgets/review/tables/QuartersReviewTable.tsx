@@ -1,4 +1,5 @@
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
+import TargetLanguageLabel from '@settings/TargetLanguageLabel';
 
 import { matrixBy } from '@shared/setUtils';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
@@ -24,7 +25,9 @@ function QuartersReviewTable() {
           <th colSpan={2}>
             <SourceLanguageLabel />
           </th>
-          <th colSpan={2}>{uitext('review.translated')}</th>
+          <th colSpan={2}>
+            <TargetLanguageLabel />
+          </th>
         </tr>
         <tr>
           <th>{uitext('length.wide')}</th>

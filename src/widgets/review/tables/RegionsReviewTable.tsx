@@ -1,15 +1,13 @@
 import { DataSection } from '@data/DataSection';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
-
-import useInterfaceTranslation from '@shared/useInterfaceTranslation';
+import TargetLanguageLabel from '@settings/TargetLanguageLabel';
 
 import { useFindDataEntriesInScope } from '../getDataEntriesForSection';
 import InputDataCell from '../input/InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function RegionsReviewTable() {
-  const { uitext } = useInterfaceTranslation();
   const findDataEntries = useFindDataEntriesInScope();
   const regions = findDataEntries({ section: DataSection.Regions });
 
@@ -21,7 +19,9 @@ function RegionsReviewTable() {
             <th>
               <SourceLanguageLabel />
             </th>
-            <th>{uitext('review.translated')}</th>
+            <th>
+              <TargetLanguageLabel />
+            </th>
           </tr>
         </thead>
         <tbody>

@@ -1,8 +1,9 @@
 import React from 'react';
 
-import { useDataContext } from '@data/DataContext';
 import { SourceLanguage } from '@data/DataTypes';
 import { DateField } from '@data/DateField';
+import { useSourceDataContext } from '@data/source/SourceDataProvider';
+import { useTargetDataContext } from '@data/target/TargetDataProvider';
 
 import { useURLParams } from '@settings/URLParams';
 
@@ -11,7 +12,8 @@ type Props = {
   language: 'source' | 'target';
 };
 const DateFieldName: React.FC<Props> = ({ field, language = 'target' }) => {
-  const { getTranslation, findDataEntry } = useDataContext();
+  const { findDataEntry } = useSourceDataContext();
+  const { getTranslation } = useTargetDataContext();
   const { sourceLanguage } = useURLParams();
   const data = findDataEntry({
     field,

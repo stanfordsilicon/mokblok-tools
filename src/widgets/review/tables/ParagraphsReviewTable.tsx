@@ -1,16 +1,15 @@
 import { DataSection } from '@data/DataSection';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
+import TargetLanguageLabel from '@settings/TargetLanguageLabel';
 
 import { groupBy } from '@shared/setUtils';
-import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import { useFindDataEntriesInScope } from '../getDataEntriesForSection';
 import InputTextareaCell from '../input/InputTextareaCell';
 import SourceDataCell from '../SourceDataCell';
 
 function ParagraphsReviewTable() {
-  const { uitext } = useInterfaceTranslation();
   const findDataEntries = useFindDataEntriesInScope();
   const paragraphsByGroup = groupBy(
     findDataEntries({ section: DataSection.Paragraphs }),
@@ -32,7 +31,9 @@ function ParagraphsReviewTable() {
                 <th>
                   <SourceLanguageLabel />
                 </th>
-                <th>{uitext('review.translated')}</th>
+                <th>
+                  <TargetLanguageLabel />
+                </th>
               </tr>
             </thead>
             <tbody>

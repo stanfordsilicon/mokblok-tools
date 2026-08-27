@@ -1,15 +1,13 @@
 import { DataSection } from '@data/DataSection';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
-
-import useInterfaceTranslation from '@shared/useInterfaceTranslation';
+import TargetLanguageLabel from '@settings/TargetLanguageLabel';
 
 import { useFindDataEntriesInScope } from '../getDataEntriesForSection';
 import InputDataCell from '../input/InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function TechWordsReviewTable() {
-  const { uitext } = useInterfaceTranslation();
   const findDataEntries = useFindDataEntriesInScope();
   const techWords = findDataEntries({ section: DataSection.TechWords });
 
@@ -21,7 +19,9 @@ function TechWordsReviewTable() {
             <th>
               <SourceLanguageLabel />
             </th>
-            <th>{uitext('review.translated')}</th>
+            <th>
+              <TargetLanguageLabel />
+            </th>
           </tr>
         </thead>
         <tbody>

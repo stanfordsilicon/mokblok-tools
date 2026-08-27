@@ -1,6 +1,7 @@
 import { DataSection } from '@data/DataSection';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
+import TargetLanguageLabel from '@settings/TargetLanguageLabel';
 import { useURLParams } from '@settings/URLParams';
 
 import { sortBy, uniqueBy } from '@shared/setUtils';
@@ -28,7 +29,9 @@ function TimeIntervalsReviewTable() {
           <th style={{ textAlign: 'center' }}>
             <SourceLanguageLabel />
           </th>
-          <th style={{ textAlign: 'center' }}>{uitext('review.translated')}</th>
+          <th style={{ textAlign: 'center' }}>
+            <TargetLanguageLabel />
+          </th>
         </tr>
       </thead>
       <tbody>

@@ -1,9 +1,9 @@
 import PluralAmount from '@data/PluralAmount';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
+import TargetLanguageLabel from '@settings/TargetLanguageLabel';
 
 import { groupBy } from '@shared/setUtils';
-import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import { useFindDataEntriesInScope } from '../getDataEntriesForSection';
 import InputDataCell from '../input/InputDataCell';
@@ -15,7 +15,6 @@ function DirectionsReviewTable() {
     findDataEntries({ field: 'ordinalMinimalPairs' }),
     (f) => f.instance,
   );
-  const { uitext } = useInterfaceTranslation();
 
   return (
     <div>
@@ -25,7 +24,9 @@ function DirectionsReviewTable() {
             <th>
               <SourceLanguageLabel />
             </th>
-            <th>{uitext('review.translated')}</th>
+            <th>
+              <TargetLanguageLabel />
+            </th>
           </tr>
         </thead>
         <tbody>

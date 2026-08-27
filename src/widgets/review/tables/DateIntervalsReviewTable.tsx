@@ -1,6 +1,7 @@
 import { DataSection } from '@data/DataSection';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
+import TargetLanguageLabel from '@settings/TargetLanguageLabel';
 import { useURLParams } from '@settings/URLParams';
 
 import { uniqueBy } from '@shared/setUtils';
@@ -30,7 +31,9 @@ function DateIntervalsReviewTable() {
           <th>
             <SourceLanguageLabel />
           </th>
-          <th>{uitext('review.translated')}</th>
+          <th>
+            <TargetLanguageLabel />
+          </th>
         </tr>
       </thead>
       <tbody>

@@ -1,4 +1,5 @@
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
+import TargetLanguageLabel from '@settings/TargetLanguageLabel';
 import { useURLParams } from '@settings/URLParams';
 
 import { matrixBy } from '@shared/setUtils';
@@ -26,7 +27,9 @@ function ErasReviewTable() {
           <th colSpan={admin ? 3 : 2}>
             <SourceLanguageLabel />
           </th>
-          <th colSpan={admin ? 3 : 2}>{uitext('review.translated')}</th>
+          <th colSpan={admin ? 3 : 2}>
+            <TargetLanguageLabel />
+          </th>
         </tr>
         <tr>
           <th>{uitext('length.wide')}</th>

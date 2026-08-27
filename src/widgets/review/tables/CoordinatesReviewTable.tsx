@@ -1,6 +1,7 @@
 import { CardinalDirection } from '@data/DataTypes';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
+import TargetLanguageLabel from '@settings/TargetLanguageLabel';
 
 import { matrixBy } from '@shared/setUtils';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
@@ -28,7 +29,9 @@ function CoordinatesReviewTable() {
             <th>
               <SourceLanguageLabel />
             </th>
-            <th>{uitext('review.translated')}</th>
+            <th>
+              <TargetLanguageLabel />
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -44,7 +47,9 @@ function CoordinatesReviewTable() {
             <th colSpan={2}>
               <SourceLanguageLabel />
             </th>
-            <th colSpan={2}>{uitext('review.translated')}</th>
+            <th colSpan={2}>
+              <TargetLanguageLabel />
+            </th>
           </tr>
           <tr>
             <th>{uitext('length.long')}</th>

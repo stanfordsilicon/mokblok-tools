@@ -1,6 +1,7 @@
 import { DataSection } from '@data/DataSection';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
+import TargetLanguageLabel from '@settings/TargetLanguageLabel';
 import { useURLParams } from '@settings/URLParams';
 
 import { matrixBy } from '@shared/setUtils';
@@ -30,7 +31,7 @@ function TimeCombinationsReviewTable() {
             <SourceLanguageLabel />
           </th>
           <th colSpan={admin ? 3 : 2} style={{ textAlign: 'center' }}>
-            {uitext('review.translated')}
+            <TargetLanguageLabel />
           </th>
         </tr>
         <tr>

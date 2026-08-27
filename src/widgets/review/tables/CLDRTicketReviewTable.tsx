@@ -1,15 +1,13 @@
 import { DataSection } from '@data/DataSection';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
-
-import useInterfaceTranslation from '@shared/useInterfaceTranslation';
+import TargetLanguageLabel from '@settings/TargetLanguageLabel';
 
 import { useFindDataEntriesInScope } from '../getDataEntriesForSection';
 import InputTextareaCell from '../input/InputTextareaCell';
 import SourceDataCell from '../SourceDataCell';
 
 function CLDRTicketReviewTable() {
-  const { uitext } = useInterfaceTranslation();
   const findDataEntries = useFindDataEntriesInScope();
   const sentences = findDataEntries({ section: DataSection.CLDRTicket });
 
@@ -25,7 +23,9 @@ function CLDRTicketReviewTable() {
             <th>
               <SourceLanguageLabel />
             </th>
-            <th>{uitext('review.translated')}</th>
+            <th>
+              <TargetLanguageLabel />
+            </th>
           </tr>
         </thead>
         <tbody>

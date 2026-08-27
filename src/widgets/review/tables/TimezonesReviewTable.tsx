@@ -2,6 +2,7 @@ import { DataSection } from '@data/DataSection';
 import { useTargetDataContext } from '@data/target/TargetDataProvider';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
+import TargetLanguageLabel from '@settings/TargetLanguageLabel';
 
 import { groupBy, matrixBy } from '@shared/setUtils';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
@@ -41,7 +42,9 @@ function TimezonesReviewTable() {
                   <th>
                     <SourceLanguageLabel />
                   </th>
-                  <th colSpan={3}>{uitext('review.translated')}</th>
+                  <th colSpan={3}>
+                    <TargetLanguageLabel />
+                  </th>
                 </tr>
                 <tr>
                   <th></th>

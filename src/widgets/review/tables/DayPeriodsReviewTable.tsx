@@ -1,6 +1,7 @@
 import { DataSection } from '@data/DataSection';
 
 import SourceLanguageLabel from '@settings/SourceLanguageLabel';
+import TargetLanguageLabel from '@settings/TargetLanguageLabel';
 
 import { matrixBy } from '@shared/setUtils';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
@@ -36,7 +37,7 @@ const DayPeriodsReviewTable = () => {
               <SourceLanguageLabel />
             </th>
             <th colSpan={2} style={{ textAlign: 'center' }}>
-              {uitext('review.translated')}
+              <TargetLanguageLabel />
             </th>
           </tr>
           <tr>
@@ -67,7 +68,7 @@ const DayPeriodsReviewTable = () => {
               <SourceLanguageLabel />
             </th>
             <th colSpan={3} style={{ textAlign: 'center' }}>
-              {uitext('review.translated')}
+              <TargetLanguageLabel />
             </th>
           </tr>
           <tr>
