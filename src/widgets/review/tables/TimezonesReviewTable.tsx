@@ -1,17 +1,20 @@
-import { useDataContext } from '@data/DataContext';
 import { DataSection } from '@data/DataSection';
+import { useTargetDataContext } from '@data/target/TargetDataProvider';
 
-import SourceLanguageLabel from '@settings/SourceLanguageLabel';
+import { SourceLanguageHeader } from '@settings/SourceLanguageLabel';
+import { TargetLanguageHeader } from '@settings/TargetLanguageLabel';
 
 import { groupBy, matrixBy } from '@shared/setUtils';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
+import { useFindDataEntriesInScope } from '../getDataEntriesForSection';
 import InputDataCell from '../input/InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function TimezonesReviewTable() {
   const { uitext } = useInterfaceTranslation();
-  const { findDataEntries, getTranslation, findDataEntry } = useDataContext();
+  const findDataEntries = useFindDataEntriesInScope();
+  const { getTranslation } = useTargetDataContext();
   const timezonesByGroup = groupBy(
     findDataEntries({ section: DataSection.Timezones }),
     (f) => f.group,
@@ -25,7 +28,7 @@ function TimezonesReviewTable() {
           (f) => f.instance,
           (f) => f.variant,
         );
-        const groupNameTranslated = getTranslation(findDataEntry({ english: group }));
+        const groupNameTranslated = getTranslation(findDataEntries({ english: group })[0]);
         return (
           <div key={group}>
             <h3>
@@ -36,10 +39,8 @@ function TimezonesReviewTable() {
             <table>
               <thead>
                 <tr>
-                  <th>
-                    <SourceLanguageLabel />
-                  </th>
-                  <th colSpan={3}>{uitext('review.translated')}</th>
+                  <SourceLanguageHeader />
+                  <TargetLanguageHeader colSpan={3} className="text-center" />
                 </tr>
                 <tr>
                   <th></th>

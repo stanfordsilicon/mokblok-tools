@@ -1,16 +1,17 @@
-import { useDataContext } from '@data/DataContext';
 import { CardinalDirection } from '@data/DataTypes';
 
-import SourceLanguageLabel from '@settings/SourceLanguageLabel';
+import { SourceLanguageHeader } from '@settings/SourceLanguageLabel';
+import { TargetLanguageHeader } from '@settings/TargetLanguageLabel';
 
 import { matrixBy } from '@shared/setUtils';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
+import { useFindDataEntriesInScope } from '../getDataEntriesForSection';
 import InputDataCell from '../input/InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function CoordinatesReviewTable() {
-  const { findDataEntry, findDataEntries } = useDataContext();
+  const findDataEntries = useFindDataEntriesInScope();
   const coordFields = findDataEntries({ field: 'coordinateUnitPattern' });
   const coordMatrix = matrixBy(
     coordFields,
@@ -18,17 +19,15 @@ function CoordinatesReviewTable() {
     (f) => f.length,
   );
   const { uitext } = useInterfaceTranslation();
-  const cardinalDirection = findDataEntry({ field: 'coordinateUnit/displayName' });
+  const cardinalDirection = findDataEntries({ field: 'coordinateUnit/displayName' })[0];
 
   return (
     <div>
       <table>
         <thead>
           <tr>
-            <th>
-              <SourceLanguageLabel />
-            </th>
-            <th>{uitext('review.translated')}</th>
+            <SourceLanguageHeader />
+            <TargetLanguageHeader />
           </tr>
         </thead>
         <tbody>
@@ -41,10 +40,8 @@ function CoordinatesReviewTable() {
       <table>
         <thead style={{ textAlign: 'center' }}>
           <tr>
-            <th colSpan={2}>
-              <SourceLanguageLabel />
-            </th>
-            <th colSpan={2}>{uitext('review.translated')}</th>
+            <SourceLanguageHeader colSpan={2} />
+            <TargetLanguageHeader colSpan={2} />
           </tr>
           <tr>
             <th>{uitext('length.long')}</th>

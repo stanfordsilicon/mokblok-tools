@@ -34,6 +34,10 @@ export const PreloadableXMLLanguages = [
   'pt',
   'sn',
   'wo',
+  'hr',
+  'sr-Latn',
+  'sr',
+  'bs',
 ];
 
 const TargetLanguageOptions: Record<ImportSource, string[]> = {

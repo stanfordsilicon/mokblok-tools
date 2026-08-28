@@ -1,7 +1,7 @@
 import { type PointerEvent, useCallback } from 'react';
 
 import type { DataEntry } from '@data/DataTypes';
-import { Vote } from '@data/TargetDataProvider';
+import { Vote } from '@data/target/TargetDataProvider';
 
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 

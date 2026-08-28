@@ -1,16 +1,17 @@
-import { useDataContext } from '@data/DataContext';
 import { DataSection } from '@data/DataSection';
 
-import SourceLanguageLabel from '@settings/SourceLanguageLabel';
+import { SourceLanguageHeader } from '@settings/SourceLanguageLabel';
+import { TargetLanguageHeader } from '@settings/TargetLanguageLabel';
 
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
+import { useFindDataEntriesInScope } from '../getDataEntriesForSection';
 import InputDataCell from '../input/InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function SymbolsReviewTable() {
   const { uitext } = useInterfaceTranslation();
-  const { findDataEntries } = useDataContext();
+  const findDataEntries = useFindDataEntriesInScope();
   const symbolsWithExamples = findDataEntries({ section: DataSection.Symbols });
   const symbols = symbolsWithExamples.filter((f) => f.exampleNum === '0');
   const symbolsExamples = symbolsWithExamples.filter((f) => f.exampleNum !== '0');
@@ -20,10 +21,8 @@ function SymbolsReviewTable() {
       <table>
         <thead>
           <tr>
-            <th>
-              <SourceLanguageLabel />
-            </th>
-            <th>{uitext('review.translated')}</th>
+            <SourceLanguageHeader />
+            <TargetLanguageHeader />
           </tr>
         </thead>
         <tbody>
@@ -39,10 +38,8 @@ function SymbolsReviewTable() {
         <thead>
           <tr>
             <th>{uitext('review.components')}</th>
-            <th>
-              <SourceLanguageLabel />
-            </th>
-            <th>{uitext('review.translated')}</th>
+            <SourceLanguageHeader />
+            <TargetLanguageHeader />
           </tr>
         </thead>
         <tbody>

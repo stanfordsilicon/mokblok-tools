@@ -1,18 +1,19 @@
-import { useDataContext } from '@data/DataContext';
 import { DataSection } from '@data/DataSection';
 
-import SourceLanguageLabel from '@settings/SourceLanguageLabel';
+import { SourceLanguageHeader } from '@settings/SourceLanguageLabel';
+import { TargetLanguageHeader } from '@settings/TargetLanguageLabel';
 
 import { matrixBy, sortBy } from '@shared/setUtils';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
+import { useFindDataEntriesInScope } from '../getDataEntriesForSection';
 import InputDataCell from '../input/InputDataCell';
 import InputTextareaCell from '../input/InputTextareaCell';
 import SourceDataCell from '../SourceDataCell';
 
 function QuotesReviewTable() {
   const { uitext } = useInterfaceTranslation();
-  const { findDataEntries } = useDataContext();
+  const findDataEntries = useFindDataEntriesInScope();
   const quotes = sortBy(findDataEntries({ section: DataSection.Quotes }), (a) => a.length);
   const quotesMatrix = matrixBy(
     quotes.filter((f) => f.exampleNum === '0'),
@@ -26,10 +27,8 @@ function QuotesReviewTable() {
       <table>
         <thead>
           <tr>
-            <th>
-              <SourceLanguageLabel />
-            </th>
-            <th>{uitext('review.translated')}</th>
+            <SourceLanguageHeader />
+            <TargetLanguageHeader />
           </tr>
         </thead>
         <tbody>
@@ -45,10 +44,8 @@ function QuotesReviewTable() {
         <thead>
           <tr>
             <th>{uitext('review.length')}</th>
-            <th colSpan={2}>
-              <SourceLanguageLabel />
-            </th>
-            <th colSpan={2}>{uitext('review.translated')}</th>
+            <SourceLanguageHeader colSpan={2} />
+            <TargetLanguageHeader colSpan={2} />
           </tr>
           <tr>
             <th></th>

@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 
-import { useTargetDataContext } from '@data/TargetDataProvider';
+import { useTargetDataContext } from '@data/target/TargetDataProvider';
 
 import { addValueToXML, toXMLString, type XMLObject } from '@widgets/export/formatXML';
 

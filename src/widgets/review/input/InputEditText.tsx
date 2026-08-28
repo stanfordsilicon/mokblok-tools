@@ -1,6 +1,5 @@
-import { useDataContext } from '@data/DataContext';
 import { DataEntry } from '@data/DataTypes';
-import { useTargetDataContext } from '@data/TargetDataProvider';
+import { useTargetDataContext } from '@data/target/TargetDataProvider';
 
 import useBackgroundColor from './getBackgroundColor';
 import HighlightInput from './HighlightInput';
@@ -23,8 +22,7 @@ const WIDTHS_BY_LENGTH: Record<string, string> = {
 };
 
 const InputEditText: React.FC<Props> = ({ entry, inputWidth, disabled = false }) => {
-  const { getTranslation } = useDataContext();
-  const { editTranslation } = useTargetDataContext();
+  const { getTranslation, editTranslation } = useTargetDataContext();
   const getBackgroundColor = useBackgroundColor();
 
   const backgroundColor = getBackgroundColor(entry);

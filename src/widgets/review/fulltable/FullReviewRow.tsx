@@ -1,6 +1,6 @@
 import { getCoverageLevelKey } from '@data/CoverageLevel';
 import { DataEntry } from '@data/DataTypes';
-import useTranslationFromSourceLanguage from '@data/sourcedata/useTranslationFromSourceLanguage';
+import useTranslationFromSourceLanguage from '@data/source/useTranslationFromSourceLanguage';
 
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
@@ -16,6 +16,7 @@ function FullReviewRow({ entry }: { entry: DataEntry }) {
 
   return (
     <tr key={entry.id} style={{ backgroundColor: getBackgroundColor(entry) }}>
+      <td style={{ maxWidth: '5em' }}>{entry.worksheet}</td>
       <td style={{ maxWidth: '5em' }}>{uitext(`dataPage.${entry.page}`)}</td>
       <td style={{ maxWidth: '5em' }}>{uitext(`dataSection.${entry.section}`)}</td>
       <td style={{ maxWidth: '5em' }}>{entry.group}</td>

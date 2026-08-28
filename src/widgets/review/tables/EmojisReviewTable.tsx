@@ -1,16 +1,17 @@
-import { useDataContext } from '@data/DataContext';
 import { DataSection } from '@data/DataSection';
 
-import SourceLanguageLabel from '@settings/SourceLanguageLabel';
+import { SourceLanguageHeader } from '@settings/SourceLanguageLabel';
+import { TargetLanguageHeader } from '@settings/TargetLanguageLabel';
 
 import { groupBy } from '@shared/setUtils';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
+import { useFindDataEntriesInScope } from '../getDataEntriesForSection';
 import InputDataCell from '../input/InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function EmojisReviewTable() {
-  const { findDataEntries } = useDataContext();
+  const findDataEntries = useFindDataEntriesInScope();
   const emojisByGroup = groupBy(findDataEntries({ section: DataSection.Emoji }), (f) => f.group);
   const { uitext } = useInterfaceTranslation();
 
@@ -25,10 +26,8 @@ function EmojisReviewTable() {
             <thead>
               <tr>
                 <th>{uitext('dataSection.emoji')}</th>
-                <th>
-                  <SourceLanguageLabel />
-                </th>
-                <th>{uitext('review.translated')}</th>
+                <SourceLanguageHeader />
+                <TargetLanguageHeader />
               </tr>
             </thead>
             <tbody>

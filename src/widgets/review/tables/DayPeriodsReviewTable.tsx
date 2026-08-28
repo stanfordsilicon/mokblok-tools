@@ -1,11 +1,12 @@
-import { useDataContext } from '@data/DataContext';
 import { DataSection } from '@data/DataSection';
 
-import SourceLanguageLabel from '@settings/SourceLanguageLabel';
+import { SourceLanguageHeader } from '@settings/SourceLanguageLabel';
+import { TargetLanguageHeader } from '@settings/TargetLanguageLabel';
 
 import { matrixBy } from '@shared/setUtils';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
+import { useFindDataEntriesInScope } from '../getDataEntriesForSection';
 import InputDataCell from '../input/InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
@@ -13,7 +14,7 @@ const amPMs = ['am', 'pm'];
 const dayPeriods = ['morning1', 'afternoon1', 'evening1', 'night1', 'midnight'];
 
 const DayPeriodsReviewTable = () => {
-  const { findDataEntries } = useDataContext();
+  const findDataEntries = useFindDataEntriesInScope();
   const dayPeriodFields = findDataEntries({ section: DataSection.DayPeriods });
   const amPMMatrix = matrixBy(
     dayPeriodFields.filter((f) => ['am', 'pm'].includes(f.instance)),
@@ -32,12 +33,8 @@ const DayPeriodsReviewTable = () => {
       <table style={{ height: 'fit-content' }}>
         <thead>
           <tr>
-            <th colSpan={2} style={{ textAlign: 'center' }}>
-              <SourceLanguageLabel />
-            </th>
-            <th colSpan={2} style={{ textAlign: 'center' }}>
-              {uitext('review.translated')}
-            </th>
+            <SourceLanguageHeader colSpan={2} className="text-center" />
+            <TargetLanguageHeader colSpan={2} className="text-center" />
           </tr>
           <tr>
             <th>{uitext('length.wide')}</th>
@@ -63,12 +60,8 @@ const DayPeriodsReviewTable = () => {
       <table style={{ height: 'fit-content' }}>
         <thead>
           <tr>
-            <th colSpan={3} style={{ textAlign: 'center' }}>
-              <SourceLanguageLabel />
-            </th>
-            <th colSpan={3} style={{ textAlign: 'center' }}>
-              {uitext('review.translated')}
-            </th>
+            <SourceLanguageHeader colSpan={3} className="text-center" />
+            <TargetLanguageHeader colSpan={3} className="text-center" />
           </tr>
           <tr>
             <th>{uitext('review.standalone')}</th>

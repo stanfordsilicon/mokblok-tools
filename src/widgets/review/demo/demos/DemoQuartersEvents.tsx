@@ -1,9 +1,11 @@
 import React from 'react';
 
-import { useDataContext } from '@data/DataContext';
+import { useSourceDataContext } from '@data/source/SourceDataProvider';
+import { useTargetDataContext } from '@data/target/TargetDataProvider';
 
 const DemoQuartersEvents: React.FC = () => {
-  const { findDataEntry, getTranslation } = useDataContext();
+  const { findDataEntry } = useSourceDataContext();
+  const { getTranslation } = useTargetDataContext();
   const quarters = [...Array(4)]
     .map((_, index) =>
       findDataEntry({ field: 'q', instance: (index + 1).toString(), length: 'a', variant: 'f' }),

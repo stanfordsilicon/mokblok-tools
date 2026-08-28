@@ -1,19 +1,20 @@
-import { useDataContext } from '@data/DataContext';
 import { DataSection } from '@data/DataSection';
 
-import SourceLanguageLabel from '@settings/SourceLanguageLabel';
+import { SourceLanguageHeader } from '@settings/SourceLanguageLabel';
+import { TargetLanguageHeader } from '@settings/TargetLanguageLabel';
 import { useURLParams } from '@settings/URLParams';
 
 import { matrixBy } from '@shared/setUtils';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
+import { useFindDataEntriesInScope } from '../getDataEntriesForSection';
 import InputDataCell from '../input/InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function TimeCombinationsReviewTable() {
   const { uitext } = useInterfaceTranslation();
   const { admin } = useURLParams();
-  const { findDataEntries } = useDataContext();
+  const findDataEntries = useFindDataEntriesInScope();
   const timesArray = findDataEntries({ section: DataSection.Times });
   const timesMatrix = matrixBy(
     timesArray,
@@ -26,12 +27,8 @@ function TimeCombinationsReviewTable() {
       <thead>
         <tr>
           {admin && <th>{uitext('review.type')}</th>}
-          <th colSpan={admin ? 3 : 2} style={{ textAlign: 'center' }}>
-            <SourceLanguageLabel />
-          </th>
-          <th colSpan={admin ? 3 : 2} style={{ textAlign: 'center' }}>
-            {uitext('review.translated')}
-          </th>
+          <SourceLanguageHeader colSpan={admin ? 3 : 2} className="text-center" />
+          <TargetLanguageHeader colSpan={admin ? 3 : 2} className="text-center" />
         </tr>
         <tr>
           {admin && <th></th>}

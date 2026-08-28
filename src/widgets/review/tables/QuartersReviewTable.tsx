@@ -1,16 +1,16 @@
-import { useDataContext } from '@data/DataContext';
-
-import SourceLanguageLabel from '@settings/SourceLanguageLabel';
+import { SourceLanguageHeader } from '@settings/SourceLanguageLabel';
+import { TargetLanguageHeader } from '@settings/TargetLanguageLabel';
 
 import { matrixBy } from '@shared/setUtils';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
+import { useFindDataEntriesInScope } from '../getDataEntriesForSection';
 import InputDataCell from '../input/InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function QuartersReviewTable() {
   const { uitext } = useInterfaceTranslation();
-  const { findDataEntries } = useDataContext();
+  const findDataEntries = useFindDataEntriesInScope();
   const quarterFields = findDataEntries({ field: 'q' }).filter((f) => f.instance !== '');
   const quarterMatrix = matrixBy(
     quarterFields,
@@ -22,10 +22,8 @@ function QuartersReviewTable() {
     <table>
       <thead style={{ textAlign: 'center' }}>
         <tr>
-          <th colSpan={2}>
-            <SourceLanguageLabel />
-          </th>
-          <th colSpan={2}>{uitext('review.translated')}</th>
+          <SourceLanguageHeader colSpan={2} />
+          <TargetLanguageHeader colSpan={2} />
         </tr>
         <tr>
           <th>{uitext('length.wide')}</th>

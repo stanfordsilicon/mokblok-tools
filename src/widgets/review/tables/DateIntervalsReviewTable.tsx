@@ -1,19 +1,20 @@
-import { useDataContext } from '@data/DataContext';
 import { DataSection } from '@data/DataSection';
 
-import SourceLanguageLabel from '@settings/SourceLanguageLabel';
+import { SourceLanguageHeader } from '@settings/SourceLanguageLabel';
+import { TargetLanguageHeader } from '@settings/TargetLanguageLabel';
 import { useURLParams } from '@settings/URLParams';
 
 import { uniqueBy } from '@shared/setUtils';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
+import { useFindDataEntriesInScope } from '../getDataEntriesForSection';
 import InputDataCell from '../input/InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function DateIntervalsReviewTable() {
   const { uitext } = useInterfaceTranslation();
   const { admin } = useURLParams();
-  const { findDataEntries } = useDataContext();
+  const findDataEntries = useFindDataEntriesInScope();
   const intervalFormats = uniqueBy(
     findDataEntries({ section: DataSection.DateIntervals }).filter(
       (f) => !f.instance.includes('G') && !f.instance.match(/^h/i),
@@ -27,10 +28,8 @@ function DateIntervalsReviewTable() {
         <tr>
           {admin && <th>{uitext('review.components')}</th>}
           {admin && <th style={{ maxWidth: '100px' }}>{uitext('review.greatestDifference')}</th>}
-          <th>
-            <SourceLanguageLabel />
-          </th>
-          <th>{uitext('review.translated')}</th>
+          <SourceLanguageHeader />
+          <TargetLanguageHeader />
         </tr>
       </thead>
       <tbody>

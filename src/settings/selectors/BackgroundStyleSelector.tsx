@@ -9,7 +9,10 @@ import { useURLParams } from '../URLParams';
 
 const BackgroundStyleSelector: React.FC = () => {
   const { uitext } = useInterfaceTranslation();
-  const { bgStyle, updateURLParams } = useURLParams();
+  const { bgStyle, updateURLParams, admin } = useURLParams();
+
+  let options = Object.entries(BackgroundStyle);
+  if (!admin) options = options.filter(([key]) => key !== 'Worksheet');
 
   return (
     <div className="flex flex-col gap-2">
@@ -20,7 +23,7 @@ const BackgroundStyleSelector: React.FC = () => {
           value={String(bgStyle)}
           onChange={(e) => updateURLParams({ bgStyle: parseBackgroundStyle(e.target.value) })}
         >
-          {Object.entries(BackgroundStyle)
+          {options
             .filter(([, value]) => typeof value !== 'string')
             .map(([key, value]) => (
               <option key={key} value={value}>

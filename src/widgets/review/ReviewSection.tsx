@@ -38,17 +38,17 @@ function ReviewSection({ dataSection }: { dataSection: DataSection }) {
   const { uitext } = useInterfaceTranslation();
   const completion = useCompletionForSection(DataPage.All, dataSection);
 
-  const ratioComplete = uitext('review.progress.ratioComplete', {
-    completed: completion.completed,
-    inCoverage: completion.inCoverage,
-  });
+  if (completion.overall === 0) return null;
 
   return (
     <div>
       <h2 style={{ margin: '.5em 0' }}>
-        {uitext(`dataSection.${dataSection}`)} <span className="text-sm">{ratioComplete}</span>
+        {uitext(`dataSection.${dataSection}`)}{' '}
+        <span className="text-sm">
+          {completion.completed} / {completion.overall}
+        </span>
       </h2>
-      <div style={{ display: 'flex', gap: '1em', flexDirection: 'row', flexWrap: 'wrap' }}>
+      <div className="flex flex-row gap-4 flex-wrap">
         <div>
           <ErrorBoundary>
             <ReviewTable dataSection={dataSection} />

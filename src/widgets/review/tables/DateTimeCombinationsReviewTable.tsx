@@ -1,18 +1,19 @@
-import { useDataContext } from '@data/DataContext';
 import { DataSection } from '@data/DataSection';
 
-import SourceLanguageLabel from '@settings/SourceLanguageLabel';
+import { SourceLanguageHeader } from '@settings/SourceLanguageLabel';
+import { TargetLanguageHeader } from '@settings/TargetLanguageLabel';
 import { useURLParams } from '@settings/URLParams';
 
 import { sortBy, uniqueBy } from '@shared/setUtils';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
+import { useFindDataEntriesInScope } from '../getDataEntriesForSection';
 import InputDataCell from '../input/InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function DateTimeCombinationsReviewTable() {
   const { admin } = useURLParams();
-  const { findDataEntries } = useDataContext();
+  const findDataEntries = useFindDataEntriesInScope();
   const availableFormats = uniqueBy(
     sortBy(
       findDataEntries({ section: DataSection.DateTimes }),
@@ -29,10 +30,8 @@ function DateTimeCombinationsReviewTable() {
           {admin && <th>{uitext('review.field')}</th>}
           {admin && <th>{uitext('review.variant')}</th>}
           {admin && <th>{uitext('review.length')}</th>}
-          <th>
-            <SourceLanguageLabel />
-          </th>
-          <th>{uitext('review.translated')}</th>
+          <SourceLanguageHeader />
+          <TargetLanguageHeader />
         </tr>
       </thead>
       <tbody>

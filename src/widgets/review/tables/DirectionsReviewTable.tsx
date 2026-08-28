@@ -1,31 +1,28 @@
-import { useDataContext } from '@data/DataContext';
 import PluralAmount from '@data/PluralAmount';
 
-import SourceLanguageLabel from '@settings/SourceLanguageLabel';
+import { SourceLanguageHeader } from '@settings/SourceLanguageLabel';
+import { TargetLanguageHeader } from '@settings/TargetLanguageLabel';
 
 import { groupBy } from '@shared/setUtils';
-import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
+import { useFindDataEntriesInScope } from '../getDataEntriesForSection';
 import InputDataCell from '../input/InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function DirectionsReviewTable() {
-  const { findDataEntries } = useDataContext();
+  const findDataEntries = useFindDataEntriesInScope();
   const directionFields = groupBy(
     findDataEntries({ field: 'ordinalMinimalPairs' }),
     (f) => f.instance,
   );
-  const { uitext } = useInterfaceTranslation();
 
   return (
     <div>
       <table>
         <thead>
           <tr>
-            <th>
-              <SourceLanguageLabel />
-            </th>
-            <th>{uitext('review.translated')}</th>
+            <SourceLanguageHeader />
+            <TargetLanguageHeader />
           </tr>
         </thead>
         <tbody>

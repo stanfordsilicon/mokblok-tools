@@ -1,37 +1,40 @@
 import React from 'react';
 
-import { useDataContext } from '@data/DataContext';
 import { DataSection } from '@data/DataSection';
 import { useLinguisticsContext } from '@data/LinguisticsContext';
+import { useTargetDataContext } from '@data/target/TargetDataProvider';
 
-import SourceLanguageLabel from '@settings/SourceLanguageLabel';
+import { SourceLanguageHeader } from '@settings/SourceLanguageLabel';
+import TargetLanguageLabel, { TargetLanguageHeader } from '@settings/TargetLanguageLabel';
 
 import { decodeHtmlEntities } from '@shared/stringUtils';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
+import { useFindDataEntriesInScope } from '../getDataEntriesForSection';
 import InputDataCell from '../input/InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 const charSets = ['main', 'uppercase', 'auxiliary', 'numbers', 'punctuation'] as const;
 
 const AlphabetReview: React.FC = () => {
-  const { findDataEntries, getTranslation } = useDataContext();
+  const { uitext } = useInterfaceTranslation();
+  const findDataEntries = useFindDataEntriesInScope();
+  const { getTranslation } = useTargetDataContext();
   const { numberingSystems } = useLinguisticsContext();
   const alphabetFields = findDataEntries({ section: DataSection.Alphabet });
-  const { uitext } = useInterfaceTranslation();
 
   return (
     <div>
       <InferredCharacters />
-      <h3>{uitext('review.translated')}</h3>
+      <h3>
+        <TargetLanguageLabel />
+      </h3>
       <table>
         <thead>
           <tr>
             <th>{uitext('review.alphabet.set')}</th>
-            <th>
-              <SourceLanguageLabel />
-            </th>
-            <th>{uitext('review.translated')}</th>
+            <SourceLanguageHeader />
+            <TargetLanguageHeader />
           </tr>
         </thead>
         <tbody>
@@ -52,10 +55,8 @@ const AlphabetReview: React.FC = () => {
         <thead>
           <tr>
             <th>{uitext('review.type')}</th>
-            <th>
-              <SourceLanguageLabel />
-            </th>
-            <th>{uitext('review.translated')}</th>
+            <SourceLanguageHeader />
+            <TargetLanguageHeader />
             <th>{uitext('review.alphabet.digits')}</th>
           </tr>
         </thead>
@@ -90,7 +91,7 @@ const InferredCharacters: React.FC = () => {
     charactersUppercase,
     charactersOther,
     writingSystem,
-  } = useDataContext().alphabet || {};
+  } = useTargetDataContext().alphabet || {};
   const hasHistogram = characterHistogram != null && Object.keys(characterHistogram).length > 0;
 
   return (

@@ -1,20 +1,24 @@
 import React, { useMemo } from 'react';
 
 import { CoverageLevel } from '@data/CoverageLevel';
-import { useDataContext } from '@data/DataContext';
 import { PatternFormat } from '@data/PatternFormat';
+import { useSourceDataContext } from '@data/source/SourceDataProvider';
+import { Worksheet } from '@data/worksheets/Worksheet';
 
-import SourceLanguageLabel from '@settings/SourceLanguageLabel';
+import { SourceLanguageHeader } from '@settings/SourceLanguageLabel';
+import { TargetLanguageHeader } from '@settings/TargetLanguageLabel';
 
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import FilterCoverageLevelCell from './FilterCoverageLevelCell';
 import FilterFormatPatternCell from './FilterFormatPatternCell';
+import FilterWorksheetCell from './FilterWorksheetCell';
 import FullReviewRow from './FullReviewRow';
 
 function FullReviewTable() {
-  const { findDataEntries } = useDataContext();
+  const { findDataEntries } = useSourceDataContext();
   const allEntries = findDataEntries({});
+  const [worksheetFilter, setWorksheetFilter] = React.useState<Worksheet | undefined>(undefined);
   const [pageFilter, setPageFilter] = React.useState('');
   const [sectionFilter, setSectionFilter] = React.useState('');
   const [groupFilter, setGroupFilter] = React.useState('');
@@ -36,6 +40,7 @@ function FullReviewTable() {
     () =>
       allEntries.filter(
         (f) =>
+          (worksheetFilter === undefined || f.worksheet === worksheetFilter) &&
           f.page.includes(pageFilter) &&
           f.section.includes(sectionFilter) &&
           f.group.includes(groupFilter) &&
@@ -50,6 +55,7 @@ function FullReviewTable() {
       ),
     [
       allEntries,
+      worksheetFilter,
       pageFilter,
       sectionFilter,
       groupFilter,
@@ -69,6 +75,7 @@ function FullReviewTable() {
       <table className="FullReviewTable">
         <thead>
           <tr>
+            <th>{uitext('import.files.Worksheet')}</th>
             <th>{uitext('review.page')}</th>
             <th>{uitext('review.section')}</th>
             <th>{uitext('review.group')}</th>
@@ -77,10 +84,8 @@ function FullReviewTable() {
             <th>{uitext('review.length')}</th>
             <th>{uitext('review.variant')}</th>
             <th>{uitext('review.exampleNumber')}</th>
-            <th>
-              <SourceLanguageLabel />
-            </th>
-            <th>{uitext('review.translated')}</th>
+            <SourceLanguageHeader />
+            <TargetLanguageHeader />
             <th>{uitext('settings.coverageLevel')}</th>
             <th>Formatted, from XML</th>
             <th>Pattern, from XML</th>
@@ -88,6 +93,10 @@ function FullReviewTable() {
             <th>{uitext('patternFormat.patternFormat')}</th>
           </tr>
           <tr>
+            <FilterWorksheetCell
+              worksheetFilter={worksheetFilter}
+              setWorksheetFilter={setWorksheetFilter}
+            />
             <FilterCell value={pageFilter} onChange={setPageFilter} />
             <FilterCell value={sectionFilter} onChange={setSectionFilter} />
             <FilterCell value={groupFilter} onChange={setGroupFilter} />

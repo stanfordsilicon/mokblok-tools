@@ -3,19 +3,34 @@ import { useMemo } from 'react';
 import { isEntryInCoverageLevel } from '@data/CoverageLevel';
 import { DataPage, DataSection } from '@data/DataSection';
 import type { DataEntry } from '@data/DataTypes';
-import { useSourceDataContext } from '@data/SourceDataProvider';
-import { useTargetDataContext, Vote } from '@data/TargetDataProvider';
+import { FindDataEntries, useSourceDataContext } from '@data/source/SourceDataProvider';
+import { useTargetDataContext, Vote } from '@data/target/TargetDataProvider';
 import { isEntryInWorksheetScope } from '@data/worksheets/Worksheets';
 
 import { useURLParams } from '@settings/URLParams';
 
 type GetDataEntriesForSection = (page?: DataPage, section?: DataSection) => DataEntry[];
+
 /**
- * Returns the data entry partial for filtering out a section
+ * Returns a function to find data entries that are within the current coverage level and worksheet scope.
+ */
+export function useFindDataEntriesInScope(): FindDataEntries {
+  const { findDataEntries } = useSourceDataContext();
+  const { coverageLevel, worksheets } = useURLParams();
+
+  return (filter: Partial<DataEntry>) => {
+    return findDataEntries(filter).filter(
+      (entry) =>
+        isEntryInCoverageLevel(entry, coverageLevel) && isEntryInWorksheetScope(entry, worksheets),
+    );
+  };
+}
+
+/**
+ * Returns a function to get all data entries for a given page and section, filtered by the current coverage level and worksheet scope.
  */
 export function useDataEntriesForSection(): GetDataEntriesForSection {
-  const { findDataEntries } = useSourceDataContext();
-
+  const findDataEntries = useFindDataEntriesInScope();
   return (page?: DataPage, section?: DataSection) => {
     const filter: Partial<DataEntry> = {};
     if (section != null && section !== DataSection.All && section !== DataSection.FullTable) {
@@ -31,29 +46,21 @@ export function useDataEntriesForSection(): GetDataEntriesForSection {
 export function useCompletionForSection(
   page?: DataPage,
   section?: DataSection,
-): { percent: number | undefined; overall: number; inCoverage: number; completed: number } {
-  const { coverageLevel, worksheets } = useURLParams();
+): { percent: number | undefined; overall: number; completed: number } {
   const { getTranslations } = useTargetDataContext();
   const getDataEntriesForSection = useDataEntriesForSection();
 
   const entries = getDataEntriesForSection(page, section);
-  const entriesInCoverage = entries.filter(
-    (entry) =>
-      isEntryInCoverageLevel(entry, coverageLevel) && isEntryInWorksheetScope(entry, worksheets),
-  );
   const completedEntries = useMemo(
     () =>
-      getTranslations(entriesInCoverage).filter((info) => Boolean(info?.edit ?? info?.translation)),
-    [entriesInCoverage, getTranslations],
+      getTranslations(entries, 'all').filter((info) => Boolean(info?.edit ?? info?.translation)),
+    [entries, getTranslations],
   );
 
   return {
     overall: entries.length,
-    inCoverage: entriesInCoverage.length,
     completed: completedEntries.length,
-    percent: !entriesInCoverage.length
-      ? undefined
-      : (completedEntries.length * 100.0) / entriesInCoverage.length,
+    percent: !entries.length ? undefined : (completedEntries.length * 100.0) / entries.length,
   };
 }
 

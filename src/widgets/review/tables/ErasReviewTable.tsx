@@ -1,18 +1,18 @@
-import { useDataContext } from '@data/DataContext';
-
-import SourceLanguageLabel from '@settings/SourceLanguageLabel';
+import { SourceLanguageHeader } from '@settings/SourceLanguageLabel';
+import { TargetLanguageHeader } from '@settings/TargetLanguageLabel';
 import { useURLParams } from '@settings/URLParams';
 
 import { matrixBy } from '@shared/setUtils';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
+import { useFindDataEntriesInScope } from '../getDataEntriesForSection';
 import InputDataCell from '../input/InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 function ErasReviewTable() {
   const { uitext } = useInterfaceTranslation();
   const { admin } = useURLParams();
-  const { findDataEntries } = useDataContext();
+  const findDataEntries = useFindDataEntriesInScope();
   const eraFields = findDataEntries({ field: 'G' });
   const eraMatrix = matrixBy(
     eraFields,
@@ -24,10 +24,8 @@ function ErasReviewTable() {
     <table>
       <thead style={{ textAlign: 'center' }}>
         <tr>
-          <th colSpan={admin ? 3 : 2}>
-            <SourceLanguageLabel />
-          </th>
-          <th colSpan={admin ? 3 : 2}>{uitext('review.translated')}</th>
+          <SourceLanguageHeader colSpan={admin ? 3 : 2} />
+          <TargetLanguageHeader colSpan={admin ? 3 : 2} />
         </tr>
         <tr>
           <th>{uitext('length.wide')}</th>

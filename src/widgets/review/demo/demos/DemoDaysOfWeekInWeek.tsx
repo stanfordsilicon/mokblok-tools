@@ -1,12 +1,14 @@
 import React from 'react';
 
-import { useDataContext } from '@data/DataContext';
 import { DayKeys } from '@data/DayKeys';
+import { useSourceDataContext } from '@data/source/SourceDataProvider';
+import { useTargetDataContext } from '@data/target/TargetDataProvider';
 
 import { useExampleDate } from '@settings/selectors/ExampleDateSelector';
 
 const DemoDaysOfWeekInWeek: React.FC = () => {
-  const { findDataEntry, getTranslation } = useDataContext();
+  const { findDataEntry } = useSourceDataContext();
+  const { getTranslation } = useTargetDataContext();
   const today = useExampleDate();
   const currentMonth = today.getMonth(); // Current month (0-indexed)
 

@@ -64,6 +64,7 @@
       "title": "Importar arquivos",
       "placeholderTsv": "Cole seus dados TSV aqui",
       "placeholderTxt": "Cole seus dados TXT aqui",
+      "Worksheet": "Planilha",
       "Worksheet 1": "Planilha 1 (Dados principais, padrões de data/hora)",
       "Worksheet 2 part 1": "Planilha 2 parte 1 (Traduções, matemática)",
       "Worksheet 2 part 2": "Planilha 2 parte 2 (Texto longo)",
@@ -176,10 +177,6 @@
         "many": "Muitos",
         "other": "Outro"
       }
-    },
-    "progress": {
-      "ratioComplete": "{{completed}} / {{inCoverage}} concluído",
-      "outOfCoverage": "{{count}} a mais fora da cobertura"
     }
   },
   "export": {

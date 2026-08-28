@@ -65,6 +65,7 @@
             "title": "Fichiers de données",
             "placeholderTsv": "Collez vos données TSV ici",
             "placeholderTxt": "Collez vos données TXT ici",
+            "Worksheet": "Feuille",
             "Worksheet 1": "Feuille 1 (Données de base, formats de date et d’heure)",
             "Worksheet 2 part 1": "Feuille 2 partie 1 (Traductions, mathématiques)",
             "Worksheet 2 part 2": "Feuille 2 partie 2 (Texte long)",
@@ -180,10 +181,6 @@
                 "many": "Beaucoup",
                 "other": "Autre"
             }
-        },
-        "progress": {
-            "ratioComplete": "{{completed}} / {{inCoverage}} terminés",
-            "outOfCoverage": "{{count}} de plus hors couverture"
         }
     },
     "export": {

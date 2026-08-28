@@ -1,12 +1,12 @@
 import { useCallback } from 'react';
 
-import { useSourceDataContext } from '@data/SourceDataProvider';
+import { useSourceDataContext } from '@data/source/SourceDataProvider';
 
 import { useURLParams } from '@settings/URLParams';
 
 import { getFraktur } from '@shared/stringUtils';
 
-import { SourceLanguage, type DataEntry } from '../DataTypes';
+import { type DataEntry } from '../DataTypes';
 
 import getTranslationFromSourceLanguage from './getTranslationFromSourceLanguage';
 
@@ -20,11 +20,10 @@ function useTranslationFromSourceLanguage() {
       const dataEntry = findDataEntry(query);
       if (!dataEntry) return '!!!';
       const sourceData = getSourceData(dataEntry);
-      if (sourceLanguage === SourceLanguage.EnglishFraktur && sourceData)
-        return getFraktur(sourceData);
+      if (sourceLanguage === 'en-Latf' && sourceData) return getFraktur(sourceData);
       if (sourceData) return sourceData;
-      if (sourceLanguage === SourceLanguage.EnglishFraktur) return getFraktur(dataEntry.english);
-      if (sourceLanguage === SourceLanguage.French) return dataEntry.french;
+      if (sourceLanguage === 'en-Latf') return getFraktur(dataEntry.english);
+      if (sourceLanguage === 'fr') return dataEntry.french;
       return dataEntry.english;
     },
     [findDataEntry, getSourceData, sourceLanguage],

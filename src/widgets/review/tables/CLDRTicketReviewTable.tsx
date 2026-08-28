@@ -1,17 +1,15 @@
-import { useDataContext } from '@data/DataContext';
 import { DataSection } from '@data/DataSection';
 
-import SourceLanguageLabel from '@settings/SourceLanguageLabel';
+import { SourceLanguageHeader } from '@settings/SourceLanguageLabel';
+import { TargetLanguageHeader } from '@settings/TargetLanguageLabel';
 
-import useInterfaceTranslation from '@shared/useInterfaceTranslation';
-
+import { useFindDataEntriesInScope } from '../getDataEntriesForSection';
 import InputTextareaCell from '../input/InputTextareaCell';
 import SourceDataCell from '../SourceDataCell';
 
 function CLDRTicketReviewTable() {
-  const { findDataEntries } = useDataContext();
+  const findDataEntries = useFindDataEntriesInScope();
   const sentences = findDataEntries({ section: DataSection.CLDRTicket });
-  const { uitext } = useInterfaceTranslation();
 
   function getHeight(english: string) {
     return Math.max(english.length / 50, 1.5) + 'em';
@@ -22,10 +20,8 @@ function CLDRTicketReviewTable() {
       <table>
         <thead>
           <tr>
-            <th>
-              <SourceLanguageLabel />
-            </th>
-            <th>{uitext('review.translated')}</th>
+            <SourceLanguageHeader />
+            <TargetLanguageHeader />
           </tr>
         </thead>
         <tbody>

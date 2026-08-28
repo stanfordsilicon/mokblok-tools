@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 import { isEntryInCoverageLevel } from '@data/CoverageLevel';
 import { DataPage, DataSection, getSectionsForPage } from '@data/DataSection';
@@ -47,8 +47,16 @@ const PageSectionSelector: React.FC = () => {
 const PageButtons: React.FC<{
   page: DataPage;
 }> = ({ page }) => {
-  const { page: selectedPage, coverageLevel, worksheets } = useURLParams();
-  const isExpanded = selectedPage === page || selectedPage === DataPage.All;
+  const { page: selectedPage, coverageLevel, worksheets, admin } = useURLParams();
+  const [isExpanded, setIsExpanded] = useState(
+    selectedPage === page || selectedPage === DataPage.All,
+  );
+
+  useEffect(() => {
+    // When the page changes, redo the isExpanded
+    setIsExpanded(selectedPage === page || selectedPage === DataPage.All);
+  }, [selectedPage, page]);
+
   const sections =
     page !== DataPage.All && page !== DataPage.FullTable ? getSectionsForPage(page) : [];
 
@@ -63,12 +71,16 @@ const PageButtons: React.FC<{
     return coveredDataEntries.length > 0;
   });
 
-  if (page !== DataPage.All && page !== DataPage.FullTable && pendingSections.length === 0)
+  // Don't show buttons in a few cases
+  if (page === DataPage.FullTable) {
+    if (!admin) return null;
+  } else if (page !== DataPage.All && pendingSections.length === 0) {
     return null;
+  }
 
   return (
     <>
-      <SectionRow page={page} />
+      <SectionRow page={page} isExpanded={isExpanded} setIsExpanded={setIsExpanded} />
       {page !== DataPage.All &&
         page !== DataPage.FullTable &&
         sections.map((section) => (
@@ -86,10 +98,18 @@ const PageButtons: React.FC<{
 type SectionRowProps = {
   page: DataPage;
   section?: DataSection;
-  isVisible?: boolean;
+  isVisible?: boolean; // Only for Sections
+  isExpanded?: boolean; // Only for Pages
+  setIsExpanded?: React.Dispatch<React.SetStateAction<boolean>>; // Only for Pages
 };
 
-const SectionRow: React.FC<SectionRowProps> = ({ page, section, isVisible = true }) => {
+const SectionRow: React.FC<SectionRowProps> = ({
+  page,
+  section,
+  isVisible = true,
+  isExpanded = true,
+  setIsExpanded,
+}) => {
   const { section: selectedSection, page: selectedPage, updateURLParams, step } = useURLParams();
   const [isRendered, setIsRendered] = useState(isVisible);
 
@@ -99,10 +119,16 @@ const SectionRow: React.FC<SectionRowProps> = ({ page, section, isVisible = true
 
   const isSelected = section
     ? selectedSection === section || selectedSection === DataSection.All
-    : selectedPage === page || (selectedPage === DataPage.All && page !== DataPage.FullTable);
+    : (selectedPage === page || (selectedPage === DataPage.All && page !== DataPage.FullTable)) &&
+      isExpanded;
   const contentClassName =
     (section ? 'overflow-hidden transition-all duration-300 ease-in-out' : '') +
     (section ? (isVisible ? ' max-h-20 opacity-100' : ' max-h-0 opacity-0') : '');
+
+  const onClick = useCallback(() => {
+    updateURLParams({ page, section: section ?? DataSection.All });
+    if (setIsExpanded) setIsExpanded(!isSelected);
+  }, [updateURLParams, page, section, setIsExpanded, isSelected]);
 
   return (
     <tr key={section}>
@@ -123,7 +149,7 @@ const SectionRow: React.FC<SectionRowProps> = ({ page, section, isVisible = true
             }
             role="button"
             tabIndex={0}
-            onClick={() => updateURLParams({ page, section: section ?? DataSection.All })}
+            onClick={onClick}
           >
             <PageSectionLabel page={page} section={section} isExpanded={isSelected} />
           </div>

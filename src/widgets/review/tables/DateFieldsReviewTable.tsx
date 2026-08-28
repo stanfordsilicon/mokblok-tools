@@ -1,17 +1,18 @@
-import { useDataContext } from '@data/DataContext';
 import { DataSection } from '@data/DataSection';
 import { DateField } from '@data/DateField';
 
-import SourceLanguageLabel from '@settings/SourceLanguageLabel';
+import { SourceLanguageHeader } from '@settings/SourceLanguageLabel';
+import { TargetLanguageHeader } from '@settings/TargetLanguageLabel';
 
 import { matrixBy } from '@shared/setUtils';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
+import { useFindDataEntriesInScope } from '../getDataEntriesForSection';
 import InputDataCell from '../input/InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 const DateFieldsReviewTable: React.FC = () => {
-  const { findDataEntries } = useDataContext();
+  const findDataEntries = useFindDataEntriesInScope();
   const dateFields = findDataEntries({ section: DataSection.DateFields, exampleNum: '0' });
   const dateFieldMatrix = matrixBy(
     dateFields,
@@ -24,12 +25,8 @@ const DateFieldsReviewTable: React.FC = () => {
     <table>
       <thead>
         <tr>
-          <th colSpan={3} style={{ textAlign: 'center' }}>
-            <SourceLanguageLabel />
-          </th>
-          <th colSpan={3} style={{ textAlign: 'center' }}>
-            {uitext('review.translated')}
-          </th>
+          <SourceLanguageHeader colSpan={3} className="text-center" />
+          <TargetLanguageHeader colSpan={3} className="text-center" />
         </tr>
         <tr>
           <th>{uitext('length.wide')}</th>

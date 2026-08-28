@@ -2,23 +2,24 @@ import { createContext, useCallback, useContext, useEffect, useState } from 'rea
 
 import { useURLParams } from '@settings/URLParams';
 
-import useTranslationFromSourceLanguage from './sourcedata/useTranslationFromSourceLanguage';
-import { useSourceDataContext } from './SourceDataProvider';
-import { applyPersistedEntries } from './target-data/applyPersistedEntries';
+import { useSourceDataContext } from '../source/SourceDataProvider';
+import useTranslationFromSourceLanguage from '../source/useTranslationFromSourceLanguage';
+import useImportedWorksheets from '../worksheets/useImportedWorksheets';
+
+import { applyPersistedEntries } from './applyPersistedEntries';
 import {
   type TargetDataContextType,
   TargetDataStatus,
   TranslationEdit,
   type TranslationInfo,
   Vote,
-} from './target-data/types';
-import useReviewDraftPersistence from './target-data/useReviewDraftPersistence';
-import useTargetBaselineData from './target-data/useTargetBaselineData';
-import useImportedWorksheets from './worksheets/useImportedWorksheets';
+} from './types';
+import useReviewDraftPersistence from './useReviewDraftPersistence';
+import useTargetBaselineData from './useTargetBaselineData';
 
-import type { DataEntry } from './DataTypes';
+import type { DataEntry } from '../DataTypes';
 
-export type { TargetDataContextType } from './target-data/types';
+export type { TargetDataContextType } from './types';
 export { TargetDataStatus, Vote };
 
 export const TargetDataContext = createContext<TargetDataContextType>({
@@ -119,12 +120,20 @@ const TargetDataProvider: React.FC<{
   );
 
   const getTranslations = useCallback(
-    (entries?: DataEntry[]): TranslationInfo[] => {
+    (entries?: DataEntry[], scope: 'edited' | 'all' = 'edited'): TranslationInfo[] => {
       const idSet = new Set(entries?.map((entry) => entry.id));
-      return Object.values(translationEdits)
+      if (scope === 'edited') {
+        return Object.values(translationEdits)
+          .filter((edit) => !entries || idSet.has(edit.id))
+          .map((edit) => {
+            const baseline = translationBaselines[edit.id];
+            return { ...baseline, ...edit };
+          });
+      }
+      return Object.values(translationBaselines)
         .filter((edit) => !entries || idSet.has(edit.id))
         .map((edit) => {
-          const baseline = translationBaselines[edit.id];
+          const baseline = translationEdits[edit.id];
           return { ...baseline, ...edit };
         });
     },

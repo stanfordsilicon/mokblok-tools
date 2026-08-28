@@ -1,4 +1,5 @@
-import { useDataContext } from '@data/DataContext';
+import { useSourceDataContext } from '@data/source/SourceDataProvider';
+import { useTargetDataContext } from '@data/target/TargetDataProvider';
 
 const STANDARD_KEYS = [
   ...['q', 'w', 'e', 'r', 't', 'y', 'u', 'i'],
@@ -8,7 +9,8 @@ const STANDARD_KEYS = [
 const DemoEmojiKeyboardSuggestions: React.FC<{ includeAnnotations: boolean }> = ({
   includeAnnotations,
 }) => {
-  const { findDataEntry, getTranslation, alphabet } = useDataContext();
+  const { findDataEntry } = useSourceDataContext();
+  const { getTranslation, alphabet } = useTargetDataContext();
   const heartSuit = findDataEntry({ instance: '♥️' });
   const heartRed = findDataEntry({ instance: '❤️' });
   const heartFace = findDataEntry({ instance: '🥰' });

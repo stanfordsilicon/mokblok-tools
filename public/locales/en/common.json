@@ -64,6 +64,7 @@
             "title": "Import Files",
             "placeholderTsv": "Paste your TSV data here",
             "placeholderTxt": "Paste your TXT data here",
+            "Worksheet": "Worksheet",
             "Worksheet 1": "Worksheet 1 (Core Data, Date/Time Patterns)",
             "Worksheet 2 part 1": "Worksheet 2 part 1 (Translations, Math)",
             "Worksheet 2 part 2": "Worksheet 2 part 2 (Long Form Text)",
@@ -179,10 +180,6 @@
                 "many": "Many",
                 "other": "Other"
             }
-        },
-        "progress": {
-            "ratioComplete": "{{completed}} / {{inCoverage}} complete",
-            "outOfCoverage": "{{count}} more outside of coverage"
         }
     },
     "export": {

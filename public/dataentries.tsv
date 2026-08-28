@@ -1,6 +1,6 @@
 Page	Section	Group	Field	Instance	Length	Variant	Example#	XPath	ExtID	English	English (pattern)	French	French (pattern)	Level	Var 1	Var 2	Pattern Format	Worksheet
 Core	Alphabet		characters	auxiliary			0	//ldml/characters/exemplarCharacters[@type="auxiliary"]		[áàăâåäãā æ ç éèĕêëē íìĭîïī ñ óòŏôöøō œ úùŭûüū ÿ]		[áåäãā ć ē íìī ĳ ñ óòöõø ř šſ ß úǔ]		Basic				5
-Core	Alphabet		characters	main			0	//ldml/characters/exemplarCharacters		[a b c d e f g h i j k l m n o p q r s t u v w x y z]		[aàâ æ b cç d eéèêë f g h iîï j k l m n oô œ p q r s t uùûü v w x yÿ z]		Basic				1
+Core	Alphabet		characters	main			0	//ldml/characters/exemplarCharacters		[a b c d e f g h i j k l m n o p q r s t u v w x y z]		[aàâ æ b cç d eéèêë f g h iîï j k l m n oô œ p q r s t uùûü v w x yÿ z]		Basic				5
 Core	Alphabet		characters	numbers			0	//ldml/characters/exemplarCharacters[@type="numbers"]		[\- ‑ , . % ‰ + 0 1 2 3 4 5 6 7 8 9]		[  \- ‑ , . % ‰ + − 0 1 2² 3³ 4 5 6 7 8 9 ᵈ ᵉ ʳ ˢ]		Basic				5
 Core	Alphabet		characters	punctuation			0	//ldml/characters/exemplarCharacters[@type="punctuation"]		[\- ‐‑ – — , ; \: ! ? . … '‘’ &quot;“” ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]		[\- ‐‑ – — , ; \: ! ? . … ’ "“” « » ( ) \[ \] § @ * / \& # † ‡]		Basic				5
 Core	Alphabet		characters	uppercase			0	//ldml/characters/exemplarCharacters[@type="index"]		[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z]		[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z]		Moderate				5
@@ -157,6 +157,7 @@ DateAndTime	Dates		availableFormats	yw		other	1	//ldml/dates/calendars/calendar[
 DateAndTime	Dates		availableFormats	yw		one	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yw"][@count="one"]	dc-2_XXX	week 1 of 2024	'week' w 'of' Y	semaine 1 de 2024	'semaine' w 'de' Y	Moderate	1704096000000		datetime	1
 DateAndTime	DateFields		d		w		0	//ldml/dates/fields/field[@type="day"]/displayName	dw-14_XXX	day	day	jour	jour	Moderate				1
 DateAndTime	DateFields		d		s		0	//ldml/dates/fields/field[@type="day-short"]/displayName	dw-15_XXX	d	day	j	j	Moderate				1
+DateAndTime	DateFields		d		n		0	//ldml/dates/fields/field[@type="day-narrow"]/displayName		d	day	j	j	Moderate				5
 DateAndTime	RelativeTime		d	-1			0	//ldml/dates/fields/field[@type="day"]/relative[@type="-1"]	rt-3_XXX	yesterday	yesterday	hier	hier	Moderate				1
 DateAndTime	RelativeTime		d	0			0	//ldml/dates/fields/field[@type="day"]/relative[@type="0"]	rt-7_XXX	today	today	aujourd’hui	aujourd’hui	Moderate				1
 DateAndTime	RelativeTime		d	1			0	//ldml/dates/fields/field[@type="day"]/relative[@type="1"]	rt-9_XXX	tomorrow	tomorrow	demain	demain	Moderate				1
@@ -173,7 +174,9 @@ DateAndTime	DateTimes		dateTimeFormats		full	standard	1	//ldml/dates/calendars/c
 DateAndTime	DateTimes		dateTimeFormats		long	standard	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/dateTimeFormatLength[@type="long"]/dateTimeFormat[@type="standard"]/pattern[@type="standard"]	dc-38_XXX	April 23, 2024 at 3:30:45 PM	{1}, {0}	23 avril 2024, 15:30:45	{1}, {0}	Moderate	hms	yMMMMd	datetimecombo	1
 DateAndTime	DateTimes		dateTimeFormats		medium	standard	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/dateTimeFormatLength[@type="medium"]/dateTimeFormat[@type="standard"]/pattern[@type="standard"]	dc-39_XXX	Apr 23, 2024 at 3:30 PM	{1}, {0}	avr. 23, 2024, 15:30	{1}, {0}	Moderate	hm	yMMMd	datetimecombo	1
 DateAndTime	DateTimes		dateTimeFormats		medium	atTime	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/dateTimeFormatLength[@type="medium"]/dateTimeFormat[@type="atTime"]/pattern[@type="standard"]	dc-40_XXX	Apr 23 at 3:30 PM	{1}, {0}	avr. 23, 15:30	{1}, {0}	Moderate	hm	MMMd	datetimecombo	1
-DateAndTime	DateFields		E		w		0	//ldml/dates/fields/field[@type="weekday"]/displayName	dw-23_XXX	day of the week	day of the week	jour de la semaine	jour de la semaine	Moderate				1
+DateAndTime	DateFields		E		w		0	//ldml/dates/fields/field[@type="weekday"]/displayName	dw-23_XXX	day of the week	day of the week	jour de la semaine	jour de la semaine	Moderate				5
+DateAndTime	DateFields		E		s		0	//ldml/dates/fields/field[@type="weekday-short"]/displayName	dw-23_XXX	day of wk.	day of wk.	j (sem.)	j (sem.)	Modern				5
+DateAndTime	DateFields		E		n		0	//ldml/dates/fields/field[@type="weekday-narrow"]/displayName	dw-23_XXX	day of wk.	day of wk.	j (sem.)	j (sem.)	Modern				5
 DateAndTime	DaysOfWeek		E	fri	w		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="format"]/dayWidth[@type="wide"]/day[@type="fri"]	wk-6_XXX	Friday	Friday	vendredi	vendredi	Basic				1
 DateAndTime	DaysOfWeek		E	fri	a		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="abbreviated"]/day[@type="fri"]	wk-13_XXX	Fri	Fri	ven.	ven.	Moderate				1
 DateAndTime	DaysOfWeek		E	fri	s		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="short"]/day[@type="fri"]	wk-20_XXX	Fr	Fr	ve	ve	Moderate				1
@@ -203,6 +206,8 @@ DateAndTime	DaysOfWeek		E	wed	a		0	//ldml/dates/calendars/calendar[@type="gregor
 DateAndTime	DaysOfWeek		E	wed	s		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="short"]/day[@type="wed"]	wk-18_XXX	We	We	me	me	Moderate				1
 DateAndTime	DaysOfWeek		E	wed	n		0	//ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="narrow"]/day[@type="wed"]	wk-25_XXX	W	W	M	M	Moderate				1
 DateAndTime	DateFields		G		w		0	//ldml/dates/fields/field[@type="era"]/displayName	dw-1_XXX	era	era	ère	ère	Moderate				1
+DateAndTime	DateFields		G		s		0	//ldml/dates/fields/field[@type="era-short"]/displayName		era	era	ère	ère	Modern				5
+DateAndTime	DateFields		G		n		0	//ldml/dates/fields/field[@type="era-narrow"]/displayName		era	era	ère	ère	Modern				5
 DateAndTime	Eras		G	0	w	variant	0	//ldml/dates/calendars/calendar[@type="gregorian"]/eras/eraNames/era[@type="0"][@alt="variant"]	er-1_XXX	Before Common Era	Before Common Era	avant l’ère commune	avant l’ère commune	Moderate				1
 DateAndTime	Eras		G	0	a	variant	0	//ldml/dates/calendars/calendar[@type="gregorian"]/eras/eraAbbr/era[@type="0"][@alt="variant"]	er-2_XXX	BCE	BCE	AEC	AEC	Moderate				1
 DateAndTime	Eras		G	0	w		0	//ldml/dates/calendars/calendar[@type="gregorian"]/eras/eraNames/era[@type="0"]	er-3_XXX	Before Christ	Before Christ	avant Jésus-Christ	avant Jésus-Christ	Moderate				1
@@ -216,7 +221,8 @@ DateAndTime	Eras		G	1	a		0	//ldml/dates/calendars/calendar[@type="gregorian"]/er
 DateAndTime	Eras		G	1	n	variant	0	//ldml/dates/calendars/calendar[@type="gregorian"]/eras/eraNarrow/era[@type="1"][@alt="variant"]		CE	CE	EC	EC	Comprehensive				5
 DateAndTime	Eras		G	1	n		0	//ldml/dates/calendars/calendar[@type="gregorian"]/eras/eraNarrow/era[@type="1"]		A	A	ap. J.-C.	ap. J.-C.	Comprehensive				5
 DateAndTime	DateFields		h		w		0	//ldml/dates/fields/field[@type="hour"]/displayName	dw-16_XXX	hour	hour	heure	heure	Moderate				1
-DateAndTime	DateFields		h		n		0	//ldml/dates/fields/field[@type="hour-narrow"]/displayName	dw-17_XXX	hr	hr	h	h	Moderate				1
+DateAndTime	DateFields		h		s		0	//ldml/dates/fields/field[@type="hour-short"]/displayName	dw-17_XXX	hr.	hr.	h	h	Moderate				1
+DateAndTime	DateFields		h		n		0	//ldml/dates/fields/field[@type="hour-narrow"]/displayName		hr	hr	h	h	Moderate				5
 DateAndTime	EraDates		intervalFormats	Gy		y	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Gy"]/greatestDifference[@id="y"]	dc-86_XXX	2024 – 2027 AD	y – y G	2024–2027 ap. J.-C.	y–y G	Moderate	1713855600000	1808463600000	datetime	1
 DateAndTime	EraDates		intervalFormats	Gy		G	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="Gy"]/greatestDifference[@id="G"]	dc-88_XXX	107 BC – 2024 AD	y G – y G	107 av. J.-C. à 2024 ap. J.-C.	y G 'à' y G	Moderate	-65534026022000	1713855600000	datetime	1
 DateAndTime	EraDates		intervalFormats	GyM		M	1	//ldml/dates/calendars/calendar[@type="gregorian"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="GyM"]/greatestDifference[@id="M"]	dc-70_XXX	4/2024 – 5/2024 AD	M/y – M/y G	04–05/2024 ap. J.-C.	MM–MM/y G	Moderate	1713855600000	1716447600000	datetime	1
@@ -308,6 +314,7 @@ DateAndTime	DateFields		M		w		0	//ldml/dates/fields/field[@type="month"]/display
 DateAndTime	DateFields		M		s		0	//ldml/dates/fields/field[@type="month-short"]/displayName	dw-9_XXX	mo.	mo.	m.	m.	Moderate				1
 DateAndTime	DateFields		M		n		0	//ldml/dates/fields/field[@type="month-narrow"]/displayName	dw-10_XXX	mo	mo	m.	m.	Moderate				1
 DateAndTime	DateFields		m		w		0	//ldml/dates/fields/field[@type="minute"]/displayName	dw-18_XXX	minute	minute	minute	minute	Moderate				1
+DateAndTime	DateFields		m		s		0	//ldml/dates/fields/field[@type="minute-short"]/displayName	dw-18_XXX	min.	min.	min	min	Moderate				5
 DateAndTime	DateFields		m		n		0	//ldml/dates/fields/field[@type="minute-narrow"]/displayName	dw-19_XXX	min	min	min	min	Moderate				1
 DateAndTime	RelativeTime		M	-1			0	//ldml/dates/fields/field[@type="month"]/relative[@type="-1"]	rt-1_XXX	last month	last month	le mois dernier	le mois dernier	Moderate				1
 DateAndTime	RelativeTime		M	0			0	//ldml/dates/fields/field[@type="month"]/relative[@type="0"]	rt-5_XXX	this month	this month	ce mois-ci	ce mois-ci	Moderate				1
@@ -395,6 +402,8 @@ DateAndTime	DateTimes		timeFormats		medium		1	//ldml/dates/calendars/calendar[@t
 DateAndTime	DateTimes		timeFormats		long		1	//ldml/dates/calendars/calendar[@type="gregorian"]/timeFormats/timeFormatLength[@type="long"]/timeFormat[@type="standard"]/pattern[@type="standard"]	dc-56_XXX	3:30:45 PM GMT	h:mm:ss a z	15:30:45 UTC	HH:mm:ss z	Moderate	1713911445000		datetime	1
 DateAndTime	DateTimes		timeFormats		full		1	//ldml/dates/calendars/calendar[@type="gregorian"]/timeFormats/timeFormatLength[@type="full"]/timeFormat[@type="standard"]/pattern[@type="standard"]	dc-57_XXX	3:30:45 PM Greenwich Mean Time	h:mm:ss a zzzz	15:30:45 heure moyenne de Greenwich	HH:mm:ss zzzz	Moderate	1713911445000		datetime	1
 DateAndTime	DateFields		v		w		0	//ldml/dates/fields/field[@type="zone"]/displayName		time zone	time zone	fuseau horaire	fuseau horaire	Moderate				2_3
+DateAndTime	DateFields		v		s		0	//ldml/dates/fields/field[@type="zone-short"]/displayName		zone	zone	fuseau horaire	fuseau horaire	Modern				5
+DateAndTime	DateFields		v		n		0	//ldml/dates/fields/field[@type="zone-narrow"]/displayName		zone	zone	fuseau horaire	fuseau horaire	Modern				5
 DateAndTime	DateFields		w		w		0	//ldml/dates/fields/field[@type="week"]/displayName	dw-11_XXX	week	week	semaine	semaine	Moderate				1
 DateAndTime	DateFields		w		s		0	//ldml/dates/fields/field[@type="week-short"]/displayName	dw-12_XXX	wk.	wk.	sem.	sem.	Moderate				1
 DateAndTime	DateFields		w		n		0	//ldml/dates/fields/field[@type="week-narrow"]/displayName	dw-13_XXX	wk	wk	sem.	sem.	Moderate				1
@@ -1542,79 +1551,82 @@ Translations	Paragraphs		Local Organization Form	3				//ldml/silicon/translation
 Translations	Paragraphs		Local Organization Form	4				//ldml/silicon/translations/Local Organization Form/4	Local Organization Form-4	Which language do you wish to contribute data for?								2_2
 Translations	Paragraphs		Local Organization Form	5				//ldml/silicon/translations/Local Organization Form/5	Local Organization Form-5	What is your background with this language? Is your relationship with this language social, academic, and/or professional? Please share as much information as you can.								2_2
 Translations	Paragraphs		Local Organization Form	6				//ldml/silicon/translations/Local Organization Form/6	Local Organization Form-6	What organizations are you part of, and what is this organization's relationship with the language? For example, you could be part of an academic institution, a non-profit organization that focuses on this language, a government ministry focused on language, or a company that uses this language in its work.								2_2
-Translations	LanguageNames	Secondary	LocaleDisplayNames	aa				//ldml/localeDisplayNames/languages/language[@type="aa"]		Afar				Basic if Local				2_1
+Translations	LanguageNames	Secondary	LocaleDisplayNames	aa				//ldml/localeDisplayNames/languages/language[@type="aa"]		Afar		afar		Basic if Local				2_1
 Translations	LanguageNames	Secondary	LocaleDisplayNames	abr				//ldml/localeDisplayNames/languages/language[@type="abr"]		Abron				Basic if Local				2_1
-Translations	LanguageNames	Secondary	LocaleDisplayNames	ada				//ldml/localeDisplayNames/languages/language[@type="ada"]		Dangme				Basic if Local				2_1
-Translations	LanguageNames	Secondary	LocaleDisplayNames	ak				//ldml/localeDisplayNames/languages/language[@type="ak"]		Akan				Basic if Local				2_1
-Translations	LanguageNames	Secondary	LocaleDisplayNames	ann				//ldml/localeDisplayNames/languages/language[@type="ann"]		Obolo				Basic if Local				2_1
+Translations	LanguageNames	Secondary	LocaleDisplayNames	ada				//ldml/localeDisplayNames/languages/language[@type="ada"]		Dangme		adangme		Basic if Local				2_1
+Translations	LanguageNames	Secondary	LocaleDisplayNames	ak				//ldml/localeDisplayNames/languages/language[@type="ak"]		Akan		akan		Basic if Local				2_1
+Translations	LanguageNames	Secondary	LocaleDisplayNames	ann				//ldml/localeDisplayNames/languages/language[@type="ann"]		Obolo		obolo		Basic if Local				2_1
 Translations	LanguageNames	Secondary	LocaleDisplayNames	any				//ldml/localeDisplayNames/languages/language[@type="any"]		Anyin				Basic if Local				2_1
 Translations	LanguageNames		LocaleDisplayNames	ar				//ldml/localeDisplayNames/languages/language[@type="ar"]	uli-594_72	Arabic		arabe		Basic if Local				2_1
 Translations	LanguageNames	Secondary	LocaleDisplayNames	az				//ldml/localeDisplayNames/languages/language[@type="az"]		Azerbaijani		azerbaïdjanais		Basic if Local				2_1
 Translations	LanguageNames	Secondary	LocaleDisplayNames	bax				//ldml/localeDisplayNames/languages/language[@type="bax"]		Bamun		bamoun		Basic if Local				2_1
 Translations	LanguageNames	Secondary	LocaleDisplayNames	bcc				//ldml/localeDisplayNames/languages/language[@type="bcc"]		Southern Balochi				Basic if Local				2_1
 Translations	LanguageNames	Secondary	LocaleDisplayNames	bci				//ldml/localeDisplayNames/languages/language[@type="bci"]		Baoulé				Basic if Local				2_1
-Translations	LanguageNames	Secondary	LocaleDisplayNames	bem				//ldml/localeDisplayNames/languages/language[@type="bem"]		Bemba				Basic if Local				2_1
+Translations	LanguageNames	Secondary	LocaleDisplayNames	bem				//ldml/localeDisplayNames/languages/language[@type="bem"]		Bemba		bemba		Basic if Local				2_1
 Translations	LanguageNames	Secondary	LocaleDisplayNames	bev				//ldml/localeDisplayNames/languages/language[@type="bev"]		Daloa Bété				Basic if Local				2_1
-Translations	LanguageNames	Secondary	LocaleDisplayNames	bgn				//ldml/localeDisplayNames/languages/language[@type="bgn"]		Western Balochi				Basic if Local				2_1
+Translations	LanguageNames	Secondary	LocaleDisplayNames	bgn				//ldml/localeDisplayNames/languages/language[@type="bgn"]		Western Balochi		baloutchi occidental		Basic if Local				2_1
 Translations	LanguageNames	Secondary	LocaleDisplayNames	bgp				//ldml/localeDisplayNames/languages/language[@type="bgp"]		Eastern Balochi				Basic if Local				2_1
 Translations	LanguageNames	Secondary	LocaleDisplayNames	bho				//ldml/localeDisplayNames/languages/language[@type="bho"]		Bhojpuri		bhodjpouri		Basic if Local				2_1
 Translations	LanguageNames	Secondary	LocaleDisplayNames	bs				//ldml/localeDisplayNames/languages/language[@type="bs"]		Bosnian		bosniaque		Basic if Local				2_1
 Translations	LanguageNames	Secondary	LocaleDisplayNames	ceb				//ldml/localeDisplayNames/languages/language[@type="ceb"]		Cebuano		cebuano		Basic if Local				2_1
-Translations	LanguageNames	Secondary	LocaleDisplayNames	cgg				//ldml/localeDisplayNames/languages/language[@type="cgg"]		Chiga				Basic if Local				2_1
+Translations	LanguageNames	Secondary	LocaleDisplayNames	cgg				//ldml/localeDisplayNames/languages/language[@type="cgg"]		Chiga		kiga		Basic if Local				2_1
 Translations	LanguageNames	Secondary	LocaleDisplayNames	dag				//ldml/localeDisplayNames/languages/language[@type="dag"]		Dagbani				Basic if Local				2_1
 Translations	LanguageNames		LocaleDisplayNames	de				//ldml/localeDisplayNames/languages/language[@type="de"]	uli-594_73	German		allemand		Basic if Local				2_1
 Translations	LanguageNames	Secondary	LocaleDisplayNames	dua				//ldml/localeDisplayNames/languages/language[@type="dua"]		Duala		douala		Basic if Local				2_1
-Translations	LanguageNames	Secondary	LocaleDisplayNames	dyo				//ldml/localeDisplayNames/languages/language[@type="dyo"]		Jola-Fonyi				Basic if Local				2_1
+Translations	LanguageNames	Secondary	LocaleDisplayNames	dyo				//ldml/localeDisplayNames/languages/language[@type="dyo"]		Jola-Fonyi		diola-fogny		Basic if Local				2_1
 Translations	LanguageNames	Secondary	LocaleDisplayNames	dyu				//ldml/localeDisplayNames/languages/language[@type="dyu"]		Dyula		dioula		Basic if Local				2_1
+Translations	LanguageNames	Secondary	LocaleDisplayNames	ee				//ldml/localeDisplayNames/languages/language[@type="ee"]		Ewe		éwé		Basic if Local				2_1
 Translations	LanguageNames		LocaleDisplayNames	en				//ldml/localeDisplayNames/languages/language[@type="en"]	uli-594_67	English		anglais		Basic				2_1
 Translations	LanguageNames		LocaleDisplayNames	es				//ldml/localeDisplayNames/languages/language[@type="es"]	uli-594_70	Spanish		espagnol		Basic if Local				2_1
-Translations	LanguageNames	Secondary	LocaleDisplayNames	ewe				//ldml/localeDisplayNames/languages/language[@type="ewe"]		Ewe				Basic if Local				2_1
 Translations	LanguageNames	Secondary	LocaleDisplayNames	ewo				//ldml/localeDisplayNames/languages/language[@type="ewo"]		Ewondo		éwondo		Basic if Local				2_1
 Translations	LanguageNames	Secondary	LocaleDisplayNames	fo				//ldml/localeDisplayNames/languages/language[@type="fo"]		Faroese		féroïen		Basic if Local				2_1
 Translations	LanguageNames		LocaleDisplayNames	fr				//ldml/localeDisplayNames/languages/language[@type="fr"]	uli-594_69	French		français		Basic if Local				2_1
 Translations	LanguageNames	Secondary	LocaleDisplayNames	ful				//ldml/localeDisplayNames/languages/language[@type="ful"]		Fulah		peul		Basic if Local				2_1
-Translations	LanguageNames	Secondary	LocaleDisplayNames	gaa				//ldml/localeDisplayNames/languages/language[@type="gaa"]		Ga				Basic if Local				2_1
+Translations	LanguageNames	Secondary	LocaleDisplayNames	gaa				//ldml/localeDisplayNames/languages/language[@type="gaa"]		Ga		ga		Basic if Local				2_1
 Translations	LanguageNames	Secondary	LocaleDisplayNames	ha				//ldml/localeDisplayNames/languages/language[@type="ha"]		Hausa		haoussa		Basic if Local				2_1
-Translations	LanguageNames	Secondary	LocaleDisplayNames	kam				//ldml/localeDisplayNames/languages/language[@type="kam"]		Kamba				Basic if Local				2_1
-Translations	LanguageNames	Secondary	LocaleDisplayNames	kln				//ldml/localeDisplayNames/languages/language[@type="kln"]		Kalenjin				Basic if Local				2_1
+Translations	LanguageNames	Secondary	LocaleDisplayNames	hr				//ldml/localeDisplayNames/languages/language[@type="hr"]		Croatian		croate		Basic if Local				5
+Translations	LanguageNames	Secondary	LocaleDisplayNames	kam				//ldml/localeDisplayNames/languages/language[@type="kam"]		Kamba		kamba		Basic if Local				2_1
+Translations	LanguageNames	Secondary	LocaleDisplayNames	kln				//ldml/localeDisplayNames/languages/language[@type="kln"]		Kalenjin		kalendjin		Basic if Local				2_1
 Translations	LanguageNames	Secondary	LocaleDisplayNames	kpe				//ldml/localeDisplayNames/languages/language[@type="kpe"]		Kpelle		kpellé		Basic if Local				2_1
 Translations	LanguageNames	Secondary	LocaleDisplayNames	ku				//ldml/localeDisplayNames/languages/language[@type="ku"]		Kurdish		kurde		Basic if Local				2_1
-Translations	LanguageNames	Secondary	LocaleDisplayNames	lag				//ldml/localeDisplayNames/languages/language[@type="lag"]		Langi				Basic if Local				2_1
+Translations	LanguageNames	Secondary	LocaleDisplayNames	lag				//ldml/localeDisplayNames/languages/language[@type="lag"]		Langi		langi		Basic if Local				2_1
 Translations	LanguageNames	Secondary	LocaleDisplayNames	lb				//ldml/localeDisplayNames/languages/language[@type="lb"]		Luxembourgish		luxembourgeois		Basic if Local				2_1
-Translations	LanguageNames	Secondary	LocaleDisplayNames	lg				//ldml/localeDisplayNames/languages/language[@type="lg"]		Ganda				Basic if Local				2_1
+Translations	LanguageNames	Secondary	LocaleDisplayNames	lg				//ldml/localeDisplayNames/languages/language[@type="lg"]		Ganda		ganda		Basic if Local				2_1
 Translations	LanguageNames	Secondary	LocaleDisplayNames	lub				//ldml/localeDisplayNames/languages/language[@type="lub"]		Luba-Katanga				Basic if Local				2_1
 Translations	LanguageNames	Secondary	LocaleDisplayNames	mas				//ldml/localeDisplayNames/languages/language[@type="mas"]		Masai		massaï		Basic if Local				2_1
-Translations	LanguageNames	Secondary	LocaleDisplayNames	mfe				//ldml/localeDisplayNames/languages/language[@type="mfe"]		Morisyen				Basic if Local				2_1
+Translations	LanguageNames	Secondary	LocaleDisplayNames	mfe				//ldml/localeDisplayNames/languages/language[@type="mfe"]		Morisyen		créole mauricien		Basic if Local				2_1
 Translations	LanguageNames	Secondary	LocaleDisplayNames	mg				//ldml/localeDisplayNames/languages/language[@type="mg"]		Malagasy		malgache		Basic if Local				2_1
 Translations	LanguageNames	Secondary	LocaleDisplayNames	mn				//ldml/localeDisplayNames/languages/language[@type="mn"]		Mongolian		mongol		Basic if Local				2_1
 Translations	LanguageNames	Secondary	LocaleDisplayNames	mt				//ldml/localeDisplayNames/languages/language[@type="mt"]		Maltese		maltais		Basic if Local				2_1
-Translations	LanguageNames	Secondary	LocaleDisplayNames	nd				//ldml/localeDisplayNames/languages/language[@type="nd"]		Ndebele				Basic if Local				2_1
+Translations	LanguageNames	Secondary	LocaleDisplayNames	nd				//ldml/localeDisplayNames/languages/language[@type="nd"]		Ndebele		ndébélé du Nord		Basic if Local				2_1
 Translations	LanguageNames	Secondary	LocaleDisplayNames	nku				//ldml/localeDisplayNames/languages/language[@type="nku"]		Bouna Kulango				Basic if Local				2_1
 Translations	LanguageNames		LocaleDisplayNames	nl				//ldml/localeDisplayNames/languages/language[@type="nl"]	uli-594_75	Dutch		néerlandais		Basic if Local				2_1
-Translations	LanguageNames	Secondary	LocaleDisplayNames	nso				//ldml/localeDisplayNames/languages/language[@type="nso"]		Northern Sotho				Basic if Local				2_1
-Translations	LanguageNames	Secondary	LocaleDisplayNames	nus				//ldml/localeDisplayNames/languages/language[@type="nus"]		Nuer				Basic if Local				2_1
-Translations	LanguageNames	Secondary	LocaleDisplayNames	nyn				//ldml/localeDisplayNames/languages/language[@type="nyn"]		Nyankore				Basic if Local				2_1
-Translations	LanguageNames	Secondary	LocaleDisplayNames	orm				//ldml/localeDisplayNames/languages/language[@type="orm"]		Oromo				Basic if Local				2_1
-Translations	LanguageNames	Secondary	LocaleDisplayNames	pap				//ldml/localeDisplayNames/languages/language[@type="pap"]		Papiamentu				Basic if Local				2_1
+Translations	LanguageNames	Secondary	LocaleDisplayNames	nso				//ldml/localeDisplayNames/languages/language[@type="nso"]		Northern Sotho		sotho du Nord		Basic if Local				2_1
+Translations	LanguageNames	Secondary	LocaleDisplayNames	nus				//ldml/localeDisplayNames/languages/language[@type="nus"]		Nuer		nuer		Basic if Local				2_1
+Translations	LanguageNames	Secondary	LocaleDisplayNames	nyn				//ldml/localeDisplayNames/languages/language[@type="nyn"]		Nyankore		nyankolé		Basic if Local				2_1
+Translations	LanguageNames	Secondary	LocaleDisplayNames	om				//ldml/localeDisplayNames/languages/language[@type="om"]		Oromo		oromo		Basic if Local				2_1
+Translations	LanguageNames	Secondary	LocaleDisplayNames	pap				//ldml/localeDisplayNames/languages/language[@type="pap"]		Papiamentu		papiamento		Basic if Local				2_1
 Translations	LanguageNames	Secondary	LocaleDisplayNames	pnb				//ldml/localeDisplayNames/languages/language[@type="pnb"]		Western Panjabi				Basic if Local				2_1
 Translations	LanguageNames		LocaleDisplayNames	pt				//ldml/localeDisplayNames/languages/language[@type="pt"]	uli-594_71	Portuguese		portugais		Basic if Local				2_1
-Translations	LanguageNames	Secondary	LocaleDisplayNames	rhg				//ldml/localeDisplayNames/languages/language[@type="rhg"]		Rohingya				Basic if Local				2_1
+Translations	LanguageNames	Secondary	LocaleDisplayNames	rhg				//ldml/localeDisplayNames/languages/language[@type="rhg"]		Rohingya		rohingya		Basic if Local				2_1
 Translations	LanguageNames		LocaleDisplayNames	ru				//ldml/localeDisplayNames/languages/language[@type="ru"]	uli-594_74	Russian		russe		Basic if Local				2_1
 Translations	LanguageNames	Secondary	LocaleDisplayNames	rw				//ldml/localeDisplayNames/languages/language[@type="rw"]		Kinyarwanda		rwanda		Basic if Local				2_1
-Translations	LanguageNames	Secondary	LocaleDisplayNames	rwk				//ldml/localeDisplayNames/languages/language[@type="rwk"]		Rwa				Basic if Local				2_1
+Translations	LanguageNames	Secondary	LocaleDisplayNames	rwk				//ldml/localeDisplayNames/languages/language[@type="rwk"]		Rwa		rwa		Basic if Local				2_1
 Translations	LanguageNames	Secondary	LocaleDisplayNames	sg				//ldml/localeDisplayNames/languages/language[@type="sg"]		Sango		sango		Basic if Local				2_1
-Translations	LanguageNames	Secondary	LocaleDisplayNames	sn				//ldml/localeDisplayNames/languages/language[@type="sn"]		Shona				Basic if Local				2_1
-Translations	LanguageNames	Secondary	LocaleDisplayNames	sot				//ldml/localeDisplayNames/languages/language[@type="sot"]		Southern Sotho		sotho du Sud		Basic if Local				2_1
-Translations	LanguageNames	Secondary	LocaleDisplayNames	ss				//ldml/localeDisplayNames/languages/language[@type="ss"]		Swati				Basic if Local				2_1
+Translations	LanguageNames	Secondary	LocaleDisplayNames	sn				//ldml/localeDisplayNames/languages/language[@type="sn"]		Shona		shona		Basic if Local				2_1
+Translations	LanguageNames	Secondary	LocaleDisplayNames	sr				//ldml/localeDisplayNames/languages/language[@type="sr"]		Serbian		serbe		Basic if Local				5
+Translations	LanguageNames	Secondary	LocaleDisplayNames	sr-Latn				//ldml/localeDisplayNames/languages/language[@type="sr-Latn"]		Serbian (Latin)		serbe (latin)		Basic if Local				5
+Translations	LanguageNames	Secondary	LocaleDisplayNames	ss				//ldml/localeDisplayNames/languages/language[@type="ss"]		Swati		swati		Basic if Local				2_1
+Translations	LanguageNames	Secondary	LocaleDisplayNames	st				//ldml/localeDisplayNames/languages/language[@type="st"]		Southern Sotho		sotho du Sud		Basic if Local				2_1
 Translations	LanguageNames	Secondary	LocaleDisplayNames	tg				//ldml/localeDisplayNames/languages/language[@type="tg"]		Tajik		tadjik		Basic if Local				2_1
 Translations	LanguageNames	Secondary	LocaleDisplayNames	tig				//ldml/localeDisplayNames/languages/language[@type="tig"]		Tigre		tigré		Basic if Local				2_1
-Translations	LanguageNames	Secondary	LocaleDisplayNames	tn				//ldml/localeDisplayNames/languages/language[@type="tn"]		Tswana				Basic if Local				2_1
-Translations	LanguageNames	Secondary	LocaleDisplayNames	ts				//ldml/localeDisplayNames/languages/language[@type="ts"]		Tsonga				Basic if Local				2_1
+Translations	LanguageNames	Secondary	LocaleDisplayNames	tn				//ldml/localeDisplayNames/languages/language[@type="tn"]		Tswana		tswana		Basic if Local				2_1
+Translations	LanguageNames	Secondary	LocaleDisplayNames	ts				//ldml/localeDisplayNames/languages/language[@type="ts"]		Tsonga		tsonga		Basic if Local				2_1
 Translations	LanguageNames	Secondary	LocaleDisplayNames	uz				//ldml/localeDisplayNames/languages/language[@type="uz"]		Uzbek		ouzbek		Basic if Local				2_1
-Translations	LanguageNames	Secondary	LocaleDisplayNames	ve				//ldml/localeDisplayNames/languages/language[@type="ve"]		Venda				Basic if Local				2_1
+Translations	LanguageNames	Secondary	LocaleDisplayNames	ve				//ldml/localeDisplayNames/languages/language[@type="ve"]		Venda		venda		Basic if Local				2_1
 Translations	LanguageNames	Secondary	LocaleDisplayNames	vmw				//ldml/localeDisplayNames/languages/language[@type="vmw"]		Makhuwa		macua		Basic if Local				2_1
 Translations	LanguageNames	Secondary	LocaleDisplayNames	wo				//ldml/localeDisplayNames/languages/language[@type="wo"]		Wolof		wolof		Basic if Local				2_1
-Translations	LanguageNames	Secondary	LocaleDisplayNames	xog				//ldml/localeDisplayNames/languages/language[@type="xog"]		Soga				Basic if Local				2_1
+Translations	LanguageNames	Secondary	LocaleDisplayNames	xog				//ldml/localeDisplayNames/languages/language[@type="xog"]		Soga		soga		Basic if Local				2_1
 Translations	LanguageNames	Secondary	LocaleDisplayNames	zgh				//ldml/localeDisplayNames/languages/language[@type="zgh"]		Standard Moroccan Tamazight		amazighe standard marocain		Basic if Local				2_1
 Translations	LanguageNames		LocaleDisplayNames	zh				//ldml/localeDisplayNames/languages/language[@type="zh"]	uli-594_68	Chinese		chinois		Basic if Local				2_1
 Translations	LanguageNames	Secondary	LocaleDisplayNames	zlm				//ldml/localeDisplayNames/languages/language[@type="zlm"]		Malay		malai		Basic if Local				2_1

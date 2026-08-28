@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 
 import ImportSource from '@data/ImportSource';
-import { useTargetDataContext } from '@data/TargetDataProvider';
+import { useTargetDataContext } from '@data/target/TargetDataProvider';
 import { Worksheet } from '@data/worksheets/Worksheet';
 
 import { useURLParams } from '@settings/URLParams';
