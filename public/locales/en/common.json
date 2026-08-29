@@ -180,7 +180,14 @@
                 "many": "Many",
                 "other": "Other"
             }
-        }
+        },
+        "12h clock": "12-hour Clock",
+        "24h clock": "24-hour Clock"
+    },
+    "mocks": {
+        "Temperature": "Temperature",
+        "Directions to...":"Directions to...",
+        "Pick a time on ": "Pick a time on "
     },
     "export": {
         "title": "Export",

@@ -13,10 +13,23 @@ import SourceDataCell from '../SourceDataCell';
 
 function TimeIntervalsReviewTable() {
   const { uitext } = useInterfaceTranslation();
+  return ['12h', '24h'].map((hourFormat) => (
+    <>
+      <h3>{uitext('review.' + hourFormat + ' clock')}</h3>
+      <Group hourFormat={hourFormat} />
+    </>
+  ));
+}
+
+const Group = ({ hourFormat }: { hourFormat: string }) => {
+  const { uitext } = useInterfaceTranslation();
   const { admin } = useURLParams();
   const findDataEntries = useFindDataEntriesInScope();
   const intervalFormats = uniqueBy(
-    sortBy(findDataEntries({ section: DataSection.TimeIntervals }), (f) => f.instance),
+    sortBy(
+      findDataEntries({ section: DataSection.TimeIntervals, group: hourFormat }),
+      (f) => f.instance,
+    ),
     (f) => f.english,
   );
 
@@ -43,6 +56,6 @@ function TimeIntervalsReviewTable() {
       </tbody>
     </table>
   );
-}
+};
 
 export default TimeIntervalsReviewTable;

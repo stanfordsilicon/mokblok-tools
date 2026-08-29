@@ -181,7 +181,14 @@
                 "many": "Beaucoup",
                 "other": "Autre"
             }
-        }
+        },
+        "12h clock": "Format 12 heures",
+        "24h clock": "Format 24 heures"
+    },
+    "mocks": {
+        "Temperature": "Température",
+        "Directions to...": "Itinéraire pour...",
+        "Pick a time on ": "Choisissez une heure le "
     },
     "export": {
         "title": "Exporte",
