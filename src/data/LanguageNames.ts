@@ -1,8 +1,12 @@
 export type LanguageNameData = {
   code: string;
-  standardName: string;
-  localizedName?: string;
   endonym: string;
+  en: string;
+  fr: string;
+  it: string;
+  es: string;
+  pt: string;
+  localized: string;
 };
 
 export async function loadLanguageNames(): Promise<Record<string, LanguageNameData>> {
@@ -15,8 +19,13 @@ export async function loadLanguageNames(): Promise<Record<string, LanguageNameDa
         const fields = line.split('\t');
         result[fields[0]] = {
           code: fields[0],
-          standardName: fields[1],
-          endonym: fields[2],
+          endonym: fields[1],
+          en: fields[2],
+          fr: fields[3],
+          it: fields[4],
+          es: fields[5],
+          pt: fields[6],
+          localized: fields[2], // starts as English but will be matched to the UI later
         } as LanguageNameData;
       });
       return result;

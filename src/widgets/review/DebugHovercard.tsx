@@ -1,8 +1,7 @@
 import { type DataEntry } from '@data/DataTypes';
+import useLanguageName from '@data/useLanguageName';
 
 import { useURLParams } from '@settings/URLParams';
-
-import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 type Props = {
   entry: DataEntry;
@@ -10,11 +9,12 @@ type Props = {
 };
 
 function DebugHovercard({ entry, sourceTranslation }: Props) {
-  const { uitext } = useInterfaceTranslation();
   const { admin, sourceLanguage } = useURLParams();
   const translationText =
     typeof sourceTranslation === 'string' ? sourceTranslation : sourceTranslation[0];
   const pattern = typeof sourceTranslation === 'string' ? undefined : sourceTranslation[1];
+  const { getLanguageName } = useLanguageName();
+
   if (!admin) return null;
 
   return (
@@ -24,19 +24,19 @@ function DebugHovercard({ entry, sourceTranslation }: Props) {
 
       <dl>
         {/* Translations */}
-        <DebugRow label={uitext(`languageName.${sourceLanguage}`)} value={translationText} />
+        <DebugRow label={getLanguageName(sourceLanguage).localized} value={translationText} />
         {pattern && <DebugRow label="Pattern value" value={pattern} indent={1} />}
         {sourceLanguage !== 'en' && (
-          <DebugRow label={uitext(`languageName.en`)} value={entry.english} />
+          <DebugRow label={getLanguageName('en').localized} value={entry.english} />
         )}
         {pattern && sourceLanguage !== 'en' && entry.englishPattern && (
-          <DebugRow label="English pattern" value={entry.englishPattern} indent={1} />
+          <DebugRow label={'English pattern'} value={entry.englishPattern} indent={1} />
         )}
         {sourceLanguage !== 'fr' && (
-          <DebugRow label={uitext(`languageName.fr`)} value={entry.french} />
+          <DebugRow label={getLanguageName('fr').localized} value={entry.french} />
         )}
         {pattern && sourceLanguage !== 'fr' && entry.frenchPattern && (
-          <DebugRow label="French pattern" value={entry.frenchPattern} indent={1} />
+          <DebugRow label={'French pattern'} value={entry.frenchPattern} indent={1} />
         )}
 
         {/* Location */}

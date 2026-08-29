@@ -6,7 +6,7 @@ function TargetLanguageLabel() {
   const { getLanguageName } = useLanguageName();
   const { targetLanguage } = useURLParams();
   const langNames = getLanguageName(targetLanguage);
-  return langNames.endonym ?? langNames.localizedName ?? langNames.code;
+  return langNames.endonym;
 }
 
 export function TargetLanguageHeader({

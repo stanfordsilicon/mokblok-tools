@@ -1,5 +1,7 @@
 import React from 'react';
 
+import useLanguageName from '@data/useLanguageName';
+
 import { useURLParams } from '@settings/URLParams';
 
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
@@ -11,9 +13,11 @@ type Props = {
 const TargetLanguageCodeInput: React.FC<Props> = ({ size }) => {
   const { uitext } = useInterfaceTranslation();
   const { admin, targetLanguage, updateURLParams } = useURLParams();
-  const targetTranslationKey = 'languageName.' + targetLanguage;
+  const { getLanguageName } = useLanguageName();
 
   if (!admin) return null;
+
+  const langName = getLanguageName(targetLanguage);
 
   return (
     <div className="flex gap-4 items-center w-fit">
@@ -31,9 +35,7 @@ const TargetLanguageCodeInput: React.FC<Props> = ({ size }) => {
         value={targetLanguage}
         onChange={(e) => updateURLParams({ targetLanguage: e.target.value })}
       />
-      {uitext(targetTranslationKey) === targetTranslationKey
-        ? uitext('languageName.unknown')
-        : uitext(targetTranslationKey)}
+      {langName.localized}
     </div>
   );
 };

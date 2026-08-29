@@ -26,7 +26,7 @@ const LanguageButtons: React.FC<Props> = ({ current, onChange, options, disabled
         >
           {lang.endonym}
           <br />
-          <span className="font-light">{lang.localizedName}</span>
+          <span className="font-light">{lang.localized}</span>
         </button>
       ))}
     </div>
