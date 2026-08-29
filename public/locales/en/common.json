@@ -181,13 +181,33 @@
                 "other": "Other"
             }
         },
-        "12h clock": "12-hour Clock",
-        "24h clock": "24-hour Clock"
+        "12hClock": "12-hour Clock",
+        "24hClock": "24-hour Clock"
     },
     "mocks": {
+        "withinMonth": "Within Month",
+        "monthView": "Month View",
+        "weekView": "Week View",
+        "12months": "12 Months",
+        "pieChart":"Pie Chart",
+        "events":"Events",
+        "withTimezone":"with Timezone",
+        "hoursOnly": "Hours Only",
+
         "Temperature": "Temperature",
         "Directions to...":"Directions to...",
-        "Pick a time on ": "Pick a time on "
+        "Directions":"Directions",
+        "Pick a time on ": "Pick a time on ",
+        "Location in Map": "Location in Map",
+        "Date Field Breakdown":"Date Field Breakdown",
+        "Date Interval":"Date Interval",
+        "Months in a Grid":"Months in a Grid",
+        "EraTimelineReligious":"Era Timeline (Religious)",
+        "EraTimelineSecular":"Era Timeline (Secular)",
+        "RelativeTimeEventEnd":"Choosing an end data",
+        "EmojiKeyboardSuggestions":"Emoji Keyboard Suggestions",
+        "EmojiExplanations":"Emoji Explanations",
+        "":""
     },
     "export": {
         "title": "Export",

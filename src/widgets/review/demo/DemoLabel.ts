@@ -1,35 +1,92 @@
+import enforceExhaustiveSwitch from '@shared/enforceExhaustiveSwitch';
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
+
 import DemoID from './DemoID';
 
-const demoLabelMap: Record<DemoID, string> = {
-  [DemoID.CoordinatesDirections]: 'Directions',
-  [DemoID.CoordinatesMap]: 'Location in Map',
-  [DemoID.DateFieldBreakdown]: 'Date Field Breakdown',
-  [DemoID.DateInterval_InMonth_MEd]: 'Date Interval (in Month, MEd)',
-  [DemoID.DateInterval_InMonth_MMMd]: 'Date Interval (in Month, MMMd)',
-  [DemoID.DateInterval_InMonth_MMMEd]: 'Date Interval (in Month, MMMEd)',
-  [DemoID.DateInterval_InMonth_yMMMd]: 'Date Interval (in Month, yMMMd)',
-  [DemoID.DateInterval_InMonth_yMMMEd]: 'Date Interval (in Month, yMMMEd)',
-  [DemoID.DaysOfWeekInMonth]: 'Days of Week (Month View)',
-  [DemoID.DaysOfWeekInWeek]: 'Days of Week (Week View)',
-  [DemoID.MonthsGrid]: 'Months in a Grid',
-  [DemoID.MonthsTemp]: 'Monthly Temperature',
-  [DemoID.QuartersCircle]: 'Quarters in a Circle',
-  [DemoID.QuartersEvents]: 'Quarters in an Event View',
-  [DemoID.TimeInterval12HourMin]: 'Time Interval (12-Hour Clock)',
-  [DemoID.TimeInterval12HourMinTimezone]: 'Time Interval (12-Hour Clock, with Timezone)',
-  [DemoID.TimeInterval12HourOnly]: 'Time Interval (12-Hour Clock, Hour Only)',
-  [DemoID.TimeInterval24HourMin]: 'Time Interval (24-Hour Clock)',
-  [DemoID.TimeInterval24HourMinTimezone]: 'Time Interval (24-Hour Clock, with Timezone)',
-  [DemoID.TimeInterval24HourOnly]: 'Time Interval (24-Hour Clock, Hour Only)',
-  [DemoID.EraTimelineReligious]: 'Era Timeline (Religious)',
-  [DemoID.EraTimelineSecular]: 'Era Timeline (Secular)',
-  [DemoID.RelativeTimeEventEnd]: 'Choosing an end date',
-  [DemoID.EmojiKeyboardSuggestions]: 'Emoji Keyboard Suggestions',
-  [DemoID.EmojiExplanations]: 'Emoji Explanations',
+const DemoLabel: React.FC<{ demoID: DemoID }> = ({ demoID }) => {
+  const { uitext } = useInterfaceTranslation();
+  switch (demoID) {
+    case DemoID.MonthsGrid:
+      return uitext('mocks.Months in a Grid');
+    case DemoID.MonthsTemp:
+      return uitext('mocks.Temperature') + ' (' + uitext('mocks.12months') + ')';
+    case DemoID.DaysOfWeekInMonth:
+      return uitext('dataSection.DaysOfWeek') + ' (' + uitext('mocks.monthView') + ')';
+    case DemoID.DaysOfWeekInWeek:
+      return uitext('dataSection.DaysOfWeek') + ' (' + uitext('mocks.weekView') + ')';
+    case DemoID.DateFieldBreakdown:
+      return uitext('mocks.Date Field Breakdown');
+    case DemoID.CoordinatesMap:
+      return uitext('mocks.Location in Map');
+    case DemoID.CoordinatesDirections:
+      return uitext('Directions');
+    case DemoID.QuartersCircle:
+      return uitext('dataSection.Quarters') + ' (' + uitext('mocks.pieChart') + ')';
+    case DemoID.QuartersEvents:
+      return uitext('dataSection.Quarters') + ' (' + uitext('mocks.events') + ')';
+    case DemoID.DateInterval_InMonth_MEd:
+      return uitext('mocks.Date Interval') + '(' + uitext('mocks.withinMonth') + ' 1)';
+    case DemoID.DateInterval_InMonth_MMMd:
+      return uitext('mocks.Date Interval') + '(' + uitext('mocks.withinMonth') + ' 2)';
+    case DemoID.DateInterval_InMonth_MMMEd:
+      return uitext('mocks.Date Interval') + '(' + uitext('mocks.withinMonth') + ' 3)';
+    case DemoID.DateInterval_InMonth_yMMMd:
+      return uitext('mocks.Date Interval') + '(' + uitext('mocks.withinMonth') + ' 4)';
+    case DemoID.DateInterval_InMonth_yMMMEd:
+      return uitext('mocks.Date Interval') + '(' + uitext('mocks.withinMonth') + ' 5)';
+    case DemoID.TimeInterval24HourMin:
+      return uitext('dataSection.TimeIntervals') + '(' + uitext('review.24hClock') + ')';
+    case DemoID.TimeInterval12HourMin:
+      return uitext('dataSection.TimeIntervals') + '(' + uitext('review.12hClock') + ')';
+    case DemoID.TimeInterval24HourMinTimezone:
+      return (
+        uitext('dataSection.TimeIntervals') +
+        '(' +
+        uitext('review.24hClock') +
+        ', ' +
+        uitext('mocks.withTimezone') +
+        ')'
+      );
+    case DemoID.TimeInterval12HourMinTimezone:
+      return (
+        uitext('dataSection.TimeIntervals') +
+        '(' +
+        uitext('review.12hClock') +
+        ', ' +
+        uitext('mocks.withTimezone') +
+        ')'
+      );
+    case DemoID.TimeInterval24HourOnly:
+      return (
+        uitext('dataSection.TimeIntervals') +
+        '(' +
+        uitext('review.24hClock') +
+        ', ' +
+        uitext('mocks.hoursOnly') +
+        ')'
+      );
+    case DemoID.TimeInterval12HourOnly:
+      return (
+        uitext('dataSection.TimeIntervals') +
+        '(' +
+        uitext('review.12hClock') +
+        ', ' +
+        uitext('mocks.hoursOnly') +
+        ')'
+      );
+    case DemoID.EraTimelineReligious:
+      return uitext('mocks.EraTimelineReligious');
+    case DemoID.EraTimelineSecular:
+      return uitext('mocks.EraTimelineSecular');
+    case DemoID.RelativeTimeEventEnd:
+      return uitext('mocks.RelativeTimeEventEnd');
+    case DemoID.EmojiKeyboardSuggestions:
+      return uitext('mocks.EmojiKeyboardSuggestions');
+    case DemoID.EmojiExplanations:
+      return uitext('mocks.EmojiExplanations');
+    default:
+      enforceExhaustiveSwitch(demoID);
+  }
 };
-
-function DemoLabel({ demoID }: { demoID: DemoID }) {
-  return demoLabelMap[demoID];
-}
 
 export default DemoLabel;

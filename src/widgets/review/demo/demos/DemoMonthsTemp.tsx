@@ -42,7 +42,7 @@ const MockMonthsTemp: React.FC = () => {
 
   return (
     <>
-      <text x={20} y={40} fontSize="1.5em">
+      <text x={120} y={40} textAnchor="middle" fontSize="1.5em">
         {uitext('mocks.Temperature')}
       </text>
       <g transform="translate(0,60)">

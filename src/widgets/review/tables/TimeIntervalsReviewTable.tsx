@@ -15,7 +15,7 @@ function TimeIntervalsReviewTable() {
   const { uitext } = useInterfaceTranslation();
   return ['12h', '24h'].map((hourFormat) => (
     <>
-      <h3>{uitext('review.' + hourFormat + ' clock')}</h3>
+      <h3>{uitext('review.' + hourFormat + 'Clock')}</h3>
       <Group hourFormat={hourFormat} />
     </>
   ));
