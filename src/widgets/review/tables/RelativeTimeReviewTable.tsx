@@ -53,9 +53,9 @@ function RelativeTimeReviewTable() {
               <SourceDataCell entry={row['-1']} />
               <SourceDataCell entry={row['0']} />
               <SourceDataCell entry={row['1']} />
-              <InputDataCell entry={row['-1']} />
-              <InputDataCell entry={row['0']} />
-              <InputDataCell entry={row['1']} />
+              <InputDataCell entry={row['-1']} inputWidth="10em" />
+              <InputDataCell entry={row['0']} inputWidth="10em" />
+              <InputDataCell entry={row['1']} inputWidth="10em" />
             </tr>
           );
         })}
