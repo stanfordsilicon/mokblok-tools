@@ -1,6 +1,6 @@
 import type { DataPage, DataSection } from '@data/DataSection';
 
-import { useVotingCompletionForSection } from '../getDataEntriesForSection';
+import { useCompletionForSection } from '../getDataEntriesForSection';
 
 import PieChart from './PieChart';
 
@@ -10,7 +10,7 @@ type Props = {
 };
 
 const VotingCircle: React.FC<Props> = ({ page, section }) => {
-  const voteCounts = useVotingCompletionForSection(page, section);
+  const voteCounts = useCompletionForSection(page, section).votes;
 
   if (voteCounts.total === 0) return <div />;
   return (

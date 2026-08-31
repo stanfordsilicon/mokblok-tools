@@ -43,10 +43,13 @@ export function useDataEntriesForSection(): GetDataEntriesForSection {
   };
 }
 
-export function useCompletionForSection(
-  page?: DataPage,
-  section?: DataSection,
-): { percent: number | undefined; overall: number; completed: number } {
+type Completion = {
+  overall: number;
+  translations: { count: number; percent: number | undefined };
+  votes: { accepted: number; rejected: number; total: number };
+};
+
+export function useCompletionForSection(page?: DataPage, section?: DataSection): Completion {
   const { getTranslations } = useTargetDataContext();
   const getDataEntriesForSection = useDataEntriesForSection();
 
@@ -56,28 +59,26 @@ export function useCompletionForSection(
       getTranslations(entries, 'all').filter((info) => Boolean(info?.edit ?? info?.translation)),
     [entries, getTranslations],
   );
+  const votes = useMemo(
+    () =>
+      getTranslations(entries, 'all').reduce(
+        (acc, { vote }) => {
+          if (vote === Vote.Accept) acc.accepted++;
+          else if (vote === Vote.Reject) acc.rejected++;
+          acc.total++;
+          return acc;
+        },
+        { accepted: 0, rejected: 0, total: 0 },
+      ),
+    [entries, getTranslations],
+  );
 
   return {
     overall: entries.length,
-    completed: completedEntries.length,
-    percent: !entries.length ? undefined : (completedEntries.length * 100.0) / entries.length,
-  };
-}
-
-export function useVotingCompletionForSection(
-  page?: DataPage,
-  section?: DataSection,
-): { accepted: number; rejected: number; total: number } {
-  const { getTranslationInfo } = useTargetDataContext();
-  const entries = useDataEntriesForSection()(page, section);
-  return entries.reduce(
-    (acc, entry) => {
-      const vote = getTranslationInfo(entry)?.vote;
-      if (vote === Vote.Accept) acc.accepted++;
-      else if (vote === Vote.Reject) acc.rejected++;
-      acc.total++;
-      return acc;
+    translations: {
+      count: completedEntries.length,
+      percent: !entries.length ? undefined : (completedEntries.length * 100.0) / entries.length,
     },
-    { accepted: 0, rejected: 0, total: 0 },
-  );
+    votes,
+  };
 }

@@ -3,11 +3,12 @@ import React, { ReactNode } from 'react';
 import useLanguageName from '@data/useLanguageName';
 
 type Props = {
-  label: ReactNode;
+  label?: ReactNode;
   current: string;
   onChange: (newLanguage: string) => void;
   options: string[];
   disabled?: boolean;
+  includeLocalizedName?: boolean;
 };
 
 const LanguageDropdown: React.FC<Props> = ({
@@ -16,6 +17,7 @@ const LanguageDropdown: React.FC<Props> = ({
   onChange,
   options,
   disabled = false,
+  includeLocalizedName = true,
 }) => {
   const { getLanguageName } = useLanguageName();
   const languageOptions = options
@@ -24,7 +26,7 @@ const LanguageDropdown: React.FC<Props> = ({
 
   return (
     <div className="flex items-center gap-2 justify-between">
-      <strong>{label}</strong>
+      {label && <strong>{label}</strong>}
       <select
         className="settings-select"
         disabled={disabled}
@@ -34,7 +36,11 @@ const LanguageDropdown: React.FC<Props> = ({
         {languageOptions.map((lang) => (
           <option key={lang.code} value={lang.code}>
             {lang.endonym}{' '}
-            <em>{lang.localized?.toLowerCase() != lang.endonym.toLowerCase() && lang.localized}</em>
+            {includeLocalizedName && (
+              <em>
+                {lang.localized?.toLowerCase() != lang.endonym.toLowerCase() && lang.localized}
+              </em>
+            )}
           </option>
         ))}
       </select>

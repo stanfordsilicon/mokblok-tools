@@ -5,6 +5,8 @@ import { DayKeys } from '@data/DayKeys';
 import { useSourceDataContext } from '@data/source/SourceDataProvider';
 import { useTargetDataContext } from '@data/target/TargetDataProvider';
 
+import { titlecase } from '@shared/stringUtils';
+
 // all: field: intervalFormats, instance:h
 // const CLASSES: Record<string, Partial<DataEntry>[]> = {
 //   'sun': [{instance:'h', variant:'a', }],
@@ -34,13 +36,15 @@ const DemoClassesThisWeek: React.FC<{ period: 'week' | 'weekend' }> = ({ period 
       {/* Box at top that says "upcoming events" */}
       <rect x={10} y={10} width={220} height={30} fill="#f0f0f0" stroke="#ccc" />
       <text x={120} y={30} textAnchor="middle" fontSize="1em" fontWeight="bold">
-        {getTranslation(
-          findDataEntry({
-            section: DataSection.RelativeTime,
-            field: 'd',
-            instance: '0',
-            length: '',
-          }),
+        {titlecase(
+          getTranslation(
+            findDataEntry({
+              section: DataSection.RelativeTime,
+              field: 'd',
+              instance: '0',
+              length: '',
+            }),
+          ),
         ) ?? ''}
       </text>
 

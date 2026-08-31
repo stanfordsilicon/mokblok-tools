@@ -29,6 +29,7 @@ export const TargetDataContext = createContext<TargetDataContextType>({
   getTranslations: () => [],
   editTranslation: () => {},
   editTranslations: () => {},
+  clearAllTranslations: () => {},
   targetDataStatus: TargetDataStatus.LoadingBaselineData,
   targetXMLData: {},
 });
@@ -140,6 +141,11 @@ const TargetDataProvider: React.FC<{
     [translationBaselines, translationEdits],
   );
 
+  const clearAllTranslations = useCallback(() => {
+    setTranslationEdits({});
+    setHasUserChanges(false);
+  }, [setTranslationEdits]);
+
   useEffect(() => {
     if (!isDraftLoaded) return;
     setTranslationEdits(applyPersistedEntries({}, persistedEntries));
@@ -158,6 +164,7 @@ const TargetDataProvider: React.FC<{
     getTranslation,
     getTranslationInfo,
     getTranslations,
+    clearAllTranslations,
     importedWorksheets,
     targetDataStatus,
     targetXMLData,

@@ -14,7 +14,7 @@ const ShownDateFields: DateField[] = [
   DateField.Month,
   //   DateField.Week,
   DateField.Day,
-  DateField.DayOfWeek,
+  // DateField.DayOfWeek,
   DateField.Hour,
   DateField.Minute,
   DateField.Second,

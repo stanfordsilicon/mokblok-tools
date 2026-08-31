@@ -6,6 +6,8 @@ import { useTargetDataContext } from '@data/target/TargetDataProvider';
 
 import { useExampleDate } from '@settings/selectors/ExampleDateSelector';
 
+import { titlecase } from '@shared/stringUtils';
+
 const DemoDaysOfWeekInMonth: React.FC = () => {
   const { findDataEntry } = useSourceDataContext();
   const { getTranslation } = useTargetDataContext();
@@ -23,8 +25,10 @@ const DemoDaysOfWeekInMonth: React.FC = () => {
         transform="translate(20,25)"
       />
       <text x={120} y={30} textAnchor="middle" fontSize="1.2em">
-        {getTranslation(
-          findDataEntry({ field: 'M', length: 'w', instance: today.getMonth() + 1 + '' }),
+        {titlecase(
+          getTranslation(
+            findDataEntry({ field: 'M', length: 'w', instance: today.getMonth() + 1 + '' }),
+          ),
         ) ?? ''}
       </text>
       <path
