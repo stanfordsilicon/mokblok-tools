@@ -49,8 +49,8 @@ function ReviewSection({ dataSection }: { dataSection: DataSection }) {
 
   return (
     <div>
-      <div role="heading" aria-level={2} className="flex flex-row gap-2 place-items-end">
-        <div className="text-xl">{uitext(`dataSection.${dataSection}`)}</div>
+      <div role="heading" aria-level={2} className="flex flex-row gap-2 place-items-end my-2">
+        <div className="text-2xl">{uitext(`dataSection.${dataSection}`)}</div>
         <div className="text-sm">
           {completion.translations.count} / {completion.overall}{' '}
           {uitext('nav.translations').toLowerCase()}
