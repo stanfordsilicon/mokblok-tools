@@ -36,11 +36,14 @@ import TechWordsReviewTable from './tables/TechWordsReviewTable';
 import TimeCombinationsReviewTable from './tables/TimeCombinationsReviewTable';
 import TimeIntervalsReviewTable from './tables/TimeIntervalsReviewTable';
 import TimezonesReviewTable from './tables/TimezonesReviewTable';
+import useAdjacentSections from './useAdjacentSections';
 
 function ReviewSection({ dataSection }: { dataSection: DataSection }) {
   const { uitext } = useInterfaceTranslation();
-  const { step } = useURLParams();
+  const { step, section } = useURLParams();
   const completion = useCompletionForSection(DataPage.All, dataSection);
+  const { nextSection, previousSection, goToNextSection, goToPreviousSection } =
+    useAdjacentSections();
 
   if (completion.overall === 0) return null;
 
@@ -58,6 +61,20 @@ function ReviewSection({ dataSection }: { dataSection: DataSection }) {
             {uitext('nav.votes').toLowerCase()}
           </div>
         )}
+        {section !== DataSection.All && (
+          <div className="text-xs">
+            {previousSection && (
+              <button style={{ padding: '0 5px' }} onClick={goToPreviousSection}>
+                &lt; Previous
+              </button>
+            )}
+            {nextSection && (
+              <button style={{ padding: '0 5px' }} onClick={goToNextSection}>
+                Next &gt;
+              </button>
+            )}
+          </div>
+        )}
       </div>
       <div className="flex flex-row gap-4 flex-wrap">
         <div>
@@ -66,9 +83,8 @@ function ReviewSection({ dataSection }: { dataSection: DataSection }) {
           </ErrorBoundary>
         </div>
         <div
-          className="flex flex-wrap gap-4"
+          className="flex flex-wrap gap-4 place-content-start"
           style={{
-            placeContent: 'start',
             maxWidth: '950px',
           }}
         >

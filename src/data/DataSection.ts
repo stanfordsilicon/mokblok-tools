@@ -22,8 +22,6 @@ export enum DataSection {
   DayPeriods = 'DayPeriods',
   DaysOfWeek = 'DaysOfWeek',
   Months = 'Months',
-  Quarters = 'Quarters',
-  Eras = 'Eras',
 
   RelativeTime = 'RelativeTime',
   Times = 'Times',
@@ -31,6 +29,9 @@ export enum DataSection {
   Dates = 'Dates',
   DateIntervals = 'DateIntervals',
   DateTimes = 'DateTimes',
+
+  Quarters = 'Quarters',
+  Eras = 'Eras',
   EraDates = 'EraDates',
 
   // Quantities
@@ -95,4 +96,12 @@ export function getSectionsForPage(page: DataPage): DataSection[] {
     case DataPage.FullTable:
       return [DataSection.FullTable];
   }
+}
+
+export function getPageForSection(section: DataSection): DataPage {
+  return (
+    Object.values(DataPage).find(
+      (page) => page !== DataPage.All && getSectionsForPage(page).includes(section),
+    ) ?? DataPage.All
+  );
 }
