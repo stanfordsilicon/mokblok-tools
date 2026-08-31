@@ -5,6 +5,8 @@ import { useTargetDataContext } from '@data/target/TargetDataProvider';
 
 import { useExampleDate } from '@settings/selectors/ExampleDateSelector';
 
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
+
 type ClimateDataPoint = {
   recordHigh: number;
   high: number;
@@ -29,6 +31,7 @@ const simulatedClimateData: ClimateDataPoint[] = [
 ];
 
 const MockMonthsTemp: React.FC = () => {
+  const { uitext } = useInterfaceTranslation();
   const { findDataEntry } = useSourceDataContext();
   const { getTranslation } = useTargetDataContext();
 
@@ -39,8 +42,8 @@ const MockMonthsTemp: React.FC = () => {
 
   return (
     <>
-      <text x={20} y={40} fontSize="1.5em">
-        Temperature Averages
+      <text x={120} y={40} textAnchor="middle" fontSize="1.5em">
+        {uitext('mocks.Temperature')}
       </text>
       <g transform="translate(0,60)">
         {/* Climate bars */}

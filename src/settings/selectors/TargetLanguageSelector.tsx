@@ -13,6 +13,7 @@ const TargetLanguageSelector = () => {
   const { uitext } = useInterfaceTranslation();
   const { targetLanguage, updateURLParams, importSource, admin } = useURLParams();
   const languages = useAllowedTargetLanguages();
+  console.log(targetLanguage);
 
   return (
     <div>

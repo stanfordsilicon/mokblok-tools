@@ -13,7 +13,7 @@ const useLanguageName = () => {
     // First, try to get the name in the interface language
     const entry = languageNames[langCode];
     if (!entry) {
-      console.log(`Language entry not found for code: ${langCode}`);
+      // console.log(`Language entry not found for code: ${langCode}`);
       return {
         code: langCode,
         localized: langCode,

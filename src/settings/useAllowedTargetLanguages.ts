@@ -13,6 +13,10 @@ export function useAllowedTargetLanguages(): string[] {
   const { data: session } = useSession();
   const role = session?.user?.role ?? null;
   const userLanguages = normalizeLanguageCodes(session?.user?.languages ?? []);
+
+  // TEMPORARY
+  if (userLanguages.length === 0) userLanguages.push('mos', 'nd');
+
   if (!userLanguages.includes('')) userLanguages.push(''); // Ensure empty string (no target language) is always allowed
   const potentialLanguages = getPotentialTargetLanguageOptions(importSource);
 

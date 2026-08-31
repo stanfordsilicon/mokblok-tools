@@ -4,7 +4,10 @@ import { CardinalDirection } from '@data/DataTypes';
 import { useSourceDataContext } from '@data/source/SourceDataProvider';
 import { useTargetDataContext } from '@data/target/TargetDataProvider';
 
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
+
 const DemoCoordinatesDirections: React.FC = () => {
+  const { uitext } = useInterfaceTranslation();
   const { findDataEntry } = useSourceDataContext();
   const { getTranslation } = useTargetDataContext();
 
@@ -24,7 +27,7 @@ const DemoCoordinatesDirections: React.FC = () => {
     <>
       <rect x={10} y={10} width={220} height={50} fill="#f9f9f9" stroke="#ccc" rx={15} ry={15} />
       <text x={20} y={30}>
-        Directions to...
+        {uitext('mocks.Directions todotdotdot')}
       </text>
       <text x={20} y={50}>
         {getTranslation(south)} {getTranslation(west)}

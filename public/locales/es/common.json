@@ -182,7 +182,37 @@
                 "many": "Muchos",
                 "other": "Otro"
             }
-        }
+        },
+        "12hClock": "Formato de 12 horas",
+        "24hClock": "Formato de 24 horas"
+    },
+    "mocks": {
+        "withinMonth": "Dentro del mes",
+        "monthView": "Vista mensual",
+        "weekView": "Vista semanal",
+        "12months": "12 meses",
+        "pieChart": "Gráfico circular",
+        "events": "Eventos",
+        "withTimezone": "con zona horaria",
+        "hoursOnly": "Solo horas",
+        "thisWeek": "esta semana",
+        "thisWeekend": "este fin de semana",
+        "Temperature": "Temperatura",
+        "Weather": "Tiempo",
+        "Classes": "Clases",
+        "Directions todotdotdot": "Cómo llegar a...",
+        "Directions": "Indicaciones",
+        "Pick a time on ": "Elige una hora el ",
+        "Location in Map": "Ubicación en el mapa",
+        "Date Field Breakdown": "Desglose de campos de fecha",
+        "Date Interval": "Intervalo de fechas",
+        "Months in a Grid": "Meses en una cuadrícula",
+        "EraTimelineReligious": "Línea temporal de eras (religiosa)",
+        "EraTimelineSecular": "Línea temporal de eras (secular)",
+        "RelativeTimeEventEnd": "Elegir una fecha de finalización",
+        "EmojiKeyboardSuggestions": "Sugerencias de emojis del teclado",
+        "EmojiExplanations": "Explicaciones de emojis",
+        "": ""
     },
     "export": {
         "title": "Exporta",

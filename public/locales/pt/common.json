@@ -178,6 +178,37 @@
         "other": "Outro"
       }
     }
+    ,
+    "12hClock": "Formato de 12 horas",
+    "24hClock": "Formato de 24 horas"
+  },
+  "mocks": {
+    "withinMonth": "Dentro do mês",
+    "monthView": "Visualização mensal",
+    "weekView": "Visualização semanal",
+    "12months": "12 meses",
+    "pieChart": "Gráfico de pizza",
+    "events": "Eventos",
+    "withTimezone": "com fuso horário",
+    "hoursOnly": "Somente horas",
+    "thisWeek": "esta semana",
+    "thisWeekend": "este fim de semana",
+    "Temperature": "Temperatura",
+    "Weather": "Tempo",
+    "Classes": "Aulas",
+    "Directions todotdotdot": "Direções para...",
+    "Directions": "Direções",
+    "Pick a time on ": "Escolha um horário em ",
+    "Location in Map": "Localização no mapa",
+    "Date Field Breakdown": "Detalhamento dos campos de data",
+    "Date Interval": "Intervalo de datas",
+    "Months in a Grid": "Meses em uma grade",
+    "EraTimelineReligious": "Linha do tempo das eras (religiosa)",
+    "EraTimelineSecular": "Linha do tempo das eras (secular)",
+    "RelativeTimeEventEnd": "Escolha uma data de término",
+    "EmojiKeyboardSuggestions": "Sugestões de emoji do teclado",
+    "EmojiExplanations": "Explicações dos emojis",
+    "": ""
   },
   "export": {
     "title": "Exportar",

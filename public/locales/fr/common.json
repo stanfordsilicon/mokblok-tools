@@ -181,7 +181,37 @@
                 "many": "Beaucoup",
                 "other": "Autre"
             }
-        }
+        },
+        "12hClock": "Format 12 heures",
+        "24hClock": "Format 24 heures"
+    },
+    "mocks": {
+        "withinMonth": "Dans le mois",
+        "monthView": "Vue mensuelle",
+        "weekView": "Vue hebdomadaire",
+        "12months": "12 mois",
+        "pieChart": "Diagramme circulaire",
+        "events": "Événements",
+        "withTimezone": "avec fuseau horaire",
+        "hoursOnly": "Heures uniquement",
+        "thisWeek": "cette semaine",
+        "thisWeekend": "ce week-end",
+        "Temperature": "Température",
+        "Weather": "Météo",
+        "Classes": "Cours",
+        "Directions": "Itinéraire",
+        "Directions todotdotdot": "Itinéraire pour...",
+        "Pick a time on ": "Choisissez une heure le ",
+        "Location in Map": "Emplacement sur la carte",
+        "Date Field Breakdown": "Répartition des champs de date",
+        "Date Interval": "Intervalle de dates",
+        "Months in a Grid": "Mois dans une grille",
+        "EraTimelineReligious": "Chronologie des ères (religieuse)",
+        "EraTimelineSecular": "Chronologie des ères (laïque)",
+        "RelativeTimeEventEnd": "Choisir une date de fin",
+        "EmojiKeyboardSuggestions": "Suggestions d’émojis du clavier",
+        "EmojiExplanations": "Explications des émojis",
+        "": ""
     },
     "export": {
         "title": "Exporte",
