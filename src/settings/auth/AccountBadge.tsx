@@ -9,7 +9,9 @@
 import { signIn, signOut, useSession } from 'next-auth/react';
 import { useCallback } from 'react';
 
+import LanguageDropdown from '@settings/selectors/LanguageDropdown';
 import { useURLParams } from '@settings/URLParams';
+import useAllowedTargetLanguages from '@settings/useAllowedTargetLanguages';
 
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
@@ -18,7 +20,9 @@ import { RoleBadge } from './RoleBadge';
 export default function AccountBadge() {
   const { uitext } = useInterfaceTranslation();
   const { data: session, status } = useSession();
-  const { updateURLParams, admin } = useURLParams();
+  const { updateURLParams, admin, targetLanguage } = useURLParams();
+  const allowedLanguages = useAllowedTargetLanguages();
+
   const updateAdminMode = useCallback(
     () => updateURLParams({ admin: !admin }),
     [updateURLParams, admin],
@@ -56,14 +60,24 @@ export default function AccountBadge() {
           </button>
         </div>
 
-        {role === 'admin' && (
-          <button
-            onClick={updateAdminMode}
-            className="text-xs font-semibold text-(--silicon-purple) underline-offset-2"
-          >
-            {admin ? uitext('auth.viewingAsAdmin') : uitext('auth.viewingAsRegularUser')}
-          </button>
-        )}
+        <div className="flex flex-row gap-2 text-xs">
+          {allowedLanguages.length > 1 && (
+            <LanguageDropdown
+              current={targetLanguage}
+              onChange={(newLanguage) => updateURLParams({ targetLanguage: newLanguage })}
+              options={allowedLanguages}
+              includeLocalizedName={false}
+            />
+          )}
+          {role === 'admin' && (
+            <button
+              onClick={updateAdminMode}
+              className="text-xs font-semibold text-(--silicon-purple) underline-offset-2"
+            >
+              {admin ? uitext('auth.viewingAsAdmin') : uitext('auth.viewingAsRegularUser')}
+            </button>
+          )}
+        </div>
       </div>
     );
   }
