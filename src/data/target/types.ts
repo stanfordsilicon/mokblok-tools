@@ -43,6 +43,7 @@ export type TargetDataContextType = {
   getTranslation(entry: DataEntry | undefined, fallback?: boolean): string;
   getTranslationInfo(entry: DataEntry | undefined): TranslationInfo;
   getTranslations(entries?: DataEntry[], scope?: 'edited' | 'all'): TranslationInfo[];
+  clearAllTranslations(): void;
   importedWorksheets: Partial<Record<Worksheet, UseWorksheetState>>;
   targetDataStatus: TargetDataStatus;
   targetXMLData: Record<string, string>;

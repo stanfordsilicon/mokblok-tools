@@ -1,5 +1,6 @@
 import React from 'react';
 
+import ClearSubmissionsButton from './ClearSubmissionsButton';
 import AdminModeSelector from './selectors/AdminModeSelector';
 import BackgroundStyleSelector from './selectors/BackgroundStyleSelector';
 import CoverageLevelSelector from './selectors/CoverageLevelSelector';
@@ -23,6 +24,7 @@ const SettingsWidget: React.FC = () => {
       <CoverageLevelSelector />
       <BackgroundStyleSelector />
       <ExampleDateSelector />
+      <ClearSubmissionsButton />
       <AdminModeSelector />
     </div>
   );
