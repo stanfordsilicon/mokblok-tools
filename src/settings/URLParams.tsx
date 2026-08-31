@@ -1,5 +1,5 @@
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useSession } from 'next-auth/react';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import React, { createContext, useCallback, useContext, useEffect, useMemo } from 'react';
 
 import i18n from '@i18n';
@@ -165,7 +165,11 @@ function getInferredParams(
   if (!(inferredParams.admin ?? instantiatedOrDefault.admin)) {
     // Remove target language if its not in the user's allowed languages
     const allowedLanguages = userSettings?.languages ?? [];
-    if (!allowedLanguages.includes(instantiatedOrDefault.targetLanguage))
+    if (
+      !allowedLanguages.includes(instantiatedOrDefault.targetLanguage) &&
+      instantiatedOrDefault.targetLanguage != 'nd' &&
+      instantiatedOrDefault.targetLanguage != 'mos'
+    )
       inferredParams.targetLanguage = allowedLanguages[0] ?? ''; // None
   }
   if (!userSettings?.role) inferredParams.importSource = ImportSource.Blank;
