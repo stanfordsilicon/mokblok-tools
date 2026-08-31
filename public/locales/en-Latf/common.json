@@ -177,8 +177,7 @@
         "many": "𝔐𝔞𝔫𝔶",
         "other": "𝔒𝔱𝔥𝔢𝔯"
       }
-    }
-    ,
+    },
     "12hClock": "12-𝔥𝔬𝔲𝔯 ℭ𝔩𝔬𝔠𝔨",
     "24hClock": "24-𝔥𝔬𝔲𝔯 ℭ𝔩𝔬𝔠𝔨"
   },
@@ -196,7 +195,7 @@
     "Temperature": "𝔗𝔢𝔪𝔭𝔢𝔯𝔞𝔱𝔲𝔯𝔢",
     "Weather": "𝔚𝔢𝔞𝔱𝔥𝔢𝔯",
     "Classes": "ℭ𝔩𝔞𝔰𝔰𝔢𝔰",
-    "Directions todotdotdot": "𝔇𝔦𝔯𝔢𝔠𝔱𝔦𝔬𝔫𝔰 𝔱𝔬...",
+    "Directions todotdotdot": "𝔇𝔦𝔯𝔢𝔠𝔱𝔦𝔬𝔫𝔰 𝔱𝔬𝔡𝔬𝔱𝔡𝔬𝔱𝔡𝔬𝔱",
     "Directions": "𝔇𝔦𝔯𝔢𝔠𝔱𝔦𝔬𝔫𝔰",
     "Pick a time on ": "𝔓𝔦𝔠𝔨 𝔞 𝔱𝔦𝔪𝔢 𝔬𝔫 ",
     "Location in Map": "𝔏𝔬𝔠𝔞𝔱𝔦𝔬𝔫 𝔦𝔫 𝔐𝔞𝔭",
@@ -205,7 +204,7 @@
     "Months in a Grid": "𝔐𝔬𝔫𝔱𝔥𝔰 𝔦𝔫 𝔞 𝔊𝔯𝔦𝔡",
     "EraTimelineReligious": "𝔈𝔯𝔞 𝔗𝔦𝔪𝔢𝔩𝔦𝔫𝔢 (ℜ𝔢𝔩𝔦𝔤𝔦𝔬𝔲𝔰)",
     "EraTimelineSecular": "𝔈𝔯𝔞 𝔗𝔦𝔪𝔢𝔩𝔦𝔫𝔢 (𝔖𝔢𝔠𝔲𝔩𝔞𝔯)",
-    "RelativeTimeEventEnd": "ℭ𝔥𝔬𝔬𝔰𝔦𝔫𝔤 𝔞𝔫 𝔢𝔫𝔡 𝔡𝔞𝔱𝔢",
+    "RelativeTimeEventEnd": "ℭ𝔥𝔬𝔬𝔰𝔦𝔫𝔤 𝔞𝔫 𝔢𝔫𝔡 𝔡𝔞𝔱𝔞",
     "EmojiKeyboardSuggestions": "𝔈𝔪𝔬𝔧𝔦 𝔎𝔢𝔶𝔟𝔬𝔞𝔯𝔡 𝔖𝔲𝔤𝔤𝔢𝔰𝔱𝔦𝔬𝔫𝔰",
     "EmojiExplanations": "𝔈𝔪𝔬𝔧𝔦 𝔈𝔵𝔭𝔩𝔞𝔫𝔞𝔱𝔦𝔬𝔫𝔰",
     "": ""
