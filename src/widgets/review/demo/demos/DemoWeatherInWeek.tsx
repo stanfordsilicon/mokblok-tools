@@ -31,10 +31,10 @@ const DemoWeatherInWeek: React.FC = () => {
 
   return (
     <>
-      <text x={120} y={30} textAnchor="middle" fontSize="1.5em">
+      <text x={120} y={40} textAnchor="middle" fontSize="1.5em">
         {uitext('mocks.Weather')}
       </text>
-      <g transform="translate(15,45)">
+      <g transform="translate(15,60)">
         {DayKeys?.map((day, index) => {
           const date = new Date(today);
           date.setDate(today.getDate() - today.getDay() + index); // Get the date for each day of the current week

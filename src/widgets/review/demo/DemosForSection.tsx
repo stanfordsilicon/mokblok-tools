@@ -20,7 +20,7 @@ const demoIDsBySection: Record<DataSection, DemoID[]> = {
   [DataSection.DateTimes]: [],
   [DataSection.DayPeriods]: [],
   [DataSection.DaysOfWeek]: [
-    DemoID.DaysOfWeekInWeek,
+    // DemoID.DaysOfWeekInWeek,
     DemoID.DaysOfWeekInMonth,
     DemoID.WeatherInWeek,
     DemoID.ClassesThisWeek,

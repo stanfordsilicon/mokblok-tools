@@ -1,3 +1,5 @@
+import React from 'react';
+
 import enforceExhaustiveSwitch from '@shared/enforceExhaustiveSwitch';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
@@ -25,7 +27,7 @@ const DemoLabel: React.FC<{ demoID: DemoID }> = ({ demoID }) => {
     case DemoID.CoordinatesMap:
       return uitext('mocks.Location in Map');
     case DemoID.CoordinatesDirections:
-      return uitext('Directions');
+      return uitext('mocks.Directions');
     case DemoID.QuartersCircle:
       return uitext('dataSection.Quarters') + ' (' + uitext('mocks.pieChart') + ')';
     case DemoID.QuartersEvents:

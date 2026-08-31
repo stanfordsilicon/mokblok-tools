@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { DataSection } from '@data/DataSection';
 
 import { SourceLanguageHeader } from '@settings/SourceLanguageLabel';
@@ -14,10 +16,10 @@ import SourceDataCell from '../SourceDataCell';
 function TimeIntervalsReviewTable() {
   const { uitext } = useInterfaceTranslation();
   return ['12h', '24h'].map((hourFormat) => (
-    <>
+    <React.Fragment key={hourFormat}>
       <h3>{uitext('review.' + hourFormat + 'Clock')}</h3>
       <Group hourFormat={hourFormat} />
-    </>
+    </React.Fragment>
   ));
 }
 

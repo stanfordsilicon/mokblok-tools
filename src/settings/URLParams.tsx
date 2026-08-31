@@ -168,7 +168,7 @@ function getInferredParams(
     if (
       !allowedLanguages.includes(instantiatedOrDefault.targetLanguage) &&
       instantiatedOrDefault.targetLanguage != 'nd' &&
-      instantiatedOrDefault.targetLanguage != 'mos'
+      instantiatedOrDefault.targetLanguage != 'mg'
     )
       inferredParams.targetLanguage = allowedLanguages[0] ?? ''; // None
   }
