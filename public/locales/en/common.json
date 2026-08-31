@@ -193,8 +193,12 @@
         "events":"Events",
         "withTimezone":"with Timezone",
         "hoursOnly": "Hours Only",
+        "thisWeek": "this Week",
+        "thisWeekend": "this Weekend",
 
         "Temperature": "Temperature",
+        "Weather": "Weather",
+        "Classes": "Classes",
         "Directions to...":"Directions to...",
         "Directions":"Directions",
         "Pick a time on ": "Pick a time on ",

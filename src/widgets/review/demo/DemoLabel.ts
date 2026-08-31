@@ -14,6 +14,12 @@ const DemoLabel: React.FC<{ demoID: DemoID }> = ({ demoID }) => {
       return uitext('dataSection.DaysOfWeek') + ' (' + uitext('mocks.monthView') + ')';
     case DemoID.DaysOfWeekInWeek:
       return uitext('dataSection.DaysOfWeek') + ' (' + uitext('mocks.weekView') + ')';
+    case DemoID.WeatherInWeek:
+      return uitext('mocks.Weather') + ' (' + uitext('mocks.weekView') + ')';
+    case DemoID.ClassesThisWeek:
+      return uitext('mocks.Classes') + ' ' + uitext('mocks.thisWeek');
+    case DemoID.ClassesThisWeekend:
+      return uitext('mocks.Classes') + ' ' + uitext('mocks.thisWeekend');
     case DemoID.DateFieldBreakdown:
       return uitext('mocks.Date Field Breakdown');
     case DemoID.CoordinatesMap:
@@ -25,23 +31,23 @@ const DemoLabel: React.FC<{ demoID: DemoID }> = ({ demoID }) => {
     case DemoID.QuartersEvents:
       return uitext('dataSection.Quarters') + ' (' + uitext('mocks.events') + ')';
     case DemoID.DateInterval_InMonth_MEd:
-      return uitext('mocks.Date Interval') + '(' + uitext('mocks.withinMonth') + ' 1)';
+      return uitext('mocks.Date Interval') + ' (' + uitext('mocks.withinMonth') + ' 1)';
     case DemoID.DateInterval_InMonth_MMMd:
-      return uitext('mocks.Date Interval') + '(' + uitext('mocks.withinMonth') + ' 2)';
+      return uitext('mocks.Date Interval') + ' (' + uitext('mocks.withinMonth') + ' 2)';
     case DemoID.DateInterval_InMonth_MMMEd:
-      return uitext('mocks.Date Interval') + '(' + uitext('mocks.withinMonth') + ' 3)';
+      return uitext('mocks.Date Interval') + ' (' + uitext('mocks.withinMonth') + ' 3)';
     case DemoID.DateInterval_InMonth_yMMMd:
-      return uitext('mocks.Date Interval') + '(' + uitext('mocks.withinMonth') + ' 4)';
+      return uitext('mocks.Date Interval') + ' (' + uitext('mocks.withinMonth') + ' 4)';
     case DemoID.DateInterval_InMonth_yMMMEd:
-      return uitext('mocks.Date Interval') + '(' + uitext('mocks.withinMonth') + ' 5)';
+      return uitext('mocks.Date Interval') + ' (' + uitext('mocks.withinMonth') + ' 5)';
     case DemoID.TimeInterval24HourMin:
-      return uitext('dataSection.TimeIntervals') + '(' + uitext('review.24hClock') + ')';
+      return uitext('dataSection.TimeIntervals') + ' (' + uitext('review.24hClock') + ')';
     case DemoID.TimeInterval12HourMin:
-      return uitext('dataSection.TimeIntervals') + '(' + uitext('review.12hClock') + ')';
+      return uitext('dataSection.TimeIntervals') + ' (' + uitext('review.12hClock') + ')';
     case DemoID.TimeInterval24HourMinTimezone:
       return (
         uitext('dataSection.TimeIntervals') +
-        '(' +
+        ' (' +
         uitext('review.24hClock') +
         ', ' +
         uitext('mocks.withTimezone') +
@@ -50,7 +56,7 @@ const DemoLabel: React.FC<{ demoID: DemoID }> = ({ demoID }) => {
     case DemoID.TimeInterval12HourMinTimezone:
       return (
         uitext('dataSection.TimeIntervals') +
-        '(' +
+        ' (' +
         uitext('review.12hClock') +
         ', ' +
         uitext('mocks.withTimezone') +
@@ -59,7 +65,7 @@ const DemoLabel: React.FC<{ demoID: DemoID }> = ({ demoID }) => {
     case DemoID.TimeInterval24HourOnly:
       return (
         uitext('dataSection.TimeIntervals') +
-        '(' +
+        ' (' +
         uitext('review.24hClock') +
         ', ' +
         uitext('mocks.hoursOnly') +
@@ -68,7 +74,7 @@ const DemoLabel: React.FC<{ demoID: DemoID }> = ({ demoID }) => {
     case DemoID.TimeInterval12HourOnly:
       return (
         uitext('dataSection.TimeIntervals') +
-        '(' +
+        ' (' +
         uitext('review.12hClock') +
         ', ' +
         uitext('mocks.hoursOnly') +

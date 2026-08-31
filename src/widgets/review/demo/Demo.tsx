@@ -3,6 +3,7 @@ import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import DemoID from './DemoID';
 import DemoLabel from './DemoLabel';
+import DemoClassesThisWeek from './demos/DemoClassesThisWeek';
 import DemoCoordinatesDirections from './demos/DemoCoordinatesDirections';
 import DemoCoordinatesMap from './demos/DemoCoordinatesMap';
 import DemoDateFieldBreakdown from './demos/DemoDateFieldBreakdown';
@@ -17,6 +18,7 @@ import DemoQuartersCircle from './demos/DemoQuartersCircle';
 import DemoQuartersEvents from './demos/DemoQuartersEvents';
 import DemoRelativeTimeEventEnd from './demos/DemoRelativeTimeEventEnd';
 import DemoTimeInterval from './demos/DemoTimeInterval';
+import DemoWeatherInWeek from './demos/DemoWeatherInWeek';
 import DemoSVG from './DemoSVG';
 import DownloadDemoButton from './DownloadDemoButton';
 
@@ -96,6 +98,12 @@ const DemoImage: React.FC<{ demoID: DemoID }> = ({ demoID }) => {
       return <DemoEmojiKeyboardSuggestions includeAnnotations={false} />;
     case DemoID.EmojiExplanations:
       return <DemoEmojiKeyboardSuggestions includeAnnotations={true} />;
+    case DemoID.WeatherInWeek:
+      return <DemoWeatherInWeek />;
+    case DemoID.ClassesThisWeek:
+      return <DemoClassesThisWeek period="week" />;
+    case DemoID.ClassesThisWeekend:
+      return <DemoClassesThisWeek period="weekend" />;
     default:
       return <div style={{ color: 'red' }}>{uitext('errors.demoNotFound')}</div>;
   }

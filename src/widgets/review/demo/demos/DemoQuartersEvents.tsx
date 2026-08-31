@@ -34,7 +34,15 @@ const DemoQuartersEvents: React.FC = () => {
             (_, eventIndex) =>
               events[quarter][eventIndex] && (
                 <g key={eventIndex} style={{ transform: `translate(${eventIndex * 50}px, 20px)` }}>
-                  <rect key={eventIndex} width={40} height={20} fill="#e0e0e0" stroke="#ccc" />
+                  <rect
+                    key={eventIndex}
+                    width={40}
+                    height={20}
+                    rx={5}
+                    ry={5}
+                    fill="#f1f1f1"
+                    stroke="#ccc"
+                  />
                   <text
                     x={20}
                     y={10}
