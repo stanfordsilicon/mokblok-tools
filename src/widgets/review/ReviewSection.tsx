@@ -1,5 +1,8 @@
 import { DataPage, DataSection } from '@data/DataSection';
 
+import StepName from '@settings/StepName';
+import { useURLParams } from '@settings/URLParams';
+
 import ErrorBoundary from '@shared/ErrorBoundary';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
@@ -36,18 +39,26 @@ import TimezonesReviewTable from './tables/TimezonesReviewTable';
 
 function ReviewSection({ dataSection }: { dataSection: DataSection }) {
   const { uitext } = useInterfaceTranslation();
+  const { step } = useURLParams();
   const completion = useCompletionForSection(DataPage.All, dataSection);
 
   if (completion.overall === 0) return null;
 
   return (
     <div>
-      <h2 style={{ margin: '.5em 0' }}>
-        {uitext(`dataSection.${dataSection}`)}{' '}
-        <span className="text-sm">
-          {completion.completed} / {completion.overall}
-        </span>
-      </h2>
+      <div role="heading" aria-level={2} className="flex flex-row gap-2 place-items-end">
+        <div className="text-xl">{uitext(`dataSection.${dataSection}`)}</div>
+        <div className="text-sm">
+          {completion.translations.count} / {completion.overall}{' '}
+          {uitext('nav.translations').toLowerCase()}
+        </div>
+        {step === StepName.Vote && (
+          <div className="text-sm">
+            {completion.votes.accepted + completion.votes.rejected} / {completion.votes.total}{' '}
+            {uitext('nav.votes').toLowerCase()}
+          </div>
+        )}
+      </div>
       <div className="flex flex-row gap-4 flex-wrap">
         <div>
           <ErrorBoundary>

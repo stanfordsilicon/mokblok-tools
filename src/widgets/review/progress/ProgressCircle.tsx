@@ -10,9 +10,9 @@ type Props = {
 };
 
 const ProgressCircle: React.FC<Props> = ({ page, section }) => {
-  const completion = useCompletionForSection(page, section);
+  const completion = useCompletionForSection(page, section).translations;
 
-  if (completion.overall === 0) return <div />;
+  if (completion.count === 0) return <div />;
   return (
     <div className="w-full">
       <PieChart
