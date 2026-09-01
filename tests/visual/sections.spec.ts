@@ -14,7 +14,7 @@ Object.values(DataPage)
         await freezeDate(playwrightPage);
         await gotoApp(
           playwrightPage,
-          `/?step=Edit&page=${pageName}&section=${section}&coverageLevel=${CoverageLevel.Comprehensive}&worksheets=any`,
+          `/?step=Edit&page=${pageName}&section=${section}&coverageLevel=${CoverageLevel.Comprehensive}&worksheets=any&targetLanguage=mg`,
         );
         const pageBody = playwrightPage.getByTestId('PageBody');
         await expect(pageBody).toHaveScreenshot(`${pageName}-${section}.png`);

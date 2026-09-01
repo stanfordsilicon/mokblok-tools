@@ -27,7 +27,7 @@ function SourceDataCell({ entry, style, convertPatternToExample = true }: Props)
         </NewLineAwareRenderer>
       </div>
 
-      <DebugHovercard entry={entry} sourceTranslation={sourceTranslation.translation} />
+      <DebugHovercard entry={entry} source={sourceTranslation} />
     </td>
   );
 }

@@ -4,7 +4,7 @@ import { freezeDate, gotoApp } from './testUtils';
 
 test('Vetting', async ({ page }) => {
   await freezeDate(page);
-  await gotoApp(page, `/?step=Vote&admin=true`);
+  await gotoApp(page, `/?step=Vote&admin=true&targetLanguage=mg`);
   const pageBody = page.getByTestId('PageBody');
   await expect(pageBody).toHaveScreenshot(`1-start-vetting.png`);
 
