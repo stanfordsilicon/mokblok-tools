@@ -4,6 +4,7 @@ import { useTargetDataContext } from '@data/target/TargetDataProvider';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import useBackgroundColor from './getBackgroundColor';
+import { moveReviewTableFocus, shouldNavigateFromTextField } from './reviewTableNavigation';
 
 type Props = {
   entry?: DataEntry;
@@ -19,8 +20,14 @@ function InputTextareaCell({ entry, style }: Props) {
   return (
     <td>
       <textarea
+        data-review-navigation-target
         value={getTranslation(entry) || ''}
         onChange={(e) => editTranslation(entry.id, { edit: e.target.value })}
+        onKeyDown={(event) => {
+          if (shouldNavigateFromTextField(event.currentTarget, event.key)) {
+            moveReviewTableFocus(event);
+          }
+        }}
         style={{ width: '30em', ...style, backgroundColor: getBackgroundColor(entry) }}
       />
     </td>

@@ -1,5 +1,7 @@
 'use client';
 
+import { moveReviewTableFocus, shouldNavigateFromTextField } from './reviewTableNavigation';
+
 type HighlightInputProps = {
   value: string;
   onChange: (value: string) => void;
@@ -35,6 +37,7 @@ function HighlightInput({ value, onChange, highlight, disabled, style }: Highlig
       </div>
       <input
         data-testid="highlight-input"
+        data-review-navigation-target
         style={{
           padding: '0px 3px 0px 3px',
           position: 'relative',
@@ -49,6 +52,11 @@ function HighlightInput({ value, onChange, highlight, disabled, style }: Highlig
         }}
         value={value}
         onChange={(e) => onChange(e.target.value)}
+        onKeyDown={(event) => {
+          if (shouldNavigateFromTextField(event.currentTarget, event.key)) {
+            moveReviewTableFocus(event);
+          }
+        }}
         disabled={disabled}
       />
     </div>
