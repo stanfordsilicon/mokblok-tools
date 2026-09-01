@@ -65,12 +65,12 @@ function ReviewSection({ dataSection }: { dataSection: DataSection }) {
           <div className="text-xs">
             {previousSection && (
               <button style={{ padding: '0 5px' }} onClick={goToPreviousSection}>
-                &lt; Previous
+                &lt; {uitext('nav.previous')}
               </button>
             )}
             {nextSection && (
               <button style={{ padding: '0 5px' }} onClick={goToNextSection}>
-                Next &gt;
+                {uitext('nav.next')} &gt;
               </button>
             )}
           </div>

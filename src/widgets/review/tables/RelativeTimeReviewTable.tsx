@@ -34,7 +34,7 @@ function RelativeTimeReviewTable() {
           <TargetLanguageHeader colSpan={3} className="text-center" />
         </tr>
         <tr>
-          <th></th>
+          {admin && <th></th>}
           <th>{uitext('review.past')}</th>
           <th>{uitext('review.present')}</th>
           <th>{uitext('review.future')}</th>

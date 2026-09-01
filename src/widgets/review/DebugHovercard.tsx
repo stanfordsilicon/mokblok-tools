@@ -5,14 +5,13 @@ import { useURLParams } from '@settings/URLParams';
 
 type Props = {
   entry: DataEntry;
-  sourceTranslation: string | [string, string];
+  source: { translation: string; pattern?: string };
 };
 
-function DebugHovercard({ entry, sourceTranslation }: Props) {
+// TODO change how this is focused on
+function DebugHovercard({ entry, source }: Props) {
   const { admin, sourceLanguage } = useURLParams();
-  const translationText =
-    typeof sourceTranslation === 'string' ? sourceTranslation : sourceTranslation[0];
-  const pattern = typeof sourceTranslation === 'string' ? undefined : sourceTranslation[1];
+  const pattern = source.pattern;
   const { getLanguageName } = useLanguageName();
 
   if (!admin) return null;
@@ -24,7 +23,7 @@ function DebugHovercard({ entry, sourceTranslation }: Props) {
 
       <dl>
         {/* Translations */}
-        <DebugRow label={getLanguageName(sourceLanguage).localized} value={translationText} />
+        <DebugRow label={getLanguageName(sourceLanguage).localized} value={source.translation} />
         {pattern && <DebugRow label="Pattern value" value={pattern} indent={1} />}
         {sourceLanguage !== 'en' && (
           <DebugRow label={getLanguageName('en').localized} value={entry.english} />

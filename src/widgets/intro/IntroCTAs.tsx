@@ -17,7 +17,7 @@ const IntroCTAs: React.FC = () => {
         </button>
       )}
       <button
-        onClick={() => updateURLParams({ step: StepName.Vote })}
+        onClick={() => updateURLParams({ step: StepName.Edit })}
         className="rounded-full bg-(--silicon-brown) px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-(--silicon-purple)"
       >
         {uitext('intro.ctaReviewStart')}

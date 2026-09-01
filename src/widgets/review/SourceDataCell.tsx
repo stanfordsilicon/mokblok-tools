@@ -21,13 +21,13 @@ function SourceDataCell({ entry, style, convertPatternToExample = true }: Props)
     <td className="Cell" tabIndex={0}>
       <div className="Cell__content" style={style}>
         <NewLineAwareRenderer>
-          {typeof sourceTranslation === 'string'
-            ? sourceTranslation
-            : sourceTranslation[convertPatternToExample ? '0' : '1']}
+          {!sourceTranslation.pattern || convertPatternToExample
+            ? sourceTranslation.translation
+            : sourceTranslation.pattern}
         </NewLineAwareRenderer>
       </div>
 
-      <DebugHovercard entry={entry} sourceTranslation={sourceTranslation} />
+      <DebugHovercard entry={entry} source={sourceTranslation} />
     </td>
   );
 }

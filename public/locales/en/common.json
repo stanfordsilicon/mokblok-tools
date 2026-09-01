@@ -13,11 +13,14 @@
         "intro": "Intro",
         "import": "Import",
         "edit": "Edit",
-        "vote": "Vote",
+        "vote": "Review",
         "export": "Export",
         "page/section": "Page / Section",
         "translations": "Translations",
-        "votes": "Votes"
+        "votes": "Votes",
+        "review": "Review",
+        "previous":"Previous",
+        "next":"Next"
     },
     "auth": {
         "signedInAs": "Signed in as", 
@@ -100,7 +103,7 @@
         "title": "Edit"
     },
     "vote": {
-        "title": "Vote",
+        "title": "Review",
         "howToVote": "Hover over a translation to vote on it. Click the option you want to vote for. You can click & drag to vote for multiple options.",
         "otherReviewActivities": "Click the comment box (💬) to leave a comment. To edit a translation, switch back to the edit mode.",
 

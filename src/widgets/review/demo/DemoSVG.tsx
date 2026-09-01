@@ -27,7 +27,6 @@ const DemoSVG: React.FC<React.PropsWithChildren<Props>> = ({ id, width, height, 
       <g transform="translate(1,1)">{children}</g>
 
       {/* Watermark text*/}
-      {/* <text x="10" y="30" fontSize="30px" style={{ color: 'var(--color-level-0)' }}> */}
       <g
         id="watermark"
         transform={`translate(${width / 2}, ${height / 2}) rotate(-45) `}

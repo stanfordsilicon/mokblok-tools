@@ -21,7 +21,7 @@ function useBackgroundColor(): (data: DataEntry) => string {
       return (data: DataEntry) => 'var(--color-level-' + data.level + ')';
     case BackgroundStyle.DifferentThanSource:
       return (data: DataEntry) =>
-        getSourceTranslation(data) === getTranslation(data, true)
+        getSourceTranslation(data).translation === getTranslation(data, true)
           ? 'var(--color-input-unfilled)'
           : 'var(--color-input-background)';
     case BackgroundStyle.Vote:

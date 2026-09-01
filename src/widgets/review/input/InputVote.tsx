@@ -6,6 +6,7 @@ import { useTargetDataContext, Vote } from '@data/target/TargetDataProvider';
 import CommentBox from './CommentBox';
 import CommentMarker from './CommentMarker';
 import InputVotingOverlay from './InputVotingOverlay';
+import { moveReviewTableFocus } from './reviewTableNavigation';
 import { useVoteDragContext } from './VoteDragContext';
 
 /**
@@ -56,10 +57,13 @@ const InputVote: React.FC<{
       <div className="flex items-center justify-between">
         <div
           data-testid="voting-surface"
+          data-review-navigation-target
           className={inputVoteSurfaceClasses}
+          tabIndex={0}
           title={edit ?? translation ?? source}
           style={{ width: inputWidth }}
           onPointerEnter={addToQueue}
+          onKeyDown={moveReviewTableFocus}
         >
           <div className="inline-block text-xs align-bottom w-4">
             {vote === Vote.Accept && '✔️'}
