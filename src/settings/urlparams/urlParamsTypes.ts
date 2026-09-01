@@ -10,7 +10,7 @@ import StepName from '../StepName';
 export const URL_PARAMS_DEFAULTS: Readonly<URLParams> = {
   interfaceLanguage: InterfaceLanguage.English,
   sourceLanguage: 'en',
-  targetLanguage: 'mg',
+  targetLanguage: '',
   coverageLevel: CoverageLevel.Comprehensive,
   step: StepName.Intro,
   page: DataPage.DateAndTime,
