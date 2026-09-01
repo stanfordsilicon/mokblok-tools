@@ -9,8 +9,8 @@ import extractAlphabetDataFromTSV from '../worksheets/ExtractAlphabetFromTSV';
 import { TargetDataStatus } from './types';
 
 import type { AlphabetData, DataEntry } from '../DataTypes';
-import type { WorksheetRowData } from '../worksheets/WorksheetRowData';
 import type { PersistedTranslationInfo, TranslationBaseline } from './types';
+import type { WorksheetRowData } from '../worksheets/WorksheetRowData';
 
 type Props = {
   dataEntries: DataEntry[];
