@@ -9,14 +9,14 @@ import extractAlphabetDataFromTSV from '../worksheets/ExtractAlphabetFromTSV';
 import { TargetDataStatus } from './types';
 
 import type { AlphabetData, DataEntry } from '../DataTypes';
-import type { PersistedTranslationInfo, TranslationBaseline } from './types';
 import type { WorksheetRowData } from '../worksheets/WorksheetRowData';
+import type { PersistedTranslationInfo, TranslationBaseline } from './types';
 
 type Props = {
   dataEntries: DataEntry[];
   extraText: string;
   findDataEntry(query: Partial<DataEntry>): DataEntry | undefined;
-  getTranslationFromSourceLanguage(entry: DataEntry): string | string[];
+  getTranslationFromSourceLanguage(entry: DataEntry): { translation: string; pattern?: string };
   importSource: ImportSource;
   persistedEntries: PersistedTranslationInfo[];
   targetLanguage: string;
@@ -42,10 +42,10 @@ export default function useTargetBaselineData({
     if (dataEntries.length === 0) return {};
     return dataEntries.reduce(
       (acc, entry) => {
-        const source = getTranslationFromSourceLanguage(entry);
+        const source = getTranslationFromSourceLanguage(entry).translation;
         acc[entry.id] = {
           id: entry.id,
-          source: Array.isArray(source) ? source[0] : source,
+          source,
         };
         return acc;
       },

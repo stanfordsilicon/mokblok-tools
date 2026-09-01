@@ -1,4 +1,5 @@
 import type { DataEntry } from '@data/DataTypes';
+import useTranslationFromSourceLanguage from '@data/source/useTranslationFromSourceLanguage';
 import { useTargetDataContext } from '@data/target/TargetDataProvider';
 
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
@@ -15,13 +16,15 @@ function InputTextareaCell({ entry, style }: Props) {
   const { uitext } = useInterfaceTranslation();
   const { getTranslation, editTranslation } = useTargetDataContext();
   const getBackgroundColor = useBackgroundColor();
+  const getSourceTranslation = useTranslationFromSourceLanguage();
   if (!entry) return <td>{uitext('common.emptyCell')}</td>;
 
   return (
     <td>
       <textarea
         data-review-navigation-target
-        value={getTranslation(entry) || ''}
+        placeholder={getSourceTranslation(entry).translation}
+        value={getTranslation(entry, false) || ''}
         onChange={(e) => editTranslation(entry.id, { edit: e.target.value })}
         onKeyDown={(event) => {
           if (shouldNavigateFromTextField(event.currentTarget, event.key)) {

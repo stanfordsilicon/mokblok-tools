@@ -12,7 +12,7 @@ function FullReviewRow({ entry }: { entry: DataEntry }) {
   const { uitext } = useInterfaceTranslation();
   const getSourceTranslation = useTranslationFromSourceLanguage();
   const getBackgroundColor = useBackgroundColor();
-  const sourceTranslation = getSourceTranslation(entry);
+  const { translation, pattern } = getSourceTranslation(entry);
 
   return (
     <tr key={entry.id} style={{ backgroundColor: getBackgroundColor(entry) }}>
@@ -30,8 +30,8 @@ function FullReviewRow({ entry }: { entry: DataEntry }) {
       <td style={{ overflow: 'hidden' }}>
         {uitext(`coverageLevelName.${getCoverageLevelKey(entry.level)}`)}
       </td>
-      <td>{Array.isArray(sourceTranslation) ? sourceTranslation[0] : sourceTranslation}</td>
-      <td>{Array.isArray(sourceTranslation) ? sourceTranslation[1] : ''}</td>
+      <td>{translation}</td>
+      <td>{pattern}</td>
       <td>{entry.xpath}</td>
       <td>{uitext(`patternFormat.${entry.patternFormat}`)}</td>
     </tr>

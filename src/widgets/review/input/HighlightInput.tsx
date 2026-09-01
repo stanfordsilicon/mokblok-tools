@@ -8,9 +8,17 @@ type HighlightInputProps = {
   highlight: RegExp;
   disabled?: boolean;
   style?: React.CSSProperties;
+  placeholder?: string;
 };
 
-function HighlightInput({ value, onChange, highlight, disabled, style }: HighlightInputProps) {
+function HighlightInput({
+  value,
+  onChange,
+  highlight,
+  disabled,
+  style,
+  placeholder,
+}: HighlightInputProps) {
   return (
     <div
       style={{
@@ -26,18 +34,20 @@ function HighlightInput({ value, onChange, highlight, disabled, style }: Highlig
       <div aria-hidden="true" style={{ position: 'absolute', inset: 0, overflow: 'hidden' }}>
         <div
           style={{
+            color: value === '' ? '#bbb' : 'var(--color-text)',
             padding: '2px 3px',
             whiteSpace: 'pre',
             font: 'inherit',
-            color: 'var(--color-text)',
           }}
         >
-          {getHighlightNodes(value, highlight)}
+          {value !== '' ? getHighlightNodes(value, highlight) : placeholder}
         </div>
       </div>
       <input
         data-testid="highlight-input"
         data-review-navigation-target
+        placeholder={placeholder}
+        title={value}
         style={{
           padding: '0px 3px 0px 3px',
           position: 'relative',

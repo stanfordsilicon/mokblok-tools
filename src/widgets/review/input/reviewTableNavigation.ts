@@ -15,9 +15,12 @@ export function shouldNavigateFromTextField(
   if (key === 'ArrowLeft') return selectionStart === 0;
   if (key === 'ArrowRight') return selectionEnd === value.length;
 
-  // Textareas keep their native vertical caret movement until the caret reaches an edge.
-  if (key === 'ArrowUp') return selectionStart === 0;
-  if (key === 'ArrowDown') return selectionEnd === value.length;
+  if (key === 'ArrowUp' || key === 'ArrowDown') {
+    if (input instanceof HTMLInputElement) return true;
+    // Textareas keep their native vertical caret movement until the caret reaches the first/last line.
+    if (key === 'ArrowUp') return value.lastIndexOf('\n', selectionStart - 1) === -1;
+    return value.indexOf('\n', selectionEnd) === -1;
+  }
 
   return false;
 }
@@ -42,7 +45,7 @@ export function moveReviewTableFocus(event: KeyboardEvent<HTMLElement>) {
 
   event.preventDefault();
   target.focus();
-  placeCaretForDirection(target, event.key);
+  selectText(target);
   return true;
 }
 
@@ -117,11 +120,10 @@ function getNavigationTarget(cell: HTMLTableCellElement) {
   return target;
 }
 
-function placeCaretForDirection(target: HTMLElement, key: ArrowKey) {
+function selectText(target: HTMLElement) {
   if (!(target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement)) return;
 
-  const position = key === 'ArrowLeft' || key === 'ArrowUp' ? target.value.length : 0;
-  target.setSelectionRange(position, position);
+  target.select();
 }
 
 function isArrowKey(key: string): key is ArrowKey {
