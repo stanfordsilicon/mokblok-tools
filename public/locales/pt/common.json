@@ -17,7 +17,10 @@
     "export": "Exportar",
     "page/section": "Página / Seção",
     "translations": "Traduções",
-    "votes": "Votos"
+    "votes": "Votos",
+    "review": "Revisar",
+    "previous": "Anterior",
+    "next": "Próximo"
   },
   "auth": {
     "signedInAs": "Conectado como",

@@ -13,7 +13,7 @@ const StepSelector: React.FC = () => {
     <div className={`flex flex-wrap ${admin ? 'gap-1' : 'gap-4'} rounded-[1.5rem]`}>
       {admin && <StepButton label={uitext('nav.import')} targetStep={StepName.Import} />}
       <StepButton label={uitext('nav.edit')} targetStep={StepName.Edit} />
-      {admin && <StepButton label={uitext('nav.vote')} targetStep={StepName.Vote} />}
+      {admin && <StepButton label={uitext('nav.review')} targetStep={StepName.Vote} />}
       {admin && <StepButton label={uitext('nav.export')} targetStep={StepName.Export} />}
     </div>
   );
