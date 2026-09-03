@@ -48,11 +48,11 @@ const TargetLanguageOptions: Record<ImportSource, string[]> = {
 
 /** Only use this for the full list, really we should follow user settings */
 export function getPotentialTargetLanguageOptions(importSource: ImportSource): string[] {
-  return [...TargetLanguageOptions[importSource], ''];
+  return ['und', ...TargetLanguageOptions[importSource]];
 }
 
 export function getPreferredImportSourceForTargetLanguage(targetLanguage: string): ImportSource {
-  if (!targetLanguage) return ImportSource.Blank;
+  if (targetLanguage === 'und') return ImportSource.Blank;
   if (PreloadableTSVLanguages.includes(targetLanguage)) return ImportSource.TSV;
   if (PreloadableXMLLanguages.includes(targetLanguage)) return ImportSource.XML;
   return ImportSource.Blank;

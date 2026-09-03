@@ -1,5 +1,5 @@
-import { useRouter, useSearchParams } from 'next/navigation';
 import { useSession } from 'next-auth/react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import React, { createContext, useCallback, useContext, useEffect, useMemo } from 'react';
 
 import i18n from '@i18n';
@@ -25,6 +25,7 @@ export const URLParamsProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         newParams,
         new URLSearchParams(searchParams.toString()),
       );
+      console.log(newParams, nextSearchParams.toString());
       const nextSearch = nextSearchParams.toString();
       router.push(`?${nextSearch}`, { scroll: false });
     },
@@ -39,6 +40,18 @@ export const URLParamsProvider: React.FC<{ children: React.ReactNode }> = ({ chi
       if (instantiatedParams[typedKey] == null) delete instantiatedParams[typedKey];
     });
     const inferredParams = getInferredParams(instantiatedParams, userSettings);
+    // console.log(
+    //   'providerValue',
+    //   JSON.stringify(URL_PARAMS_DEFAULTS),
+    //   JSON.stringify(instantiatedParams),
+    //   JSON.stringify(inferredParams),
+    //   JSON.stringify({
+    //     ...URL_PARAMS_DEFAULTS,
+    //     ...instantiatedParams,
+    //     ...inferredParams,
+    //     updateURLParams,
+    //   }),
+    // );
     return {
       ...URL_PARAMS_DEFAULTS,
       ...instantiatedParams,

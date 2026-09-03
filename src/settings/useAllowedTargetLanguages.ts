@@ -17,10 +17,10 @@ export function useAllowedTargetLanguages(): string[] {
   // TEMPORARY
   if (userLanguages.length === 0) userLanguages.push('mg', 'nd');
 
-  if (!userLanguages.includes('')) userLanguages.push(''); // Ensure empty string (no target language) is always allowed
+  if (!userLanguages.includes('und')) userLanguages.unshift('und'); // Ensure empty string (no target language) is always allowed
   const potentialLanguages = getPotentialTargetLanguageOptions(importSource);
 
-  if (!role) return [];
+  if (!role) return ['und'];
   if (admin) return potentialLanguages;
 
   return potentialLanguages.filter((code) => userLanguages.includes(code));

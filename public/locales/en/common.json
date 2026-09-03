@@ -12,6 +12,7 @@
     "nav": {
         "intro": "Intro",
         "import": "Import",
+        "translate": "Translate",
         "edit": "Edit",
         "vote": "Review",
         "export": "Export",
