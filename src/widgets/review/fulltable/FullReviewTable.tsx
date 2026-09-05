@@ -27,6 +27,7 @@ function FullReviewTable() {
   const [lengthFilter, setLengthFilter] = React.useState('');
   const [variantFilter, setVariantFilter] = React.useState('');
   const [exampleNumFilter, setExampleNumFilter] = React.useState('');
+  const [englishFilter, setEnglishFilter] = React.useState('');
   const [coverageLevelFilter, setCoverageLevelFilter] = React.useState<CoverageLevel | undefined>(
     undefined,
   );
@@ -49,6 +50,7 @@ function FullReviewTable() {
           f.length.includes(lengthFilter) &&
           f.variant.includes(variantFilter) &&
           f.exampleNum.toString().includes(exampleNumFilter) &&
+          f.english.includes(englishFilter) &&
           (coverageLevelFilter === undefined || f.level === coverageLevelFilter) &&
           (patternFormatFilter === undefined || f.patternFormat === patternFormatFilter) &&
           f.xpath.includes(xpathFilter),
@@ -64,6 +66,7 @@ function FullReviewTable() {
       lengthFilter,
       variantFilter,
       exampleNumFilter,
+      englishFilter,
       coverageLevelFilter,
       patternFormatFilter,
       xpathFilter,
@@ -105,7 +108,7 @@ function FullReviewTable() {
             <FilterCell value={lengthFilter} onChange={setLengthFilter} />
             <FilterCell value={variantFilter} onChange={setVariantFilter} />
             <FilterCell value={exampleNumFilter} onChange={setExampleNumFilter} />
-            <td />
+            <FilterCell value={englishFilter} onChange={setEnglishFilter} />
             <td />
             <FilterCoverageLevelCell
               coverageLevelFilter={coverageLevelFilter}
@@ -133,12 +136,7 @@ function FullReviewTable() {
 function FilterCell({ value, onChange }: { value: string; onChange: (value: string) => void }) {
   return (
     <td>
-      <input
-        className="border"
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        style={{ width: '2em' }}
-      />
+      <input className="border w-full" value={value} onChange={(e) => onChange(e.target.value)} />
     </td>
   );
 }

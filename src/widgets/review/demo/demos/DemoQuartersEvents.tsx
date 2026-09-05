@@ -8,7 +8,7 @@ const DemoQuartersEvents: React.FC = () => {
   const { getTranslation } = useTargetDataContext();
   const quarters = [...Array(4)]
     .map((_, index) =>
-      findDataEntry({ field: 'q', instance: (index + 1).toString(), length: 'a', variant: 'f' }),
+      findDataEntry({ field: 'q', instance: (index + 1).toString(), length: 'w', variant: 'f' }),
     )
     .filter((q) => q != null);
   // Example events for each quarter

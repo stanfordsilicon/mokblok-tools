@@ -23,6 +23,7 @@ const DemoSVG: React.FC<React.PropsWithChildren<Props>> = ({ id, width, height, 
         stroke="#ccc"
         strokeWidth="2"
       />
+
       {/* Move 1px diagonally so we can have a nice border without needing to worry about stroke width or clipping */}
       <g transform="translate(1,1)">{children}</g>
 
@@ -36,6 +37,7 @@ const DemoSVG: React.FC<React.PropsWithChildren<Props>> = ({ id, width, height, 
           fontFamily: 'sans-serif',
           fontSize: 24,
           fontWeight: 'bold',
+          pointerEvents: 'none',
         }}
       >
         <text y={-30}>Stanford SILICON</text>

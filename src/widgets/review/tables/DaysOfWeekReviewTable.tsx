@@ -1,3 +1,5 @@
+import { getDaysOfWeekOrdered } from '@data/DayKeys';
+
 import { SourceLanguageHeader } from '@settings/SourceLanguageLabel';
 import { TargetLanguageHeader } from '@settings/TargetLanguageLabel';
 
@@ -9,7 +11,7 @@ import InputDataCell from '../input/InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
 // TODO allow for non-Sunday first day of week
-const dayOfWeekOrdered = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+const DOWS = getDaysOfWeekOrdered('sun');
 
 function DaysOfWeekReviewTable() {
   const findDataEntries = useFindDataEntriesInScope();
@@ -43,7 +45,7 @@ function DaysOfWeekReviewTable() {
       </thead>
       <tbody>
         {Object.entries(daysOfTheWeekMatrix)
-          .sort((a, b) => dayOfWeekOrdered.indexOf(a[0]) - dayOfWeekOrdered.indexOf(b[0]))
+          .sort((a, b) => DOWS.indexOf(a[0]) - DOWS.indexOf(b[0]))
           .map(([instance, row]) => (
             <tr key={instance}>
               <SourceDataCell entry={row['w']} />

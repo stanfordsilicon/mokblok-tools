@@ -1,4 +1,5 @@
 // Strings should not include spaces or symbols -- they are used in the downloaded filenames
+// They should be prefixed with the section name
 enum DemoID {
   MonthsGrid = 'monthsGrid',
   MonthsTemp = 'monthsTemp',
@@ -28,6 +29,11 @@ enum DemoID {
   RelativeTimeEventEnd = 'relativeTimeEventEnd',
   EmojiKeyboardSuggestions = 'emojiKeyboardSuggestions',
   EmojiExplanations = 'emojiExplanations',
+  MonthsSelector = 'monthsSelector',
+  DaysOfWeekSelector = 'daysOfWeekSelector',
+  LanguageNamesSelector = 'languageNamesSelector',
+  RegionsSelector = 'regionsSelector',
+  TimezonesSelector = 'timezonesSelector',
 }
 
 export default DemoID;

@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 
 import { DateField } from '@data/DateField';
-import { DayKeys } from '@data/DayKeys';
+import { getDateDayOfWeekKey } from '@data/DayKeys';
 import { useSourceDataContext } from '@data/source/SourceDataProvider';
 import { useTargetDataContext } from '@data/target/TargetDataProvider';
 
@@ -48,7 +48,7 @@ const DemoDateFieldBreakdown: React.FC = () => {
         case DateField.DayOfWeek:
           return (
             getTranslation(
-              findDataEntry({ field: 'E', instance: DayKeys[today.getDay()], length: 'w' }),
+              findDataEntry({ field: 'E', instance: getDateDayOfWeekKey(today), length: 'w' }),
             ) || ''
           );
         case DateField.Hour:

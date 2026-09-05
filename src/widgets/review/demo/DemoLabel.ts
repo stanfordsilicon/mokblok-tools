@@ -92,6 +92,16 @@ const DemoLabel: React.FC<{ demoID: DemoID }> = ({ demoID }) => {
       return uitext('mocks.EmojiKeyboardSuggestions');
     case DemoID.EmojiExplanations:
       return uitext('mocks.EmojiExplanations');
+    case DemoID.MonthsSelector:
+      return uitext('mocks.MonthsSelector');
+    case DemoID.DaysOfWeekSelector:
+      return uitext('mocks.DaysOfWeekSelector');
+    case DemoID.LanguageNamesSelector:
+      return uitext('mocks.LanguageNamesSelector');
+    case DemoID.RegionsSelector:
+      return uitext('mocks.RegionsSelector');
+    case DemoID.TimezonesSelector:
+      return uitext('mocks.TimezonesSelector');
     default:
       enforceExhaustiveSwitch(demoID);
   }
