@@ -116,11 +116,15 @@ const DemoImage: React.FC<{ demoID: DemoID }> = ({ demoID }) => {
         <DemoSelector entryFilter={{ section: DataSection.Months, field: 'M', length: 'w' }} />
       );
     case DemoID.LanguageNamesSelector:
-      return <DemoSelector entryFilter={{}} />;
-    case DemoID.RegionsSelector:
-      return <DemoSelector entryFilter={{}} />;
+      return <DemoSelector entryFilter={{ section: DataSection.LanguageNames, group: '' }} />;
+    case DemoID.RegionsContinentSelector:
+      return <DemoSelector entryFilter={{ section: DataSection.Regions, group: 'Continent' }} />;
+    case DemoID.TimezonesCitySelector:
+      return <DemoSelector entryFilter={{ field: 'zone', variant: '', group: 'Africa' }} />;
     case DemoID.TimezonesSelector:
-      return <DemoSelector entryFilter={{}} />;
+      return (
+        <DemoSelector entryFilter={{ field: 'metazone', variant: 'standard', group: 'Africa' }} />
+      );
     default:
       return <div style={{ color: 'red' }}>{uitext('errors.demoNotFound')}</div>;
   }

@@ -32,7 +32,8 @@ enum DemoID {
   MonthsSelector = 'monthsSelector',
   DaysOfWeekSelector = 'daysOfWeekSelector',
   LanguageNamesSelector = 'languageNamesSelector',
-  RegionsSelector = 'regionsSelector',
+  RegionsContinentSelector = 'regionsContinentSelector',
+  TimezonesCitySelector = 'timezonesCitySelector',
   TimezonesSelector = 'timezonesSelector',
 }
 

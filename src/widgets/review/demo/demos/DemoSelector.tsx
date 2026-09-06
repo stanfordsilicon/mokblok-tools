@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 
 import { DataEntry } from '@data/DataTypes';
 import { DayKeys } from '@data/DayKeys';
@@ -6,56 +6,59 @@ import { useSourceDataContext } from '@data/source/SourceDataProvider';
 import { useTargetDataContext } from '@data/target/TargetDataProvider';
 
 import { sortBy } from '@shared/setUtils';
-import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 const DemoSelector = ({ entryFilter }: { entryFilter: Partial<DataEntry> }) => {
-  const { uitext } = useInterfaceTranslation();
   const { findDataEntries } = useSourceDataContext();
   const { getTranslation } = useTargetDataContext();
-  const options = sortBy(findDataEntries(entryFilter), getSortFunction(entryFilter)).map((entry) =>
-    getTranslation(entry),
+  const options = useMemo(
+    () =>
+      sortBy(findDataEntries(entryFilter), getSortFunction(entryFilter, getTranslation)).map(
+        (entry) => getTranslation(entry),
+      ),
+    [getTranslation, findDataEntries, entryFilter],
   );
   const [currentIndex, setCurrentIndex] = useState(3);
 
   const onClick = useCallback((index: number) => setCurrentIndex(index), []);
-  const title = getTitle(findDataEntries, getTranslation, uitext, entryFilter);
 
   return (
-    <SelectorSVG options={options} title={title} currentIndex={currentIndex} onClick={onClick} />
+    <SelectorSVG
+      options={options}
+      currentIndex={currentIndex}
+      onClick={onClick}
+      moreWidth={entryFilter.field === 'metazone'}
+    />
   );
 };
 
 type SelectorSVGProps = {
   options: string[];
-  title: string;
   currentIndex: number;
   onClick?: (i: number) => void;
+  moreWidth?: boolean;
 };
 
-const SelectorSVG = ({ options, title, currentIndex, onClick }: SelectorSVGProps) => {
+const SelectorSVG = ({ options, currentIndex, onClick, moreWidth }: SelectorSVGProps) => {
   const hoveredIndex = 4;
+  const numShown = Math.min(options.length, 9);
 
   return (
-    <>
-      {/* <rect x={10} y={10} width={200} height={30} fill="lightgrey" stroke="black" /> */}
-      <text x={40} y={25} textAnchor="start" fontSize="14px" fontWeight="bold">
-        {title}:
-      </text>
-      <text x={40} y={45} textAnchor="start" fontSize="14px">
+    <g style={{ transform: `translateY(${(9 - numShown) * 10}px)` }}>
+      <text x={moreWidth ? 5 : 40} y={30} textAnchor="start" fontSize="14px">
         {options[currentIndex]} ▼
       </text>
-      <g className="group" style={{ transform: `translate(50px, 50px)` }}>
+      <g style={{ transform: moreWidth ? `translate(20px, 40px)` : `translate(60px, 40px)` }}>
         <rect
           x={-1}
-          width={152}
-          height={Math.min(options.length, 9) * 20}
+          width={moreWidth ? 202 : 152}
+          height={numShown * 20}
           stroke="black"
           fill="white"
           rx={5}
           ry={5}
           style={{ filter: 'drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.25))' }}
         />
-        {options.slice(0, 9).map((option, index) => (
+        {options.slice(0, numShown).map((option, index) => (
           <g key={index} style={{ transform: `translateY(${index * 20}px)` }}>
             <rect
               className={
@@ -66,7 +69,7 @@ const SelectorSVG = ({ options, title, currentIndex, onClick }: SelectorSVGProps
               y={0}
               rx={5}
               ry={5}
-              width={150}
+              width={moreWidth ? 200 : 150}
               height={20}
               fill={index === hoveredIndex ? 'skyblue' : 'transparent'}
               // stroke="black"
@@ -95,33 +98,15 @@ const SelectorSVG = ({ options, title, currentIndex, onClick }: SelectorSVGProps
           </g>
         ))}
       </g>
-    </>
+    </g>
   );
 };
 
-function getSortFunction(filter: Partial<DataEntry>) {
+function getSortFunction(filter: Partial<DataEntry>, getTranslation: (entry: DataEntry) => string) {
   if (filter.field === 'M') return (d: DataEntry) => Number(d.instance);
   if (filter.field === 'E') return (d: DataEntry) => DayKeys.findIndex((k) => k === d.instance);
 
-  return (d: DataEntry) => d.instance;
-}
-
-function getTitle(
-  findDataEntries: (filter: Partial<DataEntry>) => DataEntry[],
-  getTranslation: (entry: DataEntry) => string,
-  uiText: (s: string) => string,
-  filter: Partial<DataEntry>,
-) {
-  if (filter.field === 'M')
-    return (
-      getTranslation(findDataEntries({ field: 'M', length: 'w' })[0]) ||
-      uiText('dataSection.Months')
-    );
-  if (filter.field === 'E')
-    return getTranslation(findDataEntries({ field: 'E' })[0]) || uiText('dataSection.DaysOfWeek');
-  const entries = findDataEntries(filter);
-  if (entries.length === 0) return 'No Entries';
-  return getTranslation(entries[0]);
+  return (d: DataEntry) => getTranslation(d);
 }
 
 export default DemoSelector;

@@ -38,7 +38,7 @@ const demoIDsBySection: Record<DataSection, DemoID[]> = {
   [DataSection.Paragraphs]: [],
   [DataSection.Quarters]: [DemoID.QuartersCircle, DemoID.QuartersEvents],
   [DataSection.Quotes]: [],
-  [DataSection.Regions]: [DemoID.RegionsSelector],
+  [DataSection.Regions]: [DemoID.RegionsContinentSelector],
   [DataSection.RelativeTime]: [DemoID.RelativeTimeEventEnd, DemoID.ClassesThisWeek],
   [DataSection.Symbols]: [],
   [DataSection.TechWords]: [],
@@ -53,7 +53,7 @@ const demoIDsBySection: Record<DataSection, DemoID[]> = {
     DemoID.TimeInterval24HourOnly,
     DemoID.TimeInterval12HourOnly,
   ],
-  [DataSection.Timezones]: [DemoID.TimezonesSelector],
+  [DataSection.Timezones]: [DemoID.TimezonesSelector, DemoID.TimezonesCitySelector],
   [DataSection.FullTable]: [],
 };
 
