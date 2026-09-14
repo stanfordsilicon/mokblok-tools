@@ -12,6 +12,7 @@
     "nav": {
         "intro": "Introduzione",
         "import": "Importa",
+        "translate": "Traduci",
         "edit": "Modifica",
         "vote": "Vota",
         "export": "Esporta",
@@ -214,7 +215,12 @@
         "RelativeTimeEventEnd": "Scegli una data di fine",
         "EmojiKeyboardSuggestions": "Suggerimenti emoji da tastiera",
         "EmojiExplanations": "Spiegazioni delle emoji",
-        "": ""
+        "MonthSelector": "Selettore del mese",
+        "DayOfWeekSelector": "Selettore del giorno della settimana",
+        "LanguageSelector": "Selettore della lingua",
+        "ContinentSelector": "Selettore del continente",
+        "CitySelector": "Selettore della città",
+        "TimezoneSelector": "Selettore del fuso orario"
     },
     "export": {
         "title": "Esporta",
@@ -336,6 +342,11 @@
         "Paragraphs": "Paragrafi",
         "CLDRTicket": "Ticket CLDR",
         "FullTable": "Tabella completa"
+    },
+    "group": {
+        "Special": "Speciale",
+        "Continent": "Continente",
+        "Regions": "Regioni"
     },
     "length": {
         "wide": "Largo",
