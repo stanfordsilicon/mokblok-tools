@@ -29,7 +29,6 @@ function buildNextURLSearchParams(
   Object.entries(URL_PARAMS_DEFAULTS).forEach(([key, value]) => {
     if (next.get(key) === value.toString()) next.delete(key);
   });
-  console.log(newParams, next.toString());
 
   return next;
 }

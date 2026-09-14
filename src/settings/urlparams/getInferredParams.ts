@@ -41,7 +41,7 @@ function getInferredParams(
       instantiatedOrDefault.targetLanguage != 'nd' &&
       instantiatedOrDefault.targetLanguage != 'mg'
     )
-      inferredParams.targetLanguage = allowedLanguages[0] ?? ''; // None
+      inferredParams.targetLanguage = allowedLanguages[0] ?? 'und'; // None
   }
   if (!userSettings?.role) inferredParams.importSource = ImportSource.Blank;
 

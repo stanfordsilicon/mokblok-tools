@@ -24,16 +24,18 @@ const ReviewWidget: React.FC = () => {
 
   return (
     <VoteDragProvider>
-      <div className="flex flex-col gap-2 relative flex-1">
+      <div className="flex flex-col gap-2 relative flex-1 ReviewWidget">
         <div className="absolute top-[-1.5em] right-[-1em]">
           <DownloadAllDemos />
         </div>
-        {step === StepName.Vote && <VoteExplanation />}
-        {section !== DataSection.All ? (
-          <ReviewSection dataSection={section} />
-        ) : (
-          sections.map((section) => <ReviewSection dataSection={section} key={section} />)
-        )}
+        <div className="overflow-auto max-h-400">
+          {step === StepName.Vote && <VoteExplanation />}
+          {section !== DataSection.All ? (
+            <ReviewSection dataSection={section} />
+          ) : (
+            sections.map((section) => <ReviewSection dataSection={section} key={section} />)
+          )}
+        </div>
       </div>
     </VoteDragProvider>
   );
