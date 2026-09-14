@@ -152,6 +152,10 @@ th {
   z-index: 10;
 }
 
+.ReviewWidget th {
+  background: white;
+}
+
 td {
   padding: 0 0.125em;
 }

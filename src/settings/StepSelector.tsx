@@ -1,3 +1,7 @@
+import { useSession } from 'next-auth/react';
+
+import ImportSource from '@data/ImportSource';
+
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import StepName from './StepName';
@@ -5,15 +9,20 @@ import { useURLParams } from './URLParams';
 
 const StepSelector: React.FC = () => {
   const { uitext } = useInterfaceTranslation();
-  const { admin } = useURLParams();
-
-  if (!admin) return null;
+  const { admin, importSource } = useURLParams();
+  const { data: session } = useSession();
+  const role = session?.user?.role ?? null;
 
   return (
     <div className={`flex flex-wrap ${admin ? 'gap-1' : 'gap-4'} rounded-[1.5rem]`}>
       {admin && <StepButton label={uitext('nav.import')} targetStep={StepName.Import} />}
-      <StepButton label={uitext('nav.edit')} targetStep={StepName.Edit} />
-      {admin && <StepButton label={uitext('nav.review')} targetStep={StepName.Vote} />}
+      <StepButton
+        label={importSource === ImportSource.Blank ? uitext('nav.translate') : uitext('nav.edit')}
+        targetStep={StepName.Edit}
+      />
+      {role && role !== 'user' && (
+        <StepButton label={uitext('nav.review')} targetStep={StepName.Vote} />
+      )}
       {admin && <StepButton label={uitext('nav.export')} targetStep={StepName.Export} />}
     </div>
   );

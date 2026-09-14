@@ -3,32 +3,44 @@ import { DataSection } from '@data/DataSection';
 import { SourceLanguageHeader } from '@settings/SourceLanguageLabel';
 import { TargetLanguageHeader } from '@settings/TargetLanguageLabel';
 
+import useInterfaceTranslation from '@shared/useInterfaceTranslation';
+
 import { useFindDataEntriesInScope } from '../getDataEntriesForSection';
 import InputDataCell from '../input/InputDataCell';
 import SourceDataCell from '../SourceDataCell';
 
+const GROUPS = ['Continent', 'Regions', 'Special'];
+
 function RegionsReviewTable() {
+  const { uitext } = useInterfaceTranslation();
   const findDataEntries = useFindDataEntriesInScope();
   const regions = findDataEntries({ section: DataSection.Regions });
 
   return (
     <div>
-      <table>
-        <thead>
-          <tr>
-            <SourceLanguageHeader />
-            <TargetLanguageHeader />
-          </tr>
-        </thead>
-        <tbody>
-          {regions.map((entry) => (
-            <tr key={entry.instance + entry.length}>
-              <SourceDataCell entry={entry} />
-              <InputDataCell entry={entry} inputWidth="15em" />
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      {GROUPS.map((group) => (
+        <div key={group}>
+          <h3>{uitext(`group.${group}`)}</h3>
+          <table>
+            <thead>
+              <tr>
+                <SourceLanguageHeader />
+                <TargetLanguageHeader />
+              </tr>
+            </thead>
+            <tbody>
+              {regions
+                .filter((entry) => entry.group === group)
+                .map((entry) => (
+                  <tr key={entry.instance + entry.length}>
+                    <SourceDataCell entry={entry} />
+                    <InputDataCell entry={entry} inputWidth="15em" />
+                  </tr>
+                ))}
+            </tbody>
+          </table>
+        </div>
+      ))}
     </div>
   );
 }

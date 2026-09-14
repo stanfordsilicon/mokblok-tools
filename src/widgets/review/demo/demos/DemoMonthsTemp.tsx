@@ -43,7 +43,8 @@ const MockMonthsTemp: React.FC = () => {
   return (
     <>
       <text x={120} y={40} textAnchor="middle" fontSize="1.5em">
-        {uitext('mocks.Temperature')}
+        {getTranslation(findDataEntry({ instance: 'Temperature' }), false) ||
+          uitext('mocks.Temperature')}
       </text>
       <g transform="translate(0,60)">
         {/* Climate bars */}

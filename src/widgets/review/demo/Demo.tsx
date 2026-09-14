@@ -1,3 +1,5 @@
+import { DataSection } from '@data/DataSection';
+
 import ErrorBoundary from '@shared/ErrorBoundary';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
@@ -17,6 +19,7 @@ import DemoMonthsTemp from './demos/DemoMonthsTemp';
 import DemoQuartersCircle from './demos/DemoQuartersCircle';
 import DemoQuartersEvents from './demos/DemoQuartersEvents';
 import DemoRelativeTimeEventEnd from './demos/DemoRelativeTimeEventEnd';
+import DemoSelector from './demos/DemoSelector';
 import DemoTimeInterval from './demos/DemoTimeInterval';
 import DemoWeatherInWeek from './demos/DemoWeatherInWeek';
 import DemoSVG from './DemoSVG';
@@ -104,6 +107,24 @@ const DemoImage: React.FC<{ demoID: DemoID }> = ({ demoID }) => {
       return <DemoClassesThisWeek period="week" />;
     case DemoID.ClassesThisWeekend:
       return <DemoClassesThisWeek period="weekend" />;
+    case DemoID.DaysOfWeekSelector:
+      return (
+        <DemoSelector entryFilter={{ section: DataSection.DaysOfWeek, field: 'E', length: 'w' }} />
+      );
+    case DemoID.MonthsSelector:
+      return (
+        <DemoSelector entryFilter={{ section: DataSection.Months, field: 'M', length: 'w' }} />
+      );
+    case DemoID.LanguageNamesSelector:
+      return <DemoSelector entryFilter={{ section: DataSection.LanguageNames, group: '' }} />;
+    case DemoID.RegionsContinentSelector:
+      return <DemoSelector entryFilter={{ section: DataSection.Regions, group: 'Continent' }} />;
+    case DemoID.TimezonesCitySelector:
+      return <DemoSelector entryFilter={{ field: 'zone', variant: '', group: 'Africa' }} />;
+    case DemoID.TimezonesSelector:
+      return (
+        <DemoSelector entryFilter={{ field: 'metazone', variant: 'standard', group: 'Africa' }} />
+      );
     default:
       return <div style={{ color: 'red' }}>{uitext('errors.demoNotFound')}</div>;
   }

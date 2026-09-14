@@ -1,5 +1,5 @@
 import { type DataEntry } from '@data/DataTypes';
-import { DayKeys } from '@data/DayKeys';
+import { getDateDayOfWeekKey } from '@data/DayKeys';
 
 type DateStringProps = {
   formatPattern: string;
@@ -97,14 +97,14 @@ function getDateVariable(
     case 'E':
       return getInnerString({
         field: seq[0],
-        instance: DayKeys[date.getDay()],
+        instance: getDateDayOfWeekKey(date),
         length: 'a',
         exampleNum: '0',
       });
     case 'EEEE':
       return getInnerString({
         field: seq[0],
-        instance: DayKeys[date.getDay()],
+        instance: getDateDayOfWeekKey(date),
         length: 'w',
         exampleNum: '0',
       });

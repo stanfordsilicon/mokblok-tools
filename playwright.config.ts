@@ -25,6 +25,9 @@ export default defineConfig({
     env: {
       ...process.env,
       SCREENSHOT_TEST_BYPASS_AUTH: '1',
+      AUTH_TRUST_HOST: 'true',
+      AUTH_URL: BASE_URL,
+      AUTH_SECRET: 'playwright-only-secret-not-for-production',
     },
     url: BASE_URL,
     timeout: 180_000,

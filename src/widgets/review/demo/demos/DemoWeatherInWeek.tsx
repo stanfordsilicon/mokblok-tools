@@ -32,7 +32,7 @@ const DemoWeatherInWeek: React.FC = () => {
   return (
     <>
       <text x={120} y={40} textAnchor="middle" fontSize="1.5em">
-        {uitext('mocks.Weather')}
+        {getTranslation(findDataEntry({ instance: 'Weather' }), false) || uitext('mocks.Weather')}
       </text>
       <g transform="translate(15,60)">
         {DayKeys?.map((day, index) => {
