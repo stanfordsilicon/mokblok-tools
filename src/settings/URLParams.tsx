@@ -1,10 +1,8 @@
-import { useRouter, useSearchParams } from 'next/navigation';
 import { useSession } from 'next-auth/react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import React, { createContext, useCallback, useContext, useEffect, useMemo } from 'react';
 
 import i18n from '@i18n';
-
-import { useWorksheetCatalog } from '@data/worksheets/WorksheetCatalog';
 
 import buildNextURLSearchParams from './urlparams/buildNextURLSearchParams';
 import getInferredParams from './urlparams/getInferredParams';
@@ -20,7 +18,6 @@ export const URLParamsProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   const router = useRouter();
   const searchParams = useSearchParams();
   const userSettings = useSession().data?.user;
-  const { languages: worksheetLanguages } = useWorksheetCatalog();
 
   const updateURLParams = useCallback(
     (newParams: Partial<URLParams>) => {
@@ -41,14 +38,14 @@ export const URLParamsProvider: React.FC<{ children: React.ReactNode }> = ({ chi
       const typedKey = key as keyof URLParams;
       if (instantiatedParams[typedKey] == null) delete instantiatedParams[typedKey];
     });
-    const inferredParams = getInferredParams(instantiatedParams, userSettings, worksheetLanguages);
+    const inferredParams = getInferredParams(instantiatedParams, userSettings);
     return {
       ...URL_PARAMS_DEFAULTS,
       ...instantiatedParams,
       ...inferredParams,
       updateURLParams,
     };
-  }, [userSettings, searchParams, updateURLParams, worksheetLanguages]);
+  }, [userSettings, searchParams, updateURLParams]);
 
   useEffect(() => {
     const changeLanguage = async () => {

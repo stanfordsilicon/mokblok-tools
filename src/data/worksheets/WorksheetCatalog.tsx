@@ -61,6 +61,7 @@ export function WorksheetCatalogProvider({ children }: { children: React.ReactNo
       });
     return () => controller.abort();
   }, [identity, status, refreshCount]);
+
   return (
     <WorksheetCatalogContext.Provider value={{ ...state, refresh }}>
       {children}

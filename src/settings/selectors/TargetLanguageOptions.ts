@@ -27,23 +27,12 @@ export function getPotentialTargetLanguageOptions(
   importSource: ImportSource,
   tsvLanguages: readonly string[] = [],
 ): string[] {
+  if (importSource === ImportSource.TSV) return ['und', ...tsvLanguages];
   const languages =
-    importSource === ImportSource.TSV
-      ? tsvLanguages
-      : importSource === ImportSource.XML
-        ? PreloadableXMLLanguages
-        : [...tsvLanguages, ...PreloadableXMLLanguages];
+    importSource === ImportSource.XML
+      ? PreloadableXMLLanguages
+      : [...tsvLanguages, ...PreloadableXMLLanguages];
   return [...new Set(['und', ...languages])];
-}
-
-export function getPreferredImportSourceForTargetLanguage(
-  targetLanguage: string,
-  tsvLanguages: readonly string[] = [],
-): ImportSource {
-  if (targetLanguage === 'und') return ImportSource.Blank;
-  if (tsvLanguages.includes(targetLanguage.toLowerCase())) return ImportSource.TSV;
-  if (PreloadableXMLLanguages.includes(targetLanguage)) return ImportSource.XML;
-  return ImportSource.Blank;
 }
 
 export function supportsTargetLanguage(
