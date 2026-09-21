@@ -1,7 +1,7 @@
 # MongoDB worksheet storage proposal
 
 Status: implemented. See [operation and migration notes](worksheet-storage.md)
-for the completed migration and the source cleanup awaiting approval. This
+for the completed migration and verified source cleanup. This
 document records the original design; the operational notes describe final
 behavior, including the operator bootstrap option and optional notes columns.
 

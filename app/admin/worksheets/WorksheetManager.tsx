@@ -15,6 +15,11 @@ import type { WorksheetValidation } from '../../../src/data/worksheets/validateW
 type AdminMetadata = WorksheetMetadata & { updatedBy: string };
 type Preview = { validation: WorksheetValidation; expectedRevision: number };
 
+const fieldClassName =
+  'rounded-lg border border-(--silicon-line-strong) bg-white px-3 py-2 text-(--silicon-ink) shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--silicon-purple) disabled:cursor-not-allowed disabled:opacity-60';
+const buttonClassName =
+  'cursor-pointer rounded-lg border border-(--silicon-purple) bg-white px-4 py-2 font-semibold text-(--silicon-purple) shadow-sm hover:bg-(--silicon-panel) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--silicon-purple) disabled:cursor-not-allowed disabled:opacity-50';
+
 export default function WorksheetManager() {
   const [worksheets, setWorksheets] = useState<AdminMetadata[]>([]);
   const [targetLanguage, setLanguage] = useState('');
@@ -117,12 +122,16 @@ export default function WorksheetManager() {
         Upload a worksheet or paste cells copied from a spreadsheet. Publishing replaces the shared
         starting data for that worksheet. Saved reviewer edits remain separate.
       </p>
-      <fieldset disabled={busy} className="space-y-4 rounded-xl border p-4">
-        <legend className="font-bold">Upload worksheet</legend>
+      <fieldset
+        disabled={busy}
+        className="space-y-4 rounded-xl border border-(--silicon-line-strong) bg-(--silicon-panel) p-4 sm:p-6"
+      >
+        <legend className="px-2 font-bold">Upload worksheet</legend>
         <div className="flex flex-wrap gap-4">
-          <label>
+          <label className="flex flex-col gap-2 font-medium">
             Language code{' '}
             <input
+              className={`${fieldClassName} w-full sm:w-48`}
               aria-label="Language code"
               value={targetLanguage}
               placeholder="kri"
@@ -133,9 +142,10 @@ export default function WorksheetManager() {
               }}
             />
           </label>
-          <label>
+          <label className="flex flex-col gap-2 font-medium">
             Worksheet{' '}
             <select
+              className={fieldClassName}
               value={worksheetKey}
               onChange={(event) => {
                 changed();
@@ -150,10 +160,11 @@ export default function WorksheetManager() {
             </select>
           </label>
         </div>
-        <label className="block">
+        <label className="block space-y-2 font-medium">
           Choose UTF-8 file (up to 1 MiB)
           <input
             type="file"
+            className="block w-full min-w-0 rounded-lg text-sm text-(--silicon-ink-soft) file:mr-3 file:cursor-pointer file:rounded-lg file:border file:border-solid file:border-(--silicon-purple) file:bg-white file:px-4 file:py-2 file:font-semibold file:text-(--silicon-purple) file:shadow-sm hover:file:bg-(--silicon-panel) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--silicon-purple) disabled:opacity-60 disabled:file:cursor-not-allowed"
             accept=".tsv,.txt"
             onChange={async (event) => {
               const file = event.target.files?.[0];
@@ -185,10 +196,10 @@ export default function WorksheetManager() {
             }}
           />
         </label>
-        <label className="block">
+        <label className="block space-y-2 font-medium">
           Worksheet text
           <textarea
-            className="block min-h-64 w-full font-mono text-sm border rounded-md bg-input"
+            className={`${fieldClassName} block min-h-64 w-full resize-y font-mono text-sm font-normal`}
             value={content}
             onChange={(event) => {
               changed();
@@ -202,7 +213,11 @@ export default function WorksheetManager() {
             ? `Replaces revision ${current.revision} (updated ${new Date(current.updatedAt).toLocaleString()}).`
             : 'Creates a new worksheet.'}
         </p>
-        <button disabled={!catalogReady || !content || !targetLanguage} onClick={validate}>
+        <button
+          className={buttonClassName}
+          disabled={!catalogReady || !content || !targetLanguage}
+          onClick={validate}
+        >
           Validate and preview
         </button>
         {preview && (
@@ -220,7 +235,7 @@ export default function WorksheetManager() {
               <p key={warning}>{warning}</p>
             ))}
             {preview.validation.valid && (
-              <button onClick={publish}>
+              <button className={buttonClassName} onClick={publish}>
                 {preview.expectedRevision
                   ? `Publish replacement for revision ${preview.expectedRevision}`
                   : 'Publish new worksheet'}
@@ -232,9 +247,10 @@ export default function WorksheetManager() {
       <p role="status" aria-live="polite">
         {busy ? 'Working…' : message}
       </p>
-      <div className="flex items-center gap-4">
+      <div className="flex flex-wrap items-center gap-4">
         <h2 className="text-xl font-bold">Published worksheets</h2>
         <button
+          className={buttonClassName}
           disabled={busy}
           onClick={() => {
             setMessage('');

@@ -1,5 +1,4 @@
 import assert from 'node:assert/strict';
-import { readdir, readFile } from 'node:fs/promises';
 import test from 'node:test';
 import {
   validateWorksheet,
@@ -40,14 +39,17 @@ test('normalizes only the parsing view and language lookup', () => {
   assert.throws(() => normalizeWorksheetLanguage('../kri'));
   assert.throws(() => normalizeWorksheetLanguage('und'));
 });
-test('all migration sources validate, including Krio and available text companions', async () => {
-  const names = await readdir('public/input_tsvs');
-  assert(!names.includes('abr_2.tsv'));
-  // Once migration prunes the sources this check is intentionally empty.
-  for (const name of names.filter((name) => !name.startsWith('.'))) {
-    const key = name.match(/^.+?_(2_[123]|[134])\.(?:tsv|txt)$/)?.[1];
-    assert(key, name);
-    const result = validateWorksheet(await readFile(`public/input_tsvs/${name}`, 'utf8'), key);
-    assert.equal(result.valid, true, `${name}: ${result.errors.join('; ')}`);
+test('worksheet formats validate without depending on migrated source files', () => {
+  const samples = {
+    1: 'English\tFrench\tTranslation\tNotes\text_id\txpath\nHello\tBonjour\tKrio\t\tkey\t//ldml/example\n',
+    '2_1': 'id\tENGLISH\tFRENCH\tTRANSLATION IN YOUR LANGUAGE\nkey\tHello\tBonjour\tKrio\n',
+    '2_2': valid,
+    '2_3': 'GEOGRAPHIC NAMES\nCountry\tPays\tTranslation\t\t//ldml/example\n',
+    3: 'Alphabet notes',
+    4: 'Additional notes',
+  };
+  for (const [key, content] of Object.entries(samples)) {
+    const result = validateWorksheet(content, key);
+    assert.equal(result.valid, true, `${key}: ${result.errors.join('; ')}`);
   }
 });

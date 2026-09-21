@@ -20,7 +20,8 @@ if (apply && !direct && (!origin || !cookie))
   );
 if (prune && !apply)
   throw new Error('--prune-source requires --apply and successful remote verification.');
-const root = path.resolve('public/input_tsvs');
+const sourceIndex = args.indexOf('--source');
+const root = path.resolve(sourceIndex >= 0 ? args[sourceIndex + 1] : 'public/input_tsvs');
 const hash = (content) => createHash('sha256').update(content).digest('hex');
 const inventory = [];
 const registered = new Set(
@@ -29,7 +30,17 @@ const registered = new Set(
     .slice(1)
     .map((line) => line.split('\t')[0].toLowerCase()),
 );
-for (const filename of (await readdir(root)).sort()) {
+const sourceFiles = await readdir(root).catch((error) => {
+  if (error.code !== 'ENOENT') throw error;
+  throw new Error(
+    'Source directory is absent after migration. Use --source <directory> for an external worksheet backup.',
+  );
+});
+if (!sourceFiles.some((filename) => !filename.startsWith('.'))) {
+  console.log('No worksheet source files to migrate; existing manifest retained.');
+  process.exit(0);
+}
+for (const filename of sourceFiles.sort()) {
   if (filename.startsWith('.')) continue;
   const match = filename.match(/^(.+?)_(2_[123]|[134])\.(tsv|txt)$/);
   if (!match || !isWorksheetKey(match[2]))
