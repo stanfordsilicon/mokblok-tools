@@ -3,8 +3,6 @@ import ImportSource from '@data/ImportSource';
 
 import enforceExhaustiveSwitch from '@shared/enforceExhaustiveSwitch';
 
-import { getPreferredImportSourceForTargetLanguage } from '../selectors/TargetLanguageOptions';
-
 import { URLParams, URL_PARAMS_DEFAULTS } from './urlParamsTypes';
 
 function getInferredParams(
@@ -44,18 +42,6 @@ function getInferredParams(
       inferredParams.targetLanguage = allowedLanguages[0] ?? 'und'; // None
   }
   if (!userSettings?.role) inferredParams.importSource = ImportSource.Blank;
-
-  // Find the best import source for the target language if it is not specified
-  if (!instantiatedParams.importSource) {
-    const effectiveTargetLanguage =
-      inferredParams.targetLanguage ?? instantiatedOrDefault.targetLanguage ?? '';
-    if (inferredParams.importSource === ImportSource.Blank || !effectiveTargetLanguage) {
-      inferredParams.importSource = ImportSource.Blank;
-      return inferredParams;
-    }
-    inferredParams.importSource =
-      getPreferredImportSourceForTargetLanguage(effectiveTargetLanguage);
-  }
 
   return inferredParams;
 }

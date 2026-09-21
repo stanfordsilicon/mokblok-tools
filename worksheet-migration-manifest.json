@@ -1,0 +1,204 @@
+{
+  "verifiedAt": "2026-09-21T04:49:18.747Z",
+  "destination": "configured MongoDB database",
+  "files": [
+    {
+      "filename": "abr_1.tsv",
+      "sha256": "c4767a57aa8b1fd21e4af0dee043bf73dc51ada585397e9b46c1b2a0cfea9768",
+      "targetLanguage": "abr",
+      "worksheetKey": "1"
+    },
+    {
+      "filename": "abr_3.txt",
+      "sha256": "ef2b33b9905598715663f350549a17e67eeaebb72c08ff1c7b93f131863230fb",
+      "targetLanguage": "abr",
+      "worksheetKey": "3"
+    },
+    {
+      "filename": "abr_4.txt",
+      "sha256": "62278f86ac623ea65b180a67adee9338a2ca21ad2324896acad17d93ab631fcc",
+      "targetLanguage": "abr",
+      "worksheetKey": "4"
+    },
+    {
+      "filename": "ann_1.tsv",
+      "sha256": "e3f8d961c30b1e6e6f6a2e8c8219ae2ce75adfb25f4e69a750542f90927efee8",
+      "targetLanguage": "ann",
+      "worksheetKey": "1"
+    },
+    {
+      "filename": "bho_1.tsv",
+      "sha256": "181de11ca320caf8f079fd85f66304224baa80712d84c417bf0b58b413207709",
+      "targetLanguage": "bho",
+      "worksheetKey": "1"
+    },
+    {
+      "filename": "bho_2_1.tsv",
+      "sha256": "761745d72d4a7b61b2444931dec47ce8222b362de998006cef18bf53febf0589",
+      "targetLanguage": "bho",
+      "worksheetKey": "2_1"
+    },
+    {
+      "filename": "bho_2_2.tsv",
+      "sha256": "63be93b49f698f365410631144bac25d34c9bfdee6431d7489ae6285389276e8",
+      "targetLanguage": "bho",
+      "worksheetKey": "2_2"
+    },
+    {
+      "filename": "bho_2_3.tsv",
+      "sha256": "b04ee73f298148259035f6108f450627301d6a70f746d95b9674a866b1661b17",
+      "targetLanguage": "bho",
+      "worksheetKey": "2_3"
+    },
+    {
+      "filename": "bho_3.txt",
+      "sha256": "2bf6d428d2d5dd06eeba97942bf7713236ab09aa9bf483d1508b5f3beb079780",
+      "targetLanguage": "bho",
+      "worksheetKey": "3"
+    },
+    {
+      "filename": "bho_4.txt",
+      "sha256": "4041cdf7e1c96bc836b56b9806d4c4d8511b9579945871ae46bf27fb7b43e890",
+      "targetLanguage": "bho",
+      "worksheetKey": "4"
+    },
+    {
+      "filename": "dag_1.tsv",
+      "sha256": "b13c5e1d6085c3ac21d548f13b7a180e8bfc8042de63d87781ec44517f9f5ac7",
+      "targetLanguage": "dag",
+      "worksheetKey": "1"
+    },
+    {
+      "filename": "en_1.tsv",
+      "sha256": "2f96cbab423980720eeed2864477761a231fc332bc126a313e59157707f88cfa",
+      "targetLanguage": "en",
+      "worksheetKey": "1"
+    },
+    {
+      "filename": "en_2_1.tsv",
+      "sha256": "23fe45d75ceb0cb08d23e49dfba1811ac79291e5bcf52bec03dd48176062ea17",
+      "targetLanguage": "en",
+      "worksheetKey": "2_1"
+    },
+    {
+      "filename": "en_2_2.tsv",
+      "sha256": "4a481316ff9cdf671eeaa5c3ab715506c292ff11f3d1e53332a036482024b9ba",
+      "targetLanguage": "en",
+      "worksheetKey": "2_2"
+    },
+    {
+      "filename": "en_2_3.tsv",
+      "sha256": "a4953e03c180076394557f1c7ebd89aa27b1a6306679752f4967f25cf6f94ceb",
+      "targetLanguage": "en",
+      "worksheetKey": "2_3"
+    },
+    {
+      "filename": "en_3.txt",
+      "sha256": "9adbce7130804cba617f820feff634e836abc7f4615395e416b5adf7389badb6",
+      "targetLanguage": "en",
+      "worksheetKey": "3"
+    },
+    {
+      "filename": "en_4.txt",
+      "sha256": "8fbf6283ce98ec19b3435e951650e5b58edb3e99c9d41ece8166e3a330ba0e65",
+      "targetLanguage": "en",
+      "worksheetKey": "4"
+    },
+    {
+      "filename": "fr_1.tsv",
+      "sha256": "278d61c53c394b728ba7073955130a162e4f9e4807c1cccb3c5cdb266fbbd958",
+      "targetLanguage": "fr",
+      "worksheetKey": "1"
+    },
+    {
+      "filename": "gaa_1.tsv",
+      "sha256": "870324152e521044f0c491638b39475e71cb974afddf2e9ab260180803798a82",
+      "targetLanguage": "gaa",
+      "worksheetKey": "1"
+    },
+    {
+      "filename": "ha_1.tsv",
+      "sha256": "69177c1deb6abedb75ffb85ed3b98f1ab52e39e09f07d95e11db63bef69a75cc",
+      "targetLanguage": "ha",
+      "worksheetKey": "1"
+    },
+    {
+      "filename": "kri_1.tsv",
+      "sha256": "3bf98f93a84d5007bf2c5168d9954e9ec2c0bb280e744f82c69a649873b70fbf",
+      "targetLanguage": "kri",
+      "worksheetKey": "1"
+    },
+    {
+      "filename": "mfe_1.tsv",
+      "sha256": "520c40304ba3af8fa03c45e4d7d00656345083e4a4dd86a2b6ec43182a497d3d",
+      "targetLanguage": "mfe",
+      "worksheetKey": "1"
+    },
+    {
+      "filename": "mg_1.tsv",
+      "sha256": "012464c202ccce154b839b266d49fe3d637385b14bdec53182ba55229a3bf57d",
+      "targetLanguage": "mg",
+      "worksheetKey": "1"
+    },
+    {
+      "filename": "mg_2_1.tsv",
+      "sha256": "2006d1da10d91340f1819a05e2dee070625a460a8ad53ec877fc2da312566978",
+      "targetLanguage": "mg",
+      "worksheetKey": "2_1"
+    },
+    {
+      "filename": "mg_2_2.tsv",
+      "sha256": "b58adcb5f3f848fb0a4f67b9d958cfbe012e1cc3f37677c09551cb50ff992311",
+      "targetLanguage": "mg",
+      "worksheetKey": "2_2"
+    },
+    {
+      "filename": "mg_2_3.tsv",
+      "sha256": "e674057f9563a0a8fdfb9c127811fef06a67460a6498d860c9918bcee27f0a05",
+      "targetLanguage": "mg",
+      "worksheetKey": "2_3"
+    },
+    {
+      "filename": "mg_3.txt",
+      "sha256": "81869efe7aa83bbde520ff41f63850469ca808403dde56dfd62d5a2d6d3b05b4",
+      "targetLanguage": "mg",
+      "worksheetKey": "3"
+    },
+    {
+      "filename": "mg_4.txt",
+      "sha256": "d8d3331f572dd44efb62a959d7f3b2f5abc0f6fcb19960607f5e572060d61aca",
+      "targetLanguage": "mg",
+      "worksheetKey": "4"
+    },
+    {
+      "filename": "mos_1.tsv",
+      "sha256": "6a78645e700895a5210446e49c5e1b70da98855bfc2ad8b53dca09ef646406f0",
+      "targetLanguage": "mos",
+      "worksheetKey": "1"
+    },
+    {
+      "filename": "nd_1.tsv",
+      "sha256": "6bf17b12255e0b2b35fdbbfb9cbb9813ff1ce8bae2955a5f2d9face02a2422df",
+      "targetLanguage": "nd",
+      "worksheetKey": "1"
+    },
+    {
+      "filename": "om_1.tsv",
+      "sha256": "595c7c9644363cf9358eb301dc70c9eae6a42f39c6d0f5fad17dd23bdbf6cbf9",
+      "targetLanguage": "om",
+      "worksheetKey": "1"
+    },
+    {
+      "filename": "sn_1.tsv",
+      "sha256": "d33a16ac062d55a941cb9fdeea18081fde07068b6ad5d1cee934b920288e1748",
+      "targetLanguage": "sn",
+      "worksheetKey": "1"
+    },
+    {
+      "filename": "wo_1.tsv",
+      "sha256": "9d0df43924d883291b8e460bcd1fcf602f6b3b509bf0e26dde8c31557e8eee27",
+      "targetLanguage": "wo",
+      "worksheetKey": "1"
+    }
+  ]
+}

@@ -21,6 +21,7 @@ type Props = {
   persistedEntries: PersistedTranslationInfo[];
   targetLanguage: string;
   tsvRows: WorksheetRowData[];
+  worksheetsLoading?: boolean;
 };
 
 export default function useTargetBaselineData({
@@ -31,6 +32,7 @@ export default function useTargetBaselineData({
   importSource,
   targetLanguage,
   tsvRows,
+  worksheetsLoading = false,
 }: Props) {
   const [alphabetData, setAlphabetData] = useState<AlphabetData | undefined>(undefined);
   const [targetXMLData, setTargetXMLData] = useState<Record<string, string>>({});
@@ -88,7 +90,7 @@ export default function useTargetBaselineData({
   }, [targetLanguage]);
 
   useEffect(() => {
-    if (tsvRows.length === 0 || importSource !== ImportSource.TSV) return;
+    if (importSource !== ImportSource.TSV) return;
     setAlphabetData(extractAlphabetDataFromTSV(tsvRows, extraText));
     fillTranslationsFromTSV(tsvRows);
   }, [extraText, fillTranslationsFromTSV, importSource, tsvRows]);
@@ -107,12 +109,12 @@ export default function useTargetBaselineData({
 
   const targetDataStatus = useMemo(() => {
     if (dataEntries.length === 0) return TargetDataStatus.WaitingOnSourceData;
-    if (importSource === ImportSource.TSV && tsvRows.length === 0)
+    if (importSource === ImportSource.TSV && worksheetsLoading)
       return TargetDataStatus.LoadingBaselineData;
     if (importSource === ImportSource.XML && Object.keys(targetXMLData).length === 0)
       return TargetDataStatus.LoadingBaselineData;
     return TargetDataStatus.Ready;
-  }, [dataEntries.length, importSource, targetXMLData, tsvRows.length]);
+  }, [dataEntries.length, importSource, targetXMLData, worksheetsLoading]);
 
   return {
     alphabetData,

@@ -47,4 +47,8 @@ export type TargetDataContextType = {
   importedWorksheets: Partial<Record<Worksheet, UseWorksheetState>>;
   targetDataStatus: TargetDataStatus;
   targetXMLData: Record<string, string>;
+  worksheetError?: string | null;
+  worksheetsLoading?: boolean;
+  worksheetRevisions?: Record<string, number | undefined>;
+  reloadWorksheets?: () => void;
 };
