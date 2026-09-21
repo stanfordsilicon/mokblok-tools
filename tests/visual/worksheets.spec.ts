@@ -29,7 +29,7 @@ test('loads database worksheets, discovers Krio, and preserves local textarea ed
     return route.fulfill({ json: { worksheets: { '1': { content: source, revision: 3 } } } });
   });
   await page.route('**/api/review-drafts/**', (route) => route.fulfill({ json: { entries: [] } }));
-  await gotoApp(page, '/?step=Import&targetLanguage=kri&importSource=tsv');
+  await gotoApp(page, '/?step=Import&targetLanguage=kri&importSource=tsv', 'admin', 'mocked');
   const textarea = page.locator('textarea').first();
   await expect(textarea).toHaveValue(source);
   await expect(page.getByRole('button', { name: 'Save to database' })).toBeVisible();
@@ -55,7 +55,7 @@ test('database errors are visible and retry can recover', async ({ page }) => {
     ),
   );
   await page.route('**/api/review-drafts/**', (route) => route.fulfill({ json: { entries: [] } }));
-  await gotoApp(page, '/?step=Import&targetLanguage=kri&importSource=tsv');
+  await gotoApp(page, '/?step=Import&targetLanguage=kri&importSource=tsv', 'admin', 'mocked');
   await expect(page.getByRole('alert').filter({ hasText: 'Database unavailable' })).toBeVisible();
   failing = false;
   await page.getByRole('button', { name: 'Retry', exact: true }).click();
@@ -75,7 +75,12 @@ test('pasted text saves directly and file loading is independent of saving', asy
     writes.push(route.request().postDataJSON());
     return route.fulfill({ status: 201, json: { revision: 1 } });
   });
-  await gotoApp(page, '/?step=Import&targetLanguage=kri&importSource=tsv&worksheets=w1to4');
+  await gotoApp(
+    page,
+    '/?step=Import&targetLanguage=kri&importSource=tsv&worksheets=w1to4',
+    'admin',
+    'mocked',
+  );
   await expect(page.getByRole('textbox', { name: 'Worksheet text', exact: true })).toHaveValue(
     source,
   );
@@ -129,7 +134,8 @@ test('non-admins can load a file without any publishing controls or admin reques
     route.fulfill({ json: { worksheets: { '1': { content: source, revision: 1 } } } }),
   );
   await page.route('**/api/review-drafts/**', (route) => route.fulfill({ json: { entries: [] } }));
-  await gotoApp(page, '/?step=Import&targetLanguage=mg&importSource=tsv', 'user');
+  await gotoApp(page, '/?step=Import&targetLanguage=mg&importSource=tsv', 'user', 'mocked');
+  await expect(page.getByRole('textbox', { name: 'Worksheet text', exact: true })).toBeEnabled();
   await page.getByText('Load from a file instead', { exact: true }).click();
   await page.locator('input[type=file]').setInputFiles({
     name: 'mg_1.tsv',
@@ -161,7 +167,7 @@ test('failed validation preserves pasted text and displays the server diagnostic
       },
     }),
   );
-  await gotoApp(page, '/?step=Import&targetLanguage=kri&importSource=tsv');
+  await gotoApp(page, '/?step=Import&targetLanguage=kri&importSource=tsv', 'admin', 'mocked');
   const textarea = page.getByRole('textbox', { name: 'Worksheet text', exact: true });
   await expect(textarea).toBeEnabled();
   await textarea.fill('invalid pasted data');
@@ -170,4 +176,17 @@ test('failed validation preserves pasted text and displays the server diagnostic
     page.getByRole('alert').filter({ hasText: 'Missing required columns.' }),
   ).toBeVisible();
   await expect(textarea).toHaveValue('invalid pasted data');
+});
+
+test('restored public files load with no worksheet database and appear in the catalog', async ({
+  page,
+}) => {
+  await gotoApp(page, '/?step=Import&targetLanguage=mg&importSource=tsv&worksheets=w1to4');
+  const textarea = page.getByRole('textbox', { name: 'Worksheet text', exact: true });
+  await expect(textarea).not.toHaveValue('');
+  await expect(page.getByRole('alert').filter({ hasText: /unavailable|unable/i })).toHaveCount(0);
+  await page.getByText('Worksheet revisions', { exact: true }).click();
+  await expect(page.getByText(/1: bundled file/)).toBeVisible();
+  await page.getByRole('button', { name: /^Worksheet 3/ }).click();
+  await expect(textarea).not.toHaveValue('');
 });

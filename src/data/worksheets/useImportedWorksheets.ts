@@ -4,6 +4,7 @@ import ImportSource from '@data/ImportSource';
 
 import { useURLParams } from '@settings/URLParams';
 
+import { loadWorksheetBundle } from './loadWorksheetBundle';
 import { parseWorksheet1 } from './loadWorksheets';
 import {
   parseWorksheet2Part1,
@@ -68,15 +69,9 @@ function useImportedWorksheets() {
     }
     const controller = new AbortController();
     setLoading(true);
-    fetch(`/api/worksheets/${encodeURIComponent(targetLanguage)}`, {
-      signal: controller.signal,
-      cache: 'no-store',
-    })
-      .then(async (response) => {
-        const body = await response.json();
-        if (!response.ok) throw new Error(body.error ?? 'Unable to load worksheets.');
-        if (!controller.signal.aborted)
-          setLoaded({ language: targetLanguage, worksheets: body.worksheets });
+    loadWorksheetBundle(targetLanguage, controller.signal)
+      .then((worksheets) => {
+        if (!controller.signal.aborted) setLoaded({ language: targetLanguage, worksheets });
       })
       .catch((error) => {
         if (!controller.signal.aborted) setError(error.message);

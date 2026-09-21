@@ -3,6 +3,8 @@
 import { useSession } from 'next-auth/react';
 import { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
 
+import { loadWorksheetLanguages } from './loadWorksheetBundle';
+
 const WorksheetCatalogContext = createContext<{
   languages: string[];
   error: string | null;
@@ -40,20 +42,9 @@ export function WorksheetCatalogProvider({ children }: { children: React.ReactNo
       error: null,
       loading: true,
     }));
-    fetch('/api/worksheets', { signal: controller.signal, cache: 'no-store' })
-      .then(async (response) => {
-        const body = await response.json();
-        if (!response.ok) throw new Error(body.error ?? 'Unable to load worksheet catalog.');
-        if (!controller.signal.aborted)
-          setState({
-            languages: [
-              ...new Set<string>(
-                body.worksheets.map((item: { targetLanguage: string }) => item.targetLanguage),
-              ),
-            ],
-            error: null,
-            loading: false,
-          });
+    loadWorksheetLanguages(controller.signal)
+      .then((languages) => {
+        if (!controller.signal.aborted) setState({ languages, error: null, loading: false });
       })
       .catch((error) => {
         if (!controller.signal.aborted)

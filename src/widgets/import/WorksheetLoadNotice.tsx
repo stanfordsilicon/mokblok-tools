@@ -19,7 +19,9 @@ export default function WorksheetLoadNotice() {
           <summary>Worksheet revisions</summary>
           <p>
             {Object.entries(worksheetRevisions ?? {})
-              .map(([key, revision]) => `${key}: revision ${revision}`)
+              .map(([key, revision]) =>
+                revision === 0 ? `${key}: bundled file` : `${key}: revision ${revision}`,
+              )
               .join(' · ')}
           </p>
           <p>

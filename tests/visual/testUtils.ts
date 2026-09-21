@@ -78,7 +78,31 @@ function sessionBodyFor(viewer: ScreenshotViewer) {
   }
 }
 
-export async function gotoApp(page: Page, path: string, viewer: ScreenshotViewer = 'admin') {
+export async function gotoApp(
+  page: Page,
+  path: string,
+  viewer: ScreenshotViewer = 'admin',
+  worksheetBackend: 'static' | 'mocked' = 'static',
+) {
+  if (worksheetBackend === 'static') {
+    await page.route(/\/api\/worksheets(?:\/[^/?]+)?(?:\?.*)?$/, (route) =>
+      route.fulfill({ status: 503, json: { error: 'Worksheet database unavailable' } }),
+    );
+    await page.route('**/api/admin/worksheets**', (route) =>
+      route.fulfill(
+        route.request().method() === 'GET'
+          ? { json: { worksheets: [] } }
+          : { status: 503, json: { error: 'Database writes disabled in screenshot tests' } },
+      ),
+    );
+    await page.route('**/api/review-drafts/**', (route) =>
+      route.fulfill({ json: { success: true, entries: [] } }),
+    );
+  }
+  const catalogReady =
+    worksheetBackend === 'static' && viewer !== 'signed-out'
+      ? page.waitForResponse('**/api/worksheet-files')
+      : Promise.resolve();
   const pathMaybeAdmin = path + (viewer === 'admin' ? '&admin=true' : '');
 
   await page.route('**/api/auth/session', async (route) => {
@@ -92,4 +116,7 @@ export async function gotoApp(page: Page, path: string, viewer: ScreenshotViewer
   await page.addStyleTag({ content: DISABLE_MOTION_CSS });
   await expect(page.getByTestId('FullPage')).toBeVisible();
   await expect(page.getByTestId('PageBody')).toBeVisible();
+  await catalogReady;
+  if (worksheetBackend === 'static')
+    await expect(page.getByText('Loading worksheets…', { exact: true })).not.toBeVisible();
 }
