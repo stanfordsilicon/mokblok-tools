@@ -1,21 +1,26 @@
 'use client';
 
 import { useSession } from 'next-auth/react';
-import { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
 
 const WorksheetCatalogContext = createContext<{
   languages: string[];
   error: string | null;
   loading: boolean;
+  refresh: () => void;
 }>({
   languages: [],
   error: null,
   loading: true,
+  refresh: () => {},
 });
 
 export function WorksheetCatalogProvider({ children }: { children: React.ReactNode }) {
   const { data: session, status } = useSession();
   const identity = session?.user?.id;
+  const catalogIdentity = useRef<string | undefined>(undefined);
+  const [refreshCount, setRefreshCount] = useState(0);
+  const refresh = useCallback(() => setRefreshCount((count) => count + 1), []);
   const [state, setState] = useState({
     languages: [] as string[],
     error: null as string | null,
@@ -28,7 +33,13 @@ export function WorksheetCatalogProvider({ children }: { children: React.ReactNo
       return;
     }
     const controller = new AbortController();
-    setState({ languages: [], error: null, loading: true });
+    const changedUser = catalogIdentity.current !== identity;
+    catalogIdentity.current = identity;
+    setState((previous) => ({
+      languages: changedUser ? [] : previous.languages,
+      error: null,
+      loading: true,
+    }));
     fetch('/api/worksheets', { signal: controller.signal, cache: 'no-store' })
       .then(async (response) => {
         const body = await response.json();
@@ -49,9 +60,11 @@ export function WorksheetCatalogProvider({ children }: { children: React.ReactNo
           setState({ languages: [], error: error.message, loading: false });
       });
     return () => controller.abort();
-  }, [identity, status]);
+  }, [identity, status, refreshCount]);
   return (
-    <WorksheetCatalogContext.Provider value={state}>{children}</WorksheetCatalogContext.Provider>
+    <WorksheetCatalogContext.Provider value={{ ...state, refresh }}>
+      {children}
+    </WorksheetCatalogContext.Provider>
   );
 }
 

@@ -15,8 +15,9 @@ const ImportTSVTextArea: React.FC<Props> = ({ worksheet }) => {
 
   return (
     <textarea
+      aria-label="Worksheet text"
       disabled={worksheetsLoading}
-      className="border w-full h-72 mt-1 text-xs p-2 tab-16 rounded-lg whitespace-nowrap"
+      className="mt-1 h-72 w-full rounded-lg border border-(--silicon-line-strong) bg-white p-3 font-mono text-sm tab-16 whitespace-nowrap text-(--silicon-ink) shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--silicon-purple) disabled:opacity-60"
       placeholder={
         getWorksheetFileType(worksheet) === 'tsv'
           ? uitext('import.files.placeholderTsv')

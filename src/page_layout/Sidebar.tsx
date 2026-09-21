@@ -57,7 +57,6 @@ const Sidebar: React.FC = () => {
         <div
           className={`${isOpen ? 'block' : 'hidden'} lg:block rounded-[1.5rem] border border-(--silicon-line) bg-white px-4 py-3 shadow-sm`}
         >
-          <Link href="/admin/worksheets">Manage worksheets</Link>
           <LoadingStatus />
         </div>
       )}

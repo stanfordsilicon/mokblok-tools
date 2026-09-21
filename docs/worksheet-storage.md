@@ -6,18 +6,28 @@ to repository TSVs. Reviewer drafts remain in `homescreen_review_edits`.
 
 ## Uploading
 
-Sign in as an administrator and open `/admin/worksheets`, or choose **Manage
-worksheets** in the admin sidebar. Select a UTF-8 file or paste worksheet text,
-check its language and worksheet type, then choose **Validate and preview**.
-Publish only after reviewing the counts and warnings. Worksheet 3/4 accept plain
-text; the other types require their corresponding TSV layout. The limit is 1 MiB
-per worksheet. A source file's text is retained exactly, including its BOM and
-line endings; normalization is only for parsing.
+Open **Import → TSV**, select the language and worksheet, and paste data into
+the worksheet text area. **Load from a file instead** is an optional alternative
+for any user who can access Import: it fills the same text area without saving.
+The filename never changes the selected language or document.
+
+Administrators see **Save to database** below the editor. One click validates and
+saves the current text; invalid data stays in the editor with error messages.
+Pasting, typing, and choosing a file do not save automatically. Server-side admin
+checks and revision conflicts still apply to each save.
+
+The **Published worksheets** details panel below the import controls shows upload
+attribution and revisions across languages for admins. The former
+`/admin/worksheets` URL redirects to Import.
+
+Worksheet 3/4 accept plain text; the other types require their corresponding TSV
+layout. The limit is 1 MiB per worksheet. Uploaded source text is retained exactly,
+including its BOM and line endings; normalization is only for parsing.
 
 Publishing changes shared baseline data on the next review load. It does not
 overwrite a reviewer's saved edits or publish text entered in the ordinary import
 textarea. The screen displays upload attribution and revision. A concurrent edit
-returns a conflict; refresh the list and preview again before replacing it.
+returns a conflict; refresh the list and review the current revision before saving again.
 Revisions prevent lost updates but do not provide historical version storage.
 
 TSV language availability comes from the authorized database catalog, so Krio
@@ -84,8 +94,8 @@ checks, assigned-language reads, and concurrent publication conflicts. API and
 repository tests use controlled dependencies and do not modify a real database.
 Migration readback verifies actual stored text separately.
 
-The two browser checks use mocked data to verify database loading, local edit
+The browser checks use mocked data to verify database loading, local edit
 preservation, visible errors, and retry. Their isolated server uses the webpack
 production build because Turbopack's CSS worker port binding was restricted in
 the implementation environment. Type checking, lint, nine worksheet tests, the
-two browser checks, and the webpack production build passed.
+browser checks, and the webpack production build passed.
