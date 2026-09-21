@@ -3,7 +3,6 @@ import ImportSource from '@data/ImportSource';
 
 import enforceExhaustiveSwitch from '@shared/enforceExhaustiveSwitch';
 
-
 import { URLParams, URL_PARAMS_DEFAULTS } from './urlParamsTypes';
 
 function getInferredParams(
