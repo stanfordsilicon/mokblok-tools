@@ -10,6 +10,7 @@ import { URLParams, URL_PARAMS_DEFAULTS } from './urlParamsTypes';
 function getInferredParams(
   instantiatedParams: Partial<URLParams>,
   userSettings?: { role: string | null; languages: readonly string[] | null | undefined },
+  worksheetLanguages: readonly string[] = [],
 ): Partial<URLParams> {
   const instantiatedOrDefault = { ...URL_PARAMS_DEFAULTS, ...instantiatedParams };
   const inferredParams: Partial<URLParams> = {};
@@ -53,8 +54,10 @@ function getInferredParams(
       inferredParams.importSource = ImportSource.Blank;
       return inferredParams;
     }
-    inferredParams.importSource =
-      getPreferredImportSourceForTargetLanguage(effectiveTargetLanguage);
+    inferredParams.importSource = getPreferredImportSourceForTargetLanguage(
+      effectiveTargetLanguage,
+      worksheetLanguages,
+    );
   }
 
   return inferredParams;

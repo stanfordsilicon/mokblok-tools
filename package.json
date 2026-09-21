@@ -12,7 +12,10 @@
     "preview": "next start",
     "generate:eng-latf": "node scripts/generate-eng-latf.mjs",
     "screenshots:test": "npx playwright test",
-    "screenshots:update": "npx playwright test --update-snapshots"
+    "screenshots:update": "npx playwright test --update-snapshots",
+    "worksheets:test": "node --experimental-test-module-mocks --import ./scripts/lib/register-typescript.mjs --test tests/worksheets/*.test.mjs",
+    "worksheets:migrate": "node --import ./scripts/lib/register-typescript.mjs scripts/migrate-worksheets.mjs",
+    "worksheets:browser-test": "playwright test --config playwright.worksheets.config.ts"
   },
   "dependencies": {
     "@auth/mongodb-adapter": "^3.11.3",

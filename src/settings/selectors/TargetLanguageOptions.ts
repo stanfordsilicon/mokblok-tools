@@ -1,23 +1,5 @@
 import ImportSource from '@data/ImportSource';
 
-// These languages have starting data that can be loaded with a click.
-export const PreloadableTSVLanguages = [
-  'abr',
-  'ann',
-  'bho',
-  'dag',
-  'en',
-  'fr',
-  'gaa',
-  'ha',
-  'mfe',
-  'mg',
-  'mos',
-  'nd',
-  'om',
-  'sn',
-  'wo',
-];
 export const PreloadableXMLLanguages = [
   'ann',
   'en',
@@ -40,20 +22,26 @@ export const PreloadableXMLLanguages = [
   'bs',
 ];
 
-const TargetLanguageOptions: Record<ImportSource, string[]> = {
-  [ImportSource.TSV]: PreloadableTSVLanguages,
-  [ImportSource.XML]: PreloadableXMLLanguages,
-  [ImportSource.Blank]: [...new Set([...PreloadableTSVLanguages, ...PreloadableXMLLanguages])],
-};
-
-/** Only use this for the full list, really we should follow user settings */
-export function getPotentialTargetLanguageOptions(importSource: ImportSource): string[] {
-  return ['und', ...TargetLanguageOptions[importSource]];
+/** TSV availability comes from the authorized backend catalog. */
+export function getPotentialTargetLanguageOptions(
+  importSource: ImportSource,
+  tsvLanguages: readonly string[] = [],
+): string[] {
+  const languages =
+    importSource === ImportSource.TSV
+      ? tsvLanguages
+      : importSource === ImportSource.XML
+        ? PreloadableXMLLanguages
+        : [...tsvLanguages, ...PreloadableXMLLanguages];
+  return [...new Set(['und', ...languages])];
 }
 
-export function getPreferredImportSourceForTargetLanguage(targetLanguage: string): ImportSource {
+export function getPreferredImportSourceForTargetLanguage(
+  targetLanguage: string,
+  tsvLanguages: readonly string[] = [],
+): ImportSource {
   if (targetLanguage === 'und') return ImportSource.Blank;
-  if (PreloadableTSVLanguages.includes(targetLanguage)) return ImportSource.TSV;
+  if (tsvLanguages.includes(targetLanguage.toLowerCase())) return ImportSource.TSV;
   if (PreloadableXMLLanguages.includes(targetLanguage)) return ImportSource.XML;
   return ImportSource.Blank;
 }
@@ -61,10 +49,9 @@ export function getPreferredImportSourceForTargetLanguage(targetLanguage: string
 export function supportsTargetLanguage(
   importSource: ImportSource,
   targetLanguage: string | null | undefined,
+  tsvLanguages: readonly string[] = [],
 ): boolean {
   if (targetLanguage == null) return false;
   if (importSource === ImportSource.Blank) return true;
-  return TargetLanguageOptions[importSource].includes(targetLanguage);
+  return getPotentialTargetLanguageOptions(importSource, tsvLanguages).includes(targetLanguage);
 }
-
-export default TargetLanguageOptions;

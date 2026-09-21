@@ -46,7 +46,15 @@ const TargetDataProvider: React.FC<{
   const { targetLanguage, importSource } = useURLParams();
   const { findDataEntry, dataEntries } = useSourceDataContext();
   const getTranslationFromSourceLanguage = useTranslationFromSourceLanguage();
-  const { extraText, tsvRows, importedWorksheets } = useImportedWorksheets();
+  const {
+    extraText,
+    tsvRows,
+    importedWorksheets,
+    worksheetError,
+    worksheetsLoading,
+    worksheetRevisions,
+    reloadWorksheets,
+  } = useImportedWorksheets();
   const [translationEdits, setTranslationEdits] = useState<Record<string, TranslationEdit>>({});
   const [hasUserChanges, setHasUserChanges] = useState(false);
 
@@ -60,6 +68,7 @@ const TargetDataProvider: React.FC<{
       persistedEntries: [],
       targetLanguage,
       tsvRows,
+      worksheetsLoading: worksheetsLoading || !!worksheetError,
     });
 
   const { isDraftLoaded, persistedEntries } = useReviewDraftPersistence({
@@ -166,7 +175,12 @@ const TargetDataProvider: React.FC<{
     getTranslations,
     clearAllTranslations,
     importedWorksheets,
-    targetDataStatus,
+    worksheetError,
+    worksheetsLoading,
+    worksheetRevisions,
+    reloadWorksheets,
+    targetDataStatus:
+      worksheetsLoading || worksheetError ? TargetDataStatus.LoadingBaselineData : targetDataStatus,
     targetXMLData,
   };
 

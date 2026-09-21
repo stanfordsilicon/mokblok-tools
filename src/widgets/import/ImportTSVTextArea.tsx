@@ -11,10 +11,11 @@ type Props = {
 
 const ImportTSVTextArea: React.FC<Props> = ({ worksheet }) => {
   const { uitext } = useInterfaceTranslation();
-  const { importedWorksheets } = useTargetDataContext();
+  const { importedWorksheets, worksheetsLoading } = useTargetDataContext();
 
   return (
     <textarea
+      disabled={worksheetsLoading}
       className="border w-full h-72 mt-1 text-xs p-2 tab-16 rounded-lg whitespace-nowrap"
       placeholder={
         getWorksheetFileType(worksheet) === 'tsv'
