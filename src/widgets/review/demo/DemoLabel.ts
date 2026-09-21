@@ -104,6 +104,10 @@ const DemoLabel: React.FC<{ demoID: DemoID }> = ({ demoID }) => {
       return uitext('mocks.CitySelector');
     case DemoID.TimezonesSelector:
       return uitext('mocks.TimezoneSelector');
+    case DemoID.TimeMeetingsToday12h:
+      return uitext('mocks.MeetingsToday') + ' (' + uitext('review.12hClock') + ')';
+    case DemoID.TimeMeetingsToday24h:
+      return uitext('mocks.MeetingsToday') + ' (' + uitext('review.24hClock') + ')';
     default:
       enforceExhaustiveSwitch(demoID);
   }

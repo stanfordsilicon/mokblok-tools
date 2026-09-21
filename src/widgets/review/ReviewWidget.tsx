@@ -24,7 +24,7 @@ const ReviewWidget: React.FC = () => {
 
   return (
     <VoteDragProvider>
-      <div className="flex flex-col gap-2 relative flex-1 ReviewWidget">
+      <div className="flex flex-col gap-2 relative flex-1 ReviewWidget min-h-160">
         <div className="absolute top-[-1.5em] right-[-1em]">
           <DownloadAllDemos />
         </div>

@@ -18,7 +18,7 @@ const demoIDsBySection: Record<DataSection, DemoID[]> = {
   ],
   [DataSection.DateFields]: [DemoID.DateFieldBreakdown],
   [DataSection.DateTimes]: [],
-  [DataSection.DayPeriods]: [],
+  [DataSection.DayPeriods]: [DemoID.TimeMeetingsToday12h, DemoID.TimeMeetingsToday24h],
   [DataSection.DaysOfWeek]: [
     // DemoID.DaysOfWeekInWeek,
     DemoID.DaysOfWeekInMonth,
@@ -42,7 +42,7 @@ const demoIDsBySection: Record<DataSection, DemoID[]> = {
   [DataSection.RelativeTime]: [DemoID.RelativeTimeEventEnd, DemoID.ClassesThisWeek],
   [DataSection.Symbols]: [],
   [DataSection.TechWords]: [],
-  [DataSection.Times]: [],
+  [DataSection.Times]: [DemoID.TimeMeetingsToday12h, DemoID.TimeMeetingsToday24h],
   [DataSection.TimeIntervals]: [
     DemoID.ClassesThisWeek,
     DemoID.ClassesThisWeekend,

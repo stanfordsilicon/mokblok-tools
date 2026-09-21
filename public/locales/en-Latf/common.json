@@ -216,7 +216,8 @@
     "LanguageSelector": "𝔏𝔞𝔫𝔤𝔲𝔞𝔤𝔢 𝔖𝔢𝔩𝔢𝔠𝔱𝔬𝔯",
     "ContinentSelector": "ℭ𝔬𝔫𝔱𝔦𝔫𝔢𝔫𝔱 𝔖𝔢𝔩𝔢𝔠𝔱𝔬𝔯",
     "CitySelector": "ℭ𝔦𝔱𝔶 𝔖𝔢𝔩𝔢𝔠𝔱𝔬𝔯",
-    "TimezoneSelector": "𝔗𝔦𝔪𝔢𝔷𝔬𝔫𝔢 𝔖𝔢𝔩𝔢𝔠𝔱𝔬𝔯"
+    "TimezoneSelector": "𝔗𝔦𝔪𝔢𝔷𝔬𝔫𝔢 𝔖𝔢𝔩𝔢𝔠𝔱𝔬𝔯",
+    "MeetingsToday": "𝔐𝔢𝔢𝔱𝔦𝔫𝔤𝔰 𝔗𝔬𝔡𝔞𝔶"
   },
   "export": {
     "title": "𝔈𝔵𝔭𝔬𝔯𝔱",

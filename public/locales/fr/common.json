@@ -220,7 +220,8 @@
         "LanguageSelector": "Sélecteur de langue",
         "ContinentSelector": "Sélecteur de continent",
         "CitySelector": "Sélecteur de ville",
-        "TimezoneSelector": "Sélecteur de fuseau horaire"
+        "TimezoneSelector": "Sélecteur de fuseau horaire",
+        "MeetingsToday": "Réunions aujourd’hui"
     },
     "export": {
         "title": "Exporte",

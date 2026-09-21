@@ -221,7 +221,8 @@
         "LanguageSelector": "Selector de idioma",
         "ContinentSelector": "Selector de continente",
         "CitySelector": "Selector de ciudad",
-        "TimezoneSelector": "Selector de zona horaria"
+        "TimezoneSelector": "Selector de zona horaria",
+        "MeetingsToday": "Reuniones de hoy"
     },
     "export": {
         "title": "Exporta",
