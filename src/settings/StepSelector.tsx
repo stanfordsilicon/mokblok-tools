@@ -2,6 +2,7 @@ import { useSession } from 'next-auth/react';
 
 import ImportSource from '@data/ImportSource';
 
+import { Button } from '@shared/shadcn/ui/button';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import StepName from './StepName';
@@ -35,12 +36,13 @@ const StepButton: React.FC<{
   const { step: currentStep, updateURLParams } = useURLParams();
   const isCurrent = currentStep === targetStep;
   return (
-    <button
+    <Button
       onClick={() => updateURLParams({ step: targetStep })}
-      className={`StepButton text-sm flex-1 ${isCurrent ? 'selected' : ''}`}
+      className="flex-1"
+      variant={isCurrent ? 'selected' : 'outline'}
     >
       {label}
-    </button>
+    </Button>
   );
 };
 

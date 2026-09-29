@@ -5,6 +5,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 
 import { useURLParams } from '@settings/URLParams';
 
+import { Button } from '@shared/shadcn/ui/button';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 type RequestStatus = 'approved' | 'pending' | 'denied';
@@ -117,13 +118,9 @@ export default function LanguageRequestPanel() {
 
   return (
     <>
-      <button
-        type="button"
-        onClick={() => setOpen(true)}
-        className="text-sm font-semibold text-(--silicon-purple) underline-offset-2 hover:underline"
-      >
+      <Button variant="outline" onClick={() => setOpen(true)}>
         {uitext('languageRequests.trigger')}
-      </button>
+      </Button>
 
       {open && (
         <div
@@ -145,13 +142,13 @@ export default function LanguageRequestPanel() {
                   {uitext('languageRequests.description')}
                 </p>
               </div>
-              <button
-                type="button"
+              <Button
+                variant="destructive"
                 onClick={() => setOpen(false)}
                 className="rounded-xl border border-(--silicon-line-strong) px-3 py-1.5 text-sm font-semibold text-(--silicon-ink) transition hover:border-(--silicon-purple) hover:text-(--silicon-purple)"
               >
                 {uitext('languageRequests.close')}
-              </button>
+              </Button>
             </div>
 
             <div className="flex flex-col gap-2 border-t border-(--silicon-line) pt-3">
@@ -168,14 +165,12 @@ export default function LanguageRequestPanel() {
                   className="min-w-0 flex-1 rounded-xl border border-(--silicon-line) bg-white px-3 py-2 text-sm outline-none focus:border-(--silicon-purple)"
                   placeholder={uitext('languageRequests.placeholder')}
                 />
-                <button
-                  type="button"
+                <Button
                   disabled={busy || draft.trim().length === 0}
                   onClick={() => void submitRequest()}
-                  className="rounded-xl bg-(--silicon-brown) px-4 py-2 text-sm font-semibold text-white transition hover:bg-(--silicon-purple) disabled:cursor-not-allowed disabled:opacity-40"
                 >
                   {busy ? uitext('languageRequests.sending') : uitext('languageRequests.send')}
-                </button>
+                </Button>
               </div>
               <p className="text-xs text-(--silicon-ink-soft)">{uitext('languageRequests.help')}</p>
             </div>
@@ -218,16 +213,15 @@ export default function LanguageRequestPanel() {
                             : uitext('languageRequests.status.denied')}
                         </p>
                       </div>
-                      <button
-                        type="button"
+                      <Button
+                        variant="outline"
                         disabled={busy}
                         onClick={() => void withdrawRequest(language.id)}
-                        className="shrink-0 rounded-lg border border-(--silicon-line-strong) px-2.5 py-1 text-xs font-semibold text-(--silicon-ink) transition hover:border-(--silicon-purple) hover:text-(--silicon-purple)"
                       >
                         {language.status === 'pending'
                           ? uitext('languageRequests.withdraw')
                           : uitext('languageRequests.dismiss')}
-                      </button>
+                      </Button>
                     </div>
                     {language.deniedReason && (
                       <p className="text-xs text-(--silicon-ink-soft)">

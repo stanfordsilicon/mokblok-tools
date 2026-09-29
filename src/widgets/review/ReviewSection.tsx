@@ -4,6 +4,7 @@ import StepName from '@settings/StepName';
 import { useURLParams } from '@settings/URLParams';
 
 import ErrorBoundary from '@shared/ErrorBoundary';
+import { Button } from '@shared/shadcn/ui/button';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import DemosForSection from './demo/DemosForSection';
@@ -64,14 +65,14 @@ function ReviewSection({ dataSection }: { dataSection: DataSection }) {
         {section !== DataSection.All && (
           <div className="text-xs">
             {previousSection && (
-              <button style={{ padding: '0 5px' }} onClick={goToPreviousSection}>
+              <Button variant="ghost" onClick={goToPreviousSection}>
                 &lt; {uitext('nav.previous')}
-              </button>
+              </Button>
             )}
             {nextSection && (
-              <button style={{ padding: '0 5px' }} onClick={goToNextSection}>
+              <Button variant="ghost" onClick={goToNextSection}>
                 {uitext('nav.next')} &gt;
-              </button>
+              </Button>
             )}
           </div>
         )}

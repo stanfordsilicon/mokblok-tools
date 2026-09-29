@@ -1,5 +1,7 @@
 import useLanguageName from '@data/useLanguageName';
 
+import { Button } from '@shared/shadcn/ui/button';
+
 type Props = {
   current: string;
   onChange: (newLanguage: string) => void;
@@ -18,16 +20,16 @@ const LanguageButtons: React.FC<Props> = ({ current, onChange, options, disabled
   return (
     <div className="flex flex-wrap gap-1 items-center mt-1">
       {languageOptions.map((lang) => (
-        <button
+        <Button
           key={lang.code}
-          className={lang.code === current ? 'selected' : ''}
+          className=" flex-col h-auto py-1 gap-0"
+          variant={lang.code === current ? 'selected' : 'outline'}
           disabled={disabled}
           onClick={() => onChange(lang.code)}
         >
           {lang.endonym}
-          <br />
           <span className="font-light">{lang.localized}</span>
-        </button>
+        </Button>
       ))}
     </div>
   );

@@ -13,6 +13,7 @@ import LanguageDropdown from '@settings/selectors/LanguageDropdown';
 import { useURLParams } from '@settings/URLParams';
 import useAllowedTargetLanguages from '@settings/useAllowedTargetLanguages';
 
+import { Button } from '@shared/shadcn/ui/button';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import { RoleBadge } from './RoleBadge';
@@ -51,13 +52,9 @@ export default function AccountBadge() {
         </div>
         <div className="w-full flex flex-row justify-between gap-2 items-center">
           <span className="truncate text-sm font-medium">{session.user.email}</span>{' '}
-          <button
-            type="button"
-            onClick={() => signOut({ callbackUrl: '/' })}
-            className="shrink-0 rounded-xl border border-(--silicon-line-strong) px-3 py-1.5 text-xs font-semibold text-(--silicon-ink) transition  "
-          >
+          <Button onClick={() => signOut({ callbackUrl: '/' })} variant="outline">
             {uitext('auth.signOut')}
-          </button>
+          </Button>
         </div>
 
         <div className="flex flex-row gap-2 text-xs">
@@ -70,12 +67,13 @@ export default function AccountBadge() {
             />
           )}
           {role === 'admin' && (
-            <button
+            <Button
               onClick={updateAdminMode}
-              className="text-xs font-semibold text-(--silicon-purple) underline-offset-2"
+              className="text-xs"
+              variant={admin ? 'selected' : 'outline'}
             >
               {admin ? uitext('auth.viewingAsAdmin') : uitext('auth.viewingAsRegularUser')}
-            </button>
+            </Button>
           )}
         </div>
       </div>
@@ -83,12 +81,8 @@ export default function AccountBadge() {
   }
 
   return (
-    <button
-      type="button"
-      onClick={() => signIn('google')}
-      className="rounded-xl bg-(--silicon-brown) px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-(--silicon-purple) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--silicon-purple)"
-    >
+    <Button className="whitespace-normal h-auto break-words p-1" onClick={() => signIn('google')}>
       {uitext('auth.signInWhy')}
-    </button>
+    </Button>
   );
 }

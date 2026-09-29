@@ -1,10 +1,13 @@
 import { useTargetDataContext } from '@data/target/TargetDataProvider';
 
+import { Button } from '@shared/shadcn/ui/button';
+
 const ClearSubmissionsButton: React.FC = () => {
   const { clearAllTranslations } = useTargetDataContext();
 
   return (
-    <button
+    <Button
+      variant="destructive"
       onClick={() => {
         const userConfirmed = confirm(
           'You are about to clear all submitted translations. Continue?',
@@ -13,7 +16,7 @@ const ClearSubmissionsButton: React.FC = () => {
       }}
     >
       Clear Submissions
-    </button>
+    </Button>
   );
 };
 

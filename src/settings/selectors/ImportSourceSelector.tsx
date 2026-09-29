@@ -4,6 +4,7 @@ import ImportSource from '@data/ImportSource';
 
 import { useURLParams } from '@settings/URLParams';
 
+import { Button } from '@shared/shadcn/ui/button';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 type Props = {
@@ -27,13 +28,13 @@ const ImportSourceSelector: React.FC<Props> = ({ display }) => {
 
       {display === 'buttons' &&
         Object.values(ImportSource).map((source) => (
-          <button
+          <Button
             key={source}
-            className={importSource === source ? 'selected' : ''}
+            variant={importSource === source ? 'selected' : 'outline'}
             onClick={() => updateURLParams({ importSource: source })}
           >
             {uitext(`import.importSource.${source}`)}
-          </button>
+          </Button>
         ))}
 
       {display === 'dropdown' && (

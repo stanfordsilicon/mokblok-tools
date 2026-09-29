@@ -4,7 +4,7 @@ import { getAvailableWorksheets } from '@data/worksheets/Worksheets';
 
 import { useURLParams } from '@settings/URLParams';
 
-import Tab from '@shared/Tab';
+import { Button } from '@shared/shadcn/ui/button';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 const ImportWorksheetSelector: React.FC<{
@@ -19,19 +19,16 @@ const ImportWorksheetSelector: React.FC<{
   return (
     <div className="flex gap-1 flex-wrap">
       {availableWorksheets.map((worksheet) => (
-        <Tab
+        <Button
           key={worksheet}
-          label={uitext(`import.files.${worksheet}`)}
-          option={worksheet}
-          selected={curWorksheet}
-          setSelected={setWorksheet}
+          onClick={() => setWorksheet(worksheet)}
+          variant={curWorksheet === worksheet ? 'selected' : 'outline'}
           style={{
-            backgroundColor:
-              importedWorksheets[worksheet]?.value.length === 0
-                ? 'var(--color-level-2)'
-                : undefined,
+            opacity: importedWorksheets[worksheet]?.value.length === 0 ? '.6' : undefined,
           }}
-        />
+        >
+          {uitext(`import.files.${worksheet}`)}
+        </Button>
       ))}
     </div>
   );

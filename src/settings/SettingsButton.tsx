@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 
 import SettingsWidget from '@settings/SettingsWidget';
 
+import { Button } from '@shared/shadcn/ui/button';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 const SettingsButton: React.FC = () => {
@@ -22,10 +23,10 @@ const SettingsButton: React.FC = () => {
 
   return (
     <div ref={ref} className="absolute top-5 right-5">
-      <button onClick={toggleSettings}>
+      <Button onClick={toggleSettings} size="lg" variant="outline">
         <span className="hidden lg:inline">{uitext('settings.title')}</span>{' '}
-        <span className="text-3xl leading-none lg:hidden">⚙</span>
-      </button>
+        <span className="text-2xl leading-none lg:hidden">⚙</span>
+      </Button>
       {settingsOpen && <FloatingSettingsWidget />}
     </div>
   );

@@ -66,41 +66,7 @@ h2 {
 h3 { 
   margin-top: 1rem;
   font-size: 1.2rem;
-}
-
-button {
-  border-radius: 1em;
-  border: 1px solid var(--silicon-line-strong);
-  padding: 0.5em;
-  font-weight: 600;
-  font-family: inherit;
-  color: var(--silicon-ink);
-  background-color: white;
-  cursor: pointer;
-  transition:
-    border-color 0.2s ease,
-    color 0.2s ease,
-    background-color 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-button.StepButton {
-  /* border-radius: 0.75rem; */
-  padding: 0.5em;
-  border-radius: 0.75rem;
-  font-size: 0.95rem;
-}
-
-button:hover {
-  border-color: var(--silicon-purple);
-  color: var(--silicon-purple);
-  background-color: var(--color-button-selected);
-}
-
-button:focus,
-button:focus-visible {
-  outline: 2px solid var(--silicon-purple);
-}
+} 
 
 select, ::picker(select) {
   appearance: base-select;

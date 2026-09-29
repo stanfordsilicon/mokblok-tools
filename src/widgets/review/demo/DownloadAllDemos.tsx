@@ -1,5 +1,6 @@
 import { useURLParams } from '@settings/URLParams';
 
+import { Button } from '@shared/shadcn/ui/button';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import DemoID from './DemoID';
@@ -22,12 +23,9 @@ const DownloadAllDemos: React.FC = () => {
   };
 
   return (
-    <button
-      onClick={onClick}
-      style={{ marginLeft: '0.5em', padding: '0.2em 0.5em', cursor: 'pointer' }}
-    >
+    <Button variant="outline" onClick={onClick}>
       {uitext('review.downloadAllDemos')} ⬇
-    </button>
+    </Button>
   );
 };
 

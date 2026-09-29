@@ -2,6 +2,8 @@ import { useCallback } from 'react';
 
 import { useURLParams } from '@settings/URLParams';
 
+import { Button } from '@shared/shadcn/ui/button';
+
 const ExportDownloadXMLButton: React.FC<{ filename: string; xmlContent: string }> = ({
   filename,
   xmlContent,
@@ -21,9 +23,9 @@ const ExportDownloadXMLButton: React.FC<{ filename: string; xmlContent: string }
   }, [filename, xmlContent, targetLanguage]);
 
   return (
-    <button className="ml-2 text-sm" onClick={handleDownload}>
+    <Button variant="outline" size="icon-xs" onClick={handleDownload}>
       ⬇
-    </button>
+    </Button>
   );
 };
 

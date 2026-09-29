@@ -32,8 +32,8 @@ type Props = {
 
 const Demo: React.FC<Props> = ({ demoID }) => {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      <div>
+    <div className="flex flex-col items-center">
+      <div className="flex gap-2 items-center">
         <DemoLabel demoID={demoID} />
         <DownloadDemoButton demoID={demoID} />
       </div>
