@@ -35,6 +35,8 @@ enum DemoID {
   RegionsContinentSelector = 'regionsContinentSelector',
   TimezonesCitySelector = 'timezonesCitySelector',
   TimezonesSelector = 'timezonesSelector',
+  TimeMeetingsToday12h = 'timeMeetingsToday12h',
+  TimeMeetingsToday24h = 'timeMeetingsToday24h',
 }
 
 export default DemoID;

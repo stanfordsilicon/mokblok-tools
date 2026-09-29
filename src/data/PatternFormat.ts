@@ -4,6 +4,7 @@ export enum PatternFormat {
   DateTimeCombo = 'datetimecombo', // {1} 'at' {0} -> {0}=hms {1}=EEEE -> Tuesday at 3:30:45 PM
   Substitution = 'sub', // Take the {0}st right. -> {0}=1 -> Take the 1st right.
   Sentence = 'sentence', // I finish school in {0} {1}. -> {0}=1 {1}=y -> I finish school in 1 year.
+  Suffix = 'suffix', // "in the morning" + 7 -> "7 in the morning".
 }
 
 export function parsePatternFormat(format: string): PatternFormat {
@@ -16,6 +17,8 @@ export function parsePatternFormat(format: string): PatternFormat {
       return PatternFormat.Substitution;
     case 'sentence':
       return PatternFormat.Sentence;
+    case 'suffix':
+      return PatternFormat.Suffix;
     case '':
     case 'none':
       return PatternFormat.None;
