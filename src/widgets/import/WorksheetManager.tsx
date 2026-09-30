@@ -6,6 +6,8 @@ import { type WorksheetKey, type WorksheetMetadata } from '@data/worksheets/stor
 import type { WorksheetValidation } from '@data/worksheets/validateWorksheet';
 import { useWorksheetCatalog } from '@data/worksheets/WorksheetCatalog';
 
+import { Button } from '@shared/shadcn/ui/button';
+
 import WorksheetLoadFromFile from './WorksheetLoadFromFile';
 import WorksheetPublishedList from './WorksheetPublishedList';
 
@@ -124,14 +126,14 @@ export default function WorksheetManager({
               </strong>
               . Saved reviewer edits stay separate.
             </p>
-            <button
+            <Button
               disabled={
                 !catalogReady || !content.trim() || !targetLanguage || targetLanguage === 'und'
               }
               onClick={save}
             >
               Save to database
-            </button>
+            </Button>
             {validationResult?.content === content &&
               validationResult.validation.errors.map((error) => (
                 <p role="alert" key={error}>

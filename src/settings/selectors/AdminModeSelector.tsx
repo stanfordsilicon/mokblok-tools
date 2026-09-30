@@ -3,6 +3,7 @@ import React, { useCallback } from 'react';
 import StepName from '@settings/StepName';
 import { useURLParams } from '@settings/URLParams';
 
+import { Button } from '@shared/shadcn/ui/button';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 /**
@@ -23,9 +24,13 @@ const AdminModeSelector: React.FC = () => {
   if (!admin) return null;
 
   return (
-    <button onClick={updateAdminMode} className={admin ? 'selected' : ''}>
+    <Button
+      onClick={updateAdminMode}
+      className="p-0 whitespace-normal h-auto p-1"
+      variant={admin ? 'selected' : 'outline'}
+    >
       {admin ? uitext('settings.inAdminCTATurnOff') : uitext('settings.notAdminCTATurnOn')}
-    </button>
+    </Button>
   );
 };
 

@@ -1,5 +1,6 @@
 import { useURLParams } from '@settings/URLParams';
 
+import { Button } from '@shared/shadcn/ui/button';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 export const DEFAULT_DATE = new Date(1713914064000); // Default to a specific date (e.g., 2024-04-23T12:34:24.000Z)
@@ -32,7 +33,13 @@ const ExampleDateSelector: React.FC = () => {
         onChange={handleDateChange}
       />{' '}
       <input type="time" value={today.toTimeString().slice(0, 5)} onChange={handleTimeChange} />
-      <button onClick={() => updateURLParams({ dateExample: undefined })}>×</button>
+      <Button
+        size="icon-sm"
+        onClick={() => updateURLParams({ dateExample: undefined })}
+        variant="outline"
+      >
+        ×
+      </Button>
     </div>
   );
 };

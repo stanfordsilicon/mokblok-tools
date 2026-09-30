@@ -2,6 +2,8 @@ import React from 'react';
 
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
+import { Button } from './shadcn/ui/button';
+
 interface ErrorBoundaryProps {
   children: React.ReactNode;
 }
@@ -48,9 +50,9 @@ const ErrorFallback: React.FC<{ message: string | null }> = ({ message }) => {
       <h2>{uitext('errors.somethingWentWrong')}</h2>
       <p>{uitext('errors.refreshInstructions')}</p>
       <p>{fallbackMessage}</p>
-      <button onClick={() => window.location.reload()} style={{ padding: '0.5em 1em' }}>
+      <Button onClick={() => window.location.reload()} style={{ padding: '0.5em 1em' }}>
         {uitext('errors.refreshPage')}
-      </button>
+      </Button>
     </div>
   );
 };

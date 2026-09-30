@@ -1,6 +1,8 @@
 import { useTargetDataContext } from '@data/target/TargetDataProvider';
 import { useWorksheetCatalog } from '@data/worksheets/WorksheetCatalog';
 
+import { Button } from '@shared/shadcn/ui/button';
+
 export default function WorksheetLoadNotice() {
   const { worksheetError, worksheetsLoading, worksheetRevisions, reloadWorksheets } =
     useTargetDataContext();
@@ -11,7 +13,7 @@ export default function WorksheetLoadNotice() {
       {worksheetsLoading && <p>Loading worksheets…</p>}
       {worksheetError && (
         <p role="alert">
-          {worksheetError} <button onClick={reloadWorksheets}>Retry</button>
+          {worksheetError} <Button onClick={reloadWorksheets}>Retry</Button>
         </p>
       )}
       {!!Object.keys(worksheetRevisions ?? {}).length && (

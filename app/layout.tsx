@@ -1,3 +1,7 @@
+import { Inter } from 'next/font/google';
+
+import { cn } from '@shared/shadcn/utils';
+
 import { i18nConfig } from '../i18n.config';
 
 import type { Metadata } from 'next';
@@ -5,6 +9,8 @@ import type { Metadata } from 'next';
 import '../src/index.css';
 import '../src/widgets/review/review_styles.css';
 import './styles.css';
+
+const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
 export const metadata: Metadata = {
   title: 'homescreen-review',
@@ -17,7 +23,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang={i18nConfig.fallbackLng} className="h-full antialiased">
+    <html
+      lang={i18nConfig.fallbackLng}
+      className={cn('h-full antialiased', 'font-sans', inter.variable)}
+    >
       <body className="min-h-full">{children}</body>
     </html>
   );

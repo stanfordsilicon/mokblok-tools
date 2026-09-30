@@ -1,5 +1,7 @@
 import { useURLParams } from '@settings/URLParams';
 
+import { Button } from '@shared/shadcn/ui/button';
+
 import downloadSvgAsPng from './downloadSvgAsPng';
 
 import type DemoID from './DemoID';
@@ -19,12 +21,9 @@ const DownloadDemoButton: React.FC<{
   };
 
   return (
-    <button
-      onClick={onClick}
-      style={{ marginLeft: '0.5em', padding: '0.2em 0.5em', cursor: 'pointer' }}
-    >
+    <Button variant="outline" size="icon-xs" onClick={onClick}>
       ⬇
-    </button>
+    </Button>
   );
 };
 

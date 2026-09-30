@@ -7,6 +7,7 @@ import StepSelector from '@settings/StepSelector';
 import { useURLParams } from '@settings/URLParams';
 
 import enforceExhaustiveSwitch from '@shared/enforceExhaustiveSwitch';
+import { Button } from '@shared/shadcn/ui/button';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import PageSectionSelector from '../widgets/review/PageSectionSelector';
@@ -34,12 +35,12 @@ const Sidebar: React.FC = () => {
         </h1>
       </header>
 
-      <button
+      <Button
         className={`${isOpen ? 'bg-(--silicon-line)' : ''} lg:hidden`}
         onClick={() => setIsOpen(!isOpen)}
       >
         ☰
-      </button>
+      </Button>
 
       <div className={`${isOpen ? 'block' : 'hidden'} lg:block`}>
         <AccountBadge />

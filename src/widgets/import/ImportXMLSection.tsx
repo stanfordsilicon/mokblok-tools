@@ -4,6 +4,7 @@ import { useTargetDataContext } from '@data/target/TargetDataProvider';
 
 import { addValueToXML, toXMLString, type XMLObject } from '@widgets/export/formatXML';
 
+import { Button } from '@shared/shadcn/ui/button';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import ImportCheck from './check/ImportCheck';
@@ -30,18 +31,18 @@ const ImportXMLSection = () => {
   return (
     <>
       <div style={{ display: 'flex', gap: '1em' }}>
-        <button
-          style={{ background: appearance === 'list' ? 'var(--color-button-selected)' : undefined }}
+        <Button
+          variant={appearance === 'list' ? 'selected' : 'outline'}
           onClick={() => setAppearance('list')}
         >
           {uitext('import.asList')}
-        </button>
-        <button
-          style={{ background: appearance === 'xml' ? 'var(--color-button-selected)' : undefined }}
+        </Button>
+        <Button
+          variant={appearance === 'xml' ? 'selected' : 'outline'}
           onClick={() => setAppearance('xml')}
         >
           {uitext('import.asXML')}
-        </button>
+        </Button>
       </div>
       <textarea
         className="border w-full h-72 mt-1 text-xs p-2 tab-16 rounded-lg whitespace-nowrap"

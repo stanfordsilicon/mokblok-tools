@@ -1,5 +1,7 @@
 import { WorksheetMetadata } from '@data/worksheets/storageTypes';
 
+import { Button } from '@shared/shadcn/ui/button';
+
 type AdminMetadata = WorksheetMetadata & { updatedBy: string };
 
 type Props = {
@@ -17,15 +19,16 @@ const WorksheetPublishedList = ({ worksheets, catalogReady, busy, setMessage, re
         Published worksheets{catalogReady ? ` (${worksheets.length})` : ''}
       </summary>
       <div className="my-3 flex flex-wrap items-center gap-4">
-        <button
+        <Button
           disabled={busy}
+          variant="outline"
           onClick={() => {
             setMessage('');
             refresh().catch((error) => setMessage(error.message));
           }}
         >
           Refresh list and revisions
-        </button>
+        </Button>
       </div>
       <div className="overflow-x-auto">
         <table className="w-full text-left [&_td]:px-3 [&_td]:py-2 [&_th]:px-3 [&_th]:py-2">

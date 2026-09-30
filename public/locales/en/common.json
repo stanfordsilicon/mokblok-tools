@@ -368,6 +368,7 @@
         "datetime": "Date/Time",
         "datetimecombo": "Date/Time Combo",
         "sub": "Substitution",
-        "sentence": "Sentence"
+        "sentence": "Sentence",
+        "suffix": "Suffix"
     }
 }

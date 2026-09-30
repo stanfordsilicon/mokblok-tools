@@ -1,5 +1,6 @@
 import { Worksheet } from '@data/worksheets/Worksheet';
 
+import EnumDropdown from '@shared/EnumDropdown';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 function FilterWorksheetCell({
@@ -12,20 +13,14 @@ function FilterWorksheetCell({
   const { uitext } = useInterfaceTranslation();
   return (
     <td>
-      <select
-        value={worksheetFilter ?? ''}
-        onChange={(e) =>
-          setWorksheetFilter(e.target.value ? (e.target.value as Worksheet) : undefined)
+      <EnumDropdown
+        value={worksheetFilter}
+        onChange={setWorksheetFilter}
+        options={Object.values(Worksheet)}
+        getLabel={(value) =>
+          value !== undefined ? uitext(`import.files.${value}`) : uitext('patternFormat.any')
         }
-        style={{ width: '5em' }}
-      >
-        <option value="">{uitext('patternFormat.any')}</option>
-        {Object.values(Worksheet).map((ws) => (
-          <option key={ws} value={ws}>
-            {uitext(`import.files.${ws}`)}
-          </option>
-        ))}
-      </select>
+      />
     </td>
   );
 }

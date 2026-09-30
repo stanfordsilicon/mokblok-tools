@@ -4,6 +4,7 @@ import { Worksheets } from '@data/worksheets/Worksheets';
 
 import { useURLParams } from '@settings/URLParams';
 
+import EnumDropdown from '@shared/EnumDropdown';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 const WorksheetsSelector: React.FC = () => {
@@ -14,17 +15,12 @@ const WorksheetsSelector: React.FC = () => {
   return (
     <div className={'flex items-center gap-4 justify-between'}>
       <span className="font-bold">{uitext('import.worksheets.label')}</span>
-      <select
-        className="settings-select"
-        value={String(worksheets)}
-        onChange={(e) => updateURLParams({ worksheets: e.target.value as Worksheets })}
-      >
-        {Object.values(Worksheets).map((value) => (
-          <option key={value} value={value}>
-            {uitext(`import.worksheets.${value}`, value)}
-          </option>
-        ))}
-      </select>
+      <EnumDropdown
+        value={worksheets}
+        onChange={(value) => updateURLParams({ worksheets: value })}
+        options={Object.values(Worksheets)}
+        getLabel={(value) => uitext(`import.worksheets.${value}`, value)}
+      />
     </div>
   );
 };

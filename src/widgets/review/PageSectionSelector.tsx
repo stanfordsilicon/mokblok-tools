@@ -7,6 +7,7 @@ import { isEntryInWorksheetScope } from '@data/worksheets/Worksheets';
 import StepName from '@settings/StepName';
 import { useURLParams } from '@settings/URLParams';
 
+import { Button } from '@shared/shadcn/ui/button';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import { useDataEntriesForSection } from './getDataEntriesForSection';
@@ -134,25 +135,21 @@ const SectionRow: React.FC<SectionRowProps> = ({
     <tr key={section}>
       <td>
         <div
-          className={contentClassName}
+          className={contentClassName + (section ? ' pl-12' : '')}
           hidden={section ? !isRendered : undefined}
           aria-hidden={section ? !isRendered : undefined}
           onTransitionEnd={() => {
             if (section && !isVisible) setIsRendered(false);
           }}
         >
-          <div
-            className={
-              'px-4 py-2 my-1 text-sm h-min text-wrap rounded-lg hover:bg-(--silicon-line) border border-(--silicon-line) cursor-pointer' +
-              (isSelected ? ' bg-(--silicon-white)' : ' bg-(--silicon-white)/50') +
-              (section ? ' ml-12' : '')
-            }
-            role="button"
+          <Button
+            className="w-full text-wrap mt-1"
+            variant={isSelected ? 'selected' : 'outline'}
             tabIndex={0}
             onClick={onClick}
           >
             <PageSectionLabel page={page} section={section} isExpanded={isSelected} />
-          </div>
+          </Button>
         </div>
       </td>
       <td>
@@ -187,7 +184,7 @@ const PageSectionLabel: React.FC<{
   const { uitext } = useInterfaceTranslation();
   if (section) return uitext(`dataSection.${section}`);
   return (
-    <div className="flex items-center justify-between">
+    <div className="flex items-center justify-between flex-1">
       {uitext(`dataPage.${page}`)}{' '}
       {page !== DataPage.All && page !== DataPage.FullTable && (
         <div

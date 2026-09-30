@@ -1,5 +1,6 @@
 import { CoverageLevel, getCoverageLevelKey } from '@data/CoverageLevel';
 
+import EnumDropdown from '@shared/EnumDropdown';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 function FilterCoverageLevelCell({
@@ -10,24 +11,23 @@ function FilterCoverageLevelCell({
   setCoverageLevelFilter: (value: CoverageLevel | undefined) => void;
 }) {
   const { uitext } = useInterfaceTranslation();
+  const options: (CoverageLevel | undefined)[] = Object.values(CoverageLevel).filter(
+    (level) => typeof level === 'number',
+  );
+  options.unshift(undefined);
+
   return (
     <td>
-      <select
+      <EnumDropdown
         value={coverageLevelFilter}
-        onChange={(e) =>
-          setCoverageLevelFilter(e.target.value ? Number(e.target.value) : undefined)
+        onChange={setCoverageLevelFilter}
+        options={options}
+        getLabel={(value) =>
+          value !== undefined
+            ? uitext(`coverageLevelName.${getCoverageLevelKey(value)}`)
+            : uitext('coverageLevelName.Any')
         }
-        style={{ width: '5em' }}
-      >
-        <option value="">{uitext('coverageLevelName.Any')}</option>
-        {Object.values(CoverageLevel)
-          .filter((level) => typeof level === 'number')
-          .map((level) => (
-            <option key={level} value={level}>
-              {uitext(`coverageLevelName.${getCoverageLevelKey(level)}`)}
-            </option>
-          ))}
-      </select>
+      />
     </td>
   );
 }

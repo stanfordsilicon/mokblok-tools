@@ -3,6 +3,7 @@
 import { signIn } from 'next-auth/react';
 import { useState } from 'react';
 
+import { Button } from '@shared/shadcn/ui/button';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 export default function SignInButton({ callbackUrl }: { callbackUrl?: string }) {
@@ -10,8 +11,7 @@ export default function SignInButton({ callbackUrl }: { callbackUrl?: string }) 
   const [pending, setPending] = useState(false);
 
   return (
-    <button
-      type="button"
+    <Button
       disabled={pending}
       onClick={() => {
         setPending(true);
@@ -21,6 +21,6 @@ export default function SignInButton({ callbackUrl }: { callbackUrl?: string }) 
       }}
     >
       {pending ? uitext('auth.redirectingToGoogle') : uitext('auth.signInWithGoogle')}
-    </button>
+    </Button>
   );
 }
