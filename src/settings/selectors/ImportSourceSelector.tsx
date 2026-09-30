@@ -4,6 +4,7 @@ import ImportSource from '@data/ImportSource';
 
 import { useURLParams } from '@settings/URLParams';
 
+import EnumDropdown from '@shared/EnumDropdown';
 import { Button } from '@shared/shadcn/ui/button';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
@@ -38,17 +39,12 @@ const ImportSourceSelector: React.FC<Props> = ({ display }) => {
         ))}
 
       {display === 'dropdown' && (
-        <select
-          className="settings-select"
-          value={String(importSource)}
-          onChange={(e) => updateURLParams({ importSource: e.target.value as ImportSource })}
-        >
-          {Object.values(ImportSource).map((value) => (
-            <option key={value} value={value}>
-              {uitext(`import.importSource.${value}`, value)}
-            </option>
-          ))}
-        </select>
+        <EnumDropdown
+          value={importSource}
+          onChange={(value) => updateURLParams({ importSource: value })}
+          options={Object.values(ImportSource)}
+          getLabel={(value) => uitext(`import.importSource.${value}`, value)}
+        />
       )}
     </div>
   );

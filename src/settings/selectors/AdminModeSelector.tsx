@@ -24,7 +24,11 @@ const AdminModeSelector: React.FC = () => {
   if (!admin) return null;
 
   return (
-    <Button onClick={updateAdminMode} className="p-0" variant={admin ? 'selected' : 'outline'}>
+    <Button
+      onClick={updateAdminMode}
+      className="p-0 whitespace-normal h-auto p-1"
+      variant={admin ? 'selected' : 'outline'}
+    >
       {admin ? uitext('settings.inAdminCTATurnOff') : uitext('settings.notAdminCTATurnOn')}
     </Button>
   );

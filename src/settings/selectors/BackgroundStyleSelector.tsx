@@ -2,35 +2,31 @@ import React from 'react';
 
 import { CoverageLevel } from '@data/CoverageLevel';
 
+import EnumDropdown from '@shared/EnumDropdown';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
-import { BackgroundStyle, parseBackgroundStyle } from '../BackgroundStyle';
+import { BackgroundStyle } from '../BackgroundStyle';
 import { useURLParams } from '../URLParams';
 
 const BackgroundStyleSelector: React.FC = () => {
   const { uitext } = useInterfaceTranslation();
   const { bgStyle, updateURLParams, admin } = useURLParams();
 
-  let options = Object.entries(BackgroundStyle);
-  if (!admin) options = options.filter(([key]) => key !== 'Worksheet');
+  let options = Object.values(BackgroundStyle).filter((val) => typeof val === 'number');
+  if (!admin) options = options.filter((val) => val !== BackgroundStyle.Worksheet);
 
   return (
     <div className="flex flex-col gap-2">
       <div className="flex items-center gap-2 justify-between">
         <strong>{uitext('settings.backgroundStyle')}</strong>
-        <select
-          className="settings-select"
-          value={String(bgStyle)}
-          onChange={(e) => updateURLParams({ bgStyle: parseBackgroundStyle(e.target.value) })}
-        >
-          {options
-            .filter(([, value]) => typeof value !== 'string')
-            .map(([key, value]) => (
-              <option key={key} value={value}>
-                {uitext(`backgroundStyleName.${key}`, key)}
-              </option>
-            ))}
-        </select>
+        <EnumDropdown
+          value={bgStyle}
+          onChange={(value) => updateURLParams({ bgStyle: value })}
+          options={options}
+          getLabel={(value) =>
+            uitext(`backgroundStyleName.${BackgroundStyle[value]}`, BackgroundStyle[value])
+          }
+        />
       </div>
       {bgStyle === BackgroundStyle.CoverageLevel && (
         <div className="flex gap-1 flex-wrap">

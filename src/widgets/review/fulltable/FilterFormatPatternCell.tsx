@@ -1,5 +1,6 @@
-import { parsePatternFormat, PatternFormat } from '@data/PatternFormat';
+import { PatternFormat } from '@data/PatternFormat';
 
+import EnumDropdown from '@shared/EnumDropdown';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 function FilterFormatPatternCell({
@@ -12,20 +13,14 @@ function FilterFormatPatternCell({
   const { uitext } = useInterfaceTranslation();
   return (
     <td>
-      <select
+      <EnumDropdown
         value={patternFormatFilter}
-        onChange={(e) =>
-          setPatternFormatFilter(e.target.value ? parsePatternFormat(e.target.value) : undefined)
+        onChange={setPatternFormatFilter}
+        options={Object.values(PatternFormat)}
+        getLabel={(value) =>
+          value !== undefined ? uitext(`patternFormat.${value}`) : uitext('patternFormat.any')
         }
-        style={{ width: '5em' }}
-      >
-        <option value="">{uitext('patternFormat.any')}</option>
-        {Object.values(PatternFormat).map((format) => (
-          <option key={format} value={format}>
-            {uitext(`patternFormat.${format}`)}
-          </option>
-        ))}
-      </select>
+      />
     </td>
   );
 }
