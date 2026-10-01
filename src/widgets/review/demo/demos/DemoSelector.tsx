@@ -62,8 +62,8 @@ const SelectorSVG = ({ options, currentIndex, onClick, moreWidth }: SelectorSVGP
           <g key={index} style={{ transform: `translateY(${index * 20}px)` }}>
             <rect
               className={
-                (index === hoveredIndex ? 'fill-[skyblue]' : 'fill-transparent') +
-                ' group-hover:fill-transparent! hover:fill-[skyblue]! cursor-pointer'
+                (index === hoveredIndex ? 'fill-[#bfdbfe]' : 'fill-transparent') +
+                ' group-hover:fill-transparent! hover:fill-[#bfdbfe]! cursor-pointer'
               }
               x={0}
               y={0}
@@ -71,7 +71,7 @@ const SelectorSVG = ({ options, currentIndex, onClick, moreWidth }: SelectorSVGP
               ry={5}
               width={moreWidth ? 200 : 150}
               height={20}
-              fill={index === hoveredIndex ? 'skyblue' : 'transparent'}
+              fill={index === hoveredIndex ? '#bfdbfe' : 'transparent'}
               // stroke="black"
               onClick={() => onClick?.(index)}
             />

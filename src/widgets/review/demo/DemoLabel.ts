@@ -53,6 +53,16 @@ const DemoLabel: React.FC<{ demoID: DemoID }> = ({ demoID }) => {
       return uitext('mocks.Date Interval') + ' (' + uitext('mocks.withinMonth') + ' #4)';
     case DemoID.DateInterval_InMonth_yMMMEd:
       return uitext('mocks.Date Interval') + ' (' + uitext('mocks.withinMonth') + ' #5)';
+    case DemoID.DateInterval_BetweenMonths_MEd:
+      return uitext('mocks.Date Interval') + ' (month boundary #1)';
+    case DemoID.DateInterval_BetweenMonths_MMMd:
+      return uitext('mocks.Date Interval') + ' (month boundary #2)';
+    case DemoID.DateInterval_BetweenMonths_MMMEd:
+      return uitext('mocks.Date Interval') + ' (month boundary #3)';
+    case DemoID.DateInterval_BetweenMonths_yMMMd:
+      return uitext('mocks.Date Interval') + ' (month boundary #4)';
+    case DemoID.DateInterval_BetweenMonths_yMMMEd:
+      return uitext('mocks.Date Interval') + ' (month boundary #5)';
     case DemoID.TimeInterval24HourMin:
       return uitext('dataSection.TimeIntervals') + ' (' + uitext('review.24hClock') + ')';
     case DemoID.TimeInterval12HourMin:

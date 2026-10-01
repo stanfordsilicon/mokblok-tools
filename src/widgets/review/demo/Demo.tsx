@@ -10,6 +10,7 @@ import DemoCoordinatesDirections from './demos/DemoCoordinatesDirections';
 import DemoCoordinatesMap from './demos/DemoCoordinatesMap';
 import DemoDateCombination from './demos/DemoDateCombination';
 import DemoDateFieldBreakdown from './demos/DemoDateFieldBreakdown';
+import DemoDateIntervalAcrossMonths from './demos/DemoDateIntervalAcrossMonths';
 import DemoDaysOfWeekInMonth from './demos/DemoDaysOfWeekInMonth';
 import DemoDaysOfWeekInWeek from './demos/DemoDaysOfWeekInWeek';
 import DemoEmojiKeyboardSuggestions from './demos/DemoEmojiKeyboardSuggestions';
@@ -78,6 +79,16 @@ const DemoImage: React.FC<{ demoID: DemoID }> = ({ demoID }) => {
       return <DemoDateCombination instance="yMd" />;
     case DemoID.DateCombination_yMMMEd:
       return <DemoDateCombination instance="yMMMEd" />;
+    case DemoID.DateInterval_BetweenMonths_MEd:
+      return <DemoDateIntervalAcrossMonths instance="MEd" />;
+    case DemoID.DateInterval_BetweenMonths_MMMd:
+      return <DemoDateIntervalAcrossMonths instance="MMMd" />;
+    case DemoID.DateInterval_BetweenMonths_MMMEd:
+      return <DemoDateIntervalAcrossMonths instance="MMMEd" />;
+    case DemoID.DateInterval_BetweenMonths_yMMMd:
+      return <DemoDateIntervalAcrossMonths instance="yMMMd" />;
+    case DemoID.DateInterval_BetweenMonths_yMMMEd:
+      return <DemoDateIntervalAcrossMonths instance="yMMMEd" />;
     case DemoID.CoordinatesMap:
       return <DemoCoordinatesMap />;
     case DemoID.CoordinatesDirections:

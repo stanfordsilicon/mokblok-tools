@@ -45,7 +45,7 @@ const DemoMonthlyCalendar: React.FC<Props> = ({ query }) => {
                   <rect
                     width={30}
                     height={30}
-                    fill={isToday ? 'lightblue' : 'transparent'}
+                    fill={isToday ? '#bfdbfe' : 'transparent'}
                     stroke="#ccc"
                   />
                   <text

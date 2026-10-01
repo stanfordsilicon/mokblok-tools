@@ -44,7 +44,7 @@ const DemoMonthsGrid: React.FC = () => {
               y={-20}
               width={40}
               height={40}
-              fill={index === today.getMonth() ? 'lightblue' : 'transparent'}
+              fill={index === today.getMonth() ? 'bfdbfe' : 'transparent'}
             />
             <text
               textAnchor="middle"
@@ -53,7 +53,7 @@ const DemoMonthsGrid: React.FC = () => {
                 fontSize: '1.2em',
                 color: 'black',
                 fontWeight: 'normal',
-                backgroundColor: index === today.getMonth() ? 'lightblue' : 'transparent',
+                backgroundColor: index === today.getMonth() ? '#bfdbfe' : 'transparent',
               }}
             >
               {getTranslation(month)}

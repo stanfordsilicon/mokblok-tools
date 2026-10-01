@@ -60,7 +60,7 @@ const DemoDaysOfWeekInWeek: React.FC = () => {
               y={60}
               width={30}
               height={120}
-              fill={isCurrentDay ? 'lightblue' : 'transparent'}
+              fill={isCurrentDay ? '#bfdbfe' : 'transparent'}
               stroke="#ccc"
             />
           );
