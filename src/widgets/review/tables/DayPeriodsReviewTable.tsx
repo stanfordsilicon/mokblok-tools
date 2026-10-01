@@ -79,7 +79,7 @@ const DayPeriodsReviewTable = () => {
               <tr key={dayPeriod}>
                 <SourceDataCell entry={row?.['s0']} />
                 <SourceDataCell entry={row?.['f0']} />
-                <SourceDataCell entry={row?.['f1']} convertPatternToExample={false} />
+                <SourceDataCell entry={row?.['f1']} />
                 <InputDataCell entry={row?.['s0']} />
                 <InputDataCell entry={row?.['f0']} inputWidth="10em" />
                 <InputDataCell entry={row?.['f1']} inputWidth="10em" />

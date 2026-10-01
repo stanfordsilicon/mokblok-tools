@@ -1,6 +1,7 @@
 import { type DataEntry } from '@data/DataTypes';
 import useTranslationFromSourceLanguage from '@data/source/useTranslationFromSourceLanguage';
 
+import { HoverCard, HoverCardContent, HoverCardTrigger } from '@shared/shadcn/ui/hover-card';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 import DebugHovercard from './DebugHovercard';
@@ -18,16 +19,21 @@ function SourceDataCell({ entry, style, convertPatternToExample = true }: Props)
   const sourceTranslation = getSourceTranslation(entry);
 
   return (
-    <td className="Cell" tabIndex={0}>
-      <div className="Cell__content" style={style}>
-        <NewLineAwareRenderer>
-          {!sourceTranslation.pattern || convertPatternToExample
-            ? sourceTranslation.translation
-            : sourceTranslation.pattern}
-        </NewLineAwareRenderer>
-      </div>
-
-      <DebugHovercard entry={entry} source={sourceTranslation} />
+    <td tabIndex={0}>
+      <HoverCard>
+        <HoverCardTrigger>
+          <div style={style} className="text-black font-normal">
+            <NewLineAwareRenderer>
+              {!sourceTranslation.pattern || convertPatternToExample
+                ? sourceTranslation.translation
+                : sourceTranslation.pattern}
+            </NewLineAwareRenderer>
+          </div>
+        </HoverCardTrigger>
+        <HoverCardContent className="w-80">
+          <DebugHovercard entry={entry} source={sourceTranslation} />
+        </HoverCardContent>
+      </HoverCard>
     </td>
   );
 }

@@ -7,7 +7,6 @@ import { i18nConfig } from '../i18n.config';
 import type { Metadata } from 'next';
 
 import '../src/index.css';
-import '../src/widgets/review/review_styles.css';
 import './styles.css';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });

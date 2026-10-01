@@ -44,6 +44,10 @@ function getTranslationFromSourceLanguage({
           var2: entry.var2,
         });
         return { translation: formattedDateTime, pattern: sourcePattern };
+      } else if (entry.patternFormat === PatternFormat.Suffix) {
+        const translation =
+          (entry.var1?.toLocaleString(sourceLanguage) || '') + ' ' + sourcePattern;
+        return { translation, pattern: sourcePattern };
       }
       return { translation: sourcePattern, pattern: sourcePattern };
     }
