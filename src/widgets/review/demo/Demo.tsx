@@ -34,7 +34,7 @@ type Props = {
 
 const Demo: React.FC<Props> = ({ demoID }) => {
   return (
-    <article className="group flex min-w-0 flex-col items-center">
+    <article className="group flex min-w-40 flex-col items-center flex-wrap">
       <div className="flex min-h-10 items-center justify-between gap-3">
         <div className="min-w-0 text-sm text-(--silicon-ink)">
           <DemoLabel demoID={demoID} />
@@ -43,7 +43,7 @@ const Demo: React.FC<Props> = ({ demoID }) => {
           <DownloadDemoButton demoID={demoID} />
         </div>
       </div>
-      <div className="mx-auto w-full max-w-[18rem] [&_svg]:mx-auto [&_svg]:block [&_svg]:h-auto [&_svg]:w-full">
+      <div className="mx-auto max-w-[18rem] [&_svg]:mx-auto [&_svg]:block [&_svg]:h-auto [&_svg]:w-full ">
         {/* // Wrap in an error boundary to prevent the whole page from crashing if there's an issue with the demo */}
         <ErrorBoundary>
           <DemoSVG id={demoID} height={240} width={240}>
