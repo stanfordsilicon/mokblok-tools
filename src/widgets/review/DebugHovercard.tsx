@@ -17,11 +17,14 @@ function DebugHovercard({ entry, source }: Props) {
   if (!admin) return null;
 
   return (
-    <aside className="DebugHovercard" role="tooltip" aria-label="Source data debugging information">
-      <div className="DebugHovercard__title">Source data debug</div>
-      <div className="DebugHovercard__description">Click the row to keep the hovercard open.</div>
+    <aside
+      className="flex flex-col gap-2"
+      role="tooltip"
+      aria-label="Source data debugging information"
+    >
+      <div className="font-bold">Source data debug (admin only)</div>
 
-      <dl>
+      <table className="text-left text-xs">
         {/* Translations */}
         <DebugRow label={getLanguageName(sourceLanguage).localized} value={source.translation} />
         {pattern && <DebugRow label="Pattern value" value={pattern} indent={1} />}
@@ -56,7 +59,7 @@ function DebugHovercard({ entry, source }: Props) {
         <DebugRow label="XPath" value={entry.xpath} />
         <DebugRow label="External ID" value={entry.ext_id} indent={1} />
         <DebugRow label="Worksheet" value={entry.worksheet ?? 'Not in worksheets'} indent={1} />
-      </dl>
+      </table>
     </aside>
   );
 }
@@ -69,12 +72,12 @@ type DebugRowProps = {
 function DebugRow({ label, value, indent = 0 }: DebugRowProps) {
   const paddingLeft = `${indent * 2}em`;
   return (
-    <div className="DebugHovercard__row">
-      <dt style={{ paddingLeft, fontWeight: indent === 0 ? 'bold' : 'normal' }}>{label}</dt>
-      <dd style={{ paddingLeft }}>
+    <tr>
+      <th style={{ paddingLeft, fontWeight: indent === 0 ? 'bold' : 'normal' }}>{label}</th>
+      <td className="font-mono text-wrap wrap-anywhere" style={{ paddingLeft }}>
         {value === undefined || value === '' ? <em>empty</em> : String(value)}
-      </dd>
-    </div>
+      </td>
+    </tr>
   );
 }
 

@@ -17,7 +17,6 @@ import VotingCircle from './progress/VotingCircle';
 const PageSectionSelector: React.FC = () => {
   const { uitext } = useInterfaceTranslation();
   const { step } = useURLParams();
-  // Return a 3 column grid of buttons for each DataPage
   return (
     <table className="w-full h-fit table-auto text-xs">
       <colgroup>
@@ -133,7 +132,7 @@ const SectionRow: React.FC<SectionRowProps> = ({
 
   return (
     <tr key={section}>
-      <td>
+      <td className="max-w-20">
         <div
           className={contentClassName + (section ? ' pl-12' : '')}
           hidden={section ? !isRendered : undefined}
@@ -143,7 +142,7 @@ const SectionRow: React.FC<SectionRowProps> = ({
           }}
         >
           <Button
-            className="w-full text-wrap mt-1"
+            className="w-full whitespace-normal mt-1 h-auto min-h-8"
             variant={isSelected ? 'selected' : 'outline'}
             tabIndex={0}
             onClick={onClick}

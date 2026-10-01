@@ -146,12 +146,7 @@
         "end": "Fin",
         "standalone": "Independiente",
         "inSentence": "En una oración",
-        "exampleSentence": "Oración de ejemplo",
-        "past": "Pasado",
-        "present": "Presente",
-        "future": "Futuro",
-        "morning": "Mañana",
-        "evening": "Tarde",
+        "exampleSentence": "Oración de ejemplo", 
         "pattern": "Patrón",
         "sourcePattern": "Patrón fuente",
         "dates": "Fechas",
@@ -370,5 +365,15 @@
         "datetimecombo": "Combinación Fecha/Hora",
         "sub": "Sustitución",
         "sentence": "Oración"
+    },
+    "period": {
+        "past": "Pasado",
+        "present": "Presente",
+        "future": "Futuro",
+        "morning": "Mañana",
+        "afternoon": "Tarde",
+        "evening": "Noche",
+        "night": "Noche",
+        "midnight": "Medianoche"
     }
 }

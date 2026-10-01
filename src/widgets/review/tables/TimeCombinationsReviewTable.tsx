@@ -32,11 +32,11 @@ function TimeCombinationsReviewTable() {
         </tr>
         <tr>
           {admin && <th></th>}
-          <th>{uitext('review.morning')}</th>
-          <th>{uitext('review.evening')}</th>
+          <th>{uitext('period.morning')}</th>
+          <th>{uitext('period.evening')}</th>
           {admin && <th>{uitext('review.pattern')}</th>}
-          <th>{uitext('review.morning')}</th>
-          <th>{uitext('review.evening')}</th>
+          <th>{uitext('period.morning')}</th>
+          <th>{uitext('period.evening')}</th>
         </tr>
       </thead>
       <tbody>

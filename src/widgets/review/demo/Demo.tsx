@@ -20,6 +20,7 @@ import DemoQuartersCircle from './demos/DemoQuartersCircle';
 import DemoQuartersEvents from './demos/DemoQuartersEvents';
 import DemoRelativeTimeEventEnd from './demos/DemoRelativeTimeEventEnd';
 import DemoSelector from './demos/DemoSelector';
+import DemoTimeClockAnnotated from './demos/DemoTimeClockAnnotated';
 import DemoTimeInterval from './demos/DemoTimeInterval';
 import DemoTimeMeetingsToday from './demos/DemoTimeMeetingsToday';
 import DemoWeatherInWeek from './demos/DemoWeatherInWeek';
@@ -32,12 +33,16 @@ type Props = {
 
 const Demo: React.FC<Props> = ({ demoID }) => {
   return (
-    <div className="flex flex-col items-center">
-      <div className="flex gap-2 items-center">
-        <DemoLabel demoID={demoID} />
-        <DownloadDemoButton demoID={demoID} />
+    <article className="group flex min-w-0 flex-col items-center">
+      <div className="flex min-h-10 items-center justify-between gap-3">
+        <div className="min-w-0 text-sm text-(--silicon-ink)">
+          <DemoLabel demoID={demoID} />
+        </div>
+        <div className="shrink-0 opacity-70 transition group-hover:opacity-100">
+          <DownloadDemoButton demoID={demoID} />
+        </div>
       </div>
-      <div style={{ margin: '1em' }}>
+      <div className="mx-auto w-full max-w-[18rem] [&_svg]:mx-auto [&_svg]:block [&_svg]:h-auto [&_svg]:w-full">
         {/* // Wrap in an error boundary to prevent the whole page from crashing if there's an issue with the demo */}
         <ErrorBoundary>
           <DemoSVG id={demoID} height={240} width={240}>
@@ -45,7 +50,7 @@ const Demo: React.FC<Props> = ({ demoID }) => {
           </DemoSVG>
         </ErrorBoundary>
       </div>
-    </div>
+    </article>
   );
 };
 
@@ -130,6 +135,14 @@ const DemoImage: React.FC<{ demoID: DemoID }> = ({ demoID }) => {
       return <DemoTimeMeetingsToday hourFormat="12h" />;
     case DemoID.TimeMeetingsToday24h:
       return <DemoTimeMeetingsToday hourFormat="24h" />;
+    case DemoID.TimeClockAnnotatedMorning:
+      return <DemoTimeClockAnnotated period="morning" />;
+    case DemoID.TimeClockAnnotatedAfternoon:
+      return <DemoTimeClockAnnotated period="afternoon" />;
+    case DemoID.TimeClockAnnotatedEvening:
+      return <DemoTimeClockAnnotated period="evening" />;
+    case DemoID.TimeClockAnnotatedMidnight:
+      return <DemoTimeClockAnnotated period="midnight" />;
     default:
       return <div style={{ color: 'red' }}>{uitext('errors.demoNotFound')}</div>;
   }

@@ -18,7 +18,14 @@ const demoIDsBySection: Record<DataSection, DemoID[]> = {
   ],
   [DataSection.DateFields]: [DemoID.DateFieldBreakdown],
   [DataSection.DateTimes]: [],
-  [DataSection.DayPeriods]: [DemoID.TimeMeetingsToday12h, DemoID.TimeMeetingsToday24h],
+  [DataSection.DayPeriods]: [
+    DemoID.TimeMeetingsToday12h,
+    DemoID.TimeMeetingsToday24h,
+    DemoID.TimeClockAnnotatedMorning,
+    DemoID.TimeClockAnnotatedAfternoon,
+    DemoID.TimeClockAnnotatedEvening,
+    DemoID.TimeClockAnnotatedMidnight,
+  ],
   [DataSection.DaysOfWeek]: [
     // DemoID.DaysOfWeekInWeek,
     DemoID.DaysOfWeekInMonth,
