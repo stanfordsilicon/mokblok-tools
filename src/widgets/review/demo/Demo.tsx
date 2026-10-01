@@ -8,7 +8,9 @@ import DemoLabel from './DemoLabel';
 import DemoClassesThisWeek from './demos/DemoClassesThisWeek';
 import DemoCoordinatesDirections from './demos/DemoCoordinatesDirections';
 import DemoCoordinatesMap from './demos/DemoCoordinatesMap';
+import DemoDateCombination from './demos/DemoDateCombination';
 import DemoDateFieldBreakdown from './demos/DemoDateFieldBreakdown';
+import DemoDateIntervalAcrossMonths from './demos/DemoDateIntervalAcrossMonths';
 import DemoDaysOfWeekInMonth from './demos/DemoDaysOfWeekInMonth';
 import DemoDaysOfWeekInWeek from './demos/DemoDaysOfWeekInWeek';
 import DemoEmojiKeyboardSuggestions from './demos/DemoEmojiKeyboardSuggestions';
@@ -33,7 +35,7 @@ type Props = {
 
 const Demo: React.FC<Props> = ({ demoID }) => {
   return (
-    <article className="group flex min-w-0 flex-col items-center">
+    <article className="group flex min-w-40 flex-col items-center flex-wrap">
       <div className="flex min-h-10 items-center justify-between gap-3">
         <div className="min-w-0 text-sm text-(--silicon-ink)">
           <DemoLabel demoID={demoID} />
@@ -42,7 +44,7 @@ const Demo: React.FC<Props> = ({ demoID }) => {
           <DownloadDemoButton demoID={demoID} />
         </div>
       </div>
-      <div className="mx-auto w-full max-w-[18rem] [&_svg]:mx-auto [&_svg]:block [&_svg]:h-auto [&_svg]:w-full">
+      <div className="mx-auto max-w-[18rem] [&_svg]:mx-auto [&_svg]:block [&_svg]:h-auto [&_svg]:w-full ">
         {/* // Wrap in an error boundary to prevent the whole page from crashing if there's an issue with the demo */}
         <ErrorBoundary>
           <DemoSVG id={demoID} height={240} width={240}>
@@ -67,6 +69,26 @@ const DemoImage: React.FC<{ demoID: DemoID }> = ({ demoID }) => {
       return <DemoDaysOfWeekInWeek />;
     case DemoID.DateFieldBreakdown:
       return <DemoDateFieldBreakdown />;
+    case DemoID.DateCombination_Md:
+      return <DemoDateCombination instance="Md" />;
+    case DemoID.DateCombination_MEd:
+      return <DemoDateCombination instance="MEd" />;
+    case DemoID.DateCombination_MMMd:
+      return <DemoDateCombination instance="MMMd" />;
+    case DemoID.DateCombination_yMd:
+      return <DemoDateCombination instance="yMd" />;
+    case DemoID.DateCombination_yMMMEd:
+      return <DemoDateCombination instance="yMMMEd" />;
+    case DemoID.DateInterval_BetweenMonths_MEd:
+      return <DemoDateIntervalAcrossMonths instance="MEd" />;
+    case DemoID.DateInterval_BetweenMonths_MMMd:
+      return <DemoDateIntervalAcrossMonths instance="MMMd" />;
+    case DemoID.DateInterval_BetweenMonths_MMMEd:
+      return <DemoDateIntervalAcrossMonths instance="MMMEd" />;
+    case DemoID.DateInterval_BetweenMonths_yMMMd:
+      return <DemoDateIntervalAcrossMonths instance="yMMMd" />;
+    case DemoID.DateInterval_BetweenMonths_yMMMEd:
+      return <DemoDateIntervalAcrossMonths instance="yMMMEd" />;
     case DemoID.CoordinatesMap:
       return <DemoCoordinatesMap />;
     case DemoID.CoordinatesDirections:

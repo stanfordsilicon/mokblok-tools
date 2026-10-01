@@ -23,10 +23,10 @@ const DemoSVG: React.FC<React.PropsWithChildren<Props>> = ({ id, width, height, 
       viewBox={`0 0 ${outerWidth} ${outerHeight}`}
     >
       <defs>
-        <linearGradient id={gradientID} x1="0" y1="0" x2="1" y2="1">
+        <linearGradient id={gradientID} x1="0" y1="0" x2="100" y2="10">
           <stop offset="0%" stopColor="#3a2b2a" />
           <stop offset="62%" stopColor="#171313" />
-          <stop offset="100%" stopColor="#332022" />
+          <stop offset="100%" stopColor="#efe" />
         </linearGradient>
       </defs>
 

@@ -1,5 +1,6 @@
 // Strings should not include spaces or symbols -- they are used in the downloaded filenames
 // They should be prefixed with the section name
+// Add new DemoIDs to the end so we can keep the index order.
 enum DemoID {
   MonthsGrid = 'monthsGrid',
   MonthsTemp = 'monthsTemp',
@@ -41,6 +42,16 @@ enum DemoID {
   TimeClockAnnotatedAfternoon = 'timeClockAnnotatedAfternoon',
   TimeClockAnnotatedEvening = 'timeClockAnnotatedEvening',
   TimeClockAnnotatedMidnight = 'timeClockAnnotatedMidnight',
+  DateCombination_Md = 'dateCombination_Md',
+  DateCombination_MEd = 'dateCombination_MEd',
+  DateCombination_MMMd = 'dateCombination_MMMd',
+  DateCombination_yMd = 'dateCombination_yMd',
+  DateCombination_yMMMEd = 'dateCombination_yMMMEd',
+  DateInterval_BetweenMonths_MEd = 'dateInterval_BetweenMonths_MEd',
+  DateInterval_BetweenMonths_MMMd = 'dateInterval_BetweenMonths_MMMd',
+  DateInterval_BetweenMonths_MMMEd = 'dateInterval_BetweenMonths_MMMEd',
+  DateInterval_BetweenMonths_yMMMd = 'dateInterval_BetweenMonths_yMMMd',
+  DateInterval_BetweenMonths_yMMMEd = 'dateInterval_BetweenMonths_yMMMEd',
 }
 
 export default DemoID;

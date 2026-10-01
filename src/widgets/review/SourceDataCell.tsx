@@ -1,6 +1,8 @@
 import { type DataEntry } from '@data/DataTypes';
 import useTranslationFromSourceLanguage from '@data/source/useTranslationFromSourceLanguage';
 
+import { useURLParams } from '@settings/URLParams';
+
 import { HoverCard, HoverCardContent, HoverCardTrigger } from '@shared/shadcn/ui/hover-card';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
@@ -12,11 +14,24 @@ type Props = {
   convertPatternToExample?: boolean;
 };
 function SourceDataCell({ entry, style, convertPatternToExample = true }: Props) {
+  const { admin } = useURLParams();
   const { uitext } = useInterfaceTranslation();
   const getSourceTranslation = useTranslationFromSourceLanguage();
 
   if (!entry) return <td>{uitext('common.emptyCell')}</td>;
   const sourceTranslation = getSourceTranslation(entry);
+
+  if (!admin) {
+    return (
+      <td tabIndex={0}>
+        <NewLineAwareRenderer>
+          {!sourceTranslation.pattern || convertPatternToExample
+            ? sourceTranslation.translation
+            : sourceTranslation.pattern}
+        </NewLineAwareRenderer>
+      </td>
+    );
+  }
 
   return (
     <td tabIndex={0}>

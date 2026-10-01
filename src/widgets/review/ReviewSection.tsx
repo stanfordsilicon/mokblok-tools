@@ -65,27 +65,25 @@ function ReviewSection({ dataSection }: { dataSection: DataSection }) {
         {section !== DataSection.All && (
           <div className="text-xs">
             {previousSection && (
-              <Button variant="ghost" onClick={goToPreviousSection}>
+              <Button variant="ghost" className="py-1" onClick={goToPreviousSection}>
                 &lt; {uitext('nav.previous')}
               </Button>
             )}
             {nextSection && (
-              <Button variant="ghost" onClick={goToNextSection}>
+              <Button variant="ghost" className="py-1" onClick={goToNextSection}>
                 {uitext('nav.next')} &gt;
               </Button>
             )}
           </div>
         )}
       </div>
-      <div className="flex flex-col gap-5 xl:flex-row xl:items-start">
+      <div className="flex flex-row gap-4 flex-wrap">
         <div>
           <ErrorBoundary>
             <ReviewTable dataSection={dataSection} />
           </ErrorBoundary>
         </div>
-        <div className="grid w-full min-w-0 grid-cols-1 content-start gap-4 sm:grid-cols-2 xl:max-w-[940px] 2xl:grid-cols-3">
-          <DemosForSection dataSection={dataSection} />
-        </div>
+        <DemosForSection dataSection={dataSection} />
       </div>
     </div>
   );

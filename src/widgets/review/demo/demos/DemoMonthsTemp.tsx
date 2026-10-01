@@ -82,7 +82,7 @@ const MockMonthsTemp: React.FC = () => {
                 y={-8}
                 width={20}
                 height={16}
-                fill={index === today.getMonth() ? 'lightblue' : 'transparent'}
+                fill={index === today.getMonth() ? '#bfdbfe' : 'transparent'}
               />
               <text
                 textAnchor="middle"

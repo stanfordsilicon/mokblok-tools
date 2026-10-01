@@ -57,7 +57,7 @@ const DemoWeatherInWeek: React.FC = () => {
                 y={45}
                 width={30}
                 height={60}
-                fill={isCurrentDay ? 'lightblue' : 'transparent'}
+                fill={isCurrentDay ? '#bfdbfe' : 'transparent'}
                 stroke="#ccc"
               />
 

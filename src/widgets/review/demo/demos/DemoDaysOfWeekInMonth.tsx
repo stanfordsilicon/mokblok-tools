@@ -58,7 +58,7 @@ const DemoDaysOfWeekInMonth: React.FC = () => {
                   <rect
                     width={30}
                     height={30}
-                    fill={isToday ? 'lightblue' : 'transparent'}
+                    fill={isToday ? '#bfdbfe' : 'transparent'}
                     stroke="#ccc"
                   />
                   <text
