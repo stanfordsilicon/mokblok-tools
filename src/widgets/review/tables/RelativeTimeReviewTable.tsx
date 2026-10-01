@@ -35,12 +35,12 @@ function RelativeTimeReviewTable() {
         </tr>
         <tr>
           {admin && <th></th>}
-          <th>{uitext('review.past')}</th>
-          <th>{uitext('review.present')}</th>
-          <th>{uitext('review.future')}</th>
-          <th>{uitext('review.past')}</th>
-          <th>{uitext('review.present')}</th>
-          <th>{uitext('review.future')}</th>
+          <th>{uitext('period.past')}</th>
+          <th>{uitext('period.present')}</th>
+          <th>{uitext('period.future')}</th>
+          <th>{uitext('period.past')}</th>
+          <th>{uitext('period.present')}</th>
+          <th>{uitext('period.future')}</th>
         </tr>
       </thead>
       <tbody>

@@ -145,11 +145,6 @@
         "standalone": "Standalone",
         "inSentence": "In Sentence",
         "exampleSentence": "Example Sentence",
-        "past": "Past",
-        "present": "Present",
-        "future": "Future",
-        "morning": "Morning",
-        "evening": "Evening",
         "sourcePattern": "Source Pattern",
         "pattern": "Pattern",
         "dates": "Dates",
@@ -370,5 +365,15 @@
         "sub": "Substitution",
         "sentence": "Sentence",
         "suffix": "Suffix"
+    },
+    "period": {
+        "past": "Past",
+        "present": "Present",
+        "future": "Future",
+        "morning": "Morning",
+        "afternoon": "Afternoon",
+        "evening": "Evening",
+        "night": "Night",
+        "midnight": "Midnight"
     }
 }

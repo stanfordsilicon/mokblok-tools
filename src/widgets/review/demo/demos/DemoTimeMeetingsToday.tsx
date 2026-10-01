@@ -31,7 +31,7 @@ const DemoTimeMeetingsToday: React.FC<Props> = ({ hourFormat }) => {
 
   return (
     <>
-      <rect x={10} y={10} width={220} height={40} fill="#ccc" stroke="#ccc" rx="10" ry="10"></rect>
+      <rect x={10} y={10} width={220} height={40} fill="#ddd" stroke="#ccc" rx="10" ry="10" />
       <text x={120} y={35} fontSize="1.2em" style={{ textAnchor: 'middle' }}>
         {getTranslation(todayEntry)}
       </text>
@@ -41,7 +41,7 @@ const DemoTimeMeetingsToday: React.FC<Props> = ({ hourFormat }) => {
           y={10}
           width={hourFormat === '12h' ? 80 : 60}
           height={30}
-          fill="#ddd"
+          fill="#eee"
           stroke="#cccc"
           rx="5"
           ry="5"
@@ -56,7 +56,7 @@ const DemoTimeMeetingsToday: React.FC<Props> = ({ hourFormat }) => {
           y={10}
           width={hourFormat === '12h' ? 80 : 60}
           height={30}
-          fill="#ddd"
+          fill="#eee"
           stroke="#cccc"
           rx="5"
           ry="5"

@@ -7,6 +7,7 @@ import DemoID from './DemoID';
 
 const DemoLabel: React.FC<{ demoID: DemoID }> = ({ demoID }) => {
   const { uitext } = useInterfaceTranslation();
+
   switch (demoID) {
     case DemoID.MonthsGrid:
       return uitext('mocks.Months in a Grid');
@@ -33,15 +34,15 @@ const DemoLabel: React.FC<{ demoID: DemoID }> = ({ demoID }) => {
     case DemoID.QuartersEvents:
       return uitext('dataSection.Quarters') + ' (' + uitext('mocks.events') + ')';
     case DemoID.DateInterval_InMonth_MEd:
-      return uitext('mocks.Date Interval') + ' (' + uitext('mocks.withinMonth') + ' 1)';
+      return uitext('mocks.Date Interval') + ' (' + uitext('mocks.withinMonth') + ' #1)';
     case DemoID.DateInterval_InMonth_MMMd:
-      return uitext('mocks.Date Interval') + ' (' + uitext('mocks.withinMonth') + ' 2)';
+      return uitext('mocks.Date Interval') + ' (' + uitext('mocks.withinMonth') + ' #2)';
     case DemoID.DateInterval_InMonth_MMMEd:
-      return uitext('mocks.Date Interval') + ' (' + uitext('mocks.withinMonth') + ' 3)';
+      return uitext('mocks.Date Interval') + ' (' + uitext('mocks.withinMonth') + ' #3)';
     case DemoID.DateInterval_InMonth_yMMMd:
-      return uitext('mocks.Date Interval') + ' (' + uitext('mocks.withinMonth') + ' 4)';
+      return uitext('mocks.Date Interval') + ' (' + uitext('mocks.withinMonth') + ' #4)';
     case DemoID.DateInterval_InMonth_yMMMEd:
-      return uitext('mocks.Date Interval') + ' (' + uitext('mocks.withinMonth') + ' 5)';
+      return uitext('mocks.Date Interval') + ' (' + uitext('mocks.withinMonth') + ' #5)';
     case DemoID.TimeInterval24HourMin:
       return uitext('dataSection.TimeIntervals') + ' (' + uitext('review.24hClock') + ')';
     case DemoID.TimeInterval12HourMin:
@@ -108,6 +109,14 @@ const DemoLabel: React.FC<{ demoID: DemoID }> = ({ demoID }) => {
       return uitext('mocks.MeetingsToday') + ' (' + uitext('review.12hClock') + ')';
     case DemoID.TimeMeetingsToday24h:
       return uitext('mocks.MeetingsToday') + ' (' + uitext('review.24hClock') + ')';
+    case DemoID.TimeClockAnnotatedMorning:
+      return uitext('review.12hClock') + ' (' + uitext('period.morning') + ')';
+    case DemoID.TimeClockAnnotatedAfternoon:
+      return uitext('review.12hClock') + ' (' + uitext('period.afternoon') + ')';
+    case DemoID.TimeClockAnnotatedEvening:
+      return uitext('review.12hClock') + ' (' + uitext('period.evening') + ')';
+    case DemoID.TimeClockAnnotatedMidnight:
+      return uitext('review.12hClock') + ' (' + uitext('period.midnight') + ')';
     default:
       enforceExhaustiveSwitch(demoID);
   }

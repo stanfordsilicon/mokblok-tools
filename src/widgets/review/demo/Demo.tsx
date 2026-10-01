@@ -20,6 +20,7 @@ import DemoQuartersCircle from './demos/DemoQuartersCircle';
 import DemoQuartersEvents from './demos/DemoQuartersEvents';
 import DemoRelativeTimeEventEnd from './demos/DemoRelativeTimeEventEnd';
 import DemoSelector from './demos/DemoSelector';
+import DemoTimeClockAnnotated from './demos/DemoTimeClockAnnotated';
 import DemoTimeInterval from './demos/DemoTimeInterval';
 import DemoTimeMeetingsToday from './demos/DemoTimeMeetingsToday';
 import DemoWeatherInWeek from './demos/DemoWeatherInWeek';
@@ -130,6 +131,14 @@ const DemoImage: React.FC<{ demoID: DemoID }> = ({ demoID }) => {
       return <DemoTimeMeetingsToday hourFormat="12h" />;
     case DemoID.TimeMeetingsToday24h:
       return <DemoTimeMeetingsToday hourFormat="24h" />;
+    case DemoID.TimeClockAnnotatedMorning:
+      return <DemoTimeClockAnnotated period="morning" />;
+    case DemoID.TimeClockAnnotatedAfternoon:
+      return <DemoTimeClockAnnotated period="afternoon" />;
+    case DemoID.TimeClockAnnotatedEvening:
+      return <DemoTimeClockAnnotated period="evening" />;
+    case DemoID.TimeClockAnnotatedMidnight:
+      return <DemoTimeClockAnnotated period="midnight" />;
     default:
       return <div style={{ color: 'red' }}>{uitext('errors.demoNotFound')}</div>;
   }

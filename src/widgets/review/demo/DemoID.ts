@@ -37,6 +37,10 @@ enum DemoID {
   TimezonesSelector = 'timezonesSelector',
   TimeMeetingsToday12h = 'timeMeetingsToday12h',
   TimeMeetingsToday24h = 'timeMeetingsToday24h',
+  TimeClockAnnotatedMorning = 'timeClockAnnotatedMorning',
+  TimeClockAnnotatedAfternoon = 'timeClockAnnotatedAfternoon',
+  TimeClockAnnotatedEvening = 'timeClockAnnotatedEvening',
+  TimeClockAnnotatedMidnight = 'timeClockAnnotatedMidnight',
 }
 
 export default DemoID;
