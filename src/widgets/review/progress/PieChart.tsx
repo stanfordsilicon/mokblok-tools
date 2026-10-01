@@ -33,15 +33,7 @@ function PieChart({ label, fraction, size = 32 }: CompletionPieProps) {
         <PieSlice startingAngle={0} arcAngle={fraction} hue={fraction} />
       )}
       {label && (
-        <text
-          x={CENTER}
-          y={CENTER}
-          textAnchor="middle"
-          dominantBaseline="central"
-          className="fill-primary"
-          fontSize="0.5em"
-          fill="var(--color-text)"
-        >
+        <text x={CENTER} y={CENTER} textAnchor="middle" dominantBaseline="central" fontSize="0.5em">
           {label}
         </text>
       )}
