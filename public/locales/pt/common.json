@@ -141,12 +141,7 @@
     "end": "Fim",
     "standalone": "Isolado",
     "inSentence": "Na frase",
-    "exampleSentence": "Frase de exemplo",
-    "past": "Passado",
-    "present": "Presente",
-    "future": "Futuro",
-    "morning": "Manhã",
-    "evening": "Noite",
+    "exampleSentence": "Frase de exemplo", 
     "sourcePattern": "Padrão de origem",
     "pattern": "Padrão",
     "dates": "Datas",
@@ -366,5 +361,15 @@
     "datetimecombo": "Combinação de data/hora",
     "sub": "Substituição",
     "sentence": "Frase"
+  },
+  "period": {
+    "past": "Passado",
+    "present": "Presente",
+    "future": "Futuro",
+    "morning": "Manhã",
+    "afternoon": "Tarde",
+    "evening": "Noite",
+    "night": "Noite",
+    "midnight": "Meia-noite"
   }
 }
