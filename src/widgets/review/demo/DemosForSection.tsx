@@ -8,7 +8,13 @@ const demoIDsBySection: Record<DataSection, DemoID[]> = {
   [DataSection.Alphabet]: [],
   [DataSection.CLDRTicket]: [],
   [DataSection.Coordinates]: [DemoID.CoordinatesMap, DemoID.CoordinatesDirections],
-  [DataSection.Dates]: [],
+  [DataSection.Dates]: [
+    DemoID.DateCombination_Md,
+    DemoID.DateCombination_MEd,
+    DemoID.DateCombination_MMMd,
+    DemoID.DateCombination_yMd,
+    DemoID.DateCombination_yMMMEd,
+  ],
   [DataSection.DateIntervals]: [
     DemoID.DateInterval_InMonth_MEd,
     DemoID.DateInterval_InMonth_MMMd,
@@ -16,7 +22,11 @@ const demoIDsBySection: Record<DataSection, DemoID[]> = {
     DemoID.DateInterval_InMonth_yMMMd,
     DemoID.DateInterval_InMonth_yMMMEd,
   ],
-  [DataSection.DateFields]: [DemoID.DateFieldBreakdown],
+  [DataSection.DateFields]: [
+    DemoID.DateFieldBreakdown,
+    DemoID.DateCombination_MEd,
+    DemoID.DateCombination_yMd,
+  ],
   [DataSection.DateTimes]: [],
   [DataSection.DayPeriods]: [
     DemoID.TimeMeetingsToday12h,

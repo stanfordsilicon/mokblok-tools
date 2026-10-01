@@ -8,6 +8,7 @@ import DemoLabel from './DemoLabel';
 import DemoClassesThisWeek from './demos/DemoClassesThisWeek';
 import DemoCoordinatesDirections from './demos/DemoCoordinatesDirections';
 import DemoCoordinatesMap from './demos/DemoCoordinatesMap';
+import DemoDateCombination from './demos/DemoDateCombination';
 import DemoDateFieldBreakdown from './demos/DemoDateFieldBreakdown';
 import DemoDaysOfWeekInMonth from './demos/DemoDaysOfWeekInMonth';
 import DemoDaysOfWeekInWeek from './demos/DemoDaysOfWeekInWeek';
@@ -67,6 +68,16 @@ const DemoImage: React.FC<{ demoID: DemoID }> = ({ demoID }) => {
       return <DemoDaysOfWeekInWeek />;
     case DemoID.DateFieldBreakdown:
       return <DemoDateFieldBreakdown />;
+    case DemoID.DateCombination_Md:
+      return <DemoDateCombination instance="Md" />;
+    case DemoID.DateCombination_MEd:
+      return <DemoDateCombination instance="MEd" />;
+    case DemoID.DateCombination_MMMd:
+      return <DemoDateCombination instance="MMMd" />;
+    case DemoID.DateCombination_yMd:
+      return <DemoDateCombination instance="yMd" />;
+    case DemoID.DateCombination_yMMMEd:
+      return <DemoDateCombination instance="yMMMEd" />;
     case DemoID.CoordinatesMap:
       return <DemoCoordinatesMap />;
     case DemoID.CoordinatesDirections:

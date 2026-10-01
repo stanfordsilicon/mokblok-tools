@@ -25,6 +25,16 @@ const DemoLabel: React.FC<{ demoID: DemoID }> = ({ demoID }) => {
       return uitext('mocks.Classes') + ' ' + uitext('mocks.thisWeekend');
     case DemoID.DateFieldBreakdown:
       return uitext('mocks.Date Field Breakdown');
+    case DemoID.DateCombination_Md:
+      return uitext('dataSection.Dates') + ' (M/d)';
+    case DemoID.DateCombination_MEd:
+      return uitext('dataSection.Dates') + ' (E, M/d)';
+    case DemoID.DateCombination_MMMd:
+      return uitext('dataSection.Dates') + ' (MMM d)';
+    case DemoID.DateCombination_yMd:
+      return uitext('dataSection.Dates') + ' (M/d/y)';
+    case DemoID.DateCombination_yMMMEd:
+      return uitext('dataSection.Dates') + ' (E, MMM d, y)';
     case DemoID.CoordinatesMap:
       return uitext('mocks.Location in Map');
     case DemoID.CoordinatesDirections:
