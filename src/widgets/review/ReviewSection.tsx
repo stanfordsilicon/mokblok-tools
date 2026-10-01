@@ -77,18 +77,13 @@ function ReviewSection({ dataSection }: { dataSection: DataSection }) {
           </div>
         )}
       </div>
-      <div className="flex flex-row gap-4 flex-wrap">
+      <div className="flex flex-col gap-5 xl:flex-row xl:items-start">
         <div>
           <ErrorBoundary>
             <ReviewTable dataSection={dataSection} />
           </ErrorBoundary>
         </div>
-        <div
-          className="flex flex-wrap gap-4 place-content-start"
-          style={{
-            maxWidth: '950px',
-          }}
-        >
+        <div className="grid w-full min-w-0 grid-cols-1 content-start gap-4 sm:grid-cols-2 xl:max-w-[940px] 2xl:grid-cols-3">
           <DemosForSection dataSection={dataSection} />
         </div>
       </div>

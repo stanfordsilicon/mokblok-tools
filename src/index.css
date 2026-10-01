@@ -59,26 +59,27 @@ h1 {
   margin: 0;
 }
 
-h2 { 
+h2 {
   font-size: 1.5rem;
 }
 
-h3 { 
+h3 {
   margin-top: 1rem;
   font-size: 1.2rem;
-} 
+}
 
-select, ::picker(select) {
+select,
+::picker(select) {
   appearance: base-select;
 }
 
 select.settings-select {
   border-radius: 0.75rem;
   border: 1px solid var(--color-input-border);
-  padding: 0.5em 1em;  
+  padding: 0.5em 1em;
   color: var(--silicon-ink);
   background-color: white;
-  cursor: pointer; 
+  cursor: pointer;
 }
 
 select.settings-select:hover {
@@ -108,7 +109,7 @@ select.settings-select:focus-visible {
 
 table {
   text-wrap: nowrap;
-} 
+}
 
 .ReviewWidget th {
   background: white;
@@ -120,7 +121,7 @@ td {
 
 .FullReviewTable th {
   position: sticky;
-  top: 0; 
+  top: 0;
   padding: 0.125em;
   z-index: 10;
   white-space: wrap;
@@ -136,16 +137,25 @@ td {
 
 .FullReviewTable td {
   overflow: hidden;
-} 
- 
+}
+
 .cursor-vote-approve {
-  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewport="0 0 100 100" style="font-size:16px;"><text y="50%" x="50%" dominant-baseline="middle" text-anchor="middle">✔️</text></svg>') 16 16, auto !important;
+  cursor:
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewport="0 0 100 100" style="font-size:16px;"><text y="50%" x="50%" dominant-baseline="middle" text-anchor="middle">✔️</text></svg>')
+      16 16,
+    auto !important;
 }
 .cursor-vote-reject {
-  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewport="0 0 100 100" style="font-size:16px;"><text y="50%" x="50%" dominant-baseline="middle" text-anchor="middle">✘</text></svg>') 16 16, auto !important;
+  cursor:
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewport="0 0 100 100" style="font-size:16px;"><text y="50%" x="50%" dominant-baseline="middle" text-anchor="middle">✘</text></svg>')
+      16 16,
+    auto !important;
 }
 .cursor-vote-clear {
-  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewport="0 0 100 100" style="font-size:16px;"><text y="50%" x="50%" dominant-baseline="middle" text-anchor="middle">🪌</text></svg>') 16 16, auto !important;
+  cursor:
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewport="0 0 100 100" style="font-size:16px;"><text y="50%" x="50%" dominant-baseline="middle" text-anchor="middle">🪌</text></svg>')
+      16 16,
+    auto !important;
 }
 
 .bg-hashed {
@@ -193,11 +203,11 @@ td {
 .InputVoteOverlay,
 .InputVoteSurfaceHoverSuppressed:hover .InputVoteOverlay {
   opacity: 0;
-  pointer-events: none; 
+  pointer-events: none;
 }
 
 .InputVoteSurface:hover .InputVoteOverlay,
 .InputVoteSurface:focus-within .InputVoteOverlay {
   opacity: 0.9;
   pointer-events: auto;
-} 
+}
