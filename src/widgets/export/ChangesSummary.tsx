@@ -1,10 +1,10 @@
 import React, { useMemo } from 'react';
 
-import { useTargetDataContext } from '@data/target/TargetDataProvider';
+import { useTargetDataStore } from '@data/target/TargetDataProvider';
 import { TranslationInfo, Vote } from '@data/target/types';
 
 const ChangesSummary: React.FC = () => {
-  const { getTranslations } = useTargetDataContext();
+  const getTranslations = useTargetDataStore((state) => state.getTranslations);
   const editedTranslations = useMemo(() => {
     return getTranslations()
       .filter(

@@ -1,12 +1,12 @@
 import type { DataEntry } from '@data/DataTypes';
 import { useSourceDataContext } from '@data/source/SourceDataProvider';
-import { useTargetDataContext } from '@data/target/TargetDataProvider';
+import { useTargetDataStore } from '@data/target/TargetDataProvider';
 
 import { uniqueBy } from '@shared/setUtils';
 
 const DemoTimeInterval: React.FC<{ pattern: string }> = ({ pattern }) => {
   const { findDataEntry, findDataEntries } = useSourceDataContext();
-  const { getTranslation } = useTargetDataContext();
+  const getTranslation = useTargetDataStore((state) => state.getTranslation);
 
   const date = findDataEntry({ field: 'availableFormats', instance: 'MEd' });
   const intervals = uniqueBy(

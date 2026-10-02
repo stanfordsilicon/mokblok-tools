@@ -1,7 +1,7 @@
 import { useCallback, useMemo, useState } from 'react';
 
 import type { DataEntry } from '@data/DataTypes';
-import { useTargetDataContext } from '@data/target/TargetDataProvider';
+import { useTargetDataStore } from '@data/target/TargetDataProvider';
 import { Vote } from '@data/target/types';
 
 import CommentBox from './CommentBox';
@@ -19,7 +19,7 @@ const InputVote: React.FC<{
   entry: DataEntry;
   inputWidth?: string;
 }> = ({ entry, inputWidth }) => {
-  const { getTranslationInfo } = useTargetDataContext();
+  const getTranslationInfo = useTargetDataStore((state) => state.getTranslationInfo);
   const { isVoteGestureActive, queue, vote: dragVote } = useVoteDragContext();
   const { vote, edit, translation, source, comment } = getTranslationInfo(entry) ?? {};
 

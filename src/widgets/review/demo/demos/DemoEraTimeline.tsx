@@ -1,9 +1,9 @@
 import { useSourceDataContext } from '@data/source/SourceDataProvider';
-import { useTargetDataContext } from '@data/target/TargetDataProvider';
+import { useTargetDataStore } from '@data/target/TargetDataProvider';
 
 const DemoTimeInterval: React.FC<{ variant: '' | 'variant' }> = ({ variant }) => {
   const { findDataEntry } = useSourceDataContext();
-  const { getTranslation } = useTargetDataContext();
+  const getTranslation = useTargetDataStore((state) => state.getTranslation);
 
   const eraTitle = findDataEntry({ field: 'G', instance: '' });
   const pastShort = findDataEntry({ field: 'G', instance: '0', length: 'a', variant });

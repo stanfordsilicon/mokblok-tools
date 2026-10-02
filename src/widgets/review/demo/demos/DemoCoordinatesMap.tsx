@@ -1,11 +1,11 @@
 import React from 'react';
 
 import { useSourceDataContext } from '@data/source/SourceDataProvider';
-import { useTargetDataContext } from '@data/target/TargetDataProvider';
+import { useTargetDataStore } from '@data/target/TargetDataProvider';
 
 const DemoCoordinatesMap: React.FC = () => {
   const { findDataEntry } = useSourceDataContext();
-  const { getTranslation } = useTargetDataContext();
+  const getTranslation = useTargetDataStore((state) => state.getTranslation);
 
   const north = getTranslation(
     findDataEntry({ field: 'coordinateUnitPattern', instance: 'north', length: 'narrow' }),

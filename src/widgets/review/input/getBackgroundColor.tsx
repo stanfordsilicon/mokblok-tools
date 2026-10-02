@@ -1,6 +1,6 @@
 import type { DataEntry } from '@data/DataTypes';
 import useTranslationFromSourceLanguage from '@data/source/useTranslationFromSourceLanguage';
-import { useTargetDataContext } from '@data/target/TargetDataProvider';
+import { useTargetDataStore } from '@data/target/TargetDataProvider';
 import { Vote } from '@data/target/types';
 import { Worksheet } from '@data/worksheets/Worksheet';
 
@@ -10,7 +10,8 @@ import { useURLParams } from '@settings/URLParams';
 function useBackgroundColor(): (data: DataEntry) => string {
   const { bgStyle } = useURLParams();
   const getSourceTranslation = useTranslationFromSourceLanguage();
-  const { getTranslation, getTranslationInfo } = useTargetDataContext();
+  const getTranslation = useTargetDataStore((state) => state.getTranslation);
+  const getTranslationInfo = useTargetDataStore((state) => state.getTranslationInfo);
 
   switch (bgStyle) {
     case BackgroundStyle.Missing:

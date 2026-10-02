@@ -3,13 +3,13 @@ import { useCallback, useMemo, useState } from 'react';
 import { DataEntry } from '@data/DataTypes';
 import { DayKeys } from '@data/DayKeys';
 import { useSourceDataContext } from '@data/source/SourceDataProvider';
-import { useTargetDataContext } from '@data/target/TargetDataProvider';
+import { useTargetDataStore } from '@data/target/TargetDataProvider';
 
 import { sortBy } from '@shared/setUtils';
 
 const DemoSelector = ({ entryFilter }: { entryFilter: Partial<DataEntry> }) => {
   const { findDataEntries } = useSourceDataContext();
-  const { getTranslation } = useTargetDataContext();
+  const getTranslation = useTargetDataStore((state) => state.getTranslation);
   const options = useMemo(
     () =>
       sortBy(findDataEntries(entryFilter), getSortFunction(entryFilter, getTranslation)).map(

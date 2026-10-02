@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { useSourceDataContext } from '@data/source/SourceDataProvider';
-import { useTargetDataContext } from '@data/target/TargetDataProvider';
+import { useTargetDataStore } from '@data/target/TargetDataProvider';
 
 import { useURLParams } from '@settings/URLParams';
 
@@ -11,7 +11,7 @@ type Props = {
 
 const DemoTimeClockAnnotated: React.FC<Props> = ({ period }) => {
   const { findDataEntry } = useSourceDataContext();
-  const { getTranslation } = useTargetDataContext();
+  const getTranslation = useTargetDataStore((state) => state.getTranslation);
   const { targetLanguage } = useURLParams();
   const ampm = period === 'morning' || period === 'midnight' ? 'AM' : 'PM';
   const ampmEntry = findDataEntry({ instance: ampm.toLowerCase() });

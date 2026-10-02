@@ -1,6 +1,6 @@
 import { DataSection } from '@data/DataSection';
 import { useSourceDataContext } from '@data/source/SourceDataProvider';
-import { useTargetDataContext } from '@data/target/TargetDataProvider';
+import { useTargetDataStore } from '@data/target/TargetDataProvider';
 
 import { uniqueBy } from '@shared/setUtils';
 
@@ -10,7 +10,7 @@ type Props = {
 
 const DemoTimeMeetingsToday: React.FC<Props> = ({ hourFormat }) => {
   const { findDataEntry, findDataEntries } = useSourceDataContext();
-  const { getTranslation } = useTargetDataContext();
+  const getTranslation = useTargetDataStore((state) => state.getTranslation);
 
   const todayEntry = findDataEntry({
     instance: '0',

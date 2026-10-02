@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { useSourceDataContext } from '@data/source/SourceDataProvider';
-import { useTargetDataContext } from '@data/target/TargetDataProvider';
+import { useTargetDataStore } from '@data/target/TargetDataProvider';
 
 import { useExampleDate } from '@settings/selectors/ExampleDateSelector';
 
@@ -33,7 +33,7 @@ const simulatedClimateData: ClimateDataPoint[] = [
 const MockMonthsTemp: React.FC = () => {
   const { uitext } = useInterfaceTranslation();
   const { findDataEntry } = useSourceDataContext();
-  const { getTranslation } = useTargetDataContext();
+  const getTranslation = useTargetDataStore((state) => state.getTranslation);
 
   const months = [...Array(12)]
     .map((_, index) => findDataEntry({ field: 'M', instance: (index + 1).toString(), length: 'n' }))

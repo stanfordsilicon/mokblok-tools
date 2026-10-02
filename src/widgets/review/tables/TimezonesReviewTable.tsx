@@ -1,5 +1,5 @@
 import { DataSection } from '@data/DataSection';
-import { useTargetDataContext } from '@data/target/TargetDataProvider';
+import { useTargetDataStore } from '@data/target/TargetDataProvider';
 
 import { SourceLanguageHeader } from '@settings/SourceLanguageLabel';
 import { TargetLanguageHeader } from '@settings/TargetLanguageLabel';
@@ -14,7 +14,7 @@ import SourceDataCell from '../SourceDataCell';
 function TimezonesReviewTable() {
   const { uitext } = useInterfaceTranslation();
   const findDataEntries = useFindDataEntriesInScope();
-  const { getTranslation } = useTargetDataContext();
+  const getTranslation = useTargetDataStore((state) => state.getTranslation);
   const timezonesByGroup = groupBy(
     findDataEntries({ section: DataSection.Timezones }),
     (f) => f.group,

@@ -2,14 +2,14 @@ import React from 'react';
 
 import { CardinalDirection } from '@data/DataTypes';
 import { useSourceDataContext } from '@data/source/SourceDataProvider';
-import { useTargetDataContext } from '@data/target/TargetDataProvider';
+import { useTargetDataStore } from '@data/target/TargetDataProvider';
 
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 const DemoCoordinatesDirections: React.FC = () => {
   const { uitext } = useInterfaceTranslation();
   const { findDataEntry } = useSourceDataContext();
-  const { getTranslation } = useTargetDataContext();
+  const getTranslation = useTargetDataStore((state) => state.getTranslation);
 
   const south = findDataEntry({
     field: 'coordinateUnitPattern',

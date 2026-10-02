@@ -1,6 +1,6 @@
 import { DataEntry } from '@data/DataTypes';
 import useTranslationFromSourceLanguage from '@data/source/useTranslationFromSourceLanguage';
-import { useTargetDataContext } from '@data/target/TargetDataProvider';
+import { useTargetDataStore } from '@data/target/TargetDataProvider';
 
 import useBackgroundColor from './getBackgroundColor';
 import HighlightInput from './HighlightInput';
@@ -23,7 +23,8 @@ const WIDTHS_BY_LENGTH: Record<string, string> = {
 };
 
 const InputEditText: React.FC<Props> = ({ entry, inputWidth, disabled = false }) => {
-  const { getTranslation, editTranslation } = useTargetDataContext();
+  const getTranslation = useTargetDataStore((state) => state.getTranslation);
+  const editTranslation = useTargetDataStore((state) => state.editTranslation);
   const getBackgroundColor = useBackgroundColor();
   const getSourceTranslation = useTranslationFromSourceLanguage();
 

@@ -32,7 +32,7 @@ export const SourceDataContext = createContext<SourceDataContextType>({
   sourceDataStatus: SourceDataStatus.Initial,
 });
 
-export const useSourceDataContext = () => {
+export const useSourceDataContext = (): SourceDataContextType => {
   const context = useContext(SourceDataContext);
   if (!context) throw new Error('useSourceDataContext must be used within a SourceDataProvider');
   return context;

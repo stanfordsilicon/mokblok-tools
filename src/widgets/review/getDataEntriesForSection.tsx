@@ -4,7 +4,7 @@ import { isEntryInCoverageLevel } from '@data/CoverageLevel';
 import { DataPage, DataSection } from '@data/DataSection';
 import type { DataEntry } from '@data/DataTypes';
 import { FindDataEntries, useSourceDataContext } from '@data/source/SourceDataProvider';
-import { useTargetDataContext } from '@data/target/TargetDataProvider';
+import { useTargetDataStore } from '@data/target/TargetDataProvider';
 import { Vote } from '@data/target/types';
 import { isEntryInWorksheetScope } from '@data/worksheets/Worksheets';
 
@@ -51,7 +51,7 @@ type Completion = {
 };
 
 export function useCompletionForSection(page?: DataPage, section?: DataSection): Completion {
-  const { getTranslations } = useTargetDataContext();
+  const getTranslations = useTargetDataStore((state) => state.getTranslations);
   const getDataEntriesForSection = useDataEntriesForSection();
 
   const entries = getDataEntriesForSection(page, section);

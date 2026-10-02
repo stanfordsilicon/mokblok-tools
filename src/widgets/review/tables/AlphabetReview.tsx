@@ -2,7 +2,7 @@ import React from 'react';
 
 import { DataSection } from '@data/DataSection';
 import { useLinguisticsContext } from '@data/LinguisticsContext';
-import { useTargetDataContext } from '@data/target/TargetDataProvider';
+import { useTargetDataStore } from '@data/target/TargetDataProvider';
 import { useWorksheetDataContext } from '@data/target/WorksheetDataProvider';
 
 import { SourceLanguageHeader } from '@settings/SourceLanguageLabel';
@@ -20,7 +20,7 @@ const charSets = ['main', 'uppercase', 'auxiliary', 'numbers', 'punctuation'] as
 const AlphabetReview: React.FC = () => {
   const { uitext } = useInterfaceTranslation();
   const findDataEntries = useFindDataEntriesInScope();
-  const { getTranslation } = useTargetDataContext();
+  const getTranslation = useTargetDataStore((state) => state.getTranslation);
   const { numberingSystems } = useLinguisticsContext();
   const alphabetFields = findDataEntries({ section: DataSection.Alphabet });
 

@@ -1,6 +1,6 @@
 import type { DataEntry } from '@data/DataTypes';
 import useTranslationFromSourceLanguage from '@data/source/useTranslationFromSourceLanguage';
-import { useTargetDataContext } from '@data/target/TargetDataProvider';
+import { useTargetDataStore } from '@data/target/TargetDataProvider';
 
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
@@ -14,7 +14,8 @@ type Props = {
 
 function InputTextareaCell({ entry, style }: Props) {
   const { uitext } = useInterfaceTranslation();
-  const { getTranslation, editTranslation } = useTargetDataContext();
+  const getTranslation = useTargetDataStore((state) => state.getTranslation);
+  const editTranslation = useTargetDataStore((state) => state.editTranslation);
   const getBackgroundColor = useBackgroundColor();
   const getSourceTranslation = useTranslationFromSourceLanguage();
   if (!entry) return <td>{uitext('common.emptyCell')}</td>;

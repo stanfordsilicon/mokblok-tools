@@ -3,7 +3,7 @@ import React from 'react';
 import { DataSection } from '@data/DataSection';
 import { DayKeys } from '@data/DayKeys';
 import { useSourceDataContext } from '@data/source/SourceDataProvider';
-import { useTargetDataContext } from '@data/target/TargetDataProvider';
+import { useTargetDataStore } from '@data/target/TargetDataProvider';
 
 import { titlecase } from '@shared/stringUtils';
 
@@ -28,7 +28,7 @@ const CLASSES: Record<string, string> = {
 
 const DemoClassesThisWeek: React.FC<{ period: 'week' | 'weekend' }> = ({ period }) => {
   const { findDataEntry, findDataEntries } = useSourceDataContext();
-  const { getTranslation } = useTargetDataContext();
+  const getTranslation = useTargetDataStore((state) => state.getTranslation);
   const days = period == 'week' ? DayKeys.slice(1, 5) : [...DayKeys.slice(5, 7), DayKeys[0]];
 
   return (

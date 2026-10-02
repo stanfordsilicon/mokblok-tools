@@ -1,7 +1,7 @@
 import { DataSection } from '@data/DataSection';
 import { DayKeys } from '@data/DayKeys';
 import { useSourceDataContext } from '@data/source/SourceDataProvider';
-import { useTargetDataContext } from '@data/target/TargetDataProvider';
+import { useTargetDataContext, useTargetDataStore } from '@data/target/TargetDataProvider';
 
 type Props = {
   instance: string;
@@ -9,7 +9,7 @@ type Props = {
 
 const DemoDateIntervalAcrossMonths: React.FC<Props> = ({ instance }) => {
   const { findDataEntry } = useSourceDataContext();
-  const { getTranslation } = useTargetDataContext();
+  const getTranslation = useTargetDataStore((state) => state.getTranslation);
   const entry = findDataEntry({
     section: DataSection.DateIntervals,
     field: 'intervalFormats',

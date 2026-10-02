@@ -1,13 +1,13 @@
 import React from 'react';
 
 import { useSourceDataContext } from '@data/source/SourceDataProvider';
-import { useTargetDataContext } from '@data/target/TargetDataProvider';
+import { useTargetDataStore } from '@data/target/TargetDataProvider';
 
 import { useExampleDate } from '@settings/selectors/ExampleDateSelector';
 
 const DemoQuartersCircle: React.FC = () => {
   const { findDataEntry } = useSourceDataContext();
-  const { getTranslation } = useTargetDataContext();
+  const getTranslation = useTargetDataStore((state) => state.getTranslation);
 
   const today = useExampleDate();
   const months = [...Array(12)]
