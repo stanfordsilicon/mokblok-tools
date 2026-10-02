@@ -27,6 +27,7 @@ import DemoTimeInterval from './demos/DemoTimeInterval';
 import DemoTimeMeetingsToday from './demos/DemoTimeMeetingsToday';
 import DemoWeatherInWeek from './demos/DemoWeatherInWeek';
 import DemoSVG from './DemoSVG';
+import DemoVoteButton from './DemoVoteButton';
 import DownloadDemoButton from './DownloadDemoButton';
 
 type Props = {
@@ -42,6 +43,9 @@ const Demo: React.FC<Props> = ({ demoID }) => {
         </div>
         <div className="shrink-0 opacity-70 transition group-hover:opacity-100">
           <DownloadDemoButton demoID={demoID} />
+        </div>
+        <div className="shrink-0 opacity-70 transition group-hover:opacity-100">
+          <DemoVoteButton demoID={demoID} />
         </div>
       </div>
       <div className="mx-auto max-w-[18rem] [&_svg]:mx-auto [&_svg]:block [&_svg]:h-auto [&_svg]:w-full ">

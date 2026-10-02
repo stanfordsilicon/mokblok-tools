@@ -2,6 +2,8 @@ import { createContext, useCallback, useContext, useEffect, useState } from 'rea
 
 import { useURLParams } from '@settings/URLParams';
 
+import DemoID from '@widgets/review/demo/DemoID';
+
 import { useSourceDataContext } from '../source/SourceDataProvider';
 import useTranslationFromSourceLanguage from '../source/useTranslationFromSourceLanguage';
 import useImportedWorksheets from '../worksheets/useImportedWorksheets';
@@ -32,6 +34,9 @@ export const TargetDataContext = createContext<TargetDataContextType>({
   clearAllTranslations: () => {},
   targetDataStatus: TargetDataStatus.LoadingBaselineData,
   targetXMLData: {},
+
+  demoVotes: {},
+  setDemoVote: () => {},
 });
 
 export const useTargetDataContext = () => {
@@ -43,6 +48,10 @@ export const useTargetDataContext = () => {
 const TargetDataProvider: React.FC<{
   children: React.ReactNode;
 }> = ({ children }) => {
+  const [translationEdits, setTranslationEdits] = useState<Record<string, TranslationEdit>>({});
+  const [hasUserChanges, setHasUserChanges] = useState(false);
+  const [demoVotes, setDemoVotes] = useState<Partial<Record<DemoID, Vote | undefined>>>({});
+
   const { targetLanguage, importSource } = useURLParams();
   const { findDataEntry, dataEntries } = useSourceDataContext();
   const getTranslationFromSourceLanguage = useTranslationFromSourceLanguage();
@@ -55,8 +64,6 @@ const TargetDataProvider: React.FC<{
     worksheetRevisions,
     reloadWorksheets,
   } = useImportedWorksheets();
-  const [translationEdits, setTranslationEdits] = useState<Record<string, TranslationEdit>>({});
-  const [hasUserChanges, setHasUserChanges] = useState(false);
 
   const { alphabetData, targetDataStatus, targetXMLData, translationBaselines } =
     useTargetBaselineData({
@@ -155,6 +162,16 @@ const TargetDataProvider: React.FC<{
     setHasUserChanges(false);
   }, [setTranslationEdits]);
 
+  const setDemoVote = useCallback(
+    (demo: DemoID, vote: Vote | ((prevVote?: Vote) => Vote)) =>
+      setDemoVotes((prev) => ({
+        ...prev,
+        [demo]: typeof vote === 'function' ? vote(prev[demo]) : vote,
+      })),
+    [setDemoVotes],
+  );
+
+  // Loading Triggers
   useEffect(() => {
     if (!isDraftLoaded) return;
     setTranslationEdits(applyPersistedEntries({}, persistedEntries));
@@ -174,6 +191,7 @@ const TargetDataProvider: React.FC<{
     getTranslationInfo,
     getTranslations,
     clearAllTranslations,
+
     importedWorksheets,
     worksheetError,
     worksheetsLoading,
@@ -182,6 +200,9 @@ const TargetDataProvider: React.FC<{
     targetDataStatus:
       worksheetsLoading || worksheetError ? TargetDataStatus.LoadingBaselineData : targetDataStatus,
     targetXMLData,
+
+    demoVotes,
+    setDemoVote,
   };
 
   return <TargetDataContext.Provider value={dataContext}>{children}</TargetDataContext.Provider>;

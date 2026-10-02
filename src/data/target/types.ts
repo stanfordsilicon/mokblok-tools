@@ -1,3 +1,5 @@
+import DemoID from '@widgets/review/demo/DemoID';
+
 import type { AlphabetData, DataEntry } from '../DataTypes';
 import type { UseWorksheetState } from '../worksheets/useWorksheetState';
 import type { Worksheet } from '../worksheets/Worksheet';
@@ -44,11 +46,15 @@ export type TargetDataContextType = {
   getTranslationInfo(entry: DataEntry | undefined): TranslationInfo;
   getTranslations(entries?: DataEntry[], scope?: 'edited' | 'all'): TranslationInfo[];
   clearAllTranslations(): void;
-  importedWorksheets: Partial<Record<Worksheet, UseWorksheetState>>;
+
   targetDataStatus: TargetDataStatus;
   targetXMLData: Record<string, string>;
+  importedWorksheets: Partial<Record<Worksheet, UseWorksheetState>>;
   worksheetError?: string | null;
   worksheetsLoading?: boolean;
   worksheetRevisions?: Record<string, number | undefined>;
   reloadWorksheets?: () => void;
+
+  demoVotes: Partial<Record<DemoID, Vote | undefined>>;
+  setDemoVote: (demo: DemoID, vote: Vote | ((prevVote?: Vote) => Vote)) => void;
 };
