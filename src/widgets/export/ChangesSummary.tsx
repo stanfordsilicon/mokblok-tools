@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 
-import { useTargetDataContext, Vote } from '@data/target/TargetDataProvider';
-import { TranslationInfo } from '@data/target/types';
+import { useTargetDataContext } from '@data/target/TargetDataProvider';
+import { TranslationInfo, Vote } from '@data/target/types';
 
 const ChangesSummary: React.FC = () => {
   const { getTranslations } = useTargetDataContext();

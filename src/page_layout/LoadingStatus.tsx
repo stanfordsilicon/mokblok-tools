@@ -1,5 +1,5 @@
 import { SourceDataStatus, useSourceDataContext } from '@data/source/SourceDataProvider';
-import { TargetDataStatus } from '@data/target/TargetDataProvider';
+import { TargetDataStatus } from '@data/target/types';
 import { useWorksheetDataContext } from '@data/target/WorksheetDataProvider';
 
 const LoadingStatus = () => {

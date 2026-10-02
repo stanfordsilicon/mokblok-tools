@@ -1,6 +1,7 @@
 import type { DataEntry } from '@data/DataTypes';
 import useTranslationFromSourceLanguage from '@data/source/useTranslationFromSourceLanguage';
-import { useTargetDataContext, Vote } from '@data/target/TargetDataProvider';
+import { useTargetDataContext } from '@data/target/TargetDataProvider';
+import { Vote } from '@data/target/types';
 import { Worksheet } from '@data/worksheets/Worksheet';
 
 import { BackgroundStyle } from '@settings/BackgroundStyle';

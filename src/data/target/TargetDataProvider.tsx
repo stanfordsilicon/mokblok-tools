@@ -1,14 +1,11 @@
-import { createContext, useCallback, useContext, useEffect, useState } from 'react';
+import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 
 import { useURLParams } from '@settings/URLParams';
-
-import DemoID from '@widgets/review/demo/DemoID';
 
 import { applyPersistedEntries } from './applyPersistedEntries';
 import {
   type TargetDataContextType,
-  TargetDataStatus,
-  TranslationEdit,
+  type TranslationEdit,
   type TranslationInfo,
   Vote,
 } from './types';
@@ -18,7 +15,6 @@ import { useWorksheetDataContext } from './WorksheetDataProvider';
 import type { DataEntry } from '../DataTypes';
 
 export type { TargetDataContextType } from './types';
-export { TargetDataStatus, Vote };
 
 export const TargetDataContext = createContext<TargetDataContextType>({
   getTranslation: () => '',
@@ -27,9 +23,6 @@ export const TargetDataContext = createContext<TargetDataContextType>({
   editTranslation: () => {},
   editTranslations: () => {},
   clearAllTranslations: () => {},
-
-  demoVotes: {},
-  setDemoVote: () => {},
 });
 
 export const useTargetDataContext = () => {
@@ -43,7 +36,6 @@ const TargetDataProvider: React.FC<{
 }> = ({ children }) => {
   const [translationEdits, setTranslationEdits] = useState<Record<string, TranslationEdit>>({});
   const [hasUserChanges, setHasUserChanges] = useState(false);
-  const [demoVotes, setDemoVotes] = useState<Partial<Record<DemoID, Vote | undefined>>>({});
 
   const { targetLanguage } = useURLParams();
   const { targetDataStatus, translationBaselines } = useWorksheetDataContext();
@@ -132,15 +124,6 @@ const TargetDataProvider: React.FC<{
     setHasUserChanges(false);
   }, [setTranslationEdits]);
 
-  const setDemoVote = useCallback(
-    (demo: DemoID, vote: Vote | ((prevVote?: Vote) => Vote)) =>
-      setDemoVotes((prev) => ({
-        ...prev,
-        [demo]: typeof vote === 'function' ? vote(prev[demo]) : vote,
-      })),
-    [setDemoVotes],
-  );
-
   // Loading Triggers
   useEffect(() => {
     if (!isDraftLoaded) return;
@@ -153,17 +136,24 @@ const TargetDataProvider: React.FC<{
     setHasUserChanges(false);
   }, [targetLanguage]);
 
-  const dataContext: TargetDataContextType = {
-    editTranslation,
-    editTranslations,
-    getTranslation,
-    getTranslationInfo,
-    getTranslations,
-    clearAllTranslations,
-
-    demoVotes,
-    setDemoVote,
-  };
+  const dataContext: TargetDataContextType = useMemo(
+    () => ({
+      editTranslation,
+      editTranslations,
+      getTranslation,
+      getTranslationInfo,
+      getTranslations,
+      clearAllTranslations,
+    }),
+    [
+      editTranslation,
+      editTranslations,
+      getTranslation,
+      getTranslationInfo,
+      getTranslations,
+      clearAllTranslations,
+    ],
+  );
 
   return <TargetDataContext.Provider value={dataContext}>{children}</TargetDataContext.Provider>;
 };

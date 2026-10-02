@@ -1,16 +1,17 @@
-import { useCallback, useContext, useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
 
-import { TargetDataContext, Vote } from '@data/target/TargetDataProvider';
+import { useDemoDataContext } from '@data/target/DemoDataProvider';
+import { Vote } from '@data/target/types';
 
 import DemoID from './DemoID';
 
 const DemoVoteButton: React.FC<{ demoID: DemoID }> = ({ demoID }) => {
-  const { demoVotes, setDemoVote } = useContext(TargetDataContext);
+  const vote = useDemoDataContext((state) => state.demoVotes[demoID]);
+  const setDemoVote = useDemoDataContext((state) => state.setDemoVote);
 
   const toggleDemoVote = useCallback(() => {
     setDemoVote(demoID, (prev) => getNextVote(prev));
   }, [demoID, setDemoVote]);
-  const vote = demoVotes[demoID];
 
   const buttonClassName = useMemo(() => {
     let classes = 'size-6 text-center align-middle rounded relative cursor-pointer';

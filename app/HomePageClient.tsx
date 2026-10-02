@@ -24,29 +24,35 @@ export default function HomePageClient() {
       <WorksheetCatalogProvider>
         <URLParamsProvider>
           <UITextProvider>
-            <LinguisticsProvider>
-              <SourceDataProvider>
-                <WorksheetDataProvider>
-                  <TargetDataProvider>
-                    <div
-                      data-testid="FullPage"
-                      className="min-h-screen bg-(--silicon-beige) text-(--silicon-ink) lg:flex"
-                    >
-                      <Sidebar />
-                      <div className="flex min-h-screen flex-1 flex-col px-4 py-4 sm:px-6 sm:py-5 lg:px-8">
-                        <PageTitle />
-                        <WorksheetLoadNotice />
-                        <PageBody />
-                        <PageFooter />
-                      </div>
-                    </div>
-                  </TargetDataProvider>
-                </WorksheetDataProvider>
-              </SourceDataProvider>
-            </LinguisticsProvider>
+            <DataProviders>
+              <div
+                data-testid="FullPage"
+                className="min-h-screen bg-(--silicon-beige) text-(--silicon-ink) lg:flex"
+              >
+                <Sidebar />
+                <div className="flex min-h-screen flex-1 flex-col px-4 py-4 sm:px-6 sm:py-5 lg:px-8">
+                  <PageTitle />
+                  <WorksheetLoadNotice />
+                  <PageBody />
+                  <PageFooter />
+                </div>
+              </div>
+            </DataProviders>
           </UITextProvider>
         </URLParamsProvider>
       </WorksheetCatalogProvider>
     </SessionProvider>
+  );
+}
+
+function DataProviders({ children }: { children: React.ReactNode }) {
+  return (
+    <LinguisticsProvider>
+      <SourceDataProvider>
+        <WorksheetDataProvider>
+          <TargetDataProvider>{children}</TargetDataProvider>
+        </WorksheetDataProvider>
+      </SourceDataProvider>
+    </LinguisticsProvider>
   );
 }

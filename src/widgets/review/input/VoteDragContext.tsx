@@ -1,6 +1,7 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 
-import { useTargetDataContext, Vote } from '@data/target/TargetDataProvider';
+import { useTargetDataContext } from '@data/target/TargetDataProvider';
+import { Vote } from '@data/target/types';
 
 type VoteDragContextType = {
   beginVoteGesture(vote: Vote, id: string): void;

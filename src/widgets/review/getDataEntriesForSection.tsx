@@ -4,7 +4,8 @@ import { isEntryInCoverageLevel } from '@data/CoverageLevel';
 import { DataPage, DataSection } from '@data/DataSection';
 import type { DataEntry } from '@data/DataTypes';
 import { FindDataEntries, useSourceDataContext } from '@data/source/SourceDataProvider';
-import { useTargetDataContext, Vote } from '@data/target/TargetDataProvider';
+import { useTargetDataContext } from '@data/target/TargetDataProvider';
+import { Vote } from '@data/target/types';
 import { isEntryInWorksheetScope } from '@data/worksheets/Worksheets';
 
 import { useURLParams } from '@settings/URLParams';

@@ -45,9 +45,6 @@ export type TargetDataContextType = {
   getTranslationInfo(entry: DataEntry | undefined): TranslationInfo;
   getTranslations(entries?: DataEntry[], scope?: 'edited' | 'all'): TranslationInfo[];
   clearAllTranslations(): void;
-
-  demoVotes: Partial<Record<DemoID, Vote | undefined>>;
-  setDemoVote: (demo: DemoID, vote: Vote | ((prevVote?: Vote) => Vote)) => void;
 };
 
 export type WorksheetDataContextType = {
@@ -61,4 +58,9 @@ export type WorksheetDataContextType = {
   targetDataStatus: TargetDataStatus;
   targetXMLData: Record<string, string>;
   translationBaselines: Record<string, TranslationBaseline>;
+};
+
+export type DemoDataContextType = {
+  demoVotes: Partial<Record<DemoID, Vote | undefined>>;
+  setDemoVote: (demo: DemoID, vote: Vote | ((prevVote?: Vote) => Vote)) => void;
 };
