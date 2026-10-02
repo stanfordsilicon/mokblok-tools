@@ -1,7 +1,11 @@
+import { useCallback } from 'react';
+
 import type { DataEntry } from '@data/DataTypes';
 
 import { useTargetDataStore } from './TargetDataProvider';
 import { type TranslationInfo, Vote } from './types';
+
+export type TargetTranslationLookup = (entry: DataEntry | undefined, fallback?: boolean) => string;
 
 export const useTargetTranslationInfo = (entry: DataEntry | undefined): TranslationInfo => {
   const baseline = useTargetDataStore((store) => store.translationBaselines[entry?.id ?? '']);
@@ -16,6 +20,22 @@ export const useTargetTranslationInfo = (entry: DataEntry | undefined): Translat
 export const useTargetTranslation = (entry: DataEntry | undefined, fallback = true): string => {
   const info = useTargetTranslationInfo(entry);
   return info.edit ?? info.translation ?? (fallback ? info.source : '');
+};
+
+export const useTargetTranslationLookup = (): TargetTranslationLookup => {
+  const translationBaselines = useTargetDataStore((store) => store.translationBaselines);
+  const translationEdits = useTargetDataStore((store) => store.translationEdits);
+
+  return useCallback(
+    (entry, fallback = true) => {
+      if (!entry) return '';
+      const baseline = translationBaselines[entry.id];
+      if (!baseline) return '';
+      const edit = translationEdits[entry.id];
+      return edit?.edit ?? baseline.translation ?? (fallback ? baseline.source : '');
+    },
+    [translationBaselines, translationEdits],
+  );
 };
 
 export const useTargetTranslations = (

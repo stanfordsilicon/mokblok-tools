@@ -7,7 +7,6 @@ import { useURLParams } from '@settings/URLParams';
 
 import { applyPersistedEntries } from './applyPersistedEntries';
 import {
-  Vote,
   type TargetDataContextType,
   type TranslationBaseline,
   type TranslationEdit,
@@ -24,7 +23,7 @@ type TargetDataStore = TargetDataContextType & {
   resetTranslations(): void;
 };
 
-export const useTargetDataStore = create<TargetDataStore>((set, get) => ({
+export const useTargetDataStore = create<TargetDataStore>((set) => ({
   translationBaselines: {},
   translationEdits: {},
   hasUserChanges: false,
@@ -57,56 +56,8 @@ export const useTargetDataStore = create<TargetDataStore>((set, get) => ({
       return { hasUserChanges: true, translationEdits };
     }),
 
-  getTranslationInfo: (entry) => {
-    const { translationBaselines, translationEdits } = get();
-    if (!entry) return { id: '', source: '', vote: Vote.Unknown };
-    const baseline = translationBaselines[entry.id];
-    if (!baseline) return { id: entry.id, source: '', vote: Vote.Unknown };
-    const edit = translationEdits[entry.id];
-    if (!edit) return { ...baseline, vote: Vote.Unknown };
-    return { ...baseline, ...edit };
-  },
-
-  getTranslation: (entry, fallback = true) => {
-    const info = get().getTranslationInfo(entry);
-    return info.edit ?? info.translation ?? (fallback ? info.source : '');
-  },
-
-  getTranslations: (entries, scope = 'edited') => {
-    const { translationBaselines, translationEdits } = get();
-    const idSet = new Set(entries?.map((entry) => entry.id));
-    if (scope === 'edited') {
-      return Object.values(translationEdits)
-        .filter((edit) => !entries || idSet.has(edit.id))
-        .map((edit) => ({ ...translationBaselines[edit.id], ...edit }));
-    }
-    return Object.values(translationBaselines)
-      .filter((baseline) => !entries || idSet.has(baseline.id))
-      .map((baseline) => ({ ...baseline, ...translationEdits[baseline.id] }));
-  },
-
   clearAllTranslations: () => set({ translationEdits: {}, hasUserChanges: false }),
 }));
-
-export const useTargetDataContext = (): TargetDataContextType => {
-  const {
-    editTranslation,
-    editTranslations,
-    getTranslation,
-    getTranslationInfo,
-    getTranslations,
-    clearAllTranslations,
-  } = useTargetDataStore();
-
-  return {
-    editTranslation,
-    editTranslations,
-    getTranslation,
-    getTranslationInfo,
-    getTranslations,
-    clearAllTranslations,
-  };
-};
 
 const TargetDataProvider = ({ children }: { children: ReactNode }) => {
   const { targetLanguage } = useURLParams();

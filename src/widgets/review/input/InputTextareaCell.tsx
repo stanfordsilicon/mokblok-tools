@@ -1,6 +1,7 @@
 import type { DataEntry } from '@data/DataTypes';
 import useTranslationFromSourceLanguage from '@data/source/useTranslationFromSourceLanguage';
 import { useTargetDataStore } from '@data/target/TargetDataProvider';
+import { useTargetTranslation } from '@data/target/useTargetTranslation';
 
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
@@ -14,7 +15,7 @@ type Props = {
 
 function InputTextareaCell({ entry, style }: Props) {
   const { uitext } = useInterfaceTranslation();
-  const getTranslation = useTargetDataStore((state) => state.getTranslation);
+  const translation = useTargetTranslation(entry, false);
   const editTranslation = useTargetDataStore((state) => state.editTranslation);
   const backgroundColor = useBackgroundColor(entry);
   const getSourceTranslation = useTranslationFromSourceLanguage();
@@ -25,7 +26,7 @@ function InputTextareaCell({ entry, style }: Props) {
       <textarea
         data-review-navigation-target
         placeholder={getSourceTranslation(entry).translation}
-        value={getTranslation(entry, false) || ''}
+        value={translation || ''}
         onChange={(e) => editTranslation(entry.id, { edit: e.target.value })}
         onKeyDown={(event) => {
           if (shouldNavigateFromTextField(event.currentTarget, event.key)) {

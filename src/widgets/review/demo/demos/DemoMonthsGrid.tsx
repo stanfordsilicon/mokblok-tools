@@ -1,13 +1,13 @@
 import React from 'react';
 
 import { useSourceDataContext } from '@data/source/SourceDataProvider';
-import { useTargetDataStore } from '@data/target/TargetDataProvider';
+import { useTargetTranslationLookup } from '@data/target/useTargetTranslation';
 
 import { useExampleDate } from '@settings/selectors/ExampleDateSelector';
 
 const DemoMonthsGrid: React.FC = () => {
   const { findDataEntry } = useSourceDataContext();
-  const getTranslation = useTargetDataStore((state) => state.getTranslation);
+  const getTranslation = useTargetTranslationLookup();
 
   const today = useExampleDate();
   const months = [...Array(12)]

@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 
 import { useSourceDataContext } from '@data/source/SourceDataProvider';
-import { useTargetDataStore } from '@data/target/TargetDataProvider';
+import { useTargetTranslationLookup } from '@data/target/useTargetTranslation';
 import { useWorksheetDataContext } from '@data/target/WorksheetDataProvider';
 
 import { getLanguageBCP } from '@settings/LanguageCodes';
@@ -30,7 +30,7 @@ const ExportCoreData: React.FC = () => {
   const targetLanguageBCP = getLanguageBCP(targetLanguage);
   const { findDataEntry } = useSourceDataContext();
   const { alphabetData } = useWorksheetDataContext();
-  const getTranslation = useTargetDataStore((state) => state.getTranslation);
+  const getTranslation = useTargetTranslationLookup();
   const { charactersNumber, charactersAuxiliary, charactersBase, charactersPunctuation } =
     alphabetData || {};
   const endonym = getTranslation(

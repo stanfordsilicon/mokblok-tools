@@ -1,7 +1,10 @@
 import { DataSection } from '@data/DataSection';
 import { DayKeys } from '@data/DayKeys';
 import { useSourceDataContext } from '@data/source/SourceDataProvider';
-import { useTargetDataContext, useTargetDataStore } from '@data/target/TargetDataProvider';
+import {
+  useTargetTranslation,
+  useTargetTranslationLookup,
+} from '@data/target/useTargetTranslation';
 
 type Props = {
   instance: string;
@@ -9,37 +12,23 @@ type Props = {
 
 const DemoDateIntervalAcrossMonths: React.FC<Props> = ({ instance }) => {
   const { findDataEntry } = useSourceDataContext();
-  const getTranslation = useTargetDataStore((state) => state.getTranslation);
   const entry = findDataEntry({
     section: DataSection.DateIntervals,
     field: 'intervalFormats',
     instance,
     variant: 'M',
   });
+  const intervalTranslation = useTargetTranslation(entry);
   const start = new Date(entry?.var1 ?? 0);
   const end = new Date(entry?.var2 ?? entry?.var1 ?? 0);
 
   return (
     <>
       <text x={120} y={35} textAnchor="middle" fontSize="14" fontWeight="bold">
-        {getTranslation(entry) || '—'}
+        {intervalTranslation || '—'}
       </text>
-      <MonthCalendar
-        date={start}
-        start={start}
-        end={end}
-        x={8}
-        getTranslation={getTranslation}
-        findDataEntry={findDataEntry}
-      />
-      <MonthCalendar
-        date={end}
-        start={start}
-        end={end}
-        x={126}
-        getTranslation={getTranslation}
-        findDataEntry={findDataEntry}
-      />
+      <MonthCalendar date={start} start={start} end={end} x={8} findDataEntry={findDataEntry} />
+      <MonthCalendar date={end} start={start} end={end} x={126} findDataEntry={findDataEntry} />
     </>
   );
 };
@@ -49,22 +38,15 @@ type MonthCalendarProps = {
   start: Date;
   end: Date;
   x: number;
-  getTranslation: ReturnType<typeof useTargetDataContext>['getTranslation'];
   findDataEntry: ReturnType<typeof useSourceDataContext>['findDataEntry'];
 };
 
-const MonthCalendar: React.FC<MonthCalendarProps> = ({
-  date,
-  start,
-  end,
-  x,
-  getTranslation,
-  findDataEntry,
-}) => {
+const MonthCalendar: React.FC<MonthCalendarProps> = ({ date, start, end, x, findDataEntry }) => {
+  const getTranslation = useTargetTranslationLookup();
   const firstDayOfMonth = new Date(
     Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), 1),
   ).getUTCDay();
-  const monthName = getTranslation(
+  const monthName = useTargetTranslation(
     findDataEntry({
       section: DataSection.Months,
       field: 'M',

@@ -3,7 +3,7 @@ import React, { useCallback } from 'react';
 import { DateField } from '@data/DateField';
 import { getDateDayOfWeekKey } from '@data/DayKeys';
 import { useSourceDataContext } from '@data/source/SourceDataProvider';
-import { useTargetDataStore } from '@data/target/TargetDataProvider';
+import { useTargetTranslationLookup } from '@data/target/useTargetTranslation';
 
 import { useExampleDate } from '@settings/selectors/ExampleDateSelector';
 
@@ -23,7 +23,7 @@ const ShownDateFields: DateField[] = [
 const DemoDateFieldBreakdown: React.FC = () => {
   const today = useExampleDate();
   const { findDataEntry } = useSourceDataContext();
-  const getTranslation = useTargetDataStore((state) => state.getTranslation);
+  const getTranslation = useTargetTranslationLookup();
 
   const getTodayFieldValue = useCallback(
     (fieldKey: DateField): string | number => {

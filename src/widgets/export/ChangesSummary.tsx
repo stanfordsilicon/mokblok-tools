@@ -1,12 +1,12 @@
 import React, { useMemo } from 'react';
 
-import { useTargetDataStore } from '@data/target/TargetDataProvider';
 import { TranslationInfo, Vote } from '@data/target/types';
+import { useTargetTranslations } from '@data/target/useTargetTranslation';
 
 const ChangesSummary: React.FC = () => {
-  const getTranslations = useTargetDataStore((state) => state.getTranslations);
+  const translations = useTargetTranslations(undefined);
   const editedTranslations = useMemo(() => {
-    return getTranslations()
+    return translations
       .filter(
         (info) =>
           info.edit != null ||
@@ -27,7 +27,7 @@ const ChangesSummary: React.FC = () => {
           {info.comment != null && <span> (Comment: {info.comment})</span>}
         </div>
       ));
-  }, [getTranslations]);
+  }, [translations]);
 
   return (
     <div className="flex flex-col gap-2">

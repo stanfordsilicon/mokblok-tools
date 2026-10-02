@@ -4,8 +4,8 @@ import { isEntryInCoverageLevel } from '@data/CoverageLevel';
 import { DataPage, DataSection } from '@data/DataSection';
 import type { DataEntry } from '@data/DataTypes';
 import { FindDataEntries, useSourceDataContext } from '@data/source/SourceDataProvider';
-import { useTargetDataStore } from '@data/target/TargetDataProvider';
 import { Vote } from '@data/target/types';
+import { useTargetTranslations } from '@data/target/useTargetTranslation';
 import { isEntryInWorksheetScope } from '@data/worksheets/Worksheets';
 
 import { useURLParams } from '@settings/URLParams';
@@ -51,18 +51,17 @@ type Completion = {
 };
 
 export function useCompletionForSection(page?: DataPage, section?: DataSection): Completion {
-  const getTranslations = useTargetDataStore((state) => state.getTranslations);
   const getDataEntriesForSection = useDataEntriesForSection();
 
   const entries = getDataEntriesForSection(page, section);
+  const translations = useTargetTranslations(entries, 'all');
   const completedEntries = useMemo(
-    () =>
-      getTranslations(entries, 'all').filter((info) => Boolean(info?.edit ?? info?.translation)),
-    [entries, getTranslations],
+    () => translations.filter((info) => Boolean(info?.edit ?? info?.translation)),
+    [translations],
   );
   const votes = useMemo(
     () =>
-      getTranslations(entries, 'all').reduce(
+      translations.reduce(
         (acc, { vote }) => {
           if (vote === Vote.Accept) acc.accepted++;
           else if (vote === Vote.Reject) acc.rejected++;
@@ -71,7 +70,7 @@ export function useCompletionForSection(page?: DataPage, section?: DataSection):
         },
         { accepted: 0, rejected: 0, total: 0 },
       ),
-    [entries, getTranslations],
+    [translations],
   );
 
   return {

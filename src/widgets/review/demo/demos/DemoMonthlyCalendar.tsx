@@ -3,7 +3,7 @@ import React from 'react';
 import type { DataEntry } from '@data/DataTypes';
 import { DayKeys } from '@data/DayKeys';
 import { useSourceDataContext } from '@data/source/SourceDataProvider';
-import { useTargetDataStore } from '@data/target/TargetDataProvider';
+import { useTargetTranslationLookup } from '@data/target/useTargetTranslation';
 
 type Props = {
   query: Partial<DataEntry>;
@@ -11,7 +11,7 @@ type Props = {
 
 const DemoMonthlyCalendar: React.FC<Props> = ({ query }) => {
   const { findDataEntry } = useSourceDataContext();
-  const getTranslation = useTargetDataStore((state) => state.getTranslation);
+  const getTranslation = useTargetTranslationLookup();
   const entry = findDataEntry(query)!;
   const firstDate = new Date(entry?.var1 ?? 0);
   const endDate = entry?.var2 ? new Date(entry.var2) : new Date(firstDate);

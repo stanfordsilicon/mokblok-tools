@@ -1,6 +1,6 @@
 import DemoID from '@widgets/review/demo/DemoID';
 
-import type { AlphabetData, DataEntry } from '../DataTypes';
+import type { AlphabetData } from '../DataTypes';
 import type { UseWorksheetState } from '../worksheets/useWorksheetState';
 import type { Worksheet } from '../worksheets/Worksheet';
 
@@ -41,9 +41,6 @@ export type ReviewDraftResponse = {
 export type TargetDataContextType = {
   editTranslation(id: string, update: Partial<TranslationInfo>): void;
   editTranslations(ids: string[], update: Partial<TranslationInfo>): void;
-  getTranslation(entry: DataEntry | undefined, fallback?: boolean): string;
-  getTranslationInfo(entry: DataEntry | undefined): TranslationInfo;
-  getTranslations(entries?: DataEntry[], scope?: 'edited' | 'all'): TranslationInfo[];
   clearAllTranslations(): void;
 };
 

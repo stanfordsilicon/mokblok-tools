@@ -1,5 +1,5 @@
 import { useSourceDataContext } from '@data/source/SourceDataProvider';
-import { useTargetDataStore } from '@data/target/TargetDataProvider';
+import { useTargetTranslationLookup } from '@data/target/useTargetTranslation';
 import { useWorksheetDataContext } from '@data/target/WorksheetDataProvider';
 
 const STANDARD_KEYS = [
@@ -11,7 +11,7 @@ const DemoEmojiKeyboardSuggestions: React.FC<{ includeAnnotations: boolean }> = 
   includeAnnotations,
 }) => {
   const { findDataEntry } = useSourceDataContext();
-  const getTranslation = useTargetDataStore((state) => state.getTranslation);
+  const getTranslation = useTargetTranslationLookup();
   const { alphabetData } = useWorksheetDataContext();
   const heartSuit = findDataEntry({ instance: '♥️' });
   const heartRed = findDataEntry({ instance: '❤️' });
