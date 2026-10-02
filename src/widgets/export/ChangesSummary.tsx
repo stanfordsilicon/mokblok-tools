@@ -1,10 +1,10 @@
 import React, { useMemo } from 'react';
 
 import { TranslationInfo, Vote } from '@data/target/types';
-import { useTargetTranslations } from '@data/target/useTargetTranslation';
+import { useAllTargetTranslations } from '@data/target/useTargetTranslation';
 
 const ChangesSummary: React.FC = () => {
-  const translations = useTargetTranslations(undefined);
+  const translations = useAllTargetTranslations();
   const editedTranslations = useMemo(() => {
     return translations
       .filter(

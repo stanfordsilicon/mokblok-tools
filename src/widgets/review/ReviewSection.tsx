@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import { DataPage, DataSection } from '@data/DataSection';
 
 import StepName from '@settings/StepName';
@@ -77,17 +79,28 @@ function ReviewSection({ dataSection }: { dataSection: DataSection }) {
           </div>
         )}
       </div>
-      <div className="flex flex-row gap-4 flex-wrap">
-        <div>
-          <ErrorBoundary>
-            <ReviewTable dataSection={dataSection} />
-          </ErrorBoundary>
-        </div>
-        <DemosForSection dataSection={dataSection} />
-      </div>
+      <ReviewSectionContent dataSection={dataSection} />
     </div>
   );
 }
+
+// Progress updates must not rebuild the table and all of its inputs.
+const ReviewSectionContent = memo(function ReviewSectionContent({
+  dataSection,
+}: {
+  dataSection: DataSection;
+}) {
+  return (
+    <div className="flex flex-row gap-4 flex-wrap">
+      <div>
+        <ErrorBoundary>
+          <ReviewTable dataSection={dataSection} />
+        </ErrorBoundary>
+      </div>
+      <DemosForSection dataSection={dataSection} />
+    </div>
+  );
+});
 
 function ReviewTable({ dataSection }: { dataSection: DataSection }) {
   switch (dataSection) {

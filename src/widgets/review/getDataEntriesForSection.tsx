@@ -1,11 +1,12 @@
-import { useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
+import { useShallow } from 'zustand/react/shallow';
 
 import { isEntryInCoverageLevel } from '@data/CoverageLevel';
 import { DataPage, DataSection } from '@data/DataSection';
 import type { DataEntry } from '@data/DataTypes';
 import { FindDataEntries, useSourceDataContext } from '@data/source/SourceDataProvider';
-import { Vote } from '@data/target/types';
-import { useTargetTranslations } from '@data/target/useTargetTranslation';
+import { getTranslationCompletion } from '@data/target/getTranslationCompletion';
+import { useTargetDataStore } from '@data/target/TargetDataProvider';
 import { isEntryInWorksheetScope } from '@data/worksheets/Worksheets';
 
 import { useURLParams } from '@settings/URLParams';
@@ -19,12 +20,16 @@ export function useFindDataEntriesInScope(): FindDataEntries {
   const { findDataEntries } = useSourceDataContext();
   const { coverageLevel, worksheets } = useURLParams();
 
-  return (filter: Partial<DataEntry>) => {
-    return findDataEntries(filter).filter(
-      (entry) =>
-        isEntryInCoverageLevel(entry, coverageLevel) && isEntryInWorksheetScope(entry, worksheets),
-    );
-  };
+  return useCallback(
+    (filter: Partial<DataEntry>) => {
+      return findDataEntries(filter).filter(
+        (entry) =>
+          isEntryInCoverageLevel(entry, coverageLevel) &&
+          isEntryInWorksheetScope(entry, worksheets),
+      );
+    },
+    [findDataEntries, coverageLevel, worksheets],
+  );
 }
 
 /**
@@ -32,16 +37,19 @@ export function useFindDataEntriesInScope(): FindDataEntries {
  */
 export function useDataEntriesForSection(): GetDataEntriesForSection {
   const findDataEntries = useFindDataEntriesInScope();
-  return (page?: DataPage, section?: DataSection) => {
-    const filter: Partial<DataEntry> = {};
-    if (section != null && section !== DataSection.All && section !== DataSection.FullTable) {
-      filter.section = section;
-    }
-    if (page != null && page !== DataPage.All && page !== DataPage.FullTable) {
-      filter.page = page;
-    }
-    return findDataEntries(filter);
-  };
+  return useCallback(
+    (page?: DataPage, section?: DataSection) => {
+      const filter: Partial<DataEntry> = {};
+      if (section != null && section !== DataSection.All && section !== DataSection.FullTable) {
+        filter.section = section;
+      }
+      if (page != null && page !== DataPage.All && page !== DataPage.FullTable) {
+        filter.page = page;
+      }
+      return findDataEntries(filter);
+    },
+    [findDataEntries],
+  );
 }
 
 type Completion = {
@@ -53,32 +61,24 @@ type Completion = {
 export function useCompletionForSection(page?: DataPage, section?: DataSection): Completion {
   const getDataEntriesForSection = useDataEntriesForSection();
 
-  const entries = getDataEntriesForSection(page, section);
-  const translations = useTargetTranslations(entries, 'all');
-  const completedEntries = useMemo(
-    () => translations.filter((info) => Boolean(info?.edit ?? info?.translation)),
-    [translations],
+  const entries = useMemo(
+    () => getDataEntriesForSection(page, section),
+    [getDataEntriesForSection, page, section],
   );
-  const votes = useMemo(
-    () =>
-      translations.reduce(
-        (acc, { vote }) => {
-          if (vote === Vote.Accept) acc.accepted++;
-          else if (vote === Vote.Reject) acc.rejected++;
-          acc.total++;
-          return acc;
-        },
-        { accepted: 0, rejected: 0, total: 0 },
-      ),
-    [translations],
+  // Text and comments can change without changing progress. Select primitive
+  // counts so these updates do not rerender every progress indicator and table.
+  const { count, accepted, rejected, total } = useTargetDataStore(
+    useShallow((store) =>
+      getTranslationCompletion(entries, store.translationBaselines, store.translationEdits),
+    ),
   );
 
   return {
     overall: entries.length,
     translations: {
-      count: completedEntries.length,
-      percent: !entries.length ? undefined : (completedEntries.length * 100.0) / entries.length,
+      count,
+      percent: !entries.length ? undefined : (count * 100.0) / entries.length,
     },
-    votes,
+    votes: { accepted, rejected, total },
   };
 }
