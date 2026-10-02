@@ -11,11 +11,11 @@ import SourceDataCell from '../SourceDataCell';
 function FullReviewRow({ entry }: { entry: DataEntry }) {
   const { uitext } = useInterfaceTranslation();
   const getSourceTranslation = useTranslationFromSourceLanguage();
-  const getBackgroundColor = useBackgroundColor();
+  const backgroundColor = useBackgroundColor(entry);
   const { translation, pattern } = getSourceTranslation(entry);
 
   return (
-    <tr key={entry.id} style={{ backgroundColor: getBackgroundColor(entry) }}>
+    <tr key={entry.id} style={{ backgroundColor }}>
       <td style={{ maxWidth: '5em' }}>{entry.worksheet}</td>
       <td style={{ maxWidth: '5em' }}>{uitext(`dataPage.${entry.page}`)}</td>
       <td style={{ maxWidth: '5em' }}>{uitext(`dataSection.${entry.section}`)}</td>

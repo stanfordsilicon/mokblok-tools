@@ -16,7 +16,7 @@ function InputTextareaCell({ entry, style }: Props) {
   const { uitext } = useInterfaceTranslation();
   const getTranslation = useTargetDataStore((state) => state.getTranslation);
   const editTranslation = useTargetDataStore((state) => state.editTranslation);
-  const getBackgroundColor = useBackgroundColor();
+  const backgroundColor = useBackgroundColor(entry);
   const getSourceTranslation = useTranslationFromSourceLanguage();
   if (!entry) return <td>{uitext('common.emptyCell')}</td>;
 
@@ -32,7 +32,7 @@ function InputTextareaCell({ entry, style }: Props) {
             moveReviewTableFocus(event);
           }
         }}
-        style={{ width: '30em', ...style, backgroundColor: getBackgroundColor(entry) }}
+        style={{ width: '30em', ...style, backgroundColor }}
       />
     </td>
   );
