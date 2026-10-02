@@ -3,6 +3,7 @@ import React from 'react';
 import { DataSection } from '@data/DataSection';
 import { useLinguisticsContext } from '@data/LinguisticsContext';
 import { useTargetDataContext } from '@data/target/TargetDataProvider';
+import { useWorksheetDataContext } from '@data/target/WorksheetDataProvider';
 
 import { SourceLanguageHeader } from '@settings/SourceLanguageLabel';
 import TargetLanguageLabel, { TargetLanguageHeader } from '@settings/TargetLanguageLabel';
@@ -91,7 +92,7 @@ const InferredCharacters: React.FC = () => {
     charactersUppercase,
     charactersOther,
     writingSystem,
-  } = useTargetDataContext().alphabet || {};
+  } = useWorksheetDataContext().alphabetData || {};
   const hasHistogram = characterHistogram != null && Object.keys(characterHistogram).length > 0;
 
   return (

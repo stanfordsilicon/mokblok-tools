@@ -1,4 +1,4 @@
-import { useTargetDataContext } from '@data/target/TargetDataProvider';
+import { useWorksheetDataContext } from '@data/target/WorksheetDataProvider';
 import { Worksheet } from '@data/worksheets/Worksheet';
 import { getAvailableWorksheets } from '@data/worksheets/Worksheets';
 
@@ -13,7 +13,7 @@ const ImportWorksheetSelector: React.FC<{
 }> = ({ curWorksheet, setWorksheet }) => {
   const { uitext } = useInterfaceTranslation();
   const { worksheets } = useURLParams();
-  const { importedWorksheets } = useTargetDataContext();
+  const { importedWorksheets } = useWorksheetDataContext();
   const availableWorksheets = getAvailableWorksheets(worksheets);
 
   return (

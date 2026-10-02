@@ -1,11 +1,11 @@
-import { useTargetDataContext } from '@data/target/TargetDataProvider';
+import { useWorksheetDataContext } from '@data/target/WorksheetDataProvider';
 import { useWorksheetCatalog } from '@data/worksheets/WorksheetCatalog';
 
 import { Button } from '@shared/shadcn/ui/button';
 
 export default function WorksheetLoadNotice() {
   const { worksheetError, worksheetsLoading, worksheetRevisions, reloadWorksheets } =
-    useTargetDataContext();
+    useWorksheetDataContext();
   const catalog = useWorksheetCatalog();
   return (
     <div className="mb-3 text-sm" aria-live="polite">

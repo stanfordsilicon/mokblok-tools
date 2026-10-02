@@ -4,10 +4,6 @@ import { useURLParams } from '@settings/URLParams';
 
 import DemoID from '@widgets/review/demo/DemoID';
 
-import { useSourceDataContext } from '../source/SourceDataProvider';
-import useTranslationFromSourceLanguage from '../source/useTranslationFromSourceLanguage';
-import useImportedWorksheets from '../worksheets/useImportedWorksheets';
-
 import { applyPersistedEntries } from './applyPersistedEntries';
 import {
   type TargetDataContextType,
@@ -17,7 +13,7 @@ import {
   Vote,
 } from './types';
 import useReviewDraftPersistence from './useReviewDraftPersistence';
-import useTargetBaselineData from './useTargetBaselineData';
+import { useWorksheetDataContext } from './WorksheetDataProvider';
 
 import type { DataEntry } from '../DataTypes';
 
@@ -25,15 +21,12 @@ export type { TargetDataContextType } from './types';
 export { TargetDataStatus, Vote };
 
 export const TargetDataContext = createContext<TargetDataContextType>({
-  importedWorksheets: {},
   getTranslation: () => '',
   getTranslationInfo: () => ({ id: '', source: '', vote: Vote.Unknown }),
   getTranslations: () => [],
   editTranslation: () => {},
   editTranslations: () => {},
   clearAllTranslations: () => {},
-  targetDataStatus: TargetDataStatus.LoadingBaselineData,
-  targetXMLData: {},
 
   demoVotes: {},
   setDemoVote: () => {},
@@ -52,31 +45,8 @@ const TargetDataProvider: React.FC<{
   const [hasUserChanges, setHasUserChanges] = useState(false);
   const [demoVotes, setDemoVotes] = useState<Partial<Record<DemoID, Vote | undefined>>>({});
 
-  const { targetLanguage, importSource } = useURLParams();
-  const { findDataEntry, dataEntries } = useSourceDataContext();
-  const getTranslationFromSourceLanguage = useTranslationFromSourceLanguage();
-  const {
-    extraText,
-    tsvRows,
-    importedWorksheets,
-    worksheetError,
-    worksheetsLoading,
-    worksheetRevisions,
-    reloadWorksheets,
-  } = useImportedWorksheets();
-
-  const { alphabetData, targetDataStatus, targetXMLData, translationBaselines } =
-    useTargetBaselineData({
-      dataEntries,
-      extraText,
-      findDataEntry,
-      getTranslationFromSourceLanguage,
-      importSource,
-      persistedEntries: [],
-      targetLanguage,
-      tsvRows,
-      worksheetsLoading: worksheetsLoading || !!worksheetError,
-    });
+  const { targetLanguage } = useURLParams();
+  const { targetDataStatus, translationBaselines } = useWorksheetDataContext();
 
   const { isDraftLoaded, persistedEntries } = useReviewDraftPersistence({
     hasUserChanges,
@@ -184,22 +154,12 @@ const TargetDataProvider: React.FC<{
   }, [targetLanguage]);
 
   const dataContext: TargetDataContextType = {
-    alphabet: alphabetData,
     editTranslation,
     editTranslations,
     getTranslation,
     getTranslationInfo,
     getTranslations,
     clearAllTranslations,
-
-    importedWorksheets,
-    worksheetError,
-    worksheetsLoading,
-    worksheetRevisions,
-    reloadWorksheets,
-    targetDataStatus:
-      worksheetsLoading || worksheetError ? TargetDataStatus.LoadingBaselineData : targetDataStatus,
-    targetXMLData,
 
     demoVotes,
     setDemoVote,

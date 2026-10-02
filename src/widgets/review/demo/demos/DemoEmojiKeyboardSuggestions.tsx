@@ -1,5 +1,6 @@
 import { useSourceDataContext } from '@data/source/SourceDataProvider';
 import { useTargetDataContext } from '@data/target/TargetDataProvider';
+import { useWorksheetDataContext } from '@data/target/WorksheetDataProvider';
 
 const STANDARD_KEYS = [
   ...['q', 'w', 'e', 'r', 't', 'y', 'u', 'i'],
@@ -10,7 +11,8 @@ const DemoEmojiKeyboardSuggestions: React.FC<{ includeAnnotations: boolean }> = 
   includeAnnotations,
 }) => {
   const { findDataEntry } = useSourceDataContext();
-  const { getTranslation, alphabet } = useTargetDataContext();
+  const { getTranslation } = useTargetDataContext();
+  const { alphabetData } = useWorksheetDataContext();
   const heartSuit = findDataEntry({ instance: '♥️' });
   const heartRed = findDataEntry({ instance: '❤️' });
   const heartFace = findDataEntry({ instance: '🥰' });
@@ -33,7 +35,7 @@ const DemoEmojiKeyboardSuggestions: React.FC<{ includeAnnotations: boolean }> = 
     !mostCommonWordCount || mostCommonWordCount[1] === 1 ? 'heart' : mostCommonWordCount[0];
 
   // Fake keyboard keys
-  const characterHistogram = alphabet?.characterHistogram ?? {};
+  const characterHistogram = alphabetData?.characterHistogram ?? {};
   const keys =
     Object.entries(characterHistogram || {})
       .sort(([, countA], [, countB]) => countB - countA)

@@ -39,7 +39,6 @@ export type ReviewDraftResponse = {
 };
 
 export type TargetDataContextType = {
-  alphabet?: AlphabetData;
   editTranslation(id: string, update: Partial<TranslationInfo>): void;
   editTranslations(ids: string[], update: Partial<TranslationInfo>): void;
   getTranslation(entry: DataEntry | undefined, fallback?: boolean): string;
@@ -47,14 +46,19 @@ export type TargetDataContextType = {
   getTranslations(entries?: DataEntry[], scope?: 'edited' | 'all'): TranslationInfo[];
   clearAllTranslations(): void;
 
-  targetDataStatus: TargetDataStatus;
-  targetXMLData: Record<string, string>;
+  demoVotes: Partial<Record<DemoID, Vote | undefined>>;
+  setDemoVote: (demo: DemoID, vote: Vote | ((prevVote?: Vote) => Vote)) => void;
+};
+
+export type WorksheetDataContextType = {
   importedWorksheets: Partial<Record<Worksheet, UseWorksheetState>>;
   worksheetError?: string | null;
   worksheetsLoading?: boolean;
   worksheetRevisions?: Record<string, number | undefined>;
   reloadWorksheets?: () => void;
 
-  demoVotes: Partial<Record<DemoID, Vote | undefined>>;
-  setDemoVote: (demo: DemoID, vote: Vote | ((prevVote?: Vote) => Vote)) => void;
+  alphabetData?: AlphabetData;
+  targetDataStatus: TargetDataStatus;
+  targetXMLData: Record<string, string>;
+  translationBaselines: Record<string, TranslationBaseline>;
 };
