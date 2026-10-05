@@ -1,6 +1,6 @@
 import { isWithinCoverageLevel } from '@data/CoverageLevel';
 import { useSourceDataContext } from '@data/source/SourceDataProvider';
-import { useTargetDataContext } from '@data/target/TargetDataProvider';
+import { useTargetTranslationLookup } from '@data/target/useTargetTranslation';
 
 import { useURLParams } from '@settings/URLParams';
 
@@ -11,7 +11,7 @@ import type { XMLObject } from './formatXML';
 const useXMLFormattedData = (): string => {
   const { coverageLevel } = useURLParams();
   const { findDataEntries } = useSourceDataContext();
-  const { getTranslation } = useTargetDataContext();
+  const getTranslation = useTargetTranslationLookup();
 
   const allEntries = findDataEntries({})
     // Only consider fields with an XPath and exampleNum of 0 (avoid exporting pattern examples, can only export patterns)

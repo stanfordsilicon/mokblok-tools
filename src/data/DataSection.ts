@@ -1,9 +1,9 @@
 export enum DataPage {
-  All = 'All',
   Core = 'Core',
   DateAndTime = 'DateAndTime',
   Quantities = 'Quantities',
   Translations = 'Translations',
+  Demos = 'Demos',
   FullTable = 'FullTable', // basic view of all data, for quick browsing and searching
 }
 
@@ -48,15 +48,12 @@ export enum DataSection {
   CLDRTicket = 'CLDRTicket',
 
   // Full Table
+  Demos = 'Demos',
   FullTable = 'FullTable',
 }
 
 export function getSectionsForPage(page: DataPage): DataSection[] {
   switch (page) {
-    case DataPage.All:
-      return Object.values(DataSection).filter(
-        (section) => section !== DataSection.All && section !== DataSection.FullTable,
-      );
     case DataPage.Core:
       return [
         DataSection.Alphabet,
@@ -93,6 +90,8 @@ export function getSectionsForPage(page: DataPage): DataSection[] {
         DataSection.Paragraphs,
         DataSection.CLDRTicket,
       ];
+    case DataPage.Demos:
+      return [DataSection.Demos];
     case DataPage.FullTable:
       return [DataSection.FullTable];
   }
@@ -100,8 +99,7 @@ export function getSectionsForPage(page: DataPage): DataSection[] {
 
 export function getPageForSection(section: DataSection): DataPage {
   return (
-    Object.values(DataPage).find(
-      (page) => page !== DataPage.All && getSectionsForPage(page).includes(section),
-    ) ?? DataPage.All
+    Object.values(DataPage).find((page) => getSectionsForPage(page).includes(section)) ??
+    DataPage.FullTable
   );
 }

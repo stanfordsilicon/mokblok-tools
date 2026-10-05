@@ -1,13 +1,13 @@
 import React from 'react';
 
 import { useSourceDataContext } from '@data/source/SourceDataProvider';
-import { useTargetDataContext } from '@data/target/TargetDataProvider';
+import { useTargetTranslationLookup } from '@data/target/useTargetTranslation';
 
 import { useExampleDate } from '@settings/selectors/ExampleDateSelector';
 
 const DemoMonthsGrid: React.FC = () => {
   const { findDataEntry } = useSourceDataContext();
-  const { getTranslation } = useTargetDataContext();
+  const getTranslation = useTargetTranslationLookup();
 
   const today = useExampleDate();
   const months = [...Array(12)]
@@ -44,7 +44,7 @@ const DemoMonthsGrid: React.FC = () => {
               y={-20}
               width={40}
               height={40}
-              fill={index === today.getMonth() ? 'bfdbfe' : 'transparent'}
+              fill={index === today.getMonth() ? '#bfdbfe' : 'transparent'}
             />
             <text
               textAnchor="middle"

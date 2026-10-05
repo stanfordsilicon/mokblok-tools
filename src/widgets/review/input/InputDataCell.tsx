@@ -16,6 +16,7 @@ type Props = {
 function InputDataCell({ entry, inputWidth }: Props) {
   const { uitext } = useInterfaceTranslation();
   const { step } = useURLParams();
+
   if (!entry) return <td>{uitext('common.emptyCell')}</td>;
 
   return (

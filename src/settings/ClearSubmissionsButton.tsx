@@ -1,9 +1,9 @@
-import { useTargetDataContext } from '@data/target/TargetDataProvider';
+import { useTargetDataStore } from '@data/target/TargetDataProvider';
 
 import { Button } from '@shared/shadcn/ui/button';
 
 const ClearSubmissionsButton: React.FC = () => {
-  const { clearAllTranslations } = useTargetDataContext();
+  const clearAllTranslations = useTargetDataStore((state) => state.clearAllTranslations);
 
   return (
     <Button

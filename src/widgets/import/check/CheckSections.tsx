@@ -3,7 +3,7 @@ import React, { useCallback } from 'react';
 import { DataSection } from '@data/DataSection';
 import { DataEntry } from '@data/DataTypes';
 import { useSourceDataContext } from '@data/source/SourceDataProvider';
-import { useTargetDataContext } from '@data/target/TargetDataProvider';
+import { useTargetTranslationLookup } from '@data/target/useTargetTranslation';
 import { getDataSectionsForWorksheet } from '@data/worksheets/getDataSectionsForWorksheet';
 import { Worksheet } from '@data/worksheets/Worksheet';
 
@@ -18,7 +18,7 @@ type Props = {
 const CheckSections: React.FC<Props> = ({ worksheet }) => {
   const { uitext } = useInterfaceTranslation();
   const { findDataEntries } = useSourceDataContext();
-  const { getTranslation } = useTargetDataContext();
+  const getTranslation = useTargetTranslationLookup();
   const countTranslations = useCallback(
     (section: DataSection) => {
       const filter: Partial<DataEntry> = { section };
@@ -77,6 +77,7 @@ const SECTION_ROWS: Record<DataSection, number> = {
 
   [DataSection.Alphabet]: 0, // not collected in specific TSV
   [DataSection.All]: 0, // n/a
+  [DataSection.Demos]: 0, // n/a
   [DataSection.FullTable]: 0, // n/a
 };
 

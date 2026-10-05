@@ -1,8 +1,11 @@
-import { DataPage, DataSection } from '@data/DataSection';
+import { memo } from 'react';
+
+import { DataSection } from '@data/DataSection';
 
 import StepName from '@settings/StepName';
 import { useURLParams } from '@settings/URLParams';
 
+import enforceExhaustiveSwitch from '@shared/enforceExhaustiveSwitch';
 import ErrorBoundary from '@shared/ErrorBoundary';
 import { Button } from '@shared/shadcn/ui/button';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
@@ -42,7 +45,7 @@ import useAdjacentSections from './useAdjacentSections';
 function ReviewSection({ dataSection }: { dataSection: DataSection }) {
   const { uitext } = useInterfaceTranslation();
   const { step, section } = useURLParams();
-  const completion = useCompletionForSection(DataPage.All, dataSection);
+  const completion = useCompletionForSection(undefined, dataSection);
   const { nextSection, previousSection, goToNextSection, goToPreviousSection } =
     useAdjacentSections();
 
@@ -77,17 +80,30 @@ function ReviewSection({ dataSection }: { dataSection: DataSection }) {
           </div>
         )}
       </div>
-      <div className="flex flex-row gap-4 flex-wrap">
+      <ReviewSectionContent dataSection={dataSection} />
+    </div>
+  );
+}
+
+// Progress updates must not rebuild the table and all of its inputs.
+const ReviewSectionContent = memo(function ReviewSectionContent({
+  dataSection,
+}: {
+  dataSection: DataSection;
+}) {
+  return (
+    <div className="flex flex-row gap-4 flex-wrap">
+      {dataSection !== DataSection.Demos && (
         <div>
           <ErrorBoundary>
             <ReviewTable dataSection={dataSection} />
           </ErrorBoundary>
         </div>
-        <DemosForSection dataSection={dataSection} />
-      </div>
+      )}
+      <DemosForSection dataSection={dataSection} />
     </div>
   );
-}
+});
 
 function ReviewTable({ dataSection }: { dataSection: DataSection }) {
   switch (dataSection) {
@@ -147,8 +163,12 @@ function ReviewTable({ dataSection }: { dataSection: DataSection }) {
       return <TimeIntervalsReviewTable />;
     case DataSection.Timezones:
       return <TimezonesReviewTable />;
+    case DataSection.Demos:
+      return null; // Will just show all demos
     case DataSection.FullTable:
       return <AllReviewTable />;
+    default:
+      enforceExhaustiveSwitch(dataSection);
   }
 }
 

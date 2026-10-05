@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useState, type KeyboardEvent } from 'react';
 
 import type { DataEntry } from '@data/DataTypes';
-import { useTargetDataContext } from '@data/target/TargetDataProvider';
+import { useTargetDataStore } from '@data/target/TargetDataProvider';
+import { useTargetTranslationInfo } from '@data/target/useTargetTranslation';
 
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
@@ -11,8 +12,8 @@ type Props = {
 };
 const CommentBox: React.FC<Props> = ({ entry, onCommentFinish }) => {
   const { uitext } = useInterfaceTranslation();
-  const { getTranslationInfo, editTranslation } = useTargetDataContext();
-  const { comment } = getTranslationInfo(entry) ?? {};
+  const editTranslation = useTargetDataStore((state) => state.editTranslation);
+  const { comment } = useTargetTranslationInfo(entry) ?? {};
 
   const [currentComment, setCurrentComment] = useState(comment ?? '');
 

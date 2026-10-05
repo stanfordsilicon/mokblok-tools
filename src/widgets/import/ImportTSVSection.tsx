@@ -1,7 +1,7 @@
 import { useSession } from 'next-auth/react';
 import { useState } from 'react';
 
-import { useTargetDataContext } from '@data/target/TargetDataProvider';
+import { useWorksheetDataContext } from '@data/target/WorksheetDataProvider';
 import type { WorksheetKey } from '@data/worksheets/storageTypes';
 import { Worksheet, getWorksheetFileSuffix } from '@data/worksheets/Worksheet';
 import { getAvailableWorksheets } from '@data/worksheets/Worksheets';
@@ -17,7 +17,7 @@ import WorksheetManager from './WorksheetManager';
 const ImportTSVSection = () => {
   const [selectedWorksheet, setCurrentWorksheet] = useState<Worksheet>(Worksheet.W1);
   const { targetLanguage, worksheets } = useURLParams();
-  const { importedWorksheets, worksheetsLoading } = useTargetDataContext();
+  const { importedWorksheets, worksheetsLoading } = useWorksheetDataContext();
   const session = useSession();
   const available = getAvailableWorksheets(worksheets);
   const currentWorksheet = available.includes(selectedWorksheet) ? selectedWorksheet : available[0];

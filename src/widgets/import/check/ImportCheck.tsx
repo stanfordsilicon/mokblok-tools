@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 
 import ImportSource from '@data/ImportSource';
-import { useTargetDataContext } from '@data/target/TargetDataProvider';
+import { useWorksheetDataContext } from '@data/target/WorksheetDataProvider';
 import { Worksheet } from '@data/worksheets/Worksheet';
 
 import { useURLParams } from '@settings/URLParams';
@@ -15,10 +15,10 @@ type Props = {
   worksheet?: Worksheet;
 };
 
-const InputCheck: React.FC<Props> = ({ worksheet }) => {
+const ImportCheck: React.FC<Props> = ({ worksheet }) => {
   const { uitext } = useInterfaceTranslation();
   const { importSource } = useURLParams();
-  const { importedWorksheets, targetXMLData } = useTargetDataContext();
+  const { importedWorksheets, targetXMLData } = useWorksheetDataContext();
 
   const lines = useMemo(() => {
     if (importSource === ImportSource.TSV && worksheet) {
@@ -71,4 +71,4 @@ function getExpectedNumberOfLines(doc: Worksheet): number {
   }
 }
 
-export default InputCheck;
+export default ImportCheck;

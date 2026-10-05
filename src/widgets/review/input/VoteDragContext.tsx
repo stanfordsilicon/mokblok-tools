@@ -1,6 +1,7 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 
-import { useTargetDataContext, Vote } from '@data/target/TargetDataProvider';
+import { useTargetDataStore } from '@data/target/TargetDataProvider';
+import { Vote } from '@data/target/types';
 
 type VoteDragContextType = {
   beginVoteGesture(vote: Vote, id: string): void;
@@ -33,7 +34,7 @@ export function useVoteDragContext() {
 export const VoteDragProvider: React.FC<{
   children: React.ReactNode;
 }> = ({ children }) => {
-  const { editTranslations } = useTargetDataContext();
+  const editTranslations = useTargetDataStore((state) => state.editTranslations);
 
   const [isVoteGestureActive, setIsVoteGestureActive] = useState(false);
   const [currentVote, setCurrentVote] = useState<Vote | undefined>(undefined);

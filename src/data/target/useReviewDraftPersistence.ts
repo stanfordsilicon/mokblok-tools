@@ -1,5 +1,5 @@
 import { useSession } from 'next-auth/react';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { TargetDataStatus, Vote } from './types';
 
@@ -52,24 +52,6 @@ export default function useReviewDraftPersistence({
     };
   }, [sessionStatus, targetLanguage]);
 
-  const changedEntries = useMemo(
-    () =>
-      Object.values(translationEdits)
-        .filter(
-          (entry) =>
-            entry.edit !== undefined ||
-            entry.comment !== undefined ||
-            (entry.vote ?? Vote.Unknown) !== Vote.Unknown,
-        )
-        .map((entry) => ({
-          id: entry.id,
-          ...(entry.edit !== undefined ? { edit: entry.edit } : {}),
-          ...(entry.comment !== undefined ? { comment: entry.comment } : {}),
-          ...((entry.vote ?? Vote.Unknown) !== Vote.Unknown ? { vote: entry.vote } : {}),
-        })),
-    [translationEdits],
-  );
-
   useEffect(() => {
     if (saveTimeoutRef.current) clearTimeout(saveTimeoutRef.current);
 
@@ -84,6 +66,20 @@ export default function useReviewDraftPersistence({
     }
 
     saveTimeoutRef.current = setTimeout(() => {
+      // Prepare the payload only once typing pauses, not on every keystroke.
+      const changedEntries = Object.values(translationEdits)
+        .filter(
+          (entry) =>
+            entry.edit !== undefined ||
+            entry.comment !== undefined ||
+            (entry.vote ?? Vote.Unknown) !== Vote.Unknown,
+        )
+        .map((entry) => ({
+          id: entry.id,
+          ...(entry.edit !== undefined ? { edit: entry.edit } : {}),
+          ...(entry.comment !== undefined ? { comment: entry.comment } : {}),
+          ...((entry.vote ?? Vote.Unknown) !== Vote.Unknown ? { vote: entry.vote } : {}),
+        }));
       void fetch(`/api/review-drafts/${encodeURIComponent(targetLanguage)}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
@@ -95,7 +91,7 @@ export default function useReviewDraftPersistence({
       if (saveTimeoutRef.current) clearTimeout(saveTimeoutRef.current);
     };
   }, [
-    changedEntries,
+    translationEdits,
     hasUserChanges,
     isDraftLoaded,
     sessionStatus,

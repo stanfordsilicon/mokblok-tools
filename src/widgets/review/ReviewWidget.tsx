@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-import { DataPage, DataSection, getSectionsForPage } from '@data/DataSection';
+import { DataSection, getSectionsForPage } from '@data/DataSection';
 
 import StepName from '@settings/StepName';
 import { useURLParams } from '@settings/URLParams';
@@ -17,7 +17,7 @@ const ReviewWidget: React.FC = () => {
   // When the page changes, if the current section is not valid for that page, update the section to the first section for that page.
   useEffect(() => {
     const sectionsForPage = getSectionsForPage(page);
-    if (section != DataSection.All && page != DataPage.All && !sectionsForPage.includes(section)) {
+    if (section != DataSection.All && !sectionsForPage.includes(section)) {
       updateURLParams({ section: sectionsForPage[0] });
     }
   }, [page, section, updateURLParams]);
@@ -25,7 +25,7 @@ const ReviewWidget: React.FC = () => {
   return (
     <VoteDragProvider>
       <div className="flex flex-col gap-2 relative flex-1 ReviewWidget min-h-160">
-        <div className="absolute top-[-1.5em] right-[-1em]">
+        <div className="absolute top-[-1.5em] right-[-1em] z-20">
           <DownloadAllDemos />
         </div>
         <div className="overflow-auto max-h-400">

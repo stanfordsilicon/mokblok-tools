@@ -2,7 +2,7 @@ import React from 'react';
 
 import { DayKeys } from '@data/DayKeys';
 import { useSourceDataContext } from '@data/source/SourceDataProvider';
-import { useTargetDataContext } from '@data/target/TargetDataProvider';
+import { useTargetTranslationLookup } from '@data/target/useTargetTranslation';
 
 import { useExampleDate } from '@settings/selectors/ExampleDateSelector';
 
@@ -10,7 +10,7 @@ import { titlecase } from '@shared/stringUtils';
 
 const DemoDaysOfWeekInMonth: React.FC = () => {
   const { findDataEntry } = useSourceDataContext();
-  const { getTranslation } = useTargetDataContext();
+  const getTranslation = useTargetTranslationLookup();
 
   const today = useExampleDate();
   const firstDayOfMonth = new Date(today.getFullYear(), today.getMonth(), 1).getDay(); // Get the day of the week for the first day of the month (0-6, where 0 is Sunday)

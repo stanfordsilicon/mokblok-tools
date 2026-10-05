@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useTargetDataContext } from '@data/target/TargetDataProvider';
+import { useWorksheetDataContext } from '@data/target/WorksheetDataProvider';
 import { getWorksheetFileType, Worksheet } from '@data/worksheets/Worksheet';
 
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
@@ -11,7 +11,7 @@ type Props = {
 
 const ImportTSVTextArea: React.FC<Props> = ({ worksheet }) => {
   const { uitext } = useInterfaceTranslation();
-  const { importedWorksheets, worksheetsLoading } = useTargetDataContext();
+  const { importedWorksheets, worksheetsLoading } = useWorksheetDataContext();
 
   return (
     <textarea

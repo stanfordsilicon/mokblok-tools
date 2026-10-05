@@ -1,13 +1,13 @@
 import React from 'react';
 
 import { useSourceDataContext } from '@data/source/SourceDataProvider';
-import { useTargetDataContext } from '@data/target/TargetDataProvider';
+import { useTargetTranslationLookup } from '@data/target/useTargetTranslation';
 
 import { useExampleDate } from '@settings/selectors/ExampleDateSelector';
 
 const DemoQuartersCircle: React.FC = () => {
   const { findDataEntry } = useSourceDataContext();
-  const { getTranslation } = useTargetDataContext();
+  const getTranslation = useTargetTranslationLookup();
 
   const today = useExampleDate();
   const months = [...Array(12)]
@@ -50,16 +50,6 @@ const DemoQuartersCircle: React.FC = () => {
         />
       ))}
 
-      {/* Line for current date */}
-      <line
-        x1={120}
-        y1={120}
-        x2={120 + 40 * Math.cos((dayOfYear / 365) * 2 * Math.PI - Math.PI / 2)}
-        y2={120 + 40 * Math.sin((dayOfYear / 365) * 2 * Math.PI - Math.PI / 2)}
-        stroke="blue"
-        strokeWidth={3}
-      />
-
       {/* Color the wedge for the current quarter */}
       <path
         d={`M120,120 L${120 + 110 * Math.cos((currentMonth / 12) * 2 * Math.PI - Math.PI / 2)} ${
@@ -69,7 +59,17 @@ const DemoQuartersCircle: React.FC = () => {
         },1 ${120 + 110 * Math.cos(((currentMonth + 1) / 12) * 2 * Math.PI - Math.PI / 2)} ${
           120 + 110 * Math.sin(((currentMonth + 1) / 12) * 2 * Math.PI - Math.PI / 2)
         } Z`}
-        fill="rgba(0,0,255,0.1)"
+        fill="#9cf7"
+      />
+
+      {/* Line for current date */}
+      <line
+        x1={120}
+        y1={120}
+        x2={120 + 40 * Math.cos((dayOfYear / 365) * 2 * Math.PI - Math.PI / 2)}
+        y2={120 + 40 * Math.sin((dayOfYear / 365) * 2 * Math.PI - Math.PI / 2)}
+        stroke="blue"
+        strokeWidth={3}
       />
 
       {/* Quarter labels */}

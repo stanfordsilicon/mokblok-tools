@@ -1,4 +1,6 @@
-import type { AlphabetData, DataEntry } from '../DataTypes';
+import DemoID from '@widgets/review/demo/DemoID';
+
+import type { AlphabetData } from '../DataTypes';
 import type { UseWorksheetState } from '../worksheets/useWorksheetState';
 import type { Worksheet } from '../worksheets/Worksheet';
 
@@ -37,18 +39,25 @@ export type ReviewDraftResponse = {
 };
 
 export type TargetDataContextType = {
-  alphabet?: AlphabetData;
   editTranslation(id: string, update: Partial<TranslationInfo>): void;
   editTranslations(ids: string[], update: Partial<TranslationInfo>): void;
-  getTranslation(entry: DataEntry | undefined, fallback?: boolean): string;
-  getTranslationInfo(entry: DataEntry | undefined): TranslationInfo;
-  getTranslations(entries?: DataEntry[], scope?: 'edited' | 'all'): TranslationInfo[];
   clearAllTranslations(): void;
+};
+
+export type WorksheetDataContextType = {
   importedWorksheets: Partial<Record<Worksheet, UseWorksheetState>>;
-  targetDataStatus: TargetDataStatus;
-  targetXMLData: Record<string, string>;
   worksheetError?: string | null;
   worksheetsLoading?: boolean;
   worksheetRevisions?: Record<string, number | undefined>;
   reloadWorksheets?: () => void;
+
+  alphabetData?: AlphabetData;
+  targetDataStatus: TargetDataStatus;
+  targetXMLData: Record<string, string>;
+  translationBaselines: Record<string, TranslationBaseline>;
+};
+
+export type DemoDataContextType = {
+  demoVotes: Partial<Record<DemoID, Vote | undefined>>;
+  setDemoVote: (demo: DemoID, vote: Vote | ((prevVote?: Vote) => Vote)) => void;
 };

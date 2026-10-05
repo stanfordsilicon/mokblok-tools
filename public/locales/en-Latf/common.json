@@ -302,6 +302,7 @@
     "DateAndTime": "𝔇𝔞𝔱𝔢 & 𝔗𝔦𝔪𝔢",
     "FullTable": "𝔉𝔲𝔩𝔩 𝔗𝔞𝔟𝔩𝔢",
     "Quantities": "𝔔𝔲𝔞𝔫𝔱𝔦𝔱𝔦𝔢𝔰",
+    "Demos": "𝔄𝔩𝔩 𝔇𝔢𝔪𝔬𝔰",
     "Translations": "𝔗𝔯𝔞𝔫𝔰𝔩𝔞𝔱𝔦𝔬𝔫𝔰"
   },
   "dataSection": {
@@ -333,6 +334,7 @@
     "TechWords": "𝔗𝔢𝔠𝔥 𝔚𝔬𝔯𝔡𝔰",
     "Paragraphs": "𝔓𝔞𝔯𝔞𝔤𝔯𝔞𝔭𝔥𝔰",
     "CLDRTicket": "ℭ𝔏𝔇ℜ 𝔗𝔦𝔠𝔨𝔢𝔱",
+    "Demos": "𝔇𝔢𝔪𝔬𝔰",
     "FullTable": "𝔉𝔲𝔩𝔩 𝔗𝔞𝔟𝔩𝔢"
   },
   "group": {

@@ -1,6 +1,6 @@
 import { DataSection } from '@data/DataSection';
 import { useSourceDataContext } from '@data/source/SourceDataProvider';
-import { useTargetDataContext } from '@data/target/TargetDataProvider';
+import { useTargetTranslationLookup } from '@data/target/useTargetTranslation';
 
 type Props = {
   instance: string;
@@ -9,7 +9,7 @@ type Props = {
 /** A date-picker style preview for one available date format. */
 const DemoDateCombination: React.FC<Props> = ({ instance }) => {
   const { findDataEntry } = useSourceDataContext();
-  const { getTranslation } = useTargetDataContext();
+  const getTranslation = useTargetTranslationLookup();
   const entry = findDataEntry({
     section: DataSection.Dates,
     field: 'availableFormats',

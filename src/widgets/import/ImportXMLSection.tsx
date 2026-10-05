@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 
-import { useTargetDataContext } from '@data/target/TargetDataProvider';
+import { useWorksheetDataContext } from '@data/target/WorksheetDataProvider';
 
 import { addValueToXML, toXMLString, type XMLObject } from '@widgets/export/formatXML';
 
@@ -11,7 +11,7 @@ import ImportCheck from './check/ImportCheck';
 
 const ImportXMLSection = () => {
   const { uitext } = useInterfaceTranslation();
-  const { targetXMLData } = useTargetDataContext();
+  const { targetXMLData } = useWorksheetDataContext();
   const [appearance, setAppearance] = useState<'xml' | 'list'>('xml');
 
   const preview = useMemo(() => {

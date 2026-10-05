@@ -2,7 +2,8 @@ import React from 'react';
 
 import { DataSection } from '@data/DataSection';
 import { useLinguisticsContext } from '@data/LinguisticsContext';
-import { useTargetDataContext } from '@data/target/TargetDataProvider';
+import { useTargetTranslationLookup } from '@data/target/useTargetTranslation';
+import { useWorksheetDataContext } from '@data/target/WorksheetDataProvider';
 
 import { SourceLanguageHeader } from '@settings/SourceLanguageLabel';
 import TargetLanguageLabel, { TargetLanguageHeader } from '@settings/TargetLanguageLabel';
@@ -19,7 +20,7 @@ const charSets = ['main', 'uppercase', 'auxiliary', 'numbers', 'punctuation'] as
 const AlphabetReview: React.FC = () => {
   const { uitext } = useInterfaceTranslation();
   const findDataEntries = useFindDataEntriesInScope();
-  const { getTranslation } = useTargetDataContext();
+  const getTranslation = useTargetTranslationLookup();
   const { numberingSystems } = useLinguisticsContext();
   const alphabetFields = findDataEntries({ section: DataSection.Alphabet });
 
@@ -91,7 +92,7 @@ const InferredCharacters: React.FC = () => {
     charactersUppercase,
     charactersOther,
     writingSystem,
-  } = useTargetDataContext().alphabet || {};
+  } = useWorksheetDataContext().alphabetData || {};
   const hasHistogram = characterHistogram != null && Object.keys(characterHistogram).length > 0;
 
   return (

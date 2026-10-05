@@ -59,7 +59,7 @@ data contexts rather than copying example strings into the component:
 
 ```tsx
 const { findDataEntry } = useSourceDataContext();
-const { getTranslation } = useTargetDataContext();
+const getTranslation = useTargetTranslationLookup();
 
 const month = findDataEntry({ field: 'M', instance: '1', length: 'w' });
 

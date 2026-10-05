@@ -1,7 +1,8 @@
 import { useCallback, useMemo, useState } from 'react';
 
 import type { DataEntry } from '@data/DataTypes';
-import { useTargetDataContext, Vote } from '@data/target/TargetDataProvider';
+import { Vote } from '@data/target/types';
+import { useTargetTranslationInfo } from '@data/target/useTargetTranslation';
 
 import CommentBox from './CommentBox';
 import CommentMarker from './CommentMarker';
@@ -18,9 +19,8 @@ const InputVote: React.FC<{
   entry: DataEntry;
   inputWidth?: string;
 }> = ({ entry, inputWidth }) => {
-  const { getTranslationInfo } = useTargetDataContext();
   const { isVoteGestureActive, queue, vote: dragVote } = useVoteDragContext();
-  const { vote, edit, translation, source, comment } = getTranslationInfo(entry) ?? {};
+  const { vote, edit, translation, source, comment } = useTargetTranslationInfo(entry);
 
   const addToQueue = useCallback(() => queue.add(entry.id), [queue, entry.id]);
   const [showComment, setShowComment] = useState(false);

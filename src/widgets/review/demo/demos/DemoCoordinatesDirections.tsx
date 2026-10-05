@@ -2,26 +2,31 @@ import React from 'react';
 
 import { CardinalDirection } from '@data/DataTypes';
 import { useSourceDataContext } from '@data/source/SourceDataProvider';
-import { useTargetDataContext } from '@data/target/TargetDataProvider';
+import { useTargetTranslation } from '@data/target/useTargetTranslation';
 
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
 
 const DemoCoordinatesDirections: React.FC = () => {
   const { uitext } = useInterfaceTranslation();
   const { findDataEntry } = useSourceDataContext();
-  const { getTranslation } = useTargetDataContext();
 
-  const south = findDataEntry({
-    field: 'coordinateUnitPattern',
-    instance: CardinalDirection.South,
-    length: 'long',
-  });
-  const west = findDataEntry({
-    field: 'coordinateUnitPattern',
-    instance: CardinalDirection.West,
-    length: 'long',
-  });
-  const direction = findDataEntry({ field: 'ordinalMinimalPairs', instance: 'one' });
+  const south = useTargetTranslation(
+    findDataEntry({
+      field: 'coordinateUnitPattern',
+      instance: CardinalDirection.South,
+      length: 'long',
+    }),
+  );
+  const west = useTargetTranslation(
+    findDataEntry({
+      field: 'coordinateUnitPattern',
+      instance: CardinalDirection.West,
+      length: 'long',
+    }),
+  );
+  const direction = useTargetTranslation(
+    findDataEntry({ field: 'ordinalMinimalPairs', instance: 'one' }),
+  );
 
   return (
     <>
@@ -30,7 +35,7 @@ const DemoCoordinatesDirections: React.FC = () => {
         {uitext('mocks.Directions todotdotdot')}
       </text>
       <text x={20} y={50}>
-        {getTranslation(south)} {getTranslation(west)}
+        {south} {west}
       </text>
       <rect x={20} y={80} width={100} height={40} fill="lightgreen" stroke="#ccc" rx={5} ry={5} />
       <rect x={140} y={80} width={80} height={40} fill="lightgreen" stroke="#ccc" rx={5} ry={5} />
@@ -47,7 +52,7 @@ const DemoCoordinatesDirections: React.FC = () => {
       </text>
       <rect x={10} y={200} width={220} height={30} fill="#f9f9f9" stroke="#ccc" rx={15} ry={15} />
       <text x={20} y={220}>
-        {getTranslation(direction)}
+        {direction}
       </text>
     </>
   );

@@ -1,9 +1,10 @@
 import { SourceDataStatus, useSourceDataContext } from '@data/source/SourceDataProvider';
-import { TargetDataStatus, useTargetDataContext } from '@data/target/TargetDataProvider';
+import { TargetDataStatus } from '@data/target/types';
+import { useWorksheetDataContext } from '@data/target/WorksheetDataProvider';
 
 const LoadingStatus = () => {
   const { sourceDataStatus } = useSourceDataContext();
-  const { targetDataStatus } = useTargetDataContext();
+  const { targetDataStatus } = useWorksheetDataContext();
 
   const overallStep =
     sourceDataStatus < SourceDataStatus.Ready

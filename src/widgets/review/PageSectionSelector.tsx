@@ -48,17 +48,16 @@ const PageButtons: React.FC<{
   page: DataPage;
 }> = ({ page }) => {
   const { page: selectedPage, coverageLevel, worksheets, admin } = useURLParams();
-  const [isExpanded, setIsExpanded] = useState(
-    selectedPage === page || selectedPage === DataPage.All,
-  );
+  const [isExpanded, setIsExpanded] = useState(selectedPage === page);
 
   useEffect(() => {
     // When the page changes, redo the isExpanded
-    setIsExpanded(selectedPage === page || selectedPage === DataPage.All);
+    setIsExpanded(selectedPage === page);
   }, [selectedPage, page]);
 
   const sections =
-    page !== DataPage.All && page !== DataPage.FullTable ? getSectionsForPage(page) : [];
+    page !== DataPage.Demos && page !== DataPage.FullTable ? getSectionsForPage(page) : [];
+  if (sections.length > 0) sections.unshift(DataSection.All);
 
   // Confirm the sections that have data to be submitted at the current coverage level.
   const getDataEntriesForSection = useDataEntriesForSection();
@@ -74,14 +73,14 @@ const PageButtons: React.FC<{
   // Don't show buttons in a few cases
   if (page === DataPage.FullTable) {
     if (!admin) return null;
-  } else if (page !== DataPage.All && pendingSections.length === 0) {
+  } else if (page !== DataPage.Demos && pendingSections.length === 0) {
     return null;
   }
 
   return (
     <>
       <SectionRow page={page} isExpanded={isExpanded} setIsExpanded={setIsExpanded} />
-      {page !== DataPage.All &&
+      {page !== DataPage.Demos &&
         page !== DataPage.FullTable &&
         sections.map((section) => (
           <SectionRow
@@ -107,7 +106,7 @@ const SectionRow: React.FC<SectionRowProps> = ({
   page,
   section,
   isVisible = true,
-  isExpanded = true,
+  isExpanded,
   setIsExpanded,
 }) => {
   const { section: selectedSection, page: selectedPage, updateURLParams, step } = useURLParams();
@@ -117,18 +116,18 @@ const SectionRow: React.FC<SectionRowProps> = ({
     if (isVisible) setIsRendered(true);
   }, [isVisible]);
 
-  const isSelected = section
-    ? selectedSection === section || selectedSection === DataSection.All
-    : (selectedPage === page || (selectedPage === DataPage.All && page !== DataPage.FullTable)) &&
-      isExpanded;
+  const isSelected = selectedPage === page && (!section || selectedSection === section);
   const contentClassName =
     (section ? 'overflow-hidden transition-all duration-300 ease-in-out' : '') +
     (section ? (isVisible ? ' max-h-20 opacity-100' : ' max-h-0 opacity-0') : '');
 
   const onClick = useCallback(() => {
-    updateURLParams({ page, section: section ?? DataSection.All });
-    if (setIsExpanded) setIsExpanded(!isSelected);
-  }, [updateURLParams, page, section, setIsExpanded, isSelected]);
+    if (section != null || page === DataPage.FullTable || page === DataPage.Demos) {
+      updateURLParams({ page, section: section ?? DataSection.All });
+    } else {
+      if (setIsExpanded) setIsExpanded((prev) => !prev);
+    }
+  }, [updateURLParams, page, section, setIsExpanded]);
 
   return (
     <tr key={section}>
@@ -147,7 +146,7 @@ const SectionRow: React.FC<SectionRowProps> = ({
             tabIndex={0}
             onClick={onClick}
           >
-            <PageSectionLabel page={page} section={section} isExpanded={isSelected} />
+            <PageSectionLabel page={page} section={section} isExpanded={isExpanded} />
           </Button>
         </div>
       </td>
@@ -178,14 +177,16 @@ const SectionRow: React.FC<SectionRowProps> = ({
 const PageSectionLabel: React.FC<{
   page: DataPage;
   section?: DataSection;
-  isExpanded: boolean;
+  isExpanded?: boolean;
 }> = ({ page, section, isExpanded }) => {
   const { uitext } = useInterfaceTranslation();
+  if (section === DataSection.All)
+    return uitext(`dataSection.All`, { section: uitext(`dataPage.${page}`) });
   if (section) return uitext(`dataSection.${section}`);
   return (
     <div className="flex items-center justify-between flex-1">
       {uitext(`dataPage.${page}`)}{' '}
-      {page !== DataPage.All && page !== DataPage.FullTable && (
+      {page !== DataPage.Demos && page !== DataPage.FullTable && (
         <div
           style={{
             transition: 'transform 0.5s',

@@ -1,11 +1,11 @@
 import React from 'react';
 
 import { useSourceDataContext } from '@data/source/SourceDataProvider';
-import { useTargetDataContext } from '@data/target/TargetDataProvider';
+import { useTargetTranslationLookup } from '@data/target/useTargetTranslation';
 
 const DemoQuartersEvents: React.FC = () => {
   const { findDataEntry } = useSourceDataContext();
-  const { getTranslation } = useTargetDataContext();
+  const getTranslation = useTargetTranslationLookup();
   const quarters = [...Array(4)]
     .map((_, index) =>
       findDataEntry({ field: 'q', instance: (index + 1).toString(), length: 'w', variant: 'f' }),

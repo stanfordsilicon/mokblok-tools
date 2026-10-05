@@ -1,7 +1,8 @@
 import { useMemo } from 'react';
 
 import { useSourceDataContext } from '@data/source/SourceDataProvider';
-import { useTargetDataContext } from '@data/target/TargetDataProvider';
+import { useTargetTranslationLookup } from '@data/target/useTargetTranslation';
+import { useWorksheetDataContext } from '@data/target/WorksheetDataProvider';
 
 import { getLanguageBCP } from '@settings/LanguageCodes';
 import { useURLParams } from '@settings/URLParams';
@@ -28,9 +29,10 @@ const ExportCoreData: React.FC = () => {
   const { targetLanguage } = useURLParams();
   const targetLanguageBCP = getLanguageBCP(targetLanguage);
   const { findDataEntry } = useSourceDataContext();
-  const { alphabet, getTranslation } = useTargetDataContext();
+  const { alphabetData } = useWorksheetDataContext();
+  const getTranslation = useTargetTranslationLookup();
   const { charactersNumber, charactersAuxiliary, charactersBase, charactersPunctuation } =
-    alphabet || {};
+    alphabetData || {};
   const endonym = getTranslation(
     findDataEntry({ field: 'LocaleDisplayNames', instance: targetLanguageBCP }),
     false /* don't fall back to English */,

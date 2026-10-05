@@ -27,6 +27,7 @@ import DemoTimeInterval from './demos/DemoTimeInterval';
 import DemoTimeMeetingsToday from './demos/DemoTimeMeetingsToday';
 import DemoWeatherInWeek from './demos/DemoWeatherInWeek';
 import DemoSVG from './DemoSVG';
+import DemoVoteButton from './DemoVoteButton';
 import DownloadDemoButton from './DownloadDemoButton';
 
 type Props = {
@@ -35,16 +36,19 @@ type Props = {
 
 const Demo: React.FC<Props> = ({ demoID }) => {
   return (
-    <article className="group flex min-w-40 flex-col items-center flex-wrap">
+    <article className="group flex min-w-40 max-w-60 flex-col items-center flex-wrap">
       <div className="flex min-h-10 items-center justify-between gap-3">
-        <div className="min-w-0 text-sm text-(--silicon-ink)">
+        <div className="min-w-0 text-sm text-(--silicon-ink) text-wrap">
           <DemoLabel demoID={demoID} />
         </div>
         <div className="shrink-0 opacity-70 transition group-hover:opacity-100">
           <DownloadDemoButton demoID={demoID} />
         </div>
+        <div className="shrink-0 opacity-70 transition group-hover:opacity-100">
+          <DemoVoteButton demoID={demoID} />
+        </div>
       </div>
-      <div className="mx-auto max-w-[18rem] [&_svg]:mx-auto [&_svg]:block [&_svg]:h-auto [&_svg]:w-full ">
+      <div className="mx-auto [&_svg]:mx-auto [&_svg]:block [&_svg]:h-auto [&_svg]:w-full ">
         {/* // Wrap in an error boundary to prevent the whole page from crashing if there's an issue with the demo */}
         <ErrorBoundary>
           <DemoSVG id={demoID} height={240} width={240}>
