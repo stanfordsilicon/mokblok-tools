@@ -3,9 +3,13 @@ import { useCallback, useMemo } from 'react';
 import { useDemoDataContext } from '@data/target/DemoDataProvider';
 import { Vote } from '@data/target/types';
 
+import StepName from '@settings/StepName';
+import { useURLParams } from '@settings/URLParams';
+
 import DemoID from './DemoID';
 
 const DemoVoteButton: React.FC<{ demoID: DemoID }> = ({ demoID }) => {
+  const { step } = useURLParams();
   const vote = useDemoDataContext((state) => state.demoVotes[demoID]);
   const setDemoVote = useDemoDataContext((state) => state.setDemoVote);
 
@@ -32,6 +36,8 @@ const DemoVoteButton: React.FC<{ demoID: DemoID }> = ({ demoID }) => {
 
     return classes;
   }, [vote]);
+
+  if (step !== StepName.Vote) return null;
 
   return (
     <div className={buttonClassName} onClick={toggleDemoVote}>

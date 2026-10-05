@@ -77,6 +77,7 @@ const demoIDsBySection: Record<DataSection, DemoID[]> = {
     DemoID.TimeInterval12HourOnly,
   ],
   [DataSection.Timezones]: [DemoID.TimezonesSelector, DemoID.TimezonesCitySelector],
+  [DataSection.Demos]: Object.values(DemoID),
   [DataSection.FullTable]: [],
 };
 

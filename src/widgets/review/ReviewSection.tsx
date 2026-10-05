@@ -1,10 +1,11 @@
 import { memo } from 'react';
 
-import { DataPage, DataSection } from '@data/DataSection';
+import { DataSection } from '@data/DataSection';
 
 import StepName from '@settings/StepName';
 import { useURLParams } from '@settings/URLParams';
 
+import enforceExhaustiveSwitch from '@shared/enforceExhaustiveSwitch';
 import ErrorBoundary from '@shared/ErrorBoundary';
 import { Button } from '@shared/shadcn/ui/button';
 import useInterfaceTranslation from '@shared/useInterfaceTranslation';
@@ -44,7 +45,7 @@ import useAdjacentSections from './useAdjacentSections';
 function ReviewSection({ dataSection }: { dataSection: DataSection }) {
   const { uitext } = useInterfaceTranslation();
   const { step, section } = useURLParams();
-  const completion = useCompletionForSection(DataPage.All, dataSection);
+  const completion = useCompletionForSection(undefined, dataSection);
   const { nextSection, previousSection, goToNextSection, goToPreviousSection } =
     useAdjacentSections();
 
@@ -92,11 +93,13 @@ const ReviewSectionContent = memo(function ReviewSectionContent({
 }) {
   return (
     <div className="flex flex-row gap-4 flex-wrap">
-      <div>
-        <ErrorBoundary>
-          <ReviewTable dataSection={dataSection} />
-        </ErrorBoundary>
-      </div>
+      {dataSection !== DataSection.Demos && (
+        <div>
+          <ErrorBoundary>
+            <ReviewTable dataSection={dataSection} />
+          </ErrorBoundary>
+        </div>
+      )}
       <DemosForSection dataSection={dataSection} />
     </div>
   );
@@ -160,8 +163,12 @@ function ReviewTable({ dataSection }: { dataSection: DataSection }) {
       return <TimeIntervalsReviewTable />;
     case DataSection.Timezones:
       return <TimezonesReviewTable />;
+    case DataSection.Demos:
+      return null; // Will just show all demos
     case DataSection.FullTable:
       return <AllReviewTable />;
+    default:
+      enforceExhaustiveSwitch(dataSection);
   }
 }
 

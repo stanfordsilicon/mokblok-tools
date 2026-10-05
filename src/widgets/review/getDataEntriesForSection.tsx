@@ -5,11 +5,15 @@ import { isEntryInCoverageLevel } from '@data/CoverageLevel';
 import { DataPage, DataSection } from '@data/DataSection';
 import type { DataEntry } from '@data/DataTypes';
 import { FindDataEntries, useSourceDataContext } from '@data/source/SourceDataProvider';
+import { useDemoDataContext } from '@data/target/DemoDataProvider';
 import { getTranslationCompletion } from '@data/target/getTranslationCompletion';
 import { useTargetDataStore } from '@data/target/TargetDataProvider';
+import { Vote } from '@data/target/types';
 import { isEntryInWorksheetScope } from '@data/worksheets/Worksheets';
 
 import { useURLParams } from '@settings/URLParams';
+
+import DemoID from './demo/DemoID';
 
 type GetDataEntriesForSection = (page?: DataPage, section?: DataSection) => DataEntry[];
 
@@ -40,10 +44,15 @@ export function useDataEntriesForSection(): GetDataEntriesForSection {
   return useCallback(
     (page?: DataPage, section?: DataSection) => {
       const filter: Partial<DataEntry> = {};
-      if (section != null && section !== DataSection.All && section !== DataSection.FullTable) {
+      if (
+        section != null &&
+        section !== DataSection.All &&
+        section !== DataSection.FullTable &&
+        section !== DataSection.Demos
+      ) {
         filter.section = section;
       }
-      if (page != null && page !== DataPage.All && page !== DataPage.FullTable) {
+      if (page != null && page !== DataPage.Demos && page !== DataPage.FullTable) {
         filter.page = page;
       }
       return findDataEntries(filter);
@@ -60,6 +69,7 @@ type Completion = {
 
 export function useCompletionForSection(page?: DataPage, section?: DataSection): Completion {
   const getDataEntriesForSection = useDataEntriesForSection();
+  const demoCompletion = useDemoCompletion();
 
   const entries = useMemo(
     () => getDataEntriesForSection(page, section),
@@ -73,6 +83,8 @@ export function useCompletionForSection(page?: DataPage, section?: DataSection):
     ),
   );
 
+  if (page === DataPage.Demos || section === DataSection.Demos) return demoCompletion;
+
   return {
     overall: entries.length,
     translations: {
@@ -80,5 +92,22 @@ export function useCompletionForSection(page?: DataPage, section?: DataSection):
       percent: !entries.length ? undefined : (count * 100.0) / entries.length,
     },
     votes: { accepted, rejected, total },
+  };
+}
+
+function useDemoCompletion(): Completion {
+  const { demoVotes } = useDemoDataContext();
+  const demoIDs = Object.values(DemoID);
+  return {
+    overall: demoIDs.length,
+    translations: {
+      count: 0,
+      percent: 0,
+    },
+    votes: {
+      accepted: demoIDs.filter((id) => demoVotes[id] === Vote.Accept).length,
+      rejected: demoIDs.filter((id) => demoVotes[id] === Vote.Reject).length,
+      total: demoIDs.length,
+    },
   };
 }

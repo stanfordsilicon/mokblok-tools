@@ -41,6 +41,7 @@ export function getWorksheetForSection(section: DataSection) {
       return Worksheet.W2_3;
     case DataSection.All:
     case DataSection.Alphabet:
+    case DataSection.Demos:
     case DataSection.FullTable:
       return undefined;
     default:

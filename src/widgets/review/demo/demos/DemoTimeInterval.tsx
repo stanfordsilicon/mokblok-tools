@@ -69,7 +69,7 @@ const DemoTimeInterval: React.FC<{ pattern: string }> = ({ pattern }) => {
                 y={(hourNums[0] - 9) * 20}
                 width={40}
                 height={(hourNums[1] - hourNums[0]) * 20}
-                fill="#ccfc"
+                fill="#bfdbfe"
                 stroke="#cccc"
                 rx="10"
                 ry="10"

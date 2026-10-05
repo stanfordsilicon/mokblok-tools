@@ -7,11 +7,10 @@ import { useURLParams } from '@settings/URLParams';
 
 import useImportedWorksheets from '../worksheets/useImportedWorksheets';
 
-import { TargetDataStatus, Vote, WorksheetDataContextType } from './types';
+import { TargetDataStatus, WorksheetDataContextType } from './types';
 import useTargetBaselineData from './useTargetBaselineData';
 
 export type { TargetDataContextType } from './types';
-export { TargetDataStatus, Vote };
 
 export const WorksheetDataContext = createContext<WorksheetDataContextType>({
   targetDataStatus: TargetDataStatus.LoadingBaselineData,
