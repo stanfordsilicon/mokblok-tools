@@ -10,8 +10,6 @@ import useImportedWorksheets from '../worksheets/useImportedWorksheets';
 import { TargetDataStatus, WorksheetDataContextType } from './types';
 import useTargetBaselineData from './useTargetBaselineData';
 
-export type { TargetDataContextType } from './types';
-
 export const WorksheetDataContext = createContext<WorksheetDataContextType>({
   targetDataStatus: TargetDataStatus.LoadingBaselineData,
 
