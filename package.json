@@ -15,6 +15,7 @@
     "screenshots:update": "npx playwright test --update-snapshots",
     "worksheets:test": "node --experimental-test-module-mocks --import ./scripts/lib/register-typescript.mjs --test tests/worksheets/*.test.mjs",
     "worksheets:migrate": "node --import ./scripts/lib/register-typescript.mjs scripts/migrate-worksheets.mjs",
+    "worksheets:batch": "node --import ./scripts/lib/register-typescript.mjs scripts/worksheet-batch.mjs",
     "worksheets:browser-test": "playwright test --config playwright.worksheets.config.ts"
   },
   "dependencies": {
